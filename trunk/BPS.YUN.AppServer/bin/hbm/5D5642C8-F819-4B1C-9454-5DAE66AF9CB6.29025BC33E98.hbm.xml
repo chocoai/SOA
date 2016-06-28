@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "PUBLIC" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class entity-name="APA_BranchCompanyArea" table="DYNA_APA_BranchCompanyArea">
+    <id name="id" type="long">
+      <generator class="native"/>
+    </id>
+    <property name="domainId" not-null="false" type="long" index="IDX_DOMAINID"/>
+    <property name="area" not-null="false" type="string" length="100"/>
+    <property name="company_id" not-null="false" type="long" index="company_idx"/>
+    <property name="company_label" not-null="false" type="string" length="200"/>
+  </class>
+</hibernate-mapping>

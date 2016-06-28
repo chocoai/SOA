@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityQuery name="虚拟商品管理" label="虚拟商品管理" note="" share="false" multiselect="false" editable="false" autopaging="true" pagingMode="VirtualizingPaging" virtualizingPagingEnabled="true" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.37B3A741B5CE" nodeID="366"> 
+              <queryEntities> 
+                <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.92FC7546F9A9" name="AMS_VirtualGoods" label="虚拟商品virtual" alias="a0" master="true"/> 
+              </queryEntities>  
+              <DataGrid> 
+                <color/>  
+                <column name="name" label="名称" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.92FC7546F9A9.id_3" width="115" isBranch="false" editable="" sortable="" textAlign=""/>  
+                <column name="image" label="图片" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.92FC7546F9A9.id_4" width="100" isBranch="false"/>  
+                <column name="out_system" label="外部系统" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.92FC7546F9A9.id_2" width="100" isBranch="false"/>  
+                <column name="goods_uuid" label="商品UUID" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.92FC7546F9A9.id_1" width="323" isBranch="false"/> 
+              </DataGrid>  
+              <editState/>  
+              <xmlQuery version="2.0" name="" label=""> 
+                <select domainScope="true"> 
+                  <other label="其他" uid="other" name="other"/>  
+                  <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.92FC7546F9A9" name="AMS_VirtualGoods" label="虚拟商品virtual" alias="a0"> 
+                    <field uid="sys_0" name="id" label="编号" type="long"/>  
+                    <field uid="sys_1" name="domainId" label="域ID" type="long"/>  
+                    <field uid="id_1" name="goods_uuid" label="商品UUID" type="string"/>  
+                    <field uid="id_2" name="out_system" label="外部系统" type="string"/>  
+                    <field uid="id_3" name="name" label="名称" type="string"/>  
+                    <field uid="id_4" name="image" label="图片" type="image"/> 
+                  </Entity> 
+                </select>  
+                <where> 
+                  <exp type="2"/> 
+                </where>  
+                <other> 
+                  <groupBy label="Group By"/>  
+                  <orderBy label="Order By"/> 
+                </other> 
+              </xmlQuery>  
+              <toolbar> 
+                <button label="新建" action="alink" selection="none" alink="alink://ime.AppWindow/EntityForm?{selection:&quot;none&quot;,entityUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.92FC7546F9A9&quot;,formUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.2CA1AF95E362&quot;,action:&quot;create&quot;}"/>  
+                <button label="编辑" action="alink" selection="single" alink="alink://ime.AppWindow/EntityForm?{selection:&quot;single&quot;,entityUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.92FC7546F9A9&quot;,formUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.2CA1AF95E362&quot;,action:&quot;edit&quot;}"/>  
+                <button label="删除" action="delete" selection="single"/> 
+              </toolbar>  
+              <conditionForm> 
+                <Window paddingLeft="1" paddingRight="1" paddingTop="1" paddingBottom="1"> 
+                  <TabNavigator> 
+                    <tab label="default"/> 
+                  </TabNavigator> 
+                </Window> 
+              </conditionForm>  
+              <StatSetting/>  
+              <queryEvent/> 
+            </EntityQuery>

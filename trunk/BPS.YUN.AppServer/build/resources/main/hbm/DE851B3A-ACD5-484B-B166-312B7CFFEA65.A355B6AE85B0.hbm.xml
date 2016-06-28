@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "PUBLIC" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class entity-name="AMS_PayOrderAct" table="DYNA_AMS_PayOrderAct">
+    <id name="id" type="long">
+      <generator class="sequence">
+        <param name="sequence">IDSEQ_AMS_PayOrderAct</param>
+      </generator>
+    </id>
+    <property name="FM_CreatePrinId" not-null="false" type="long" index="IDX_CREATEPRINID"/>
+    <property name="FM_CreatePrinName" not-null="false" length="100" type="string"/>
+    <property name="FM_UpdatePrinId" not-null="false" type="long" index="IDX_UPDATEPRINID"/>
+    <property name="FM_UpdatePrinName" not-null="false" length="100" type="string"/>
+    <property name="FM_CreateTime" not-null="false" type="timestamp"/>
+    <property name="FM_UpdateTime" not-null="false" type="timestamp"/>
+    <property name="domainId" not-null="false" type="long" index="IDX_DOMAINID"/>
+    <property name="pay_money" not-null="false" type="long"/>
+    <property name="account_type_id" not-null="false" type="long" index="account_type_idx"/>
+    <property name="account_type_label" not-null="false" type="string" length="200"/>
+    <property name="bizid" not-null="false" type="string" length="100"/>
+    <property name="source_member_id" not-null="false" type="long"/>
+    <property name="source_member_name" not-null="false" type="string" length="100"/>
+    <property name="target_member_id" not-null="false" type="string" length="100"/>
+    <property name="source_member_uuid" not-null="false" type="string" length="100"/>
+    <property name="target_member_uuid" not-null="false" type="string" length="100"/>
+    <property name="target_member_name" not-null="false" type="string" length="100"/>
+    <property name="sn" not-null="false" type="string" length="100"/>
+  </class>
+</hibernate-mapping>

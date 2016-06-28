@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "PUBLIC" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class entity-name="AMS_CardBin" table="DYNA_AMS_CardBin">
+    <id name="id" type="long">
+      <generator class="sequence">
+        <param name="sequence">IDSEQ_AMS_CardBin</param>
+      </generator>
+    </id>
+    <property name="domainId" not-null="false" type="long" index="IDX_DOMAINID"/>
+    <property name="card_bin" not-null="false" type="string" length="100"/>
+    <property name="card_type" not-null="false" type="long"/>
+    <property name="bank_code" not-null="false" type="string" length="100"/>
+    <property name="bank_name" not-null="false" type="string" length="100"/>
+    <property name="card_name" not-null="false" type="string" length="100"/>
+    <property name="card_length" not-null="false" type="long"/>
+    <property name="card_state" not-null="false" type="long"/>
+    <property name="card_type_label" not-null="false" type="string" length="100"/>
+  </class>
+</hibernate-mapping>

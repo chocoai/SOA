@@ -1,0 +1,16 @@
+<div style="$!{innerCSS}">
+#set( $gap = 0 )
+#if( $param.horizontalGap )
+	#set( $gap = $param.horizontalGap )
+#end
+
+#set( $curleft = 0 )
+#foreach( $part in $children )
+#if( $velocityCount == $children.size() )
+	#set( $gap = 0 )
+#end
+<div style="float:left;$!{part.getInnerCSS()};margin:0 $!{gap}px 0 0">
+	$part.render($request, $response)
+</div>
+#end
+</div>

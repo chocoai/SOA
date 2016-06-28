@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityQuery name="差错流水查询" label="差错流水查询" note="" share="false" multiselect="true" editable="false" autopaging="true" pagingMode="NormalPaging" virtualizingPagingEnabled="false" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.54E328171CCA" nodeID="593">
+  <queryEntities>
+    <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.AE7830BE74DD" name="AMS_ErrorTradeLog" label="差错流水" alias="a0" selectAll="true" isBranch="true" master="true" />
+    <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.4BCBC9D2C1A9" name="AMS_PayChannel" label="支付渠道" alias="a1" selectAll="true" isBranch="true" />
+  </queryEntities>
+  <DataGrid>
+    <color />
+    <column name="name" label="名称" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.4BCBC9D2C1A9.id_1" width="100" isBranch="false" dataField="AMS_PayChannel$name" />
+    <column name="merchant_id" label="商户号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.4BCBC9D2C1A9.id_9" width="131" isBranch="false" dataField="AMS_PayChannel$merchant_id" />
+    <column name="trade_type" label="交易类型" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.AE7830BE74DD.id_18" width="94" isBranch="false" dataField="AMS_ErrorTradeLog$trade_type" />
+    <column name="pay_channelNo" label="支付渠道代码" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.AE7830BE74DD.id_6" width="100" isBranch="false" dataField="AMS_ErrorTradeLog$pay_channelNo" />
+    <column name="bizid" label="一账通流水" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.AE7830BE74DD.id_1" width="124" isBranch="false" dataField="AMS_ErrorTradeLog$bizid" />
+    <column name="out_trade_id" label="支付渠道流水" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.AE7830BE74DD.id_2" width="142" isBranch="false" dataField="AMS_ErrorTradeLog$out_trade_id" />
+    <column name="e_trade_money" label="e帐通交易金额" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.AE7830BE74DD.id_3" width="85" isBranch="false" dataField="AMS_ErrorTradeLog$e_trade_money" />
+    <column name="out_trade_money" label="渠道交易金额" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.AE7830BE74DD.id_17" width="85" isBranch="false" dataField="AMS_ErrorTradeLog$out_trade_money" />
+    <column name="trade_time" label="交易时间" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.AE7830BE74DD.id_8" width="100" isBranch="false" dataField="AMS_ErrorTradeLog$trade_time" />
+    <column name="error_type" label="差异类型" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.AE7830BE74DD.id_9" width="79" isBranch="false" dataField="AMS_ErrorTradeLog$error_type" />
+    <column name="idDealwith" label="是否处理" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.AE7830BE74DD.id_14" width="100" isBranch="false" dataField="AMS_ErrorTradeLog$idDealwith" />
+    <column name="out_trade_type" label="渠道交易类型" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.AE7830BE74DD.id_20" width="100" isBranch="false" dataField="AMS_ErrorTradeLog$out_trade_type" />
+    <column name="pay_interfaceNo" label="支付通道编号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.AE7830BE74DD.id_19" width="100" isBranch="false" dataField="AMS_ErrorTradeLog$pay_interfaceNo" />
+  </DataGrid>
+  <editState />
+  <toolbar>
+    <button label="导出" action="export" selection="none" permission="" permissionName="" visiable="true" Button="System.Windows.Controls.Button: 导出" />
+    <button label="删除" action="delete" selection="multi" permission="" permissionName="" visiable="true" Button="System.Windows.Controls.Button: 删除" />
+    <button label="补充值" action="fireEvent" selection="single" permission="" permissionName="" visiable="true" event="deposit" confirmMessage="补充值？" />
+    <button label="编辑" action="alink" selection="single" permission="" permissionName="" visiable="true" alink="alink://ime.AppWindow/EntityForm?{action:&quot;edit&quot;,entityUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.AE7830BE74DD&quot;,formUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.9D4EB6F6BF08&quot;,title:&quot;编辑&quot;}" />
+    <button label="差错处理" action="alink" selection="single" permission="" permissionName="" visiable="true" alink="alink://ime.AppWindow/WorkflowTask?{definitionUID:&quot;E9466A61-D200-45DC-99C0-276982EDF8F9&quot;,taskUID:&quot;4428FABA-7282-499F-94C6-55BBEE9240EC&quot;}" />
+    <button label="新建" action="alink" selection="none" permission="" permissionName="" visiable="true" alink="alink://ime.AppWindow/EntityForm?{action:&quot;create&quot;,entityUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.AE7830BE74DD&quot;,formUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.A4DACD3F0AAD&quot;}" />
+    <button label="按钮" action="alink" selection="single" permission="" permissionName="" visiable="true" alink="alink://ime.AppWindow/EntityForm?{action:&quot;edit&quot;,entityUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.AE7830BE74DD&quot;,formUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.A4DACD3F0AAD&quot;}" />
+  </toolbar>
+  <xmlQuery version="2.0" name="" label="">
+    <select domainScope="true">
+      <other label="其他" uid="other" name="other" />
+      <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.4BCBC9D2C1A9" name="AMS_PayChannel" label="支付渠道" alias="a1" selectAll="true" isBranch="true">
+        <field uid="sys_0" name="id" label="编号" type="long" />
+        <field uid="sys_1" name="domainId" label="域ID" type="long" />
+        <field uid="id_1" name="name" label="名称" type="string" />
+        <field uid="log_0" name="FM_CreatePrinId" label="创建者ID" type="long" />
+        <field uid="log_1" name="FM_CreatePrinName" label="创建者" type="string" />
+        <field uid="log_2" name="FM_UpdatePrinId" label="更新者ID" type="long" />
+        <field uid="log_3" name="FM_UpdatePrinName" label="更新者" type="string" />
+        <field uid="log_4" name="FM_CreateTime" label="创建时间" type="timestamp" />
+        <field uid="log_5" name="FM_UpdateTime" label="更新时间" type="timestamp" />
+        <field uid="id_2" name="codeNo" label="渠道编号" type="string" />
+        <field uid="id_3" name="handling_settle_type" label="手续费结算方式" type="long" />
+        <field uid="id_4" name="handling_settle_cycle" label="手续费结算周期" type="long" />
+        <field uid="id_5" name="capital_settle_cycle" label="资金结算周期" type="long" />
+        <field uid="id_8" name="system_uuid" label="系统用户ID" type="string" />
+        <field uid="id_9" name="merchant_id" label="商户号" type="string" />
+        <field uid="id_10" name="publickey" label="公匙证书路径" type="string" />
+        <field uid="id_11" name="privatekey" label="私匙证书路径" type="string" />
+        <field uid="id_12" name="remark" label="备注" type="string" />
+        <field uid="id_13" name="short_name" label="简称" type="string" />
+        <field uid="id_14" name="system_member" label="系统用户" type="relation" />
+      </Entity>
+      <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.AE7830BE74DD" name="AMS_ErrorTradeLog" label="差错流水" alias="a0" selectAll="true" isBranch="true">
+        <field uid="sys_0" name="id" label="编号" type="long" entity="AMS_ErrorTradeLog" />
+        <field uid="sys_1" name="domainId" label="域ID" type="long" />
+        <field uid="id_1" name="bizid" label="一账通流水" type="string" />
+        <field uid="id_2" name="out_trade_id" label="支付渠道流水" type="string" />
+        <field uid="id_3" name="e_trade_money" label="e帐通交易金额" type="long" currency="true" />
+        <field uid="id_4" name="userId" label="会员ID" type="string" />
+        <field uid="id_5" name="memberNo" label="会员号" type="string" />
+        <field uid="id_6" name="pay_channelNo" label="支付渠道代码" type="string" />
+        <field uid="id_7" name="pay_channel_name" label="支付渠道名称" type="string" />
+        <field uid="id_8" name="trade_time" label="交易时间" type="string" />
+        <field uid="id_9" name="error_type" label="差异类型" type="long" />
+        <field uid="id_10" name="remark" label="备注" type="string" />
+        <field uid="id_11" name="cardNo" label="交易帐号" type="string" />
+        <field uid="id_12" name="phone" label="会员手机号" type="string" />
+        <field uid="id_13" name="name" label="会员姓名" type="string" />
+        <field uid="id_14" name="idDealwith" label="是否处理" type="boolean" />
+        <field uid="id_17" name="out_trade_money" label="渠道交易金额" type="long" currency="true" />
+        <field uid="id_18" name="trade_type" label="交易类型" type="long" />
+        <field uid="id_19" name="pay_interfaceNo" label="支付通道编号" type="string" />
+        <field uid="id_20" name="out_trade_type" label="渠道交易类型" type="string" />
+        <field name="pay_interface_name" label="支付通道名称" type="string" uid="id_21" />
+      </Entity>
+    </select>
+    <where>
+      <exp type="2">
+        <exp type="19" valueType="1" option="true" rightType="param" right="bizid" leftEntity="AMS_ErrorTradeLog" leftField="bizid" uid="exp0" />
+        <exp type="5" valueType="3" option="true" rightType="param" right="trade_type" leftEntity="AMS_ErrorTradeLog" leftField="trade_type" uid="exp1" />
+        <exp type="5" valueType="1" option="true" rightType="prop" rightEntity="AMS_PayChannel" rightField="codeNo" leftEntity="AMS_ErrorTradeLog" leftField="pay_channelNo" uid="exp2" />
+      </exp>
+    </where>
+    <other>
+      <groupBy label="Group By" />
+      <orderBy label="Order By">
+        <field uid="sys_0" name="id" label="编号" type="long" entity="AMS_ErrorTradeLog" order="desc" />
+      </orderBy>
+    </other>
+  </xmlQuery>
+  <conditionForm>
+    <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2">
+      <TabNavigator>
+        <tab label="default">
+          <Label width="82" height="25" text="一账通流水:" propertyUID="id_1" x="2" y="2" style="" />
+          <TextInput name="bizid" width="179" height="25" x="83" y="3" />
+          <Label width="82" height="25" text="交易类型:" propertyUID="id_18" x="263" y="3" style="" />
+          <ComboBox valueProvider="多账户.交易类型" name="trade_type" width="119" height="25" x="323" y="3" />
+          <Label width="99" height="25" text="支付渠道流水:" propertyUID="id_2" x="443" y="3" style="" />
+          <TextInput name="out_trade_id" width="119" height="25" x="543" y="3" />
+        </tab>
+      </TabNavigator>
+    </Window>
+  </conditionForm>
+  <StatSetting />
+  <queryEvent>
+    <event name="deposit" type="customerEvent" label="deposit"><![CDATA[
+var array/*:Array*/ = query.getSelectedEntities("AMS_ErrorTradeLog");
+
+var param = {};
+param.id = array[0].id
+
+query.fireRemoteEvent("AMS_ErrorTradeLog.deposit", param, "cb_deposit");
+]]></event>
+    <event name="cb_deposit" type="remoteEvent" label="cb_deposit"><![CDATA[]]></event>
+  </queryEvent>
+</EntityQuery>

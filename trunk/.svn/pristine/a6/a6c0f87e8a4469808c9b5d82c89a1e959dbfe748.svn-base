@@ -1,0 +1,33 @@
+/*******************************************************************************
+ * 版权所有 : 宁波金奥 版本 : 1.0 创建时间: 2009-8-27 创建者: 赵颖杰 
+ ******************************************************************************/
+#loading {
+	position: absolute;
+	left: 45%;
+	top: 40%;
+	padding: 2px;
+	z-index: 20001;
+	height: auto;
+	border: 1px solid #ccc;
+}
+
+#loading a {
+	color: #225588;
+}
+
+#loading .loading-indicator {
+	background: white;
+	color: #444;
+	font: bold 13px tahoma, arial, helvetica;
+	padding: 10px;
+	margin: 0;
+	height: auto;
+}
+
+#loading-msg {
+	font: normal 10px arial, tahoma, sans-serif;
+}
+
+.db-icn-meun {
+    background-image: url( ../images/entity-query.png) !important;
+}

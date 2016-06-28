@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.BB2866424A8C" lastId="39" name="AMS_OrderDetail" label="订单明细" note="" log="false" workflow="false" nodeID="392" dbcreated="true"> 
+  <relation/>  
+  <extension/>  
+  <property uid="sys_0" label="编号" name="id" type="long" systemProperty="true" editorPart="Entity" group="系统属性字段"/>  
+  <property uid="sys_1" label="域ID" name="domainId" type="long" systemProperty="true" editorPart="Entity" group="系统属性字段"/>  
+  <property name="owner_order" label="所属订单" type="relation" uid="id_1" entityUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.3D51405C5EA0" labelField="orderNo" editorPart="Entity" group="业务属性字段" dbcreated="true"/>  
+  <property name="goods_count" label="数量" type="long" uid="id_3" editorPart="Entity" group="业务属性字段" dbcreated="true"/>  
+  <property name="unit_price" label="单价" type="long" uid="id_4" currency="true" editorPart="Entity" group="业务属性字段" dbcreated="true"/>  
+  <property name="total_price" label="总价" type="long" uid="id_5" currency="true" editorPart="Entity" group="业务属性字段" dbcreated="true"/>  
+  <property name="spec" label="规格" type="string" length="100" uid="id_7" editorPart="Entity" group="业务属性字段" dbcreated="true"/>  
+  <property name="art_no" label="货号" type="string" length="100" uid="id_8" editorPart="Entity" group="业务属性字段" dbcreated="true"/>  
+  <property name="goods_name" label="商品名称" type="string" length="512" uid="id_9" editorPart="Entity" group="业务属性字段" dbcreated="true"/>  
+  <property name="goods_uuid" label="UUID" type="string" length="100" uid="id_10" editorPart="Entity" group="业务属性字段" dbcreated="true"/>  
+  <property name="goods_image" label="商品图片" type="string" length="100" uid="id_11" editorPart="Entity" group="业务属性字段" dbcreated="true"/>  
+  <property name="begin_time" label="活动开始时间" type="timestamp" length="100" uid="id_13" editorPart="Entity" group="业务属性字段" dbcreated="true"/>  
+  <property name="end_time" label="活动结束时间" type="timestamp" length="100" uid="id_14" editorPart="Entity" group="业务属性字段" dbcreated="true"/>  
+  <property name="activity_id" label="活动编号" type="long" uid="id_15" editorPart="Entity" group="业务属性字段" dbcreated="true"/>  
+  <property name="out_system" label="外部系统" type="string" length="100" uid="id_18" editorPart="Entity" group="业务属性字段" dbcreated="true"/>  
+  <property name="return_goods" label="退货" type="relation" uid="id_19" editorPart="Entity" entityUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.F505638B609A" labelField="state" group="业务属性字段" dbcreated="true"/>  
+  <property name="edit_unit_price" label="修改后单价" type="long" uid="id_20" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="edit_total_price" label="修改后总价" type="long" uid="id_21" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="is_return_delivery_price" label="是否已退运费" type="boolean" length="100" uid="id_22" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="recharge_number" label="充值号码" type="string" length="100" uid="id_24" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="recharge_type" label="充值状态" type="long" uid="id_25" group="业务属性字段" valueProvider="订单.充值状态" editorPart="Entity" dbcreated="true"/>  
+  <property name="remarks" label="备注" type="string" length="100" uid="id_26" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="wec_provinceId" label="水电煤-省份id" type="string" length="100" uid="id_28" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="wec_cityId" label="水电煤-城市id" type="string" length="100" uid="id_29" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="wec_payProjectId" label="水电煤-缴费类型Id" type="string" length="100" uid="id_30" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="wec_payUnitId" label="水电煤-缴费单位Id" type="string" length="100" uid="id_31" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="wec_account" label="水电煤-户号" type="string" length="100" uid="id_32" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="wec_productId" label="水电煤-产品编号Id" type="string" length="100" uid="id_33" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="wec_contractId" label="水电煤-合同号" type="string" length="100" uid="id_34" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="wec_payMentDay" label="水电煤-账期" type="string" length="100" uid="id_35" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="productName" label="商品名称" type="string" length="128" uid="id_36" editorPart="Entity" dbcreated="true" group="业务属性字段"/>  
+  <property name="productDesc" label="商品描述" type="string" length="256" uid="id_37" editorPart="Entity" dbcreated="true" group="业务属性字段"/>  
+  <property name="frontUrl" label="前台通知地址" type="string" length="100" uid="id_38" editorPart="Entity" dbcreated="true" group="业务属性字段"/>  
+  <property name="backUrl" label="后台通知地址" type="string" length="100" uid="id_39" editorPart="Entity" dbcreated="true" group="业务属性字段"/> 
+</Entity>

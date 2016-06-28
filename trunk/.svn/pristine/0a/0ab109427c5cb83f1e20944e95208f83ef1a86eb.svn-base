@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityForm name="交易路由" label="交易路由" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.9B4D36C55CF4" nodeID="585"> 
+              <formEntity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.CCB2207A5CFF"/>  
+              <formState> 
+                <state label="基础" uid="state0" basedOn="null"> 
+                  <rule type="value" property="pay_interfaceNo" label="支付通道编号" rule="$this.payInterface.codeNo"/> 
+                </state> 
+              </formState>  
+              <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2"> 
+                <TabNavigator> 
+                  <tab label="default"> 
+                    <Label width="99" height="25" text="交易最小金额:" propertyUID="id_1" x="3" y="3" style=""/>  
+                    <TextInput propertyUID="id_1" width="160" height="25" x="123" y="3"/>  
+                    <Label width="99" height="25" text="交易最大金额:" propertyUID="id_2" x="3" y="31" style=""/>  
+                    <TextInput propertyUID="id_2" width="159" height="25" x="123" y="31"/>  
+                    <Label width="82" height="25" text="交易类型:" propertyUID="id_3" x="3" y="59" style=""/>  
+                    <ComboBox propertyUID="id_3" width="159" height="25" x="123" y="59"/>  
+                    <Label width="82" height="25" text="交易子类型:" propertyUID="id_4" x="3" y="87" style=""/>  
+                    <ComboBox propertyUID="id_4" width="159" height="25" x="123" y="87"/>  
+                    <Label width="82" height="25" text="卡种:" propertyUID="id_5" x="3" y="115" style=""/>  
+                    <ComboBox propertyUID="id_5" width="159" height="25" x="123" y="115"/>  
+                    <Label width="82" height="25" text="支付通道:" propertyUID="id_6" x="3" y="143" style=""/>  
+                    <EntityField propertyUID="id_6" width="159" height="25" x="123" y="143" queryUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.2452D4DF3338"/>  
+                    <Label width="100" height="25" text="支付通道编号:" propertyUID="id_8" x="2" y="171" style=""/>  
+                    <TextInput propertyUID="id_8" width="159" height="25" x="123" y="171"/>  
+                    <Label width="82" height="25" text="支付类型:" propertyUID="id_9" x="3" y="197" style=""/>  
+                    <ComboBox propertyUID="id_9" width="159" height="25" x="123" y="199"/> 
+                  </tab> 
+                </TabNavigator> 
+              </Window>  
+              <formEvent/> 
+            </EntityForm>

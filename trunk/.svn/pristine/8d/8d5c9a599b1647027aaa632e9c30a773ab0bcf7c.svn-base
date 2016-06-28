@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityService>
+  <script label="onUnlock" name="onUnlock" type="customer" tooltip="自定义扩展服务" uid="ext3"><![CDATA[var employee_id/*:Number*/ = param.get("employee_id");
+if(employee_id == null )
+	throw ("未查询到相应的职员ID，请检查。");
+var hql/*:String*/ = "update Employee set isBlocked = 0";
+hql += ", errorCount = 0, lastErrorTime = null where id=:id ";
+
+var query/*:ScriptQuery*/ = service.createHQLQuery(hql);
+
+query.setLong("id",Number(employee_id));
+
+query.executeUpdate();]]></script>
+</EntityService>

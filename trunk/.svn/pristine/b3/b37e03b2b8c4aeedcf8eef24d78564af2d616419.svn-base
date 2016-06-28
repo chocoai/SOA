@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityForm name="人工提现明细" label="人工提现明细" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.60C883B9D759" nodeID="700"> 
+              <formEntity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.D45D936EC215"/>  
+              <formState/>  
+              <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2"> 
+                <TabNavigator> 
+                  <tab label="default"> 
+                    <Label width="82" height="25" text="账户类型:" propertyUID="id_2" x="3" y="3" style=""/>  
+                    <EntityField propertyUID="id_2" width="139" height="25" x="83" y="3" queryUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.FD5FC56A4F8B"/>  
+                    <Label width="82" height="25" text="金额:" propertyUID="id_3" x="3" y="31" style=""/>  
+                    <TextInput propertyUID="id_3" width="139" height="25" x="83" y="31"/>  
+                    <Label width="82" height="25" text="账户id:" propertyUID="id_4" x="3" y="59" style=""/>  
+                    <TextInput propertyUID="id_4" width="139" height="25" x="83" y="59"/> 
+                  </tab> 
+                </TabNavigator> 
+              </Window>  
+              <formEvent/> 
+            </EntityForm>

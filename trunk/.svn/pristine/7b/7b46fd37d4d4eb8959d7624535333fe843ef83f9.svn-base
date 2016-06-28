@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<QueryPage label="提现人工处理订单查询" control="Panel" layout="vertical" controlUID="root" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.F4F268316C78" name="提现人工处理订单查询" nodeID="1863"> 
+              <QueryControl label="提现人工处理订单查询" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.7EFCD664B5E3" width="100%" height="100%" controlUID="ctrl0"/>  
+              <event label="初始化事件" type="initialize" name="initialize"/>  
+              <event label="确定事件" type="okEvent" name="okEvent"/> 
+            </QueryPage>

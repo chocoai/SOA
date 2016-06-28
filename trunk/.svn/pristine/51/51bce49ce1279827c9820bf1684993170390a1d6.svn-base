@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityQuery name="银行卡查询" label="银行卡查询" note="" share="false" multiselect="false" editable="false" autopaging="true" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.6577153E0168" nodeID="833" pagingMode="NormalPaging" virtualizingPagingEnabled="true">
+  <queryEntities>
+    <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.A274F80E0641" name="AMS_MemberBank" label="会员银行卡" alias="a0" selectAll="true" isBranch="true" master="true" />
+  </queryEntities>
+  <DataGrid>
+    <color />
+    <column name="account_name" label="开户名" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.A274F80E0641.id_12" width="82" isBranch="false" editable="" sortable="" textAlign="" dataField="AMS_MemberBank$account_name" />
+    <column name="accountNo" label="帐号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.A274F80E0641.id_1" width="140" isBranch="false" editable="" sortable="" textAlign="" dataField="AMS_MemberBank$accountNo" />
+    <column name="phone" label="预留手机号码" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.A274F80E0641.id_22" width="119" isBranch="false" editable="" sortable="" textAlign="" dataField="AMS_MemberBank$phone" />
+    <column name="bank_code" label="银行代码" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.A274F80E0641.id_3" width="75" isBranch="false" editable="" sortable="" textAlign="" dataField="AMS_MemberBank$bank_code" />
+    <column name="bank_name" label="银行名称" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.A274F80E0641.id_4" width="141" isBranch="false" dataField="AMS_MemberBank$bank_name" />
+    <column name="bind_state" label="绑定状态" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.A274F80E0641.id_16" width="100" isBranch="false" dataField="AMS_MemberBank$bind_state" />
+    <column name="bind_time" label="绑定时间" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.A274F80E0641.id_6" width="128" isBranch="false" editable="" sortable="" textAlign="" dataField="AMS_MemberBank$bind_time" />
+    <column name="card_type" label="卡类型" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.A274F80E0641.id_10" width="68" isBranch="false" dataField="AMS_MemberBank$card_type" />
+    <column name="account_type" label="账户类型" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.A274F80E0641.id_14" width="82" isBranch="false" dataField="AMS_MemberBank$account_type_label" />
+    <column name="account_prop" label="账户属性" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.A274F80E0641.id_17" width="89" isBranch="false" dataField="AMS_MemberBank$account_prop" />
+    <column name="unbind_time" label="解绑时间" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.A274F80E0641.id_7" width="100" isBranch="false" dataField="AMS_MemberBank$unbind_time" />
+  </DataGrid>
+  <editState />
+  <toolbar>
+    <button label="银行卡号解码" action="fireEvent" selection="single" permission="" permissionName="" visiable="true" param="{&#xD;&#xA;  &quot;event&quot;: &quot;getBankCardNo&quot;,&#xD;&#xA;  &quot;confirmMessage&quot;: &quot;&quot;&#xD;&#xA;}" defaultAction="false" Button="System.Windows.Controls.Button: 银行卡号解码" event="getBankCardNo" confirmMessage="" />
+    <button label="企业个人银行卡授权" action="fireEvent" selection="single" permission="" permissionName="" visiable="true" param="{&#xD;&#xA;  &quot;event&quot;: &quot;bankCardAudit&quot;,&#xD;&#xA;  &quot;confirmMessage&quot;: &quot;企业个人银行卡授权确认&quot;&#xD;&#xA;}" Button="System.Windows.Controls.Button: 企业个人银行卡授权" event="bankCardAudit" confirmMessage="企业个人银行卡授权确认" />
+  </toolbar>
+  <xmlQuery version="2.0" name="" label="">
+    <select domainScope="true">
+      <other label="其他" uid="other" name="other" />
+      <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.A274F80E0641" name="AMS_MemberBank" label="会员银行卡" alias="a0" selectAll="true" isBranch="true">
+        <field uid="sys_0" name="id" label="编号" type="long" />
+        <field uid="sys_1" name="domainId" label="域ID" type="long" />
+        <field uid="log_0" name="FM_CreatePrinId" label="创建者ID" type="long" />
+        <field uid="log_1" name="FM_CreatePrinName" label="创建者" type="string" />
+        <field uid="log_2" name="FM_UpdatePrinId" label="更新者ID" type="long" />
+        <field uid="log_3" name="FM_UpdatePrinName" label="更新者" type="string" />
+        <field uid="log_4" name="FM_CreateTime" label="创建时间" type="timestamp" />
+        <field uid="log_5" name="FM_UpdateTime" label="更新时间" type="timestamp" />
+        <field uid="id_1" name="accountNo" label="帐号" type="string" />
+        <field uid="id_3" name="bank_code" label="银行代码" type="string" />
+        <field uid="id_4" name="bank_name" label="银行名称" type="string" />
+        <field uid="id_6" name="bind_time" label="绑定时间" type="timestamp" />
+        <field uid="id_7" name="unbind_time" label="解绑时间" type="timestamp" />
+        <field uid="id_8" name="member" label="会员" type="relation" />
+        <field uid="id_10" name="card_type" label="卡类型" type="long" />
+        <field uid="id_11" name="identity_cardNo" label="身份证号码" type="string" />
+        <field uid="id_12" name="account_name" label="开户名" type="string" />
+        <field uid="id_14" name="account_type" label="账户类型" type="relation" />
+        <field uid="id_16" name="bind_state" label="绑定状态" type="long" />
+        <field uid="id_17" name="account_prop" label="账户属性" type="long" />
+        <field uid="id_19" name="accountNo_encrypt" label="账号(加密)" type="string" />
+        <field uid="id_20" name="acct_validdate" label="有效期" type="string" />
+        <field uid="id_21" name="cvv2" label="cvv2" type="string" />
+        <field uid="id_22" name="phone" label="预留手机号码" type="string" />
+        <field uid="id_23" name="contract_no" label="协议号" type="string" />
+        <field uid="id_24" name="business_card_type" label="卡业务类型" type="long" />
+        <field uid="id_25" name="is_safe_card" label="是否是安全卡" type="boolean" />
+        <field uid="id_29" name="is_person_card_checked" label="企业用户是否允许个人银行卡提现" type="boolean" />
+        <field uid="id_30" name="person_card_checked_time" label="企业会员允许个人银行卡提现审核通过时间" type="timestamp" />
+      </Entity>
+    </select>
+    <where>
+      <exp type="2">
+        <exp type="5" valueType="3" option="false" leftEntity="AMS_MemberBank" leftField="member_id" uid="exp8" rightType="val" right="$page.master.selectedEntity(&quot;AMS_Member&quot;).id" />
+      </exp>
+    </where>
+    <other>
+      <groupBy label="Group By" />
+      <orderBy label="Order By">
+        <field uid="id_16" name="bind_state" label="绑定状态" type="long" entity="AMS_MemberBank" />
+        <field uid="sys_0" name="id" label="编号" type="long" entity="AMS_MemberBank" order="desc" />
+        <field uid="id_10" name="card_type" label="卡类型" type="long" entity="AMS_MemberBank" order="desc" />
+      </orderBy>
+    </other>
+  </xmlQuery>
+  <conditionForm>
+    <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2">
+      <TabNavigator>
+        <tab label="default" />
+      </TabNavigator>
+    </Window>
+  </conditionForm>
+  <StatSetting />
+  <queryEvent>
+    <event name="getBankCardNo" type="customerEvent" label="getBankCardNo"><![CDATA[
+
+var alink/*:String*/ = "alink://ime.AppWindow/FreeForm?";
+var param/*:Object*/ = {};
+param.title     = "银行卡号解码";
+param.formUID 	= "DE851B3A-ACD5-484B-B166-312B7CFFEA65.42AFAC37A860";
+alink += JSON.encode(param);
+query.openALink(alink);
+]]></event>
+    <event name="bankCardAudit" type="customerEvent" label="bankCardAudit"><![CDATA[var entity /*:$AMS_MemberBank*/ = query.getExpressionValue("$selectedEntity");
+query.fireRemoteEvent("AMS_MemberBank.bankCardAudit",entity,"callback");]]></event>
+    <event name="callback" type="remoteEvent" label="callback"><![CDATA[query.refresh();
+query.showMessageBox("授权已成功", "企业个人银行卡授权");
+]]></event>
+  </queryEvent>
+</EntityQuery>

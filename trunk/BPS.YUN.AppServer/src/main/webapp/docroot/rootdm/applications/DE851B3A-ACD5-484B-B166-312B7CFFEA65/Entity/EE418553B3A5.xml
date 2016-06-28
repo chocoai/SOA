@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Entity lastId="6" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.EE418553B3A5" name="AMS_Favourite" label="商品收藏" note="" log="false" workflow="false" nodeID="785" dbcreated="true"> 
+  <property uid="sys_0" label="编号" name="id" type="long" systemProperty="true"/>  
+  <property uid="sys_1" label="域ID" name="domainId" type="long" systemProperty="true"/>  
+  <relation/>  
+  <extension/>  
+  <property name="goods_name" label="商品名称" type="string" length="100" uid="id_1" dbcreated="true"/>  
+  <property name="goods_image" label="商品图片" type="string" length="100" uid="id_2" dbcreated="true"/>  
+  <property name="goods_uuid" label="商品uid" type="string" length="100" uid="id_3" dbcreated="true"/>  
+  <property name="member" label="会员" type="relation" uid="id_4" entityUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0" labelField="userId" dbcreated="true"/>  
+  <property name="create_time" label="创建时间" type="timestamp" length="100" uid="id_5" dbcreated="true"/>  
+  <property name="shop_uid" label="店铺uid" type="string" length="100" uid="id_6" dbcreated="true"/> 
+</Entity>

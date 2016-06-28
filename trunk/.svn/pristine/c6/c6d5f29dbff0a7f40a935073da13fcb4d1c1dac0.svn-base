@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityQuery name="电话回访预留银行卡查询" label="电话回访预留银行卡查询" note="" share="false" multiselect="false" editable="false" autopaging="true" pagingMode="VirtualizingPaging" virtualizingPagingEnabled="true" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.092897F076F8" nodeID="834"> 
+              <queryEntities> 
+                <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.A274F80E0641" name="AMS_MemberBank" label="会员银行卡" alias="a0" master="true"/> 
+              </queryEntities>  
+              <DataGrid> 
+                <color/>  
+                <column name="phone" label="预留手机号码" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.A274F80E0641.id_22" width="100" isBranch="false"/>  
+                <column name="accountNo" label="帐号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.A274F80E0641.id_1" width="144" isBranch="false"/>  
+                <column name="bank_name" label="银行名称" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.A274F80E0641.id_4" width="82" isBranch="false"/>  
+                <column name="bank_code" label="银行代码" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.A274F80E0641.id_3" width="100" isBranch="false"/> 
+              </DataGrid>  
+              <editState/>  
+              <toolbar/>  
+              <xmlQuery version="2.0" name="" label=""> 
+                <select domainScope="true"> 
+                  <other label="其他" uid="other" name="other"/>  
+                  <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.A274F80E0641" name="AMS_MemberBank" label="会员银行卡" alias="a0"> 
+                    <field uid="sys_0" name="id" label="编号" type="long"/>  
+                    <field uid="sys_1" name="domainId" label="域ID" type="long"/>  
+                    <field uid="log_0" name="FM_CreatePrinId" label="创建者ID" type="long"/>  
+                    <field uid="log_1" name="FM_CreatePrinName" label="创建者" type="string"/>  
+                    <field uid="log_2" name="FM_UpdatePrinId" label="更新者ID" type="long"/>  
+                    <field uid="log_3" name="FM_UpdatePrinName" label="更新者" type="string"/>  
+                    <field uid="log_4" name="FM_CreateTime" label="创建时间" type="timestamp"/>  
+                    <field uid="log_5" name="FM_UpdateTime" label="更新时间" type="timestamp"/>  
+                    <field uid="id_1" name="accountNo" label="帐号" type="string"/>  
+                    <field uid="id_3" name="bank_code" label="银行代码" type="string"/>  
+                    <field uid="id_4" name="bank_name" label="银行名称" type="string"/>  
+                    <field uid="id_6" name="bind_time" label="绑定时间" type="timestamp"/>  
+                    <field uid="id_7" name="unbind_time" label="解绑时间" type="timestamp"/>  
+                    <field uid="id_8" name="member" label="会员" type="relation"/>  
+                    <field uid="id_10" name="card_type" label="卡类型" type="long"/>  
+                    <field uid="id_11" name="identity_cardNo" label="身份证号码" type="string"/>  
+                    <field uid="id_12" name="account_name" label="开户名" type="string"/>  
+                    <field uid="id_14" name="account_type" label="账户类型" type="relation"/>  
+                    <field uid="id_16" name="bind_state" label="绑定状态" type="long"/>  
+                    <field uid="id_17" name="account_prop" label="账户属性" type="long"/>  
+                    <field uid="id_19" name="accountNo_encrypt" label="账号(加密)" type="string"/>  
+                    <field uid="id_20" name="acct_validdate" label="有效期" type="string"/>  
+                    <field uid="id_21" name="cvv2" label="cvv2" type="string"/>  
+                    <field uid="id_22" name="phone" label="预留手机号码" type="string"/>  
+                    <field uid="id_23" name="contract_no" label="协议号" type="string"/>  
+                    <field uid="id_24" name="business_card_type" label="卡业务类型" type="long"/> 
+                  </Entity> 
+                </select>  
+                <where> 
+                  <exp type="2"> 
+                    <exp type="5" valueType="3" option="false" leftEntity="AMS_MemberBank" leftField="member_id" uid="exp0" rightType="val" right="$opener.$opener.selectedEntity(&quot;AMS_Member&quot;).id"/>  
+                    <exp type="5" valueType="3" option="true" rightType="val" right="1" leftEntity="AMS_MemberBank" leftField="bind_state" uid="exp1"/> 
+                  </exp> 
+                </where>  
+                <other> 
+                  <groupBy label="Group By"/>  
+                  <orderBy label="Order By"/> 
+                </other> 
+              </xmlQuery>  
+              <conditionForm> 
+                <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2"> 
+                  <TabNavigator> 
+                    <tab label="default"/> 
+                  </TabNavigator> 
+                </Window> 
+              </conditionForm>  
+              <StatSetting/>  
+              <queryEvent/> 
+            </EntityQuery>

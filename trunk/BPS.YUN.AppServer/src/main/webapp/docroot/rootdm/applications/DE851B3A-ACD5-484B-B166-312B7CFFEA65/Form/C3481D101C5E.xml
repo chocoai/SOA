@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityForm name="邮件模板" label="邮件模板" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.C3481D101C5E" nodeID="480"> 
+              <formEntity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.FAE02DAB08EE"/>  
+              <formState> 
+                <state label="基础" uid="state0" basedOn="null"> 
+                  <rule type="required" property="contents" label="内容" rule="true"/>  
+                  <rule type="required" property="email_url" label="邮件回调地址" rule="true"/> 
+                </state>  
+                <state label="新增" uid="state1" basedOn="state0"/>  
+                <state label="编辑" uid="state2" basedOn="state0"/> 
+              </formState>  
+              <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2"> 
+                <TabNavigator> 
+                  <tab label="default"> 
+                    <Label width="82" height="25" text="验证码类型:" propertyUID="id_1" x="3" y="3" style=""/>  
+                    <ComboBox propertyUID="id_1" width="259" height="25" x="83" y="3"/>  
+                    <Label width="82" height="25" text="内容:" propertyUID="id_2" x="3" y="87" style=""/>  
+                    <TextArea propertyUID="id_2" width="599" height="223" x="83" y="87"/>  
+                    <Label width="82" height="25" text="codeNo:" propertyUID="id_3" x="363" y="3" style=""/>  
+                    <TextInput propertyUID="id_3" width="259" height="25" x="423" y="3"/>  
+                    <Label width="82" height="25" text="邮件回调地址:" propertyUID="id_4" x="2" y="31" style=""/>  
+                    <TextInput propertyUID="id_4" width="599" height="25" x="83" y="31"/>  
+                    <Label width="82" height="25" text="主题:" propertyUID="id_5" x="3" y="59" style=""/>  
+                    <TextInput propertyUID="id_5" width="599" height="25" x="83" y="59"/> 
+                  </tab> 
+                </TabNavigator> 
+              </Window>  
+              <formEvent/> 
+            </EntityForm>

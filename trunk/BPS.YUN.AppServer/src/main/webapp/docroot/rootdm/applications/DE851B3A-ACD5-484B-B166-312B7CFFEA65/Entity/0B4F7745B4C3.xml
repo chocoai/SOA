@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Entity lastId="38" log="false" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.0B4F7745B4C3" name="AMS_AuthPayLog" label="认证支付日志" note="" workflow="false" nodeID="551" dbcreated="true"> 
+  <relation/>  
+  <extension/>  
+  <property uid="sys_0" label="编号" name="id" type="long" systemProperty="true" group="系统属性字段" editorPart="Entity"/>  
+  <property uid="sys_1" label="域ID" name="domainId" type="long" systemProperty="true" group="系统属性字段" editorPart="Entity"/>  
+  <property name="userId" label="用户ID" type="string" length="100" uid="id_1" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="accountNo" label="账号" type="string" length="100" uid="id_2" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="bank_code" label="银行代码" type="string" length="100" uid="id_3" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="account_name" label="开户名" type="string" length="100" uid="id_4" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="identity_cardNo" label="身份证号码" type="string" length="100" uid="id_5" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="card_type" label="卡类型" type="long" uid="id_6" group="业务属性字段" valueProvider="银行卡.银行卡类型" editorPart="Entity" dbcreated="true"/>  
+  <property name="accountNo_encrypt" label="账号（加密）" type="string" length="100" uid="id_7" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="identity_cardNo_encrypt" label="身份证号码(加密)" type="string" length="100" uid="id_8" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="phone" label="手机号" type="string" length="100" uid="id_9" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="sign_state" label="签约状态" type="long" uid="id_10" group="业务属性字段" valueProvider="银行卡.签约状态" editorPart="Entity" dbcreated="true"/>  
+  <property name="verification_code" label="短信验证码" type="string" length="100" uid="id_11" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="tl_contract_no" label="通联签约协议号" type="string" length="100" uid="id_12" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="bank_contract_no" label="银联签约协议号" type="string" length="100" uid="id_13" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="ret_code" label="响应代码" type="string" length="100" uid="id_14" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="ret_msg" label="响应信息" type="string" length="512" uid="id_15" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="its_trace_num" label="its流水号" type="string" length="100" uid="id_16" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="its_trans_date" label="its交易日期" type="string" length="100" uid="id_17" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="its_trans_time" label="its交易时间" type="string" length="100" uid="id_18" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="error_code" label="错误代码" type="string" length="100" uid="id_19" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="error_msg" label="错误信息" type="string" length="512" uid="id_20" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="trace_num" label="流水号" type="string" length="100" uid="id_21" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="acct_validdate" label="有效期" type="string" length="100" uid="id_23" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="cvv2" label="cvv2" type="string" length="100" uid="id_24" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="send_sms" label="短信状态" type="string" length="100" uid="id_25" group="业务属性字段" editorPart="Entity" valueProvider="银行卡.短信状态" dbcreated="true"/>  
+  <property name="ori_trace_num" label="原签约流水" type="string" length="100" uid="id_26" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="ori_trans_date" label="原签约日期" type="string" length="100" uid="id_27" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="cnl_id" label="签约渠道" type="string" length="100" uid="id_28" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="sign_type" label="签约类型" type="long" uid="id_29" group="业务属性字段" valueProvider="银行卡.签约类型" editorPart="Entity" dbcreated="true"/>  
+  <property name="trans_date" label="流水日期" type="string" length="100" uid="id_31" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="trans_time" label="流水时间" type="string" length="100" uid="id_32" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="trans_amount" label="交易金额" type="string" length="100" uid="id_33" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="bank_name" label="银行名称" type="string" length="100" uid="id_34" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="acct_cat" label="账号类型" type="string" length="100" uid="id_35" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="account_type" label="账户类型" type="relation" uid="id_36" group="业务属性字段" entityUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.62156FFA93F3" labelField="name" editorPart="Entity" dbcreated="true"/>  
+  <property name="is_safe_cards" label="是否是安全卡" type="boolean" length="100" uid="id_38" group="业务属性字段" dbcreated="true"/> 
+</Entity>

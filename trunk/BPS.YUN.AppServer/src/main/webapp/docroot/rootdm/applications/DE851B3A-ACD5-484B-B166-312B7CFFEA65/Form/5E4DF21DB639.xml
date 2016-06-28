@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityForm name="机构交易权限" label="机构交易权限" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.5E4DF21DB639" nodeID="669"> 
+              <formEntity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.DD67B8DFF0AF"/>  
+              <formState> 
+                <state label="基础" uid="state0" basedOn="null"> 
+                  <rule type="enabled" property="org" label="机构名称" rule="false"/>  
+                  <rule type="enabled" property="orgNo" label="机构号" rule="false"/>  
+                  <rule type="required" property="*" label="所有" rule="true"/> 
+                </state>  
+                <state label="新建" uid="state1" basedOn="state0"> 
+                  <rule type="value" property="org" label="机构名称" rule="$opener.page.master.selectedEntity"/>  
+                  <rule type="value" property="orgNo" label="机构号" rule="$opener.page.master.selectedEntity.codeNo"/> 
+                </state> 
+              </formState>  
+              <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2"> 
+                <TabNavigator> 
+                  <tab label="default"> 
+                    <Label width="82" height="25" text="交易类型:" propertyUID="id_3" x="3" y="31" style=""/>  
+                    <ComboBox propertyUID="id_3" width="159" height="25" x="103" y="31"/>  
+                    <Label width="82" height="25" text="子交易类型:" propertyUID="id_4" x="283" y="31" style=""/>  
+                    <ComboBox propertyUID="id_4" width="159" height="25" x="363" y="31"/>  
+                    <Label width="82" height="25" text="机构名称:" propertyUID="id_1" x="3" y="4" style=""/>  
+                    <EntityField propertyUID="id_1" width="159" height="25" x="103" y="3"/>  
+                    <Label width="82" height="25" text="机构号:" propertyUID="id_5" x="283" y="3" style=""/>  
+                    <TextInput propertyUID="id_5" width="159" height="25" x="363" y="2"/> 
+                  </tab> 
+                </TabNavigator> 
+              </Window>  
+              <formEvent/> 
+            </EntityForm>

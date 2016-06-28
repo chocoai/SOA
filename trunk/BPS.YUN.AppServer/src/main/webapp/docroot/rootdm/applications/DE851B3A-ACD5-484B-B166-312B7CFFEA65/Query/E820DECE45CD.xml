@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityQuery name="交易请求查询" label="交易请求查询" note="" share="false" multiselect="false" editable="false" autopaging="true" pagingMode="VirtualizingPaging" virtualizingPagingEnabled="true" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E820DECE45CD" nodeID="707"> 
+              <queryEntities> 
+                <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.ABAF89810197" name="AMS_TradeRequestLog" label="交易请求表" alias="a0" selectAll="true" isBranch="true" master="true"/> 
+              </queryEntities>  
+              <DataGrid> 
+                <color/>  
+                <column name="create_time" label="请求时间" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.ABAF89810197.id_2" width="100" isBranch="false" dataField="AMS_TradeRequestLog$create_time"/>  
+                <column name="requestId" label="业务请求流水号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.ABAF89810197.id_3" width="100" isBranch="false" dataField="AMS_TradeRequestLog$requestId"/>  
+                <column name="userId" label="用户ID" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.ABAF89810197.id_1" width="100" isBranch="false" dataField="AMS_TradeRequestLog$userId"/>  
+                <column name="ret_code1" label="处理结果1" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.ABAF89810197.id_4" width="100" isBranch="false" dataField="AMS_TradeRequestLog$ret_code1"/>  
+                <column name="ret_code2" label="处理结果2" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.ABAF89810197.id_5" width="100" isBranch="false" dataField="AMS_TradeRequestLog$ret_code2"/>  
+                <column name="pickup_url" label="前台url地址" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.ABAF89810197.id_6" width="100" isBranch="false" dataField="AMS_TradeRequestLog$pickup_url"/>  
+                <column name="receive_url" label="服务器后台地址" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.ABAF89810197.id_7" width="100" isBranch="false" dataField="AMS_TradeRequestLog$receive_url"/>  
+                <column name="account_no" label="银行帐号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.ABAF89810197.id_8" width="100" isBranch="false" dataField="AMS_TradeRequestLog$account_no"/>  
+                <column name="trade_type" label="交易类型" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.ABAF89810197.id_9" width="76" isBranch="false" editable="" sortable="" textAlign="" dataField="AMS_TradeRequestLog$trade_type"/>  
+                <column name="trade_money" label="交易金额" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.ABAF89810197.id_11" width="100" isBranch="false" dataField="AMS_TradeRequestLog$trade_money"/>  
+                <column name="bizid" label="业务编号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.ABAF89810197.id_12" width="100" isBranch="false" dataField="AMS_TradeRequestLog$bizid"/>  
+                <column name="systemId" label="业务系统编号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.ABAF89810197.id_13" width="100" isBranch="false" dataField="AMS_TradeRequestLog$systemId"/>  
+                <column name="errorMessage" label="错误信息" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.ABAF89810197.id_14" width="100" isBranch="false" dataField="AMS_TradeRequestLog$errorMessage"/>  
+                <column name="outSystem" label="外部系统" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.ABAF89810197.id_15" width="100" isBranch="false" dataField="AMS_TradeRequestLog$outSystem"/> 
+              </DataGrid>  
+              <editState/>  
+              <toolbar> 
+                <button label="编辑" action="alink" selection="single" visiable="true" alink="alink://ime.AppWindow/EntityForm?{action:&quot;edit&quot;,entityUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.ABAF89810197&quot;,formUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.48555A07F7C4&quot;,title:&quot;编辑&quot;}"/> 
+              </toolbar>  
+              <xmlQuery version="2.0" name="" label=""> 
+                <select domainScope="true"> 
+                  <other label="其他" uid="other" name="other"/>  
+                  <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.ABAF89810197" name="AMS_TradeRequestLog" label="交易请求表" alias="a0" selectAll="true" isBranch="true"> 
+                    <field uid="sys_0" name="id" label="编号" type="long"/>  
+                    <field uid="sys_1" name="domainId" label="域ID" type="long"/>  
+                    <field uid="id_1" name="userId" label="用户ID" type="string"/>  
+                    <field uid="id_2" name="create_time" label="请求时间" type="timestamp"/>  
+                    <field uid="id_3" name="requestId" label="业务请求流水号" type="string"/>  
+                    <field uid="id_4" name="ret_code1" label="处理结果1" type="string"/>  
+                    <field uid="id_5" name="ret_code2" label="处理结果2" type="string"/>  
+                    <field uid="id_6" name="pickup_url" label="前台url地址" type="string"/>  
+                    <field uid="id_7" name="receive_url" label="服务器后台地址" type="string"/>  
+                    <field uid="id_8" name="account_no" label="银行帐号" type="string"/>  
+                    <field uid="id_9" name="trade_type" label="交易类型" type="long"/>  
+                    <field uid="id_10" name="request_time" label="提交时间" type="timestamp"/>  
+                    <field uid="id_11" name="trade_money" label="交易金额" type="long"/>  
+                    <field uid="id_12" name="bizid" label="业务编号" type="string"/>  
+                    <field uid="id_13" name="systemId" label="业务系统编号" type="string"/>  
+                    <field uid="id_14" name="errorMessage" label="错误信息" type="string"/>  
+                    <field uid="id_15" name="outSystem" label="外部系统" type="string"/>  
+                    <field uid="id_17" name="out_requestId" label="外部请求流水号" type="string"/> 
+                  </Entity> 
+                </select>  
+                <where> 
+                  <exp type="2"> 
+                    <exp type="19" valueType="1" option="true" rightType="param" right="bizid" leftEntity="AMS_TradeRequestLog" leftField="bizid" uid="exp0"/>  
+                    <exp type="19" valueType="1" option="true" rightType="param" right="requestId" leftEntity="AMS_TradeRequestLog" leftField="requestId" uid="exp1"/> 
+                  </exp> 
+                </where>  
+                <other> 
+                  <groupBy label="Group By"/>  
+                  <orderBy label="Order By"> 
+                    <field uid="sys_0" name="id" label="编号" type="long" entity="AMS_TradeRequestLog" order="desc"/> 
+                  </orderBy> 
+                </other> 
+              </xmlQuery>  
+              <conditionForm> 
+                <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2"> 
+                  <TabNavigator> 
+                    <tab label="default"> 
+                      <Label width="82" height="25" text="业务编号:" propertyUID="id_12" x="2" y="3" style=""/>  
+                      <TextInput name="bizid" width="179" height="25" x="63" y="3"/>  
+                      <Label width="82" height="25" text="流水号:" propertyUID="id_3" x="243" y="3" style=""/>  
+                      <TextInput name="requestId" width="139" height="25" x="303" y="3"/> 
+                    </tab> 
+                  </TabNavigator> 
+                </Window> 
+              </conditionForm>  
+              <StatSetting/>  
+              <queryEvent/> 
+            </EntityQuery>

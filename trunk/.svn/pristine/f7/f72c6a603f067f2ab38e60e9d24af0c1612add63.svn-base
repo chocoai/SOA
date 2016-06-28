@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gbk">
+<title> IME企业信息管理引擎</title>
+
+<link rel="stylesheet" type="text/css" href="${themeUrl}css/loading.css">
+<div id="loading">            
+   <div class="loading-indicator">
+	   <img src="${rootUrl}js/extjs/images/extanim32.gif" style="margin-right:8px;float:left;vertical-align:top;"/>
+	                     IME企业信息管理引擎
+	   <br />
+	   <span id="loading-msg"><font size=3>Loading......</font></span>
+   </div>
+</div>
+<link rel="stylesheet" type="text/css" href="${rootUrl}js/extjs/resources/css/ext-all.css">
+<link rel="stylesheet" type="text/css" href="${rootUrl}css/index.css">
+<link rel="stylesheet" type="text/css" href="${rootUrl}js/extjs/css/index.css">
+<link rel="stylesheet" type="text/css" href="${rootUrl}js/extjs/css/icons.css">
+<link rel="stylesheet" type="text/css" href="${rootUrl}js/extjs/css/UploadDialog.css">
+
+<link rel="stylesheet" type="text/css" href="${rootUrl}cms/templates/km/css/default.css">
+<link rel="stylesheet" type="text/css" href="${rootUrl}cms/templates/km/css/combos.css">
+<%--
+<link rel="stylesheet" type="text/css" href="css/ext-patch.css">
+--%>
+<script type="text/javascript" src="${rootUrl}js/extjs/adapter/ext/ext-base.js"></script>
+<script type="text/javascript" src="${rootUrl}js/extjs/ext-all.js"></script>
+<script type="text/javascript" src="${rootUrl}js/extjs/ext-lang-zh_CN.js"></script> 
+<script type="text/javascript">
+	var userSession ="${userSession}";
+	var rootUrl ="${rootUrl}";
+</script>
+<script type="text/javascript" src="${rootUrl}cms/templates/km/js/SearchField.js"></script>
+<script type="text/javascript" src="${rootUrl}cms/editors/fckeditor/fckeditor.js"></script> 
+<script type="text/javascript" src="${rootUrl}cms/templates/km/js/ext-FCKeditor.js"></script> 
+<script type="text/javascript" src="${rootUrl}cms/templates/km/js/KMAddArticle.js"></script>
+<script type="text/javascript" src="${rootUrl}cms/templates/km/js/KMEditArticle.js"></script>
+<script type="text/javascript" src="${rootUrl}cms/templates/km/js/KMArticleListPanel.js"></script>
+<script type="text/javascript" src="${rootUrl}cms/templates/km/js/KMTreePanel.js"></script>
+<script type="text/javascript" src="${rootUrl}cms/templates/km/js/KMPanel.js"></script>
+<script type="text/javascript" src="${rootUrl}cms/templates/km/js/km.js"></script>
+
+<script type="text/javascript" src="${themeUrl}js/WebUiPanel.js"></script>
+<script type="text/javascript" src="${themeUrl}js/WebUiTabarPanel.js"></script>
+
+<script type="text/javascript" src="${rootUrl}js/webui.js"></script>
+
+</head>
+<body>
+
+<div id = "imediv" style="position:absolute;z-index:0;width:800px;height:600;left:-800px;top:-500px;">
+	<iframe id="imeframe" name="imeframe" src="${appUrl}/AppPage.jsp?appId=system" style="width:100%; height:100%"></iframe>
+</div>
+</body>
+</html>

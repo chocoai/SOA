@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityQuery name="注册企业管理" label="注册企业管理" note="" multiselect="false" editable="false" autopaging="true" uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.907B696409BD" nodeID="163"> 
+              <queryEntities> 
+                <Entity uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.76A3C4E92743" name="DomainCompany" label="注册企业" alias="a0"/> 
+              </queryEntities>  
+              <DataGrid> 
+                <color/>  
+                <column name="id" label="编号" uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.76A3C4E92743.sys_0" width="100"/>  
+                <column name="name" label="名称" uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.76A3C4E92743.id_1" width="300"/> 
+              </DataGrid>  
+              <toolbar> 
+                <button label="新建" action="alink" selection="none" alink="alink://ime.AppWindow/EntityForm?{formUID:&quot;031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.90B46FC3C9B5&quot;,entityUID:&quot;031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.76A3C4E92743&quot;,formState:&quot;state0&quot;,action:&quot;create&quot;}" permission="" permissionName=""/>  
+                <button label="编辑" action="alink" alink="alink://ime.AppWindow/EntityForm?{formUID:&quot;031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.90B46FC3C9B5&quot;,entityUID:&quot;031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.76A3C4E92743&quot;,formState:&quot;state0&quot;,action:&quot;edit&quot;}" selection="single" permission="" permissionName=""/>  
+                <button label="删除" action="delete" selection="single" permission="" permissionName=""/>  
+                <button label="设置权限" action="other" selection="single" permission="null" permissionName="null" cmd="$page.onSetPermission()"/>  
+                <button label="设置管理员密码" action="other" selection="single" permission="null" permissionName="null" cmd="$page.onSetPassword()"/> 
+              </toolbar>  
+              <xmlQuery version="2.0" name="" label=""> 
+                <select domainScope="true"> 
+                  <other label="其他" uid="other" name="other"/>  
+                  <Entity uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.76A3C4E92743" name="DomainCompany" label="注册企业" alias="a0"> 
+                    <field uid="sys_0" name="id" label="编号" type="long"/>  
+                    <field uid="sys_1" name="domainId" label="所属域ID" type="long"/>  
+                    <field uid="id_1" name="name" label="名称" type="string"/>  
+                    <field uid="id_2" name="domain_id" label="注册域ID" type="long"/> 
+                  </Entity> 
+                </select>  
+                <where> 
+                  <exp type="2"> 
+                    <exp type="5" uid="exp0" valueType="3" option="true" rightType="val" right="$page.domain.selectedItem.id" leftEntity="DomainCompany" leftField="domainId"/> 
+                  </exp> 
+                </where>  
+                <other> 
+                  <groupBy label="Group By"/>  
+                  <orderBy label="Order By"/> 
+                </other> 
+              </xmlQuery>  
+              <conditionForm> 
+                <Window> 
+                  <TabNavigator> 
+                    <tab label="default"/> 
+                  </TabNavigator> 
+                </Window> 
+              </conditionForm>  
+              <queryEvent/> 
+            </EntityQuery>

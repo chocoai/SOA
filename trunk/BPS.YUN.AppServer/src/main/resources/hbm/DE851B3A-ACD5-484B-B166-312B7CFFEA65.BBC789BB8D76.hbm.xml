@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "PUBLIC" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class entity-name="AMS_BonusActivity" table="DYNA_AMS_BonusActivity">
+    <id name="id" type="long">
+      <generator class="sequence">
+        <param name="sequence">IDSEQ_AMS_BonusActivity</param>
+      </generator>
+    </id>
+    <property name="FM_CreatePrinId" not-null="false" type="long" index="IDX_CREATEPRINID"/>
+    <property name="FM_CreatePrinName" not-null="false" length="100" type="string"/>
+    <property name="FM_UpdatePrinId" not-null="false" type="long" index="IDX_UPDATEPRINID"/>
+    <property name="FM_UpdatePrinName" not-null="false" length="100" type="string"/>
+    <property name="FM_CreateTime" not-null="false" type="timestamp"/>
+    <property name="FM_UpdateTime" not-null="false" type="timestamp"/>
+    <property name="domainId" not-null="false" type="long" index="IDX_DOMAINID"/>
+    <property name="begin_date" not-null="false" type="timestamp" length="100"/>
+    <property name="end_date" not-null="false" type="timestamp" length="100"/>
+    <property name="bonus_rule_id" not-null="false" type="long" index="bonus_rule_idx"/>
+    <property name="bonus_rule_label" not-null="false" type="string" length="200"/>
+    <property name="day_limit_num" not-null="false" type="long"/>
+    <property name="day_limit_total" not-null="false" type="long"/>
+    <property name="amount" not-null="false" type="long"/>
+    <property name="provide_total" not-null="false" type="long"/>
+    <property name="provide_num" not-null="false" type="long"/>
+    <property name="system_member_id" not-null="false" type="long" index="system_member_idx"/>
+    <property name="system_member_label" not-null="false" type="string" length="200"/>
+    <property name="system_uuid" not-null="false" type="string" length="100"/>
+    <property name="have_provide_total" not-null="false" type="long"/>
+    <property name="have_provide_num" not-null="false" type="long"/>
+    <property name="activity_status" not-null="false" type="long"/>
+    <property name="bonus_rule_codeNo" not-null="false" type="string" length="100"/>
+  </class>
+</hibernate-mapping>

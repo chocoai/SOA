@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityQuery name="机构可使用账户查询" label="机构可使用账户查询" note="显示机构所属专用账户以及标准账户 " share="false" multiselect="false" editable="false" autopaging="false" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.8478E356899F" nodeID="510">
+  <queryEntities>
+    <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.62156FFA93F3" name="AMS_AccountType" label="账户类型" alias="a0" master="true" />
+  </queryEntities>
+  <DataGrid>
+    <color />
+    <column name="codeNo" label="编号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.62156FFA93F3.id_3" width="112" isBranch="false" />
+    <column name="name" label="名称" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.62156FFA93F3.id_7" width="140" isBranch="false" />
+    <column name="account_prop" label="账户属性" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.62156FFA93F3.id_17" width="100" isBranch="false" />
+  </DataGrid>
+  <editState />
+  <toolbar />
+  <xmlQuery version="2.0" name="" label="">
+    <select domainScope="true">
+      <other label="其他" uid="other" name="other" />
+      <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.62156FFA93F3" name="AMS_AccountType" label="账户类型" alias="a0">
+        <field uid="sys_0" name="id" label="编号" type="long" />
+        <field uid="sys_1" name="domainId" label="域ID" type="long" />
+        <field uid="id_3" name="codeNo" label="编号" type="string" />
+        <field uid="id_4" name="valid_type" label="有效期类型" type="long" />
+        <field uid="id_6" name="valid_merge" label="有效期合并" type="long" />
+        <field uid="id_7" name="name" label="名称" type="string" />
+        <field uid="id_14" name="biz_type" label="账户集类型" type="long" />
+        <field uid="id_15" name="biz_def" label="业务数据定义" type="string" />
+        <field uid="id_17" name="account_prop" label="账户属性" type="long" />
+        <field uid="id_18" name="extend_day" label="默认延长时间(日)" type="long" />
+        <field uid="id_19" name="rbm_rate" label="人民币比例" type="double" />
+      </Entity>
+    </select>
+    <where>
+      <exp type="2">
+        <exp type="1" option="true" uid="exp0">
+          <exp type="5" valueType="3" option="true" rightType="val" right="1" leftEntity="AMS_AccountType" leftField="account_prop" uid="exp1" />
+          <exp type="5" valueType="3" option="false" leftEntity="AMS_AccountType" leftField="application_id" uid="exp2" rightType="val" right="$opener.opener.page.master.selectedEntity.id" />
+        </exp>
+      </exp>
+    </where>
+    <other>
+      <groupBy label="Group By" />
+      <orderBy label="Order By" />
+    </other>
+  </xmlQuery>
+  <conditionForm>
+    <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2">
+      <TabNavigator>
+        <tab label="default" />
+      </TabNavigator>
+    </Window>
+  </conditionForm>
+  <StatSetting />
+  <queryEvent />
+</EntityQuery>

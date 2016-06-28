@@ -1,0 +1,131 @@
+.ws_propgrid_table {
+		font: icon;word-break:keep-all;
+		border:1 solid black;
+		border-width:0px 0px 1px 1px;
+	}
+.ws_propgrid_table td{
+		border:1 solid black;
+		border-width:1px 1px 0px 0px;
+		padding: 0 0;
+	}
+.ws_propgrid_table .td_name{
+		background-color: #DDDDDD;
+		padding: 2 10;
+		width:50;
+	}
+.ws_propgrid_table .td_value{
+		border:1 solid black;
+		border-width:1px 1px 0px 0px;
+		width:120;
+	}
+
+.ws_propgrid_table .ws_selectbox{
+		font: icon;word-break:keep-all;
+		border:0;
+	}
+.ws_propgrid_table .ws_selectbox td{
+		font: icon;word-break:keep-all;
+		border:0;
+	}
+.ws_propgrid_table .ws_selectbox .ws_select_area{
+		font: icon;word-break:keep-all;
+		border:0;
+	}
+.ws_propgrid_table .ws_selectbox .ws_select_area .ws_selected_item{
+		padding-left:2;
+	}
+
+.ws_propgrid_table .ws_textbox{
+		font:icon;word-break:keep-all;
+		padding:1 2;
+		height:16;
+		border:0;
+		width:100%
+	}
+.ws_propgrid_table .ws_detailbox{
+		font: icon;word-break:keep-all;
+		border:0;
+	}
+.ws_propgrid_table .ws_detailbox td{
+		font: icon;word-break:keep-all;
+		border:0;
+	}
+.ws_propgrid_table .ws_detailbox .ws_detailbutton {
+		behavior: url('../js/coolbutton.htc'); 
+		cursor: default; font: icon;word-break:keep-all;
+		text-align:	center; 
+		border: 1px solid #DDDDDD;
+		background-color:#DDDDDD;
+		vertical-align : middle;
+		width:16;
+	}
+.ws_propgrid_table .ws_detailbox .cool_button_raised {
+		border:			1px solid;
+		border-color:	ButtonHighlight #9090BB #9090BB ButtonHighlight;
+	}
+.ws_propgrid_table .ws_detailbox .cool_button_pressed {
+		border:			1px solid;
+		border-color:	#9090BB ButtonHighlight ButtonHighlight #9090BB;
+	}
+	
+	
+
+.ws_prop_panel{
+	}
+.ws_prop_panel td{
+		font:icon;
+	}
+
+.ws_prop_panel .sub_panel_top{
+		height:20;
+		border:1 outset #8F8F92;
+		border-left  : solid #FFFFFF 1px;
+		border-top   : solid #FFFFFF 1px;
+		border-right : solid #8F8F92 1px;
+		border-bottom: solid #8F8F92 1px;
+	}
+.ws_prop_panel .sub_panel_top .sub_panel_tl{
+		vertical-align:top;
+		width:6;
+		background-color:E2E2E4;
+	}
+.ws_prop_panel .sub_panel_top .sub_panel_tc{
+		vertical-align:bottom;
+		background-color:E2E2E4;
+	}
+.ws_prop_panel .sub_panel_top .sub_panel_tr{
+		vertical-align:top;
+		width:6;
+		background-color:E2E2E4;
+	}
+
+.ws_prop_panel .sub_panel_bottom{
+		height:0;
+		border:1 solid #8F8F92;
+		border-width:0px 1px 1px 1px;
+		background-color:#F2F2F4;
+	}
+.ws_prop_panel .sub_panel_bottom .sub_panel_bl{
+		vertical-align:top;
+		width:1%;
+		border:1 solid #8F8F92;
+		border-width:0px 0px 0px 1px;
+	}
+.ws_prop_panel .sub_panel_bottom .sub_panel_bc{
+		width:98%;
+		border:1 solid #8F8F92;
+		border-width:0px 0px 1px 0px;
+	}
+.ws_prop_panel .sub_panel_bottom .sub_panel_br{
+		vertical-align:top;
+		width:1%;
+		border:1 solid #8F8F92;
+		border-width:0px 1px 0px 0px;
+	}
+
+.ws_prop_panel .sub_panel_client{
+		padding:2;
+		border:1 solid #8F8F92;
+		border-width:0px 1px 0px 1px;
+		background-color:#F2F2F4;
+	}

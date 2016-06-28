@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityQuery name="应用会员帐户查询" label="应用会员帐户查询" note="" share="false" multiselect="false" editable="false" autopaging="true" pagingMode="VirtualizingPaging" virtualizingPagingEnabled="true" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.33F078F28AF4" nodeID="986">
+  <queryEntities>
+    <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.5A11C43DEB1B" name="AMS_Organization" label="应用" alias="a2" />
+    <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.88EAE8E6D388" name="AMS_MemberAccount" label="会员账户" alias="a0" selectAll="true" isBranch="true" master="true" />
+    <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0" name="AMS_Member" label="会员" alias="a1" selectAll="true" isBranch="true" />
+  </queryEntities>
+  <DataGrid>
+    <color />
+    <column name="application" label="应用" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0.id_81" width="100" isBranch="false" dataField="AMS_Member$application_label" />
+    <column name="name" label="名称(企业名称)" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0.id_1" width="181" isBranch="false" dataField="AMS_Member$name" />
+    <column name="phone" label="手机号码" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0.id_4" width="126" isBranch="false" dataField="AMS_Member$phone" />
+    <column name="email" label="邮箱" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0.id_28" width="100" isBranch="false" dataField="AMS_Member$email" />
+    <column name="account_type" label="账户集" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.88EAE8E6D388.id_2" width="120" isBranch="false" editable="" sortable="" textAlign="" dataField="AMS_MemberAccount$account_type_label" />
+    <column name="amount" label="余额" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.88EAE8E6D388.id_4" width="100" isBranch="false" editable="" sortable="" textAlign="" dataField="AMS_MemberAccount$amount" />
+    <column name="freeze_amount" label="冻结金额" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.88EAE8E6D388.id_5" width="100" isBranch="false" editable="" sortable="" textAlign="" dataField="AMS_MemberAccount$freeze_amount" />
+    <column name="overdraft" label="允许透支金额" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.88EAE8E6D388.id_6" width="100" isBranch="false" editable="" sortable="" textAlign="" dataField="AMS_MemberAccount$overdraft" />
+    <column name="user_state" label="会员状态" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0.id_7" width="100" isBranch="false" dataField="AMS_Member$user_state" />
+    <column name="userId" label="会员uuid" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0.id_24" width="100" isBranch="false" dataField="AMS_Member$userId" />
+  </DataGrid>
+  <editState />
+  <toolbar>
+    <button label="子账户" action="alink" selection="single" permission="" permissionName="" visiable="false" alink="alink://ime.AppWindow/EntityQuery?{title:&quot;子账户查询&quot;,entityUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.A9741F8AC007&quot;,queryUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.36167968DFDE&quot;}" />
+    <button label="账户变更日志" action="alink" selection="single" permission="" permissionName="" visiable="true" alink="alink://ime.AppWindow/EntityQuery?{title:&quot;账户变更日志&quot;,entityUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.0D1791EB8F4D&quot;,queryUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.A174997A1794&quot;}" />
+    <button label="账户交易日志" action="alink" selection="single" permission="" permissionName="" visiable="true" alink="alink://ime.AppWindow/EntityQuery?{title:&quot;账户交易日志查询&quot;,entityUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.029E3085EFF8&quot;,queryUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.524C132B515C&quot;}" />
+    <button label="账户冻结记录" action="alink" selection="single" permission="" permissionName="" visiable="true" alink="alink://ime.AppWindow/EntityQuery?{title:&quot;账户冻结记录查询&quot;,entityUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.8AC88B058E20&quot;,queryUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.7982B9D3977C&quot;}" />
+  </toolbar>
+  <xmlQuery version="2.0" name="" label="">
+    <select domainScope="true">
+      <other label="其他" uid="other" name="other" />
+      <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0" name="AMS_Member" label="会员" alias="a1" selectAll="true" isBranch="true">
+        <field uid="sys_0" name="id" label="编号" type="long" />
+        <field uid="sys_1" name="domainId" label="域ID" type="long" />
+        <field uid="log_0" name="FM_CreatePrinId" label="创建者ID" type="long" />
+        <field uid="log_1" name="FM_CreatePrinName" label="创建者" type="string" />
+        <field uid="log_2" name="FM_UpdatePrinId" label="更新者ID" type="long" />
+        <field uid="log_3" name="FM_UpdatePrinName" label="更新者" type="string" />
+        <field uid="log_4" name="FM_CreateTime" label="创建时间" type="timestamp" />
+        <field uid="log_5" name="FM_UpdateTime" label="更新时间" type="timestamp" />
+        <field uid="id_1" name="name" label="名称(企业名称)" type="string" />
+        <field uid="id_4" name="phone" label="手机号码" type="string" />
+        <field uid="id_6" name="address" label="地址" type="string" />
+        <field uid="id_7" name="user_state" label="会员状态" type="long" />
+        <field uid="id_23" name="member_type" label="会员类型" type="long" />
+        <field uid="id_24" name="userId" label="会员uuid" type="string" />
+        <field uid="id_26" name="login_password" label="登录密码" type="string" />
+        <field uid="id_27" name="pay_password" label="支付密码" type="string" />
+        <field uid="id_28" name="email" label="邮箱" type="string" />
+        <field uid="id_29" name="country" label="国家" type="string" />
+        <field uid="id_30" name="province" label="省" type="string" />
+        <field uid="id_31" name="area" label="地区" type="string" />
+        <field uid="id_32" name="identity_cardNo" label="身份证号码" type="string" />
+        <field uid="id_34" name="user_name" label="昵称" type="string" />
+        <field uid="id_36" name="last_login_time" label="最近一次登录时间" type="timestamp" />
+        <field uid="id_37" name="isPhone_checked" label="手机号码是否验证" type="boolean" />
+        <field uid="id_38" name="isEmail_checked" label="邮箱是否验证" type="boolean" />
+        <field uid="id_40" name="register_time" label="注册时间" type="timestamp" />
+        <field uid="id_41" name="login_fail_amount" label="登录失败次数" type="long" />
+        <field uid="id_42" name="pay_fail_amount" label="支付失败次数" type="long" />
+        <field uid="id_43" name="last_login_fail_time" label="最后一次登录失败时间" type="timestamp" />
+        <field uid="id_44" name="last_pay_fail_time" label="最后一次支付失败时间" type="timestamp" />
+        <field uid="id_45" name="isSecurityIssue" label="是否设置安全问题" type="boolean" />
+        <field uid="id_47" name="isSetExtendInfo" label="是否设置扩展信息" type="boolean" />
+        <field uid="id_53" name="memberNo" label="客户号" type="string" />
+        <field uid="id_58" name="isIdentity_checked" label="是否实名认证" type="boolean" />
+        <field uid="id_61" name="identity_cardNo_encrypt" label="身份证(加密)" type="string" />
+        <field uid="id_62" name="identity_cardNo_md5" label="身份证(md5加密)" type="string" />
+        <field uid="id_63" name="register_ip" label="注册ip" type="string" />
+        <field uid="id_66" name="login_time" label="本次登录时间" type="timestamp" />
+        <field uid="id_68" name="remark" label="备注" type="string" />
+        <field uid="id_69" name="real_name_time" label="实名时间" type="timestamp" />
+        <field uid="id_70" name="isRiskUser" label="是否加入黑名单" type="boolean" />
+        <field uid="id_74" name="source" label="来源" type="long" />
+        <field uid="id_81" name="application" label="应用" type="relation" />
+        <field uid="id_85" name="isSMS_login_notice" label="是否开启登录手机通知" type="boolean" />
+        <field uid="id_86" name="isEmail_login_notice" label="是否开启登录邮箱通知" type="boolean" />
+        <field uid="id_87" name="belong_applicationNo" label="所属应用编号" type="string" />
+        <field uid="id_88" name="isDeveloper" label="是否是开发者" type="boolean" />
+        <field uid="id_89" name="biz_user_id" label="业务系统名称" type="string" />
+      </Entity>
+      <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.88EAE8E6D388" name="AMS_MemberAccount" label="会员账户" alias="a0" selectAll="true" isBranch="true">
+        <field uid="sys_0" name="id" label="编号" type="long" />
+        <field uid="sys_1" name="domainId" label="域ID" type="long" />
+        <field uid="id_2" name="account_type" label="账户集" type="relation" />
+        <field uid="id_3" name="valid_date" label="有效期限" type="timestamp" />
+        <field uid="id_4" name="amount" label="余额" type="long" currency="true" />
+        <field uid="id_5" name="freeze_amount" label="冻结金额" type="long" currency="true" />
+        <field uid="id_6" name="overdraft" label="允许透支金额" type="long" currency="true" />
+        <field uid="id_9" name="account_state" label="账户状态" type="long" />
+        <field uid="id_10" name="userId" label="用户ID" type="string" />
+        <field uid="id_11" name="biz_type" label="账户集类型" type="long" />
+        <field uid="id_12" name="application" label="应用" type="relation" />
+      </Entity>
+      <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.5A11C43DEB1B" name="AMS_Organization" label="应用" alias="a2">
+        <field uid="sys_0" name="id" label="编号" type="long" />
+      </Entity>
+    </select>
+    <where>
+      <exp type="2">
+        <exp type="19" valueType="1" option="true" rightType="param" right="userId" leftEntity="AMS_MemberAccount" leftField="userId" uid="exp0" />
+        <exp type="5" valueType="1" option="false" rightType="prop" rightEntity="AMS_Member" rightField="userId" leftEntity="AMS_MemberAccount" leftField="userId" uid="exp1" />
+        <exp type="19" valueType="1" option="true" rightType="param" right="name" leftEntity="AMS_Member" leftField="name" uid="exp2" />
+        <exp type="19" valueType="1" option="true" rightType="param" right="phone" leftEntity="AMS_Member" leftField="phone" uid="exp3" />
+        <exp type="19" valueType="1" option="true" rightType="param" right="email" leftEntity="AMS_Member" leftField="email" uid="exp4" />
+        <exp type="5" valueType="3" option="true" rightType="param" right="account_type_id" leftEntity="AMS_MemberAccount" leftField="account_type_id" uid="exp5" />
+        <exp type="5" valueType="3" option="false" rightType="prop" rightEntity="AMS_Member" rightField="application_id" leftEntity="AMS_Organization" leftField="id" uid="exp6" />
+        <exp type="5" valueType="3" option="true" rightType="val" right="$user.member_id" leftEntity="AMS_Organization" leftField="member_id" uid="exp7" />
+      </exp>
+    </where>
+    <other>
+      <groupBy label="Group By" />
+      <orderBy label="Order By" />
+    </other>
+  </xmlQuery>
+  <conditionForm>
+    <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2">
+      <TabNavigator>
+        <tab label="default">
+          <Label width="82" height="25" text="用户ID:" propertyUID="id_10" x="3" y="3" style="" />
+          <TextInput name="userId" width="199" height="25" x="63" y="3" />
+          <Label width="39" height="25" text="名称:" propertyUID="id_1" x="3" y="31" style="" />
+          <TextInput name="name" width="199" height="25" x="63" y="31" />
+          <Label width="39" height="25" text="手机:" propertyUID="id_4" x="263" y="3" style="" />
+          <TextInput name="phone" width="139" height="25" x="343" y="3" />
+          <Label width="39" height="25" text="邮箱:" propertyUID="id_28" x="483" y="3" style="" />
+          <TextInput name="email" width="139" height="25" x="543" y="3" />
+          <Label width="82" height="25" text="账户类型:" propertyUID="id_2" x="263" y="31" style="" />
+          <EntityField entityUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.62156FFA93F3" labelField="name" shortcutField="name" name="account_type" width="139" height="25" x="343" y="31" queryUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.FD5FC56A4F8B" />
+        </tab>
+      </TabNavigator>
+    </Window>
+  </conditionForm>
+  <StatSetting />
+  <queryEvent>
+    <event name="initialize" type="initialize" label="初始化事件" systemEvent="true"><![CDATA[var a = query.getExpressionValue("$application");
+var b = query.getExpressionValue("$user");
+var c = b.member;]]></event>
+  </queryEvent>
+</EntityQuery>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Entity lastId="5" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.B4B24AC7EB67" name="AMS_PayOrder" label="支付订单" note="" log="true" workflow="false" nodeID="357" dbcreated="true"> 
+  <property uid="sys_0" label="编号" name="id" type="long" systemProperty="true" editorPart="Entity"/>  
+  <property uid="sys_1" label="域ID" name="domainId" type="long" systemProperty="true" editorPart="Entity"/>  
+  <relation/>  
+  <extension/>  
+  <property uid="log_0" label="创建者ID" name="FM_CreatePrinId" type="long" systemProperty="true" editorPart="Entity"/>  
+  <property uid="log_1" label="创建者" name="FM_CreatePrinName" type="string" length="100" systemProperty="true" editorPart="Entity"/>  
+  <property uid="log_2" label="更新者ID" name="FM_UpdatePrinId" type="long" systemProperty="true" editorPart="Entity"/>  
+  <property uid="log_3" label="更新者" name="FM_UpdatePrinName" type="string" length="100" systemProperty="true" editorPart="Entity"/>  
+  <property uid="log_4" label="创建时间" name="FM_CreateTime" type="timestamp" systemProperty="true" editorPart="Entity"/>  
+  <property uid="log_5" label="更新时间" name="FM_UpdateTime" type="timestamp" systemProperty="true" editorPart="Entity"/>  
+  <property name="pay_orderNo" label="支付订单号" type="string" length="100" uid="id_1" editorPart="Entity" dbcreated="true"/>  
+  <property name="pay_state" label="支付状态" type="long" uid="id_4" dbcreated="true"/>  
+  <property name="pay_money" label="支付金额" type="long" uid="id_5" currency="true" dbcreated="true"/> 
+</Entity>

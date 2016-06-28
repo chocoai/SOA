@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityForm name="人工提现" label="人工提现" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.B83BFDFD814E" nodeID="732"> 
+              <formEntity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.2BFCE1B52493"/>  
+              <formState> 
+                <state label="基础" uid="state0" basedOn="null"> 
+                  <rule type="required" property="member" label="会员" rule="true"/>  
+                  <rule type="updateEvent" property="member" label="会员" rule="changeAccount"/>  
+                  <rule type="value" property="member_uuid" label="会员userId" rule="$this.member.userId"/>  
+                  <rule type="enabled" property="member_uuid" label="会员userId" rule="false"/>  
+                  <rule type="value" property="total_money" label="提现金额" rule="0"/>  
+                  <rule type="enabled" property="total_money" label="提现金额" rule="false"/>  
+                  <rule type="required" property="accountNo" label="银行帐号" rule="true"/>  
+                  <rule type="required" property="account_name" label="开户名" rule="true"/>  
+                  <rule type="value" property="identity_cardNo" label="身份证号码" rule="$this.member.identity_cardNo"/>  
+                  <rule type="value" property="phone" label="手机号码" rule="$this.member.phone"/>  
+                  <rule type="required" property="bank_name" label="开户行" rule="true"/>  
+                  <rule type="required" property="system_member" label="系统会员" rule="true"/>  
+                  <rule type="required" property="branchAccountNo" label="开户支行号" rule="true"/>  
+                  <rule type="enabled" property="code" label="编码" rule="false"/>  
+                  <rule type="value" property="WF_ProcessName" label="流程名称" rule="&quot;人工提现：&quot;+$this.account_name+&quot;提现&quot;"/>  
+                  <rule type="enabled" property="WF_ProcessName" label="流程名称" rule="false"/>  
+                  <rule type="enabled" property="operator" label="经办人" rule="false"/>  
+                  <rule type="enabled" property="auditor" label="审核人" rule="false"/>  
+                  <rule type="enabled" property="auditor_date" label="审核时间" rule="false"/>  
+                  <rule type="enabled" property="reportState" label="报表状态" rule="false"/> 
+                </state>  
+                <state label="新建" uid="state1" basedOn="state0"> 
+                  <rule type="value" property="total_money" label="提现金额" rule="0"/>  
+                  <rule type="value" property="reportState" label="报表状态" rule="1"/> 
+                </state>  
+                <state label="编辑" uid="state2" basedOn="state0"/>  
+                <state label="审核" uid="state3" basedOn="state0"> 
+                  <rule type="enabled" property="*" label="所有" rule="false"/> 
+                </state> 
+              </formState>  
+              <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2"> 
+                <TabNavigator> 
+                  <tab label="default"> 
+                    <Label width="82" height="25" text="会员:" propertyUID="id_1" x="263" y="3" style=""/>  
+                    <EntityField propertyUID="id_1" width="180" height="25" x="322" y="3" queryUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.0FEFC23F6561" changeEvent=""/>  
+                    <Label width="82" height="25" text="会员userId:" propertyUID="id_2" x="3" y="31" style=""/>  
+                    <TextInput propertyUID="id_2" width="419" height="25" x="83" y="31"/>  
+                    <Label width="82" height="25" text="银行帐号:" propertyUID="id_4" x="263" y="59" style=""/>  
+                    <TextInput propertyUID="id_4" width="179" height="25" x="323" y="59"/>  
+                    <Label width="82" height="25" text="开户名:" propertyUID="id_5" x="263" y="87" style=""/>  
+                    <TextInput propertyUID="id_5" width="179" height="25" x="323" y="87"/>  
+                    <Label width="82" height="25" text="开户行:" propertyUID="id_12" x="3" y="59" style=""/>  
+                    <TextInput propertyUID="id_12" width="179" height="25" x="83" y="59"/>  
+                    <Label width="82" height="25" text="备注:" propertyUID="id_13" x="3" y="199" style=""/>  
+                    <TextInput propertyUID="id_13" width="419" height="25" x="83" y="199"/>  
+                    <Label width="82" height="25" text="系统会员:" propertyUID="id_14" x="263" y="171" style=""/>  
+                    <EntityField propertyUID="id_14" width="179" height="25" x="323" y="171" queryUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.CA7E119E5461" pageUID="" formUID="" forceAssociation=""/>  
+                    <Label label="Label" text="明细：" x="3" y="227" width="100" height="24" style=""/>  
+                    <Label width="82" height="25" text="开户支行号:" propertyUID="id_15" x="2" y="171" style=""/>  
+                    <TextInput propertyUID="id_15" width="179" height="25" x="83" y="171"/>  
+                    <QueryControl width="419" height="200" entityUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.D45D936EC215" queryUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.2EAC2AE141A0" parentFieldUID="id_1" parentField="artWithdrawal" parentFieldLabel="人工提现记录" x="83" y="227" name="artWithdrawalDetail"/>  
+                    <Label width="82" height="25" text="编码:" propertyUID="id_16" x="3" y="3" style=""/>  
+                    <TextInput propertyUID="id_16" width="179" height="25" x="83" y="3"/>  
+                    <Label width="82" height="25" text="审核时间:" propertyUID="id_11" x="2" y="143" style=""/>  
+                    <DateField propertyUID="id_11" width="179" height="25" x="83" y="143"/>  
+                    <Label width="82" height="25" text="审核人:" propertyUID="id_10" x="263" y="143" style=""/>  
+                    <PrincipalSelectField propertyUID="id_10" width="179" height="25" x="323" y="143"/>  
+                    <Label width="82" height="25" text="经办人:" propertyUID="id_8" x="3" y="115" style=""/>  
+                    <PrincipalSelectField propertyUID="id_8" width="179" height="25" x="83" y="115"/>  
+                    <Label width="82" height="25" text="提现金额:" propertyUID="id_3" x="2" y="87" style=""/>  
+                    <TextInput propertyUID="id_3" width="179" height="25" x="83" y="86"/>  
+                    <Label width="82" height="25" text="报表状态:" propertyUID="id_19" x="263" y="115" style=""/>  
+                    <ComboBox propertyUID="id_19" width="179" height="25" x="323" y="115"/> 
+                  </tab> 
+                </TabNavigator> 
+              </Window>  
+              <formEvent> 
+                <event name="preSubmit" type="preSubmit" label="提交前事件" systemEvent="true"><![CDATA[var query/*:QueryControl*/ = form.getScriptHost("artWithdrawalDetail");
+var arr/*:Array*/ = query.getAllRecords();
+if(arr.length <= 0) {
+	return {error:true,message:"请添加明细"};
+}
+
+]]></event>  
+                <event name="initialize" type="initialize" label="初始化事件" systemEvent="true"><![CDATA[var time = new Date();
+var loginInfo = form.getExpressionValue("$loginInfo");
+var state = form.getFormState();
+if(state == "新建"){
+	form.generateCoding("code", "T");
+	form.setFieldValue("operator",  {id:loginInfo.principalId, name:loginInfo.principalName});
+}else if( state == "审核" ){
+	form.setFieldValue("auditor_date",time);
+	form.setFieldValue("auditor",  {id:loginInfo.principalId, name:loginInfo.principalName});
+}
+]]></event>  
+                <event name="changeAccount" type="customerEvent" label="changeAccount"><![CDATA[var query/*:QueryControl*/ = form.getScriptHost("artWithdrawalDetail");
+var arr/*:Array*/ = query.getAllRecords();
+for(var i = arr.length ; i>0 ; i--){
+	query.deleteRecordAt(i-1);
+}
+//form.setFieldValue("total_money",0);
+]]></event>  
+                <event name="postSubmit" type="postSubmit" label="提交后事件" systemEvent="true"><![CDATA[var query/*:QueryControl*/ = form.getScriptHost("$opener");
+if(query != null){
+	query.refreshCurrentPage();
+}]]></event> 
+              </formEvent> 
+            </EntityForm>

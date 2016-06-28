@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "PUBLIC" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class entity-name="AMS_MemberEnterprise" table="DYNA_AMS_MemberEnterprise">
+    <id name="id" type="long">
+      <generator class="sequence">
+        <param name="sequence">IDSEQ_AMS_MemberEnterprise</param>
+      </generator>
+    </id>
+    <property name="FM_CreatePrinId" not-null="false" type="long" index="IDX_CREATEPRINID"/>
+    <property name="FM_CreatePrinName" not-null="false" length="100" type="string"/>
+    <property name="FM_UpdatePrinId" not-null="false" type="long" index="IDX_UPDATEPRINID"/>
+    <property name="FM_UpdatePrinName" not-null="false" length="100" type="string"/>
+    <property name="FM_CreateTime" not-null="false" type="timestamp"/>
+    <property name="FM_UpdateTime" not-null="false" type="timestamp"/>
+    <property name="domainId" not-null="false" type="long" index="IDX_DOMAINID"/>
+    <property name="business_license" not-null="false" type="string" length="100"/>
+    <property name="organization_code" not-null="false" type="string" length="100"/>
+    <property name="legal_name" not-null="false" type="string" length="100"/>
+    <property name="legal_ids" not-null="false" type="string" length="100"/>
+    <property name="business_license_path" not-null="false" type="string" length="500"/>
+    <property name="organization_code_path" not-null="false" type="string" length="500"/>
+    <property name="tax_certificate_path" not-null="false" type="string" length="500"/>
+    <property name="bank_settlement_path" not-null="false" type="string" length="500"/>
+    <property name="org_credit_code_path" not-null="false" type="string" length="500"/>
+    <property name="icp_path" not-null="false" type="string" length="500"/>
+    <property name="industry_permit_path" not-null="false" type="string" length="500"/>
+    <property name="legal_cerificate_front_path" not-null="false" type="string" length="500"/>
+    <property name="legal_cerificate_back_path" not-null="false" type="string" length="500"/>
+    <property name="member_id" not-null="false" type="long" index="member_idx"/>
+    <property name="member_label" not-null="false" type="string" length="200"/>
+    <property name="check_time" not-null="false" type="timestamp" length="100"/>
+    <property name="check_state" not-null="false" type="long"/>
+    <property name="fail_reason" not-null="false" type="string" length="1000"/>
+    <property name="remark" not-null="false" type="string" length="1000"/>
+    <property name="name" not-null="false" type="string" length="100"/>
+    <property name="address" not-null="false" type="string" length="500"/>
+    <property name="telephone" not-null="false" type="string" length="100"/>
+    <property name="legal_idstype" not-null="false" type="long"/>
+    <property name="legalPhone" not-null="false" type="string" length="100"/>
+    <property name="accountNo" not-null="false" type="string" length="100"/>
+    <property name="parentBankName" not-null="false" type="string" length="100"/>
+    <property name="bankCityNo" not-null="false" type="string" length="100"/>
+    <property name="bankName" not-null="false" type="string" length="100"/>
+    <property name="bind_card_name" not-null="false" type="string" length="100"/>
+    <property name="bind_card_id" not-null="false" type="string" length="100"/>
+    <property name="bind_card_id_md5" not-null="false" type="string" length="100"/>
+    <property name="bind_card_id_enc" not-null="false" type="string" length="100"/>
+    <property name="is_id_checked" not-null="false" type="string" length="100"/>
+  </class>
+</hibernate-mapping>

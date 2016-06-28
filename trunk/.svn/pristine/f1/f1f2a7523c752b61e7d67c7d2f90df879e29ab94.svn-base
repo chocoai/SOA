@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Report label="系统账户监控" name="系统账户监控" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.1D9A9E4FCA29" nodeID="869"> 
+            <dataSource> 
+              <xmlQuery version="2.0" uid="102201B6-3468-4F3A-8954-4057EE18D3BF" name="systemAccount" label="查询系统会员账户"> 
+                <select domainScope="true"> 
+                  <other label="其他" uid="other" name="other" selectAll="false"/>  
+                  <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0" name="AMS_Member" label="会员" alias="a0" selectAll="false" isBranch="true"> 
+                    <field uid="id_1" name="name" label="名称" type="string" entity="AMS_Member"/> 
+                  </Entity>  
+                  <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.88EAE8E6D388" name="AMS_MemberAccount" label="会员账户" alias="a1" selectAll="false" isBranch="true"> 
+                    <field uid="id_2" name="account_type" label="账户类型" type="relation"/>  
+                    <field uid="id_4" name="amount" label="余额" type="long"/> 
+                  </Entity> 
+                </select>  
+                <where> 
+                  <exp type="2"> 
+                    <exp type="5" valueType="3" option="true" leftEntity="AMS_Member" leftField="member_type" uid="exp2" rightType="val" right="1"/>  
+                    <exp type="5" valueType="1" option="true" leftEntity="AMS_Member" leftField="userId" uid="exp0" rightType="prop" rightEntity="AMS_MemberAccount" rightField="userId"/> 
+                  </exp> 
+                </where>  
+                <other> 
+                  <groupBy label="Group By"/>  
+                  <orderBy label="Order By"/> 
+                </other> 
+              </xmlQuery>  
+              <xmlQuery version="2.0" uid="D6543FFF-B563-421D-879E-749EDCCEF066" name="enterpriseAccount" label="查询企业会员账户"> 
+                <select domainScope="true"> 
+                  <other label="其他" uid="other" name="other"> 
+                    <field name="sum(a1.amount)" uid="other0" fieldType="otherField" MySQLName="" SQLServerName="" OracleName="" label="合计" alias="sumAmount"/> 
+                  </other>  
+                  <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0" name="AMS_Member" label="会员" alias="a0" selectAll="false"/>  
+                  <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.88EAE8E6D388" name="AMS_MemberAccount" label="会员账户" alias="a1" selectAll="false"> 
+                    <field uid="id_2" name="account_type" label="账户类型" type="relation" entity="AMS_MemberAccount"/> 
+                  </Entity> 
+                </select>  
+                <where> 
+                  <exp type="2"> 
+                    <exp type="5" valueType="3" option="true" rightType="val" right="2" leftEntity="AMS_Member" leftField="member_type" uid="exp0"/>  
+                    <exp type="5" valueType="1" option="true" rightType="prop" rightEntity="AMS_MemberAccount" rightField="userId" leftEntity="AMS_Member" leftField="userId" uid="exp1"/> 
+                  </exp> 
+                </where>  
+                <other> 
+                  <groupBy label="Group By"> 
+                    <field uid="id_2" name="account_type" label="账户类型" type="relation" entity="AMS_MemberAccount"/> 
+                  </groupBy>  
+                  <orderBy label="Order By"/> 
+                </other> 
+              </xmlQuery>  
+              <xmlQuery version="2.0" uid="58C38064-0439-4C0A-86EF-475787F23447" name="personalAccount" label="查询个人会员账户"> 
+                <select domainScope="false"> 
+                  <other label="其他" uid="other" name="other"> 
+                    <field name="sum(a1.amount)" uid="other0" fieldType="otherField" MySQLName="" SQLServerName="" OracleName="" label="合计" alias="sumAmount"/> 
+                  </other>  
+                  <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.88EAE8E6D388" name="AMS_MemberAccount" label="会员账户" alias="a1" selectAll="false"> 
+                    <field uid="id_2" name="account_type" label="账户类型" type="relation" entity="AMS_MemberAccount"/> 
+                  </Entity>  
+                  <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0" name="AMS_Member" label="会员" alias="a0" selectAll="false"/> 
+                </select>  
+                <where> 
+                  <exp type="2"> 
+                    <exp type="5" valueType="1" option="true" rightType="prop" rightEntity="AMS_Member" rightField="userId" leftEntity="AMS_MemberAccount" leftField="userId" uid="exp0"/>  
+                    <exp type="5" valueType="3" option="true" leftEntity="AMS_Member" leftField="member_type" uid="exp1" rightType="val" right="3"/> 
+                  </exp> 
+                </where>  
+                <other> 
+                  <groupBy label="Group By"> 
+                    <field uid="id_2" name="account_type" label="账户类型" type="relation" entity="AMS_MemberAccount"/> 
+                  </groupBy>  
+                  <orderBy label="Order By"/> 
+                </other> 
+              </xmlQuery>  
+              <other label="其他" name="other" uid="other"> 
+                <field name="sumAmount" label="总计" calcexp="" uid="field0"/>  
+                <field name="allAccountState" label="账户状态" calcexp="" uid="field1"/> 
+              </other>  
+              <customerDS name="stat" label="stat" uid="5772760C-0BCB-4F2E-8F52-B0C8D4DF989B"> 
+                <field name="name" label="会员名称" calcexp="" uid="field0"/>  
+                <field name="amount" label="余额" calcexp="" uid="field1"/>  
+                <field name="account_type_label" label="账户类型" calcexp="" uid="field2"/> 
+              </customerDS> 
+            </dataSource>  
+            <events label="事件"> 
+              <event name="initialize" label="初始化事件"/>  
+              <event name="preQuery" label="查询前事件"/>  
+              <event name="postQuery" label="查询后事件"><![CDATA[//系统会员账户
+var systemAccount 		= report.getDataSource("systemAccount");
+//普通会员账户
+var personalAccount 	= report.getDataSource("personalAccount");
+var enterpriseAccount 	= report.getDataSource("enterpriseAccount");
+
+var other = report.getDataSource("other");
+if(other == null)
+	other = {};
+
+//自定义数据源
+var stat = [];
+var sumAmount/*:Number*/ = 0;
+//系统会员加入到stat
+for(var i=0; i<systemAccount.length; i++){
+	var member/*:$Entity.AMS_Member*/ = systemAccount[i].AMS_Member;
+	var member_account/*:$Entity.AMS_MemberAccount*/ = systemAccount[i].AMS_MemberAccount;
+	
+	var obj = {};
+	obj.name = member.name;
+	obj.amount = Number(member_account.amount/100).toFixed(2);
+	obj.account_type_label	= member_account.account_type_label
+	
+	stat.push(obj);
+	sumAmount += Number(member_account.amount);
+}
+
+//普通会员加入到stat
+for(var i=0; i<personalAccount.length; i++){
+	var member/*:$Entity.AMS_Member*/ = personalAccount[i].AMS_Member;
+	var member_account/*:$Entity.AMS_MemberAccount*/ = personalAccount[i].AMS_MemberAccount;
+	var member_other = personalAccount[i].other;
+	
+	var obj = {};
+	obj.name = "个人会员";
+	obj.amount = Number(member_other.sumAmount/100).toFixed(2);
+	obj.account_type_label	= member_account.account_type_label;
+	
+	stat.push(obj);
+	sumAmount += Number(member_other.sumAmount);
+}
+
+//企业会员加入到stat
+for(var i=0; i<enterpriseAccount.length; i++){
+	var member/*:$Entity.AMS_Member*/ = enterpriseAccount[i].AMS_Member;
+	var member_account/*:$Entity.AMS_MemberAccount*/ = enterpriseAccount[i].AMS_MemberAccount;
+	var member_other = enterpriseAccount[i].other;
+	if(member_other != null){
+		var obj = {};
+		obj.name = "企业会员";
+		obj.amount = Number(member_other.sumAmount/100).toFixed(2);
+		obj.account_type_label	= member_account.account_type_label;
+		
+		stat.push(obj);
+		sumAmount += Number(member_other.sumAmount);
+	}
+}
+
+
+if(Number(sumAmount) == 0){
+	other.allAccountState = "账户正常";
+}else{
+	other.allAccountState = "账户不平衡";
+}
+
+other.sumAmount = Number(sumAmount/100).toFixed(2);
+
+report.setDataSource("stat", stat);
+report.setDataSource("other", other);
+
+]]></event>  
+              <event name="reportCreated" label="报表生成事件"/>  
+              <event name="printed" label="打印事件" systemEvent="true"/> 
+            </events>  
+            <Document> 
+              <table width="548" height="243" headRow="0" fixedY="false" tailRow="0" name="" x="132" y="105" uid="4956bb1a-4cf5-48c4-89a6-b0466efe8885"> 
+                <tr> 
+                  <td width="548" height="73" rowIndex="0" colIndex="0" sameMerge="" mergeExp="" href="" viewMode="" textAlign="center" fontSize="28" color="#C0C0C" fillColor="#FFFFFF" colSpan="3" fontWeight="bold" borderWidth="0 0 1 0"><![CDATA[系统账户监控]]></td> 
+                </tr>  
+                <tr> 
+                  <td width="225" height="39" rowIndex="1" colIndex="0" sameMerge="" mergeExp="" href="" viewMode="" textAlign="center" fontSize="20" color="#C0C0C" fillColor="#FFC000"><![CDATA[会员名称]]></td>  
+                  <td width="140" height="39" rowIndex="1" colIndex="1" sameMerge="" mergeExp="" href="" viewMode="" textAlign="center" fontSize="20" color="#C0C0C" fillColor="#FFC000"><![CDATA[账户类型]]></td>  
+                  <td width="183" height="39" rowIndex="1" colIndex="2" sameMerge="" mergeExp="" href="" viewMode="" textAlign="center" fontSize="20" color="#C0C0C" fillColor="#FFC000"><![CDATA[余额]]></td> 
+                </tr>  
+                <tr> 
+                  <td width="225" height="40" rowIndex="2" colIndex="0" sameMerge="" mergeExp="" href="" viewMode="" dataSource="stat" labelField="name" dataField="name" fillMode="1" textAlign="center" fillColor="#FFFFFF" fontSize="16"><![CDATA[会员名称]]></td>  
+                  <td width="140" height="40" rowIndex="2" colIndex="1" textAlign="center" sameMerge="" mergeExp="" href="" viewMode="" fillColor="#FFFFFF" fontSize="16" dataSource="stat" labelField="account_type_label" dataField="account_type_label" fillMode="1"><![CDATA[账户类型]]></td>  
+                  <td width="183" height="40" rowIndex="2" colIndex="2" dataSource="stat" labelField="amount" dataField="amount" fillMode="1" textAlign="center" sameMerge="" mergeExp="" href="" viewMode="" fillColor="#FFFFFF" fontSize="16"><![CDATA[余额]]></td> 
+                </tr>  
+                <tr> 
+                  <td width="365" height="43" rowIndex="3" colIndex="0" sameMerge="" mergeExp="" href="" viewMode="" textAlign="center" fillColor="#FFFFFF" fontSize="20" colSpan="2"><![CDATA[总计]]></td>  
+                  <td width="183" height="43" rowIndex="3" colIndex="2" sameMerge="" mergeExp="" href="" viewMode="" textAlign="center" fillColor="#FFFFFF" fontSize="16"><![CDATA[${other.sumAmount}]]></td> 
+                </tr>  
+                <tr> 
+                  <td width="548" height="48" rowIndex="4" colIndex="0" sameMerge="" mergeExp="" href="" viewMode="" textAlign="center" colSpan="3" fillColor="#C0504D" fontSize="20"><![CDATA[${other.allAccountState}]]></td> 
+                </tr> 
+              </table> 
+            </Document>  
+            <conditionForm> 
+              <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2"> 
+                <TabNavigator> 
+                  <tab label="default"/> 
+                </TabNavigator> 
+              </Window> 
+            </conditionForm> 
+          </Report>

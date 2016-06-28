@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.F72E2710EDCA" lastId="13" name="AMS_OrgPayPermission" label="机构支付权限" note="" log="false" workflow="false" nodeID="653" dbcreated="true"> 
+  <relation/>  
+  <extension/>  
+  <property uid="sys_0" label="编号" name="id" type="long" systemProperty="true" group="系统属性字段" editorPart="Entity"/>  
+  <property uid="sys_1" label="域ID" name="domainId" type="long" systemProperty="true" group="系统属性字段" editorPart="Entity"/>  
+  <property name="account_type" label="账户类型" type="relation" uid="id_1" group="业务属性字段" entityUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.62156FFA93F3" labelField="name" editorPart="Entity" dbcreated="true"/>  
+  <property name="payInterface" label="支付通道" type="relation" uid="id_2" group="业务属性字段" entityUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.6439A7310C28" labelField="name" editorPart="Entity" dbcreated="true"/>  
+  <property name="pay_interfaceNo" label="支付通道编号" type="string" length="100" uid="id_3" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="accountNo" label="账户编号" type="string" length="100" uid="id_5" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="org" label="机构" type="relation" uid="id_6" group="业务属性字段" entityUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.5A11C43DEB1B" labelField="name" editorPart="Entity" dbcreated="true"/>  
+  <property name="orgNo" label="机构号" type="string" length="100" uid="id_7" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="pay_interface_type" label="支付通道类型" type="long" uid="id_10" group="业务属性字段" editorPart="Entity" valueProvider="多账户.支付通道类型" dbcreated="true"/>  
+  <property name="trade_type" label="交易类型" type="long" uid="id_11" group="业务属性字段" valueProvider="多账户.交易类型" editorPart="Entity" dbcreated="true"/>  
+  <property name="sub_trade_type" label="交易子类型" type="long" uid="id_12" group="业务属性字段" valueProvider="多账户.交易子类型" editorPart="Entity" dbcreated="true"/>  
+  <property name="debit" label="借记卡" type="boolean" length="100" uid="id_8" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="credit" label="信用卡" type="boolean" length="100" uid="id_9" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="account" label="账户" type="boolean" length="100" uid="id_13" group="业务属性字段" editorPart="Entity" dbcreated="true"/> 
+</Entity>

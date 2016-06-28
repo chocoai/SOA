@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "PUBLIC" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class entity-name="AMS_AdjustAccount" table="DYNA_AMS_AdjustAccount">
+    <id name="id" type="long">
+      <generator class="sequence">
+        <param name="sequence">IDSEQ_AMS_AdjustAccount</param>
+      </generator>
+    </id>
+    <property name="WF_State" not-null="false" type="integer"/>
+    <property name="WF_StateName" not-null="false" length="50" type="string"/>
+    <property name="WF_ProcessId" not-null="false" type="long" index="IDX_PROCESSID"/>
+    <property name="WF_ProcessName" not-null="false" length="100" type="string"/>
+    <property name="FM_CreatePrinId" not-null="false" type="long" index="IDX_CREATEPRINID"/>
+    <property name="FM_CreatePrinName" not-null="false" length="100" type="string"/>
+    <property name="FM_UpdatePrinId" not-null="false" type="long" index="IDX_UPDATEPRINID"/>
+    <property name="FM_UpdatePrinName" not-null="false" length="100" type="string"/>
+    <property name="FM_CreateTime" not-null="false" type="timestamp"/>
+    <property name="FM_UpdateTime" not-null="false" type="timestamp"/>
+    <property name="WF_ProcessorPrinId" not-null="false" type="long" index="IDX_PROCPRINID"/>
+    <property name="WF_ProcessorPrinName" not-null="false" length="100" type="string"/>
+    <property name="WF_WorkItemId" not-null="false" type="long" index="IDX_WORKITEMID"/>
+    <property name="domainId" not-null="false" type="long" index="IDX_DOMAINID"/>
+    <property name="source_userId" not-null="false" type="string" length="100"/>
+    <property name="target_userId" not-null="false" type="string" length="100"/>
+    <property name="remark" not-null="false" type="string" length="1024"/>
+    <property name="account_type_id" not-null="false" type="long" index="account_type_idx"/>
+    <property name="account_type_label" not-null="false" type="string" length="200"/>
+    <property name="trade_money" not-null="false" type="long"/>
+    <property name="errorTradeHandle_id" not-null="false" type="long" index="errorTradeHandle_idx"/>
+    <property name="errorTradeHandle_label" not-null="false" type="string" length="200"/>
+    <property name="source_member_id" not-null="false" type="long" index="source_member_idx"/>
+    <property name="source_member_label" not-null="false" type="string" length="200"/>
+    <property name="target_member_id" not-null="false" type="long" index="target_member_idx"/>
+    <property name="target_member_label" not-null="false" type="string" length="200"/>
+    <property name="source_name" not-null="false" type="string" length="100"/>
+    <property name="target_name" not-null="false" type="string" length="100"/>
+    <property name="source_memberNo" not-null="false" type="string" length="100"/>
+    <property name="taget_memberNo" not-null="false" type="string" length="100"/>
+    <property name="auditor_id" not-null="false" type="long" index="auditor_idx"/>
+    <property name="auditor_name" not-null="false" type="string" length="100"/>
+    <property name="auditor_date" not-null="false" type="timestamp" length="100"/>
+    <property name="operator_id" not-null="false" type="long" index="operator_idx"/>
+    <property name="operator_name" not-null="false" type="string" length="100"/>
+    <property name="target_memberNo" not-null="false" type="string" length="100"/>
+    <property name="bizid" not-null="false" type="string"/>
+    <property name="error_msg" not-null="false" type="string" length="100"/>
+    <property name="target_account_type_id" not-null="false" type="long" index="target_account_type_idx"/>
+    <property name="target_account_type_label" not-null="false" type="string" length="200"/>
+  </class>
+</hibernate-mapping>

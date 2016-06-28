@@ -1,0 +1,471 @@
+package bps.order;
+
+import ime.core.Reserved;
+import ime.core.services.DynamicEntityService;
+import ime.security.LoginSession;
+
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import org.apache.log4j.Logger;
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import com.kinorsoft.ams.TradeCommandManager;
+
+import apf.util.EntityManagerUtil;
+import apf.work.TransactionWork;
+import bps.common.BizException;
+import bps.common.Constant;
+import bps.common.ErrorCode;
+import bps.monitor.TransMonitor;
+
+public class RefundOrder extends Order {
+	private static Logger logger = Logger.getLogger(RefundOrder.class.getName());
+	
+	@Override
+	public Map<String,Object> applyOrder(Map<String, Object> param) throws Exception {
+		// TODO Auto-generated method stub
+		logger.info("RefundOrder.createOrder start");
+		logger.info("param="+param);
+		
+		final Long money = (Long) param.get("money");
+		final Map<String, Object> oriOrderMap = new HashMap<String, Object>();
+		final String oriOrderNo = (String) param.get("oriOrderNo");
+		final String refundList = (String)param.get("refundList");
+		oriOrderMap.put("oriReturnMoney", 0L);
+		if(money == null || money == 0L)
+			throw new BizException(ErrorCode.PARAM_ERROR,"请传入参数money");
+		if(oriOrderNo == null || oriOrderNo.equals(""))
+			throw new BizException(ErrorCode.PARAM_ERROR,"请传入参数oriOrderNo");
+		if(param.get("applicationId")== null)
+			throw new BizException(ErrorCode.PARAM_ERROR,"请传入参数applicationId");
+		try {
+            //创建订单
+            final Map<String, String> entityMap = new HashMap<String, String>();
+            final List<Map<String, Object>> oriCommandlist = new ArrayList<Map<String, Object>>();
+            entityMap.put("order_state",            Constant.ORDER_STATE_WAIT_PAY.toString());
+			entityMap.put("order_money", 			money.toString());
+			Calendar calendar = Calendar.getInstance();
+			entityMap.put("create_time", 			String.valueOf(calendar.getTime().getTime()));
+
+			entityMap.put("trade_type", 			Constant.TRADE_TYPE_REFUNDMENT.toString());
+			entityMap.put("order_state", 			Constant.ORDER_STATE_WAIT_PAY.toString());
+			entityMap.put("order_type", 			Constant.ORDER_TYPE_REFUNDMENT.toString());
+			entityMap.put("orgNo", 					param.get("orgNo").toString());
+			entityMap.put("refund_orderNo", 		oriOrderNo);
+			entityMap.put("bizOrderNo",             param.get("bizOrderNo").toString());
+            entityMap.put("description", 			"退款");
+			entityMap.put("application_id",         param.get("applicationId").toString());
+			entityMap.put("application_label",      param.get("applicationName").toString());
+			if(param.get("extend_info") != null){
+				entityMap.put("extend_info", String.valueOf(param.get("extend_info")));
+            }
+			if(param.get("summary") != null){
+	        	entityMap.put("summary", String.valueOf(param.get("summary")));
+	        }
+            if(refundList!=null && !"".equals(refundList)){
+            	entityMap.put("refundList", refundList);
+            }
+            LoginSession.backUse(null, Reserved.BACKUSER_ID, Reserved.MAIN_DOMAIN_ID);
+            Map<String,Object> retMap =
+	        EntityManagerUtil.execute(new TransactionWork<Map<String,Object>>() {
+	        	@Override
+	        	public boolean before(Session session) throws Exception {
+	        		Map<String,Object> orderEntity = getOrder(Long.parseLong(entityMap.get("application_id")),entityMap.get("bizOrderNo"),session);
+					if(orderEntity != null){
+						throw new Exception("退款订单号已经存在！");
+					}
+	        		
+	        		Map<String, Object> oriOrderEntity = getOrder(oriOrderNo, session);
+					if(oriOrderEntity == null)
+						throw new Exception("原交易订单不存在");
+					if(Constant.ORDER_STATE_CLOSE.equals((Long)oriOrderEntity.get("order_state")) 
+							|| Constant.ORDER_STATE_WAIT_PAY.equals((Long)oriOrderEntity.get("order_state")) 
+							){
+						throw new Exception("原交易订单状态错误，无法退款");
+					}
+					if(!(Constant.ORDER_TYPE_SHOPPING.equals(oriOrderEntity.get("order_type"))||Constant.ORDER_TYPE_DAISHOU.equals(oriOrderEntity.get("order_type")))){
+						throw new Exception("原交易订单不允许退款");
+					}
+					oriOrderMap.putAll(oriOrderEntity);
+		            entityMap.put("member_id",              oriOrderEntity.get("member_id").toString());
+		            entityMap.put("member_name",            (String)oriOrderEntity.get("member_name"));
+		            entityMap.put("member_uuid",            (String)oriOrderEntity.get("member_uuid"));
+		            entityMap.put("memberNo",               (String)oriOrderEntity.get("memberNo"));
+
+		            if(oriOrderEntity.get("target_member_id") != null) {
+			            entityMap.put("target_member_id",       oriOrderEntity.get("target_member_id").toString());
+			            entityMap.put("target_member_name",     (String)oriOrderEntity.get("target_member_name"));
+			            entityMap.put("target_uuid",            (String)oriOrderEntity.get("target_uuid"));
+			            entityMap.put("target_memberNo",        (String)oriOrderEntity.get("target_memberNo"));
+		            }
+		            List<Map<String, Object>> list = Order.getSuccessCommands(oriOrderNo, session);
+		            logger.info("list="+list);
+		            if(list != null) {
+		            	//把网关和its放在交易的最前面
+		        		for(Map<String, Object> temp : list) {
+		                	if(Constant.PAY_INTERFACE_GETWAY_JJ.equals((String)temp.get("pay_interfaceNo")) || Constant.PAY_INTERFACE_QUICK.equals((String)temp.get("pay_interfaceNo"))) {
+		                		oriCommandlist.add(temp);
+		                	}
+		        		}
+		        		for(Map<String, Object> temp : list) {
+		                	if(Constant.PAY_INTERFACE_AMS.equals((String)temp.get("pay_interfaceNo")) ) {
+		                		oriCommandlist.add(temp);
+		                	}
+		        		}
+		            }
+		            //检测退款金额是否有超过原订单金额
+					Long oriReturnMoney = (Long) oriOrderMap.get("oriReturnMoney");
+		            Query query = session.createQuery("from AMS_Order where refund_orderNo=:refund_orderNo");
+	                query.setParameter("refund_orderNo", oriOrderNo);
+	                List<Map<String, Object>> oldReturnOrderList = query.list();
+	                if(oldReturnOrderList != null) {
+	                	for (Map<String, Object> temp : oldReturnOrderList) {
+	                		oriReturnMoney += (Long)temp.get("order_money");
+						}
+		        		oriOrderMap.put("oriReturnMoney", oriReturnMoney);
+		        		
+		        		if(oriReturnMoney + money > (Long)oriOrderMap.get("order_money")) {
+		        			throw new BizException(ErrorCode.OTHER_ERROR, "退款金额超出订单金额");
+		        		}
+	                }
+	                //如果是代收订单，校验退款列表
+	                if(Constant.ORDER_TYPE_DAISHOU.equals(oriOrderMap.get("order_type"))){
+	                	JSONArray refundArr = null;
+	                	try{
+	                		refundArr = new JSONArray(refundList);
+	                	}catch(Exception e){
+	                		throw new Exception("退款人列表格式出错");
+	                	}
+	                	List<Map<String,Object>> agentDetailList = Order.getAgentDetailList((Long)oriOrderMap.get("id"),session);
+	                	long all_refund_amount = 0L;
+	                	for(int i=0;i<refundArr.length();i++){
+	                		JSONObject refund = refundArr.getJSONObject(i);
+	                		String bizUserId = refund.getString("bizUserId");
+	                		Long refund_amount = refund.getLong("amount");
+	                		long sx_amount = 0L;
+	                		for(Map<String,Object> agentDetail : agentDetailList){
+		           				 if(agentDetail.get("bizUserId").equals(bizUserId)){
+		           					 Long sx = (Long)agentDetail.get("sk_amount") - (Long)agentDetail.get("ys_amount") -(Long)agentDetail.get("tk_amount");
+		           					 sx_amount += sx;
+		           				 }
+		           			}
+	                		if(sx_amount<refund_amount.longValue()){
+		           				 throw new Exception("代收订单"+oriOrderMap.get("bizOrderNo")+"中退款金额不足");
+		           			}
+	                		all_refund_amount += refund_amount;
+	                	}
+	                	if(all_refund_amount!=money){
+	                		throw new Exception("退款金额与付款人列表中的退款金额不符");
+	                	}
+	                }
+					return true;
+	        	}
+	        	
+				@Override
+				public Map<String,Object> doTransaction(Session session, Transaction tx)
+						throws Exception {
+					
+					Map<String, Object> orderEntity = DynamicEntityService.createEntity("AMS_Order", entityMap, null);
+	                String orderNo = Order.generateOrderNo((Long)orderEntity.get("id"));
+	                Query query = session.createQuery("update AMS_Order set orderNo=:orderNo where id=:orderId");
+	                query.setParameter("orderNo", orderNo);
+	                query.setParameter("orderId", (Long)orderEntity.get("id"));
+	                query.executeUpdate();
+	                orderEntity.put("orderNo", orderNo);
+	                createReturnCommands(money, (Long) oriOrderMap.get("oriReturnMoney"), orderNo, oriOrderMap, oriCommandlist, session);
+	                completeOrder(orderEntity, null, session);
+	                Map<String,Object> ret = new HashMap<String,Object>();
+	                ret.put("orderNo", orderNo);
+	                return ret;
+				}
+	        });
+            
+			return retMap ;
+		} catch (BizException e) {
+			logger.error(e.getMessage(), e);
+			throw e;
+		} catch (Exception e) {
+			logger.error(e.getMessage(), e);
+			throw new BizException(ErrorCode.UNKNOWN_ERROR,e.getMessage());
+		}
+	}
+	/**
+	 * 
+	* (这里用一句话描述这个方法的作用) 
+	* @param returnMoney	  //退款金额
+	* @param oriReturnMoney   //以前退款金额
+	* @param orderNo		  //订单号
+	* @param oriOrderMap	  //原订单	
+	* @param oriCommandlist   //源订单指令
+	* @param session
+	* @throws Exception
+	 */
+	public void createReturnCommands(Long returnMoney, Long oriReturnMoney, String orderNo, Map<String, Object> oriOrderMap, List<Map<String, Object>> oriCommandlist, Session session) throws Exception {
+		logger.info("RefundOrder.createReturnCommands start");
+		logger.info("returnMoney="+returnMoney+"oriReturnMoney="+oriReturnMoney+"oriOrderMap="+oriOrderMap+"oriCommandlist="+oriCommandlist);
+		Map<String, String> strMap = null;
+		//全额退款
+		if(returnMoney.equals((Long)oriOrderMap.get("order_money"))) {
+	        for(Map<String, Object> temp : oriCommandlist) {
+				if(temp.get("sub_trade_type") != null && ((Long)temp.get("sub_trade_type")).equals(Constant.SUB_TRADE_TYPE_FEE)) {
+					continue;
+				}
+	        	strMap = new HashMap<String, String>();
+				Set<String> keys = temp.keySet();
+				for (String key : keys) {
+					if(temp.get(key) == null) {
+						continue;
+					}
+					if(key.equals("bizid")) {
+						strMap.put(key, orderNo);
+						continue;
+					} else if(key.equals("$type$") || key.equals("id")) {
+						continue;
+					} else if(key.equals("remark")) {
+						strMap.put("remark", "退款");
+						continue;
+					} else if(key.equals("trade_money")) {
+						strMap.put(key, (Long)temp.get(key) + "");
+						continue;
+					}
+					strMap.put(key, String.valueOf(temp.get(key)));
+				}
+				logger.info("strMap11111111111="+strMap);
+	            DynamicEntityService.createEntity("AMS_OrderPayDetail", strMap, null);
+			}
+		} else {
+			Map<Long,Long> itsorwg = new HashMap<Long,Long>();//its或者网关支付的金额，<账户集ID,金额>
+			Map<Long,Long> inaccountttk = new HashMap<Long,Long>();//内部退款金额，
+			//这里搞Its和网关的退款
+			for(Map<String, Object> temp : oriCommandlist) {
+				if(temp.get("sub_trade_type") != null && ((Long)temp.get("sub_trade_type")).equals(Constant.SUB_TRADE_TYPE_FEE)) {
+					continue;
+				}
+				//its和网关的消费的金额
+				if(oriOrderMap.get("member_uuid").equals(temp.get("target_userId"))) {
+					Long accountTypeId = (Long)temp.get("target_account_type_id");
+					if(itsorwg.get(accountTypeId)==null){
+						itsorwg.put(accountTypeId, (Long)temp.get("trade_money"));
+					}else{
+						itsorwg.put(accountTypeId, itsorwg.get(accountTypeId) + (Long)temp.get("trade_money"));
+					}
+				}
+				//以前退款的金额小于目前指令的金额，说明此账户还能继续退款
+				if(oriReturnMoney < (Long)temp.get("trade_money")) {
+					Long trade_money = (Long)temp.get("trade_money") - oriReturnMoney;
+					
+					if(temp.get("pay_interfaceNo") != null && Constant.PAY_INTERFACE_AMS.equals((String)temp.get("pay_interfaceNo")) ) {
+						Long accountTypeId = (Long)temp.get("target_account_type_id");
+						if(itsorwg.get(accountTypeId) != null){
+							trade_money -= itsorwg.get(accountTypeId);
+						}
+        			}
+					if(trade_money.longValue()>= returnMoney){//如果此指令的交易金额大于退款金额，就从此此账户中全部退款
+						//是its或者网关的金额
+						if(temp.get("pay_interfaceNo") != null && !Constant.PAY_INTERFACE_AMS.equals((String)temp.get("pay_interfaceNo"))) {
+							Long accountTypeId = (Long)temp.get("target_account_type_id");
+							if(inaccountttk.get(accountTypeId)==null){
+								inaccountttk.put(accountTypeId, returnMoney);
+							}else{
+								inaccountttk.put(accountTypeId, returnMoney+inaccountttk.get(accountTypeId));
+							}
+						}else{
+							Long accountTypeId = (Long)temp.get("account_type_id");
+							if(inaccountttk.get(accountTypeId)==null){
+								inaccountttk.put(accountTypeId, returnMoney);
+							}else{
+								inaccountttk.put(accountTypeId, returnMoney+inaccountttk.get(accountTypeId));
+							}
+							continue;
+						}
+						
+						strMap = new HashMap<String, String>();
+        				Set<String> keys = temp.keySet();
+        				for (String key : keys) {
+        					if(temp.get(key) == null) {
+        						continue;
+        					}
+        					if(key.equals("bizid")) {
+        						strMap.put(key, orderNo);
+        						continue;
+        					} else if(key.equals("trade_money")) {
+        						strMap.put(key, returnMoney.toString());
+        						continue;
+        					} else if(key.equals("$type$") || key.equals("id")) {
+        						continue;
+        					} else if(key.equals("remark")) {
+        						strMap.put("remark", "退款");
+        						continue;
+        					}
+        					strMap.put(key, String.valueOf(temp.get(key)));
+        				}
+        				logger.info("strMap22222222222---1="+strMap);
+        	            DynamicEntityService.createEntity("AMS_OrderPayDetail", strMap, null);
+        				break;
+						
+					}else{
+						//如果此指令的交易金额小于退款金额，就把此账户的全部退款，在去退款其他账户的
+						
+						//是its或者网关的金额
+						if(temp.get("pay_interfaceNo") != null && !Constant.PAY_INTERFACE_AMS.equals((String)temp.get("pay_interfaceNo"))) {
+							Long accountTypeId = (Long)temp.get("target_account_type_id");
+							if(inaccountttk.get(accountTypeId)==null){
+								inaccountttk.put(accountTypeId, trade_money);
+							}else{
+								inaccountttk.put(accountTypeId, trade_money+inaccountttk.get(accountTypeId));
+							}
+						}else{
+							Long accountTypeId = (Long)temp.get("target_account_type_id");
+							if(inaccountttk.get(accountTypeId)==null){
+								inaccountttk.put(accountTypeId, trade_money);
+							}else{
+								inaccountttk.put(accountTypeId, trade_money+inaccountttk.get(accountTypeId));
+							}
+							continue;
+						}
+						
+						returnMoney -= trade_money;
+						strMap = new HashMap<String, String>();
+        				Set<String> keys = temp.keySet();
+        				for (String key : keys) {
+        					if(temp.get(key) == null) {
+        						continue;
+        					}
+        					if(key.equals("bizid")) {
+        						strMap.put(key, orderNo);
+        						continue;
+        					} else if(key.equals("trade_money")) {
+        						strMap.put(key, trade_money.toString());
+        						continue;
+        					} else if(key.equals("$type$") || key.equals("id")) {
+        						continue;
+        					} else if(key.equals("remark")) {
+        						strMap.put("remark", "退款");
+        						continue;
+        					}
+        					strMap.put(key, String.valueOf(temp.get(key)));
+        				}
+        				logger.info("strMap22222222222---2="+strMap);
+        	            DynamicEntityService.createEntity("AMS_OrderPayDetail", strMap, null);
+					}
+					
+					
+				}else {
+					//以前退款的金额大于目前的金额，说明此账户已经退款了，不需要在退款了
+        			oriReturnMoney -= (Long)temp.get("trade_money");
+        			
+        		}
+			}
+			
+			//这里去搞内部退款
+			logger.info("inaccountttk:"+inaccountttk);
+			for (Long accountTypeId : inaccountttk.keySet()) {
+				Long tradeMoney = inaccountttk.get(accountTypeId);
+				if(tradeMoney.longValue()>0L){
+					for(Map<String, Object> temp : oriCommandlist) {
+						if(temp.get("sub_trade_type") != null && ((Long)temp.get("sub_trade_type")).equals(Constant.SUB_TRADE_TYPE_FEE)) {
+							continue;
+						}
+						if(temp.get("pay_interfaceNo") != null && Constant.PAY_INTERFACE_AMS.equals((String)temp.get("pay_interfaceNo")) && accountTypeId.equals(temp.get("account_type_id"))) {
+							strMap = new HashMap<String, String>();
+	        				Set<String> keys = temp.keySet();
+	        				for (String key : keys) {
+	        					if(temp.get(key) == null) {
+	        						continue;
+	        					}
+	        					if(key.equals("bizid")) {
+	        						strMap.put(key, orderNo);
+	        						continue;
+	        					} else if(key.equals("trade_money")) {
+	        						strMap.put(key, tradeMoney.toString());
+	        						continue;
+	        					} else if(key.equals("$type$") || key.equals("id")) {
+	        						continue;
+	        					} else if(key.equals("remark")) {
+	        						strMap.put("remark", "退款");
+	        						continue;
+	        					}
+	        					strMap.put(key, String.valueOf(temp.get(key)));
+	        				}
+	        				logger.info("strMap22222222222---3="+strMap);
+	        	            DynamicEntityService.createEntity("AMS_OrderPayDetail", strMap, null);
+	        	            break;
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	//回调事件
+	public void completePay(Map<String, Object> refundOrderEntity, Session session)
+			throws Exception {
+		//一次性操作完成，不进行实际操作
+	}
+	
+	@Override
+	public String completeOrder(Map<String, Object> order_entity, Map<String, Object> param, Session session)
+			throws Exception {
+		logger.info("RefundOrder.completeOrder start:"+order_entity);
+		String orderNo = (String)order_entity.get("orderNo");
+		try {
+			//撤销操作
+            TradeCommandManager manager = TradeCommandManager.instance();
+            manager.undoCommands(orderNo);
+		} catch(Exception e) {
+			logger.error(e.getMessage(), e);
+			throw e;
+		}
+		
+		Map<String,Object> orderMap = Order.getOrder(orderNo, session);
+		String refund_orderNo = (String)orderMap.get("refund_orderNo");
+		Map<String,Object> oriOrderMap = Order.getOrder(refund_orderNo, session);
+		if(Constant.ORDER_TYPE_DAISHOU.equals(oriOrderMap.get("order_type"))){
+			String refundList = (String)orderMap.get("refundList");
+			JSONArray jsonArray = new JSONArray(refundList);
+			for(int i=0;i<jsonArray.length();i++){
+				JSONObject refund = jsonArray.getJSONObject(i);
+				String bizUserId = refund.getString("bizUserId");
+				Long amount = refund.getLong("amount");
+				List<Map<String,Object>> agentDetailList = Order.getAgentDetailList((Long)oriOrderMap.get("id"),session);
+				for(Map<String,Object> detail:agentDetailList){
+					if(detail.get("bizUserId").equals(bizUserId)){
+						Query query = session.createQuery("update AMS_AgentDetail set tk_amount=:tk_amount where id=:id");
+						Long sy = (Long)detail.get("sk_amount")-(Long)detail.get("ys_amount")-(Long)detail.get("tk_amount");
+						if(sy.longValue()<amount){
+							query.setParameter("tk_amount", (Long)detail.get("tk_amount") + sy);
+							amount = amount - sy;
+						}else{
+							query.setParameter("tk_amount", (Long)detail.get("tk_amount") + amount);
+							amount = amount - amount;
+						}
+						query.setParameter("id", (Long)detail.get("id"));
+						int rt = query.executeUpdate();
+						if(rt!=1){
+							throw new Exception("修改代收明细出错");
+						}
+					}
+				}
+				if(amount.longValue()>0){
+					throw new Exception("代收订单金额不足！");
+				}
+			}
+		}
+		
+		//修改订单完成
+		return super.completeOrder(order_entity, null, session);
+		
+		
+		
+	}
+}

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.CB465E1B5453" lastId="31" name="AMS_PayInterfaceBank" label="通道银行" note="" log="false" workflow="false" nodeID="545" dbcreated="true"> 
+  <relation/>  
+  <extension/>  
+  <property uid="sys_0" label="编号" name="id" type="long" systemProperty="true" group="系统属性字段" editorPart="Entity"/>  
+  <property uid="sys_1" label="域ID" name="domainId" type="long" systemProperty="true" group="系统属性字段" editorPart="Entity"/>  
+  <property name="pay_interface" label="支付通道" type="relation" uid="id_1" group="业务属性字段" entityUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.6439A7310C28" labelField="name" editorPart="Entity" dbcreated="true"/>  
+  <property name="bank" label="银行" type="relation" uid="id_2" group="业务属性字段" entityUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.49B45721ED2E" labelField="name" editorPart="Entity" dbcreated="true"/>  
+  <property name="remark" label="备注" type="string" length="100" uid="id_4" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="pay_interfaceNo" label="通道编号" type="string" length="100" uid="id_5" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="bank_code" label="银行代码" type="string" length="100" uid="id_6" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="debit" label="借记卡" type="boolean" length="100" uid="id_7" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="credit" label="贷记卡" type="boolean" length="100" uid="id_8" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="debit_handling_mode" label="借记手续费收费模式" type="long" uid="id_9" group="业务属性字段" editorPart="Entity" valueProvider="手续费.手续费收费模式" dbcreated="true"/>  
+  <property name="credit_handling_mode" label="贷记手续费收费模式" type="long" uid="id_10" group="业务属性字段" editorPart="Entity" valueProvider="手续费.手续费收费模式" dbcreated="true"/>  
+  <property name="debit_handling_each" label="借记固定" type="long" uid="id_12" group="业务属性字段" editorPart="Entity" currency="true" dbcreated="true"/>  
+  <property name="credit_handling_each" label="贷记固定" type="long" uid="id_13" group="业务属性字段" editorPart="Entity" currency="true" dbcreated="true"/>  
+  <property name="debit_handling_type" label="借记收费方式" type="long" uid="id_14" group="业务属性字段" editorPart="Entity" valueProvider="手续费.手续费收费方式" dbcreated="true"/>  
+  <property name="credit_handling_type" label="贷记收费方式" type="long" uid="id_15" group="业务属性字段" editorPart="Entity" valueProvider="手续费.手续费收费方式" dbcreated="true"/>  
+  <property name="debit_handling_rate" label="借记比例" type="double" uid="id_16" group="业务属性字段" editorPart="Entity" fraction="4" dbcreated="true"/>  
+  <property name="credit_handling_rate" label="贷记比例" type="double" uid="id_17" group="业务属性字段" editorPart="Entity" fraction="4" dbcreated="true"/>  
+  <property name="debit_limit_single" label="单笔限额(借记)" type="long" uid="id_18" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="debit_limit_day" label="每日限额(借记)" type="long" uid="id_19" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="debit_limit_month" label="每月限额(借记)" type="long" uid="id_20" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="debit_remark" label="备注(借记)" type="string" length="100" uid="id_21" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="credit_limit_single" label="单笔限额(贷记)" type="string" length="100" uid="id_22" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="credit_limit_day" label="每日限额(贷记)" type="string" length="100" uid="id_23" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="credit_limit_month" label="每月限额(贷记)" type="string" length="100" uid="id_24" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="credit_remark" label="备注(贷记)" type="string" length="100" uid="id_25" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="en_bank_code" label="银行代码(英文)" type="string" length="100" uid="id_26" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="account_prop_p" label="个人" type="boolean" length="100" uid="id_27" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="account_prop_c" label="企业" type="boolean" length="100" uid="id_28" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="single" label="单笔" type="boolean" length="100" uid="id_29" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="batch" label="批量" type="boolean" length="100" uid="id_30" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="is_sms_verify" label="是否IT短信验证" type="boolean" length="100" uid="id_31" group="业务属性字段" dbcreated="true"/> 
+</Entity>

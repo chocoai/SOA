@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Entity name="UserProfile" label="用户配置" note="" log="false" workflow="false" lastId="3" uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.07B00F3CB373" nodeID="187" dbcreated="true"> 
+  <property uid="sys_0" label="编号" name="id" type="long" systemProperty="true" note="" currency="" valueProvider="" toolTip=""/>  
+  <property uid="sys_1" label="域ID" name="domainId" type="long" systemProperty="true"/>  
+  <relation/>  
+  <extension/>  
+  <property name="owner_user" label="所属用户" type="principal" uid="id_1" note="" toolTip="" dbcreated="true"/>  
+  <property name="last_logout_time" label="最后注销时间" type="timestamp" length="100" uid="id_2" note="" toolTip="" dbcreated="true"/>  
+  <property name="profile_type" label="配置类型" type="string" length="100" uid="id_3" note="" toolTip="" dbcreated="true"/>  
+  <property name="profile_content" label="配置内容" type="string" length="5000" uid="id_4" note="" valueProvider="" toolTip="" dbcreated="true"/> 
+</Entity>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "PUBLIC" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class entity-name="AMS_AuthPayLog" table="DYNA_AMS_AuthPayLog">
+    <id name="id" type="long">
+      <generator class="sequence">
+        <param name="sequence">IDSEQ_AMS_AuthPayLog</param>
+      </generator>
+    </id>
+    <property name="domainId" not-null="false" type="long" index="IDX_DOMAINID"/>
+    <property name="userId" not-null="false" type="string" length="100"/>
+    <property name="accountNo" not-null="false" type="string" length="100"/>
+    <property name="bank_code" not-null="false" type="string" length="100"/>
+    <property name="account_name" not-null="false" type="string" length="100"/>
+    <property name="identity_cardNo" not-null="false" type="string" length="100"/>
+    <property name="card_type" not-null="false" type="long"/>
+    <property name="accountNo_encrypt" not-null="false" type="string" length="100"/>
+    <property name="identity_cardNo_encrypt" not-null="false" type="string" length="100"/>
+    <property name="phone" not-null="false" type="string" length="100"/>
+    <property name="sign_state" not-null="false" type="long"/>
+    <property name="verification_code" not-null="false" type="string" length="100"/>
+    <property name="tl_contract_no" not-null="false" type="string" length="100"/>
+    <property name="bank_contract_no" not-null="false" type="string" length="100"/>
+    <property name="ret_code" not-null="false" type="string" length="100"/>
+    <property name="ret_msg" not-null="false" type="string" length="512"/>
+    <property name="its_trace_num" not-null="false" type="string" length="100"/>
+    <property name="its_trans_date" not-null="false" type="string" length="100"/>
+    <property name="its_trans_time" not-null="false" type="string" length="100"/>
+    <property name="error_code" not-null="false" type="string" length="100"/>
+    <property name="error_msg" not-null="false" type="string" length="512"/>
+    <property name="trace_num" not-null="false" type="string" length="100"/>
+    <property name="acct_validdate" not-null="false" type="string" length="100"/>
+    <property name="cvv2" not-null="false" type="string" length="100"/>
+    <property name="send_sms" not-null="false" type="string" length="100"/>
+    <property name="ori_trace_num" not-null="false" type="string" length="100"/>
+    <property name="ori_trans_date" not-null="false" type="string" length="100"/>
+    <property name="cnl_id" not-null="false" type="string" length="100"/>
+    <property name="sign_type" not-null="false" type="long"/>
+    <property name="trans_date" not-null="false" type="string" length="100"/>
+    <property name="trans_time" not-null="false" type="string" length="100"/>
+    <property name="trans_amount" not-null="false" type="string" length="100"/>
+    <property name="bank_name" not-null="false" type="string" length="100"/>
+    <property name="acct_cat" not-null="false" type="string" length="100"/>
+    <property name="account_type_id" not-null="false" type="long" index="account_type_idx"/>
+    <property name="account_type_label" not-null="false" type="string" length="200"/>
+    <property name="is_safe_cards" not-null="false" type="boolean" length="100"/>
+  </class>
+</hibernate-mapping>

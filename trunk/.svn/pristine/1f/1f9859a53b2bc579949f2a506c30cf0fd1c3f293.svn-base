@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityForm name="积分活动" label="积分活动" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.9449972AAF0E" nodeID="626"> 
+              <formEntity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.BBC789BB8D76"/>  
+              <formState> 
+                <state label="基础" uid="state0" basedOn="null"> 
+                  <rule type="required" property="begin_date" label="开始日期" rule="true"/>  
+                  <rule type="required" property="end_date" label="截止日期" rule="true"/>  
+                  <rule type="required" property="bonus_rule" label="积分行为" rule="true"/>  
+                  <rule type="value" property="day_limit_num" label="每日次数上限" rule="$this.bonus_rule.day_limit_num"/>  
+                  <rule type="required" property="day_limit_num" label="每日次数上限" rule="true"/>  
+                  <rule type="value" property="day_limit_total" label="每日积分上限" rule="$this.bonus_rule.day_limit_total"/>  
+                  <rule type="required" property="day_limit_total" label="每日积分上限" rule="true"/>  
+                  <rule type="value" property="amount" label="积分数" rule="$this.bonus_rule.amount"/>  
+                  <rule type="required" property="amount" label="积分数" rule="true"/>  
+                  <rule type="required" property="provide_total" label="发放积分总额" rule="true"/>  
+                  <rule type="required" property="provide_num" label="发放积分次数" rule="true"/>  
+                  <rule type="required" property="system_member" label="活动营销账户" rule="true"/>  
+                  <rule type="value" property="system_uuid" label="系统UUID" rule="$this.system_member.userId"/>  
+                  <rule type="enabled" property="system_uuid" label="系统UUID" rule="false"/>  
+                  <rule type="required" property="system_uuid" label="系统UUID" rule="true"/>  
+                  <rule type="value" property="activity_status" label="状态" rule="1"/>  
+                  <rule type="value" property="bonus_rule_codeNo" label="积分行为编号" rule="$this.bonus_rule.codeNo"/>  
+                  <rule type="enabled" property="bonus_rule_codeNo" label="积分行为编号" rule="false"/> 
+                </state>  
+                <state label="新建" uid="state1" basedOn="state0"> 
+                  <rule type="required" property="begin_date" label="开始日期" rule="true"/>  
+                  <rule type="required" property="end_date" label="截止日期" rule="true"/>  
+                  <rule type="required" property="bonus_rule" label="积分行为" rule="true"/>  
+                  <rule type="required" property="day_limit_num" label="每日次数上限" rule="true"/>  
+                  <rule type="required" property="day_limit_total" label="每日积分上限" rule="true"/>  
+                  <rule type="required" property="amount" label="积分数" rule="true"/>  
+                  <rule type="required" property="provide_total" label="发放积分总额" rule="true"/>  
+                  <rule type="required" property="provide_num" label="发放积分次数" rule="true"/>  
+                  <rule type="required" property="system_member" label="活动营销账户" rule="true"/>  
+                  <rule type="enabled" property="system_uuid" label="系统UUID" rule="false"/>  
+                  <rule type="required" property="system_uuid" label="系统UUID" rule="true"/> 
+                </state> 
+              </formState>  
+              <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2"> 
+                <TabNavigator> 
+                  <tab label="default"> 
+                    <Label width="82" height="25" text="开始日期:" propertyUID="id_1" x="3" y="3" style=""/>  
+                    <DateField propertyUID="id_1" width="159" height="25" x="103" y="3"/>  
+                    <Label width="82" height="25" text="截止日期:" propertyUID="id_2" x="283" y="3" style=""/>  
+                    <DateField propertyUID="id_2" width="159" height="25" x="383" y="3"/>  
+                    <Label width="82" height="25" text="积分行为:" propertyUID="id_3" x="3" y="31" style=""/>  
+                    <EntityField propertyUID="id_3" width="159" height="25" x="103" y="31" formUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.46B2CA20FF81" queryUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.D115C55619E0" mode="dropdown"/>  
+                    <Label width="100" height="25" text="每日次数上限:" propertyUID="id_4" x="2" y="59" style=""/>  
+                    <TextInput propertyUID="id_4" width="159" height="25" x="103" y="59"/>  
+                    <Label width="99" height="25" text="每日积分上限:" propertyUID="id_5" x="283" y="59" style=""/>  
+                    <TextInput propertyUID="id_5" width="159" height="25" x="383" y="59"/>  
+                    <Label width="82" height="25" text="积分数:" propertyUID="id_6" x="283" y="31" style=""/>  
+                    <TextInput propertyUID="id_6" width="159" height="25" x="383" y="31"/>  
+                    <Label width="99" height="25" text="发放积分总额:" propertyUID="id_7" x="3" y="87" style=""/>  
+                    <TextInput propertyUID="id_7" width="159" height="25" x="103" y="87"/>  
+                    <Label width="99" height="25" text="发放积分次数:" propertyUID="id_8" x="283" y="87" style=""/>  
+                    <TextInput propertyUID="id_8" width="159" height="25" x="383" y="87"/>  
+                    <Label width="99" height="25" text="活动营销账户:" propertyUID="id_9" x="3" y="115" style=""/>  
+                    <EntityField propertyUID="id_9" width="159" height="25" x="103" y="115" formUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.2E2EF422672F" queryUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.CA7E119E5461" pageUID=""/>  
+                    <Label width="82" height="25" text="系统UUID:" propertyUID="id_10" x="3" y="143" style=""/>  
+                    <TextInput propertyUID="id_10" width="439" height="25" x="103" y="143"/>  
+                    <Label width="99" height="25" text="积分行为编号:" propertyUID="id_14" x="283" y="115" style=""/>  
+                    <TextInput propertyUID="id_14" width="159" height="25" x="383" y="115"/> 
+                  </tab> 
+                </TabNavigator> 
+              </Window>  
+              <formEvent/> 
+            </EntityForm>

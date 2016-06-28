@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityQuery name="交易规则管理" label="交易规则管理" note="" share="false" multiselect="false" editable="false" autopaging="true" pagingMode="NormalPaging" virtualizingPagingEnabled="false" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.63B54ED3DC25" nodeID="561">
+  <queryEntities>
+    <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.15DFE7996D02" name="AMS_TradeRule" label="交易路由" alias="a0" selectAll="true" isBranch="true" master="true" />
+  </queryEntities>
+  <DataGrid>
+    <color />
+    <column name="trade_type" label="交易类型" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.15DFE7996D02.id_1" width="100" isBranch="false" dataField="AMS_TradeRule$trade_type" />
+    <column name="sub_trade_type" label="交易子类型" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.15DFE7996D02.id_2" width="100" isBranch="false" dataField="AMS_TradeRule$sub_trade_type" />
+    <column name="payInterface" label="通道" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.15DFE7996D02.id_3" width="100" isBranch="false" dataField="AMS_TradeRule$payInterface_label" />
+    <column name="pay_interfaceNo" label="支付通道编号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.15DFE7996D02.id_4" width="100" isBranch="false" dataField="AMS_TradeRule$pay_interfaceNo" />
+    <column name="accountNo" label="账户编号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.15DFE7996D02.id_9" width="100" isBranch="false" dataField="AMS_TradeRule$accountNo" />
+    <column name="account_type" label="账户类型" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.15DFE7996D02.id_5" width="100" isBranch="false" dataField="AMS_TradeRule$account_type_label" />
+    <column name="debit" label="借记卡" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.15DFE7996D02.id_6" width="63" isBranch="false" dataField="AMS_TradeRule$debit" editable="" sortable="" textAlign="" />
+    <column name="credit" label="信用卡" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.15DFE7996D02.id_7" width="61" isBranch="false" dataField="AMS_TradeRule$credit" editable="" sortable="" textAlign="" />
+    <column name="account" label="账户" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.15DFE7996D02.id_10" width="44" isBranch="false" editable="" sortable="" textAlign="" />
+  </DataGrid>
+  <editState />
+  <toolbar>
+    <button label="新建" action="alink" selection="none" permission="" permissionName="" visiable="true" param="{   &quot;target&quot;: &quot;ime.AppWindow&quot;,   &quot;form&quot;: &quot;EntityForm&quot;,   &quot;param&quot;: {     &quot;action&quot;: &quot;create&quot;,     &quot;entityUID&quot;: &quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.15DFE7996D02&quot;,     &quot;formUID&quot;: &quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.2F15DCE76C8B&quot;,     &quot;formState&quot;: &quot;state0&quot;   } }" Button="System.Windows.Controls.Button: 新建" alink="alink://ime.AppWindow/EntityForm?{action:&quot;create&quot;,entityUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.15DFE7996D02&quot;,formUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.2F15DCE76C8B&quot;,formState:&quot;state0&quot;}" />
+    <button label="编辑" action="alink" selection="single" permission="" permissionName="" visiable="true" param="{   &quot;target&quot;: &quot;ime.AppWindow&quot;,   &quot;form&quot;: &quot;EntityForm&quot;,   &quot;param&quot;: {     &quot;action&quot;: &quot;edit&quot;,     &quot;entityUID&quot;: &quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.15DFE7996D02&quot;,     &quot;formUID&quot;: &quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.2F15DCE76C8B&quot;,     &quot;formState&quot;: &quot;state0&quot;   } }" Button="System.Windows.Controls.Button: 编辑" alink="alink://ime.AppWindow/EntityForm?{action:&quot;edit&quot;,entityUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.15DFE7996D02&quot;,formUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.2F15DCE76C8B&quot;,formState:&quot;state0&quot;}" />
+    <button label="删除" action="delete" selection="single" />
+  </toolbar>
+  <xmlQuery version="2.0" name="" label="">
+    <select domainScope="true">
+      <other label="其他" uid="other" name="other" />
+      <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.15DFE7996D02" name="AMS_TradeRule" label="交易路由" alias="a0" selectAll="true" isBranch="true">
+        <field uid="sys_0" name="id" label="编号" type="long" />
+        <field uid="sys_1" name="domainId" label="域ID" type="long" />
+        <field uid="id_1" name="trade_type" label="交易类型" type="long" />
+        <field uid="id_2" name="sub_trade_type" label="交易子类型" type="long" />
+        <field uid="id_3" name="payInterface" label="通道" type="relation" />
+        <field uid="id_4" name="pay_interfaceNo" label="支付通道编号" type="string" />
+        <field uid="id_5" name="account_type" label="账户类型" type="relation" />
+        <field uid="id_8" name="pay_method_group" label="支付方式组别" type="relation" />
+        <field uid="id_9" name="accountNo" label="账户编号" type="string" />
+        <field uid="id_6" name="debit" label="借记卡" type="boolean" />
+        <field uid="id_7" name="credit" label="信用卡" type="boolean" />
+        <field uid="log_0" name="FM_CreatePrinId" label="创建者ID" type="long" />
+        <field uid="log_1" name="FM_CreatePrinName" label="创建者" type="string" />
+        <field uid="log_2" name="FM_UpdatePrinId" label="更新者ID" type="long" />
+        <field uid="log_3" name="FM_UpdatePrinName" label="更新者" type="string" />
+        <field uid="log_4" name="FM_CreateTime" label="创建时间" type="timestamp" />
+        <field uid="log_5" name="FM_UpdateTime" label="更新时间" type="timestamp" />
+        <field uid="id_10" name="account" label="账户" type="boolean" />
+      </Entity>
+    </select>
+    <where>
+      <exp type="2">
+        <exp type="5" valueType="3" option="true" rightType="param" right="trade_type" leftEntity="AMS_TradeRule" leftField="trade_type" uid="exp0" />
+        <exp type="5" valueType="3" option="true" leftEntity="AMS_TradeRule" leftField="sub_trade_type" uid="exp1" rightType="param" right="sub_trade_type" />
+      </exp>
+    </where>
+    <other>
+      <groupBy label="Group By" />
+      <orderBy label="Order By" />
+    </other>
+  </xmlQuery>
+  <conditionForm>
+    <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2">
+      <TabNavigator>
+        <tab label="default">
+          <Label width="82" height="25" text="交易类型:" propertyUID="id_1" x="15" y="3" />
+          <ComboBox valueProvider="多账户.交易类型" name="trade_type" width="100" height="25" x="99" y="3" />
+          <Label width="82" height="25" text="交易子类型:" propertyUID="id_2" x="261" y="3" />
+          <ComboBox valueProvider="多账户.交易子类型" name="sub_trade_type" width="100" height="25" x="345" y="3" />
+        </tab>
+      </TabNavigator>
+    </Window>
+  </conditionForm>
+  <StatSetting />
+  <queryEvent />
+</EntityQuery>

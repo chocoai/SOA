@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.7ADC64EDAF3E" name="AMS_MemberExtendInfo" label="会员扩展信息" note="" log="true" workflow="false" nodeID="835" lastId="3" dbcreated="true"> 
+  <relation/>  
+  <extension/>  
+  <property uid="sys_0" label="编号" name="id" type="long" systemProperty="true" editorPart="Entity" group="系统属性字段"/>  
+  <property uid="sys_1" label="域ID" name="domainId" type="long" systemProperty="true" editorPart="Entity" group="系统属性字段"/>  
+  <property uid="log_0" label="创建者ID" name="FM_CreatePrinId" type="long" systemProperty="true" editorPart="Entity" group="系统属性字段"/>  
+  <property uid="log_1" label="创建者" name="FM_CreatePrinName" type="string" length="100" systemProperty="true" editorPart="Entity" group="系统属性字段"/>  
+  <property uid="log_2" label="更新者ID" name="FM_UpdatePrinId" type="long" systemProperty="true" editorPart="Entity" group="系统属性字段"/>  
+  <property uid="log_3" label="更新者" name="FM_UpdatePrinName" type="string" length="100" systemProperty="true" editorPart="Entity" group="系统属性字段"/>  
+  <property uid="log_4" label="创建时间" name="FM_CreateTime" type="timestamp" systemProperty="true" editorPart="Entity" group="系统属性字段"/>  
+  <property uid="log_5" label="更新时间" name="FM_UpdateTime" type="timestamp" systemProperty="true" editorPart="Entity" group="系统属性字段"/>  
+  <property name="property_name" label="属性名称" type="string" length="100" uid="id_1" editorPart="Entity" dbcreated="true" group="业务属性字段"/>  
+  <property name="property_value" label="属性值" type="string" length="1000" uid="id_2" editorPart="Entity" dbcreated="true" group="业务属性字段"/>  
+  <property name="member" label="会员" type="relation" uid="id_3" entityUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0" labelField="userId" editorPart="Entity" dbcreated="true" group="业务属性字段"/> 
+</Entity>

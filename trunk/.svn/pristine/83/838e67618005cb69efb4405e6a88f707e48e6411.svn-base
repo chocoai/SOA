@@ -1,0 +1,9 @@
+package bps.external.application.service.checkAccount;
+
+import java.util.Map;
+
+import bps.common.BizException;
+
+public interface WskCheckAccountService {
+	public Map<String, String> getSftpFile(String downloadFileConsume, String downloadFileRecharge, String dateStr) throws BizException;
+}

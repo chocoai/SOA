@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityQuery name="子账户查询" label="子账户查询" note="" share="false" multiselect="false" editable="false" autopaging="true" pagingMode="VirtualizingPaging" virtualizingPagingEnabled="true" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.36167968DFDE" nodeID="526"> 
+              <queryEntities> 
+                <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.A9741F8AC007" name="AMS_SubAccount" label="子账户" alias="a0" selectAll="true" isBranch="true" master="true"/> 
+              </queryEntities>  
+              <DataGrid> 
+                <color/>  
+                <column name="amount" label="余额" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.A9741F8AC007.id_4" width="123" isBranch="false" editable="" sortable="" textAlign=""/>  
+                <column name="valid_date" label="有效期限" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.A9741F8AC007.id_1" width="179" isBranch="false" editable="" sortable="" textAlign=""/> 
+              </DataGrid>  
+              <editState/>  
+              <toolbar/>  
+              <xmlQuery version="2.0" name="" label=""> 
+                <select domainScope="true"> 
+                  <other label="其他" uid="other" name="other"/>  
+                  <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.A9741F8AC007" name="AMS_SubAccount" label="子账户" alias="a0" selectAll="true" isBranch="true"> 
+                    <field uid="sys_0" name="id" label="编号" type="long"/>  
+                    <field uid="sys_1" name="domainId" label="域ID" type="long"/>  
+                    <field uid="id_1" name="valid_date" label="有效期限" type="timestamp"/>  
+                    <field uid="id_2" name="mainAccount" label="主账户" type="relation"/>  
+                    <field uid="id_4" name="amount" label="余额" type="long"/>  
+                    <field uid="id_6" name="freeze_amount" label="冻结金额" type="long"/>  
+                    <field uid="id_7" name="userId" label="用户ID" type="string"/> 
+                  </Entity> 
+                </select>  
+                <where> 
+                  <exp type="2"> 
+                    <exp type="5" valueType="3" option="true" rightType="val" right="$page.opener.selectedEntity.id" leftEntity="AMS_SubAccount" leftField="mainAccount_id" uid="exp0"/> 
+                  </exp> 
+                </where>  
+                <other> 
+                  <groupBy label="Group By"/>  
+                  <orderBy label="Order By"/> 
+                </other> 
+              </xmlQuery>  
+              <conditionForm> 
+                <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2"> 
+                  <TabNavigator> 
+                    <tab label="default"/> 
+                  </TabNavigator> 
+                </Window> 
+              </conditionForm>  
+              <StatSetting/>  
+              <queryEvent/> 
+            </EntityQuery>

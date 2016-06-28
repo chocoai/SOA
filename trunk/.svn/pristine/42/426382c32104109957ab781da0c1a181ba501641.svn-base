@@ -1,0 +1,896 @@
+package bps.external.application.trade;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.commons.lang.StringUtils;
+import org.apache.log4j.Logger;
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import bps.common.BizException;
+import bps.common.ErrorCode;
+import bps.common.MD5Util;
+import bps.external.application.Extension;
+import bps.external.application.service.trade.WsCardService;
+
+public class WsCardServiceImpl implements WsCardService {
+	private static String debug = null;//url
+	private static String securitykey = null;// 商户密钥
+	private static String version = null;// 版本号
+	private static String encoding = null;//字符集
+	private static String instCode = null;//合作机构代码
+	private static String instAccCode = null;//合作机构账户标识
+	private static String payCode = null;//支付编码
+	private static String productId = null;//产品编码
+	private static String payURL = null;//组合支付debugURL
+	private static String cardPayURL = null;//url
+	private static String accountQueryURL = null;//url
+	private static String queryTransURL = null;//url
+	private static String transferAccountURL = null;//万商卡卡卡转账url
+	private static String rechargeURL = null;//url
+	private static String refundURL = null;//交易撤销URL
+    private static String payFrontUrl = null;//组合支付返回地址
+    private static String payBackUrl = null;//组合支付通知地址
+    private static String orderTimeout = null;//组合支付超时时间
+    private static Logger logger = Logger.getLogger(WsCardServiceImpl.class.getName());
+    
+	/**
+	 * 账户查询
+	 * @param cardNo      通联卡号,支持多卡查询，最多5张卡，每张卡之间用英文逗号“,”隔开，如：9515600010000000011,9515600010000000012
+	 * @param instAccCode 一账通账户标识
+	 * @return
+	 * @throws Exception
+	 */
+	public Map<String, Object> queryAccount(String cardNos, String instAccCode) throws BizException {
+		logger.info("------------------------------------------WsCardServiceImpl.queryAccount start--------------------------------------------------");
+		logger.info("参数--cardNos:" + cardNos + ";instAccCode:" + instAccCode);
+		
+		try {
+			//验证数据
+			if(StringUtils.isBlank(instAccCode)){
+	    		String msg = "参数instAccCode为null或为空。";
+	    		logger.error(msg);
+	    		throw new Exception(msg);
+	    	}
+			if(StringUtils.isBlank(cardNos)){
+	    		String msg = "参数cardNo为null或为空。";
+	    		logger.error(msg);
+	    		throw new Exception(msg);
+	    	}
+			
+			if(securitykey == null)
+			    securitykey = Extension.paramMap.get("AlipayConfig.wscard.inst.securitykey");
+			if(version == null)
+			    version = Extension.paramMap.get("AlipayConfig.wscard.inst.version");
+			if(encoding == null)
+			    encoding = Extension.paramMap.get("AlipayConfig.wscard.inst.encoding");
+			if(instCode == null)
+			    instCode = Extension.paramMap.get("AlipayConfig.wscard.inst.instCode");
+			if(accountQueryURL == null)
+				accountQueryURL = Extension.paramMap.get("AlipayConfig.wscard.inst.cardInfoQuery");
+			if(debug == null)
+			    debug = Extension.paramMap.get("environment"); 
+			if(productId == null){
+				productId = Extension.paramMap.get("AlipayConfig.wscard.inst.productId");
+			}
+			
+			JSONObject response = null;
+			String reserved = "";
+			StringBuffer sb = new StringBuffer();
+			
+			//获取时间
+			Date now = new Date();
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
+			String transTime = sdf.format(now);
+			
+			sb.setLength(0);
+			sb.append("cardNos=").append(cardNos);
+			sb.append("&encoding=").append(encoding);
+			sb.append("&instAccCode=").append(instAccCode);
+			sb.append("&instCode=").append(instCode);
+			sb.append("&productId=").append(productId);
+			sb.append("&reserved=").append(reserved);
+			sb.append("&transTime=").append(transTime);
+			sb.append("&version=").append(version);
+			sb.append("&");
+
+			String signature = MD5Util.MD5(sb.toString() + MD5Util.MD5(securitykey).toLowerCase()).toLowerCase();
+			
+			//生成request body,并写入日志
+			sb.append("signature=").append(signature);
+			logger.info(sb.toString());
+			System.out.println("request:" + sb.toString());
+		
+			//request请求，并获取response
+			//debug
+			//if(debug.equals("debug")){
+				response = debugPost(accountQueryURL, sb.toString());
+			//}
+			//正式
+			//else{
+				//response = formalPost(accountQueryURL, sb.toString());
+			//}
+			
+			logger.info("response:" + response);
+			
+			Map<String, Object> retMap = new HashMap<String, Object>();
+			Map<String, Object> result = new HashMap<String, Object>();
+			String resCode = (String)response.get("respCode");
+			String resMsg = (String)response.get("respMsg");
+			
+			//成功
+			if("0000".equals(resCode)){
+				List<Map<String, Object>> cardInfoList = new ArrayList<Map<String, Object>>();
+				JSONArray jsonArray = (JSONArray)response.get("cardInfoList");
+				for(int i = 0; i < jsonArray.length(); i++){
+					cardInfoList.add(((JSONObject)jsonArray.get(i)).getMap());
+				}
+				
+				result.put("cardInfoList", cardInfoList);
+				
+//				retMap.put("resCode", resCode);
+//				retMap.put("resMsg", resMsg);
+//				retMap.put("result", result);
+				
+				retMap.put("status", "ok");
+				retMap.put("resCode", resCode);
+				retMap.put("resMsg", resMsg);
+				retMap.put("returnValue", result);
+			}
+			else{
+//				retMap.put("resCode", resCode);
+//				retMap.put("resMsg", resMsg);
+				
+				retMap.put("status", "error");
+				retMap.put("resCode", resCode);
+				retMap.put("resMsg", resMsg);
+			}
+		   
+			logger.info("retMap:" + retMap );
+            logger.info("------------------------------------------WsCardServiceImpl.queryAccount end--------------------------------------------------");
+	        return retMap;
+		}catch(BizException bizE){
+			throw bizE;
+		}catch(Exception e){
+			throw new BizException(ErrorCode.OTHER_ERROR, e.getMessage());
+		}
+	}
+    
+	/**
+	 * 支付
+	 * @param instAccCode    一账通账户标识
+	 * @param flowNo         一账通流水号
+	 * @param instSellerInfo 卖家商户名称
+	 * @param cardNo         通联卡号
+	 * @param amount         支付金额，单位：分
+	 * @param payCode        支付编码
+	 * @return
+	 * @throws Exception
+	 */
+    public Map<String, Object> pay(String instAccCode, String flowNo, String instSellerInfo, String cardNo, String amount) throws BizException{
+    	logger.info("------------------------------------------WsCardServiceImpl.pay start--------------------------------------------------");
+    	logger.info("参数--instAccCode:" + instAccCode + ";flowNo:" + flowNo + ";instSellerInfo:" + instSellerInfo + ";cardNo:" + cardNo + ";amount:" + amount);
+    	
+    	try{
+	    	//验证数据
+	    	if(StringUtils.isBlank(instAccCode)){
+	    		String msg = "参数instAccCode为null或为空。";
+	    		logger.error(msg);
+	    		throw new Exception(msg);
+	    	}
+	    	
+	    	if(StringUtils.isBlank(flowNo)){
+	    		String msg = "参数flowNo为null或为空。";
+	    		logger.error(msg);
+	    		throw new Exception(msg);
+	    	}
+	    	
+	    	if(StringUtils.isBlank(instSellerInfo)){
+	    		String msg = "参数instSellerInfo为null或为空。";
+	    		logger.error(msg);
+	    		throw new Exception(msg);
+	    	}
+	    	
+	    	if(StringUtils.isBlank(cardNo)){
+	    		String msg = "参数cardNo为null或为空。";
+	    		logger.error(msg);
+	    		throw new Exception(msg);
+	    	}
+	    	
+	    	if(StringUtils.isBlank(amount)){
+	    		String msg = "参数amount为null或为空。";
+	    		logger.error(msg);
+	    		throw new Exception(msg);
+	    	}
+	    	
+	    	//获取配置文件中的参数
+	    	if(securitykey == null){
+	    		securitykey = Extension.paramMap.get("AlipayConfig.wscard.inst.securitykey");
+	    	}
+	    	
+	    	if(version == null){
+			    version = Extension.paramMap.get("AlipayConfig.wscard.inst.version");
+	    	}
+	    	
+			if(encoding == null){
+			    encoding = Extension.paramMap.get("AlipayConfig.wscard.inst.encoding");
+			}
+			
+			if(instCode == null){
+			    instCode = Extension.paramMap.get("AlipayConfig.wscard.inst.instCode");
+			}
+			
+			if(payURL == null){
+				payURL = Extension.paramMap.get("AlipayConfig.wscard.inst.payURL");
+			}
+			
+			if(payFrontUrl == null){
+				payFrontUrl = Extension.paramMap.get("AlipayConfig.wscard.inst.payFrontUrl");
+			}
+			
+			if(payBackUrl == null){
+				payBackUrl = Extension.paramMap.get("AlipayConfig.wscard.inst.payBackUrl");
+			}
+			
+			if(orderTimeout == null){
+				orderTimeout = Extension.paramMap.get("AlipayConfig.wscard.inst.orderTimeout");
+			}
+			
+			if(debug == null){
+			    debug = Extension.paramMap.get("environment");
+			}
+			
+			if(payCode == null){
+				payCode = Extension.paramMap.get("AlipayConfig.wscard.inst.payCode");
+			}
+			
+			flowNo = getFlowNoForWsCard(flowNo);
+			String txnType = "00";
+			JSONObject response = null;
+			String reserved = "";
+			StringBuffer sb = new StringBuffer();
+			
+			//获取时间
+			Date now = new Date();
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
+			String transTime = sdf.format(now);
+			
+			//获取签名
+			sb.setLength(0);
+			sb.append("amount=").append(amount);
+			sb.append("&backUrl=").append(payBackUrl);
+			sb.append("&cardNo=").append(cardNo);
+			sb.append("&encoding=").append(encoding);
+			sb.append("&flowNo=").append(flowNo);
+			sb.append("&frontUrl=").append(payFrontUrl);
+			sb.append("&instAccCode=").append(instAccCode);
+			sb.append("&instCode=").append(instCode);
+			sb.append("&instSellerInfo=").append(instSellerInfo);
+			sb.append("&orderTimeOut=").append(orderTimeout);
+			sb.append("&payCode=").append(payCode);
+			sb.append("&reserved=").append(reserved);
+			sb.append("&transTime=").append(transTime);
+			sb.append("&txnType=").append(txnType);
+			sb.append("&version=").append(version);
+			sb.append("&");
+			
+			String signature = MD5Util.MD5(sb.toString() + MD5Util.MD5(securitykey).toLowerCase()).toLowerCase();
+			
+			//生成request body
+			sb.append("signature=").append(signature);
+			logger.info("request:" + sb.toString());
+		
+			//request请求，并获取response
+			//debug
+			//if(debug.equals("debug")){
+				response = debugPost(payURL, sb.toString());
+			//}
+			//正式
+			//else{
+				//response = formalPost(payURL, sb.toString());
+			//}
+			
+			logger.info("response:" + response);
+			
+			//验证应答情况
+			Map<String, Object> retMap = new HashMap<String, Object>();
+			Map<String, Object> result = new HashMap<String, Object>();
+			String resCode = (String)response.get("respCode");
+			String resMsg = (String)response.get("respMsg");
+			
+			//成功
+			if("0000".equals(resCode)){
+//				retMap.put("resCode", resCode);
+//				retMap.put("resMsg", resMsg);
+				
+				retMap.put("status", "ok");
+				retMap.put("resCode", resCode);
+				retMap.put("resMsg", resMsg);
+				retMap.put("returnValue", result);
+			}
+			//失败
+			else{
+//				retMap.put("resCode", resCode);
+//				retMap.put("resMsg", resMsg);
+				
+				retMap.put("status", "error");
+				retMap.put("resCode", resCode);
+				retMap.put("resMsg", resMsg);
+			}
+			
+			logger.info("retMap:" + retMap );
+			logger.info("------------------------------------------WsCardServiceImpl.pay end--------------------------------------------------");
+			
+			//支付成功
+			return retMap;
+		}catch(BizException bizE){
+			throw bizE;
+		}catch(Exception e){
+			throw new BizException(ErrorCode.OTHER_ERROR, e.getMessage());
+		}
+    }
+
+    /**
+     * 交易查询
+     * @param cardNo      String     万商卡卡号（如果为“”，则查全部）。
+     * @param instAccCode String     合作机构账户标识
+     * @param startDate   String     起始日期，yyyyMMdd
+     * @param endDate     String     结束日期，yyyyMMdd
+     * @param currentPage String     查询当前页
+     * @param pageSize    String     页大小
+     * @param extParams
+     * 			status    String     交易状态
+     * @return            
+     * @throws Exception
+     */
+    public Map<String, Object> queryTrans(String cardNo, String instAccCode, String startDate, String endDate, String currentPage, String pageSize, Map<String, Object> extParams) throws BizException{
+    	logger.info("------------------------------------------WsCardServiceImpl.queryTrans start--------------------------------------------------");
+    	logger.info("参数--cardNo：" + cardNo + ";instAccCode:" + instAccCode + ";startDate:" + startDate + ";endDate:" + endDate + ";currentPage:" + currentPage + ";pageSize:" + pageSize + ";extParams:" + extParams);
+    	
+    	try{
+    		String status = (String)extParams.get("status");
+    		
+	    	//验证数据
+    		if(StringUtils.isBlank(instAccCode)){
+	    		String msg = "参数instAccCode为null或为空。";
+	    		logger.error(msg);
+	    		throw new Exception(msg);
+	    	}
+    		
+    		if(StringUtils.isBlank(startDate)){
+	    		String msg = "参数startDate为null或为空。";
+	    		logger.error(msg);
+	    		throw new Exception(msg);
+	    	}
+    		
+    		if(StringUtils.isBlank(endDate)){
+	    		String msg = "参数endDate为null或为空。";
+	    		logger.error(msg);
+	    		throw new Exception(msg);
+	    	}
+    		
+    		if(StringUtils.isBlank(currentPage)){
+	    		String msg = "参数currentPage为null或为空。";
+	    		logger.error(msg);
+	    		throw new Exception(msg);
+	    	}
+    		
+    		if(StringUtils.isBlank(pageSize)){
+	    		String msg = "参数pageSize为null或为空。";
+	    		logger.error(msg);
+	    		throw new Exception(msg);
+	    	}
+	    	
+	    	//查询日期
+	    	Date startD = null;
+	    	Date endD = null;
+	    	SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+	        startD = sdf.parse(startDate);
+	        endD = sdf.parse(endDate);
+	    	int diff = diffDays(endD, startD);
+	    	//起始日期大于结束日期
+	    	if(diff < 0){
+	    		String msg = "起始日期大于结束日期。";
+	    		throw new Exception(msg);
+	    	}
+	    	
+	    	if(securitykey == null)
+	            securitykey = Extension.paramMap.get("AlipayConfig.wscard.inst.securitykey");
+	        if(version == null)
+	            version = Extension.paramMap.get("AlipayConfig.wscard.inst.version");
+	        if(encoding == null)
+	            encoding = Extension.paramMap.get("AlipayConfig.wscard.inst.encoding");
+	        if(instCode == null)
+	            instCode = Extension.paramMap.get("AlipayConfig.wscard.inst.instCode");
+	        if(queryTransURL == null)
+	        	queryTransURL = Extension.paramMap.get("AlipayConfig.wscard.inst.transQueryURL");
+	        if(debug == null)
+	            debug = Extension.paramMap.get("environment"); 
+	        
+	        //生成当前时间
+	        String transTime = generateNowTimeFormat("yyyyMMddHHmmss");
+	        
+	    	//生成签名
+	        String reserved = "";
+	        StringBuffer sb = new StringBuffer();
+	        sb.setLength(0);
+	        sb.append("cardNo=").append(cardNo);
+	        sb.append("&currentPage=").append(currentPage);
+	        sb.append("&encoding=").append(encoding);
+	        sb.append("&endDate=").append(endDate);
+	        sb.append("&instAccCode=").append(instAccCode);
+	        sb.append("&instCode=").append(instCode);
+	        sb.append("&pageSize=").append(pageSize);
+	        sb.append("&reserved=").append(reserved);
+	        sb.append("&startDate=").append(startDate);
+	        sb.append("&status=").append(status);
+	        sb.append("&transTime=").append(transTime);
+	        sb.append("&version=").append(version);
+	        sb.append("&");
+	        String signature = generateSignature(sb.toString(), securitykey, "md5");
+	        
+	        //生成request body,并写入日志
+	        sb.append("signature=").append(signature);
+	        System.out.println(sb.toString());
+	        logger.info("request:" + sb.toString());
+	    	
+	        JSONObject response = new JSONObject();
+	        JSONObject ret = new JSONObject();
+        
+        	//request请求，并获取response
+        	//debug
+        	//if(debug.equals("debug") == true){
+        		response = debugPost(queryTransURL, sb.toString());
+        	//}
+        	//正式
+        	//else{
+        		//response = formalPost(queryTransURL, sb.toString());
+        	//}
+        	
+        	logger.info("response:" + response);
+        	
+        	//验证应答情况
+			Map<String, Object> retMap = new HashMap<String, Object>();
+			Map<String, Object> result = new HashMap<String, Object>();
+			String resCode = (String)response.get("respCode");
+			String resMsg = (String)response.get("respMsg");
+			
+			//成功
+			if("0000".equals(resCode)){
+				List<Map<String, Object>> transInfoList = new ArrayList<Map<String, Object>>();
+				JSONArray jsonArray = (JSONArray)response.get("transInfoList");
+				for(int i = 0; i < jsonArray.length(); i++){
+					transInfoList.add(((JSONObject)jsonArray.get(i)).getMap());
+				}
+				
+				result.put("transInfoList", transInfoList);
+				result.put("count", (String)response.get("count"));
+				
+//				retMap.put("resCode", resCode);
+//				retMap.put("resMsg", resMsg);
+//				retMap.put("result", result);
+				
+				retMap.put("status", "ok");
+				retMap.put("resCode", resCode);
+				retMap.put("resMsg", resMsg);
+				retMap.put("returnValue", result);
+			}
+			//失败
+			else{
+//				retMap.put("resCode", resCode);
+//				retMap.put("resMsg", resMsg);
+				
+				retMap.put("status", "error");
+				retMap.put("resCode", resCode);
+				retMap.put("resMsg", resMsg);
+			}
+
+			logger.info("retMap:" + retMap );
+        	logger.info("------------------------------------------WsCardServiceImpl.queryTrans end--------------------------------------------------");
+        	return retMap;
+        }catch(BizException bizE){
+			throw bizE;
+		}catch(Exception e){
+			throw new BizException(ErrorCode.OTHER_ERROR, e.getMessage());
+		}
+    }
+    
+    /**
+     * 充值
+     * @param flowNo      String  一账通流水号
+     * @param cardNo	  String  充值卡号
+     * @param amount      String  充值金额，单位：分
+     * @param instAccCode String  合作机构账户标识
+     * @return            
+     * @throws Exception
+     */
+    public Map<String, Object> recharge(String flowNo, String cardNo, String amount, String instAccCode) throws BizException{
+    	logger.info("------------------------------------------WsCardServiceImpl.recharge start--------------------------------------------------");
+    	logger.info("参数--flowNo:" + flowNo + ";cardNo:" + cardNo + ";amount:" + amount + ";instAccCode:" + instAccCode);
+    	
+    	try{
+	    	//验证数据
+    		if(StringUtils.isBlank(cardNo)){
+	    		String msg = "参数cardNo为null或为空。";
+	    		logger.error(msg);
+	    		throw new Exception(msg);
+	    	}
+    		
+    		if(StringUtils.isBlank(flowNo)){
+	    		String msg = "参数flowNo为null或为空。";
+	    		logger.error(msg);
+	    		throw new Exception(msg);
+	    	}
+    		
+    		if(StringUtils.isBlank(amount)){
+	    		String msg = "参数amount为null或为空。";
+	    		logger.error(msg);
+	    		throw new Exception(msg);
+	    	}
+    		
+    		if(StringUtils.isBlank(payCode)){
+	    		String msg = "参数payCode为null或为空。";
+	    		logger.error(msg);
+	    		throw new Exception(msg);
+	    	}
+	    	
+	    	if(securitykey == null){
+	    		securitykey = Extension.paramMap.get("AlipayConfig.wscard.inst.securitykey");
+	    	}
+	    	
+	    	if(version == null){
+			    version = Extension.paramMap.get("AlipayConfig.wscard.inst.version");
+	    	}
+	    	
+			if(encoding == null){
+			    encoding = Extension.paramMap.get("AlipayConfig.wscard.inst.encoding");
+			}
+			
+			if(instCode == null){
+			    instCode = Extension.paramMap.get("AlipayConfig.wscard.inst.instCode");
+			}
+			
+			if(rechargeURL == null){
+				rechargeURL = Extension.paramMap.get("AlipayConfig.wscard.inst.rechargeURL");
+			}
+			
+			if(payCode == null){
+				payCode = Extension.paramMap.get("AlipayConfig.wscard.inst.payCode");
+			}
+			
+			flowNo = getFlowNoForWsCard(flowNo);
+			JSONObject response = null;
+			StringBuffer sb = new StringBuffer();
+			String reserved = "";
+			
+			//创建时间
+			String transTime = generateNowTimeFormat("yyyyMMddHHmmss");
+			
+			//创建签名
+			sb.setLength(0);
+			sb.append("amount=").append(amount);
+			sb.append("&cardNo=").append(cardNo);
+			sb.append("&encoding=").append(encoding);
+			sb.append("&flowNo=").append(flowNo);
+			sb.append("&instAccCode=").append(instAccCode);
+			sb.append("&instCode=").append(instCode);
+			sb.append("&payCode=").append(payCode);
+			sb.append("&reserved=").append(reserved);
+			sb.append("&transTime=").append(transTime);
+			sb.append("&version=").append(version);
+			sb.append("&");
+			String signature = generateSignature(sb.toString(), securitykey, "md5");
+			
+			//生成request body,并写入日志
+			sb.append("signature=").append(signature);
+			System.out.println(sb.toString());
+			logger.info("request:" + sb.toString());
+		
+			//request请求，并获取response
+			//测试
+			//if(debug.equals("debug")){
+				response = debugPost(rechargeURL, sb.toString());
+			//}
+			//正式
+			//else{
+				//response = formalPost(rechargeURL, sb.toString());
+			//}
+			
+			logger.info("response:" + response);
+			
+			//验证应答情况
+			Map<String, Object> retMap = new HashMap<String, Object>();
+			Map<String, Object> result = new HashMap<String, Object>();
+			String resCode = (String)response.get("respCode");
+			String resMsg = (String)response.get("respMsg");
+			
+			//成功
+			if("0000".equals(resCode)){
+				result.put("balance", (String)response.get("balance"));
+				result.put("amount", (String)response.get("amount"));
+				
+//				retMap.put("resCode", resCode);
+//				retMap.put("resMsg", resMsg);
+//				retMap.put("result", result);
+				
+				retMap.put("status", "ok");
+				retMap.put("resCode", resCode);
+				retMap.put("resMsg", resMsg);
+				retMap.put("returnValue", result);
+			}
+			//失败
+			else{
+//				retMap.put("resCode", resCode);
+//				retMap.put("resMsg", resMsg);
+				
+				retMap.put("status", "error");
+				retMap.put("resCode", resCode);
+				retMap.put("resMsg", resMsg);
+			}
+			logger.info("retMap:" + retMap );
+			logger.info("------------------------------------------WsCardServiceImpl.recharge end--------------------------------------------------");
+			return retMap;
+		}catch(BizException bizE){
+			throw bizE;
+		}catch(Exception e){
+			throw new BizException(ErrorCode.OTHER_ERROR, e.getMessage());
+		}
+    }
+    
+    /**
+     * 交易撤销
+     * @param flowNo       一账通流水号
+     * @param instAccCode  一账通账户标识
+     * @param cardNo       通联卡号
+     * @param oriFlowNo    原交易流水号
+     * @param oriTransAmt  原交易金额      
+     * @param oriTransDate 原交易日期
+     * @return
+     * @throws Exception
+     */
+    public Map<String, Object> refund(String flowNo, String instAccCode, String cardNo, String oriFlowNo, String oriTransAmt, String oriTransDate) throws BizException{
+    	logger.info("------------------------------------------WsCardServiceImpl.refund start--------------------------------------------------");
+    	logger.info("参数--flowNo:" + flowNo + ";instAccCode:" + ";cardNo:" + cardNo + ";oriFlowNo:" + oriFlowNo + ";oriTransAmt:" + oriTransAmt + ";oriTransDate:" + oriTransDate);
+    	
+    	try{
+	    	//验证数据
+    		if(StringUtils.isBlank(flowNo)){
+	    		String msg = "参数flowNo为null或为空。";
+	    		logger.error(msg);
+	    		throw new Exception(msg);
+	    	}
+    		
+    		if(StringUtils.isBlank(instAccCode)){
+	    		String msg = "参数instAccCode为null或为空。";
+	    		logger.error(msg);
+	    		throw new Exception(msg);
+	    	}
+    		
+    		if(StringUtils.isBlank(cardNo)){
+	    		String msg = "参数cardNo为null或为空。";
+	    		logger.error(msg);
+	    		throw new Exception(msg);
+	    	}
+    		
+    		if(StringUtils.isBlank(oriFlowNo)){
+	    		String msg = "参数oriFlowNo为null或为空。";
+	    		logger.error(msg);
+	    		throw new Exception(msg);
+	    	}
+    		
+    		if(StringUtils.isBlank(oriTransAmt)){
+	    		String msg = "参数oriTransAmt为null或为空。";
+	    		logger.error(msg);
+	    		throw new Exception(msg);
+	    	}
+    		
+    		if(StringUtils.isBlank(oriTransDate)){
+	    		String msg = "参数oriTransDate为null或为空。";
+	    		logger.error(msg);
+	    		throw new Exception(msg);
+	    	}
+	    	
+	    	if(securitykey == null){
+	    		securitykey = Extension.paramMap.get("AlipayConfig.wscard.inst.securitykey");
+	    	}
+	    	
+	    	if(version == null){
+			    version = Extension.paramMap.get("AlipayConfig.wscard.inst.version");
+	    	}
+	    	
+			if(encoding == null){
+			    encoding = Extension.paramMap.get("AlipayConfig.wscard.inst.encoding");
+			}
+			
+			if(instCode == null){
+			    instCode = Extension.paramMap.get("AlipayConfig.wscard.inst.instCode");
+			}
+			
+			if(refundURL == null){
+				refundURL = Extension.paramMap.get("AlipayConfig.wscard.inst.cancelURL");
+			}
+			
+			if(payCode == null){
+				payCode = Extension.paramMap.get("AlipayConfig.wscard.inst.payCode");
+			}
+			
+			flowNo = getFlowNoForWsCard(flowNo);
+			JSONObject response = null;
+			StringBuffer sb = new StringBuffer();
+			String reserved = "";
+			
+			//创建时间
+			String transTime = generateNowTimeFormat("yyyyMMddHHmmss");
+			
+			//创建签名
+			sb.setLength(0);
+			sb.append("cardId=").append(cardNo);
+			sb.append("&encoding=").append(encoding);
+			sb.append("&flowNo=").append(flowNo);
+			sb.append("&instAccCode=").append(instAccCode);
+			sb.append("&instCode=").append(instCode);
+			sb.append("&oriFlowNo=").append(oriFlowNo);
+			sb.append("&oriTransAmt=").append(oriTransAmt);
+			sb.append("&oriTransDate=").append(oriTransDate);
+			sb.append("&payCode=").append(payCode);
+			sb.append("&reserved=").append(reserved);
+			sb.append("&transTime=").append(transTime);
+			sb.append("&version=").append(version);
+			sb.append("&");
+			String signature = generateSignature(sb.toString(), securitykey, "md5");
+			
+			//生成request body,并写入日志
+			sb.append("signature=").append(signature);
+			System.out.println(sb.toString());
+			logger.info("request:" + sb.toString());
+		
+			//request请求，并获取response
+			//测试
+			//if(debug.equals("debug")){
+				response = debugPost(refundURL, sb.toString());
+			//}
+			//正式
+			//else{
+				//response = formalPost(refundURL, sb.toString());
+			//}
+			
+			logger.info("response:" + response);
+			
+			//验证应答情况
+			Map<String, Object> retMap = new HashMap<String, Object>();
+			String resCode = (String)response.get("respCode");
+			String resMsg = (String)response.get("respMsg");
+			
+			//成功
+			if("0000".equals(resCode)){
+//				retMap.put("resCode", resCode);
+//				retMap.put("resMsg", resMsg);
+				
+				retMap.put("status", "ok");
+				retMap.put("resCode", resCode);
+				retMap.put("resMsg", resMsg);
+			}
+			//失败
+			else{
+//				retMap.put("resCode", resCode);
+//				retMap.put("resMsg", resMsg);
+				
+				retMap.put("status", "error");
+				retMap.put("resCode", resCode);
+				retMap.put("resMsg", resMsg);
+			}
+			logger.info("retMap:" + retMap );
+			logger.info("------------------------------------------WsCardServiceImpl.refund end--------------------------------------------------");
+			return retMap;
+		}catch(BizException bizE){
+			throw bizE;
+		}catch(Exception e){
+			throw new BizException(ErrorCode.OTHER_ERROR, e.getMessage());
+		}
+    }
+    
+    /**
+     * 测试接口请求   
+     * @param urlStr      String     请求接口的URL地址
+     * @param postBody    String     请求post的body
+     * @return            JSONObject 业务接口返回的信息 
+     * @throws Exception
+     */
+    private static JSONObject debugPost(String urlStr, String postBody) throws Exception{
+    	HttpURLConnection httpurlconnection = null;
+    	BufferedReader br = null;
+    	
+    	try{
+	    	URL url = new URL(urlStr);
+	        httpurlconnection = (HttpURLConnection) url.openConnection();
+	        httpurlconnection.setDoOutput(true);
+	        httpurlconnection.setUseCaches(false);
+	        httpurlconnection.setRequestMethod("POST");
+	
+	        byte[] bypes = postBody.getBytes();
+	        httpurlconnection.getOutputStream().write(bypes);
+	        
+	        br = new BufferedReader(new InputStreamReader(httpurlconnection.getInputStream(), "utf-8"));
+	        httpurlconnection.connect(); 
+	
+	        String line = br.readLine();
+	        StringBuffer sb = new StringBuffer();
+	        sb.setLength(0);
+	        while(line != null){
+	            sb.append(line);
+	            line = br.readLine();
+	        }
+	        System.out.println(sb.toString());
+	        JSONObject result = new JSONObject(sb.toString());
+	        br.close();
+	        logger.info("result:" + result );
+	        return result;
+    	}
+    	catch(Exception ex){
+    		throw ex;
+    	}
+    	finally{
+			if(httpurlconnection != null){
+				httpurlconnection.disconnect();
+			}
+			if(br != null){
+				br.close();
+			}
+		}
+    }
+    
+    /**
+     * 获取当前时间的格式化字符串
+     * @param timeFormat String 格式化的形式
+     * @return           String 当前时间的格式化字符串
+     */
+    private static String generateNowTimeFormat(String timeFormat){
+    	Date now = new Date();
+		SimpleDateFormat sdf = new SimpleDateFormat(timeFormat);
+		return sdf.format(now);
+    }
+    
+    /**
+     * 计算日期时间差。取整。
+     * @param d1 Date 被减日期
+     * @param d2 Date 减日期
+     * @return   int  取整的日期
+     */
+    private static int diffDays(Date d1, Date d2){
+    	return (int)((d1.getTime() - d2.getTime()) / (1000 * 60 * 60 *24));
+    }
+    
+    /**
+     * 生成签名
+     * @param str         String 签名的原始字符串
+     * @param securitykey String 安全码
+     * @param type        String 加密类型
+     * @return            String 签名
+     * @throws Exception 
+     */
+    private static String generateSignature(String str, String securitykey, String type) throws Exception{
+    	return MD5Util.MD5(str + MD5Util.MD5(securitykey).toLowerCase()).toLowerCase();
+    }
+
+    /**
+     * 截取支付订单的支付指令的后十位，作为通联卡的流水号
+     * @param commandNo 支付订单的支付指令
+     * @return
+     */
+    public String getFlowNoForWsCard(String oriFlowNo){
+    	int howManyDigit = 10;
+    	int length = oriFlowNo.length();
+    	
+    	return oriFlowNo.substring(length - howManyDigit, length);
+    }
+
+}

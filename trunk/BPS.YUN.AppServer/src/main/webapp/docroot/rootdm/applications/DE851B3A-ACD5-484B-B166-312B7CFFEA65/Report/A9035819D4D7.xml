@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Report label="人工提现" name="人工提现" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.A9035819D4D7" nodeID="737"> 
+              <dataSource> 
+                <xmlQuery version="2.0" uid="2C87339F-1137-441B-8EB2-CFA407F9C572" name="artWithdrawal" label="人工提现成功"> 
+                  <select domainScope="true"> 
+                    <other label="其他" uid="other" name="other"/>  
+                    <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.2BFCE1B52493" name="AMS_ArtWithdrawal" label="人工提现" alias="a0" selectAll="true" isBranch="true"> 
+                      <field uid="sys_0" name="id" label="编号" type="long"/>  
+                      <field uid="sys_1" name="domainId" label="域ID" type="long"/>  
+                      <field uid="log_0" name="FM_CreatePrinId" label="创建者ID" type="long"/>  
+                      <field uid="log_1" name="FM_CreatePrinName" label="创建者" type="string"/>  
+                      <field uid="log_2" name="FM_UpdatePrinId" label="更新者ID" type="long"/>  
+                      <field uid="log_3" name="FM_UpdatePrinName" label="更新者" type="string"/>  
+                      <field uid="log_4" name="FM_CreateTime" label="创建时间" type="timestamp"/>  
+                      <field uid="log_5" name="FM_UpdateTime" label="更新时间" type="timestamp"/>  
+                      <field uid="wf_0" name="WF_State" label="状态" type="long"/>  
+                      <field uid="wf_1" name="WF_StateName" label="状态名称" type="string"/>  
+                      <field uid="wf_2" name="WF_ProcessId" label="所属流程" type="long"/>  
+                      <field uid="wf_3" name="WF_ProcessName" label="流程名称" type="string"/>  
+                      <field uid="wf_4" name="WF_ProcessorPrinId" label="处理人ID" type="long"/>  
+                      <field uid="wf_5" name="WF_ProcessorPrinName" label="处理人" type="string"/>  
+                      <field uid="wf_6" name="WF_WorkItemId" label="工作项ID" type="long"/>  
+                      <field uid="id_1" name="member" label="会员" type="relation"/>  
+                      <field uid="id_2" name="member_uuid" label="会员userId" type="string"/>  
+                      <field uid="id_3" name="total_money" label="提现金额" type="long" currency="true" calcexp="AMS_ArtWithdrawal.total_money*0.01"/>  
+                      <field uid="id_4" name="accountNo" label="银行帐号" type="string"/>  
+                      <field uid="id_5" name="account_name" label="开户名" type="string"/>  
+                      <field uid="id_6" name="identity_cardNo" label="身份证号码" type="string"/>  
+                      <field uid="id_7" name="phone" label="手机号码" type="string"/>  
+                      <field uid="id_8" name="operator" label="经办人" type="principal"/>  
+                      <field uid="id_9" name="operator_date" label="经办时间" type="timestamp"/>  
+                      <field uid="id_10" name="auditor" label="审核人" type="principal"/>  
+                      <field uid="id_11" name="auditor_date" label="审核时间" type="timestamp"/>  
+                      <field uid="id_12" name="bank_name" label="开户行" type="string"/>  
+                      <field uid="id_13" name="remark" label="备注" type="string"/>  
+                      <field uid="id_14" name="system_member" label="系统会员" type="relation"/>  
+                      <field uid="id_15" name="branchAccountNo" label="开户支行号" type="string"/>  
+                      <field uid="id_16" name="code" label="编码" type="coding"/> 
+                    </Entity> 
+                  </select>  
+                  <where> 
+                    <exp type="2"> 
+                      <exp type="20" valueType="3" option="true" leftEntity="AMS_ArtWithdrawal" leftField="id" uid="exp0" rightType="val" right="$condition.para1"/> 
+                    </exp> 
+                  </where>  
+                  <other> 
+                    <groupBy label="Group By"/>  
+                    <orderBy label="Order By"/> 
+                  </other> 
+                </xmlQuery>  
+                <other label="其他" name="other" uid="other"> 
+                  <field name="printDate" label="打印日期" calcexp="dateFormat(other.printDate, &quot;YYYY年MM月DD日&quot;)" uid="field0"/> 
+                </other>  
+                <Entity log="true" workflow="true" lastId="16" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.2BFCE1B52493" name="$this" label="人工提现" note="" nodeID="851" dbcreated="true" canDelete="false"> 
+                  <field uid="sys_0" label="编号" name="id" type="long" systemProperty="true" group="系统属性字段" editorPart="Entity"/>  
+                  <field uid="sys_1" label="域ID" name="domainId" type="long" systemProperty="true" group="系统属性字段" editorPart="Entity"/>  
+                  <field uid="log_0" label="创建者ID" name="FM_CreatePrinId" type="long" systemProperty="true" group="系统属性字段" editorPart="Entity"/>  
+                  <field uid="log_1" label="创建者" name="FM_CreatePrinName" type="string" length="100" systemProperty="true" group="系统属性字段" editorPart="Entity"/>  
+                  <field uid="log_2" label="更新者ID" name="FM_UpdatePrinId" type="long" systemProperty="true" group="系统属性字段" editorPart="Entity"/>  
+                  <field uid="log_3" label="更新者" name="FM_UpdatePrinName" type="string" length="100" systemProperty="true" group="系统属性字段" editorPart="Entity"/>  
+                  <field uid="log_4" label="创建时间" name="FM_CreateTime" type="timestamp" systemProperty="true" group="系统属性字段" editorPart="Entity"/>  
+                  <field uid="log_5" label="更新时间" name="FM_UpdateTime" type="timestamp" systemProperty="true" group="系统属性字段" editorPart="Entity"/>  
+                  <field uid="wf_0" label="状态" name="WF_State" type="long" systemProperty="true" group="系统属性字段" editorPart="Entity"/>  
+                  <field uid="wf_1" label="状态名称" name="WF_StateName" type="string" length="50" systemProperty="true" group="系统属性字段" editorPart="Entity"/>  
+                  <field uid="wf_2" label="所属流程" name="WF_ProcessId" type="long" systemProperty="true" group="系统属性字段" editorPart="Entity"/>  
+                  <field uid="wf_3" label="流程名称" name="WF_ProcessName" type="string" length="100" systemProperty="true" group="系统属性字段" editorPart="Entity"/>  
+                  <field uid="wf_4" label="处理人ID" name="WF_ProcessorPrinId" type="long" systemProperty="true" group="系统属性字段" editorPart="Entity"/>  
+                  <field uid="wf_5" label="处理人" name="WF_ProcessorPrinName" type="string" length="100" systemProperty="true" group="系统属性字段" editorPart="Entity"/>  
+                  <field uid="wf_6" label="工作项ID" name="WF_WorkItemId" type="long" systemProperty="true" group="系统属性字段" editorPart="Entity"/>  
+                  <field name="member" label="会员" type="relation" uid="id_1" group="业务属性字段" entityUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0" labelField="name" editorPart="Entity" dbcreated="true"/>  
+                  <field name="member_uuid" label="会员userId" type="string" length="100" uid="id_2" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+                  <field name="total_money" label="提现金额" type="long" uid="id_3" group="业务属性字段" currency="true" editorPart="Entity" dbcreated="true"/>  
+                  <field name="accountNo" label="银行帐号" type="string" length="100" uid="id_4" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+                  <field name="account_name" label="开户名" type="string" length="100" uid="id_5" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+                  <field name="identity_cardNo" label="身份证号码" type="string" length="100" uid="id_6" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+                  <field name="phone" label="手机号码" type="string" length="100" uid="id_7" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+                  <field name="operator" label="经办人" type="principal" uid="id_8" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+                  <field name="operator_date" label="经办时间" type="timestamp" length="100" uid="id_9" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+                  <field name="auditor" label="审核人" type="principal" uid="id_10" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+                  <field name="auditor_date" label="审核时间" type="timestamp" length="100" uid="id_11" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+                  <field name="bank_name" label="开户行" type="string" length="100" uid="id_12" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+                  <field name="remark" label="备注" type="string" length="1000" uid="id_13" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+                  <field name="system_member" label="系统会员" type="relation" uid="id_14" group="业务属性字段" entityUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0" labelField="name" editorPart="Entity" dbcreated="true"/>  
+                  <field name="branchAccountNo" label="开户支行号" type="string" length="100" uid="id_15" editorPart="Entity" dbcreated="true"/>  
+                  <field name="code" label="编码" type="coding" length="100" uid="id_16" codingPattern="ART${year:4,0}${month:2,0}${date:2,0}-${sequence:4,0}" editorPart="Entity" dbcreated="true" resetPeriod="3" recyclable="false" zeroStart="true"/>  
+                  <field name="reportState" label="报表状态" type="long" uid="id_19" valueProvider="多账户.人工提现报表状态" editorPart="Entity"/> 
+                </Entity> 
+              </dataSource>  
+              <events label="事件"> 
+                <event name="initialize" label="初始化事件"/>  
+                <event name="preQuery" label="查询前事件"><![CDATA[var param =report.getOpenParameter();
+var entities = param.entities;
+var cond={};
+var para1 ="";
+for(var i = 0; i<entities.length;i++){
+	if(entities[i].isoutReport != null)
+		continue;
+	para1 +=entities[i].id+",";
+}
+
+para1 = para1.substring(0,para1.length-1);
+//return {error:true,message:para1};
+cond.para1 = para1;
+report.setQueryCondition(cond);]]></event>  
+                <event name="postQuery" label="查询后事件"><![CDATA[var artWithdrawal = report.getDataSource("artWithdrawal");
+var mindate ="";
+var maxdate ="";
+if(artWithdrawal != null){
+	for(var i= 0;i<artWithdrawal.length;i++){
+		
+		if(artWithdrawal[i].other == null)
+			artWithdrawal[i].other = {};
+		artWithdrawal[i].other.num = i+1;
+		artWithdrawal[i].other.moneytype = 156;
+		var d = artWithdrawal[i].AMS_ArtWithdrawal.auditor_date;
+		
+		if(i== 0){
+			mindate = artWithdrawal[0].AMS_ArtWithdrawal.auditor_date;
+			maxdate = artWithdrawal[0].AMS_ArtWithdrawal.auditor_date;
+		
+		}
+	
+		if(mindate == null || mindate == ""){
+			mindate = new Date();
+		}
+		if(maxdate == null || maxdate == ""){
+			maxdate = new Date();
+		}
+		if(d == null || d == ""){
+			d = new Date();
+		}
+		if(mindate>d){
+			mindate = d;
+		}
+		if(maxdate<d){
+			maxdate = d;
+		}
+		var mindatestr = mindate.getFullYear()+"-"+(mindate.getMonth()+1)+"-"+mindate.getDate();
+		var maxdatestr = maxdate.getFullYear()+"-"+(maxdate.getMonth()+1)+"-"+maxdate.getDate(); 
+		var str ="";
+		if(d!=null){
+			str = d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate();
+		}
+		artWithdrawal[i].other.auditor_date = str ;
+	}
+}
+report.setDataSource("artWithdrawal",artWithdrawal);
+
+
+var other = report.getDataSource("other");
+if(other == null)
+	other={};
+other.printDate = new Date();//当前日期
+other.printDate1 = mindatestr+"至"+ maxdatestr;
+report.setDataSource("other",other);]]></event>  
+                <event name="reportCreated" label="报表生成事件"><![CDATA[var param =report.getOpenParameter();
+var entities = param.entities;
+var cond={};
+var para1 ="";
+for(var i = 0; i<entities.length;i++){
+	entities[i].isoutReport =1;
+}]]></event>  
+                <event name="printed" label="打印事件" systemEvent="true"><![CDATA[var obj = report.getOpenParameter();
+var param = {};
+var ids/*:Array*/ = [];
+if(obj.entity != null && obj.entity!=undefined){
+	ids.push(obj.entity.id);
+}else{
+	if(obj.entities != null && obj.entities!=undefined && obj.entities.length){
+		for(var i=0; i<obj.entities.length; i++){
+			var entities/*:$Entity.AMS_ArtWithdrawal*/ = obj.entities[i];
+			if(entities.reportState == 3 ){
+				return{error:true,message:"该报表已审核"}
+			}
+			if(entities.reportState == 2 ){
+				return{error:true,message:"该报表已打印"}
+			}
+			ids.push(entities.id);
+		}
+	}
+}
+param.ids = ids.join(",");
+report.fireRemoteEvent("AMS_ArtWithdrawal", "printReport", param, "");]]></event> 
+              </events>  
+              <Document> 
+                <text x="233" y="70" uid="3FEACB5B-98F9-42B7-AE4B-035D03D340D4" width="279" height="56"><![CDATA[<HTML><BODY><P align="Center" STYLE="text-align:Center;"><SPAN STYLE="font-weight:bold;font-size:28;">人工提现</SPAN></P></BODY></HTML>]]></text>  
+                <table width="720" height="171" headRow="0" fixedY="true" tailRow="0" name="序号" x="36" y="197" uid="11f09d64-cd8d-47ea-bab6-7ea9b8899a79"> 
+                  <tr> 
+                    <td width="70" height="41" rowIndex="0" colIndex="0" sameMerge="" mergeExp="" href="" viewMode="" fillColor="#FFFF00" textAlign="center"><![CDATA[内部机构名称]]></td>  
+                    <td width="64" height="41" rowIndex="0" colIndex="1" fillColor="#FFFF00" sameMerge="" mergeExp="" href="" viewMode="" textAlign="center"><![CDATA[通联支付]]></td>  
+                    <td width="122" height="41" rowIndex="0" colIndex="2" fillColor="#FFFF00" sameMerge="" mergeExp="" href="" viewMode="" textAlign="center" colSpan="3"><![CDATA[内部机构代码]]></td>  
+                    <td width="180" height="41" rowIndex="0" colIndex="5" fillColor="#FFFF00" sameMerge="" mergeExp="" href="" viewMode="" textAlign="center" colSpan="3"><![CDATA[99990000]]></td>  
+                    <td width="80" height="41" rowIndex="0" colIndex="8" fillColor="#FFFF00" sameMerge="" mergeExp="" href="" viewMode="" textAlign="center"><![CDATA[清算交易日期]]></td>  
+                    <td width="204" height="41" rowIndex="0" colIndex="9" fillColor="#FFFF00" colSpan="3" sameMerge="" mergeExp="" href="" viewMode="" textAlign="center"><![CDATA[${other.printDate1}]]></td> 
+                  </tr>  
+                  <tr> 
+                    <td width="70" height="86" rowIndex="1" colIndex="0" sameMerge="" mergeExp="" href="" viewMode="" fillColor="#FFFF00" textAlign="center"><![CDATA[序号]]></td>  
+                    <td width="64" height="86" rowIndex="1" colIndex="1" fillColor="#FFFF00" sameMerge="" mergeExp="" href="" viewMode="" textAlign="center"><![CDATA[客户名称]]></td>  
+                    <td width="56" height="86" rowIndex="1" colIndex="2" fillColor="#FFFF00" sameMerge="" mergeExp="" href="" viewMode="" textAlign="center"><![CDATA[商户编号/分店代码]]></td>  
+                    <td width="66" height="86" rowIndex="1" colIndex="3" fillColor="#FFFF00" sameMerge="" mergeExp="" href="" viewMode="" textAlign="center" colSpan="2"><![CDATA[客户银行账号]]></td>  
+                    <td width="60" height="86" rowIndex="1" colIndex="5" fillColor="#FFFF00" sameMerge="" mergeExp="" href="" viewMode="" textAlign="center"><![CDATA[客户银行开户名称]]></td>  
+                    <td width="54" height="86" rowIndex="1" colIndex="6" fillColor="#FFFF00" sameMerge="" mergeExp="" href="" viewMode="" textAlign="center"><![CDATA[开户支行号]]></td>  
+                    <td width="66" height="86" rowIndex="1" colIndex="7" fillColor="#FFFF00" sameMerge="" mergeExp="" href="" viewMode="" textAlign="center"><![CDATA[清算交易日期]]></td>  
+                    <td width="80" height="86" rowIndex="1" colIndex="8" fillColor="#FFFF00" sameMerge="" mergeExp="" href="" viewMode="" textAlign="center"><![CDATA[开户行名称]]></td>  
+                    <td width="60" height="86" rowIndex="1" colIndex="9" fillColor="#FFFF00" sameMerge="" mergeExp="" href="" viewMode="" textAlign="center"><![CDATA[交易币种]]></td>  
+                    <td width="64" height="86" rowIndex="1" colIndex="10" fillColor="#FFFF00" sameMerge="" mergeExp="" href="" viewMode="" textAlign="center"><![CDATA[提现金额]]></td>  
+                    <td width="80" height="86" rowIndex="1" colIndex="11" fillColor="#FFFF00" sameMerge="" mergeExp="" href="" viewMode="" textAlign="center"><![CDATA[备注]]></td> 
+                  </tr>  
+                  <tr> 
+                    <td width="70" height="44" rowIndex="2" colIndex="0" fillColor="#FFFFFF" href="" viewMode="text" dataSource="artWithdrawal" labelField="other.num" fillMode="1" sameMerge="" mergeExp="" textAlign="center"/>  
+                    <td width="64" height="44" rowIndex="2" colIndex="1" fillColor="#FFFFFF" sameMerge="" mergeExp="" href="" viewMode="" dataSource="artWithdrawal" labelField="AMS_ArtWithdrawal.member" dataField="AMS_ArtWithdrawal.member" fillMode="1" textAlign="center"><![CDATA[会员]]></td>  
+                    <td width="56" height="44" rowIndex="2" colIndex="2" dataSource="artWithdrawal" labelField="AMS_ArtWithdrawal.accountNo" dataField="AMS_ArtWithdrawal.accountNo" textAlign="center" mergeExp="" href="" fillColor="#FFFFFF" viewMode="equation" sameMerge=""><![CDATA[]]></td>  
+                    <td width="66" height="44" rowIndex="2" colIndex="3" dataSource="artWithdrawal" labelField="AMS_ArtWithdrawal.accountNo" dataField="AMS_ArtWithdrawal.accountNo" fillMode="1" textAlign="center" mergeExp="" href="" fillColor="#FFFFFF" viewMode="equation" sameMerge="" colSpan="2"><![CDATA[银行帐号]]></td>  
+                    <td width="60" height="44" rowIndex="2" colIndex="5" dataSource="artWithdrawal" labelField="AMS_ArtWithdrawal.account_name" dataField="AMS_ArtWithdrawal.account_name" fillColor="#FFFFFF" textAlign="center" sameMerge="" mergeExp="" href="" viewMode="" fillMode="1"><![CDATA[开户名]]></td>  
+                    <td width="54" height="44" rowIndex="2" colIndex="6" dataSource="artWithdrawal" labelField="AMS_ArtWithdrawal.branchAccountNo" dataField="AMS_ArtWithdrawal.branchAccountNo" fillMode="1" fillColor="#FFFFFF" textAlign="center" sameMerge="" mergeExp="" href="" viewMode=""><![CDATA[开户支行号]]></td>  
+                    <td width="66" height="44" rowIndex="2" colIndex="7" dataSource="artWithdrawal" labelField="other.auditor_date" dataField="AMS_ArtWithdrawal.id" textAlign="center" sameMerge="" mergeExp="" href="" fillColor="#FFFFFF" fillMode="1" viewMode="text"><![CDATA[编号]]></td>  
+                    <td width="80" height="44" rowIndex="2" colIndex="8" dataSource="artWithdrawal" labelField="AMS_ArtWithdrawal.bank_name" dataField="AMS_ArtWithdrawal.bank_name" fillMode="1" textAlign="center" sameMerge="" mergeExp="" href="" viewMode=""><![CDATA[开户行]]></td>  
+                    <td width="60" height="44" rowIndex="2" colIndex="9" fillColor="#FFFFFF" href="" textAlign="center" viewMode="text" dataSource="artWithdrawal" labelField="other.moneytype" fillMode="1" sameMerge="" mergeExp=""><![CDATA[
+]]></td>  
+                    <td width="64" height="44" rowIndex="2" colIndex="10" fillColor="#FFFFFF" sameMerge="" mergeExp="" href="" viewMode="" textAlign="center" dataSource="artWithdrawal" labelField="AMS_ArtWithdrawal.total_money" dataField="AMS_ArtWithdrawal.total_money" fillMode="1"><![CDATA[提现金额]]></td>  
+                    <td width="80" height="44" rowIndex="2" colIndex="11" dataSource="artWithdrawal" labelField="AMS_ArtWithdrawal.remark" dataField="AMS_ArtWithdrawal.remark" fillMode="1" textAlign="center" sameMerge="" mergeExp="" href="" viewMode=""><![CDATA[备注]]></td> 
+                  </tr> 
+                </table>  
+                <text x="519" y="141" uid="9B4B51D1-0A51-472F-85FC-6777B59453E8" width="179" height="25"><![CDATA[<HTML><BODY><P>打印日期:${other.printDate}</P></BODY></HTML>]]></text> 
+              </Document>  
+              <conditionForm> 
+                <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2"> 
+                  <TabNavigator> 
+                    <tab label="default"/> 
+                  </TabNavigator> 
+                </Window> 
+              </conditionForm> 
+            </Report>

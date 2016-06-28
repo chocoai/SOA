@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "PUBLIC" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class entity-name="AMS_SafetyLog" table="DYNA_AMS_SafetyLog">
+    <id name="id" type="long">
+      <generator class="sequence">
+        <param name="sequence">IDSEQ_AMS_SafetyLog</param>
+      </generator>
+    </id>
+    <property name="domainId" not-null="false" type="long" index="IDX_DOMAINID"/>
+    <property name="member_id" not-null="false" type="long" index="member_idx"/>
+    <property name="member_label" not-null="false" type="string" length="200"/>
+    <property name="type" not-null="false" type="long"/>
+    <property name="old_level" not-null="false" type="long"/>
+    <property name="new_level" not-null="false" type="long"/>
+    <property name="memo" not-null="false" type="string" length="100"/>
+    <property name="add_time" not-null="false" type="timestamp" length="100"/>
+    <property name="deal_result" not-null="false" type="long"/>
+    <property name="operation_type" not-null="false" type="long"/>
+  </class>
+</hibernate-mapping>

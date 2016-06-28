@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "PUBLIC" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class entity-name="AMS_Favourite" table="DYNA_AMS_Favourite">
+    <id name="id" type="long">
+      <generator class="native"/>
+    </id>
+    <property name="domainId" not-null="false" type="long" index="IDX_DOMAINID"/>
+    <property name="goods_name" not-null="false" type="string" length="100"/>
+    <property name="goods_image" not-null="false" type="string" length="100"/>
+    <property name="goods_uuid" not-null="false" type="string" length="100"/>
+    <property name="member_id" not-null="false" type="long" index="member_idx"/>
+    <property name="member_label" not-null="false" type="string" length="200"/>
+    <property name="create_time" not-null="false" type="timestamp" length="100"/>
+    <property name="shop_uid" not-null="false" type="string" length="100"/>
+  </class>
+</hibernate-mapping>

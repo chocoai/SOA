@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityForm name="银行" label="银行" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E61D2FB6D69A" nodeID="470"> 
+              <formEntity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.49B45721ED2E"/>  
+              <formState> 
+                <state label="基础" uid="state0" basedOn="null"> 
+                  <rule type="required" property="name" label="名称" rule="true"/>  
+                  <rule type="required" property="bank_code" label="代码" rule="true"/>  
+                  <rule type="required" property="short_name" label="简称" rule="true"/> 
+                </state> 
+              </formState>  
+              <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2"> 
+                <TabNavigator> 
+                  <tab label="default"> 
+                    <Label width="82" height="25" text="名称:" propertyUID="id_1" x="2" y="3" style=""/>  
+                    <TextInput propertyUID="id_1" width="159" height="25" x="63" y="3"/>  
+                    <Label width="59" height="25" text="代码:" propertyUID="id_2" x="3" y="31" style=""/>  
+                    <TextInput propertyUID="id_2" width="159" height="25" x="63" y="31"/>  
+                    <Label width="82" height="25" text="简称:" propertyUID="id_3" x="243" y="3" style=""/>  
+                    <TextInput propertyUID="id_3" width="159" height="25" x="303" y="3"/>  
+                    <Label width="82" height="25" text="ITS银行代码:" propertyUID="id_4" x="223" y="31" style=""/>  
+                    <TextInput propertyUID="id_4" width="159" height="25" x="303" y="31"/>  
+                    <Label width="82" height="25" text="LOGO:" propertyUID="id_5" x="3" y="59" style=""/>  
+                    <ImageField propertyUID="id_5" width="159" height="111" x="63" y="59"/>  
+                    <Label width="82" height="25" text="银行代码(英文):" propertyUID="id_6" x="223" y="59" style=""/>  
+                    <TextInput propertyUID="id_6" width="159" height="25" x="303" y="59"/> 
+                  </tab> 
+                </TabNavigator> 
+              </Window>  
+              <formEvent/> 
+            </EntityForm>

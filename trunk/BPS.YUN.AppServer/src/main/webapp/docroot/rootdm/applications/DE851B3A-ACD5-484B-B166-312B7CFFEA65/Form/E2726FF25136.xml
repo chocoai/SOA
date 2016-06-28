@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityForm name="留言箱" label="留言箱" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E2726FF25136" nodeID="845"> 
+              <formEntity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.337F98126F83"/>  
+              <formState/>  
+              <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2"> 
+                <TabNavigator> 
+                  <tab label="default"> 
+                    <Label width="82" height="25" text="内容:" propertyUID="id_2" x="3" y="3" style=""/>  
+                    <UEditor propertyUID="id_2" width="559" height="447" x="83" y="3"/> 
+                  </tab> 
+                </TabNavigator> 
+              </Window>  
+              <formEvent/> 
+            </EntityForm>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "PUBLIC" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class entity-name="AMS_AccountType" table="DYNA_AMS_AccountType">
+    <id name="id" type="long">
+      <generator class="native"/>
+    </id>
+    <property name="domainId" not-null="false" type="long" index="IDX_DOMAINID"/>
+    <property name="codeNo" not-null="false" type="string" length="100"/>
+    <property name="valid_type" not-null="false" type="long"/>
+    <property name="valid_merge" not-null="false" type="long"/>
+    <property name="name" not-null="false" type="string" length="100"/>
+    <property name="biz_type" not-null="false" type="long"/>
+    <property name="biz_def" not-null="false" type="string" length="1024"/>
+    <property name="account_prop" not-null="false" type="long"/>
+    <property name="extend_day" not-null="false" type="long"/>
+    <property name="rbm_rate" not-null="false" type="double"/>
+    <property name="orgNo" not-null="false" type="string" length="100"/>
+    <property name="org_id" not-null="false" type="long" index="org_idx"/>
+    <property name="org_label" not-null="false" type="string" length="200"/>
+    <property name="isMaster" not-null="false" type="boolean" length="100"/>
+  </class>
+</hibernate-mapping>

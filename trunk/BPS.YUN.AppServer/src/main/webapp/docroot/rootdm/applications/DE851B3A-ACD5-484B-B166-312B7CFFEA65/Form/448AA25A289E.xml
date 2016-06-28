@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityForm name="渠道商户信息" label="渠道商户信息" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.448AA25A289E" nodeID="1027">
+  <formEntity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.013DBD85BF8A" />
+  <formState>
+    <state label="基础" uid="state0" basedOn="null">
+      <rule type="enabled" property="application" label="应用" rule="false" />
+      <rule type="required" property="application" label="应用" rule="false" />
+      <rule type="value" property="system_uuid" label="系统会员uuid" rule="$this.system_member.userId" />
+      <rule type="enabled" property="org_no" label="应用编号" rule="false" />
+    </state>
+    <state label="新建" uid="state2" basedOn="state0">
+      <rule type="value" property="application" label="应用" rule="$opener.page.master.selectedEntity" />
+      <rule type="value" property="org_no" label="应用编号" rule="$opener.page.master.selectedEntity.codeNo" />
+    </state>
+    <state label="编辑" uid="state1" basedOn="state0" />
+  </formState>
+  <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2">
+    <TabNavigator>
+      <tab label="default">
+        <Label width="82" height="25" text="用户名:" propertyUID="id_2" x="283" y="3" style="" />
+        <TextInput propertyUID="id_2" width="179" height="25" x="343" y="3" />
+        <Label width="82" height="25" text="用户密码:" propertyUID="id_3" x="543" y="3" style="" />
+        <TextInput propertyUID="id_3" width="199" height="25" x="603" y="3" />
+        <Label width="82" height="25" text="商户号:" propertyUID="id_4" x="543" y="87" style="" />
+        <TextInput propertyUID="id_4" width="199" height="25" x="603" y="87" />
+        <Label width="82" height="25" text="应用:" propertyUID="id_16" x="283" y="31" style="" />
+        <EntityField propertyUID="id_16" width="179" height="25" x="343" y="31" />
+        <Label width="82" height="25" text="版本:" propertyUID="id_12" x="2" y="59" style="" />
+        <ComboBox propertyUID="id_12" width="199" height="25" x="63" y="59" />
+        <Label width="82" height="25" text="语言:" propertyUID="id_13" x="283" y="59" style="" />
+        <ComboBox propertyUID="id_13" width="179" height="25" x="343" y="59" />
+        <Label width="82" height="25" text="字符编码:" propertyUID="id_14" x="543" y="59" style="" />
+        <ComboBox propertyUID="id_14" width="199" height="25" x="603" y="59" />
+        <Label width="82" height="25" text="签名方式:" propertyUID="id_15" x="2" y="87" style="" />
+        <ComboBox propertyUID="id_15" width="199" height="25" x="63" y="87" />
+        <Label width="82" height="25" text="密钥:" propertyUID="id_11" x="283" y="87" style="" />
+        <TextInput propertyUID="id_11" width="179" height="25" x="343" y="87" />
+        <Label width="82" height="25" text="证书地址:" propertyUID="id_5" x="3" y="143" style="" />
+        <TextInput propertyUID="id_5" width="739" height="25" x="63" y="143" />
+        <Label width="82" height="25" text="pfx地址:" propertyUID="id_6" x="2" y="171" style="" />
+        <TextInput propertyUID="id_6" width="739" height="25" x="63" y="171" />
+        <Label width="82" height="25" text="pfx密码:" propertyUID="id_7" x="3" y="199" style="" />
+        <TextArea propertyUID="id_7" width="739" height="139" x="63" y="199" />
+        <Label width="82" height="25" text="服务地址:" propertyUID="id_8" x="3" y="339" style="" />
+        <TextInput propertyUID="id_8" width="739" height="25" x="63" y="339" />
+        <Label width="82" height="25" text="下载地址:" propertyUID="id_9" x="2" y="367" style="" />
+        <TextInput propertyUID="id_9" width="739" height="25" x="63" y="367" />
+        <Label width="82" height="25" text="系统会员:" propertyUID="id_18" x="3" y="3" style="" />
+        <EntityField propertyUID="id_18" width="199" height="25" x="63" y="3" formUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.2E2EF422672F" queryUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.CA7E119E5461" />
+        <Label width="82" height="25" text="支付通道:" propertyUID="id_17" x="2" y="115" style="" />
+        <EntityField propertyUID="id_17" width="199" height="25" x="63" y="115" formUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.3443B3139499" queryUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.2452D4DF3338" />
+        <Label width="99" height="25" text="系统会员uuid:" propertyUID="id_19" x="2" y="31" style="" />
+        <TextInput propertyUID="id_19" width="159" height="25" x="103" y="31" />
+        <Label width="82" height="25" text="应用编号:" propertyUID="id_20" x="543" y="31" style="" />
+        <TextInput propertyUID="id_20" width="199" height="25" x="603" y="31" />
+        <Label width="119" height="25" text="移动认证支付密钥:" propertyUID="id_21" x="283" y="115" style="" />
+        <TextInput propertyUID="id_21" width="119" height="25" x="403" y="115" />
+      </tab>
+    </TabNavigator>
+  </Window>
+  <formEvent />
+</EntityForm>

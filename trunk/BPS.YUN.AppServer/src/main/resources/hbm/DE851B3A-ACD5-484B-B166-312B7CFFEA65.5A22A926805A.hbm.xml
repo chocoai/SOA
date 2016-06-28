@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "PUBLIC" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class entity-name="AMS_FreezeAdjustAccount" table="DYNA_AMS_FreezeAdjustAccount">
+    <id name="id" type="long">
+      <generator class="sequence">
+        <param name="sequence">IDSEQ_AMS_FreezeAdjustAccount</param>
+      </generator>
+    </id>
+    <property name="FM_CreatePrinId" not-null="false" type="long" index="IDX_CREATEPRINID"/>
+    <property name="FM_CreatePrinName" not-null="false" length="100" type="string"/>
+    <property name="FM_UpdatePrinId" not-null="false" type="long" index="IDX_UPDATEPRINID"/>
+    <property name="FM_UpdatePrinName" not-null="false" length="100" type="string"/>
+    <property name="FM_CreateTime" not-null="false" type="timestamp"/>
+    <property name="FM_UpdateTime" not-null="false" type="timestamp"/>
+    <property name="domainId" not-null="false" type="long" index="IDX_DOMAINID"/>
+    <property name="userId" not-null="false" type="string" length="100"/>
+    <property name="account_type_id" not-null="false" type="long" index="account_type_idx"/>
+    <property name="account_type_label" not-null="false" type="string" length="200"/>
+    <property name="freeze_type" not-null="false" type="long"/>
+    <property name="trade_id" not-null="false" type="string" length="100"/>
+    <property name="freeze_bizid" not-null="false" type="string" length="100"/>
+    <property name="requestId" not-null="false" type="string" length="100"/>
+    <property name="amount" not-null="false" type="long"/>
+    <property name="remark" not-null="false" type="string" length="1024"/>
+  </class>
+</hibernate-mapping>

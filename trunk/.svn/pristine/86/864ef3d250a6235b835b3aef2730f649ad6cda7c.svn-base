@@ -1,0 +1,281 @@
+package bps.external.application.increment;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.apache.commons.lang.StringUtils;
+import org.apache.log4j.Logger;
+import org.dom4j.Document;
+import org.dom4j.DocumentHelper;
+import org.dom4j.Element;
+import org.json.JSONObject;
+
+import bps.common.BizException;
+import bps.common.ErrorCode;
+import bps.common.MD5Util;
+import bps.external.application.Extension;
+
+public class MobileRechargeServiceImpl implements  bps.external.application.service.increment.MobileRechargeService{
+	private static Logger logger = Logger.getLogger(MobileRechargeServiceImpl.class);
+	private static String tradeCompnayId = null;  //商户id
+	private static String backUrl = null;
+	private static String securityKey = null;
+	private static String phoneRechargeUrl = null;
+	private static String apiStoreKey = null;
+	private static String apiStorePhoneAreaUrl = null;
+
+	static{
+		if(tradeCompnayId == null){
+			tradeCompnayId = Extension.paramMap.get("phonerecharge.shengwo.tradeCompnayId");
+		}
+		if(backUrl == null){
+			backUrl = Extension.paramMap.get("phonerecharge.shengwo.backUrl");
+		}
+		if(securityKey == null){
+			securityKey = Extension.paramMap.get("phonerecharge.shengwo.securityKey");
+		}
+		if(phoneRechargeUrl == null){
+			phoneRechargeUrl = Extension.paramMap.get("phonerecharge.shengwo.phoneRechargeUrl");
+		}
+		if(apiStoreKey == null){
+			apiStoreKey = Extension.paramMap.get("apiStore.apiKey");
+		}
+		if(apiStorePhoneAreaUrl == null){
+			apiStorePhoneAreaUrl = Extension.paramMap.get("apiStore.apiStorePhoneAreaUrl");
+		}
+	}
+	
+	/**
+	 * 话费充值
+	 * @param orderNo      订单号
+	 * @param phoneNo      手机号码
+	 * @param singleAmount 充值单价
+	 * @param rechargeNum  充值数量
+	 * @param sumAmount    充值总数
+	 * @param which        充值类型。1：移动；2：联通；3：电信。
+	 * @return
+	 * @throws Exception
+	 */
+	public Map<String, String> recharge(String orderNo, String phoneNo, Long sumAmount) throws BizException{
+		logger.info("------------------------------------PhoneExpenseOperation.recharge start----------------------------------");
+		logger.info("orderNo:" + orderNo + ";phoneNo:" + phoneNo + ";sumAmount:" + sumAmount);
+		
+		try{
+			//数据验证
+			if(StringUtils.isBlank(orderNo)){
+				String msg = "参数orderNo为“”或null。";
+				logger.error(msg);
+				throw new Exception(msg);
+			}
+			
+			if(StringUtils.isBlank(phoneNo)){
+				String msg = "参数phoneNo为“”或null。";
+				logger.error(msg);
+				throw new Exception(msg);
+			}
+			
+			if(sumAmount == null){
+				String msg = "参数sumAmount为null。";
+				logger.error(msg);
+				throw new Exception(msg);
+			}
+			
+			sumAmount = sumAmount / 100;
+			
+			//获得签名
+			StringBuilder sb = new StringBuilder();
+			sb.setLength(0);
+			sb.append(orderNo);
+			sb.append(tradeCompnayId);
+			sb.append(phoneNo);
+			sb.append(sumAmount);
+			sb.append(backUrl);
+			sb.append(securityKey);
+			String signature = MD5Util.MD5(sb.toString());
+			
+			//组装
+			sb.setLength(0);
+			sb.append("oid=").append(orderNo);
+			sb.append("&cid=").append(tradeCompnayId);
+			sb.append("&pn=").append(phoneNo);
+			sb.append("&fm=").append(sumAmount);
+			sb.append("&ru=").append(backUrl);
+			sb.append("&sign=").append(signature);
+			
+			logger.info("url:" + phoneRechargeUrl);
+			logger.info("requset:" + sb.toString());
+			
+			//发送请求,并取得response
+			String response = post(phoneRechargeUrl, sb.toString());
+			logger.info("response:" + response);
+			
+			//处理请求结果
+			Map<String, String> retMap = new HashMap<String, String>();
+			
+			Document xml = DocumentHelper.parseText(response);
+			Element xmlRoot = xml.getRootElement();
+			String resCode = ((Element)xmlRoot.selectSingleNode("/response/result")).getText();
+			String resMsg = ((Element)xmlRoot.selectSingleNode("/response/msg")).getText();
+			if("true".equals(resCode)){
+				Map<String, Object> result = new HashMap<String, Object>();
+				Element sidElement = (Element)xmlRoot.selectSingleNode("/response/data/sid");
+				if(sidElement != null){
+					result.put("sid", sidElement.getText());
+				}
+				
+				retMap.put("status", "ok");
+				retMap.put("resCode", resCode);
+				retMap.put("resMsg", resMsg);
+			}else{
+				retMap.put("status", "error");
+				retMap.put("resCode", resCode);
+				retMap.put("resMsg", resMsg);
+			}
+			
+			logger.info("------------------------------------PhoneExpenseOperation.recharge end----------------------------------");
+			return retMap;
+		}catch(BizException bizE){
+			throw bizE;
+		}catch(Exception e){
+			throw new BizException(ErrorCode.OTHER_ERROR, e.getMessage());
+		}
+	}
+	
+	/**
+     * 发送post请求
+     * @param urlStr      String     请求接口的URL地址
+     * @param postBody    String     请求post的body
+     * @return            JSONObject 业务接口返回的信息 
+     * @throws Exception
+     */
+    private static String post(String urlStr, String postBody) throws Exception{
+    	HttpURLConnection httpurlconnection = null;
+    	BufferedReader br = null;
+    	
+    	try{
+	    	URL url = new URL(urlStr);
+	        httpurlconnection = (HttpURLConnection) url.openConnection();
+	        httpurlconnection.setDoOutput(true);
+	        httpurlconnection.setUseCaches(false);
+	        httpurlconnection.setRequestMethod("POST");
+	
+	        byte[] bypes = postBody.getBytes();
+	        httpurlconnection.getOutputStream().write(bypes);
+	        
+	        br = new BufferedReader(new InputStreamReader(httpurlconnection.getInputStream(), "GB2312"));
+	        httpurlconnection.connect(); 
+	
+	        String line = br.readLine();
+	        StringBuffer sb = new StringBuffer();
+	        sb.setLength(0);
+	        while(line != null){
+	            logger.info(line);
+	            sb.append(line);
+	            line = br.readLine();
+	        }
+	        System.out.println(sb.toString());
+	        br.close();
+	        
+	        return sb.toString();
+    	}
+    	catch(Exception ex){
+    		throw ex;
+    	}
+    	finally{
+			if(httpurlconnection != null){
+				httpurlconnection.disconnect();
+			}
+			if(br != null){
+				br.close();
+			}
+		}
+    }
+
+    /**
+     * 获取手机归属地
+     */
+	public Map<String, Object> getPhoneArea(String phone) throws BizException{
+		logger.info("phone:" + phone);
+		
+		try{
+			String url = apiStorePhoneAreaUrl + "?phone=" + phone;
+			logger.info("request:" + url);
+			JSONObject phoneAreaRespnose = getHttp(url);
+			System.out.println(phoneAreaRespnose);
+			logger.info("response:" + phoneAreaRespnose);
+			
+			String phoneAreaResCode = ((Integer)phoneAreaRespnose.get("errNum")).toString();
+			String phoneAreaRespMsg = (String)phoneAreaRespnose.get("retMsg");
+			Map<String, Object> retMap = new HashMap<String, Object>();
+			if("0".equals(phoneAreaResCode)){
+				JSONObject resData = (JSONObject)phoneAreaRespnose.get("retData");
+				String province = (String)resData.get("province");
+				String city = (String)resData.get("city");
+				
+				Map<String, Object> result = new HashMap<String, Object>();
+				result.put("province", province);
+				result.put("city", city);
+				
+				retMap.put("status", "ok");
+				retMap.put("resCode", phoneAreaResCode);
+				retMap.put("resMsg", phoneAreaRespMsg);
+				retMap.put("returnValue", result);
+			}else{
+				retMap.put("resCode", phoneAreaResCode);
+				retMap.put("resMsg", phoneAreaRespMsg);
+			}
+			
+			return retMap;
+		}catch(BizException bizE){
+			throw bizE;
+		}catch(Exception e){
+			throw new BizException(ErrorCode.OTHER_ERROR, e.getMessage());
+		}
+	}
+
+    private static JSONObject getHttp(String urlStr) throws Exception{
+    	HttpURLConnection httpurlconnection = null;
+    	BufferedReader br = null;
+    	
+    	try{
+	    	URL url = new URL(urlStr);
+	        httpurlconnection = (HttpURLConnection) url.openConnection();
+	        httpurlconnection.setDoOutput(true);
+	        httpurlconnection.setUseCaches(false);
+	        httpurlconnection.setRequestMethod("GET");
+	        httpurlconnection.setRequestProperty("apikey", apiStoreKey);
+
+	        br = new BufferedReader(new InputStreamReader(httpurlconnection.getInputStream(), "GB2312"));
+	        httpurlconnection.connect(); 
+	
+	        String line = br.readLine();
+	        StringBuffer sb = new StringBuffer();
+	        sb.setLength(0);
+	        while(line != null){
+	            logger.info(line);
+	            sb.append(line);
+	            line = br.readLine();
+	        }
+	        br.close();
+	        
+	        return new JSONObject(sb.toString());
+    	}
+    	catch(Exception ex){
+    		throw ex;
+    	}
+    	finally{
+			if(httpurlconnection != null){
+				httpurlconnection.disconnect();
+			}
+			if(br != null){
+				br.close();
+			}
+		}
+    }
+}
+
+

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "PUBLIC" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class entity-name="AMS_OrgPayPermission" table="DYNA_AMS_OrgPayPermission">
+    <id name="id" type="long">
+      <generator class="sequence">
+        <param name="sequence">IDSEQ_AMS_OrgPayPermission</param>
+      </generator>
+    </id>
+    <property name="domainId" not-null="false" type="long" index="IDX_DOMAINID"/>
+    <property name="account_type_id" not-null="false" type="long" index="account_type_idx"/>
+    <property name="account_type_label" not-null="false" type="string" length="200"/>
+    <property name="payInterface_id" not-null="false" type="long" index="payInterface_idx"/>
+    <property name="payInterface_label" not-null="false" type="string" length="200"/>
+    <property name="pay_interfaceNo" not-null="false" type="string" length="100"/>
+    <property name="accountNo" not-null="false" type="string" length="100"/>
+    <property name="org_id" not-null="false" type="long" index="org_idx"/>
+    <property name="org_label" not-null="false" type="string" length="200"/>
+    <property name="orgNo" not-null="false" type="string" length="100"/>
+    <property name="pay_interface_type" not-null="false" type="long"/>
+    <property name="trade_type" not-null="false" type="long"/>
+    <property name="sub_trade_type" not-null="false" type="long"/>
+    <property name="debit" not-null="false" type="boolean" length="100"/>
+    <property name="credit" not-null="false" type="boolean" length="100"/>
+    <property name="account" not-null="false" type="boolean" length="100"/>
+  </class>
+</hibernate-mapping>

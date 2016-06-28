@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityQuery name="解冻记录查询" label="解冻记录查询" note="" share="false" multiselect="false" editable="false" autopaging="true" pagingMode="VirtualizingPaging" virtualizingPagingEnabled="true" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.6AEB13B78A6D" nodeID="695"> 
+              <queryEntities> 
+                <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.A443187ED223" name="AMS_UnfreezeLog" label="解冻记录" alias="a0" master="true"/> 
+              </queryEntities>  
+              <DataGrid> 
+                <color/>  
+                <column name="unfreeze_type" label="解冻类型" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.A443187ED223.id_5" width="102" isBranch="false" editable="" sortable="" textAlign=""/>  
+                <column name="unfreeze_date" label="解冻日期" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.A443187ED223.id_1" width="115" isBranch="false" editable="" sortable="" textAlign=""/>  
+                <column name="unfreeze_amount" label="解冻金额" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.A443187ED223.id_2" width="100" isBranch="false" editable="" sortable="" textAlign=""/>  
+                <column name="freeze_bizid" label="冻结业务ID" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.A443187ED223.id_10" width="155" isBranch="false" editable="" sortable="" textAlign=""/>  
+                <column name="bizid" label="业务ID" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.A443187ED223.id_3" width="158" isBranch="false" editable="" sortable="" textAlign=""/>  
+                <column name="trade_id" label="交易流水号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.A443187ED223.id_9" width="100" isBranch="false" editable="" sortable="" textAlign=""/> 
+              </DataGrid>  
+              <editState/>  
+              <toolbar/>  
+              <xmlQuery version="2.0" name="" label=""> 
+                <select domainScope="true"> 
+                  <other label="其他" uid="other" name="other"/>  
+                  <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.A443187ED223" name="AMS_UnfreezeLog" label="解冻记录" alias="a0"> 
+                    <field uid="sys_0" name="id" label="编号" type="long" entity="AMS_UnfreezeLog"/>  
+                    <field uid="sys_1" name="domainId" label="域ID" type="long"/>  
+                    <field uid="id_1" name="unfreeze_date" label="解冻日期" type="timestamp"/>  
+                    <field uid="id_2" name="unfreeze_amount" label="解冻金额" type="long"/>  
+                    <field uid="id_3" name="bizid" label="业务ID" type="string"/>  
+                    <field uid="id_4" name="userId" label="用户ID" type="string"/>  
+                    <field uid="id_5" name="unfreeze_type" label="解冻类型" type="long"/>  
+                    <field uid="id_6" name="account_id" label="账户ID" type="long"/>  
+                    <field uid="id_7" name="account_type" label="账户类型" type="relation"/>  
+                    <field uid="id_8" name="freezeLog_id" label="冻结日志ID" type="long"/>  
+                    <field uid="id_9" name="trade_id" label="交易流水号" type="string"/>  
+                    <field uid="id_10" name="freeze_bizid" label="冻结业务ID" type="string"/> 
+                  </Entity> 
+                </select>  
+                <where> 
+                  <exp type="2"> 
+                    <exp type="5" valueType="3" option="true" rightType="val" right="$page.opener.selectedEntity.id" leftEntity="AMS_UnfreezeLog" leftField="freezeLog_id" uid="exp0"/> 
+                  </exp> 
+                </where>  
+                <other> 
+                  <groupBy label="Group By"/>  
+                  <orderBy label="Order By"> 
+                    <field uid="sys_0" name="id" label="编号" type="long" entity="AMS_UnfreezeLog" order="desc"/> 
+                  </orderBy> 
+                </other> 
+              </xmlQuery>  
+              <conditionForm> 
+                <Window paddingLeft="1" paddingRight="1" paddingTop="1" paddingBottom="1"> 
+                  <TabNavigator> 
+                    <tab label="default"/> 
+                  </TabNavigator> 
+                </Window> 
+              </conditionForm>  
+              <StatSetting/>  
+              <queryEvent/> 
+            </EntityQuery>

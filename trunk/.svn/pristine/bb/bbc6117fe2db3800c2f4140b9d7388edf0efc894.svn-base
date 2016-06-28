@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityQuery name="动态密码查询" label="动态密码查询" note="" share="false" multiselect="false" editable="false" autopaging="false" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.2577174C54E6" nodeID="851"> 
+              <queryEntities> 
+                <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.CC0DCBEC38E8" name="AMS_DynamicPwd" label="动态密码" alias="a0" master="true"/> 
+              </queryEntities>  
+              <DataGrid> 
+                <color/>  
+                <column name="member" label="会员" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.CC0DCBEC38E8.id_5" width="100" isBranch="false" editable="" sortable="" textAlign="" dataField="AMS_DynamicPwd$member_label"/>  
+                <column name="password" label="密码" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.CC0DCBEC38E8.id_1" width="100" isBranch="false" editable="" sortable="" textAlign="" dataField="AMS_DynamicPwd$password"/>  
+                <column name="password_type" label="密码类型" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.CC0DCBEC38E8.id_2" width="100" isBranch="false" dataField="AMS_DynamicPwd$password_type" editable="" sortable="" textAlign=""/>  
+                <column name="create_time" label="生成时间" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.CC0DCBEC38E8.id_3" width="125" isBranch="false" editable="" sortable="" textAlign="" dataField="AMS_DynamicPwd$create_time"/>  
+                <column name="invalid_time" label="失效时间" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.CC0DCBEC38E8.id_4" width="125" isBranch="false" editable="" sortable="" textAlign="" dataField="AMS_DynamicPwd$invalid_time"/>  
+                <column name="phone" label="手机号码" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.CC0DCBEC38E8.id_6" width="100" isBranch="false" editable="" sortable="" textAlign="" dataField="AMS_DynamicPwd$phone"/>  
+                <column name="isChecked" label="是否验证" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.CC0DCBEC38E8.id_7" width="100" isBranch="false" editable="" sortable="" textAlign="" dataField="AMS_DynamicPwd$isChecked"/> 
+              </DataGrid>  
+              <editState/>  
+              <toolbar/>  
+              <xmlQuery version="2.0" name="" label=""> 
+                <select domainScope="true"> 
+                  <other label="其他" uid="other" name="other"/>  
+                  <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.CC0DCBEC38E8" name="AMS_DynamicPwd" label="动态密码" alias="a0"> 
+                    <field uid="sys_0" name="id" label="编号" type="long"/>  
+                    <field uid="sys_1" name="domainId" label="域ID" type="long"/>  
+                    <field uid="id_1" name="password" label="密码" type="string"/>  
+                    <field uid="id_2" name="password_type" label="密码类型" type="long"/>  
+                    <field uid="id_3" name="create_time" label="生成时间" type="timestamp"/>  
+                    <field uid="id_4" name="invalid_time" label="失效时间" type="timestamp"/>  
+                    <field uid="id_5" name="member" label="会员" type="relation"/>  
+                    <field uid="id_6" name="phone" label="手机号码" type="string"/>  
+                    <field uid="id_7" name="isChecked" label="是否验证" type="boolean"/> 
+                  </Entity> 
+                </select>  
+                <where> 
+                  <exp type="2"> 
+                    <exp type="19" valueType="1" option="true" rightType="param" right="phone" leftEntity="AMS_DynamicPwd" leftField="phone" uid="exp1"/>  
+                    <exp type="7" valueType="7" option="true" rightType="param" right="create_time_begin" leftEntity="AMS_DynamicPwd" leftField="create_time" uid="exp2"/>  
+                    <exp type="11" valueType="7" option="true" rightType="param" right="create_time_end" leftEntity="AMS_DynamicPwd" leftField="create_time" uid="exp3"/>  
+                    <exp type="19" valueType="1" option="true" rightType="param" right="member" leftEntity="AMS_DynamicPwd" leftField="member_label" uid="exp0"/> 
+                  </exp> 
+                </where>  
+                <other> 
+                  <groupBy label="Group By"/>  
+                  <orderBy label="Order By"/> 
+                </other> 
+              </xmlQuery>  
+              <conditionForm> 
+                <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2"> 
+                  <TabNavigator> 
+                    <tab label="default"> 
+                      <Label width="82" height="25" text="手机号码:" propertyUID="id_6" x="163" y="3" style=""/>  
+                      <TextInput name="phone" width="119" height="25" x="223" y="3"/>  
+                      <Label width="82" height="25" text="生成时间:" propertyUID="id_3" x="343" y="3" style=""/>  
+                      <DateField name="create_time_begin" width="139" height="25" x="403" y="3"/>  
+                      <Label label="Label" text="至" x="543" y="3" width="100" height="24" style=""/>  
+                      <DateField label="DateField" x="563" y="3" width="139" height="24" name="create_time_end"/>  
+                      <Label width="82" height="25" text="会员:" propertyUID="id_5" x="3" y="3" style=""/>  
+                      <TextInput label="TextInput" x="43" y="3" width="119" height="24" name="member"/> 
+                    </tab> 
+                  </TabNavigator> 
+                </Window> 
+              </conditionForm>  
+              <StatSetting/>  
+              <queryEvent/> 
+            </EntityQuery>

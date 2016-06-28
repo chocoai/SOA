@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityForm name="外部账户类型" label="外部账户类型" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.49CB5617B3A8" nodeID="502"> 
+              <formEntity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.81AE775D85C9"/>  
+              <formState/>  
+              <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2"> 
+                <TabNavigator> 
+                  <tab label="default"> 
+                    <Label width="82" height="25" text="编号:" propertyUID="id_1" x="3" y="2" style=""/>  
+                    <TextInput propertyUID="id_1" width="159" height="25" x="83" y="3"/>  
+                    <Label width="82" height="25" text="名称:" propertyUID="id_2" x="243" y="2" style=""/>  
+                    <TextInput propertyUID="id_2" width="159" height="25" x="323" y="3"/>  
+                    <Label width="82" height="25" text="接入机构:" propertyUID="id_3" x="3" y="31" style=""/>  
+                    <EntityField propertyUID="id_3" width="399" height="25" x="83" y="31" formUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.88E7DAEED93C" queryUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.A30D05F76497"/> 
+                  </tab> 
+                </TabNavigator> 
+              </Window>  
+              <formEvent/> 
+            </EntityForm>

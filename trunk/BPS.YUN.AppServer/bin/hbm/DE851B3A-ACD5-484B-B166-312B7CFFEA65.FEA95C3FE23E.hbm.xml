@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "PUBLIC" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class entity-name="AMS_SafetyLevel" table="DYNA_AMS_SafetyLevel">
+    <id name="id" type="long">
+      <generator class="native"/>
+    </id>
+    <property name="domainId" not-null="false" type="long" index="IDX_DOMAINID"/>
+    <property name="member_id" not-null="false" type="long" index="member_idx"/>
+    <property name="member_label" not-null="false" type="string" length="200"/>
+    <property name="authentication_level" not-null="false" type="long"/>
+    <property name="safety_level" not-null="false" type="long"/>
+    <property name="edit_time" not-null="false" type="timestamp" length="100"/>
+    <property name="company" not-null="false" type="string" length="100"/>
+    <property name="email" not-null="false" type="string" length="100"/>
+    <property name="reques_time" not-null="false" type="timestamp" length="100"/>
+    <property name="authentication_sp" not-null="false" type="long"/>
+    <property name="trigger_times" not-null="false" type="long"/>
+    <property name="trigger_date" not-null="false" type="timestamp" length="100"/>
+  </class>
+</hibernate-mapping>

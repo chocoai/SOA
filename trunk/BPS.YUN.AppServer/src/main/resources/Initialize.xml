@@ -1,0 +1,1254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<import>
+	<!-- 系统服务定义 -->
+	<services>
+		<software name="平台管理服务" note="提供给平台管理人员以实施对系统平台的管理" group="管理服务" price="0">
+			<item name="全部" note="所有的平台管理功能" price="0" personalDefault="false" enterpriseDefault="false"/>
+		</software>
+		<software name="基础服务" note="为企业或个人提供的基本软件功能服务" group="通用服务" price="0">
+			<item name="个人" note="为个人用户提供的基本软件功能服务" price="0" personalDefault="true" enterpriseDefault="false"></item>
+			<item name="企业" note="为企业用户提供的基本软件功能服务" price="0" personalDefault="true" enterpriseDefault="true"></item>
+		</software>
+		<software name="企业管理服务" note="提供给企业管理人员以实施对企业应用系统的管理" group="管理服务" price="0">
+			<item name="全部" note="所有的企业管理功能" price="0" personalDefault="false" enterpriseDefault="true"/>
+		</software>
+	</services>
+	<!-- 系统菜单定义 -->
+	<menus>
+		<menuitem label="平台配置" services="平台管理服务.全部">
+			<menuitem label="业务应用设计" appName="ime.AppWorkshop" url="pages/core/AppWorkshop.swf" services="平台管理服务.全部" show="maximized" iconUrl="images/icons/application_edit.png" />
+			<menuitem label="菜单管理" appName="ime.MenuManager" url="pages/core/MenuManager.swf" services="平台管理服务.全部" show="maximized" iconUrl="images/icons/menu.png" />
+			<!--
+			<menuitem type="separator"/>
+			<menuitem label="服务管理" appName="ime.ServiceManager" url="pages/core/ServiceManager.swf" services="平台管理服务.全部" show="maximized" />
+			<menuitem label="资源类型管理" appName="ime.ResourceTypeManager" url="pages/core/ResourceTypeManager.swf" services="平台管理服务.全部" show="maximized" />
+			<menuitem label="资源管理" appName="ime.ResourceManager" url="pages/core/ResourceManager.swf" services="平台管理服务.全部" show="maximized" />
+			-->
+		</menuitem>
+		<menuitem label="系统管理" services="平台管理服务.全部,企业管理服务.全部,基础服务.企业">
+			<menuitem label="企业管理" appName="ime.EnterpriseManager" url="pages/admin/CompanyManager.swf" show="maximized" services="平台管理服务.全部" />
+			<menuitem label="用户管理" appName="ime.SecurityManager" url="pages/admin/SecurityManager.swf" show="maximized" services="平台管理服务.全部,企业管理服务.全部" iconUrl="images/icons/group_key.png" />
+			<menuitem label="字典表管理" appName="ime.DictionaryManager" url="pages/core/DictionaryManager.swf" services="平台管理服务.全部" show="maximized" />
+			<menuitem label="参数设置" appName="ime.DomainConfig" url="pages/admin/DomainConfig.swf" show="maximized" services="平台管理服务.全部" />
+		</menuitem>
+		<!-- 
+		<menuitem label="应用程序" services="平台管理服务.全部,企业管理服务.全部,基础服务.企业">
+			<menuitem label="文档管理" appName="ime.FileManager" url="pages/core/ECMFileManager.swf" show="maximized" iconUrl="images/icons/page.png"/>
+		</menuitem>
+		-->
+		<menuitem label="工具" services="基础服务.个人">
+			<menuitem label="日程管理" appName="ime.Calendar" url="pages/calendar/CalendarApp.swf" show="maximized" iconUrl="images/icons/calendar.png"/>
+		</menuitem>
+	</menus>
+	<!-- 系统操作定义 -->
+	<operations>
+		<group name="ime.core" note="基础功能" services="平台管理服务.全部">
+			<operation name="Dictionary.setValue" note="设置字典表项" services="平台管理服务.全部,企业管理服务.全部" />
+			
+			<operation name="Domain.create" note="创建域" />
+			<operation name="Domain.modify" note="修改域" />
+			<operation name="Domain.remove" note="删除域" />
+			
+			<!-- 
+			<operation name="ResourceType.create" note="创建资源类型" />
+			<operation name="ResourceType.modify" note="修改资源类型" />
+			<operation name="ResourceType.remove" note="删除资源类型" />
+
+			<operation name="FormDefinition.createAttribute" note="创建表单属性" />
+			<operation name="FormDefinition.modifyAttribute" note="修改表单属性" />
+			<operation name="FormDefinition.removeAttribute" note="删除表单属性" />
+			<operation name="FormDefinition.setEncrypt" note="设置表单加密属性" />
+
+			<operation name="QueryDefinition.create" note="创建查询定义" />
+			<operation name="QueryDefinition.modify" note="修改查询定义" />
+			<operation name="QueryDefinition.remove" note="删除查询定义" />
+			 -->
+			 
+			<operation name="Group.create" note="创建组" services="平台管理服务.全部,企业管理服务.全部, 基础服务.企业" />
+			<operation name="Group.modify" note="修改组" services="平台管理服务.全部,企业管理服务.全部, 基础服务.企业" />
+			<operation name="Group.remove" note="删除组" services="平台管理服务.全部,企业管理服务.全部, 基础服务.企业" />
+			
+			
+			<operation name="Resource.list"   note="获取资源列表" />
+			<operation name="Resource.create" note="创建资源对象" />
+			<operation name="Resource.modify" note="修改资源对象" />
+			<operation name="Resource.remove" note="删除资源对象" />
+			
+			<operation name="AppWorkshop.edit" note="设计业务应用" />
+
+			<operation name="Permission.set" note="设置权限" services="平台管理服务.全部,企业管理服务.全部" />
+			
+			<operation name="Principal.list"           note="获取用户列表" services="平台管理服务.全部,企业管理服务.全部, 基础服务.企业" />
+			<operation name="Principal.create"         note="创建用户"    services="平台管理服务.全部,企业管理服务.全部, 基础服务.企业" />
+			<operation name="Principal.modify"         note="修改用户数据" services="平台管理服务.全部,企业管理服务.全部, 基础服务.企业" />
+			<operation name="Principal.changePassword" note="修改用户密码" services="平台管理服务.全部,企业管理服务.全部, 基础服务.企业" />
+			<operation name="Principal.setPassword"    note="重置密码"    services="平台管理服务.全部,企业管理服务.全部, 基础服务.企业" />
+			<operation name="Principal.remove"         note="删除用户"    services="平台管理服务.全部,企业管理服务.全部, 基础服务.企业" />
+			
+			<operation name="Role.list"   note="获取角色列表" services="平台管理服务.全部,企业管理服务.全部, 基础服务.企业" />
+			<operation name="Role.create" note="创建角色"    services="平台管理服务.全部,企业管理服务.全部, 基础服务.企业" />
+			<operation name="Role.modify" note="修改角色"    services="平台管理服务.全部,企业管理服务.全部, 基础服务.企业" />
+			<operation name="Role.remove" note="删除角色"    services="平台管理服务.全部,企业管理服务.全部, 基础服务.企业" />
+		</group>
+		<!--
+		<group name="ime.document" note="文档管理" services="平台管理服务.全部">
+			<operation name="Document.manage" note="文档管理" />
+			<operation name="Document.setPolicy" note="配置安全策略" />
+		</group>
+		-->
+		<group name="ime.workflow" note="工作流" services="平台管理服务.全部">
+			<operation name="Workflow.create" note="创建工作流定义" />
+			<operation name="Workflow.modify" note="修改工作流定义" />
+			<operation name="Workflow.remove" note="删除工作流定义" />
+			<operation name="Workflow.deliverWorkItem" note="接管或转交任务" services="平台管理服务.全部,企业管理服务.全部, 基础服务.企业"/>
+			<operation name="Workflow.replyActivityNote" note="批示工作流程" services="平台管理服务.全部,企业管理服务.全部, 基础服务.企业"/>
+		</group>
+		<group name="ime.xpt" note="XPT站点" services="平台管理服务.全部,企业管理服务.全部">
+			<operation name="XPT.control.edit" note="控件开发" />
+			<operation name="XPT.page.edit" note="页面设计" />
+			<operation name="XPT.site.edit" note="站点设计" />
+			<operation name="XPT.site.set" note="站点设置" />
+			<operation name="XPT.template.edit" note="模板管理" />
+		</group>
+		<!--
+		<group name="ime.account" note="平台管理" services="平台管理服务.全部">
+			<operation name="Account.list" note="获取企业账户列表" />
+			<operation name="Account.create" note="创建账户" />
+			<operation name="Account.deposit" note="账户充值" />
+			<operation name="Account.withdraw" note="账户支取" />
+			<operation name="Account.freeze" note="冻结账户" />
+			<operation name="Account.defreeze" note="解冻账户" />
+			<operation name="Account.remove" note="删除账户" />
+			<operation name="Account.reuse" note="重用账户" />
+			<operation name="Account.payBill" note="支付账单" />
+		</group>
+		<group name="ime.bizservice" note="业务服务" services="平台管理服务.全部">
+			<operation name="BizService.list" note="获取服务列表" services="平台管理服务.全部,企业管理服务.全部" />
+			<operation name="BizService.create" note="创建业务服务" />
+			<operation name="BizService.modify" note="修改业务服务" />
+			<operation name="BizService.remove" note="删除业务服务" />
+			<operation name="BizService.accept" note="业务服务受理" />
+			<operation name="BizService.grant"  note="业务服务授予" services="平台管理服务.全部,企业管理服务.全部" />
+		</group>
+		<group name="ime.cms" note="内容管理服务" services="平台管理服务.全部">
+			<operation name="CMS.ContentManager" note="内容管理" />
+			<operation name="CMS.ForumManager" note="论坛管理" />
+		</group>
+		-->
+	</operations>
+	<!-- 系统字典表定义 -->
+	<dictionary>
+	  <type name="系统" >
+		<entry name="字形" type="String" >
+			<value order="0" enable="true" label="常规" value="normal"/>
+			<value order="1" enable="true" label="斜体" value="italic"/>
+			<value order="2" enable="true" label="粗体" value="bold"/>
+			<value order="3" enable="true" label="下划线" value="underline"/>
+		</entry>
+		<entry name="显示方式" type="String" >
+			<value order="0" enable="true" label="常规" value="normal"/>
+			<value order="1" enable="true" label="最大化" value="maximized"/>
+			<value order="2" enable="true" label="最小化" value="minimized"/>
+		</entry>
+	  </type>
+	  <type name="常规" >
+		<entry name="月份" type="Number" >
+		  <value order="0" enable="true" label="一月"  value="1"/>
+		  <value order="1" enable="true" label="二月"  value="2"/>
+		  <value order="2" enable="true" label="三月"  value="3"/>
+		  <value order="3" enable="true" label="四月"  value="4"/>
+		  <value order="4" enable="true" label="五月"  value="5"/>
+		  <value order="5" enable="true" label="六月"  value="6"/>
+		  <value order="6" enable="true" label="七月"  value="7"/>
+		  <value order="7" enable="true" label="八月"  value="8"/>
+		  <value order="8" enable="true" label="九月"  value="9"/>
+		  <value order="9" enable="true" label="十月"  value="10"/>
+		  <value order="10" enable="true" label="十一月"  value="11"/>
+		  <value order="11" enable="true" label="十二月"  value="12"/>
+		</entry>
+	  </type>
+	  <type name="企业信息" >
+		<entry name="企业规模" type="Number" default="2">
+		  <value order="0" enable="true" label="10人以下"  value="1"/>
+		  <value order="1" enable="true" label="10~50人"  value="2"/>
+		  <value order="2" enable="true" label="50~100人" value="3"/>
+		  <value order="3" enable="true" label="100~500"  value="4"/>
+		  <value order="4" enable="true" label="500人以上" value="5"/>
+		</entry>
+		<entry name="所属行业" type="Number" default="7">
+		  <value order="0" enable="true" label="农、林、牧、渔业" 				value="1"/>
+		  <value order="1" enable="true" label="采掘业" 						value="2"/>
+		  <value order="2" enable="true" label="制造业" 						value="3"/>
+		  <value order="3" enable="true" label="电力、煤气及水的生产和供应业" 	value="4"/>
+		  <value order="4" enable="true" label="建筑业" 						value="5"/>
+		  <value order="5" enable="true" label="地质勘查业、水利管理业" 			value="6"/>
+		  <value order="6" enable="true" label="交通运输、仓储及邮电通信业" 		value="7"/>
+		  <value order="7" enable="true" label="批发和零售贸易、餐饮业" 			value="8"/>
+		  <value order="8" enable="true" label="金融、保险业" 					value="9"/>
+		  <value order="9" enable="true" label="房地产业" 					value="10"/>
+		  <value order="10" enable="true" label="社会服务业" 					value="11"/>
+		  <value order="11" enable="true" label="卫生、体育和社会福利业" 		value="12"/>
+		  <value order="12" enable="true" label="教育、文化艺术及广播电影电视业" 	value="13"/>
+		  <value order="13" enable="true" label="科学研究和综合技术服务业" 		value="14"/>
+		  <value order="14" enable="true" label="国家机关、政党机关和社会团体" 	value="15"/>
+		  <value order="15" enable="true" label="其他行业" 					value="16"/>
+		</entry>
+		<entry name="证件类型" type="Number" default="1">
+		  <value order="0" enable="true" label="税务登记证" value="1"/>
+		</entry>
+		<entry name="活动阶段" type="Number" default="1">
+		  <value order="0" enable="true" label="售前跟踪" value="1"/>
+		  <value order="1" enable="true" label="合同执行" value="2"/>
+		  <value order="2" enable="true" label="售后服务" value="3"/>
+		  <value order="3" enable="true" label="合同期满" value="4"/>
+		</entry>
+		<entry name="客户类型" type="Number" default="4">
+		  <value order="0" enable="true" label="原料供应商" value="1"/>
+		  <value order="1" enable="true" label="产品经销商" value="2"/>
+		  <value order="2" enable="true" label="零售商" 	  value="3"/>
+		  <value order="3" enable="true" label="最终用户"   value="4"/>
+		</entry>
+		<entry name="企业性质" type="Number" default="6">
+		  <value order="0" enable="true" label="国有" value="1"/>
+		  <value order="1" enable="true" label="合作" value="2"/>
+		  <value order="3" enable="true" label="合资" value="3"/>
+		  <value order="4" enable="true" label="独资" value="4"/>
+		  <value order="5" enable="true" label="集体" value="5"/>
+		  <value order="6" enable="true" label="私营" value="6"/>
+		  <value order="7" enable="true" label="其他" value="7"/>
+		</entry>
+		<entry name="保密级别" type="Number" default="4">
+		  <value order="0" enable="true" label="高度机密" value="1"/>
+		  <value order="1" enable="true" label="机密" 	value="2"/>
+		  <value order="2" enable="true" label="保密" 	value="3"/>
+		  <value order="3" enable="true" label="公开" 	value="4"/>
+		</entry>
+	  </type>
+	  <type name="内容管理" note="" id="2493"> 
+	    <entry name="文章类别" note="" type="Number" default="" id="2494"> 
+	      <value order="0" enable="true" label="新闻" id="677" value="1"/>  
+	      <value order="1" enable="true" label="公告" id="678" value="2"/>  
+	      <value order="2" enable="true" label="其他" id="679" value="3"/> 
+	    </entry>  
+	    <entry name="媒体类型" note="" type="" default="" id="2496"> 
+	      <value order="0" enable="true" label="纯文本" id="680" value="1"/>  
+	      <value order="1" enable="true" label="Html" id="681" value="2"/>  
+	      <value order="2" enable="true" label="视频" id="682" value="3"/> 
+	    </entry> 
+      </type>
+      <type name="消息管理" note="" id="2346"> 
+	      <entry name="消息种类" note="" type="Number" default="" id="2348"> 
+	        <value order="0" enable="true" label="点对点消息" id="1176" value="1"/>  
+	        <value order="1" enable="true" label="点对多消息" id="1177" value="2"/> 
+	      </entry>  
+	      <entry name="消息状态" note="" type="Number" default="" id="2353"> 
+	        <value order="0" enable="true" label="未接收" id="1178" value="0"/>  
+	        <value order="1" enable="true" label="已查看" id="1179" value="1"/>  
+	        <value order="2" enable="true" label="已删除" id="1180" value="2"/> 
+	      </entry>  
+	      <entry name="消息类型" note="" type="Number" default="" id="2354"> 
+	        <value order="0" enable="true" label="聊天消息" id="1181" value="1"/>  
+	        <value order="1" enable="true" label="通知消息" id="1182" value="2"/>  
+	        <value order="2" enable="true" label="工作流任务消息" id="1183" value="3"/> 
+	      </entry>  
+	      <entry name="消息系统" note="" type="" default="" id="2347"> 
+	        <value order="0" enable="true" label="工作流引擎" id="1174" value="workflow"/>  
+	        <value order="1" enable="true" label="消息引擎" id="1175" value="messenger"/> 
+	      </entry> 
+	  </type>  
+	  <type name="联系人">
+		<entry name="类型" type="Number" default="">
+	  	  <value order="0" enable="true" label="媒体" value="1"/>
+	  	  <value order="1" enable="true" label="记者" value="2"/>
+	  	  <value order="2" enable="true" label="政府" value="3"/>
+	  	</entry>
+	  	<entry name="亲密程度" type="Number" default="2">
+	  	  <value order="0" enable="true" label="密切" value="1"/>
+	  	  <value order="1" enable="true" label="较好" value="2"/>
+	  	  <value order="2" enable="true" label="一般" value="3"/>
+	  	  <value order="3" enable="true" label="较差" value="4"/>
+	  	</entry>
+	  	<entry name="来源类型" type="Number" default="3">
+	  	  <value order="0" enable="true" label="促销活动" value="1"/>
+	  	  <value order="1" enable="true" label="电话来访" value="2"/>
+	  	  <value order="2" enable="true" label="独立开发" value="3"/>
+	  	  <value order="3" enable="true" label="客户介绍" value="4"/>
+	  	  <value order="4" enable="true" label="互联网"  value="5"/>
+	  	  <value order="5" enable="true" label="其他"    value="6"/>
+	  	</entry>
+	  </type>
+	  <type name="个人信息">
+	  	<entry name="教育程度" type="String" default="3">
+	  	  <value order="0" enable="true" label="博士" value="1"/>
+	  	  <value order="1" enable="true" label="硕士" value="2"/>
+	  	  <value order="1" enable="true" label="本科" value="3"/>
+	  	  <value order="1" enable="true" label="大专" value="4"/>
+	  	</entry>
+		<entry name="性别" note="" type="Number" default=""> 
+          <value order="0" enable="true" label="男" value="1"/>  
+          <value order="1" enable="true" label="女" value="2"/> 
+        </entry>
+	  </type>
+	  <type name="二级行业">
+		<entry name="1" note="农、林、牧、渔业" type="Number" default="">
+			<value order="0" enable="true" label="农业" value="1"/>
+			<value order="1" enable="true" label="林业" value="2"/>
+			<value order="2" enable="true" label="畜牧业" value="3"/>
+			<value order="3" enable="true" label="渔业" value="4"/>
+			<value order="4" enable="true" label="农、林、牧、渔服务业" value="5"/>
+		</entry>
+		<entry name="2" note="采掘业" type="Number" default="">
+			<value order="0" enable="true" label="煤炭采选业" 		value="1"/>
+			<value order="1" enable="true" label="石油和天然气开采业" 	value="2"/>
+			<value order="2" enable="true" label="黑色金属矿采选业" 	value="3"/>
+			<value order="3" enable="true" label="有色金属矿采选业" 	value="4"/>
+			<value order="4" enable="true" label="非金属矿采选业" 		value="5"/>
+			<value order="5" enable="true" label="采盐业" 			value="6"/>
+			<value order="6" enable="true" label="其他矿采选业" 		value="7"/>
+			<value order="7" enable="true" label="木材及竹材采运业" 	value="8"/>
+		</entry>
+		<entry name="3" note="制造业" type="Number" default="">
+			<value order="0" enable="true" label="食品加工业" 					value="1"/>
+			<value order="1" enable="true" label="食品制造业" 					value="2"/>
+			<value order="2" enable="true" label="饮料制造业" 					value="3"/>
+			<value order="3" enable="true" label="烟草加工业" 					value="4"/>
+			<value order="4" enable="true" label="纺织业" 						value="5"/>
+			<value order="5" enable="true" label="服装及其他纤维制品制造业" 			value="6"/>
+			<value order="6" enable="true" label="皮革、毛皮、羽绒及其制品业" 		value="7"/>
+			<value order="7" enable="true" label="木材加工及竹、藤、棕、草制品业" 	value="8"/>
+		</entry>
+	  </type>
+	  <type name="区域">
+	  	<entry name="国家代码" type="String" default="CN">
+		  	<value order="0" enable="true" label="安哥拉(Angola)" value="AO"/>
+			<value order="1" enable="true" label="阿富汗(Afghanistan)" value="AF"/>
+			<value order="2" enable="true" label="阿尔巴尼亚(Albania)" value="AL"/>
+			<value order="3" enable="true" label="阿尔及利亚(Algeria)" value="DZ"/>
+			<value order="4" enable="true" label="安道尔共和国(Andorra)" value="AD"/>
+			<value order="5" enable="true" label="安圭拉岛(Anguilla)" value="AI"/>
+			<value order="6" enable="true" label="安提瓜和巴布达(Antigua and Barbuda)" value="AG"/>
+			<value order="7" enable="true" label="阿根廷(Argentina)" value="AR"/>
+			<value order="8" enable="true" label="亚美尼亚(Armenia)" value="AM"/>
+			<value order="9" enable="true" label="阿森松(Ascension)" value="AS"/>
+			<value order="10" enable="true" label="澳大利亚(Australia)" value="AU"/>
+			<value order="11" enable="true" label="奥地利(Austria)" value="AT"/>
+			<value order="12" enable="true" label="阿塞拜疆(Azerbaijan)" value="AZ"/>
+			<value order="13" enable="true" label="巴哈马(Bahamas)" value="BS"/>
+			<value order="14" enable="true" label="巴林(Bahrain)" value="BH"/>
+			<value order="15" enable="true" label="孟加拉国(Bangladesh)" value="BD"/>
+			<value order="16" enable="true" label="巴巴多斯(Barbados)" value="BB"/>
+			<value order="17" enable="true" label="白俄罗斯(Belarus)" value="BY"/>
+			<value order="18" enable="true" label="比利时(Belgium)" value="BE"/>
+			<value order="19" enable="true" label="伯利兹(Belize)" value="BZ"/>
+			<value order="20" enable="true" label="贝宁(Benin)" value="BJ"/>
+			<value order="21" enable="true" label="百慕大群岛(Bermuda Is.)" value="BM"/>
+			<value order="22" enable="true" label="玻利维亚(Bolivia)" value="BO"/>
+			<value order="23" enable="true" label="博茨瓦纳(Botswana)" value="BW"/>
+			<value order="24" enable="true" label="巴西(Brazil)" value="BR"/>
+			<value order="25" enable="true" label="文莱(Brunei)" value="BN"/>
+			<value order="26" enable="true" label="保加利亚(Bulgaria)" value="BG"/>
+			<value order="27" enable="true" label="布基纳法索(Burkina-faso)" value="BF"/>
+			<value order="28" enable="true" label="缅甸(Burma)" value="MM"/>
+			<value order="29" enable="true" label="布隆迪(Burundi)" value="BI"/>
+			<value order="30" enable="true" label="喀麦隆(Cameroon)" value="CM"/>
+			<value order="31" enable="true" label="加拿大(Canada)" value="CA"/>
+			<value order="32" enable="true" label="开曼群岛(Cayman Is.)" value="CI"/>
+			<value order="33" enable="true" label="中非共和国(Central African Republic)" value="CF"/>
+			<value order="34" enable="true" label="乍得(Chad)" value="TD"/>
+			<value order="35" enable="true" label="智利(Chile)" value="CL"/>
+			<value order="36" enable="true" label="中国(China)" value="CN"/>
+			<value order="37" enable="true" label="中国香港(Hongkong)" value="HK"/>
+			<value order="38" enable="true" label="中国澳门(Macao)" value="MO"/>
+			<value order="39" enable="true" label="中国台湾(Taiwan)" value="TW"/>
+			<value order="40" enable="true" label="哥伦比亚(Colombia)" value="CO"/>
+			<value order="41" enable="true" label="刚果(Congo)" value="CG"/>
+			<value order="42" enable="true" label="库克群岛(Cook Is.)" value="CK"/>
+			<value order="43" enable="true" label="哥斯达黎加(Costa Rica)" value="CR"/>
+			<value order="44" enable="true" label="古巴(Cuba)" value="CU"/>
+			<value order="45" enable="true" label="塞浦路斯(Cyprus)" value="CY"/>
+			<value order="46" enable="true" label="捷克(Czech Republic)" value="CZ"/>
+			<value order="47" enable="true" label="丹麦(Denmark)" value="DK"/>
+			<value order="48" enable="true" label="吉布提(Djibouti)" value="DJ"/>
+			<value order="49" enable="true" label="多米尼加共和国(Dominica Rep.)" value="DO"/>
+			<value order="50" enable="true" label="厄瓜多尔(Ecuador)" value="EC"/>
+			<value order="51" enable="true" label="埃及(Egypt)" value="EG"/>
+			<value order="52" enable="true" label="萨尔瓦多(EI Salvador)" value="SV"/>
+			<value order="53" enable="true" label="爱沙尼亚(Estonia)" value="EE"/>
+			<value order="54" enable="true" label="埃塞俄比亚(Ethiopia)" value="ET"/>
+			<value order="55" enable="true" label="斐济(Fiji)" value="FJ"/>
+			<value order="56" enable="true" label="芬兰(Finland)" value="FI"/>
+			<value order="57" enable="true" label="法国(France)" value="FR"/>
+			<value order="58" enable="true" label="法属圭亚那(French Guiana)" value="GF"/>
+			<value order="59" enable="true" label="加蓬(Gabon)" value="GA"/>
+			<value order="60" enable="true" label="冈比亚(Gambia)" value="GM"/>
+			<value order="61" enable="true" label="格鲁吉亚(Georgia)" value="GE"/>
+			<value order="62" enable="true" label="德国(Germany)" value="DE"/>
+			<value order="63" enable="true" label="加纳(Ghana)" value="GH"/>
+			<value order="64" enable="true" label="直布罗陀(Gibraltar)" value="GI"/>
+			<value order="65" enable="true" label="希腊(Greece)" value="GR"/>
+			<value order="66" enable="true" label="格林纳达(Grenada)" value="GD"/>
+			<value order="67" enable="true" label="关岛(Guam)" value="GU"/>
+			<value order="68" enable="true" label="危地马拉(Guatemala)" value="GT"/>
+			<value order="69" enable="true" label="几内亚(Guinea)" value="GN"/>
+			<value order="70" enable="true" label="圭亚那(Guyana)" value="GY"/>
+			<value order="71" enable="true" label="海地(Haiti)" value="HT"/>
+			<value order="72" enable="true" label="洪都拉斯(Honduras)" value="HN"/>
+			<value order="73" enable="true" label="匈牙利(Hungary)" value="HU"/>
+			<value order="74" enable="true" label="冰岛(Iceland)" value="IS"/>
+			<value order="75" enable="true" label="印度(India)" value="IN"/>
+			<value order="76" enable="true" label="印度尼西亚(Indonesia)" value="ID"/>
+			<value order="77" enable="true" label="伊朗(Iran)" value="IR"/>
+			<value order="78" enable="true" label="伊拉克(Iraq)" value="IQ"/>
+			<value order="79" enable="true" label="爱尔兰(Ireland)" value="IE"/>
+			<value order="80" enable="true" label="以色列(Israel)" value="IL"/>
+			<value order="81" enable="true" label="意大利(Italy)" value="IT"/>
+			<value order="82" enable="true" label="科特迪瓦(Ivory Coast)" value="IC"/>
+			<value order="83" enable="true" label="牙买加(Jamaica)" value="JM"/>
+			<value order="84" enable="true" label="日本(Japan)" value="JP"/>
+			<value order="85" enable="true" label="约旦(Jordan)" value="JO"/>
+			<value order="86" enable="true" label="柬埔寨(Kampuchea (Cambodia ))" value="KH"/>
+			<value order="87" enable="true" label="哈萨克斯坦(Kazakstan)" value="KZ"/>
+			<value order="88" enable="true" label="肯尼亚(Kenya)" value="KE"/>
+			<value order="89" enable="true" label="韩国(Korea)" value="KR"/>
+			<value order="90" enable="true" label="科威特(Kuwait)" value="KW"/>
+			<value order="91" enable="true" label="吉尔吉斯坦(Kyrgyzstan)" value="KG"/>
+			<value order="92" enable="true" label="老挝(Laos)" value="LA"/>
+			<value order="93" enable="true" label="拉脱维亚(Latvia)" value="LV"/>
+			<value order="94" enable="true" label="黎巴嫩(Lebanon)" value="LB"/>
+			<value order="95" enable="true" label="莱索托(Lesotho)" value="LS"/>
+			<value order="96" enable="true" label="利比里亚(Liberia)" value="LR"/>
+			<value order="97" enable="true" label="利比亚(Libya)" value="LY"/>
+			<value order="98" enable="true" label="列支敦士登(Liechtenstein)" value="LI"/>
+			<value order="99" enable="true" label="立陶宛(Lithuania)" value="LT"/>
+			<value order="100" enable="true" label="卢森堡(Luxembourg)" value="LU"/>
+			<value order="101" enable="true" label="马达加斯加(Madagascar)" value="MG"/>
+			<value order="102" enable="true" label="马拉维(Malawi)" value="MW"/>
+			<value order="103" enable="true" label="马来西亚(Malaysia)" value="MY"/>
+			<value order="104" enable="true" label="马尔代夫(Maldives)" value="MV"/>
+			<value order="105" enable="true" label="马里(Mali)" value="ML"/>
+			<value order="106" enable="true" label="马耳他(Malta)" value="MT"/>
+			<value order="107" enable="true" label="马里亚那群岛(Mariana Is)" value="MI"/>
+			<value order="108" enable="true" label="马提尼克(Martinique)" value="MQ"/>
+			<value order="109" enable="true" label="毛里求斯(Mauritius)" value="MU"/>
+			<value order="110" enable="true" label="墨西哥(Mexico)" value="MX"/>
+			<value order="111" enable="true" label="摩尔多瓦(Moldova, Republic of)" value="MD"/>
+			<value order="112" enable="true" label="摩纳哥(Monaco)" value="MC"/>
+			<value order="113" enable="true" label="蒙古(Mongolia)" value="MN"/>
+			<value order="114" enable="true" label="蒙特塞拉特岛(Montserrat Is)" value="MS"/>
+			<value order="115" enable="true" label="摩洛哥(Morocco)" value="MA"/>
+			<value order="116" enable="true" label="莫桑比克(Mozambique)" value="MZ"/>
+			<value order="117" enable="true" label="纳米比亚(Namibia)" value="NA"/>
+			<value order="118" enable="true" label="瑙鲁(Nauru)" value="NR"/>
+			<value order="119" enable="true" label="尼泊尔(Nepal)" value="NP"/>
+			<value order="120" enable="true" label="荷属安的列斯(Netheriands Antilles)" value="NT"/>
+			<value order="121" enable="true" label="荷兰(Netherlands)" value="NL"/>
+			<value order="122" enable="true" label="新西兰(New Zealand)" value="NZ"/>
+			<value order="123" enable="true" label="尼加拉瓜(Nicaragua)" value="NI"/>
+			<value order="124" enable="true" label="尼日尔(Niger)" value="NE"/>
+			<value order="125" enable="true" label="尼日利亚(Nigeria)" value="NG"/>
+			<value order="126" enable="true" label="朝鲜(North Korea)" value="KP"/>
+			<value order="127" enable="true" label="挪威(Norway)" value="NO"/>
+			<value order="128" enable="true" label="阿曼(Oman)" value="OM"/>
+			<value order="129" enable="true" label="巴基斯坦(Pakistan)" value="PK"/>
+			<value order="130" enable="true" label="巴拿马(Panama)" value="PA"/>
+			<value order="131" enable="true" label="巴布亚新几内亚(Papua New Cuinea)" value="PG"/>
+			<value order="132" enable="true" label="巴拉圭(Paraguay)" value="PY"/>
+			<value order="133" enable="true" label="秘鲁(Peru)" value="PE"/>
+			<value order="134" enable="true" label="菲律宾(Philippines)" value="PH"/>
+			<value order="135" enable="true" label="波兰(Poland)" value="PL"/>
+			<value order="136" enable="true" label="法属玻利尼西亚(French Polynesia)" value="PF"/>
+			<value order="137" enable="true" label="葡萄牙(Portugal)" value="PT"/>
+			<value order="138" enable="true" label="波多黎各(Puerto Rico)" value="PR"/>
+			<value order="139" enable="true" label="卡塔尔(Qatar)" value="QA"/>
+			<value order="140" enable="true" label="留尼旺(Reunion)" value="RE"/>
+			<value order="141" enable="true" label="罗马尼亚(Romania)" value="RO"/>
+			<value order="142" enable="true" label="俄罗斯(Russia)" value="RU"/>
+			<value order="143" enable="true" label="圣卢西亚(Saint Lueia)" value="LC"/>
+			<value order="144" enable="true" label="圣文森特岛(Saint Vincent)" value="VC"/>
+			<value order="145" enable="true" label="东萨摩亚(美)(Samoa Eastern)" value="SAE"/>
+			<value order="146" enable="true" label="西萨摩亚(Samoa Western)" value="SAW"/>
+			<value order="147" enable="true" label="圣马力诺(San Marino)" value="SM"/>
+			<value order="148" enable="true" label="圣多美和普林西比(Sao Tome and Principe)" value="ST"/>
+			<value order="149" enable="true" label="沙特阿拉伯(Saudi Arabia)" value="SA"/>
+			<value order="150" enable="true" label="塞内加尔(Senegal)" value="SN"/>
+			<value order="151" enable="true" label="塞舌尔(Seychelles)" value="SC"/>
+			<value order="152" enable="true" label="塞拉利昂(Sierra Leone)" value="SL"/>
+			<value order="153" enable="true" label="新加坡(Singapore)" value="SG"/>
+			<value order="154" enable="true" label="斯洛伐克(Slovakia)" value="SK"/>
+			<value order="155" enable="true" label="斯洛文尼亚(Slovenia)" value="SI"/>
+			<value order="156" enable="true" label="所罗门群岛(Solomon Is)" value="SB"/>
+			<value order="157" enable="true" label="索马里(Somali)" value="SO"/>
+			<value order="158" enable="true" label="南非(South Africa)" value="ZA"/>
+			<value order="159" enable="true" label="西班牙(Spain)" value="ES"/>
+			<value order="160" enable="true" label="斯里兰卡(Sri Lanka)" value="LK"/>
+			<value order="161" enable="true" label="圣卢西亚(St.Lucia)" value="LC"/>
+			<value order="162" enable="true" label="圣文森特(St.Vincent)" value="VC"/>
+			<value order="163" enable="true" label="苏丹(Sudan)" value="SD"/>
+			<value order="164" enable="true" label="苏里南(Suriname)" value="SR"/>
+			<value order="165" enable="true" label="斯威士兰(Swaziland)" value="SZ"/>
+			<value order="166" enable="true" label="瑞典(Sweden)" value="SE"/>
+			<value order="167" enable="true" label="瑞士(Switzerland)" value="CH"/>
+			<value order="168" enable="true" label="叙利亚(Syria)" value="SY"/>
+			<value order="169" enable="true" label="塔吉克斯坦(Tajikstan)" value="TJ"/>
+			<value order="170" enable="true" label="坦桑尼亚(Tanzania)" value="TZ"/>
+			<value order="171" enable="true" label="泰国(Thailand)" value="TH"/>
+			<value order="172" enable="true" label="多哥(Togo)" value="TG"/>
+			<value order="173" enable="true" label="汤加(Tonga)" value="TO"/>
+			<value order="174" enable="true" label="特立尼达和多巴哥(Trinidad and Tobago)" value="TT"/>
+			<value order="175" enable="true" label="突尼斯(Tunisia)" value="TN"/>
+			<value order="176" enable="true" label="土耳其(Turkey)" value="TR"/>
+			<value order="177" enable="true" label="土库曼斯坦(Turkmenistan)" value="TM"/>
+			<value order="178" enable="true" label="乌干达(Uganda)" value="UG"/>
+			<value order="179" enable="true" label="乌克兰(Ukraine)" value="UA"/>
+			<value order="180" enable="true" label="阿拉伯联合酋长国(United Arab Emirates)" value="AE"/>
+			<value order="181" enable="true" label="英国(United Kiongdom)" value="GB"/>
+			<value order="182" enable="true" label="美国(United States of America)" value="US"/>
+			<value order="183" enable="true" label="乌拉圭(Uruguay)" value="UY"/>
+			<value order="184" enable="true" label="乌兹别克斯坦(Uzbekistan)" value="UZ"/>
+			<value order="185" enable="true" label="委内瑞拉(Venezuela)" value="VE"/>
+			<value order="186" enable="true" label="越南(Vietnam)" value="VN"/>
+			<value order="187" enable="true" label="也门(Yemen)" value="YE"/>
+			<value order="188" enable="true" label="南斯拉夫(Yugoslavia)" value="YU"/>
+			<value order="189" enable="true" label="津巴布韦(Zimbabwe)" value="ZW"/>
+			<value order="190" enable="true" label="扎伊尔(Zaire)" value="ZR"/>
+			<value order="191" enable="true" label="赞比亚(Zambia)" value="ZM"/>
+	  	</entry>
+	  	<entry name="CN" note="中国省份代码" type="String" default="">
+	  		<value order="0" enable="true" label="北京" value="北京"/>
+			<value order="1" enable="true" label="河北" value="河北"/>
+			<value order="2" enable="true" label="黑龙江" value="黑龙江"/>
+			<value order="3" enable="true" label="江西" value="江西"/>
+			<value order="4" enable="true" label="广东" value="广东"/>
+			<value order="5" enable="true" label="云南" value="云南"/>
+			<value order="6" enable="true" label="宁夏" value="宁夏"/>
+			<value order="7" enable="true" label="上海" value="上海"/>
+			<value order="8" enable="true" label="内蒙古" value="内蒙古"/>
+			<value order="9" enable="true" label="山西" value="山西"/>
+			<value order="10" enable="true" label="天津" value="天津"/>
+			<value order="11" enable="true" label="重庆" value="重庆"/>
+			<value order="12" enable="true" label="辽宁" value="辽宁"/>
+			<value order="13" enable="true" label="吉林" value="吉林"/>
+			<value order="14" enable="true" label="新疆" value="新疆"/>
+			<value order="15" enable="true" label="台湾" value="台湾"/>
+			<value order="16" enable="true" label="香港" value="香港"/>
+			<value order="17" enable="true" label="澳门" value="澳门"/>
+			<value order="18" enable="true" label="西藏" value="西藏"/>
+			<value order="19" enable="true" label="江苏" value="江苏"/>
+			<value order="20" enable="true" label="浙江" value="浙江"/>
+			<value order="21" enable="true" label="山东" value="山东"/>
+			<value order="22" enable="true" label="广西" value="广西"/>
+			<value order="23" enable="true" label="海南" value="海南"/>
+			<value order="24" enable="true" label="四川" value="四川"/>
+			<value order="25" enable="true" label="贵州" value="贵州"/>
+			<value order="26" enable="true" label="安徽" value="安徽"/>
+			<value order="27" enable="true" label="福建" value="福建"/>
+			<value order="28" enable="true" label="河南" value="河南"/>
+			<value order="29" enable="true" label="湖北" value="湖北"/>
+			<value order="30" enable="true" label="湖南" value="湖南"/>
+			<value order="31" enable="true" label="陕西" value="陕西"/>
+			<value order="32" enable="true" label="甘肃" value="甘肃"/>
+			<value order="33" enable="true" label="青海" value="青海"/>
+	  	</entry>
+	  </type>
+	</dictionary>
+	<applications>
+    　<Application label="系统应用" isBranch="true" uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234" name="system">
+      <EntityRoot>
+        <Entity label="部门" isBranch="true" uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.7F7FFBA3C973" name="Department" path="/组织管理">
+          <file>
+            <Entity name="Department" label="部门" note="" log="false" workflow="false" multilevel="5" uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.7F7FFBA3C973" nodeID="613" lastId="4" > 
+              <property uid="sys_0" label="编号" name="id" type="long" systemProperty="true"/>  
+              <property uid="sys_1" label="域ID" name="domainId" type="long" systemProperty="true"/>  
+              <relation/>  
+              <property uid="ml_0" label="上级节点" name="ml_parent" type="long" systemProperty="true"/>  
+              <property name="groupId" label="组ID" type="long" uid="id_1" systemProperty="true"/>  
+              <property name="roleId" label="角色ID" type="long" uid="id_2" systemProperty="true"/>  
+              <property name="name" label="名称" type="string" length="100" uid="id_3" systemProperty="true" valueEditable="true"/>  
+              <property name="note" label="备注" type="string" length="500" uid="id_4" /> 
+            </Entity>
+          </file>
+          <EntityForm entityUID="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.7F7FFBA3C973" label="部门" uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.8100C775642D" name="部门">
+            <EntityForm name="部门" label="部门" uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.8100C775642D" nodeID="617"> 
+              <formEntity uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.7F7FFBA3C973"/>  
+              <formState> 
+                <state label="基础" uid="state0" basedOn="null"> 
+                  <rule type="required" property="name" label="名称" rule="true"/> 
+                </state> 
+              </formState>  
+              <Window> 
+                <TabNavigator> 
+                  <tab label="default"> 
+                    <Label width="82" height="25" text="名称:" propertyUID="id_3" x="3" y="3"/>  
+                    <TextInput propertyUID="id_3" width="117" height="25" x="43" y="3"/>  
+                    <Label width="82" height="25" text="备注:" propertyUID="id_4" x="3" y="31"/>  
+                    <TextArea propertyUID="id_4" width="337" height="165" x="43" y="31"/> 
+                  </tab> 
+                </TabNavigator> 
+              </Window>  
+              <formEvent/> 
+            </EntityForm>
+          </EntityForm>
+          <EntityQuery label="部门查询" uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.8FDDC2CEF574" entityUID="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.7F7FFBA3C973" name="部门查询">
+            <EntityQuery name="部门查询" label="部门查询" note="" multiselect="false" editable="false" autopaging="true" uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.8FDDC2CEF574" nodeID="627"> 
+              <queryEntities> 
+                <Entity uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.7F7FFBA3C973" name="Department" label="部门" alias="a0"/> 
+              </queryEntities>  
+              <DataGrid> 
+                <color/>  
+                <column name="name" label="名称" uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.7F7FFBA3C973.id_3" width="100"/>  
+                <column name="note" label="备注" uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.7F7FFBA3C973.id_4" width="100"/> 
+              </DataGrid>  
+              <toolbar> 
+                <button label="新建" action="alink" selection="none" alink="alink://ime.AppWindow/EntityForm?{entityUID:&quot;031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.7F7FFBA3C973&quot;,action:&quot;create&quot;,formUID:&quot;031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.8100C775642D&quot;,formState:&quot;state0&quot;}" permission="" permissionName=""/>  
+                <button label="编辑" action="alink" alink="alink://ime.AppWindow/EntityForm?{formUID:&quot;031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.8100C775642D&quot;,entityUID:&quot;031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.7F7FFBA3C973&quot;,action:&quot;edit&quot;,formState:&quot;state0&quot;}" selection="single" permission="" permissionName=""/>  
+                <button label="删除" action="delete" selection="single" permission="" permissionName=""/> 
+              </toolbar>  
+              <xmlQuery version="2.0" name="" label=""> 
+                <select> 
+                  <other label="其他" uid="other" name="other"/>  
+                  <Entity uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.7F7FFBA3C973" name="Department" label="部门" alias="a0"> 
+                    <field uid="sys_0" name="id" label="编号" type="long"/>  
+                    <field uid="sys_1" name="domainId" label="域ID" type="long"/>  
+                    <field uid="ml_0" name="ml_parent" label="上级节点" type="long"/>  
+                    <field uid="id_1" name="groupId" label="组ID" type="long"/>  
+                    <field uid="id_2" name="roleId" label="角色ID" type="long"/>  
+                    <field uid="id_3" name="name" label="名称" type="string"/>  
+                    <field uid="id_4" name="note" label="备注" type="string"/> 
+                  </Entity> 
+                </select>  
+                <where> 
+                  <exp type="2"/> 
+                </where>  
+                <other> 
+                  <groupBy label="Group By"/>  
+                  <orderBy label="Order By"/> 
+                </other> 
+              </xmlQuery>  
+              <conditionForm> 
+                <Window> 
+                  <TabNavigator> 
+                    <tab label="default"/> 
+                  </TabNavigator> 
+                </Window> 
+              </conditionForm>  
+              <queryEvent/> 
+            </EntityQuery>
+          </EntityQuery>
+        </Entity>
+        <Entity label="注册企业" isBranch="true" uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.76A3C4E92743" name="DomainCompany" path="/组织管理">
+          <file>
+            <Entity name="DomainCompany" label="注册企业" note="" log="false" workflow="false" lastId="4" uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.76A3C4E92743" nodeID="607" > 
+              <property uid="sys_0" label="编号" name="id" type="long" systemProperty="true"/>  
+              <property uid="sys_1" label="所属域ID" name="domainId" type="long" systemProperty="true"/>  
+              <relation/>  
+              <property name="name" label="名称" type="string" length="100" uid="id_1" systemProperty="true" valueEditable="true"/>  
+              <property name="domain_id" label="注册域ID" type="long" uid="id_2" systemProperty="true"/>  
+              <property name="domainName" label="企业域名" type="string" length="100" uid="id_3" systemProperty="true" valueEditable="true"/>  
+              <property name="parentName" label="上级企业" type="string" length="100" uid="id_4" systemProperty="true"/> 
+			  <property name="is_site_created" label="是否建站" type="boolean" uid="id_5" toolTip="" note="" systemProperty="true" valueEditable="true"/> 
+			  <property name="company_uid" label="唯一UID" type="string" length="50" uid="id_6" note="" systemProperty="true" valueEditable="true"/>
+              <property name="xpt_site" label="XPT站点域名" type="string" length="100" uid="id_7" note="" systemProperty="true" valueEditable="true"/> 
+            </Entity>
+          </file>
+          <EntityForm entityUID="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.76A3C4E92743" label="注册企业信息" uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.90B46FC3C9B5" name="注册企业信息">
+            <EntityForm name="注册企业信息" label="注册企业信息" uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.90B46FC3C9B5" nodeID="634"> 
+              <formEntity uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.76A3C4E92743"/>  
+              <formState> 
+                <state label="基础" uid="state0" basedOn="null"> 
+                  <rule type="required" property="name" label="名称" rule="true"/>  
+                  <rule type="required" property="domainName" label="企业域名" rule="true"/>  
+                  <rule type="value" property="parentName" label="上级企业" rule="$opener.page.domain.selectedItem.label"/>  
+                  <rule type="enabled" property="parentName" label="上级企业" rule="false"/> 
+                </state> 
+              </formState>  
+              <Window> 
+                <TabNavigator> 
+                  <tab label="default"> 
+                    <Label width="82" height="25" text="企业名称:" propertyUID="id_1" x="3" y="3"/>  
+                    <TextInput propertyUID="id_1" width="317" height="25" x="63" y="3"/>  
+                    <Label width="82" height="25" text="企业域名:" propertyUID="id_3" x="3" y="31"/>  
+                    <TextInput propertyUID="id_3" width="317" height="25" x="63" y="31"/>  
+                    <Label width="82" height="25" text="上级企业:" propertyUID="id_4" x="3" y="59"/>  
+                    <TextInput propertyUID="id_4" width="317" height="25" x="63" y="59"/> 
+                  </tab> 
+                </TabNavigator> 
+              </Window>  
+              <formEvent/> 
+            </EntityForm>
+          </EntityForm>
+		  <EntityQuery label="查询未建站企业" uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.AA08A11315CB" entityUID="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.76A3C4E92743" share="false" name="查询未建站企业">
+            <EntityQuery name="查询未建站企业" label="查询未建站企业" note="" share="false" multiselect="false" editable="false" autopaging="true" uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.AA08A11315CB" nodeID="315"> 
+              <queryEntities> 
+                <Entity uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.76A3C4E92743" name="DomainCompany" label="注册企业" alias="a0" selectAll="true" isBranch="true" master="true"/> 
+              </queryEntities>  
+              <DataGrid> 
+                <color/>  
+                <column name="name" label="名称" uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.76A3C4E92743.id_1" width="300" isBranch="false"/> 
+              </DataGrid>  
+              <editState/>  
+              <toolbar/>  
+              <xmlQuery version="2.0" name="" label=""> 
+                <select domainScope="false"> 
+                  <other label="其他" uid="other" name="other"/>  
+                  <Entity uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.76A3C4E92743" name="DomainCompany" label="注册企业" alias="a0" selectAll="true" isBranch="true"> 
+                    <field uid="sys_0" name="id" label="编号" type="long"/>  
+                    <field uid="sys_1" name="domainId" label="所属域ID" type="long"/>  
+                    <field uid="id_1" name="name" label="名称" type="string"/>  
+                    <field uid="id_2" name="domain_id" label="注册域ID" type="long"/>  
+                    <field uid="id_3" name="domainName" label="企业域名" type="string"/>  
+                    <field uid="id_4" name="parentName" label="上级企业" type="string"/>  
+                    <field uid="id_5" name="is_site_created" label="是否建站" type="boolean"/>  
+                    <field uid="id_6" name="company_uid" label="唯一UID" type="string"/>  
+                    <field uid="id_7" name="xpt_site" label="XPT站点域名" type="string"/> 
+                  </Entity> 
+                </select>  
+                <where> 
+                  <exp type="2"> 
+                    <exp type="1" option="true" uid="exp2"> 
+                      <exp type="24" valueType="4" option="true" leftEntity="DomainCompany" leftField="is_site_created" uid="exp1"/>  
+                      <exp type="5" valueType="4" option="true" rightType="val" right="false" leftEntity="DomainCompany" leftField="is_site_created" uid="exp3"/> 
+                    </exp> 
+                  </exp> 
+                </where>  
+                <other> 
+                  <groupBy label="Group By"/>  
+                  <orderBy label="Order By"/> 
+                </other> 
+              </xmlQuery>  
+              <conditionForm> 
+                <Window paddingLeft="1" paddingRight="1" paddingTop="1" paddingBottom="1"> 
+                  <TabNavigator> 
+                    <tab label="default"/> 
+                  </TabNavigator> 
+                </Window> 
+              </conditionForm>  
+              <queryEvent/> 
+            </EntityQuery>
+          </EntityQuery>
+          <EntityQuery label="注册企业管理" uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.907B696409BD" entityUID="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.76A3C4E92743" name="注册企业管理">
+            <EntityQuery name="注册企业管理" label="注册企业管理" note="" multiselect="false" editable="false" autopaging="true" uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.907B696409BD" nodeID="633"> 
+              <queryEntities> 
+                <Entity uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.76A3C4E92743" name="DomainCompany" label="注册企业" alias="a0"/> 
+              </queryEntities>  
+              <DataGrid> 
+                <color/>  
+                <column name="id" label="编号" uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.76A3C4E92743.sys_0" width="100"/>  
+                <column name="name" label="名称" uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.76A3C4E92743.id_1" width="300"/> 
+              </DataGrid>  
+              <toolbar> 
+                <button label="新建" action="alink" selection="none" alink="alink://ime.AppWindow/EntityForm?{formUID:&quot;031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.90B46FC3C9B5&quot;,entityUID:&quot;031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.76A3C4E92743&quot;,formState:&quot;state0&quot;,action:&quot;create&quot;}" permission="" permissionName=""/>  
+                <button label="编辑" action="alink" alink="alink://ime.AppWindow/EntityForm?{formUID:&quot;031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.90B46FC3C9B5&quot;,entityUID:&quot;031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.76A3C4E92743&quot;,formState:&quot;state0&quot;,action:&quot;edit&quot;}" selection="single" permission="" permissionName=""/>  
+                <button label="删除" action="delete" selection="single" permission="" permissionName=""/>  
+                <button label="设置权限" action="other" selection="single" permission="null" permissionName="null" cmd="$page.onSetPermission()"/>  
+                <button label="设置管理员密码" action="other" selection="single" permission="null" permissionName="null" cmd="$page.onSetPassword()"/> 
+              </toolbar>  
+              <xmlQuery version="2.0" name="" label=""> 
+                <select domainScope="true"> 
+                  <other label="其他" uid="other" name="other"/>  
+                  <Entity uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.76A3C4E92743" name="DomainCompany" label="注册企业" alias="a0"> 
+                    <field uid="sys_0" name="id" label="编号" type="long"/>  
+                    <field uid="sys_1" name="domainId" label="所属域ID" type="long"/>  
+                    <field uid="id_1" name="name" label="名称" type="string"/>  
+                    <field uid="id_2" name="domain_id" label="注册域ID" type="long"/> 
+                  </Entity> 
+                </select>  
+                <where> 
+                  <exp type="2"> 
+                    <exp type="5" uid="exp0" valueType="3" option="true" rightType="val" right="$page.domain.selectedItem.id" leftEntity="DomainCompany" leftField="domainId"/> 
+                  </exp> 
+                </where>  
+                <other> 
+                  <groupBy label="Group By"/>  
+                  <orderBy label="Order By"/> 
+                </other> 
+              </xmlQuery>  
+              <conditionForm> 
+                <Window> 
+                  <TabNavigator> 
+                    <tab label="default"/> 
+                  </TabNavigator> 
+                </Window> 
+              </conditionForm>  
+              <queryEvent/> 
+            </EntityQuery>
+          </EntityQuery>
+        </Entity>
+        <Entity label="职员" isBranch="true" uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.76A0ECE61239" name="Employee" path="/组织管理">
+          <file>
+            <Entity name="Employee" label="职员" note="" log="false" workflow="false" lastId="7" uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.76A0ECE61239" nodeID="603" > 
+              <property uid="sys_0" label="编号" name="id" type="long" systemProperty="true"/>  
+              <property uid="sys_1" label="域ID" name="domainId" type="long" systemProperty="true"/>  
+              <relation/>  
+              <property name="name" label="姓名" type="string" length="30" uid="id_1" systemProperty="true" valueEditable="true"/>  
+              <property name="email" label="电子邮件" type="string" length="50" uid="id_2" systemProperty="true" valueEditable="true"/>  
+              <property name="department" label="部门" type="relation" uid="id_3" systemProperty="true" valueEditable="true" entityUID="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.7F7FFBA3C973" labelField="name"/>  
+              <property name="operator" label="操作员" type="principal" uid="id_4" systemProperty="true" valueEditable="true"/>  
+              <property name="loginId" label="登入帐户" type="string" length="50" uid="id_5" systemProperty="true" valueEditable="true"/>  
+              <property name="isLoginEnabled" label="是否允许登入" type="boolean" length="100" uid="id_6" systemProperty="true" valueEditable="true"/>  
+              <property name="birthday" label="出生日期" type="timestamp" length="100" uid="id_7" />
+			  <property name="msn" label="MSN帐号" type="string" length="100" uid="id_8"/>  
+			  <property name="qq" label="QQ帐号" type="string" length="50" uid="id_9"/>
+			  <property name="sex" label="性别" type="long" uid="id_11" systemProperty="true" valueEditable="true"/>
+			  <property name="photo" label="照片" type="image" length="100" uid="id_12" systemProperty="true" valueEditable="true"/>
+			  <property name="lastErrorTime" label="最后一次错误时间" type="timestamp" uid="id_13"/>
+			  <property name="errorCount" label="错误次数" type="long" uid="id_14"/>
+			  <property name="isBlocked" label="是否已封锁" type="boolean" uid="id_15"/> 
+            </Entity>
+          </file>
+          <ExtensionFile>
+            <EntityService> 
+              <script label="onUnlock" name="onUnlock" type="customer" tooltip="自定义扩展服务" uid="ext3"><![CDATA[var employee_id/*:Number*/ = param.get("employee_id");
+if(employee_id == null )
+	throw ("未查询到相应的职员ID，请检查。");
+var hql/*:String*/ = "update Employee set isBlocked = 0";
+hql += ", errorCount = 0, lastErrorTime = null where id=:id ";
+
+var query/*:ScriptQuery*/ = service.createHQLQuery(hql);
+
+query.setLong("id",Number(employee_id));
+
+query.executeUpdate();]]></script> 
+            </EntityService>
+          </ExtensionFile>
+          <EntityForm entityUID="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.76A0ECE61239" label="职员信息" uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.7F6F46B1EFBD" name="职员信息">
+            <EntityForm name="职员信息" label="职员信息" uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.7F6F46B1EFBD" nodeID="260">
+			  <formEntity uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.76A0ECE61239"/>
+			  <formState>
+			    <state label="创建" uid="state0" basedOn="state1">
+			      <rule type="value" property="department" label="部门" rule="$opener.page.department.selectedItem"/>
+			    </state>
+			    <state label="基础" uid="state1" basedOn="null">
+			      <rule type="updateEvent" property="isLoginEnabled" label="是否允许登入" rule="onLoginEnabledChange"/>
+			      <rule type="required" property="name" label="姓名" rule="true"/>
+			      <rule type="required" property="department" label="部门" rule="true"/>
+			    </state>
+			    <state label="编辑" uid="state2" basedOn="state1"/>
+			    <state label="自我编辑" uid="state3" basedOn="state1">
+			      <rule type="enabled" property="name" label="姓名" rule="false"/>
+			      <rule type="enabled" property="department" label="部门" rule="false"/>
+			      <rule type="enabled" property="operator" label="操作员" rule="false"/>
+			      <rule type="enabled" property="loginId" label="登入帐户" rule="false"/>
+			      <rule type="enabled" property="isLoginEnabled" label="是否允许登入" rule="false"/>
+			    </state>
+			  </formState>
+			  <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2"> 
+                <TabNavigator> 
+                  <tab label="default"> 
+                    <Label width="82" height="25" text="姓名:" propertyUID="id_1" x="243" y="3" style=""/>  
+                    <TextInput propertyUID="id_1" width="159" height="25" x="303" y="3"/>  
+                    <Label width="82" height="25" text="登入帐户:" propertyUID="id_5" x="243" y="59" style=""/>  
+                    <TextInput propertyUID="id_5" width="159" height="25" x="303" y="59"/>  
+                    <Label width="82" height="25" text="所属部门:" propertyUID="id_3" x="243" y="87" style=""/>  
+                    <EntityField propertyUID="id_3" width="159" height="25" x="303" y="87"/>  
+                    <Label width="82" height="25" text="电子邮件:" propertyUID="id_2" x="243" y="171" style=""/>  
+                    <TextInput propertyUID="id_2" width="159" height="25" x="303" y="171"/>  
+                    <CheckBox name="isLoginEnabled" label="是否允许登入" x="303" y="31" width="97" height="25"/>  
+                    <Label width="82" height="25" text="MSN帐号:" propertyUID="id_8" x="243" y="199" style=""/>  
+                    <TextInput propertyUID="id_8" width="159" height="25" x="303" y="199"/>  
+                    <Label width="82" height="25" text="员工卡号:" propertyUID="id_10" x="3" y="227" style=""/>  
+                    <TextInput propertyUID="id_10" width="159" height="25" x="63" y="227"/>  
+                    <Label width="82" height="25" text="出生日期:" propertyUID="id_7" x="243" y="143" style=""/>  
+                    <DateField propertyUID="id_7" width="159" height="25" x="303" y="143"/>  
+                    <Label width="82" height="25" text="QQ帐号:" propertyUID="id_9" x="3" y="199" style=""/>  
+                    <TextInput propertyUID="id_9" width="159" height="25" x="63" y="199"/>  
+                    <Label width="82" height="25" text="性别:" propertyUID="id_11" x="243" y="115" style=""/>  
+                    <SingleSelectBox propertyUID="id_11" width="66" height="25" x="303" y="115"/>  
+                    <Label width="82" height="25" text="照片:" propertyUID="id_12" x="3" y="3" style=""/>  
+                    <ImageField propertyUID="id_12" width="159" height="195" x="63" y="3"/> 
+                  </tab> 
+                </TabNavigator> 
+              </Window>  
+			  <formEvent>
+			    <event name="onLoginEnabledChange" type="customerEvent" label="onLoginEnabledChange"><![CDATA[var entity = form.getEntity();
+var enabled = entity.isLoginEnabled;
+if( enabled == true )
+  enabled = true;
+else
+  enabled = false;
+form.setFieldProperty("loginId", "enabled", enabled);
+
+]]></event>
+    <event name="initialize" type="initialize" label="初始化事件" systemEvent="true"><![CDATA[
+var entity/*:$Entity.Employee*/ = form.getEntity();
+if( form.getFormState() == "自我编辑" )
+	return;
+
+var enabled = entity.isLoginEnabled;
+if( enabled == true )
+  enabled = true;
+else
+  enabled = false;
+form.setFieldProperty("loginId", "enabled", enabled);
+]]></event>
+			  </formEvent>
+			</EntityForm>
+          </EntityForm>
+          <EntityQuery label="职员管理" uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.7F6E4B478EF4" entityUID="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.76A0ECE61239" name="职员管理">
+            <EntityQuery name="职员管理" label="职员管理" note="" multiselect="false" editable="false" autopaging="true" uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.7F6E4B478EF4" nodeID="611"> 
+              <queryEntities> 
+                <Entity uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.76A0ECE61239" name="Employee" label="职员" alias="a0"/> 
+              </queryEntities>  
+              <DataGrid> 
+                <color> 
+                  <condition columnLabel="整行" column="$row" color="#ff" backgroundColor="#FFFFFF" expression="$this.isLoginEnabled = true"/> 
+                </color>  
+                <column name="name" label="姓名" uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.76A0ECE61239.id_1" width="100"/>  
+                <column name="email" label="电子邮件" uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.76A0ECE61239.id_2" width="100"/>  
+                <column name="loginId" label="登入帐户" uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.76A0ECE61239.id_5" width="100"/>  
+                <column name="department" label="部门" uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.76A0ECE61239.id_3" width="100"/>
+                <column name="isBlocked" label="是否已封锁" uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.76A0ECE61239.id_15" width="100" isBranch="false" dataField="Employee$isBlocked"/> 
+              </DataGrid>  
+              <toolbar> 
+                <button label="新建" action="alink" selection="none" alink="alink://ime.AppWindow/EntityForm?{entityUID:&quot;031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.76A0ECE61239&quot;,formState:&quot;state0&quot;,action:&quot;create&quot;,formUID:&quot;031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.7F6F46B1EFBD&quot;}" permission="" permissionName=""/>  
+                <button label="编辑" action="alink" alink="alink://ime.AppWindow/EntityForm?{formUID:&quot;031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.7F6F46B1EFBD&quot;,entityUID:&quot;031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.76A0ECE61239&quot;,formState:&quot;state1&quot;,action:&quot;edit&quot;}" selection="single" permission="" permissionName=""/>  
+                <button label="删除" action="delete" selection="single" permission="" permissionName=""/>  
+                <button label="设置密码" action="alink" selection="single" permission="" permissionName="" alink="alink://ime.Admin/PasswordForm"/>  
+                <button label="设置角色" action="alink" selection="single" permission="" permissionName="" alink="alink://ime.Admin/SetRoleForm"/>
+                <button label="帐号解锁" action="fireEvent" selection="single" permission="" permissionName="" visiable="true" event="onUnlock" confirmMessage="确认要解锁此帐号吗？"/>  
+              </toolbar>  
+              <xmlQuery version="2.0" name="" label=""> 
+                <select domainScope="true"> 
+                  <other label="其他" uid="other" name="other"/>  
+                  <Entity uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.76A0ECE61239" name="Employee" label="职员" alias="a0"> 
+                    <field uid="sys_0" name="id" label="编号" type="long"/>  
+                    <field uid="sys_1" name="domainId" label="域ID" type="long"/>  
+                    <field uid="id_1" name="name" label="姓名" type="string"/>  
+                    <field uid="id_2" name="email" label="电子邮件" type="string"/>  
+                    <field uid="id_3" name="department" label="部门" type="relation"/>  
+                    <field uid="id_4" name="operator" label="操作员" type="principal"/>  
+                    <field uid="id_5" name="loginId" label="登入帐户" type="string"/>  
+                    <field uid="id_6" name="isLoginEnabled" label="是否允许登入" type="boolean"/> 
+                    <field uid="id_13" name="lastErrorTime" label="最后一次错误时间" type="timestamp"/>  
+                    <field uid="id_14" name="errorCount" label="错误次数" type="long"/>  
+                    <field uid="id_15" name="isBlocked" label="是否已封锁" type="boolean"/> 
+                  </Entity> 
+                </select>  
+                <where> 
+                  <exp type="2"> 
+                    <exp type="5" uid="exp0" valueType="3" option="true" rightType="val" right="$page.department.selectedItem.id" leftEntity="Employee" leftField="department_id"/> 
+                  </exp> 
+                </where>  
+                <other> 
+                  <groupBy label="Group By"/>  
+                  <orderBy label="Order By"/> 
+                </other> 
+              </xmlQuery>  
+              <conditionForm> 
+                <Window> 
+                  <TabNavigator> 
+                    <tab label="default"/> 
+                  </TabNavigator> 
+                </Window> 
+              </conditionForm>  
+              <queryEvent> 
+                <event name="onUnlock" type="customerEvent" label="onUnlock"><![CDATA[var entities = query.getSelectedEntities("Employee");
+if(entities.length == 0)
+	return {error:true, message:"请选择记录"};
+var entity/*:$Entity.Employee*/ = entities[0];
+if(entity.isBlocked == null || entity.isBlocked == false){
+	return {error:true, message:"此用户未锁定，无需解锁。"};
+}
+var param = {};
+param.employee_id = entity.id;
+query.fireRemoteEvent("Employee.onUnlock", param, "ck_onUnlock");]]></event>  
+                <event name="ck_onUnlock" type="remoteEvent" label="ck_onUnlock"><![CDATA[query.refresh();]]></event> 
+              </queryEvent> 
+            </EntityQuery>
+          </EntityQuery>
+        </Entity>
+        <Entity label="文章" isBranch="true" uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.138EC7D71F33" name="CMSArticle" path="/内容管理">
+          <file>
+            <Entity name="CMSArticle" label="文章" note="" log="true" workflow="false" lastId="9" uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.138EC7D71F33" nodeID="265" dbcreated="true"> 
+              <property uid="sys_0" label="编号" name="id" type="long" systemProperty="true"/>  
+              <property uid="sys_1" label="域ID" name="domainId" type="long" systemProperty="true"/>  
+              <relation/>  
+              <extension/>  
+              <property uid="log_0" label="创建者ID" name="FM_CreatePrinId" type="long" systemProperty="true"/>  
+              <property uid="log_1" label="创建者" name="FM_CreatePrinName" type="string" length="100" systemProperty="true"/>  
+              <property uid="log_2" label="更新者ID" name="FM_UpdatePrinId" type="long" systemProperty="true"/>  
+              <property uid="log_3" label="更新者" name="FM_UpdatePrinName" type="string" length="100" systemProperty="true"/>  
+              <property uid="log_4" label="创建时间" name="FM_CreateTime" type="timestamp" systemProperty="true"/>  
+              <property uid="log_5" label="更新时间" name="FM_UpdateTime" type="timestamp" systemProperty="true"/>  
+              <property name="title" label="标题" type="string" length="100" uid="id_1" dbcreated="true"/>  
+              <property name="note" label="描述" type="string" length="500" uid="id_2" dbcreated="true"/>  
+              <property name="urlName" label="URL" type="string" length="100" uid="id_3" dbcreated="true"/>  
+              <property name="contents" label="文章内容" type="string" length="800000" uid="id_5" dbcreated="true" toolTip="" valueProvider="" note=""/>  
+              <property name="category" label="所属分类" type="relation" uid="id_6" entityUID="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.138D313138CB" labelField="name" dbcreated="true"/>  
+              <property name="orderNo" label="序号" type="long" uid="id_7" dbcreated="true"/>  
+              <property name="type" label="文章类别" type="long" uid="id_8" toolTip="" valueProvider="内容管理.文章类别" note="" dbcreated="true"/>  
+              <property name="mediaType" label="媒体类型" type="long" uid="id_9" toolTip="" valueProvider="内容管理.媒体类型" note="" dbcreated="true"/> 
+            </Entity>
+          </file>
+          <EntityForm entityUID="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.138EC7D71F33" label="文本文章" uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.ECFC54A3CE05" name="文本文章">
+            <EntityForm name="文本" label="文本" uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.ECFC54A3CE05" nodeID="2498"> 
+              <formEntity uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.138EC7D71F33"/>  
+              <formState> 
+                <state label="基础" uid="state0" basedOn="null"> 
+                  <rule type="required" property="title" label="标题" rule="true"/>  
+                  <rule type="required" property="urlName" label="URL" rule="true"/>  
+                  <rule type="required" property="contents" label="文章内容" rule="true"/>  
+                  <rule type="required" property="note" label="描述" rule="true"/>  
+                  <rule type="required" property="orderNo" label="序号" rule="true"/>  
+                  <rule type="required" property="type" label="文章类别" rule="true"/>  
+                  <rule type="enabled" property="type" label="文章类别" rule="false"/>  
+                  <rule type="value" property="mediaType" label="媒体类型" rule="1"/> 
+                </state>  
+                <state label="新建新闻" uid="state1" basedOn="state0"> 
+                  <rule type="value" property="type" label="文章类别" rule="1"/> 
+                </state>  
+                <state label="新建公告" uid="state2" basedOn="state0"> 
+                  <rule type="value" property="type" label="文章类别" rule="2"/> 
+                </state>  
+                <state label="编辑" uid="state3" basedOn="state0"/> 
+              </formState>  
+              <Window paddingLeft="0" paddingRight="0" paddingTop="0" paddingBottom="0"> 
+                <TabNavigator> 
+                  <tab label="default"> 
+                    <Label width="37" height="25" text="标题:" propertyUID="id_1" x="3" y="3"/>  
+                    <TextInput propertyUID="id_1" width="617" height="25" x="63" y="3"/>  
+                    <Label width="77" height="25" text="文章内容:" propertyUID="id_5" x="3" y="59"/>  
+                    <TextArea propertyUID="id_5" width="617" height="249" x="63" y="59" toolTip=""/>  
+                    <Label width="57" height="25" text="序号:" propertyUID="id_7" x="3" y="31"/>  
+                    <TextInput propertyUID="id_7" width="137" height="25" x="63" y="31"/>  
+                    <Label width="82" height="25" text="文章类别:" propertyUID="id_8" x="203" y="31"/>  
+                    <ComboBox propertyUID="id_8" width="137" height="25" x="263" y="31"/> 
+                  </tab> 
+                </TabNavigator> 
+              </Window>  
+              <formEvent/> 
+            </EntityForm>
+          </EntityForm>
+          <EntityQuery label="公告管理" uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.ED15D13CCD46" entityUID="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.138EC7D71F33" share="false" name="公告管理">
+            <EntityQuery name="公告管理" label="公告管理" note="" share="false" multiselect="false" editable="false" autopaging="true" uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.ED15D13CCD46" nodeID="2500"> 
+              <queryEntities> 
+                <Entity uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.138EC7D71F33" name="CMSArticle" label="文章" alias="a0" master="true"/> 
+              </queryEntities>  
+              <DataGrid> 
+                <color/>  
+                <column name="title" label="标题" uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.138EC7D71F33.id_1" width="500" isBranch="false" editable="" sortable="" textAlign=""/>  
+                <column name="FM_CreateTime" label="创建时间" uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.138EC7D71F33.log_4" width="145" isBranch="false" editable="" sortable="" textAlign=""/>  
+                <column name="FM_UpdateTime" label="更新时间" uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.138EC7D71F33.log_5" width="145" isBranch="false" editable="" sortable="" textAlign=""/> 
+              </DataGrid>  
+              <editState/>  
+              <toolbar> 
+                <button label="新建" action="alink" selection="none" alink="alink://ime.AppWindow/EntityForm?{selection:&quot;none&quot;,entityUID:&quot;031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.138EC7D71F33&quot;,formUID:&quot;031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.ECFC54A3CE05&quot;,action:&quot;create&quot;}"/>  
+                <button label="编辑" action="alink" selection="single" alink="alink://ime.AppWindow/EntityForm?{selection:&quot;single&quot;,entityUID:&quot;031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.138EC7D71F33&quot;,formUID:&quot;031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.ECFC54A3CE05&quot;,action:&quot;edit&quot;}"/>  
+                <button label="删除" action="delete" selection="single"/> 
+              </toolbar>  
+              <xmlQuery version="2.0" name="" label=""> 
+                <select domainScope="false"> 
+                  <other label="其他" uid="other" name="other"/>  
+                  <Entity uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.138EC7D71F33" name="CMSArticle" label="文章" alias="a0"> 
+                    <field uid="sys_0" name="id" label="编号" type="long" entity="CMSArticle"/>  
+                    <field uid="sys_1" name="domainId" label="域ID" type="long"/>  
+                    <field uid="log_0" name="FM_CreatePrinId" label="创建者ID" type="long"/>  
+                    <field uid="log_1" name="FM_CreatePrinName" label="创建者" type="string"/>  
+                    <field uid="log_2" name="FM_UpdatePrinId" label="更新者ID" type="long"/>  
+                    <field uid="log_3" name="FM_UpdatePrinName" label="更新者" type="string"/>  
+                    <field uid="log_4" name="FM_CreateTime" label="创建时间" type="timestamp"/>  
+                    <field uid="log_5" name="FM_UpdateTime" label="更新时间" type="timestamp"/>  
+                    <field uid="id_1" name="title" label="标题" type="string"/>  
+                    <field uid="id_2" name="note" label="描述" type="string"/>  
+                    <field uid="id_3" name="urlName" label="URL" type="string"/>  
+                    <field uid="id_5" name="contents" label="文章内容" type="string"/>  
+                    <field uid="id_6" name="category" label="所属分类" type="relation"/>  
+                    <field uid="id_7" name="orderNo" label="序号" type="long"/>  
+                    <field uid="id_8" name="type" label="文章类别" type="long"/>  
+                    <field uid="id_9" name="mediaType" label="媒体类型" type="long"/> 
+                  </Entity> 
+                </select>  
+                <where> 
+                  <exp type="2"> 
+                    <exp type="19" valueType="1" option="true" rightType="param" right="title" leftEntity="CMSArticle" leftField="title" uid="exp0"/>  
+                    <exp type="5" valueType="3" option="false" leftEntity="CMSArticle" leftField="type" uid="exp1" rightType="val" right="2"/> 
+                  </exp> 
+                </where>  
+                <other> 
+                  <groupBy label="Group By"/>  
+                  <orderBy label="Order By"> 
+                    <field uid="sys_0" name="id" label="编号" type="long" entity="CMSArticle" order="desc"/> 
+                  </orderBy> 
+                </other> 
+              </xmlQuery>  
+              <conditionForm> 
+                <Window paddingLeft="1" paddingRight="1" paddingTop="1" paddingBottom="1"> 
+                  <TabNavigator> 
+                    <tab label="default"> 
+                      <Label width="37" height="25" text="标题:" propertyUID="id_1" x="3" y="3"/>  
+                      <TextInput name="title" width="137" height="25" x="43" y="3"/>  
+                      <Label width="37" height="25" text="描述:" propertyUID="id_2" x="183" y="3"/>  
+                      <TextInput name="note" width="197" height="25" x="223" y="3"/> 
+                    </tab> 
+                  </TabNavigator> 
+                </Window> 
+              </conditionForm>  
+              <queryEvent/> 
+            </EntityQuery>
+          </EntityQuery>
+          <EntityQuery label="新闻管理" uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.ED121DE8C1D4" entityUID="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.138EC7D71F33" share="false" name="新闻管理">
+            <EntityQuery name="新闻管理" label="新闻管理" note="" share="false" multiselect="false" editable="false" autopaging="true" uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.ED121DE8C1D4" nodeID="2499"> 
+              <queryEntities> 
+                <Entity uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.138EC7D71F33" name="CMSArticle" label="文章" alias="a0" master="true"/> 
+              </queryEntities>  
+              <DataGrid> 
+                <color/>  
+                <column name="title" label="标题" uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.138EC7D71F33.id_1" width="500" isBranch="false" editable="" sortable="" textAlign=""/>  
+                <column name="FM_CreateTime" label="创建时间" uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.138EC7D71F33.log_4" width="145" isBranch="false" editable="" sortable="" textAlign=""/>  
+                <column name="FM_UpdateTime" label="更新时间" uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.138EC7D71F33.log_5" width="145" isBranch="false" editable="" sortable="" textAlign=""/> 
+              </DataGrid>  
+              <editState/>  
+              <toolbar> 
+                <button label="新建" toolTip="" action="alink" selection="none" permission="" permissionName="null" defaultAction="false" alink="alink://ime.AppWindow/EntityForm?{formUID:&quot;031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.ECFC54A3CE05&quot;,entityUID:&quot;031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.138EC7D71F33&quot;,formState:&quot;state1&quot;,action:&quot;create&quot;}"/>  
+                <button label="编辑" toolTip="" action="alink" selection="single" permission="" permissionName="null" defaultAction="false" alink="alink://ime.AppWindow/EntityForm?{formUID:&quot;031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.ECFC54A3CE05&quot;,entityUID:&quot;031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.138EC7D71F33&quot;,formState:&quot;state3&quot;,action:&quot;edit&quot;}"/>  
+                <button label="删除" action="delete" selection="single"/> 
+              </toolbar>  
+              <xmlQuery version="2.0" name="" label=""> 
+                <select domainScope="false"> 
+                  <other label="其他" uid="other" name="other"/>  
+                  <Entity uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.138EC7D71F33" name="CMSArticle" label="文章" alias="a0"> 
+                    <field uid="sys_0" name="id" label="编号" type="long" entity="CMSArticle"/>  
+                    <field uid="sys_1" name="domainId" label="域ID" type="long"/>  
+                    <field uid="log_0" name="FM_CreatePrinId" label="创建者ID" type="long"/>  
+                    <field uid="log_1" name="FM_CreatePrinName" label="创建者" type="string"/>  
+                    <field uid="log_2" name="FM_UpdatePrinId" label="更新者ID" type="long"/>  
+                    <field uid="log_3" name="FM_UpdatePrinName" label="更新者" type="string"/>  
+                    <field uid="log_4" name="FM_CreateTime" label="创建时间" type="timestamp"/>  
+                    <field uid="log_5" name="FM_UpdateTime" label="更新时间" type="timestamp"/>  
+                    <field uid="id_1" name="title" label="标题" type="string"/>  
+                    <field uid="id_2" name="note" label="描述" type="string"/>  
+                    <field uid="id_3" name="urlName" label="URL" type="string"/>  
+                    <field uid="id_5" name="contents" label="文章内容" type="string"/>  
+                    <field uid="id_6" name="category" label="所属分类" type="relation"/>  
+                    <field uid="id_7" name="orderNo" label="序号" type="long"/>  
+                    <field uid="id_8" name="type" label="文章类别" type="long"/>  
+                    <field uid="id_9" name="mediaType" label="媒体类型" type="long"/> 
+                  </Entity> 
+                </select>  
+                <where> 
+                  <exp type="2"> 
+                    <exp type="19" valueType="1" option="true" rightType="param" right="title" leftEntity="CMSArticle" leftField="title" uid="exp0"/>  
+                    <exp type="5" valueType="3" option="false" leftEntity="CMSArticle" leftField="type" uid="exp1" rightType="val" right="1"/> 
+                  </exp> 
+                </where>  
+                <other> 
+                  <groupBy label="Group By"/>  
+                  <orderBy label="Order By"> 
+                    <field uid="sys_0" name="id" label="编号" type="long" entity="CMSArticle" order="desc"/> 
+                  </orderBy> 
+                </other> 
+              </xmlQuery>  
+              <conditionForm> 
+                <Window paddingLeft="1" paddingRight="1" paddingTop="1" paddingBottom="1"> 
+                  <TabNavigator> 
+                    <tab label="default"> 
+                      <Label width="37" height="25" text="标题:" propertyUID="id_1" x="3" y="3"/>  
+                      <TextInput name="title" width="137" height="25" x="43" y="3"/> 
+                    </tab> 
+                  </TabNavigator> 
+                </Window> 
+              </conditionForm>  
+              <queryEvent/> 
+            </EntityQuery>
+          </EntityQuery>
+        </Entity>
+        <Entity label="文章分类" isBranch="true" uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.138D313138CB" name="CMSArticleCategory" path="/内容管理">
+          <file>
+            <Entity name="CMSArticleCategory" label="文章分类" note="" log="false" workflow="false" lastId="4" uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.138D313138CB" nodeID="2372" > 
+              <property uid="sys_0" label="编号" name="id" type="long" systemProperty="true"/>  
+              <property uid="sys_1" label="域ID" name="domainId" type="long" systemProperty="true"/>  
+              <relation/>  
+              <extension/>
+              <property uid="id_3" label="上级节点" name="parentId" type="long"/>  
+              <property name="name" label="名称" type="string" length="100" uid="id_1" />  
+              <property name="note" label="描述" type="string" length="200" uid="id_2" />  
+              <property name="orderNo" label="序号" type="double" uid="id_4" /> 
+            </Entity>
+          </file>
+        </Entity>
+        <Entity label="消息" isBranch="true" uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.079120EBBFDD" name="MSGMessage" path="/消息管理">
+          <file>
+            <Entity name="MSGMessage" label="消息" note="" log="false" workflow="false" lastId="10" uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.079120EBBFDD" nodeID="2342"> 
+              <property uid="sys_0" label="编号" name="id" type="long" systemProperty="true" note="" currency="" valueProvider="" toolTip=""/>  
+              <property uid="sys_1" label="域ID" name="domainId" type="long" systemProperty="true"/>  
+              <relation/>  
+              <extension/>  
+              <property name="msg_head" label="消息头" type="string" length="100" uid="id_1" note="" valueProvider="" toolTip=""/>  
+              <property name="msg_body" label="消息内容" type="string" length="2000" uid="id_2" note="" valueProvider="" toolTip=""/>  
+              <property name="msg_kind" label="消息种类" type="long" uid="id_3" note="" valueProvider="消息管理.消息种类" toolTip="" currency=""/>  
+              <property name="user_sender" label="发送者" type="principal" uid="id_4" note="" toolTip=""/>  
+              <property name="user_receiver" label="接收者" type="principal" uid="id_5" note="" toolTip=""/>  
+              <property name="sys_sender" label="系统发送者" type="string" length="100" uid="id_6" note="" valueProvider="消息管理.消息系统" toolTip=""/>  
+              <property name="send_time" label="发送时间" type="timestamp" length="100" uid="id_8" note="" toolTip=""/>  
+              <property name="msg_status" label="消息状态" type="long" uid="id_9" note="" valueProvider="消息管理.消息状态" toolTip="" currency=""/>  
+              <property name="msg_type" label="消息类型" type="long" uid="id_10" note="" valueProvider="消息管理.消息类型" toolTip="" currency=""/> 
+            </Entity>
+          </file>
+        </Entity>
+        <Entity label="用户配置" isBranch="true" uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.07B00F3CB373" name="UserProfile" path="/组织管理">
+          <file>
+            <Entity name="UserProfile" label="用户配置" note="" log="false" workflow="false" lastId="3" uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.07B00F3CB373" nodeID="2349"> 
+              <property uid="sys_0" label="编号" name="id" type="long" systemProperty="true" note="" currency="" valueProvider="" toolTip=""/>  
+              <property uid="sys_1" label="域ID" name="domainId" type="long" systemProperty="true"/>  
+              <relation/>  
+              <extension/>  
+              <property name="owner_user" label="所属用户" type="principal" uid="id_1" note="" toolTip=""/>  
+              <property name="last_logout_time" label="最后注销时间" type="timestamp" length="100" uid="id_2" note="" toolTip=""/>
+              <property name="profile_type" label="配置类型" type="string" length="100" uid="id_3" note="" toolTip=""/>  
+              <property name="profile_content" label="配置内容" type="string" length="5000" uid="id_4" note="" valueProvider="" toolTip=""/> 
+            </Entity>
+          </file>
+        </Entity>
+		<Entity name="ReportFile" label="报表文件" isBranch="true" uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.F05BA2F6D776" path="/报表管理">
+          <file>
+            <Entity name="ReportFile" label="报表文件" note="" log="true" workflow="false" lastId="5" uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.F05BA2F6D776" nodeID="381"> 
+              <property uid="sys_0" label="编号" name="id" type="long" systemProperty="true" editorPart="Entity"/>  
+              <property uid="sys_1" label="域ID" name="domainId" type="long" systemProperty="true" editorPart="Entity"/>  
+              <relation/>  
+              <extension/>  
+              <property uid="log_0" label="创建者ID" name="FM_CreatePrinId" type="long" systemProperty="true" editorPart="Entity"/>  
+              <property uid="log_1" label="创建者" name="FM_CreatePrinName" type="string" length="100" systemProperty="true" editorPart="Entity"/>  
+              <property uid="log_2" label="更新者ID" name="FM_UpdatePrinId" type="long" systemProperty="true" editorPart="Entity"/>  
+              <property uid="log_3" label="更新者" name="FM_UpdatePrinName" type="string" length="100" systemProperty="true" editorPart="Entity"/>  
+              <property uid="log_4" label="创建时间" name="FM_CreateTime" type="timestamp" systemProperty="true" editorPart="Entity"/>  
+              <property uid="log_5" label="更新时间" name="FM_UpdateTime" type="timestamp" systemProperty="true" editorPart="Entity"/>  
+              <property name="name" label="名称" type="string" length="100" uid="id_1" editorPart="Entity"/>  
+              <property name="report_uid" label="报表UID" type="string" length="100" uid="id_2" editorPart="Entity"/>  
+              <property name="condition_md5" label="条件MD5码" type="string" length="100" uid="id_3" editorPart="Entity"/>  
+              <property name="content_xml" label="报表内容" type="string" length="80000" uid="id_4" editorPart="Entity"/>  
+              <property name="folder" label="目录" type="relation" uid="id_5" entityUID="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.6740D23E2752" labelField="name" editorPart="Entity"/> 
+            </Entity>
+          </file>
+          <ExtensionFile>
+            <EntityService/>
+          </ExtensionFile>
+        </Entity>
+        <Entity name="ReportFolder" label="报表目录" isBranch="true" uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.6740D23E2752" path="/报表管理">
+          <file>
+            <Entity name="ReportFolder" label="报表目录" note="" log="true" workflow="false" lastId="3" uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.6740D23E2752" nodeID="385"> 
+              <property uid="sys_0" label="编号" name="id" type="long" systemProperty="true" editorPart="Entity"/>  
+              <property uid="sys_1" label="域ID" name="domainId" type="long" systemProperty="true" editorPart="Entity"/>  
+              <relation/>  
+              <extension/>  
+              <property uid="log_0" label="创建者ID" name="FM_CreatePrinId" type="long" systemProperty="true" editorPart="Entity"/>  
+              <property uid="log_1" label="创建者" name="FM_CreatePrinName" type="string" length="100" systemProperty="true" editorPart="Entity"/>  
+              <property uid="log_2" label="更新者ID" name="FM_UpdatePrinId" type="long" systemProperty="true" editorPart="Entity"/>  
+              <property uid="log_3" label="更新者" name="FM_UpdatePrinName" type="string" length="100" systemProperty="true" editorPart="Entity"/>  
+              <property uid="log_4" label="创建时间" name="FM_CreateTime" type="timestamp" systemProperty="true" editorPart="Entity"/>  
+              <property uid="log_5" label="更新时间" name="FM_UpdateTime" type="timestamp" systemProperty="true" editorPart="Entity"/>  
+              <property name="name" label="名称" type="string" length="100" uid="id_1" editorPart="Entity"/>  
+              <property name="parent" label="上级目录" type="relation" uid="id_2" entityUID="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.6740D23E2752" labelField="name" editorPart="Entity"/>  
+              <property name="attributes" label="属性" type="long" uid="id_3" editorPart="Entity"/> 
+            </Entity>
+          </file>
+          <ExtensionFile>
+            <EntityService/>
+          </ExtensionFile>
+        </Entity>
+      </EntityRoot>
+      <UIRoot/>
+      <ReportRoot/>
+      <PermissionRoot/>
+      <MenuRoot/>
+    </Application>
+  </applications>
+</import>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<QueryPage label="风控参数管理" control="Panel" layout="vertical" controlUID="root" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E16BDAEA370E" name="风控参数管理" nodeID="1599"> 
+              <QueryControl label="风控参数查询" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.B28000671232" width="100%" height="100%" controlUID="ctrl0"/>  
+              <event label="初始化事件" type="initialize" name="initialize"/>  
+              <event label="确定事件" type="okEvent" name="okEvent"/> 
+            </QueryPage>

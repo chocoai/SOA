@@ -1,0 +1,27 @@
+package bps.external.application.service.trade;
+
+import java.util.Map;
+
+/**
+ * 通联通帐户验证接口
+ * Created by yyy on 2016/6/21.
+ */
+public interface TltAccountVerificationService {
+    /**
+     * 三要素绑卡
+     * @param tradeNo       交易流水号
+     * @param bankCode      银行卡BIN
+     * @param cardType      卡类型
+     * @param accountName   户名
+     * @param accountNo     帐号
+     * @param accountProp   帐户属性
+     * @param id_type       证件类型
+     * @param id_no         证件号
+     * @param extParams     其他参数
+     * @return  绑卡结果
+     * @throws Exception
+     */
+    public Map<String, Object> bindBankCard(String tradeNo, String bankCode,
+                                            String cardType,String accountName,
+                                            String accountNo, Long accountProp, String id_type, String id_no, Map<String, Object> extParams )throws Exception;
+}

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityQuery name="冻结调帐管理" label="冻结调帐管理" note="" share="false" multiselect="false" editable="false" autopaging="true" pagingMode="NormalPaging" virtualizingPagingEnabled="false" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.A829D0713479" nodeID="645"> 
+              <queryEntities> 
+                <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.5A22A926805A" name="AMS_FreezeAdjustAccount" label="冻结调帐" alias="a0" master="true"/> 
+              </queryEntities>  
+              <DataGrid> 
+                <color/>  
+                <column name="userId" label="用户ID" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.5A22A926805A.id_1" width="122" isBranch="false" editable="" sortable="" textAlign="" dataField="AMS_FreezeAdjustAccount$userId"/>  
+                <column name="account_type" label="账户类型" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.5A22A926805A.id_2" width="100" isBranch="false" editable="" sortable="" textAlign="" dataField="AMS_FreezeAdjustAccount$account_type_label"/>  
+                <column name="amount" label="金额" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.5A22A926805A.id_8" width="74" isBranch="false" editable="" sortable="" textAlign="" dataField="AMS_FreezeAdjustAccount$amount"/>  
+                <column name="freeze_type" label="冻结类型" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.5A22A926805A.id_4" width="89" isBranch="false" editable="" sortable="" textAlign="" dataField="AMS_FreezeAdjustAccount$freeze_type"/>  
+                <column name="freeze_bizid" label="冻结业务号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.5A22A926805A.id_6" width="152" isBranch="false" editable="" sortable="" textAlign="" dataField="AMS_FreezeAdjustAccount$freeze_bizid"/>  
+                <column name="remark" label="备注" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.5A22A926805A.id_9" width="100" isBranch="false" dataField="AMS_FreezeAdjustAccount$remark"/> 
+              </DataGrid>  
+              <editState/>  
+              <toolbar> 
+                <button label="新建" action="alink" selection="none" permission="" permissionName="" visiable="true" alink="alink://ime.AppWindow/EntityForm?{action:&quot;create&quot;,entityUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.5A22A926805A&quot;,formUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.A3E79D735C3B&quot;,formState:&quot;state0&quot;,title:&quot;创建&quot;}"/>  
+                <button label="查看" action="alink" selection="single" permission="" permissionName="" visiable="true" alink="alink://ime.AppWindow/EntityForm?{action:&quot;view&quot;,entityUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.5A22A926805A&quot;,formUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.A3E79D735C3B&quot;,title:&quot;查看&quot;}"/> 
+              </toolbar>  
+              <xmlQuery version="2.0" name="" label=""> 
+                <select domainScope="true"> 
+                  <other label="其他" uid="other" name="other"/>  
+                  <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.5A22A926805A" name="AMS_FreezeAdjustAccount" label="冻结调帐" alias="a0"> 
+                    <field uid="sys_0" name="id" label="编号" type="long" entity="AMS_FreezeAdjustAccount"/>  
+                    <field uid="sys_1" name="domainId" label="域ID" type="long"/>  
+                    <field uid="id_1" name="userId" label="用户ID" type="string"/>  
+                    <field uid="id_2" name="account_type" label="账户类型" type="relation"/>  
+                    <field uid="id_4" name="freeze_type" label="冻结类型" type="long"/>  
+                    <field uid="id_5" name="trade_id" label="交易流水号" type="string"/>  
+                    <field uid="id_6" name="freeze_bizid" label="冻结业务号" type="string"/>  
+                    <field uid="id_7" name="requestId" label="请求业务流水号" type="string"/>  
+                    <field uid="id_8" name="amount" label="金额" type="long" currency="true"/>  
+                    <field uid="id_9" name="remark" label="备注" type="string"/> 
+                  </Entity> 
+                </select>  
+                <where> 
+                  <exp type="2"> 
+                    <exp type="19" valueType="1" option="true" rightType="param" right="userId" leftEntity="AMS_FreezeAdjustAccount" leftField="userId" uid="exp0"/> 
+                  </exp> 
+                </where>  
+                <other> 
+                  <groupBy label="Group By"/>  
+                  <orderBy label="Order By"> 
+                    <field uid="sys_0" name="id" label="编号" type="long" entity="AMS_FreezeAdjustAccount" order="desc"/> 
+                  </orderBy> 
+                </other> 
+              </xmlQuery>  
+              <conditionForm> 
+                <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2"> 
+                  <TabNavigator> 
+                    <tab label="default"> 
+                      <Label width="82" height="25" text="用户ID:" propertyUID="id_1" x="3" y="3" style=""/>  
+                      <TextInput name="userId" width="159" height="25" x="63" y="3"/> 
+                    </tab> 
+                  </TabNavigator> 
+                </Window> 
+              </conditionForm>  
+              <StatSetting/>  
+              <queryEvent/> 
+            </EntityQuery>

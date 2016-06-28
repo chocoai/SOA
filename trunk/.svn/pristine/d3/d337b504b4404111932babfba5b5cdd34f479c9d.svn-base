@@ -1,0 +1,26 @@
+package bps.external.application.service.increment;
+
+import java.util.Map;
+
+import bps.common.BizException;
+
+public interface MobileRechargeService {
+	
+	/**
+	* 话费充值
+	 * @param orderNo      订单号
+	 * @param phoneNo      手机号码
+	 * @param sumAmount    充值总数
+	 * @return
+	 * @throws Exception
+	 */
+	public Map<String, String> recharge(String orderNo, String phoneNo, Long sumAmount) throws BizException;
+
+	/**
+	 * 获取手机号码归属地
+	 * @param phone
+	 * @return
+	 * @throws Exception
+	 */
+	public Map<String, Object> getPhoneArea(String phone) throws BizException;
+}

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "PUBLIC" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class entity-name="AMS_Order" table="DYNA_AMS_Order">
+    <id name="id" type="long">
+      <generator class="native"/>
+    </id>
+    <property name="domainId" not-null="false" type="long" index="IDX_DOMAINID"/>
+    <property name="create_time" not-null="false" type="timestamp" length="100"/>
+    <property name="orderNo" not-null="false" type="string" length="100"/>
+    <property name="order_money" not-null="false" type="long"/>
+    <property name="order_state" not-null="false" type="long"/>
+    <property name="presenter_phone" not-null="false" type="string" length="100"/>
+    <property name="is_present" not-null="false" type="boolean" length="100"/>
+    <property name="delivery_price" not-null="false" type="long"/>
+    <property name="source" not-null="false" type="long"/>
+    <property name="phone" not-null="false" type="string" length="100"/>
+    <property name="address" not-null="false" type="string" length="300"/>
+    <property name="postcode" not-null="false" type="string" length="50"/>
+    <property name="receiver" not-null="false" type="string" length="200"/>
+    <property name="remark" not-null="false" type="string" length="500"/>
+    <property name="order_type" not-null="false" type="long"/>
+    <property name="bank_code" not-null="false" type="string" length="100"/>
+    <property name="account_name" not-null="false" type="string" length="100"/>
+    <property name="accountNo" not-null="false" type="string" length="100"/>
+    <property name="description" not-null="false" type="string" length="1024"/>
+    <property name="target_phone" not-null="false" type="string" length="100"/>
+    <property name="bank_name" not-null="false" type="string" length="100"/>
+    <property name="pay_time" not-null="false" type="timestamp" length="100"/>
+    <property name="delivery_time" not-null="false" type="timestamp" length="100"/>
+    <property name="confirm_time" not-null="false" type="timestamp" length="100"/>
+    <property name="member_uuid" not-null="false" type="string" length="100"/>
+    <property name="target_uuid" not-null="false" type="string" length="100"/>
+    <property name="delivery_remark" not-null="false" type="string" length="500"/>
+    <property name="delivery_code" not-null="false" type="string" length="100"/>
+    <property name="delivery_name" not-null="false" type="string" length="500"/>
+    <property name="delivery_company" not-null="false" type="string" length="100"/>
+    <property name="isResultDeliveryPrice" not-null="false" type="long"/>
+    <property name="receiving_delay_no" not-null="false" type="long"/>
+    <property name="receiving_delay_date" not-null="false" type="timestamp" length="100"/>
+    <property name="sub_trade_type" not-null="false" type="long"/>
+    <property name="member_id" not-null="false" type="long"/>
+    <property name="member_name" not-null="false" type="string" length="100"/>
+    <property name="target_member_id" not-null="false" type="long"/>
+    <property name="orgNo" not-null="false" type="string" length="100"/>
+    <property name="memberNo" not-null="false" type="string" length="100"/>
+    <property name="target_memberNo" not-null="false" type="string" length="100"/>
+    <property name="trade_type" not-null="false" type="long"/>
+    <property name="target_member_name" not-null="false" type="string" length="100"/>
+    <property name="account_type_id" not-null="false" type="long" index="account_type_idx"/>
+    <property name="account_type_label" not-null="false" type="string" length="200"/>
+    <property name="accountNo_encrypt" not-null="false" type="string" length="100"/>
+    <property name="card_type" not-null="false" type="long"/>
+    <property name="account_prop" not-null="false" type="long"/>
+    <property name="extend_info" not-null="false" type="string" length="1024"/>
+    <property name="member_ip" not-null="false" type="string" length="100"/>
+    <property name="merchant_order_no" not-null="false" type="string" length="100"/>
+    <property name="org_user_id" not-null="false" type="string" length="100"/>
+    <property name="order_name" not-null="false" type="string" length="100"/>
+    <property name="transaction_type" not-null="false" type="long"/>
+    <property name="isArtificial" not-null="false" type="boolean" length="100"/>
+    <property name="out_serial_number" not-null="false" type="string" length="100"/>
+    <property name="qr_code" not-null="false" type="string" length="100"/>
+  </class>
+</hibernate-mapping>

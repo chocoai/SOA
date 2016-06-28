@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityQuery name="分公司地区查询" label="分公司地区查询" note="" share="false" multiselect="false" editable="false" autopaging="true" pagingMode="VirtualizingPaging" virtualizingPagingEnabled="true" uid="5D5642C8-F819-4B1C-9454-5DAE66AF9CB6.350F86B62714" nodeID="919"> 
+              <queryEntities> 
+                <Entity uid="5D5642C8-F819-4B1C-9454-5DAE66AF9CB6.29025BC33E98" name="APA_BranchCompanyArea" label="分公司对应区域" alias="a0" master="true"/> 
+              </queryEntities>  
+              <DataGrid> 
+                <color/>  
+                <column name="id" label="编号" uid="5D5642C8-F819-4B1C-9454-5DAE66AF9CB6.29025BC33E98.sys_0" width="100" isBranch="false" dataField="APA_BranchCompanyArea$id"/>  
+                <column name="area" label="省/地区" uid="5D5642C8-F819-4B1C-9454-5DAE66AF9CB6.29025BC33E98.id_1" width="408" isBranch="false" dataField="APA_BranchCompanyArea$area"/> 
+              </DataGrid>  
+              <editState/>  
+              <xmlQuery version="2.0" name="" label=""> 
+                <select domainScope="true"> 
+                  <other label="其他" uid="other" name="other"/>  
+                  <Entity uid="5D5642C8-F819-4B1C-9454-5DAE66AF9CB6.29025BC33E98" name="APA_BranchCompanyArea" label="分公司对应区域" alias="a0"> 
+                    <field uid="sys_0" name="id" label="编号" type="long"/>  
+                    <field uid="sys_1" name="domainId" label="域ID" type="long"/>  
+                    <field uid="id_1" name="area" label="省/地区" type="string"/>  
+                    <field uid="id_2" name="company" label="通联分公司" type="relation"/> 
+                  </Entity> 
+                </select>  
+                <where> 
+                  <exp type="2"> 
+                    <exp type="5" valueType="3" option="true" leftEntity="APA_BranchCompanyArea" leftField="company_id" uid="exp0" rightType="val" right="$page.master.selectedEntity.id"/> 
+                  </exp> 
+                </where>  
+                <other> 
+                  <groupBy label="Group By"/>  
+                  <orderBy label="Order By"/> 
+                </other> 
+              </xmlQuery>  
+              <toolbar> 
+                <button label="新建" action="alink" selection="none" permission="" permissionName="" visiable="true" param="{   &quot;target&quot;: &quot;ime.AppWindow&quot;,   &quot;form&quot;: &quot;EntityForm&quot;,   &quot;param&quot;: {     &quot;action&quot;: &quot;create&quot;,     &quot;entityUID&quot;: &quot;5D5642C8-F819-4B1C-9454-5DAE66AF9CB6.29025BC33E98&quot;,     &quot;formUID&quot;: &quot;5D5642C8-F819-4B1C-9454-5DAE66AF9CB6.AEBBCBE65C72&quot;   } }" Button="System.Windows.Controls.Button: 新建" alink="alink://ime.AppWindow/EntityForm?{action:&quot;create&quot;,entityUID:&quot;5D5642C8-F819-4B1C-9454-5DAE66AF9CB6.29025BC33E98&quot;,formUID:&quot;5D5642C8-F819-4B1C-9454-5DAE66AF9CB6.AEBBCBE65C72&quot;}"/>  
+                <button label="编辑" action="alink" selection="single" permission="" permissionName="" visiable="true" param="{   &quot;target&quot;: &quot;ime.AppWindow&quot;,   &quot;form&quot;: &quot;EntityForm&quot;,   &quot;param&quot;: {     &quot;action&quot;: &quot;edit&quot;,     &quot;entityUID&quot;: &quot;5D5642C8-F819-4B1C-9454-5DAE66AF9CB6.29025BC33E98&quot;,     &quot;formUID&quot;: &quot;5D5642C8-F819-4B1C-9454-5DAE66AF9CB6.AEBBCBE65C72&quot;   } }" Button="System.Windows.Controls.Button: 编辑" alink="alink://ime.AppWindow/EntityForm?{action:&quot;edit&quot;,entityUID:&quot;5D5642C8-F819-4B1C-9454-5DAE66AF9CB6.29025BC33E98&quot;,formUID:&quot;5D5642C8-F819-4B1C-9454-5DAE66AF9CB6.AEBBCBE65C72&quot;}"/>  
+                <button label="删除" action="delete" selection="single"/> 
+              </toolbar>  
+              <conditionForm> 
+                <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2"> 
+                  <TabNavigator> 
+                    <tab label="default"/> 
+                  </TabNavigator> 
+                </Window> 
+              </conditionForm>  
+              <StatSetting/>  
+              <queryEvent/> 
+            </EntityQuery>

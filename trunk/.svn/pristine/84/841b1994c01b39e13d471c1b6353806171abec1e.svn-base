@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<MobileUI startPage="p0" labelColor="#FFFFFF" name="移动应用" uid="B92E51B1-5F06-4F2C-BA97-58F028829FFC" enabled="true"> 
+              <LoginPage uid="p0" name="FADACD529F55" title="登入页面" x="26" y="237" width="88" height="110"> 
+                <Link page="p1" action="GoToPage" name="2269EE1E4B97" label="导航页面"> 
+                  <Path data="114,292 138,292 138,292 161,292 " sourceArrow="None" sinkArrow="Arrow" label="导航页面" sourceNode="p0" targetNode="p1" sourceName="Right" targetName="Left" stereotype=""/> 
+                </Link> 
+              </LoginPage>  
+              <MainPage uid="p1" name="860A0C57C220" title="导航页面" x="171" y="237" width="88" height="110"/>  
+              <WeixinAPI> 
+                <Application> 
+                  <Scenario uid="w0" name="主场景" action="root.js" x="53" y="48" width="147" height="90"/> 
+                </Application> 
+              </WeixinAPI> 
+            </MobileUI>

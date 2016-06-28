@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Entity lastId="5" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.9DE8BD539687" name="AMS_MemberMechanism" label="会员机构表(废弃)" note="" log="false" workflow="false" nodeID="790" dbcreated="true"> 
+  <relation/>  
+  <extension/>  
+  <property uid="sys_0" label="编号" name="id" type="long" systemProperty="true" group="系统属性字段" editorPart="Entity"/>  
+  <property uid="sys_1" label="域ID" name="domainId" type="long" systemProperty="true" group="系统属性字段" editorPart="Entity"/>  
+  <property name="member" label="会员" type="relation" uid="id_1" group="业务属性字段" entityUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0" editorPart="Entity" labelField="name" dbcreated="true"/>  
+  <property name="orgNo" label="机构号" type="string" length="100" uid="id_2" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="userId" label="外部会员编号" type="string" length="100" uid="id_3" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="createTime" label="创建时间" type="timestamp" length="100" uid="id_4" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="loginAccredit" label="登入授权" type="boolean" length="100" uid="id_5" editorPart="Entity" dbcreated="true" group="业务属性字段"/> 
+</Entity>

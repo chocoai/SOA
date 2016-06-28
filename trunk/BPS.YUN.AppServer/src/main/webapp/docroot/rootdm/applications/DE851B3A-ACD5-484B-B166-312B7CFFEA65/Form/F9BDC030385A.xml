@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityForm name="机构手续费" label="机构手续费" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.F9BDC030385A" nodeID="675">
+  <formEntity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.A2C9BC2C6831" />
+  <formState>
+    <state label="基础" uid="state0" basedOn="null">
+      <rule type="value" property="pay_interfaceNo" label="通道编号" rule="$this.payInterface.codeNo" />
+      <rule type="enabled" property="pay_interfaceNo" label="通道编号" rule="false" />
+      <rule type="enabled" property="orgNo" label="机构号" rule="false" />
+      <rule type="value" property="accountNo" label="账户编号" rule="$this.account_type.codeNo" />
+      <rule type="enabled" property="accountNo" label="账户编号" rule="false" />
+      <rule type="enabled" property="org" label="机构名称" rule="false" />
+      <rule type="updateEvent" property="pay_interface_type" label="支付通道类型" rule="onPaychannelChange" />
+    </state>
+    <state label="新建" uid="state1" basedOn="state0">
+      <rule type="value" property="orgNo" label="机构号" rule="$opener.page.master.selectedEntity.codeNo" />
+      <rule type="enabled" property="pay_interfaceNo" label="通道编号" rule="false" />
+      <rule type="enabled" property="accountNo" label="账户编号" rule="false" />
+      <rule type="value" property="org" label="机构名称" rule="$opener.page.master.selectedEntity" />
+    </state>
+  </formState>
+  <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2">
+    <TabNavigator>
+      <tab label="default">
+        <Label width="82" height="25" text="计费模式:" propertyUID="id_1" x="2" y="32" style="" />
+        <ComboBox propertyUID="id_1" width="159" height="25" x="83" y="32" />
+        <Label width="82" height="25" text="计费方式:" propertyUID="id_6" x="263" y="32" style="" />
+        <ComboBox propertyUID="id_6" width="159" height="25" x="343" y="31" />
+        <Label width="82" height="25" text="固定:" propertyUID="id_3" x="2" y="60" style="" />
+        <TextInput propertyUID="id_3" width="159" height="25" x="83" y="60" />
+        <Label width="82" height="25" text="比例:" propertyUID="id_4" x="263" y="60" style="" />
+        <TextInput propertyUID="id_4" width="159" height="25" x="343" y="60" />
+        <Label width="82" height="25" text="最低费用:" propertyUID="id_5" x="3" y="88" style="" />
+        <TextInput propertyUID="id_5" width="159" height="25" x="83" y="88" />
+        <Label width="82" height="25" text="封顶费用:" propertyUID="id_2" x="263" y="88" style="" />
+        <TextInput propertyUID="id_2" width="159" height="25" x="343" y="88" />
+        <Label width="82" height="25" text="交易类型:" propertyUID="id_7" x="3" y="116" style="" />
+        <ComboBox propertyUID="id_7" width="159" height="25" x="83" y="116" />
+        <Label width="82" height="25" text="交易子类型:" propertyUID="id_8" x="263" y="116" style="" />
+        <ComboBox propertyUID="id_8" width="159" height="25" x="343" y="116" />
+        <Label width="82" height="25" text="账户类型:" propertyUID="id_10" x="3" y="171" style="" />
+        <EntityField propertyUID="id_10" width="159" height="25" x="83" y="171" formUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.08C4EDCDF8B7" queryUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.8478E356899F" forceAssociation="" mode="dropdown" />
+        <Label width="82" height="25" text="账户编号:" propertyUID="id_13" x="263" y="171" style="" />
+        <TextInput propertyUID="id_13" width="159" height="25" x="343" y="171" />
+        <Label width="82" height="25" text="通道编号:" propertyUID="id_12" x="263" y="199" style="" />
+        <TextInput propertyUID="id_12" width="159" height="25" x="343" y="199" />
+        <Label width="82" height="25" text="机构名称:" propertyUID="id_14" x="3" y="5" style="" />
+        <EntityField propertyUID="id_14" width="159" height="25" x="83" y="5" />
+        <Label width="82" height="25" text="机构号:" propertyUID="id_9" x="263" y="3" style="" />
+        <TextInput propertyUID="id_9" width="159" height="25" x="343" y="3" />
+        <Label width="82" height="25" text="通道名称:" propertyUID="id_15" x="2" y="198" style="" />
+        <EntityField propertyUID="id_15" width="159" height="25" x="83" y="198" formUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.3443B3139499" queryUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.2452D4DF3338" />
+        <Label width="99" height="25" text="支付通道类型:" propertyUID="id_17" x="3" y="143" style="" />
+        <ComboBox propertyUID="id_17" width="159" height="25" x="83" y="143" />
+        <Label label="Label" text="(如默认，可不选)" x="243" y="143" width="139" height="24" style="color:#F79646;" />
+        <Label width="82" height="25" text="手续费类型:" propertyUID="id_18" x="2" y="227" style="" />
+        <ComboBox propertyUID="id_18" width="159" height="25" x="83" y="227" />
+      </tab>
+    </TabNavigator>
+  </Window>
+  <formEvent>
+    <event name="onPaychannelChange" type="customerEvent" label="onPaychannelChange"><![CDATA[
+var pay_interface_type = form.getFieldValue("pay_interface_type");
+if(pay_interface_type == 1){
+	form.setFieldProperty("account_type", 	"enabled", true);
+	form.setFieldProperty("account_type", 	"required", true);
+	form.setFieldProperty("accountNo", 		"enabled", true);
+	form.setFieldProperty("accountNo", 		"required", true);
+	form.setFieldProperty("payInterface", 	"enabled", false);
+	form.setFieldProperty("payInterface", 	"required", false);
+	form.setFieldProperty("pay_interfaceNo", 	"enabled", false);
+	form.setFieldProperty("pay_interfaceNo", 	"required", false);
+	
+	form.setFieldValue("payInterface", null);
+	form.setFieldValue("pay_interfaceNo", null);
+
+}else if(pay_interface_type == 2){
+	form.setFieldProperty("account_type", 	"enabled", 		false);
+	form.setFieldProperty("account_type", 	"required", 	false);
+	form.setFieldProperty("accountNo", 		"enabled", 		false);
+	form.setFieldProperty("accountNo", 		"required", 	false);
+	form.setFieldProperty("payInterface", 	"enabled", 		true);
+	form.setFieldProperty("payInterface", 	"required", 	true);
+	form.setFieldProperty("pay_interfaceNo", 	"enabled", 	true);
+	form.setFieldProperty("pay_interfaceNo", 	"required", true);
+	
+	form.setFieldValue("accountNo", null);
+	form.setFieldValue("account_type", null);
+}else{
+
+	form.setFieldProperty("account_type", 	"enabled", false);
+	form.setFieldProperty("account_type", 	"required", false);
+	form.setFieldProperty("accountNo", 		"enabled", false);
+	form.setFieldProperty("accountNo", 		"required", false);
+	form.setFieldProperty("payInterface", 	"enabled", false);
+	form.setFieldProperty("payInterface", 	"required", false);
+	form.setFieldProperty("pay_interfaceNo", 	"enabled", false);
+	form.setFieldProperty("pay_interfaceNo", 	"required", false);
+	
+	form.setFieldValue("account_type", null);
+	form.setFieldValue("accountNo", null);
+	form.setFieldValue("payInterface", null);
+	form.setFieldValue("pay_interfaceNo", null);
+			
+}]]></event>
+  </formEvent>
+</EntityForm>

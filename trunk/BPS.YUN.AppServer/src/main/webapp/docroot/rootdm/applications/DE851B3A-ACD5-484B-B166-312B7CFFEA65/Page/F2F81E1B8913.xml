@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<QueryPage label="购物订单查询" control="Panel" layout="vertical" controlUID="root" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.F2F81E1B8913" name="购物订单查询" nodeID="1856"> 
+              <Panel label="Panel" width="100%" height="75%" controlUID="ctrl0" title="" control="Panel" layout=""> 
+                <QueryControl label="购物订单查询" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E94BFB8FF8F5" width="100%" height="100%" controlUID="ctrl2" name="master"/> 
+              </Panel>  
+              <Panel label="Panel" width="100%" height="25%" controlUID="ctrl1" title="" control="Panel" layout=""> 
+                <QueryControl label="订单支付明细查询" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.8C76F8C40115" width="100%" height="100%" controlUID="ctrl3" name=""/> 
+              </Panel>  
+              <event label="初始化事件" type="initialize" name="initialize"/>  
+              <event label="确定事件" type="okEvent" name="okEvent"/> 
+            </QueryPage>

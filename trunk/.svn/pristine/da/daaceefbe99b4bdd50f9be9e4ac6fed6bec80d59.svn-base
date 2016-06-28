@@ -1,0 +1,113 @@
+package bps.external.application.service.increment;
+
+import java.util.Map;
+
+import bps.common.BizException;
+
+public interface WaterElectricityCoalService {
+	/**
+	 * 公共事业省份查询
+	 * @return JSONObject 省份数据
+	 * @throws Exception
+	 */
+	public Map<String, Object> queryProvince() throws BizException;
+	
+	/**
+	 * 公共事业城市查询
+	 * @param  provideId  notNullable  查询的省份id
+	 * @return JSONObject 城市信息
+	 * @throws Exception
+	 */
+	public Map<String, Object> queryCity(String provinceId) throws BizException;
+	
+	/**
+	 * 公共事业充值类型查询
+	 * @param  provinceId notNullable  省份id
+	 * @param  cityId     notNullable  城市id
+	 * @return JSONObject 充值类型信息
+	 * @throws Exception
+	 */
+	public Map<String, Object> queryProject(String provinceId, String cityId) throws BizException;
+	
+	/**
+	 * 公共事业缴费单位查询
+	 * @param  provinceId notNullable  省份id
+	 * @param  cityId     notNullable  城市id
+	 * @param  type       notNullable  类型id，对应queryProject接口返回的payProjectId
+	 * @return JSONObject 缴费单位信息
+	 * @throws Exception
+	 */
+	public Map<String, Object> queryUnit(String provinceId, String cityId, String type) throws BizException;
+	
+	/**
+	 * 水电煤商品信息查询
+	 * @param  provinceId notNullable  省份id
+	 * @param  cityId     notNullable  城市id 
+	 * @param  type       notNullable  缴费类型，对应queryUnit接口返回的payProjectId
+	 * @param  code       notNullable  缴费单位，对应queryUnit接口返回的payUnitId
+	 * @return JSONObject 水电煤商品信息
+	 * @throws Exception
+	 */
+	public Map<String, Object> queryProduct(String provinceId, String cityId, String type, String code) throws BizException;
+	
+	/**
+	 * 查询缴费方式
+	 * @param provinceId 省份id
+	 * @param cityId     城市id
+	 * @param type       缴费类型Id
+	 * @param code       缴费单位Id
+	 * @return
+	 * @throws Exception
+	 */
+	public Map<String, Object> queryPayMode(String provinceId, String cityId, String type, String code) throws BizException;
+	
+	/**
+	 * 水电煤账户欠费查询
+	 * @param  provinceName notNullable  省份名称，urlencode utf8
+	 * @param  cityName     notNullable  城市名称，urlencode utf8
+	 * @param  type         notNullable  类型（001：水费、002：电费、003：燃气费）
+	 * @param  code         notNullable  缴费单位编码
+	 * @param  name         notNullable  缴费单位名称，urlencode utf8
+	 * @param  account      notNullable  条形码或者户号
+	 * @param  cardId       notNullable  水电煤的商品编号
+	 * @param  payModeId    notNullable  缴费方式编号（1：表示account是条形码,2：表示account是户号）
+	 * @return JSONObject   水电煤账户欠费信息
+	 * @throws Exception
+	 */
+	public Map<String, Object> queryBalance(String provinceName, String cityName, String type, String code, String name, String account, String cardId, String payModeId) throws BizException;
+	
+	/**
+	 * 公共事业充值
+	 * @param  provinceId notNullable  省份id
+	 * @param  cityId     notNullable  城市id 
+	 * @param  type       notNullable  缴费类型编码，对应接口queryUnit返回的:payProjectId
+	 * @param  code       notNullable  缴费单位编码，对应接口queryUnit返回的:payUnitId
+	 * @param  account    notNullable  条形码或者户号
+	 * @param  cardId     notNullable  水电煤的商品编号
+	 * @param  contract   nullable     合同号 （有则必填）
+	 * @param  payMentDay nullable     账期（有则必填）
+	 * @param  orderId    notNullable  自定义订单号（8-32位数字字母）
+	 * @param  amount    notNullable  充值金额（单位：分）
+	 * @return JSONObject 充值信息
+	 * @throws Exception
+	 */
+	public Map<String, Object> recharge(String provinceId, String cityId, String type, String code, String account, String cardId, String contract, String payMentDay, String orderNo, Long amount) throws BizException;
+	
+	/**
+	 * 订单状态查询
+	 * @param  orderId    notNullable  商家自定义订单号（8-32位字母数字组合）
+	 * @return JSONObject 订单状态信息
+	 * @throws Exception
+	 */
+	public Map<String, Object> queryOrderStatus(String orderId) throws BizException;
+	
+	
+	/**
+	 * 历史订单列表
+	 * @param  page       notNullable  当前页
+	 * @param  pageSize   notNullable  每页显示条数
+	 * @return JSONObject 历史订单信息
+	 * @throws Exception
+	 */
+	public Map<String, Object> queryOrderList(int page, int pageSize) throws BizException;
+}

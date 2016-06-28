@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityQuery name="企业会员扩展信息（表单）" label="企业会员扩展信息（表单）" note="" share="false" multiselect="false" editable="false" autopaging="true" pagingMode="VirtualizingPaging" virtualizingPagingEnabled="true" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.70631637E1FE" nodeID="840"> 
+              <queryEntities> 
+                <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.7ADC64EDAF3E" name="AMS_MemberExtendInfo" label="会员扩展信息" alias="a0" selectAll="true" isBranch="true" master="true"/> 
+              </queryEntities>  
+              <DataGrid> 
+                <color/>  
+                <column name="property_name" label="属性名称" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.7ADC64EDAF3E.id_1" width="100" isBranch="false" editable="false"/>  
+                <column name="property_value" label="属性值" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.7ADC64EDAF3E.id_2" width="100" isBranch="false" editable="false"/> 
+              </DataGrid>  
+              <editState/>  
+              <toolbar/>  
+              <xmlQuery version="2.0" name="" label=""> 
+                <select domainScope="true"> 
+                  <other label="其他" uid="other" name="other"/>  
+                  <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.7ADC64EDAF3E" name="AMS_MemberExtendInfo" label="会员扩展信息" alias="a0" selectAll="true" isBranch="true"> 
+                    <field uid="sys_0" name="id" label="编号" type="long"/>  
+                    <field uid="sys_1" name="domainId" label="域ID" type="long"/>  
+                    <field uid="log_0" name="FM_CreatePrinId" label="创建者ID" type="long"/>  
+                    <field uid="log_1" name="FM_CreatePrinName" label="创建者" type="string"/>  
+                    <field uid="log_2" name="FM_UpdatePrinId" label="更新者ID" type="long"/>  
+                    <field uid="log_3" name="FM_UpdatePrinName" label="更新者" type="string"/>  
+                    <field uid="log_4" name="FM_CreateTime" label="创建时间" type="timestamp"/>  
+                    <field uid="log_5" name="FM_UpdateTime" label="更新时间" type="timestamp"/>  
+                    <field uid="id_1" name="property_name" label="属性名称" type="string"/>  
+                    <field uid="id_2" name="property_value" label="属性值" type="string"/>  
+                    <field uid="id_3" name="member" label="会员" type="relation"/> 
+                  </Entity> 
+                </select>  
+                <where> 
+                  <exp type="2"/> 
+                </where>  
+                <other> 
+                  <groupBy label="Group By"/>  
+                  <orderBy label="Order By"/> 
+                </other> 
+              </xmlQuery>  
+              <conditionForm> 
+                <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2"> 
+                  <TabNavigator> 
+                    <tab label="default"/> 
+                  </TabNavigator> 
+                </Window> 
+              </conditionForm>  
+              <StatSetting/>  
+              <queryEvent/> 
+            </EntityQuery>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd" version="1.0">  
+  <persistence-unit name="default" transaction-type="RESOURCE_LOCAL"> 
+    <provider>org.hibernate.ejb.HibernatePersistence</provider>  
+    <class>ime.core.entity.Group</class>  
+    <class>ime.core.entity.Action</class>  
+    <class>ime.core.entity.Dictionary</class>  
+    <class>ime.core.entity.FormAttribute</class>  
+    <class>ime.core.entity.QueryDefinition</class>  
+    <class>ime.core.entity.Resource</class>  
+    <class>ime.core.entity.ResourceType</class>  
+    <class>ime.core.entity.Domain</class>  
+    <class>ime.core.entity.DomainConfig</class>  
+    <class>ime.core.entity.DomainProperty</class>  
+    <class>ime.core.entity.Sequence</class>  
+    <class>ime.core.entity.SequenceType</class>  
+    <class>ime.core.entity.RecycledSequenceNo</class>  
+    <class>ime.security.entity.Permission</class>  
+    <class>ime.security.entity.PagePermission</class>  
+    <class>ime.security.entity.Role</class>  
+    <class>ime.security.entity.Principal</class>  
+    <class>ime.versionctrl.entity.Version</class>  
+    <class>ime.versionctrl.entity.VersionTree</class>  
+    <class>ime.workflow.definition.entity.ANDJoin</class>  
+    <class>ime.workflow.definition.entity.ANDSplit</class>  
+    <class>ime.workflow.definition.entity.AutoTask</class>  
+    <class>ime.workflow.definition.entity.EndTask</class>  
+    <class>ime.workflow.definition.entity.HumanStartTask</class>  
+    <class>ime.workflow.definition.entity.HumanTask</class>  
+    <class>ime.workflow.definition.entity.SubProcessTask</class>  
+    <class>ime.workflow.definition.entity.MessageReceiveTask</class>  
+    <class>ime.workflow.definition.entity.MessageSendTask</class>  
+    <class>ime.workflow.definition.entity.MessageStartTask</class>  
+    <class>ime.workflow.definition.entity.Node</class>  
+    <class>ime.workflow.definition.entity.ORJoin</class>  
+    <class>ime.workflow.definition.entity.ORSplit</class>  
+    <class>ime.workflow.definition.entity.ProcessDefinition</class>  
+    <class>ime.workflow.definition.entity.ProcessDiagram</class>  
+    <class>ime.workflow.definition.entity.RouteTask</class>  
+    <class>ime.workflow.definition.entity.StartTask</class>  
+    <class>ime.workflow.definition.entity.ProcessState</class>  
+    <class>ime.workflow.definition.entity.Task</class>  
+    <class>ime.workflow.definition.entity.TimeStartTask</class>  
+    <class>ime.workflow.definition.entity.TimeTask</class>  
+    <class>ime.workflow.definition.entity.Transition</class>  
+    <class>ime.workflow.instance.entity.PendingTask</class>  
+    <class>ime.workflow.instance.entity.ProcessInstance</class>  
+    <class>ime.workflow.instance.entity.ProcessTrace</class>  
+    <class>ime.workflow.instance.entity.RoundRobin</class>  
+    <class>ime.workflow.instance.entity.WorkItem</class>  
+    <class>ime.workflow.instance.entity.HumanActivityLog</class>  
+    <class>ime.workflow.instance.entity.WorkingListSize</class>  
+    <class>ime.workflow.instance.entity.MessageFilterItem</class>  
+    <class>ime.workflow.instance.entity.TimeTrigerItem</class>  
+    <class>ime.bizservice.entity.BusinessService</class>  
+    <class>ime.bizservice.entity.BusinessServiceItem</class>  
+    <class>ime.bizservice.entity.BusinessServiceLog</class>  
+    <class>ime.bizservice.entity.HumanService</class>  
+    <class>ime.bizservice.entity.SoftwareService</class>  
+    <class>ime.bizservice.entity.SoftwareServiceDetail</class>  
+    <class>ime.bizservice.entity.UsedService</class>  
+    <class>ime.billing.entity.AccountBill</class>  
+    <class>ime.billing.entity.AccountBillDetail</class>  
+    <class>ime.billing.entity.AccountBillLog</class>  
+    <class>ime.account.entity.Account</class>  
+    <class>ime.account.entity.AccountLog</class>  
+    <class>ime.account.entity.AccountType</class>  
+    <class>ime.calendar.entity.Calendar</class>  
+    <class>ime.calendar.entity.CalendarEvent</class>  
+    <class>ime.calendar.entity.CalendarMap</class>  
+    <class>ime.calendar.entity.CalendarPermission</class>  
+    <class>ime.message.entity.DomainReceivedMessage</class>  
+    <class>ime.message.entity.DomainSendedMessage</class>  
+    <class>ime.message.entity.UserReceivedMessage</class>  
+    <class>ime.message.entity.UserSendedMessage</class>  
+    <properties> 
+      <property name="hibernate.show_sql" value="false"/>  
+      <!--
+			如果不使用C3P0则要加上这句 
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+ 			-->  
+      <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>  
+      <property name="hibernate.connection.url" value="jdbc:mysql://10.55.3.235:3306/allinpay?useUnicode=true&amp;amp;characterEncoding=UTF-8"/>  
+      <property name="hibernate.connection.username" value="root"/>  
+      <property name="hibernate.connection.password" value="123456"/>  
+      <!-- 在Oracle中如果需要在一个表中用到多个长字符串，则打开以下参数
+			<property name="hibernate.connection.SetBigStringTryClob" value="true"></property>
+			-->  
+      <property name="hibernate.dialect" value="ime.hibernate.dialect.MySQL5Dialect"/>  
+      <property name="hibernate.connection.provider_class" value="org.hibernate.connection.C3P0ConnectionProvider"/>  
+      <property name="hibernate.connection.autocommit" value="false"/>  
+      <property name="hibernate.c3p0.max_size" value="15"/>  
+      <property name="hibernate.c3p0.min_size" value="1"/>  
+      <property name="hibernate.c3p0.timeout" value="1800"/>  
+      <property name="hibernate.c3p0.max_statements" value="1000"/>  
+      <property name="hibernate.c3p0.idle_test_period" value="100"/>  
+      <property name="hibernate.c3p0.acquire_increment" value="1"/>  
+      <property name="hibernate.c3p0.validate" value="false"/> 
+    </properties> 
+  </persistence-unit> 
+</persistence>

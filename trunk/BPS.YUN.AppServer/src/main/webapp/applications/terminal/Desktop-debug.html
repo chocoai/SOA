@@ -1,0 +1,66 @@
+<!-- saved from url=(0014)about:internet -->
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Desktop</title>
+<script type='text/javascript' src='../../js/share/util.js'></script>
+<script type='text/javascript' src='../../js/share/config.js'></script>
+<style>
+body { margin: 0px; overflow:hidden }
+.trMenuBar{
+	border : 1 solid black;
+	height : 24px;
+}
+#menuBar{
+	padding: 1px 24px 1px 24px;
+	border : 1 solid black;
+}
+</style>
+<script language="JavaScript" type="text/javascript">
+
+var baseUrl = $base_url("util.js");
+
+$import(baseUrl, "js/share/AC_OETags.js");
+$import(baseUrl, "dwr/engine.js");
+$import(baseUrl, "dwr/util.js");
+$import(baseUrl, "js/share/iDesktop.js");
+$import(baseUrl, "js/share/yui_MenuHelper.js");
+$import(baseUrl, "js/share/FlexHelper.js");
+$import(baseUrl, "js/share/ScriptProxy.js");
+
+function getDesktopConfig(){
+	if( config )
+		return config;
+	else
+		return {};
+}
+</script>
+</head>
+
+<body scroll="no">
+<table style="width:100%;height:100%;border: 0;" cellspacing="0" cellpadding="0">
+<tr class="trMenuBar"><td id="menuBar"></td></tr>
+<tr><td id="FlexContent">
+<script >
+	AC_FL_RunContent(
+		"src", "Desktop-debug",
+		"width", "100%",
+		"height", "100%",
+		"align", "middle",
+		"id", "Desktop",
+		"wmode", "opaque",
+		"quality", "high",
+		"bgcolor", "#869ca7",
+		"name", "Desktop",
+		"allowScriptAccess","sameDomain",
+		"type", "application/x-shockwave-flash",
+		"pluginspage", "http://www.adobe.com/go/getflashplayer"
+	);
+</script>
+</td></tr>
+</table>
+<script>
+	FlexHelper.init("Desktop", "FlexContent");
+</script>
+</body>
+</html>

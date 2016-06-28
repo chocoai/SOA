@@ -1,0 +1,100 @@
+package bps.external.soa.member;
+
+import apf.util.BusinessException;
+import bps.common.BizException;
+import bps.common.ErrorCode;
+import bps.external.soa.SoaServiceUtil;
+import bps.external.soa.process.Extension;
+import ime.soa.ISOAService;
+import org.apache.commons.lang.StringUtils;
+import org.apache.log4j.Logger;
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import javax.servlet.http.HttpServletRequest;
+import java.text.SimpleDateFormat;
+import java.util.Map;
+
+/**
+ * Created by Administrator on 2016/5/6.
+ */
+public class SoaMemberSimple implements ISOAService {
+    private static Logger logger = Logger.getLogger("SoaMemberSimple");
+    private static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+    public JSONObject doService(String arg0, JSONArray arg1) throws Exception {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    public JSONObject doService(String s, JSONObject json) throws Exception {
+        logger.info("s=" + s + " json=" + json);
+        if("allowDaikouSimple".equals(s))
+            return allowDaikouSimple(json);                     //创建会员
+        else
+            throw new BusinessException("SOA.NoSuchMethod", (new StringBuilder()).append("找不到相应的服务:").append(getServiceName()).append(".").append(s).toString());
+    }
+
+    public String getServiceName() {
+        // TODO Auto-generated method stub
+        return "MemberSimple";
+    }
+
+    public boolean isMustLogined() {
+        // TODO Auto-generated method stub
+        return false;
+    }
+
+    public boolean isMustValidateClient() {
+        // TODO Auto-generated method stub
+        return false;
+    }
+    /**
+     * 验证短信验证码
+     * @param json
+     * 			userId               云账户用户唯一标识
+     * 			phone                手机号码
+     * 			verificationCodeType 验证码类型
+     * 			verificationCode     验证码
+     * @return
+     * @throws Exception
+     */
+    public JSONObject allowDaikouSimple(JSONObject json) throws Exception {
+        logger.info("allowDaikouSimple start:" + json);
+
+        try {
+            HttpServletRequest request = (HttpServletRequest) json.get("$request");
+            String bizId = (String) request.getParameter("sysid");
+            String version = (String) request.getParameter("v");
+            String bizUserId = (String) json.get("bizUserId");
+            Boolean isAuthed = json.isNull("isAuthed") ? null : json.getBoolean("isAuthed");
+            Boolean isBinded = json.isNull("isBinded") ? null : json.getBoolean("isBinded");
+            if(StringUtils.isBlank(version))
+                throw new BizException(ErrorCode.PARAM_ERROR_NULL, "参数v为空或null");
+            if (StringUtils.isBlank(bizUserId))
+                throw new BizException(ErrorCode.PARAM_ERROR_NULL, "参数bizUserId为空或null");
+            if (isAuthed == null)
+                throw new BizException(ErrorCode.PARAM_ERROR_NULL, "参数isAuthed为null");
+            if (isBinded == null)
+                throw new BizException(ErrorCode.PARAM_ERROR_NULL, "参数isBinded为null");
+            //检查并获取application
+            Long applicationId = SoaServiceUtil.getApplicationId(bizId);
+            logger.info("openDaikouSimple参数：applicationId=" + applicationId + ",bizUserId=" + bizUserId + ",isAuthed=" + isAuthed + ",isBinded=" + isBinded);
+            Map<String, Object> resp = Extension.memberService.openDaikouSimple(applicationId, bizUserId, isAuthed, isBinded);
+            logger.info("openDaikouSimple返回:" + resp);
+
+            JSONObject ret = new JSONObject();
+            ret.put("bizUserId", bizUserId);
+            ret.put("isAuthed", resp.get("isAuthed"));
+            ret.put("isBinded", resp.get("isBinded"));
+            ret.put("isAdvAuthed", resp.get("isAdvAuthed"));
+            ret.put("memberSafeLevel", resp.get("memberSafeLevel"));
+            ret.put("isAllowPay", resp.get("isAllowPay"));
+            logger.info("return:" + ret);
+            return ret;
+        } catch (Exception e) {
+            logger.error(e.getMessage(), e);
+            throw e;
+        }
+    }
+}

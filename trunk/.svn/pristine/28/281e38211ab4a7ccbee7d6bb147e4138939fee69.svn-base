@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "PUBLIC" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class entity-name="AMS_RiskAttentionLog" table="DYNA_AMS_RiskAttentionLog">
+    <id name="id" type="long">
+      <generator class="native"/>
+    </id>
+    <property name="domainId" not-null="false" type="long" index="IDX_DOMAINID"/>
+    <property name="member_id" not-null="false" type="long" index="member_idx"/>
+    <property name="member_label" not-null="false" type="string" length="200"/>
+    <property name="addDate" not-null="false" type="timestamp" length="100"/>
+    <property name="riskRule" not-null="false" type="long"/>
+    <property name="memo" not-null="false" type="string" length="100"/>
+  </class>
+</hibernate-mapping>

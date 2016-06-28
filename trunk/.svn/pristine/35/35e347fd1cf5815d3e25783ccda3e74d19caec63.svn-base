@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityQuery name="认证支付流水查询" label="认证支付流水查询" note="" share="false" multiselect="false" editable="false" autopaging="true" pagingMode="NormalPaging" virtualizingPagingEnabled="false" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.812CB29082C7" nodeID="555">
+  <queryEntities>
+    <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.0B4F7745B4C3" name="AMS_AuthPayLog" label="认证支付日志" alias="a0" selectAll="true" isBranch="true" master="true" />
+  </queryEntities>
+  <DataGrid>
+    <color />
+    <column name="sign_type" label="签约类型" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.0B4F7745B4C3.id_29" width="60" isBranch="false" dataField="AMS_AuthPayLog$sign_type" />
+    <column name="account_name" label="开户名" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.0B4F7745B4C3.id_4" width="55" isBranch="false" dataField="AMS_AuthPayLog$account_name" />
+    <column name="accountNo" label="账号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.0B4F7745B4C3.id_2" width="138" isBranch="false" dataField="AMS_AuthPayLog$accountNo" />
+    <column name="accountNo_encrypt" label="账号（加密）" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.0B4F7745B4C3.id_7" width="100" isBranch="false" dataField="AMS_AuthPayLog$accountNo_encrypt" />
+    <column name="bank_code" label="银行代码" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.0B4F7745B4C3.id_3" width="63" isBranch="false" dataField="AMS_AuthPayLog$bank_code" />
+    <column name="bank_name" label="银行名称" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.0B4F7745B4C3.id_34" width="100" isBranch="false" dataField="AMS_AuthPayLog$bank_name" />
+    <column name="identity_cardNo" label="身份证号码" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.0B4F7745B4C3.id_5" width="100" isBranch="false" dataField="AMS_AuthPayLog$identity_cardNo" />
+    <column name="identity_cardNo_encrypt" label="身份证号码(加密)" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.0B4F7745B4C3.id_8" width="104" isBranch="false" dataField="AMS_AuthPayLog$identity_cardNo_encrypt" />
+    <column name="card_type" label="卡类型" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.0B4F7745B4C3.id_6" width="53" isBranch="false" dataField="AMS_AuthPayLog$card_type" />
+    <column name="phone" label="手机号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.0B4F7745B4C3.id_9" width="94" isBranch="false" dataField="AMS_AuthPayLog$phone" />
+    <column name="trans_amount" label="交易金额" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.0B4F7745B4C3.id_33" width="60" isBranch="false" dataField="AMS_AuthPayLog$trans_amount" />
+    <column name="sign_state" label="签约状态" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.0B4F7745B4C3.id_10" width="58" isBranch="false" dataField="AMS_AuthPayLog$sign_state" />
+    <column name="verification_code" label="短信验证码" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.0B4F7745B4C3.id_11" width="75" isBranch="false" dataField="AMS_AuthPayLog$verification_code" />
+    <column name="tl_contract_no" label="通联签约协议号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.0B4F7745B4C3.id_12" width="100" isBranch="false" dataField="AMS_AuthPayLog$tl_contract_no" />
+    <column name="bank_contract_no" label="银联签约协议号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.0B4F7745B4C3.id_13" width="100" isBranch="false" dataField="AMS_AuthPayLog$bank_contract_no" />
+    <column name="ret_code" label="响应代码" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.0B4F7745B4C3.id_14" width="60" isBranch="false" dataField="AMS_AuthPayLog$ret_code" />
+    <column name="ret_msg" label="响应信息" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.0B4F7745B4C3.id_15" width="100" isBranch="false" dataField="AMS_AuthPayLog$ret_msg" />
+    <column name="its_trace_num" label="its流水号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.0B4F7745B4C3.id_16" width="100" isBranch="false" dataField="AMS_AuthPayLog$its_trace_num" />
+    <column name="its_trans_date" label="its交易日期" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.0B4F7745B4C3.id_17" width="70" isBranch="false" dataField="AMS_AuthPayLog$its_trans_date" />
+    <column name="its_trans_time" label="its交易时间" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.0B4F7745B4C3.id_18" width="70" isBranch="false" dataField="AMS_AuthPayLog$its_trans_time" />
+    <column name="error_code" label="错误代码" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.0B4F7745B4C3.id_19" width="60" isBranch="false" dataField="AMS_AuthPayLog$error_code" />
+    <column name="error_msg" label="错误信息" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.0B4F7745B4C3.id_20" width="100" isBranch="false" dataField="AMS_AuthPayLog$error_msg" />
+    <column name="trace_num" label="流水号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.0B4F7745B4C3.id_21" width="100" isBranch="false" dataField="AMS_AuthPayLog$trace_num" />
+    <column name="trans_date" label="流水日期" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.0B4F7745B4C3.id_31" width="60" isBranch="false" dataField="AMS_AuthPayLog$trans_date" />
+    <column name="trans_time" label="流水时间" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.0B4F7745B4C3.id_32" width="49" isBranch="false" dataField="AMS_AuthPayLog$trans_time" />
+    <column name="acct_validdate" label="有效期" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.0B4F7745B4C3.id_23" width="80" isBranch="false" dataField="AMS_AuthPayLog$acct_validdate" />
+    <column name="cvv2" label="cvv2" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.0B4F7745B4C3.id_24" width="50" isBranch="false" dataField="AMS_AuthPayLog$cvv2" />
+    <column name="send_sms" label="短信状态" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.0B4F7745B4C3.id_25" width="60" isBranch="false" dataField="AMS_AuthPayLog$send_sms" />
+    <column name="ori_trace_num" label="原签约流水" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.0B4F7745B4C3.id_26" width="100" isBranch="false" dataField="AMS_AuthPayLog$ori_trace_num" />
+    <column name="ori_trans_date" label="原签约日期" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.0B4F7745B4C3.id_27" width="72" isBranch="false" dataField="AMS_AuthPayLog$ori_trans_date" />
+    <column name="cnl_id" label="签约渠道" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.0B4F7745B4C3.id_28" width="73" isBranch="false" dataField="AMS_AuthPayLog$cnl_id" />
+  </DataGrid>
+  <editState />
+  <toolbar />
+  <xmlQuery version="2.0" name="" label="">
+    <select domainScope="true">
+      <other label="其他" uid="other" name="other" />
+      <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.0B4F7745B4C3" name="AMS_AuthPayLog" label="认证支付日志" alias="a0" selectAll="true" isBranch="true">
+        <field uid="sys_0" name="id" label="编号" type="long" />
+        <field uid="sys_1" name="domainId" label="域ID" type="long" />
+        <field uid="id_1" name="userId" label="用户ID" type="string" />
+        <field uid="id_2" name="accountNo" label="账号" type="string" />
+        <field uid="id_3" name="bank_code" label="银行代码" type="string" />
+        <field uid="id_4" name="account_name" label="开户名" type="string" />
+        <field uid="id_5" name="identity_cardNo" label="身份证号码" type="string" />
+        <field uid="id_6" name="card_type" label="卡类型" type="long" />
+        <field uid="id_7" name="accountNo_encrypt" label="账号（加密）" type="string" />
+        <field uid="id_8" name="identity_cardNo_encrypt" label="身份证号码(加密)" type="string" />
+        <field uid="id_9" name="phone" label="手机号" type="string" />
+        <field uid="id_10" name="sign_state" label="签约状态" type="long" />
+        <field uid="id_11" name="verification_code" label="短信验证码" type="string" />
+        <field uid="id_12" name="tl_contract_no" label="通联签约协议号" type="string" />
+        <field uid="id_13" name="bank_contract_no" label="银联签约协议号" type="string" />
+        <field uid="id_14" name="ret_code" label="响应代码" type="string" />
+        <field uid="id_15" name="ret_msg" label="响应信息" type="string" />
+        <field uid="id_16" name="its_trace_num" label="its流水号" type="string" />
+        <field uid="id_17" name="its_trans_date" label="its交易日期" type="string" />
+        <field uid="id_18" name="its_trans_time" label="its交易时间" type="string" />
+        <field uid="id_19" name="error_code" label="错误代码" type="string" />
+        <field uid="id_20" name="error_msg" label="错误信息" type="string" />
+        <field uid="id_21" name="trace_num" label="流水号" type="string" />
+        <field uid="id_23" name="acct_validdate" label="有效期" type="string" />
+        <field uid="id_24" name="cvv2" label="cvv2" type="string" />
+        <field uid="id_25" name="send_sms" label="短信状态" type="string" />
+        <field uid="id_26" name="ori_trace_num" label="原签约流水" type="string" />
+        <field uid="id_27" name="ori_trans_date" label="原签约日期" type="string" />
+        <field uid="id_28" name="cnl_id" label="签约渠道" type="string" />
+        <field uid="id_29" name="sign_type" label="签约类型" type="long" />
+        <field uid="id_31" name="trans_date" label="流水日期" type="string" />
+        <field uid="id_32" name="trans_time" label="流水时间" type="string" />
+        <field uid="id_33" name="trans_amount" label="交易金额" type="string" />
+        <field uid="id_34" name="bank_name" label="银行名称" type="string" />
+        <field uid="id_35" name="acct_cat" label="账号类型" type="string" />
+        <field uid="id_36" name="account_type" label="账户类型" type="relation" />
+        <field uid="id_38" name="is_safe_cards" label="是否是安全卡" type="boolean" />
+      </Entity>
+    </select>
+    <where>
+      <exp type="2">
+        <exp type="5" valueType="1" option="true" rightType="param" right="phone" leftEntity="AMS_AuthPayLog" leftField="phone" uid="exp0" />
+        <exp type="5" valueType="1" option="true" rightType="param" right="its_trace_num" leftEntity="AMS_AuthPayLog" leftField="its_trace_num" uid="exp1" />
+        <exp type="5" valueType="1" option="true" rightType="param" right="ori_trace_num" leftEntity="AMS_AuthPayLog" leftField="ori_trace_num" uid="exp2" />
+        <exp type="5" valueType="1" option="true" rightType="param" right="trace_num" leftEntity="AMS_AuthPayLog" leftField="trace_num" uid="exp3" />
+        <exp type="19" valueType="1" option="true" rightType="param" right="bank_name" leftEntity="AMS_AuthPayLog" leftField="bank_name" uid="exp4" />
+      </exp>
+    </where>
+    <other>
+      <groupBy label="Group By" />
+      <orderBy label="Order By">
+        <field uid="sys_0" name="id" label="编号" type="long" entity="AMS_AuthPayLog" order="desc" />
+      </orderBy>
+    </other>
+  </xmlQuery>
+  <conditionForm>
+    <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2">
+      <TabNavigator>
+        <tab label="default">
+          <Label width="60" height="25" text="手机号:" propertyUID="id_9" x="2" y="3" style="" />
+          <TextInput name="phone" width="119" height="25" x="63" y="3" />
+          <Label width="59" height="25" text="流水号:" propertyUID="id_21" x="183" y="3" style="" />
+          <TextInput name="trace_num" width="139" height="25" x="243" y="3" />
+          <Label width="79" height="25" text="its流水号:" propertyUID="id_16" x="383" y="3" style="" />
+          <TextInput name="its_trace_num" width="139" height="25" x="443" y="3" />
+          <Label width="82" height="25" text="原签约流水:" propertyUID="id_26" x="583" y="3" style="" />
+          <TextInput name="ori_trace_num" width="139" height="25" x="663" y="3" />
+          <Label width="82" height="25" text="银行名称:" propertyUID="id_34" x="803" y="3" style="" />
+          <TextInput name="bank_name" width="119" height="25" x="863" y="3" />
+        </tab>
+      </TabNavigator>
+    </Window>
+  </conditionForm>
+  <StatSetting />
+  <queryEvent />
+</EntityQuery>

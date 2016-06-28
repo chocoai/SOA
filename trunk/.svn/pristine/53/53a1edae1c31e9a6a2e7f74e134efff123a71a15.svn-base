@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Entity lastId="13" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.CC32226F8202" name="AMS_GoodsComment" label="商品评论" note="" log="false" workflow="false" nodeID="348" dbcreated="true"> 
+  <relation/>  
+  <extension/>  
+  <property uid="sys_0" label="编号" name="id" type="long" systemProperty="true" editorPart="Entity" group="系统属性字段"/>  
+  <property uid="sys_1" label="域ID" name="domainId" type="long" systemProperty="true" editorPart="Entity" group="系统属性字段"/>  
+  <property name="goods_uuid" label="商品UID" type="string" length="100" uid="id_1" editorPart="Entity" dbcreated="true" group="业务属性字段"/>  
+  <property name="to_order" label="订单" type="relation" uid="id_2" entityUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.3D51405C5EA0" labelField="orderNo" editorPart="Entity" dbcreated="true" group="业务属性字段"/>  
+  <property name="grade" label="好评度" type="long" uid="id_3" editorPart="Entity" dbcreated="true" group="业务属性字段"/>  
+  <property name="create_time" label="评论时间" type="timestamp" length="100" uid="id_5" editorPart="Entity" dbcreated="true" group="业务属性字段"/>  
+  <property name="text" label="内容" type="string" length="100" uid="id_6" editorPart="Entity" dbcreated="true" group="业务属性字段"/>  
+  <property name="member_uuid" label="用户" type="relation" uid="id_7" entityUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0" labelField="phone" editorPart="Entity" dbcreated="true" group="业务属性字段"/>  
+  <property name="goods_name" label="商品名称" type="string" length="100" uid="id_8" editorPart="Entity" dbcreated="true" group="业务属性字段"/>  
+  <property name="goods_image" label="商品图片" type="string" length="100" uid="id_9" editorPart="Entity" dbcreated="true" group="业务属性字段"/>  
+  <property name="pay_time" label="支付时间" type="timestamp" length="100" uid="id_10" editorPart="Entity" dbcreated="true" group="业务属性字段"/>  
+  <property name="shop_name" label="店铺名称" type="string" length="100" uid="id_11" editorPart="Entity" dbcreated="true" group="业务属性字段"/>  
+  <property name="goods_art_no" label="货号" type="string" length="100" uid="id_12" editorPart="Entity" dbcreated="true" group="业务属性字段"/>  
+  <property name="goods_spec" label="规格" type="string" length="100" uid="id_13" editorPart="Entity" dbcreated="true" group="业务属性字段"/> 
+</Entity>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Entity lastId="6" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.FAE02DAB08EE" name="AMS_EmailTemplet" label="邮件模板" note="" log="false" workflow="false" nodeID="476" dbcreated="true"> 
+  <relation/>  
+  <extension/>  
+  <property uid="sys_0" label="编号" name="id" type="long" systemProperty="true" editorPart="Entity" group="系统属性字段"/>  
+  <property uid="sys_1" label="域ID" name="domainId" type="long" systemProperty="true" editorPart="Entity" group="系统属性字段"/>  
+  <property name="verification_code_type" label="验证码类型" type="long" uid="id_1" editorPart="Entity" valueProvider="多账户.验证码类型" group="业务属性字段" dbcreated="true"/>  
+  <property name="contents" label="内容" type="string" length="8000" uid="id_2" editorPart="Entity" group="业务属性字段" dbcreated="true"/>  
+  <property name="codeNo" label="codeNo" type="string" length="100" uid="id_3" editorPart="Entity" group="业务属性字段" dbcreated="true"/>  
+  <property name="email_url" label="邮件回调地址" type="string" length="300" uid="id_4" editorPart="Entity" group="业务属性字段" dbcreated="true"/>  
+  <property name="theme" label="主题" type="string" length="1000" uid="id_5" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="application" label="应用" type="relation" uid="id_6" group="业务属性字段" entityUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.5A11C43DEB1B" dbcreated="true"/> 
+</Entity>

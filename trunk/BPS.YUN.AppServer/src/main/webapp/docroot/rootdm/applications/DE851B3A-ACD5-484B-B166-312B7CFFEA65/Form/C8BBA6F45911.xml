@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<FreeForm label="应用表单" name="应用表单" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.C8BBA6F45911" nodeID="1115">
+  <formState />
+  <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2">
+    <TabNavigator>
+      <tab label="default" />
+    </TabNavigator>
+  </Window>
+  <formEvent />
+</FreeForm>

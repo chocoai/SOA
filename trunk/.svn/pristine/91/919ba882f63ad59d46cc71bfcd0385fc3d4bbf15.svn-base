@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityQuery uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.B98C2D3D8051" name="风险黑名单查询" label="风险黑名单查询" note="" share="false" multiselect="false" editable="false" autopaging="true" pagingMode="VirtualizingPaging" virtualizingPagingEnabled="true" nodeID="415"> 
+              <queryEntities> 
+                <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.CE02414A7923" name="AMS_RiskUserList" label="风险黑名单" alias="a0" selectAll="true" isBranch="true" master="true"/> 
+              </queryEntities>  
+              <DataGrid> 
+                <color/>  
+                <column name="userId" label="用户id" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.CE02414A7923.id_1" width="100" isBranch="false" dataField="AMS_RiskUserList$userId"/>  
+                <column name="certificateID" label="证件号码" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.CE02414A7923.id_3" width="100" isBranch="false" dataField="AMS_RiskUserList$certificateID"/>  
+                <column name="bankCardNo" label="银行卡号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.CE02414A7923.id_4" width="100" isBranch="false" dataField="AMS_RiskUserList$bankCardNo"/>  
+                <column name="mobile" label="手机号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.CE02414A7923.id_5" width="100" isBranch="false" dataField="AMS_RiskUserList$mobile"/>  
+                <column name="IP" label="IP地址" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.CE02414A7923.id_6" width="100" isBranch="false" dataField="AMS_RiskUserList$IP"/>  
+                <column name="FM_CreateTime" label="创建时间" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.CE02414A7923.log_4" width="100" isBranch="false" dataField="AMS_RiskUserList$FM_CreateTime"/>  
+                <column name="source" label="信息来源" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.CE02414A7923.id_7" width="100" isBranch="false" dataField="AMS_RiskUserList$source"/>  
+                <column name="description" label="风险描述" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.CE02414A7923.id_8" width="100" isBranch="false" dataField="AMS_RiskUserList$description"/> 
+              </DataGrid>  
+              <editState/>  
+              <toolbar> 
+                <button label="新建" action="alink" selection="none" permission="" permissionName="" visiable="true" param="{   &quot;target&quot;: &quot;ime.AppWindow&quot;,   &quot;form&quot;: &quot;EntityForm&quot;,   &quot;param&quot;: {     &quot;action&quot;: &quot;create&quot;,     &quot;entityUID&quot;: &quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.CE02414A7923&quot;,     &quot;formUID&quot;: &quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.5D09C82A0579&quot;   } }" Button="System.Windows.Controls.Button: 新建" alink="alink://ime.AppWindow/EntityForm?{action:&quot;create&quot;,entityUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.CE02414A7923&quot;,formUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.5D09C82A0579&quot;}"/>  
+                <button label="编辑" action="alink" selection="single" permission="" permissionName="" visiable="true" param="{   &quot;target&quot;: &quot;ime.AppWindow&quot;,   &quot;form&quot;: &quot;EntityForm&quot;,   &quot;param&quot;: {     &quot;action&quot;: &quot;edit&quot;,     &quot;entityUID&quot;: &quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.CE02414A7923&quot;,     &quot;formUID&quot;: &quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.5D09C82A0579&quot;   } }" Button="System.Windows.Controls.Button: 编辑" alink="alink://ime.AppWindow/EntityForm?{action:&quot;edit&quot;,entityUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.CE02414A7923&quot;,formUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.5D09C82A0579&quot;}"/>  
+                <button label="删除" action="delete" selection="single"/>  
+                <button label="导入配置" action="fireEvent" selection="none" visiable="true" Button="System.Windows.Controls.Button: 导入配置" param="{   &quot;event&quot;: &quot;updateRiskUserList&quot;,   &quot;confirmMessage&quot;: &quot;确认导入吗&quot; }" event="updateRiskUserList" confirmMessage="确认导入吗"/> 
+              </toolbar>  
+              <xmlQuery version="2.0" name="" label=""> 
+                <select domainScope="true"> 
+                  <other label="其他" uid="other" name="other"/>  
+                  <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.CE02414A7923" name="AMS_RiskUserList" label="风险黑名单" alias="a0" selectAll="true" isBranch="true"> 
+                    <field uid="sys_0" name="id" label="编号" type="long"/>  
+                    <field uid="sys_1" name="domainId" label="域ID" type="long"/>  
+                    <field uid="id_1" name="userId" label="用户id" type="string"/>  
+                    <field uid="id_2" name="certificatesType" label="证件类型" type="long"/>  
+                    <field uid="id_3" name="certificateID" label="证件号码" type="string"/>  
+                    <field uid="id_4" name="bankCardNo" label="银行卡号" type="string"/>  
+                    <field uid="id_5" name="mobile" label="手机号" type="string"/>  
+                    <field uid="id_6" name="IP" label="IP地址" type="string"/>  
+                    <field uid="log_0" name="FM_CreatePrinId" label="创建者ID" type="long"/>  
+                    <field uid="log_1" name="FM_CreatePrinName" label="创建者" type="string"/>  
+                    <field uid="log_2" name="FM_UpdatePrinId" label="更新者ID" type="long"/>  
+                    <field uid="log_3" name="FM_UpdatePrinName" label="更新者" type="string"/>  
+                    <field uid="log_4" name="FM_CreateTime" label="创建时间" type="timestamp"/>  
+                    <field uid="log_5" name="FM_UpdateTime" label="更新时间" type="timestamp"/>  
+                    <field uid="id_7" name="source" label="信息来源" type="string"/>  
+                    <field uid="id_8" name="description" label="风险描述" type="string"/> 
+                  </Entity> 
+                </select>  
+                <where> 
+                  <exp type="2"> 
+                    <exp type="19" valueType="1" option="true" rightType="param" right="userId" leftEntity="AMS_RiskUserList" leftField="userId" uid="exp0"/>  
+                    <exp type="19" valueType="1" option="true" rightType="param" right="certificateID" leftEntity="AMS_RiskUserList" leftField="certificateID" uid="exp1"/>  
+                    <exp type="19" valueType="1" option="true" rightType="param" right="bankCardNo" leftEntity="AMS_RiskUserList" leftField="bankCardNo" uid="exp2"/>  
+                    <exp type="19" valueType="1" option="true" rightType="param" right="mobile" leftEntity="AMS_RiskUserList" leftField="mobile" uid="exp3"/>  
+                    <exp type="19" valueType="1" option="true" rightType="param" right="IP" leftEntity="AMS_RiskUserList" leftField="IP" uid="exp4"/> 
+                  </exp> 
+                </where>  
+                <other> 
+                  <groupBy label="Group By"/>  
+                  <orderBy label="Order By"/> 
+                </other> 
+              </xmlQuery>  
+              <conditionForm> 
+                <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2"> 
+                  <TabNavigator> 
+                    <tab label="default"> 
+                      <Label width="82" height="25" text="用户id:" propertyUID="id_1" x="2" y="3" style=""/>  
+                      <TextInput name="userId" width="139" height="25" x="63" y="3"/>  
+                      <Label width="82" height="25" text="证件号码:" propertyUID="id_3" x="223" y="3" style=""/>  
+                      <TextInput name="certificateID" width="159" height="25" x="303" y="3"/>  
+                      <Label width="82" height="25" text="银行卡号:" propertyUID="id_4" x="483" y="3" style=""/>  
+                      <TextInput name="bankCardNo" width="159" height="25" x="563" y="3"/>  
+                      <Label width="82" height="25" text="手机号:" propertyUID="id_5" x="223" y="31" style=""/>  
+                      <TextInput name="mobile" width="159" height="25" x="303" y="31"/>  
+                      <Label width="82" height="25" text="IP地址:" propertyUID="id_6" x="3" y="31" style=""/>  
+                      <TextInput name="IP" width="139" height="25" x="63" y="31"/> 
+                    </tab> 
+                  </TabNavigator> 
+                </Window> 
+              </conditionForm>  
+              <StatSetting/>  
+              <queryEvent> 
+                <event name="updateRiskUserList" type="customerEvent" label="updateRiskUserList"><![CDATA[query.fireRemoteEvent("AMS_Member.updateRiskUserList", {}, "cb_updateRiskUserList");]]></event>  
+                <event name="cb_updateRiskUserList" type="remoteEvent" label="cb_updateRiskUserList"><![CDATA[alert("导入成功");]]></event>  
+                <event name="preDelete" type="preDelete" label="删除前事件" systemEvent="true"><![CDATA[////是否全部删除，是：修改会员是否加入黑名单状态
+//var entity /*:$Entity.AMS_RiskUserList*/= query.getSelectedEntity("AMS_RiskUserList");
+//var userid = entity.userId;
+//var param = param.userid;
+//query.fireRemoteEvent("AMS_Member.deleteblcaklist", param, "deleteblcaklist_result");
+//]]></event> 
+              </queryEvent> 
+            </EntityQuery>

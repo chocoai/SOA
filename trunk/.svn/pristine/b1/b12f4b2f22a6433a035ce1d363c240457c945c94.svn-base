@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<FreeForm label="对方银行卡加入黑名单" name="对方银行卡加入黑名单" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.4FD002AEAAF8" nodeID="863"> 
+            <formState/>  
+            <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2"> 
+              <TabNavigator> 
+                <tab label="default"> 
+                  <Label label="Label" text="对方银行卡:" x="2" y="2" width="100" height="24" style=""/>  
+                  <TextInput label="TextInput" x="83" y="3" width="159" height="24" name="bankid"/> 
+                </tab> 
+              </TabNavigator> 
+            </Window>  
+            <formEvent> 
+              <event name="initialize" type="initialize" label="初始化事件" systemEvent="true"><![CDATA[
+var query/*:QueryControl*/ = form.getScriptHost("$opener");
+var order_entity/*:$Entity.AMS_Member*/ = query.getSelectedEntity("AMS_Order");
+var param = {};
+param.accountNo_encrypt = order_entity.accountNo_encrypt;
+param.userId = order_entity.member_uuid;
+form.fireRemoteEvent("AMS_Member.getBankCardNoOnly", param, "getBankCardNo_result");
+]]></event>  
+              <event name="getBankCardNo_result" type="remoteEvent" label="getBankCardNo_result"><![CDATA[form.setFieldValue("bankid", result.BankCandNo);
+form.setFieldProperty("bankid", "enabled", false);]]></event>  
+              <event name="preSubmit" type="preSubmit" label="提交前事件" systemEvent="true"><![CDATA[var bankcard = form.getFieldValue("bankid");
+var param = {};
+param.bankcard = bankcard;
+form.fireRemoteEvent("AMS_Member.bankCardinBlcak", param, "bankcardinblcak_result");]]></event>  
+              <event name="bankcardinblcak_result" type="remoteEvent" label="bankcardinblcak_result"><![CDATA[if(result.bankCardinBlcak){
+	alert("加入黑名单成功")
+}else{
+	alert("该银行卡已加入黑名单")
+}]]></event> 
+            </formEvent> 
+          </FreeForm>

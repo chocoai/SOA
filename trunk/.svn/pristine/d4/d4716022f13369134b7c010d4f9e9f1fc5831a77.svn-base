@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Entity lastId="9" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.337344C5EE49" name="AMS_CardBin" label="卡bin" note="" log="false" workflow="false" nodeID="442" dbcreated="true"> 
+  <relation/>  
+  <extension/>  
+  <property uid="sys_0" label="编号" name="id" type="long" systemProperty="true" group="系统属性字段" editorPart="Entity"/>  
+  <property uid="sys_1" label="域ID" name="domainId" type="long" systemProperty="true" group="系统属性字段" editorPart="Entity"/>  
+  <property name="card_bin" label="卡bin" type="string" length="100" uid="id_1" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="card_type" label="卡种" type="long" uid="id_2" group="业务属性字段" editorPart="Entity" valueProvider="银行卡.银行卡类型" dbcreated="true"/>  
+  <property name="bank_code" label="发卡行代码" type="string" length="100" uid="id_3" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="bank_name" label="发卡行" type="string" length="100" uid="id_4" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="card_name" label="卡名" type="string" length="100" uid="id_5" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="card_length" label="卡片长度" type="long" uid="id_6" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="card_state" label="状态" type="long" uid="id_7" group="业务属性字段" editorPart="Entity" valueProvider="常规.有效与否" dbcreated="true"/>  
+  <property name="card_type_label" label="卡种名称" type="string" length="100" uid="id_9" group="业务属性字段" dbcreated="true"/> 
+</Entity>

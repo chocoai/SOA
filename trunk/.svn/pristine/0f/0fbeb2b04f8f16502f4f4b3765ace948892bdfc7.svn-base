@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityQuery name="公告管理" label="公告管理" note="" share="false" multiselect="false" editable="false" autopaging="true" uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.ED15D13CCD46" nodeID="176"> 
+              <queryEntities> 
+                <Entity uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.138EC7D71F33" name="CMSArticle" label="文章" alias="a0" master="true"/> 
+              </queryEntities>  
+              <DataGrid> 
+                <color/>  
+                <column name="title" label="标题" uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.138EC7D71F33.id_1" width="500" isBranch="false" editable="" sortable="" textAlign=""/>  
+                <column name="FM_CreateTime" label="创建时间" uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.138EC7D71F33.log_4" width="145" isBranch="false" editable="" sortable="" textAlign=""/>  
+                <column name="FM_UpdateTime" label="更新时间" uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.138EC7D71F33.log_5" width="145" isBranch="false" editable="" sortable="" textAlign=""/> 
+              </DataGrid>  
+              <editState/>  
+              <toolbar> 
+                <button label="新建" action="alink" selection="none" alink="alink://ime.AppWindow/EntityForm?{selection:&quot;none&quot;,entityUID:&quot;031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.138EC7D71F33&quot;,formUID:&quot;031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.ECFC54A3CE05&quot;,action:&quot;create&quot;}"/>  
+                <button label="编辑" action="alink" selection="single" alink="alink://ime.AppWindow/EntityForm?{selection:&quot;single&quot;,entityUID:&quot;031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.138EC7D71F33&quot;,formUID:&quot;031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.ECFC54A3CE05&quot;,action:&quot;edit&quot;}"/>  
+                <button label="删除" action="delete" selection="single"/> 
+              </toolbar>  
+              <xmlQuery version="2.0" name="" label=""> 
+                <select domainScope="false"> 
+                  <other label="其他" uid="other" name="other"/>  
+                  <Entity uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.138EC7D71F33" name="CMSArticle" label="文章" alias="a0"> 
+                    <field uid="sys_0" name="id" label="编号" type="long" entity="CMSArticle"/>  
+                    <field uid="sys_1" name="domainId" label="域ID" type="long"/>  
+                    <field uid="log_0" name="FM_CreatePrinId" label="创建者ID" type="long"/>  
+                    <field uid="log_1" name="FM_CreatePrinName" label="创建者" type="string"/>  
+                    <field uid="log_2" name="FM_UpdatePrinId" label="更新者ID" type="long"/>  
+                    <field uid="log_3" name="FM_UpdatePrinName" label="更新者" type="string"/>  
+                    <field uid="log_4" name="FM_CreateTime" label="创建时间" type="timestamp"/>  
+                    <field uid="log_5" name="FM_UpdateTime" label="更新时间" type="timestamp"/>  
+                    <field uid="id_1" name="title" label="标题" type="string"/>  
+                    <field uid="id_2" name="note" label="描述" type="string"/>  
+                    <field uid="id_3" name="urlName" label="URL" type="string"/>  
+                    <field uid="id_5" name="contents" label="文章内容" type="string"/>  
+                    <field uid="id_6" name="category" label="所属分类" type="relation"/>  
+                    <field uid="id_7" name="orderNo" label="序号" type="long"/>  
+                    <field uid="id_8" name="type" label="文章类别" type="long"/>  
+                    <field uid="id_9" name="mediaType" label="媒体类型" type="long"/> 
+                  </Entity> 
+                </select>  
+                <where> 
+                  <exp type="2"> 
+                    <exp type="19" valueType="1" option="true" rightType="param" right="title" leftEntity="CMSArticle" leftField="title" uid="exp0"/>  
+                    <exp type="5" valueType="3" option="false" leftEntity="CMSArticle" leftField="type" uid="exp1" rightType="val" right="2"/> 
+                  </exp> 
+                </where>  
+                <other> 
+                  <groupBy label="Group By"/>  
+                  <orderBy label="Order By"> 
+                    <field uid="sys_0" name="id" label="编号" type="long" entity="CMSArticle" order="desc"/> 
+                  </orderBy> 
+                </other> 
+              </xmlQuery>  
+              <conditionForm> 
+                <Window paddingLeft="1" paddingRight="1" paddingTop="1" paddingBottom="1"> 
+                  <TabNavigator> 
+                    <tab label="default"> 
+                      <Label width="37" height="25" text="标题:" propertyUID="id_1" x="3" y="3"/>  
+                      <TextInput name="title" width="137" height="25" x="43" y="3"/>  
+                      <Label width="37" height="25" text="描述:" propertyUID="id_2" x="183" y="3"/>  
+                      <TextInput name="note" width="197" height="25" x="223" y="3"/> 
+                    </tab> 
+                  </TabNavigator> 
+                </Window> 
+              </conditionForm>  
+              <queryEvent/> 
+            </EntityQuery>

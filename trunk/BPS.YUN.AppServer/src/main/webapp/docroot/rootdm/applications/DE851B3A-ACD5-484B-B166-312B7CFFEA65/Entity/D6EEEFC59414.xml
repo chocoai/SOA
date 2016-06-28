@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.D6EEEFC59414" lastId="13" name="AMS_LoginLog" label="登录日志" note="" log="false" workflow="false" nodeID="744" dbcreated="true"> 
+  <relation/>  
+  <extension/>  
+  <property uid="sys_0" label="编号" name="id" type="long" systemProperty="true" group="系统属性字段" editorPart="Entity"/>  
+  <property uid="sys_1" label="域ID" name="domainId" type="long" systemProperty="true" group="系统属性字段" editorPart="Entity"/>  
+  <property name="member" label="会员" type="relation" uid="id_1" group="业务属性字段" entityUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0" labelField="name" editorPart="Entity" dbcreated="true"/>  
+  <property name="login_date" label="登录时间" type="timestamp" length="100" uid="id_2" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="login_ip" label="登录ip" type="string" length="100" uid="id_3" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="login_address" label="登录地址" type="string" length="1000" uid="id_4" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="source" label="登录来源" type="long" uid="id_5" group="业务属性字段" valueProvider="多账户.注册来源" editorPart="Entity" dbcreated="true"/>  
+  <property name="platform_type" label="平台型号" type="string" length="100" uid="id_6" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="platform_name" label="平台名称" type="string" length="100" uid="id_7" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="os_type" label="系统类型" type="long" uid="id_9" group="业务属性字段" valueProvider="多账户.系统类型" dbcreated="true"/>  
+  <property name="os_version" label="系统版本" type="string" length="100" uid="id_10" group="业务属性字段" dbcreated="true"/>  
+  <property name="brand" label="手机品牌" type="string" length="100" uid="id_11" group="业务属性字段" dbcreated="true"/>  
+  <property name="phone_model" label="手机型号" type="string" length="100" uid="id_12" group="业务属性字段" dbcreated="true"/>  
+  <property name="sessionId" label="会话ID" type="string" length="100" uid="id_13" group="业务属性字段" dbcreated="true"/> 
+</Entity>

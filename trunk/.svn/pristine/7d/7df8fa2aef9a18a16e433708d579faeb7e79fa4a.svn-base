@@ -1,0 +1,47 @@
+package bps.checkaccount;
+
+import java.util.Date;
+
+import org.hibernate.Session;
+
+import apf.util.EntityManagerUtil;
+import apf.util.SessionContext;
+
+public class WsCardCheck {
+
+//	public static void main(String[] args) {
+//		// TODO Auto-generated method stub
+//
+//	}
+//	
+//	public static void check(Date date){
+//		//从数据中读取交易日志到内存中
+//		SessionContext ctx = null;
+//		
+//		ctx = EntityManagerUtil.currentContext();
+//		Session session = ctx.getHibernateSession();
+//		
+//		
+//		
+//		//获取对账文件
+//		
+//		//进行对账
+//		
+//		
+//	}
+//	
+//	public static void getTradeLog(Date date, String payChannelNo, String tradeType) throws Exception{
+//		//数据检查
+//		if(date == null){
+//			throw new Exception("日期不能为空");
+//		}
+//		if(payChannelNo == null){
+//			throw new Exception("支付通道编号不能为空");
+//		}
+//		if(tradeType == null){
+//			throw new Exception("交易类型不能为空");
+//		}
+//		
+//		//
+//	}
+}

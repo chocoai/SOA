@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Entity lastId="7" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.210C6CC344D2" name="AMS_TradingMonitorLog" label="交易监控日志" note="" log="false" workflow="false" nodeID="748" dbcreated="true"> 
+  <property uid="sys_0" label="编号" name="id" type="long" systemProperty="true" editorPart="Entity"/>  
+  <property uid="sys_1" label="域ID" name="domainId" type="long" systemProperty="true" editorPart="Entity"/>  
+  <relation/>  
+  <extension/>  
+  <property name="MonitorType" label="监控类型" type="long" uid="id_1" valueProvider="多账户.监控类型" editorPart="Entity" dbcreated="true"/>  
+  <property name="memo" label="备注" type="string" length="100" uid="id_2" editorPart="Entity" dbcreated="true"/>  
+  <property name="reason" label="触发原因" type="string" length="100" uid="id_3" editorPart="Entity" dbcreated="true"/>  
+  <property name="addTime" label="生成时间" type="timestamp" length="100" uid="id_4" editorPart="Entity" dbcreated="true"/>  
+  <property name="member" label="会员" type="relation" uid="id_6" entityUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0" editorPart="Entity" labelField="name" dbcreated="true"/> 
+</Entity>

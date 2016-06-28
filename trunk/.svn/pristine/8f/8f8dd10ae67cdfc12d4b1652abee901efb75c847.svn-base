@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityQuery name="会员查询（账户）" label="会员查询（账户）" note="" share="false" multiselect="false" editable="false" autopaging="true" pagingMode="VirtualizingPaging" virtualizingPagingEnabled="true" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.0FEFC23F6561" nodeID="825"> 
+              <queryEntities> 
+                <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0" name="AMS_Member" label="会员" alias="a0" master="true"/> 
+              </queryEntities>  
+              <DataGrid> 
+                <color/>  
+                <column name="userId" label="会员uuid" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0.id_24" width="100" isBranch="false"/>  
+                <column name="name" label="名称" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0.id_1" width="152" isBranch="false" editable="" sortable="" textAlign=""/>  
+                <column name="phone" label="手机" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0.id_4" width="100" isBranch="false"/>  
+                <column name="address" label="地址" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0.id_6" width="162" isBranch="false" editable="" sortable="" textAlign=""/>  
+                <column name="member_type" label="会员类型" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0.id_23" width="100" isBranch="false"/> 
+              </DataGrid>  
+              <editState/>  
+              <toolbar/>  
+              <xmlQuery version="2.0" name="" label=""> 
+                <select domainScope="true"> 
+                  <other label="其他" uid="other" name="other"/>  
+                  <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0" name="AMS_Member" label="会员" alias="a0"> 
+                    <field uid="sys_0" name="id" label="编号" type="long"/>  
+                    <field uid="sys_1" name="domainId" label="域ID" type="long"/>  
+                    <field uid="log_0" name="FM_CreatePrinId" label="创建者ID" type="long"/>  
+                    <field uid="log_1" name="FM_CreatePrinName" label="创建者" type="string"/>  
+                    <field uid="log_2" name="FM_UpdatePrinId" label="更新者ID" type="long"/>  
+                    <field uid="log_3" name="FM_UpdatePrinName" label="更新者" type="string"/>  
+                    <field uid="log_4" name="FM_CreateTime" label="创建时间" type="timestamp"/>  
+                    <field uid="log_5" name="FM_UpdateTime" label="更新时间" type="timestamp"/>  
+                    <field uid="id_1" name="name" label="名称" type="string"/>  
+                    <field uid="id_4" name="phone" label="手机" type="string"/>  
+                    <field uid="id_6" name="address" label="地址" type="string"/>  
+                    <field uid="id_7" name="user_state" label="会员状态" type="long"/>  
+                    <field uid="id_23" name="member_type" label="会员类型" type="long"/>  
+                    <field uid="id_24" name="userId" label="会员uuid" type="string"/>  
+                    <field uid="id_53" name="memberNo" label="客户号" type="string"/> 
+                  </Entity> 
+                </select>  
+                <where> 
+                  <exp type="2"> 
+                    <exp type="19" valueType="1" option="true" rightType="param" right="userId" leftEntity="AMS_Member" leftField="userId" uid="exp1"/>  
+                    <exp type="19" valueType="1" option="true" rightType="param" right="name" leftEntity="AMS_Member" leftField="name" uid="exp2"/>  
+                    <exp type="19" valueType="1" option="true" rightType="param" right="phone" leftEntity="AMS_Member" leftField="phone" uid="exp3"/>  
+                    <exp type="5" valueType="3" option="true" rightType="param" right="member_type" leftEntity="AMS_Member" leftField="member_type" uid="exp4"/> 
+                  </exp> 
+                </where>  
+                <other> 
+                  <groupBy label="Group By"/>  
+                  <orderBy label="Order By"/> 
+                </other> 
+              </xmlQuery>  
+              <conditionForm> 
+                <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2"> 
+                  <TabNavigator> 
+                    <tab label="default"> 
+                      <Label width="82" height="25" text="会员ID:" propertyUID="id_24" x="3" y="3" style=""/>  
+                      <TextInput name="userId" width="119" height="25" x="63" y="3"/>  
+                      <Label width="82" height="25" text="姓名:" propertyUID="id_1" x="203" y="3" style=""/>  
+                      <TextInput name="name" width="119" height="25" x="243" y="3"/>  
+                      <Label label="Label" text="手机:" x="363" y="2" width="100" height="24" style=""/>  
+                      <TextInput label="TextInput" x="403" y="3" width="159" height="24" name="phone"/>  
+                      <Label width="82" height="25" text="会员类型:" propertyUID="id_23" x="563" y="3" style=""/>  
+                      <ComboBox valueProvider="多账户.会员类型" name="member_type" width="100" height="25" x="623" y="3"/> 
+                    </tab> 
+                  </TabNavigator> 
+                </Window> 
+              </conditionForm>  
+              <StatSetting/>  
+              <queryEvent/> 
+            </EntityQuery>

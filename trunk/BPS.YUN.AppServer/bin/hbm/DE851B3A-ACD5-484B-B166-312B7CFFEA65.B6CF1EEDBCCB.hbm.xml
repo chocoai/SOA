@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "PUBLIC" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class entity-name="AMS_CheckAccount" table="DYNA_AMS_CheckAccount">
+    <id name="id" type="long">
+      <generator class="native"/>
+    </id>
+    <property name="FM_CreatePrinId" not-null="false" type="long" index="IDX_CREATEPRINID"/>
+    <property name="FM_CreatePrinName" not-null="false" length="100" type="string"/>
+    <property name="FM_UpdatePrinId" not-null="false" type="long" index="IDX_UPDATEPRINID"/>
+    <property name="FM_UpdatePrinName" not-null="false" length="100" type="string"/>
+    <property name="FM_CreateTime" not-null="false" type="timestamp"/>
+    <property name="FM_UpdateTime" not-null="false" type="timestamp"/>
+    <property name="domainId" not-null="false" type="long" index="IDX_DOMAINID"/>
+    <property name="checkDate" not-null="false" type="timestamp" length="100"/>
+    <property name="checkResult" not-null="false" type="long"/>
+    <property name="outSystemFile" not-null="false" type="string" length="1000"/>
+    <property name="checkAccountFile" not-null="false" type="string" length="1000"/>
+    <property name="checkResultFile" not-null="false" type="string" length="1000"/>
+    <property name="remark" not-null="false" type="string" length="1024"/>
+    <property name="pay_channelNo" not-null="false" type="string"/>
+    <property name="download_state" not-null="false" type="long"/>
+    <property name="check_state" not-null="false" type="long"/>
+    <property name="download_time" not-null="false" type="timestamp" length="100"/>
+    <property name="check_time" not-null="false" type="timestamp" length="100"/>
+  </class>
+</hibernate-mapping>

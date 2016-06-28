@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "PUBLIC" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class entity-name="AMS_TradeRoute" table="DYNA_AMS_TradeRoute">
+    <id name="id" type="long">
+      <generator class="native"/>
+    </id>
+    <property name="domainId" not-null="false" type="long" index="IDX_DOMAINID"/>
+    <property name="min_trade_money" not-null="false" type="long"/>
+    <property name="max_trade_money" not-null="false" type="long"/>
+    <property name="trade_type" not-null="false" type="long"/>
+    <property name="sub_trade_type" not-null="false" type="long"/>
+    <property name="card_type" not-null="false" type="long"/>
+    <property name="payInterface_id" not-null="false" type="long" index="payInterface_idx"/>
+    <property name="payInterface_label" not-null="false" type="string" length="200"/>
+    <property name="pay_interfaceNo" not-null="false" type="string" length="100"/>
+    <property name="pay_type" not-null="false" type="long"/>
+  </class>
+</hibernate-mapping>

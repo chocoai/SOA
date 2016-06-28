@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>index</title>
+	<link rel="stylesheet"  href="../../m/jmt/css/themes/default/jquery.mobile-1.3.1.min.css" />
+    <script src="../../m/jmt/js/jquery-1.9.1.min.js"></script>
+	<script src="../../m/jmt/js/jquery.mobile-1.3.1.min.js"></script>
+	<style>
+		.button_black_left { position:relative; padding:0; margin:0; float:left; height:40px; background:url(images/btn_black_left.png); background-repeat:no-repeat; width:6px; }
+		.button_black_center { position:relative; padding:0; margin:0; float:left; height:40px; background:url(images/btn_black_center.png); background-repeat:repeat-x; }
+		.button_black_right { position:relative; padding:0; margin:0; float:left; height:40px; width:44px; background:url(images/btn_black_right.png); background-repeat:no-repeat; }
+
+		/* Button text styles. */
+		.button_black_text { color:#FFF; font-family:Segoe UI, Arial, Helvetica, Verdana, MS Sans Serif; font-size:16px; position:relative; top:7px; text-align:center; white-space:nowrap; padding:10px; text-decoration: none; }
+		.button_black_big_text:hover {text-decoration: none;}
+
+		a.button_wrapper {text-decoration:none; cursor:pointer;}
+		a.button_wrapper:hover {text-decoration:none;}
+	</style>
+	<script>
+		function onLogin(){
+			if( navigator.userAgent.indexOf(".NET4.0E") == -1 ){
+				
+			}
+			$( "#a_net4_popup" ).click();
+		}
+		
+	</script>
+	<body>
+		<div id="popupMenu" data-theme="a" style="width:500px;text-align:center;margin-left:auto; margin-right:auto; margin-top:100px;">
+			<img style="position:absolute;left:0;top:0" src="../../images/background.jpg" width="100%" height="100%"></img>
+			<div id="popupLogin" data-theme="a" class="ui-corner-all ui-popup ui-body-a ui-overlay-shadow" >
+				<form>
+					<div style="padding:10px 20px;">
+					  <h3>登入</h3>
+					  <label for="dm" class="ui-hidden-accessible">登入区域:</label>
+					  <input type="text" name="domain" id="dm" value="" placeholder="登入区域，例如mycompany.com" data-theme="a">
+					  <label for="un" class="ui-hidden-accessible">用户帐户:</label>
+					  <input type="text" name="user" id="un" value="" placeholder="用户帐户" data-theme="a">
+					  <label for="pw" class="ui-hidden-accessible">用户密码:</label>
+					  <input type="password" name="pass" id="pw" value="" placeholder="用户密码" data-theme="a">
+					  <table width="100%">
+						<tr>
+							<td width="200px">
+								<label>
+									<input type="checkbox" name="isLogin" id="isLogin" data-inline="true" data-theme="a"/>记住密码
+								</label>
+							</td>
+							<td>
+							  <div data-role="controlgroup" data-type="horizontal" style="text-align: right;">
+								  <button type="button" data-theme="b" data-icon="check" data-inline="true" style="float:right;" onclick="onLogin()">登入</button>
+							  </div>
+							</td>
+						</tr>
+					  </table>
+					  <a id="a_net4_popup" href="#net4_popup" data-rel="popup" data-transition="pop">
+						<div id="net4_popup" data-role="popup" id="transitionExample" class="ui-content" data-theme="a">
+							<div class="button_black">
+								<a class="button_wrapper" href="../../downloads/dotnetfx40/dotNetFx40_Full_x86_x64.exe" depclickevents="WEDCSClick[ea_name|Install.Net Framework 4.5|ea_offer|prd|ea_action|dwn|cpgnguid|Install .NET]">
+									<div class="button_black_left"></div>
+									<div class="button_black_center">
+										<span class="button_black_text">安装 <span translate="no">.NET Framework</span> 4 </span>
+										<div style="clear:both;"></div>
+									</div>
+									<div class="button_black_right"></div>
+								</a>
+							</div>
+							<p style="height:30px"></p>
+						</div>
+					  </a>
+					</div>
+				</form>
+			</div>
+		</div>
+		
+	</body>
+</html>

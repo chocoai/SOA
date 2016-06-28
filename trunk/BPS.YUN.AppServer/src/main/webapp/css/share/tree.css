@@ -1,0 +1,55 @@
+.ws_tree_container {
+	margin: 0px;
+	padding: 0px;
+	font: icon;
+	white-space: nowrap;
+
+}
+
+.ws_tree_item {
+	padding: 0px;
+	margin: 0px;
+	font: icon;
+	color: black;
+	white-space: nowrap;
+}
+
+.ws_tree_item a, .ws_tree_item a:active, .ws_tree_item a:hover {
+	margin-left: 3px;
+	padding: 1px 2px 1px 2px;
+}
+
+.ws_tree_item a {
+	color: black;
+	text-decoration: none;
+}
+
+.ws_tree_item a:hover {
+	color: blue;
+	text-decoration: underline;
+}
+
+.ws_tree_item a:active {
+	background: highlight;
+	color: highlighttext;
+	text-decoration: none;
+}
+
+.ws_tree_item img {
+	vertical-align: middle;
+	border: 0px;
+}
+
+.ws_tree_icon {
+	width: 16px;
+	height: 16px;
+}
+.ws_tree_item a.selected {
+	color: selectedtext;
+	background: selected;
+}
+
+.ws_tree_item a.selected-inactive {
+	color: windowtext;
+	background: buttonface;
+}

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Entity lastId="4" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.25B0097A88CB" name="AMS_CompanyEmail" label="企业邮箱" note="" log="false" workflow="false" nodeID="460" dbcreated="true"> 
+  <relation/>  
+  <extension/>  
+  <property uid="sys_0" label="编号" name="id" type="long" systemProperty="true" group="系统属性字段"/>  
+  <property uid="sys_1" label="域ID" name="domainId" type="long" systemProperty="true" group="系统属性字段"/>  
+  <property name="company_name" label="公司名称" type="string" length="100" uid="id_1" group="业务属性字段" dbcreated="true"/>  
+  <property name="company_email" label="企业邮箱" type="string" length="100" uid="id_2" group="业务属性字段" dbcreated="true"/>  
+  <property name="remark" label="备注" type="string" length="1000" uid="id_3" group="业务属性字段" dbcreated="true"/> 
+</Entity>

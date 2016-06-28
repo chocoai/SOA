@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "PUBLIC" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class entity-name="AMS_CompanyEmail" table="DYNA_AMS_CompanyEmail">
+    <id name="id" type="long">
+      <generator class="native"/>
+    </id>
+    <property name="domainId" not-null="false" type="long" index="IDX_DOMAINID"/>
+    <property name="company_name" not-null="false" type="string" length="100"/>
+    <property name="company_email" not-null="false" type="string" length="100"/>
+    <property name="remark" not-null="false" type="string" length="1000"/>
+  </class>
+</hibernate-mapping>

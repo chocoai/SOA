@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Entity name="CMSArticleCategory" label="文章分类" note="" log="false" workflow="false" lastId="4" uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.138D313138CB" nodeID="178" dbcreated="true"> 
+  <property uid="sys_0" label="编号" name="id" type="long" systemProperty="true"/>  
+  <property uid="sys_1" label="域ID" name="domainId" type="long" systemProperty="true"/>  
+  <relation/>  
+  <extension/>  
+  <property uid="id_3" label="上级节点" name="parentId" type="long" dbcreated="true"/>  
+  <property name="name" label="名称" type="string" length="100" uid="id_1" dbcreated="true"/>  
+  <property name="note" label="描述" type="string" length="200" uid="id_2" dbcreated="true"/>  
+  <property name="orderNo" label="序号" type="double" uid="id_4" dbcreated="true"/> 
+</Entity>

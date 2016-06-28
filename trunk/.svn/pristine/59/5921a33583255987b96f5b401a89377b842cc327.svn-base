@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ime-server version="3.0.0">
+	<!-- 系统属性 -->
+	<properties>
+		<!-- 密码存储的加密方法 -->
+		<property name="security.provider" value="cryptix.jce.provider.CryptixCrypto" />
+		<property name="password.encryptor" value="SHA1WithRSA" />
+		<property name="password.default" value="123456" />
+		<property name="password.rsa.private_key" value="00989A66BE790AE366648A5CA74499D5731F78FA5AE2F7B4FDAEC5470F8BE7689A5838563DB50290A5AF630799ED223433066233A68A4772C3D3D5C441850685AED9AA077A5F433F214F8966596A9282AFE41DBA9170FF3F3BFD65DBFF3EE3A62878ED402F43138C48C009E46557FA96EAF90531B3C114014E6005686E0E00FD81 7A7F76FA6F2FCE5AE35A2E06178B654C84771880DCB0FB18A8B2B3D846F5FB81EA4F4EEB39E2553AAB0F538ABC503896BD09176D1893420CF07F288B6FBD4C914ED94B4BD3CB8BDF043F9EDDCA0502C8681C0C489E0A2321FB7392A1B354C81839B896DA5FE27A4951289B417324D21C4D5F38ABD1841F7EC35206A28B5CB601" />
+		
+		<!-- 订单失效时间 -->
+		<property name="order.close.day"			value="10" />
+		
+		<!-- WebCallCenter相关配置
+		<property name="webcallcenter.openfire.soaUrl" value="http://localhost:9090/plugins/ime.openfire.plugin/soa" />
+		-->
+		
+		<!-- 通联支付属性  -->
+			<!-- 网关地址  --> 
+		<property name="AlipayConfig.gateway.serverUrl" value="https://service.allinpay.com" />
+		<property name="AlipayConfig.gateway.serverUrl.internal" value="https://service.allinpay.com" />
+			<!-- 支付提交地址  -->								   
+		<property name="AlipayConfig.gateway.pay.serverUrl" value="http://ceshi.allinpay.com/gateway/index.do" />
+		<property name="AlipayConfig.gateway.receiveUrl" value="http://60.12.210.10:22222/account/allinpay/receive.jsp" />
+		<property name="AlipayConfig.gateway.pickupUrl" value="http://60.12.210.10:22222/account/allinpay/pickup.jsp" />
+		<property name="AlipayConfig.gateway.key" value="1234567890" />
+			<!-- 支付证书地址 -->
+		<property name="AlipayConfig.gateway.TLCertUrl" value="/usr/allinpay/TLCert-test.cer" />
+			<!-- 商户号  -->
+		<property name="AlipayConfig.gateway.merchantId" value="100020091218001" />
+		<property name="AlipayConfig.gateway.merchantIdB2B" value="100020091218001"/>
+		<property name="AlipayConfig.gateway.version" value="v1.0" />
+		<property name="AlipayConfig.gateway.language" value="" />
+		<property name="AlipayConfig.gateway.inputCharset" value="" />
+			<!-- 支付方式  固定选择值：0、1、3、4、10、11、12  -->
+		<property name="AlipayConfig.gateway.payType" value="0" />
+			<!-- 签名类型  默认填1，固定选择值：0、1；0表示客户用MD5验签，1表示客户用证书验签 -->
+		<property name="AlipayConfig.gateway.signType" value="1" />
+		<property name="AlipayConfig.gateway.orderCurrency" value="" />
+		<property name="AlipayConfig.gateway.orderExpireDatetime" value="1440" />
+		
+		<!-- 通联退款属性 -->
+			<!-- 网关联机退款接口版本 固定值：v1.3 -->
+		<property name="AlipayConfig.gateway.refund.version" value="v1.3" />
+			<!-- 签名类型 固定值：0，0表示用md5签名 -->
+		<property name="AlipayConfig.gateway.refund.signType" value="0" />
+			<!-- 退货提交地址  -->			
+		<property name="AlipayConfig.gateway.refund.serverUrl" value="http://ceshi.allinpay.com/gateway/index.do" />
+
+		
+		<!-- 通联通接口参数  -->
+		<property name="AlipayConfig.interfaces.serverUrl" value="https://113.108.182.3/aipg/ProcessServlet" />
+		<property name="AlipayConfig.interfaces.merchantId" value="200604000000445" />
+		<property name="AlipayConfig.interfaces.pfxPath" value="/usr/allinpay/20060400000044502.p12" />
+		<property name="AlipayConfig.interfaces.tltcerPath" value="/usr/allinpay/allinpay-pds.cer" />
+		<property name="AlipayConfig.interfaces.userName" value="20060400000044502" />
+		<property name="AlipayConfig.interfaces.passWord" value="`12qwe" />
+		<property name="AlipayConfig.interfaces.pfxPassword" value="111111" />
+
+		<!-- its -->
+		<property name="its.serverUrl"	value="http://116.236.252.101:30035/its-pg-app/xrequest" />
+		<!--property name="its.key"		value="1234567890" /-->
+		<!--property name="its.access_id"	value="400SmokTst00001" /-->
+		<property name="its.key"		value="1ea748b15dff401980998365d74e8221" />
+		<property name="its.access_id"	value="YZT000000000001" />
+		<!-- 会员协议 -->
+		<property name="member.serverUrl"  value="http://116.236.252.101:30072/contract-app/index.do?id=com.allinpay.contract.service.IUserAgreement" />
+		<property name="member.user_id"		value="000000000000087" />
+
+		<!-- 密码设置 -->
+		<property name="login.password.fail.amount"		value="5" />
+		<property name="pay.password.fail.amount"		value="3" />
+		<property name="login.password.locked.time"		value="180" />
+		<property name="pay.password.locked.time"		value="180" />
+		<property name="phone.pay.password.fail.amount"		value="3" />
+		<property name="phone.pay.password.locked.time"		value="180" />
+
+	
+		<!-- 订单失效时间 -->
+		<property name="order.close.day"			value="2" />
+		<!-- 订单失效时间 -->
+		<property name="verificationCode.keep.day"			value="1" />
+		<property name="bank.list.quick" value="[{name:中国工商银行, code:01020000,index:1},{name:中国农业银行, code:01030000,index:2}, {name:中国银行, code:01040000,index:3}, {name:中国建设银行, code:01050000,index:4}, {name:交通银行, code:03010000,index:5}, {name:中信银行, code:03020000,index:6},  {name:招商银行, code:03080000,index:7}, {name:兴业银行, code:03090000,index:8}, {name:中国邮政储蓄银行, code:04030000,index:9}, {name:平安银行, code:03070000,index:10}, {name:华夏银行, code:03040000,index:11}]" />
+	
+		<!-- ams属性 -->
+		<property name="ams.name"					value="我的一账通" />
+		<property name="ams.short_name"				value="我的一账通" />
+		<property name="ams.copyright_company"		value="Copyright 2015-2016 通联支付网络服务股份有限公司 版权所有" />
+		<property name="ams.ICP"					value="沪ICP备09026459号-15" />
+		<property name="ams.order.notify"			value="http://weixin.91quick.com/m/weixin/order_notify.jsp" />
+
+		<!-- 短信属性 -->	
+		<property name="sms.mail.company.id"			value="301296" />
+		<property name="sms.mail.server.address"		value="sms3.mobset.com" />
+		<property name="sms.mail.login.account"			value="Admin" />
+		<property name="sms.mail.login.password"		value="810725" />
+		<property name="short.message.valid.time.normal" value="120" />
+
+		<!-- 短信设置 -->
+		<property name="allinpay.sMessage.appId"		value="400180" />
+		<property name="allinpay.sMessage.target_url"	value="http://188.0.50.100:8080/msgsysc/msgsys/MsgSend/sms.do" />
+		<property name="allinpay.sMessage.msgSign"		value="通联支付" />
+		
+		<!-- 通联宝 -->
+		<property name="allinpay.tlb.priPath"	value="/usr/allinpay/10000001.pfx" />
+		<property name="allinpay.tlb.pubPath"	value="/usr/allinpay/gy.cer" />
+		<property name="allinpay.tlb.P001"		value="http://61.132.63.170:58280/open/tlb/getInfYieldService/getInfYield/json" />
+		<property name="allinpay.tlb.P002"		value="http://61.132.63.170:58280/open/tlb/tlbAcctInfoQueryService/getTlbAcctInfo/json" />
+		<property name="allinpay.tlb.P003"		value="http://tlb.tlbtest.com:8090/tlinvestor/openAcctInitOneAcctRegister.action" />
+		<property name="allinpay.tlb.P004"		value="http://tlb.tlbtest.com:8090/tlinvestor/oneAcctLogin.action" />
+		<property name="allinpay.tlb.key"		value="111111" />
+
+		<!-- 对账设置 -->
+		<property name="CheckAccount.yzt.rootPath"				value="/amsapp/jboss-4.2.3.GA/server/default/deploy/ROOT.war/docroot/attachments" />
+		<property name="CheckAccount.allinpay.gateway.filePath" value="/getway" />
+		<property name="CheckAccount.allinpay.tlt.filePath"		value="/tlt" />
+		<!-- 快捷对账 -->
+		<property name="CheckAccount.allinpay.shortcut.filePath" value="/getway" />
+
+		<!-- 万商卡支付 -->
+			<!-- 测试地址 -->
+		<property name="AlipayConfig.wscard.url" 					value="http://paytest.ulinkpay.com/gateway/card/frontTransRequest.up" />
+			<!-- 回调地址 -->
+		<property name="AlipayConfig.wscard.backUrl" 				value="http://60.12.210.10:22222/account/allinpay/receive_wscard.jsp" />
+		<property name="AlipayConfig.wscard.frontUrl" 				value="http://60.12.210.10:22222/account/transaction/wscard_success.jsp" />
+			<!-- 商户号 -->
+		<property name="AlipayConfig.wscard.merId" 					value="999030333050004" />
+		<property name="AlipayConfig.wscard.merName" 				value="通联支付" />
+		<property name="AlipayConfig.wscard.securitykey"			 value="b07cc2542fc79d96" />
+		<property name="AlipayConfig.wscard.encoding"				 value="UTF-8" />
+		<property name="AlipayConfig.wscard.version" 				value="1.2.0" />
+		
+		<property name="AlipayConfig.wscard.inst.securitykey" 			value="888888888888888888888888" />
+		<property name="AlipayConfig.wscard.inst.version" 				value="1.2.0" />
+		<property name="AlipayConfig.wscard.inst.encoding" 				value="UTF-8" />
+		<property name="AlipayConfig.wscard.inst.instCode" 				value="999030333000033" />
+		<property name="AlipayConfig.wscard.inst.cardInfoQuery" 		value="http://paytest.ulinkpay.com/gateway/inst/cardInfoQuery.up" />
+		
+		<property name="environment"							value="debug" />
+
+		<!-- v39平台帐号设置 -->
+		<property name="v39.appKey"							value="CE5U7V9L" />
+		<property name="v39.secretKey"							value="7232028f75177248bcb69bd209d21a2244" />
+		<property name="v39.version"							value="1.3.0" />
+		<!-- v39平台话费充值地址 -->
+		<property name="v39.phone.url"							value="http://v39.boredou.com/api/rechargeGateway.do" />
+		<property name="v39.callBackUrl"						value="http://60.12.210.10:22222/account/rollback/phoneBackEnd.jsp" />
+
+		<!-- v39电信折扣 -->
+		<property name="regular_telecom"						value="0.99" />
+		<!-- v39联通折扣 -->
+		<property name="phone.unicom.discount"						value="0.98" />
+		<!-- v39移动折扣 -->
+		<property name="phone.move.discount"						value="0.97" />
+		
+		<!-- 发送邮件 -->
+		<property name="mail.server.host"						value="mail.allinpay.com" />
+		<property name="mail.server.port"						value="25" />
+		<property name="mail.from.address"						value="Single_dept@allinpay.com" />
+		<property name="mail.from.password"						value="Pass@yw2013" />
+		<property name="mail.from.userName"						value="Single_dept" />
+		<property name="mail.valid.time.normal"					value="1440" />
+
+		<!-- APP接口开始 -->
+		<!-- 二维码第一位51 代表通联 -->
+		<property name="app.qr.code.first"	value="51" />
+		<!-- 二维码第二位51 是否强制验密  开启小额免密时为0,未开启时为1-->
+		<property name="app.qr.code.second"	value="0" />
+		<!-- APP接口结束 -->
+		
+		
+		<!-- 证书生成参数  -->
+		<property name="ca.root.name" value="通联宁波分公司" />
+		<property name="ca.root.organizationUnit" value="技术部" />
+		<property name="ca.root.organization" value="无" />
+		<property name="ca.root.locality" value="宁波" />
+		<property name="ca.root.state" value="浙江" />
+		<property name="ca.root.country" value="中国" />
+		<property name="ca.root.alias" value="root" />
+		<property name="ca.root.password" value="123456" />
+		<property name="ca.root.expYear" value="100" />
+		<property name="ca.root.path" value="/usr/local/allinpay/WEB-INF/classes/root.pfx" />
+		<property name="ca.root.ip" value="10.55.3.235" />
+		<property name="ca.cert.path" value="/certs" />
+	</properties>
+	
+	<extension name="kinorsoft.ams" />
+	<extension name="kinorsoft.order" />
+	
+</ime-server>

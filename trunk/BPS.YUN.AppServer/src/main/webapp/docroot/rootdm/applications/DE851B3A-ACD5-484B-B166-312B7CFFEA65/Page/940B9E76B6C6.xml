@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<QueryPage label="银行信息管理" control="Panel" layout="vertical" controlUID="root" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.940B9E76B6C6" name="银行信息管理" nodeID="1675"> 
+              <QueryControl label="银行信息查询" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E27E5B8E7DE5" width="100%" height="100%" controlUID="ctrl0" name="bank_info"/>  
+              <QueryControl label="银行代码查询" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.BDCA4C2C34E2" width="100%" height="100%" controlUID="ctrl1"/>  
+              <event label="初始化事件" type="initialize" name="initialize"/>  
+              <event label="确定事件" type="okEvent" name="okEvent"/> 
+            </QueryPage>

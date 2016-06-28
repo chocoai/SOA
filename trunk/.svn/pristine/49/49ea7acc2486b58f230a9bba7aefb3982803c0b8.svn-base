@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package>
+	<page>
+		<themeList>
+			<theme name="default" label="默认" />
+			<theme name="blue" label="蓝色" />
+		</themeList>
+		<propertySheet>
+			<title label="标题" control="TextInput" />
+			<keywords label="关键字" control="TextInput" />
+			<width label="宽度" control="TextInput" restrict="0-9_" default="1000"/>
+			<theme label="主题" control="ComboBox" dataProvider="theme" dataSource="outer" />
+			<cacheable label="是否允许缓存" control="ComboBox" dataProvider="yesno" />
+			<VMTemplate label="页面模板" control="ComboBox" default="HtmlPage.vm">
+				<dataProvider>
+					<item label="电脑版" value="HtmlPage.vm" />
+					<item label="手机版" value="MobilePage.vm" />
+				</dataProvider>
+			</VMTemplate>
+		</propertySheet>
+	</page>
+	<package name="ime.xpt" label="ime.xpt">
+		<control name="HLayout" label="水平布局" container="true">
+			<propertySheet>
+				<width label="宽度" control="TextInput" restrict="0-9%" default="100%"/>
+				<height label="高度" control="TextInput" restrict="0-9%" default="100%"/>
+				<horizontalGap label="水平分隔宽度" control="TextInput" restrict="0-9" default="5"/>
+			</propertySheet>
+		</control>
+		<control name="VLayout" label="垂直布局" container="true">
+			<propertySheet>
+				<width label="宽度" control="TextInput" restrict="0-9%" default="100%"/>
+				<height label="高度" control="TextInput" restrict="0-9%" default="100%"/>
+				<verticalGap label="垂直分隔宽度" control="TextInput" restrict="0-9" default="5"/>
+			</propertySheet>
+		</control>
+		<control name="Panel" label="面板" container="true">
+			<themeList>
+				<theme name="default" label="默认" headerHeight="25" paddingTop="2" paddingLeft="5" paddingRight="5" paddingBottom="5" />
+			</themeList>
+			<propertySheet>
+				<title label="标题" control="TextInput" />
+				<layout label="布局" control="ComboBox" default="vertical">
+					<dataProvider>
+						<item label="水平" value="horizontal" />
+						<item label="垂直" value="vertical" />
+					</dataProvider>
+				</layout>
+				<width label="宽度" control="TextInput" restrict="0-9%" default="100%"/>
+				<height label="高度" control="TextInput" restrict="0-9%" default="100%"/>
+				<horizontalGap label="水平分隔宽度" control="TextInput" restrict="0-9" default="5"/>
+				<verticalGap label="垂直分隔宽度" control="TextInput" restrict="0-9" default="5"/>
+				<theme label="主题" control="ComboBox" dataProvider="theme" dataSource="outer" />
+			</propertySheet>
+		</control>
+	</package>
+	<package name="ime.drp" label="ime.drp">
+		<control name="GoodsView" label="商品展现视图" minWidth="200">
+			<themeList>
+				<theme name="default" label="默认" />
+				<theme name="blue" label="蓝色" />
+			</themeList>
+			<!-- 属性表定义 -->
+			<propertySheet>
+				<name label="名称" control="TextInput" restrict="a-zA-Z0-9_"/>
+				<id label="id" control="TextInput" restrict="a-zA-Z0-9_"/>
+				<useAjax label="AJAX" control="ComboBox" dataProvider="yesno" default="true" />
+				<width label="宽度" control="TextInput" restrict="0-9%" default="100%"/>
+				<height label="高度" control="TextInput" restrict="0-9%" default="100%"/>
+				<theme label="主题" control="ComboBox" dataProvider="theme" dataSource="outer" />
+			</propertySheet>
+		</control>
+	</package>
+</package>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityForm name="短信模板" label="短信模板" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.5BD291D364FC" nodeID="440"> 
+              <formEntity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.B0EE99F9AAA0"/>  
+              <formState> 
+                <state label="基础" uid="state0" basedOn="null"> 
+                  <rule type="required" property="contents" label="内容" rule="true"/> 
+                </state>  
+                <state label="新建" uid="state1" basedOn="state0"/>  
+                <state label="编辑" uid="state2" basedOn="state0"/> 
+              </formState>  
+              <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2"> 
+                <TabNavigator> 
+                  <tab label="default"> 
+                    <Label width="82" height="25" text="验证码类型:" propertyUID="id_1" x="3" y="3" style=""/>  
+                    <ComboBox propertyUID="id_1" width="339" height="25" x="83" y="3"/>  
+                    <Label width="82" height="25" text="模板编号:" propertyUID="id_3" x="463" y="3" style=""/>  
+                    <TextInput propertyUID="id_3" width="339" height="25" x="543" y="3"/>  
+                    <Label width="82" height="25" text="内容:" propertyUID="id_2" x="3" y="31" style=""/>  
+                    <TextArea propertyUID="id_2" width="799" height="223" x="83" y="31"/> 
+                  </tab> 
+                </TabNavigator> 
+              </Window>  
+              <formEvent/> 
+            </EntityForm>

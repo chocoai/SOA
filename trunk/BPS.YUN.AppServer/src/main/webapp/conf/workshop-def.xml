@@ -1,0 +1,3196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workshop>
+	<EntityEditor>
+		<logProperties>
+			<property uid="log_0" label="创建者ID" name="FM_CreatePrinId" type="long" systemProperty="true" />
+			<property uid="log_1" label="创建者" name="FM_CreatePrinName" type="string" length="100" systemProperty="true"/>
+			<property uid="log_2" label="更新者ID" name="FM_UpdatePrinId" type="long" systemProperty="true"/>
+			<property uid="log_3" label="更新者" name="FM_UpdatePrinName" type="string" length="100" systemProperty="true"/>
+			<property uid="log_4" label="创建时间" name="FM_CreateTime" type="timestamp" systemProperty="true"/>
+			<property uid="log_5" label="更新时间" name="FM_UpdateTime" type="timestamp" systemProperty="true"/>
+		</logProperties>
+		<workflowProperties>
+			<property uid="wf_0" label="状态" name="WF_State" type="long" systemProperty="true"/>
+			<property uid="wf_1" label="状态名称" name="WF_StateName" type="string" length="50" systemProperty="true"/>
+			<property uid="wf_2" label="所属流程" name="WF_ProcessId" type="long" systemProperty="true"/>
+			<property uid="wf_3" label="流程名称" name="WF_ProcessName" type="string" length="100" systemProperty="true"/>
+			<property uid="wf_4" label="处理人ID" name="WF_ProcessorPrinId" type="long" systemProperty="true"/>
+			<property uid="wf_5" label="处理人" name="WF_ProcessorPrinName" type="string" length="100" systemProperty="true"/>
+			<property uid="wf_6" label="工作项ID" name="WF_WorkItemId" type="long" systemProperty="true"/>
+		</workflowProperties>
+		<!-- 保留字段，这些字段不能用在实体定义中 -->
+		<reservedFields>ABSOLUTE,ACCESS,ACCESSIBLE,ACTION,ADA,ADD,ADMIN,AFTER,AGGREGATE,ALIAS,ALL,ALLOCATE,ALTER,ANALYZE,AND,ANY,ARCHIVE,ARCHIVELOG,ARE,ARRAY,ARRAYLEN,AS,ASC,ASENSITIVE,ASSERTION,AT,AUDIT,AUTHORIZATION,AVG,BACKUP,BECOME,BEFORE,BEGIN,BETWEEN,BIGINT,BINARY,BIT,BIT_LENGTH,BLOB,BLOCK,BODY,BOOLEAN,BOTH,BREADTH,BREAK,BROWSE,BULK,BY,CACHE,CALL,CANCEL,CASCADE,CASCADED,CASE,CAST,CATALOG,CHANGE,CHAR,CHAR_LENGTH,CHARACTER,CHARACTER_LENGTH,CHECK,CHECKPOINT,CLASS,CLOB,CLOSE,CLUSTER,CLUSTERED,COALESCE,COBOL,COLLATE,COLLATION,COLUMN,COMMENT,COMMIT,COMPILE,COMPLETION,COMPRESS,COMPUTE,CONDITION,CONNECT,CONNECTION,CONSTRAINT,CONSTRAINTS,CONSTRUCTOR,CONTAINS,CONTAINSTABLE,CONTENT,CONTINUE,CONTROLFILE,CONVERT,CORRESPONDING,COUNT,CREATE,CROSS,CUBE,CURRENT,CURRENT_DATE,DATE,CURRENT_PATH,CURRENT_ROLE,CURRENT_TIME,CURRENT_TIMESTAMP,CURRENT_USER,CURSOR,CYCLE,DATA,DATABASE,DATABASES,DATAFILE,DAY,DAY_HOUR,DAY_MICROSECOND,DAY_MINUTE,DAY_SECOND,DBA,DBCC,DEALLOCATE,DEC,DECIMAL,DECLARE,DEFAULT,DEFERRABLE,DEFERRED,DELAYED,DELETE,DENY,DEPTH,DEREF,DESC,DESCRIBE,DESCRIPTOR,DESTROY,DESTRUCTOR,DETERMINISTIC,DIAGNOSTICS,DICTIONARY,DISABLE,DISCONNECT,DISK,DISMOUNT,DISTINCT,DISTINCTROW,DISTRIBUTED,DIV,DOMAIN,DOUBLE,DROP,DUAL,DUMMY,DUMP,DYNAMIC,EACH,ELSE,ELSEIF,ENABLE,ENCLOSED,END,END-EXEC,EQUALS,ERRLVL,ESCAPE,ESCAPED,EVENTS,EVERY,EXCEPT,EXCEPTION,EXCEPTIONS,EXCLUSIVE,EXEC,EXECUTE,EXISTS,EXIT,EXPLAIN,EXTENT,EXTERNAL,EXTERNALLY,EXTRACT,FETCH,FILE,FILLFACTOR,FIRST,FLOAT,FLOAT4,FLOAT8,FLUSH,FOR,FORCE,FOREIGN,FORTRAN,FOUND,FREE,FREELIST,FREELISTS,FREETEXT,FREETEXTTABLE,FROM,FULL,FULLTEXT,FUNCTION,GENERAL,GET,GLOBAL,GO,GOTO,GRANT,GROUP,GROUPING,GROUPS,HAVING,HIGH_PRIORITY,HOLDLOCK,HOST,HOUR,HOUR_MICROSECOND,HOUR_MINUTE,HOUR_SECOND,IDENTIFIED,IDENTITY,IDENTITY_INSERT,IDENTITYCOL,IF,IGNORE,IMMEDIATE,IN,INCLUDE,INCLUDING,INCREMENT,INDEX,INDICATOR,INFILE,INITIAL,INITIALIZE,INITIALLY,INITRANS,INNER,INOUT,INPUT,INSENSITIVE,INSERT,INSTANCE,INT,INT1,INT2,INT3,INT4,INT8,INTEGER,INTERSECT,INTERVAL,INTO,IS,ISOLATION,ITERATE,JOIN,KEY,KEYS,KILL,LANGUAGE,LARGE,LAST,LATERAL,LAYER,LEADING,LEAVE,LEFT,LESS,LEVEL,LIKE,LIMIT,LINEAR,LINENO,LINES,LINK,LISTS,LOAD,LOCAL,LOCALTIME,LOCALTIMESTAMP,LOCATOR,LOCK,LOGFILE,LONG,LONGBLOB,LONGTEXT,LOOP,LOW_PRIORITY,LOWER,MANAGE,MANUAL,MAP,MASTER_SSL_VERIFY_SERVER_CERT,MATCH,MAX,MAXDATAFILES,MAXEXTENTS,MAXINSTANCES,MAXLOGFILES,MAXLOGHISTORY,MAXLOGMEMBERS,MAXTRANS,MAXVALUE,MEDIUMBLOB,MEDIUMINT,MEDIUMTEXT,MIDDLEINT,MIN,MINEXTENTS,MINUS,MINUTE,MINUTE_MICROSECOND,MINUTE_SECOND,MINVALUE,MOD,MODE,MODIFIES,MODIFY,MODULE,MONTH,MOUNT,NAMES,NATIONAL,NATURAL,NCHAR,NCLOB,NEW,NEXT,NO,NO_WRITE_TO_BINLOG,NOARCHIVELOG,NOAUDIT,NOCACHE,NOCHECK,NOCOMPRESS,NOCYCLE,NOMAXVALUE,NOMINVALUE,NONCLUSTERED,NONE,NOORDER,NORESETLOGS,NORMAL,NOSORT,NOT,NOTFOUND,NOWAIT,NULL,NULLIF,NUMBER,NUMERIC,OBJECT,OCTET_LENGTH,OF,OFF,OFFLINE,OFFSETS,OLD,ON,ONLINE,ONLY,OPEN,OPENDATASOURCE,OPENQUERY,OPENROWSET,OPENXML,OPERATION,OPTIMAL,OPTIMIZE,OPTION,OPTIONALLY,OR,ORDER,ORDINALITY,OUT,OUTER,OUTFILE,OUTPUT,OVER,OVERLAPS,OWN,PACKAGE,PAD,PARALLEL,PARAMETER,PARAMETERS,PARTIAL,PASCAL,PATH,PCTFREE,PCTINCREASE,PCTUSED,PERCENT,PLAN,PLI,POSITION,POSTFIX,PRECISION,PREFIX,PREORDER,PREPARE,PRESERVE,PRIMARY,PRINT,PRIOR,PRIVATE,PRIVILEGES,PROC,PROCEDURE,PUBLIC,PURGE,RAISERROR,RANGE,RAW,READ,READ_WRITE,READS,READTEXT,REAL,RECONFIGURE,RECURSIVE,REF,REFERENCES,REFERENCING,REGEXP,RELATIVE,RELEASE,RENAME,REPEAT,REPLACE,REPLICATION,REQUIRE,RESOURCE,RESTORE,RESTRICT,RESULT,RETURN,RETURNS,REVOKE,RIGHT,RLIKE,ROLE,ROLLBACK,ROLLUP,ROUTINE,ROW,ROWCOUNT,ROWGUIDCOL,ROWID,ROWLABEL,ROWNUM,ROWS,RULE,SAVE,SAVEPOINT,SCHEMA,SCHEMAS,SCOPE,SCROLL,SEARCH,SECOND,SECOND_MICROSECOND,SECTION,SELECT,SENSITIVE,SEPARATOR,SEQUENCE,SESSION,SESSION_USER,SET,SETS,SETUSER,SHARE,SHOW,SHUTDOWN,SIZE,SMALLINT,SOME,SPACE,SPATIAL,SPECIFIC,SPECIFICTYPE,SQL,SQL_BIG_RESULT,SQL_CALC_FOUND_ROWS,SQL_SMALL_RESULT,SQLBUF,SQLCA,SQLCODE,SQLERROR,SQLEXCEPTION,SQLSTATE,SQLWARNING,SSL,START,STARTING,STATEMENT,STATIC,STATISTICS,STRAIGHT_JOIN,STRUCTURE,SUBSTRING,SUCCESSFUL,SUM,SYNONYM,SYSDATE,SYSTEM_USER,TABLE,TEMPORARY,TERMINATE,TERMINATED,TEXTSIZE,THAN,THEN,TIME,TIMESTAMP,TIMEZONE_HOUR,TIMEZONE_MINUTE,TINYBLOB,TINYINT,TINYTEXT,TO,TOP,TRAILING,TRAN,TRANSACTION,TRANSLATE,TRANSLATION,TREAT,TRIGGER,TRIM,TRUNCATE,TSEQUAL,UID,UNDER,UNDO,UNION,UNIQUE,UNKNOWN,UNLOCK,UNNEST,UNSIGNED,UPDATE,UPDATETEXT,UPPER,USAGE,USE,USER,USING,UTC_DATE,UTC_TIME,UTC_TIMESTAMP,VALIDATE,VALUE,VALUES,VARBINARY,VARCHAR,VARCHAR2,VARCHARACTER,VARIABLE,VARYING,VIEW,WAITFOR,WHEN,WHENEVER,WHERE,WHILE,WITH,WITHOUT,WORK,WRITE,WRITETEXT,XOR,YEAR,YEAR_MONTH,ZEROFILL,ZONE,FALSE,TRUE</reservedFields>
+		
+		<multilevelProperties>
+			<property uid="ml_0" label="上级节点" name="ml_parent" type="long" systemProperty="true"/>
+		</multilevelProperties>
+		<PropertySheetDefinition>
+			<definition name="Simple">
+				<propertySheet>
+					<toolTip label="帮助信息" control="TextArea" />
+					<note label="备注说明" control="TextArea" />
+					<group label="分组" control="TextInput" editable="this.systemProperty != &quot;true&quot;"/>
+				</propertySheet>
+			</definition>
+			<definition name="String">
+				<propertySheet>
+					<valueProvider label="数据字典" control="DetailBox" detailWindow="ime.core.dictionary.DictionaryWindow" dataSource="outer" editable="true" />
+					<length label="数据长度" control="NumericStepper" minimum="1" maximum="2147483647" />
+					<toolTip label="帮助信息" control="TextArea" />
+					<note label="备注说明" control="TextArea" />
+					<group label="分组" control="TextInput" editable="this.systemProperty != &quot;true&quot;"/>
+				</propertySheet>
+			</definition>
+			<definition name="Number">
+				<propertySheet>
+					<valueProvider label="数据字典" control="DetailBox" detailWindow="ime.core.dictionary.DictionaryWindow" dataSource="outer" editable="true"/>
+					<currency label="是否货币" control="ComboBox">
+						<dataProvider>
+							<item label="是" value="true" />
+							<item label="否" value="false" />
+						</dataProvider>
+					</currency>
+					<toolTip label="帮助信息" control="TextArea" />
+					<note label="备注说明" control="TextArea" />
+					<group label="分组" control="TextInput" editable="this.systemProperty != &quot;true&quot;"/>
+				</propertySheet>
+			</definition>
+			<definition name="Double">
+				<propertySheet>
+					<fraction label="小数位数" control="NumericStepper" minimum="1" maximum="10" />
+					<currency label="是否货币" control="ComboBox">
+						<dataProvider>
+							<item label="是" value="true" />
+							<item label="否" value="false" />
+						</dataProvider>
+					</currency>
+					<toolTip label="帮助信息" control="TextArea" />
+					<note label="备注说明" control="TextArea" />
+					<group label="分组" control="TextInput" editable="this.systemProperty != &quot;true&quot;"/>
+				</propertySheet>
+			</definition>
+			<definition name="Relation">
+				<propertySheet>
+					<entityUID label="实体类型" control="DetailBox" detailWindow="ime.appworkshop.ApplicationItemSelectWindow" dataProvider="Entity" valueField="uid" dataSource="outer" />
+					<labelField label="名称属性" control="ComboBox" dataProvider="relation.propertyLabel" dataSource="outer" />
+					<shortcutField label="快捷查询属性" control="ComboBox" dataProvider="relation.propertyLabel" dataSource="outer" />
+					<toolTip label="帮助信息" control="TextArea" />
+					<note label="备注说明" control="TextArea" />
+					<group label="分组" control="TextInput" />
+				</propertySheet>
+			</definition>
+			<definition name="Attachment">
+				<propertySheet>
+					<length label="附件数量" control="NumericStepper" minimum="1" maximum="10"/>
+					<toolTip label="帮助信息" control="TextArea" />
+					<note label="备注说明" control="TextArea" />
+					<group label="分组" control="TextInput" />
+				</propertySheet>
+			</definition>
+			<definition name="Coding">
+				<propertySheet>
+					<length label="数据长度" control="NumericStepper" minimum="1" maximum="100"/>
+					<recyclable label="是否可回收" control="ComboBox">
+						<dataProvider>
+							<item label="是" value="true" />
+							<item label="否" value="false" />
+						</dataProvider>
+					</recyclable>
+					<zeroStart label="是否从0计数" control="ComboBox">
+						<dataProvider>
+							<item label="是" value="true" />
+							<item label="否" value="false" />
+						</dataProvider>					
+					</zeroStart>
+					<resetPeriod label="重置周期" control="ComboBox">
+						<dataProvider>
+							<item label="从不" value="0" />
+							<item label="每年" value="1" />
+							<item label="每月" value="2" />
+							<item label="每天" value="3" />
+						</dataProvider>
+					</resetPeriod>
+					<codingPattern label="编码模板" control="TextInput" />
+					<toolTip label="帮助信息" control="TextArea" />
+					<note label="备注说明" control="TextArea" />
+					<group label="分组" control="TextInput" />
+				</propertySheet>
+			</definition>
+		</PropertySheetDefinition>
+	</EntityEditor>
+	<FormEditor>
+		<eventDefinition>
+			<event type="initialize" label="初始化事件" systemEvent="true">
+				<parameter name="form" type="Object" help="当前所属的表单对象" />
+				<parameter name="entity" type="Entity" help="装入或生成的实体对象" />
+				<help>当表单初始化时触发的事件
+				</help>
+			</event>
+			<event type="preSubmit"  label="提交前事件" systemEvent="true">
+				<parameter name="form" type="Object" help="当前所属的表单对象" />
+				<parameter name="submitName" type="String" help="当前提交方式的名称" />
+				<parameter name="submitType" type="Object" help="当前提交方式对象" />
+				<help>当提交表单之前触发的事件
+				</help>			
+			</event>
+			<event type="postSubmit" label="提交后事件" systemEvent="true">
+				<parameter name="form" type="Object" help="当前所属的表单对象" />
+				<parameter name="entity" type="Entity" help="装入或生成的实体对象" />
+				<help>当表单提交之后触发本事件。在表单创建行为中如果需要不关闭窗口继续创建新对象，则可以return {action:"recreate"}，在返回的对象中也可以指定message属性，用于在提示窗口中显示特定的消息，或者指定entity属性，表示新创建的默认实体对象。
+				</help>
+			</event>
+			<event type="submitChange" label="提交方式变更事件" systemEvent="true">
+				<parameter name="form" type="Object" help="当前所属的表单对象" />
+				<parameter name="submitName" type="String" help="当前提交方式的名称" />
+				<parameter name="submitType" type="Object" help="当前提交方式对象" />
+				<help>当表单的提交方式发生变更时触发本事件。
+				</help>
+			</event>
+			<event type="copy" label="复制事件" systemEvent="true">
+				<parameter name="form" type="Object" help="当前所属的表单对象" />
+				<parameter name="entity" type="Entity" help="装入或生成的实体对象" />
+			</event>
+			<event type="enter" label="回车事件" systemEvent="true">
+				<parameter name="form" type="Object" help="当前所属的表单对象" />
+				<parameter name="field" type="Object" help="输入时的实体字段或控件名称" />
+			</event>
+			<event type="customerEvent" label="自定义事件">
+				<parameter name="form" type="Object" help="当前所属的表单对象" />
+			</event>
+			<event type="remoteEvent" label="服务回调事件">
+				<parameter name="form" type="Object" help="当前所属的表单对象" />
+				<parameter name="result" type="Object" help="服务的返回对象" />
+			</event>
+		</eventDefinition>
+		<controls label="控件">
+		    <Label     label="Label" />
+		    <TextInput label="TextInput" />
+			<Password  label="Password" />
+		    <TextArea  label="TextArea" width="300" height="100" />
+		    <Text	   label="Text" />
+		    <Button    label="Button" />
+		    <ComboBox  label="ComboBox" />
+		    <Numeric   label="Numeric" />
+		    <NumericStepper label="NumericStepper" />
+		    <CheckBox	label="CheckBox" />
+		    <DateField 	label="DateField" />
+		    <DateTimeEntry label="DateTimeEntry" width="185" />
+		    <TimeEntry		label="TimeEntry" />
+		    <RichTextEditor	label="RichTextEditor" width="300" height="100" />
+		    <ImageField	label="ImageField" />
+		    <MultiSelectBox  label="MultiSelectBox" />
+		    <SingleSelectBox label="SingleSelectBox" />
+			<AttachmentList label="AttachmentList" />
+		    <EntityField	label="EntityField" />
+		    <QueryControl	label="QueryControl" />
+		    <PrincipalSelectField label="PrincipalSelectField" />
+			<HRule label="HRule" />
+			<VRule label="VRule" />
+		    <FieldSet label="FieldSet" />
+		    <CustomerControl label="CustomerControl" />
+		</controls>
+		<entityFormControls label="其他控件">
+			 <Label label="Label" />
+			 <HRule label="HRule" />
+			 <VRule label="VRule" />
+		     <Button   label="Button" />
+		     <CheckBox label="CheckBox" />
+		     <SingleSelectBox label="SingleSelectBox" />
+			 <FieldSet label="FieldSet" />
+		</entityFormControls>
+		<controlType>
+			<property type="string">
+				<control type="TextInput" label="TextInput"/>
+				<control type="Password" label="Password"/>
+				<control type="TextArea" label="TextArea"/>
+				<control type="RichTextEditor" label="RichTextEditor"/>
+				<control type="CustomerControl" label="CustomerControl"/>
+			</property>
+			<property type="long">
+				<control type="TextInput" label="TextInput"/>
+				<control type="NumericStepper" label="NumericStepper"/>
+				<control type="CustomerControl" label="CustomerControl"/>
+			</property>
+			<property type="double">
+				<control type="TextInput" label="TextInput"/>
+				<control type="CustomerControl" label="CustomerControl"/>
+			</property>
+			<property type="timestamp">
+				<control type="DateField" label="DateField"/>
+				<control type="TimeEntry" label="TimeEntry"/>
+				<control type="DateTimeEntry" label="DateTimeEntry"/>
+				<control type="CustomerControl" label="CustomerControl"/>
+			</property>
+			<property type="boolean">
+				<control type="CheckBox" label="CheckBox"/>
+				<control type="CustomerControl" label="CustomerControl"/>
+			</property>
+			<property type="image">
+				<control type="ImageField" label="ImageField"/>
+				<control type="CustomerControl" label="CustomerControl"/>
+			</property>
+			<property type="coding">
+				<control type="TextInput" label="TextInput"/>
+				<control type="CustomerControl" label="CustomerControl"/>
+			</property>
+			<property type="attachments">
+				<control type="AttachmentList" label="AttachmentList"/>
+				<control type="CustomerControl" label="CustomerControl"/>
+			</property>
+			<property type="relation">
+				<control type="EntityField" label="EntityField"/>
+				<control type="CustomerControl" label="CustomerControl"/>
+			</property>
+			<property type="principal">
+				<control type="PrincipalSelectField" label="PrincipalSelectField"/>
+				<control type="CustomerControl" label="CustomerControl"/>
+			</property>												
+			<property type="valueProvider">
+				<control type="ComboBox" label="ComboBox" />
+				<control type="MultiSelectBox"  label="MultiSelectBox"/>
+				<control type="SingleSelectBox" label="SingleSelectBox"/>
+				<control type="CustomerControl" label="CustomerControl"/>
+			</property>
+	  	</controlType>
+		<PropertySheetDefinition>
+			<definition name="XmlForm">
+				<propertySheet>
+					<paddingLeft label="左边距" control="TextInput" restrict="0-9"/>
+					<paddingRight label="右边距" control="TextInput" restrict="0-9"/>
+					<paddingTop label="上边距" control="TextInput" restrict="0-9"/>
+					<paddingBottom label="下边距" control="TextInput" restrict="0-9"/>
+				</propertySheet>
+			</definition>
+			<definition name="FormWindow">
+				<propertySheet>
+					<paddingLeft label="左边距" control="TextInput" restrict="0-9"/>
+					<paddingRight label="右边距" control="TextInput" restrict="0-9"/>
+					<paddingTop label="上边距" control="TextInput" restrict="0-9"/>
+					<paddingBottom label="下边距" control="TextInput" restrict="0-9"/>
+					<copyEnabled label="允许复制" type="CheckBox" />
+					<confirmClose label="未保存提示" type="CheckBox" default="true"/>
+				</propertySheet>
+			</definition>
+			<definition name="Label">
+				<propertySheet>
+					<name label="名称" control="TextInput" restrict="a-zA-Z0-9_"/>
+					<text label="显示名称" control="TextInput" />
+					<style label="样式">
+						<color label="颜色" control="Color" />
+						<textAlign label="文本对启" control="ComboBox">
+							<dataProvider>
+								<item label="左对启" value="left" />
+								<item label="居中" value="center" />
+								<item label="右对启" value="right" />
+							</dataProvider>	
+						</textAlign>
+						<fontStyle label="倾斜" control="ComboBox">
+							<dataProvider>
+								<item label="否" value="normal" />
+								<item label="是" value="italic" />
+							</dataProvider>	
+						</fontStyle>
+						<fontWeight label="加粗" control="ComboBox">
+							<dataProvider>
+								<item label="否" value="normal" />
+								<item label="是" value="bold" />
+							</dataProvider>	
+						</fontWeight>
+						<textDecoration label="下划线" control="ComboBox">
+							<dataProvider>
+								<item label="否" value="none" />
+								<item label="是" value="underline" />
+							</dataProvider>	
+						</textDecoration>
+					</style>
+				</propertySheet>
+			</definition>
+			<definition name="UserControl">
+				<propertySheet>
+					<name label="名称" control="TextInput" editable="!isEntityControl()" restrict="a-zA-Z0-9_"/>
+					<toolTip label="帮助" control="TextInput" />					
+					<control label="控件" control="ComboBox" dataProvider="control" dataSource="outer" editable="isEntityForm()"/>
+				</propertySheet>
+			</definition>
+			<definition name="FieldSet">
+				<propertySheet>
+					<label label="标题" control="TextInput" />
+				</propertySheet>
+			</definition>
+			<definition name="TextInput">
+				<propertySheet>
+					<name label="名称" control="TextInput" editable="!isEntityControl()" restrict="a-zA-Z0-9_"/>
+					<toolTip label="帮助" control="TextInput" />					
+					<control label="控件" control="ComboBox" dataProvider="control" dataSource="outer" editable="isEntityForm()"/>
+				</propertySheet>
+			</definition>
+			<definition name="TextArea">
+				<propertySheet>
+					<name label="名称" control="TextInput" editable="!isEntityControl()" restrict="a-zA-Z0-9_"/>
+					<toolTip label="帮助" control="TextInput" />					
+					<control label="控件" control="ComboBox" dataProvider="control" dataSource="outer" editable="isEntityForm()"/>
+				</propertySheet>
+			</definition>
+			<definition name="Text">
+				<propertySheet>
+					<text label="显示内容" control="TextArea" />
+				</propertySheet>
+			</definition>
+			<definition name="Button">
+				<propertySheet>
+					<name label="名称" control="TextInput" />
+					<label label="显示内容" control="TextInput" />
+					<action label="点击事件" control="TextInput" />
+					<toolTip label="帮助" control="TextInput" />
+				</propertySheet>
+			</definition>
+			<definition name="ComboBox">
+				<propertySheet>
+					<name label="名称" control="TextInput" editable="!isEntityControl()" restrict="a-zA-Z0-9_"/>
+					<valueProvider label="数据字典" control="TextInput" editable="!isEntityControl()" />
+					<editable label="可输入" control="ComboBox" dataProvider="yesno" />
+					<valueProviderEditable label="可编辑列表" control="ComboBox" dataProvider="yesno" />
+					<toolTip label="帮助" control="TextInput" />					
+					<control label="控件" control="ComboBox" dataProvider="control" dataSource="outer" editable="isEntityForm()"/>
+					<changeEvent label="更新事件" control="TextInput" />
+				</propertySheet>
+			</definition>
+			<definition name="Numeric">
+				<propertySheet>
+					<name label="名称" control="TextInput" editable="!isEntityControl()" restrict="a-zA-Z0-9_"/>
+					<toolTip label="帮助" control="TextInput" />					
+					<control label="控件" control="ComboBox" dataProvider="control" dataSource="outer" editable="isEntityForm()"/>
+					<changeEvent label="更新事件" control="TextInput" />
+				</propertySheet>
+			</definition>
+			<definition name="NumericStepper">
+				<propertySheet>
+					<name label="名称" control="TextInput" editable="!isEntityControl()" restrict="a-zA-Z0-9_"/>
+					<toolTip label="帮助" control="TextInput" />					
+					<control label="控件" control="ComboBox" dataProvider="control" dataSource="outer" editable="isEntityForm()"/>
+					<minimum label="最小值" control="NumericStepper" minimum="-9999999999" maximum="9999999999"/>
+					<maximum label="最大值" control="NumericStepper" minimum="-9999999999" maximum="9999999999"/>
+					<changeEvent label="更新事件" control="TextInput" />
+				</propertySheet>
+			</definition>
+			<definition name="CheckBox">
+				<propertySheet>
+					<name label="名称" control="TextInput" editable="!isEntityControl()" restrict="a-zA-Z0-9_"/>
+					<label label="标签" control="TextInput" />
+					<toolTip label="帮助" control="TextInput" />					
+					<control label="控件" control="ComboBox" dataProvider="control" dataSource="outer" editable="isEntityForm()"/>
+					<changeEvent label="更新事件" control="TextInput" />
+				</propertySheet>
+			</definition>
+			<definition name="DateField">
+				<propertySheet>
+					<name label="名称" control="TextInput" editable="!isEntityControl()" restrict="a-zA-Z0-9_"/>
+					<toolTip label="帮助" control="TextInput" />					
+					<control label="控件" control="ComboBox" dataProvider="control" dataSource="outer" editable="isEntityForm()"/>
+					<changeEvent label="更新事件" control="TextInput" />
+				</propertySheet>
+			</definition>
+			<definition name="DateTimeEntry">
+				<propertySheet>
+					<name label="名称" control="TextInput" editable="!isEntityControl()" restrict="a-zA-Z0-9_"/>
+					<toolTip label="帮助" control="TextInput" />					
+					<control label="控件" control="ComboBox" dataProvider="control" dataSource="outer" editable="isEntityForm()"/>
+					<changeEvent label="更新事件" control="TextInput" />
+				</propertySheet>
+			</definition>
+			<definition name="TimeEntry">
+				<propertySheet>
+					<name label="名称" control="TextInput" editable="!isEntityControl()" restrict="a-zA-Z0-9_"/>
+					<toolTip label="帮助" control="TextInput" />					
+					<control label="控件" control="ComboBox" dataProvider="control" dataSource="outer" editable="isEntityForm()"/>
+					<changeEvent label="更新事件" control="TextInput" />
+				</propertySheet>
+			</definition>
+			<definition name="RichTextEditor">
+				<propertySheet>
+					<name label="名称" control="TextInput" editable="!isEntityControl()" restrict="a-zA-Z0-9_"/>
+					<toolTip label="帮助" control="TextInput" />					
+					<control label="控件" control="ComboBox" dataProvider="control" dataSource="outer" editable="isEntityForm()"/>
+					<changeEvent label="更新事件" control="TextInput" />
+				</propertySheet>
+			</definition>
+			<definition name="ImageField">
+				<propertySheet>
+					<name label="名称" control="TextInput" editable="!isEntityControl()" restrict="a-zA-Z0-9_"/>
+					<toolTip label="帮助" control="TextInput" />					
+					<fitSize label="指定大小" control="TextInput" />
+					<qualityLevel label="图片质量" control="NumericStepper" minimum="1" maximum="100" default="100"/>
+					<selectPageUrl label="系统图片装载路径" control="TextInput" />
+					<control label="控件" control="ComboBox" dataProvider="control" dataSource="outer" editable="isEntityForm()"/>
+					<changeEvent label="更新事件" control="TextInput" />
+				</propertySheet>
+			</definition>
+			<definition name="MultiSelectBox">
+				<propertySheet>
+					<name label="名称" control="TextInput" editable="!isEntityControl()" restrict="a-zA-Z0-9_"/>
+					<toolTip label="帮助" control="TextInput" />					
+					<valueProvider label="数据字典" control="TextInput" editable="!isEntityControl()" />
+					<control label="控件" control="ComboBox" dataProvider="control" dataSource="outer" editable="isEntityForm()"/>
+					<changeEvent label="更新事件" control="TextInput" />
+				</propertySheet>
+			</definition>
+			<definition name="SingleSelectBox">
+				<propertySheet>
+					<name label="名称" control="TextInput" editable="!isEntityControl()" restrict="a-zA-Z0-9_"/>
+					<toolTip label="帮助" control="TextInput" />					
+					<valueProvider label="数据字典" control="TextInput" editable="!isEntityControl()" />
+					<control label="控件" control="ComboBox" dataProvider="control" dataSource="outer" editable="isEntityForm()"/>
+					<changeEvent label="更新事件" control="TextInput" />
+				</propertySheet>
+			</definition>
+			<definition name="AttachmentList">
+				<propertySheet>
+					<name label="名称" control="TextInput" editable="!isEntityControl()" restrict="a-zA-Z0-9_"/>
+					<imageFile label="仅限图片" checkable="true">
+						<fitSize label="指定大小" control="TextInput" />
+						<qualityLevel label="图片质量" control="NumericStepper" minimum="1" maximum="100" default="100"/>
+					</imageFile>
+					<toolTip label="帮助" control="TextInput" />					
+					<control label="控件" control="ComboBox" dataProvider="control" dataSource="outer" editable="isEntityForm()"/>
+					<changeEvent label="更新事件" control="TextInput" />
+				</propertySheet>
+			</definition>
+			<definition name="CustomerControl">
+				<propertySheet>
+					<name label="名称" control="TextInput" editable="!isEntityControl()" restrict="a-zA-Z0-9_"/>
+					<toolTip label="帮助" control="TextInput" />
+					<!--
+					<clazzName label="类名" control="TextInput" restrict="a-zA-Z0-9_."/>
+					-->
+					<control label="控件" control="ComboBox" dataProvider="control" dataSource="outer" editable="isEntityForm()"/>
+					<properties label="属性" control="TextInput" />
+					<changeEvent label="更新事件" control="TextInput" />
+				</propertySheet>
+			</definition>
+			<definition name="EntityField">
+				<propertySheet>
+					<name label="名称" control="TextInput" editable="!isEntityControl()" restrict="a-zA-Z0-9_"/>
+					<formUID  label="表单定义" control="ComboBox" dataProvider="EntityFieldForm"  dataSource="outer"/>
+					<queryUID label="查询定义" control="ComboBox" dataProvider="EntityFieldQuery" dataSource="outer"/>
+					<pageUID label="页面定义" control="DetailBox" detailWindow="ime.appworkshop.ApplicationItemSelectWindow" dataProvider="QueryPage" valueField="uid" dataSource="outer" />
+					<forceAssociation  label="强制关联" control="ComboBox">
+						<dataProvider>
+							<item label="是" value="true" />
+							<item label="否" value="false" />
+						</dataProvider>	
+					</forceAssociation>
+					<mode label="操作模式" control="ComboBox">
+						<dataProvider>
+							<item label="选择" value="select" />
+							<item label="快捷输入" value="shortcutQuery" />
+							<item label="下拉" value="dropdown" />
+						</dataProvider>	
+					</mode>
+					<toolTip label="帮助" control="TextInput" />					
+					<control label="控件" control="ComboBox" dataProvider="control" dataSource="outer" editable="isEntityForm()"/>
+					<changeEvent label="更新事件" control="TextInput" />
+				</propertySheet>
+			</definition>
+			<definition name="FreeEntityField">
+				<propertySheet>
+					<name label="名称" control="TextInput" restrict="a-zA-Z0-9_"/>
+					<toolTip label="帮助" control="TextInput" />					
+					<entityUID label="实体" control="DetailBox" detailWindow="ime.appworkshop.ApplicationItemSelectWindow" dataProvider="Entity" valueField="uid" dataSource="outer" />
+					<labelField label="名称属性" control="ComboBox" dataProvider="Property@${this.entityUID}" dataSource="outer" />
+					<shortcutField label="快捷查询属性" control="ComboBox" dataProvider="Property@${this.entityUID}" dataSource="outer" />
+					<formUID label="表单定义" control="ComboBox" dataProvider="EntityForm@${this.entityUID}" dataSource="outer" />
+					<queryUID label="查询定义" control="ComboBox" dataProvider="EntityQuery@${this.entityUID}" dataSource="outer" />
+					<pageUID label="页面定义" control="DetailBox" detailWindow="ime.appworkshop.ApplicationItemSelectWindow" dataProvider="QueryPage" valueField="uid" dataSource="outer" />
+					<forceAssociation  label="强制关联" control="ComboBox">
+						<dataProvider>
+							<item label="是" value="true" />
+							<item label="否" value="false" />
+						</dataProvider>	
+					</forceAssociation>
+					<mode label="操作模式" control="ComboBox">
+						<dataProvider>
+							<item label="选择" value="select" />
+							<item label="快捷输入" value="shortcutQuery" />
+							<item label="下拉" value="dropdown" />
+						</dataProvider>	
+					</mode>
+					<required label="是否必填" control="ComboBox" dataProvider="yesno" />
+					<changeEvent label="更新事件" control="TextInput" />
+				</propertySheet>
+			</definition>
+			<definition name="PrincipalSelectField">
+				<propertySheet>
+					<name label="名称" control="TextInput" editable="!isEntityControl()" restrict="a-zA-Z0-9_"/>
+					<toolTip label="帮助" control="TextInput" />					
+					<control label="控件" control="ComboBox" dataProvider="control" dataSource="outer" editable="isEntityForm()"/>
+					<changeEvent label="更新事件" control="TextInput" />
+				</propertySheet>
+			</definition>
+			<definition name="QueryControl">
+				<propertySheet>
+					<name label="名称" control="TextInput" restrict="a-zA-Z0-9_"/>
+					<toolTip label="帮助" control="TextInput" />
+					<entityUID label="实体" editable="!isEntityForm()" control="DetailBox" detailWindow="ime.appworkshop.ApplicationItemSelectWindow" dataProvider="Entity" valueField="uid" dataSource="outer" />
+					<queryUID label="查询定义" editable="!isEntityForm()" control="ComboBox" dataProvider="EntityQuery@${this.entityUID}" dataSource="outer" />
+					<parentFieldUID label="关联属性" control="ComboBox" dataProvider="Relation#${this.entityUID}" dataSource="outer"/>
+					<excelPasteEnabled label="允许Excel粘贴" control="ComboBox" dataProvider="yesno" />
+					<enableSort label="允许排序" control="ComboBox" dataProvider="yesno" />
+					<enableGrouping label="允许分组" control="ComboBox" dataProvider="yesno" />
+					<xwidth label="宽度" control="TextInput" />
+					<xheight label="高度" control="TextInput" />
+				</propertySheet>
+			</definition>
+		</PropertySheetDefinition>
+	</FormEditor>
+	<QueryEditor>
+		<availableDB>
+			<database label="所有数据库" name="all" />
+			<database label="MySQL" name="MySQL" />
+			<database label="SQL Server" name="SQLServer" />
+			<database label="Oracle" name="Oracle" />
+		</availableDB>
+		<eventDefinition>
+			<event type="initialize" label="初始化事件" systemEvent="true">
+				<parameter name="query" type="Object" help="当前所属的查询定义对象" />
+				<help>当查询面板初始化时触发的事件</help>
+			</event>
+			<event type="preQuery"  label="执行查询前事件" systemEvent="true">
+				<parameter name="query" type="Object" help="当前所属的查询定义对象" />
+				<help>当提交表单之前触发的事件</help>			
+			</event>
+			<event type="postQuery" label="执行查询后事件" systemEvent="true">
+				<parameter name="query" type="Object" help="当前所属的查询定义对象" />
+				<parameter name="recordSet" type="Object" help="查询结果集对象" />
+			</event>
+			<event type="selectedChange" label="选中记录变更事件" systemEvent="true">
+				<parameter name="query" type="Object" help="当前所属的查询定义对象" />
+				<parameter name="record" type="Object" help="当前选中的记录对象" />
+			</event>
+			<event type="enter" label="回车事件" systemEvent="true">
+				<parameter name="query" type="Object" help="当前所属的查询定义对象" />
+				<parameter name="index" type="Object" help="回车输入时的记录索引号" />
+				<parameter name="entity" type="Object" help="输入时的实体对象" />
+				<parameter name="field" type="Object" help="输入时的实体字段名称" />
+			</event>
+			<event type="preSave" label="保存前事件" systemEvent="true">
+				<parameter name="query" type="Object" help="当前所属的查询定义对象" />
+			</event>
+			<event type="preInsert" label="插入前事件" systemEvent="true">
+				<parameter name="query" type="Object" help="当前所属的查询定义对象" />
+				<parameter name="record" type="Object" help="当前插入的记录对象" />
+				<help>返回要插入的记录对象</help>
+			</event>
+			<event type="preDelete" label="删除前事件" systemEvent="true">
+				<parameter name="query" type="Object" help="当前所属的查询定义对象" />
+				<parameter name="entities" type="Object" help="选中删除的实体对象" />
+			</event>
+			<event type="postDelete" label="删除后事件" systemEvent="true">
+				<parameter name="query" type="Object" help="当前所属的查询定义对象" />
+				<parameter name="entities" type="Object" help="选中删除的实体对象" />
+			</event>
+			<event type="onExport" label="导出事件" systemEvent="true">
+				<parameter name="query" type="Object" help="当前所属的查询定义对象" />
+			</event>
+			<event type="entitySelect" label="实体选择事件" systemEvent="true">
+				<parameter name="query" type="Object" help="当前所属的查询定义对象" />
+				<parameter name="selectName" type="Object" help="实体选择的类型名称" />
+				<parameter name="selectedRecords" type="Object" help="选中的记录数组，通过&quot;记录.实体名&quot;获取实体对象。记录数组只对最后一页选中的记录有效。" />
+				<parameter name="selectedEntities" type="Object" help="选中的实体对象数组。实体数组对多页选中的所有实体全部有效。" />
+			</event>
+			<event type="remoteEvent" label="服务回调事件">
+				<parameter name="query" type="Object" help="当前所属的查询定义对象" />
+				<parameter name="result" type="Object" help="服务的返回对象" />
+			</event>
+			<event type="customerEvent" label="自定义事件">
+				<parameter name="query" type="Object" help="当前所属的查询定义对象" />
+			</event>
+		</eventDefinition>
+		<columnEditor>
+			<property type="string">
+				<control type="TextInput" label="TextInput" />
+			</property>
+			<property type="long">
+				<control type="TextInput" label="TextInput" />
+				<control type="NumericStepper" label="NumericStepper" />
+			</property>
+			<property type="double">
+				<control type="TextInput" label="TextInput" />
+			</property>
+			<property type="timestamp">
+				<control type="DateField" label="DateField" />
+				<control type="TimeEntry" label="TimeEntry" />
+				<control type="DateTimeEntry" label="DateTimeEntry" />
+			</property>
+			<property type="boolean">
+				<control type="CheckBox" label="CheckBox" />
+			</property>
+			<property type="relation">
+				<control type="EntityField" label="EntityField" />
+			</property>
+			<property type="principal">
+				<control type="PrincipalSelectField" label="PrincipalSelectField" />
+			</property>												
+			<property type="valueProvider">
+				<control type="ComboBox" label="ComboBox" />
+			</property>
+	  	</columnEditor>
+	  	<controls label="控件">
+		    <Label     label="Label" />
+		    <Button    label="Button" />
+		    <TextInput label="TextInput" />
+		    <TextArea  label="TextArea" />
+		    <ComboBox  label="ComboBox" />
+		    <Numeric   label="Numeric" />
+		    <NumericStepper label="NumericStepper" />
+		    <CheckBox	label="CheckBox" />
+		    <SingleSelectBox label="SingleSelectBox" />
+		    <DateField 	label="DateField" />
+		    <DateTimeEntry label="DateTimeEntry" width="185" />
+		    <TimeEntry		label="TimeEntry" />
+		    <EntityField	label="EntityField" />
+		    <PrincipalSelectField label="PrincipalSelectField" />
+		</controls>
+		<PropertySheetDefinition>
+			<definition name="Label">
+				<propertySheet>
+					<text label="显示名称" control="TextInput" />
+					<style label="样式">
+						<color label="颜色" control="Color" />
+						<textAlign label="文本对启" control="ComboBox">
+							<dataProvider>
+								<item label="左对启" value="left" />
+								<item label="居中" value="center" />
+								<item label="右对启" value="right" />
+							</dataProvider>	
+						</textAlign>
+						<fontStyle label="倾斜" control="ComboBox">
+							<dataProvider>
+								<item label="否" value="normal" />
+								<item label="是" value="italic" />
+							</dataProvider>	
+						</fontStyle>
+						<fontWeight label="加粗" control="ComboBox">
+							<dataProvider>
+								<item label="否" value="normal" />
+								<item label="是" value="bold" />
+							</dataProvider>	
+						</fontWeight>
+						<textDecoration label="下划线" control="ComboBox">
+							<dataProvider>
+								<item label="否" value="none" />
+								<item label="是" value="underline" />
+							</dataProvider>	
+						</textDecoration>
+					</style>
+				</propertySheet>
+			</definition>
+			<definition name="Button">
+				<propertySheet>
+					<name label="名称" control="TextInput" />
+					<label label="显示内容" control="TextInput" />
+					<action label="执行动作" control="TextInput" />
+					<toolTip label="帮助" control="TextInput" />	
+				</propertySheet>
+			</definition>
+			<definition name="TextInput">
+				<propertySheet>
+					<name label="名称" control="TextInput" restrict="a-zA-Z0-9_"/>
+					<toolTip label="帮助" control="TextInput" />					
+					<required label="是否必填" control="ComboBox" dataProvider="yesno" />
+					<changeEvent label="更新事件" control="TextInput" />
+				</propertySheet>
+			</definition>
+			<definition name="TextArea">
+				<propertySheet>
+					<name label="名称" control="TextInput" restrict="a-zA-Z0-9_"/>
+					<toolTip label="帮助" control="TextInput" />					
+					<required label="是否必填" control="ComboBox" dataProvider="yesno" />
+					<changeEvent label="更新事件" control="TextInput" />
+				</propertySheet>
+			</definition>
+			<definition name="ComboBox">
+				<propertySheet>
+					<name label="名称" control="TextInput" restrict="a-zA-Z0-9_" />
+					<toolTip label="帮助" control="TextInput" />					
+					<valueProvider label="数据字典" control="DetailBox" detailWindow="ime.core.dictionary.DictionaryWindow" dataSource="outer" editable="true"/>
+					<required label="是否必填" control="ComboBox" dataProvider="yesno" />
+					<changeEvent label="更新事件" control="TextInput" />
+				</propertySheet>
+			</definition>
+			<definition name="SingleSelectBox">
+				<propertySheet>
+					<name label="名称" control="TextInput" restrict="a-zA-Z0-9_" />
+					<toolTip label="帮助" control="TextInput" />					
+					<valueProvider label="数据字典" control="DetailBox" detailWindow="ime.core.dictionary.DictionaryWindow" dataSource="outer" editable="true"/>
+					<required label="是否必填" control="ComboBox" dataProvider="yesno" />
+					<changeEvent label="更新事件" control="TextInput" />
+				</propertySheet>
+			</definition>
+			<definition name="MultiSelectBox">
+				<propertySheet>
+					<name label="名称" control="TextInput" restrict="a-zA-Z0-9_" />
+					<toolTip label="帮助" control="TextInput" />					
+					<valueProvider label="数据字典" control="DetailBox" detailWindow="ime.core.dictionary.DictionaryWindow" dataSource="outer" editable="true"/>
+					<required label="是否必填" control="ComboBox" dataProvider="yesno" />
+					<changeEvent label="更新事件" control="TextInput" />
+				</propertySheet>
+			</definition>
+			<definition name="Numeric">
+				<propertySheet>
+					<name label="名称" control="TextInput" restrict="a-zA-Z0-9_"/>
+					<toolTip label="帮助" control="TextInput" />					
+					<required label="是否必填" control="ComboBox" dataProvider="yesno" />
+					<changeEvent label="更新事件" control="TextInput" />
+				</propertySheet>
+			</definition>
+			<definition name="NumericStepper">
+				<propertySheet>
+					<name label="名称" control="TextInput" restrict="a-zA-Z0-9_"/>
+					<toolTip label="帮助" control="TextInput" />					
+					<required label="是否必填" control="ComboBox" dataProvider="yesno" />
+					<minimum label="最小值" control="NumericStepper" minimum="-9999999999" maximum="9999999999"/>
+					<maximum label="最大值" control="NumericStepper" minimum="-9999999999" maximum="9999999999"/>
+					<changeEvent label="更新事件" control="TextInput" />
+				</propertySheet>
+			</definition>
+			<definition name="CheckBox">
+				<propertySheet>
+					<name label="名称" control="TextInput" restrict="a-zA-Z0-9_"/>
+					<label label="标签" control="TextInput" />
+					<changeEvent label="更新事件" control="TextInput" />
+					<toolTip label="帮助" control="TextInput" />					
+				</propertySheet>
+			</definition>
+			<definition name="DateField">
+				<propertySheet>
+					<name label="名称" control="TextInput" restrict="a-zA-Z0-9_"/>
+					<toolTip label="帮助" control="TextInput" />					
+					<required label="是否必填" control="ComboBox" dataProvider="yesno" />
+					<changeEvent label="更新事件" control="TextInput" />
+				</propertySheet>
+			</definition>
+			<definition name="DateTimeEntry">
+				<propertySheet>
+					<name label="名称" control="TextInput" restrict="a-zA-Z0-9_"/>
+					<toolTip label="帮助" control="TextInput" />					
+					<required label="是否必填" control="ComboBox" dataProvider="yesno" />
+					<changeEvent label="更新事件" control="TextInput" />
+				</propertySheet>
+			</definition>
+			<definition name="TimeEntry">
+				<propertySheet>
+					<name label="名称" control="TextInput" restrict="a-zA-Z0-9_"/>
+					<toolTip label="帮助" control="TextInput" />					
+					<required label="是否必填" control="ComboBox" dataProvider="yesno" />
+					<changeEvent label="更新事件" control="TextInput" />
+				</propertySheet>
+			</definition>
+			<definition name="EntityField">
+				<propertySheet>
+					<name label="名称" control="TextInput" restrict="a-zA-Z0-9_"/>
+					<toolTip label="帮助" control="TextInput" />					
+					<entityUID label="实体" control="DetailBox" detailWindow="ime.appworkshop.ApplicationItemSelectWindow" dataProvider="Entity" valueField="uid" dataSource="outer" />
+					<labelField label="名称属性" control="ComboBox" dataProvider="Property@${this.entityUID}" dataSource="outer" />
+					<shortcutField label="快捷查询属性" control="ComboBox" dataProvider="Property@${this.entityUID}" dataSource="outer" />
+					<formUID label="表单定义" control="ComboBox" dataProvider="EntityForm@${this.entityUID}" dataSource="outer" />
+					<queryUID label="查询定义" control="ComboBox" dataProvider="EntityQuery@${this.entityUID}" dataSource="outer" />
+					<pageUID label="页面定义" control="DetailBox" detailWindow="ime.appworkshop.ApplicationItemSelectWindow" dataProvider="QueryPage" valueField="uid" dataSource="outer" />
+					<forceAssociation  label="强制关联" control="ComboBox">
+						<dataProvider>
+							<item label="是" value="true" />
+							<item label="否" value="false" />
+						</dataProvider>	
+					</forceAssociation>
+					<mode label="操作模式" control="ComboBox">
+						<dataProvider>
+							<item label="选择" value="select" />
+							<item label="快捷输入" value="shortcutQuery" />
+							<item label="下拉" value="dropdown" />
+						</dataProvider>	
+					</mode>
+					<required label="是否必填" control="ComboBox" dataProvider="yesno" />
+					<changeEvent label="更新事件" control="TextInput" />
+				</propertySheet>
+			</definition>
+			<definition name="PrincipalSelectField">
+				<propertySheet>
+					<name label="名称" control="TextInput" restrict="a-zA-Z0-9_"/>
+					<toolTip label="帮助" control="TextInput" />					
+					<required label="是否必填" control="ComboBox" dataProvider="yesno" />
+					<changeEvent label="更新事件" control="TextInput" />
+				</propertySheet>
+			</definition>
+			<definition name="ToolBarButton">
+				<propertySheet>
+					<label  label="显示名称" control="TextInput" />
+					<toolTip label="帮助" control="TextInput" />					
+					<selection label="记录选择" control="ComboBox">
+						<dataProvider>
+							<item label="可不选" value="none" />
+							<item label="单选" value="single" />
+							<item label="多选" value="multi" />
+						</dataProvider>
+					</selection>
+					<action label="执行命令" control="ComboBox">
+						<dataProvider>
+							<item label="打开应用窗口" value="alink" />
+							<item label="打开ALink链接" value="customerALink" />
+							<item label="打开报表" value="report" />
+							<item label="触发事件" value="fireEvent" />
+							<item label="插入" value="insert" />
+							<item label="删除" value="delete" />
+							<item label="导出" value="export" />
+							<!--
+							<item label="导入" value="import" />
+							-->
+							<item label="全选" value="selectAll" />
+							<item label="其他" value="other" />
+						</dataProvider>
+					</action>
+					<defaultAction label="双击执行" control="ComboBox" dataProvider="yesno" />
+					<visiable label="是否显示" control="ComboBox" dataProvider="yesno" default="true" />
+					<param label="执行参数" control="List" definition="${this.action}"/>
+					<permission label="控制权限" control="DetailBox" detailWindow="ime.appworkshop.ApplicationItemSelectWindow" dataProvider="Permission" valueField="id" dataSource="outer" />
+				</propertySheet>
+				<List name="alink" addItem="false" >
+					<target label="应用程序" control="ComboBox" dataProvider="applications" />
+					<form label="窗口" control="ComboBox" dataProvider="applications.${this.param.target}" />
+					<param label="参数" control="List" definition="${this.param.form}"/>
+				</List>
+				<List name="report" addItem="false" >
+					<title label="窗口标题" control="TextInput" />
+					<entityUID label="实体" control="ComboBox" dataProvider="QueryEntity" dataSource="outer" />
+					<reportUID label="报表" control="ComboBox" dataProvider="EntityReport@${this.param.entityUID}" dataSource="outer" />
+					<openMode label="打开方式" control="ComboBox">
+						<dataProvider>
+							<item label="常规" value="normal" />
+							<item label="最大化" value="maximized" />
+						</dataProvider>
+					</openMode>
+				</List>
+				<List name="fireEvent" addItem="false" >
+					<event label="事件" control="ComboBox" dataProvider="QueryEvent" dataSource="outer"/>
+					<confirmMessage label="确认消息" control="TextInput"/>
+				</List>
+				<List name="other" addItem="false" >
+					<cmd label="执行命令" control="TextInput" />
+				</List>
+				<List name="customerALink" addItem="false" >
+					<alink label="ALink" control="TextInput" />
+				</List>
+				<List name="EntityForm" addItem="true">
+					<action label="执行动作" control="ComboBox" required="true" >
+						<dataProvider>
+							<item label="创建" value="create" />
+							<item label="编辑" value="edit" />
+							<item label="查看" value="view" />
+						</dataProvider>
+					</action>
+					<entityUID label="实体" control="DetailBox" detailWindow="ime.appworkshop.ApplicationItemSelectWindow" dataProvider="Entity" valueField="uid" dataSource="outer" />
+					<formUID label="表单" control="ComboBox" dataProvider="EntityForm@${this.param.param.entityUID}" dataSource="outer" />
+					<formState label="表单状态" control="ComboBox" dataProvider="FormState@${this.param.param.formUID}" dataSource="outer"/>
+					<title label="窗口标题" control="TextInput" />
+				</List>
+				<List name="EntityQuery" addItem="true">
+					<title label="窗口标题" control="TextInput" />
+					<entityUID label="实体" control="DetailBox" detailWindow="ime.appworkshop.ApplicationItemSelectWindow" dataProvider="Entity" valueField="uid" dataSource="outer" />
+					<queryUID label="查询定义" control="ComboBox" dataProvider="EntityQuery@${this.param.param.entityUID}" dataSource="outer" />
+				</List>
+				<List name="EntitySelectWindow" addItem="true">
+					<title label="窗口标题" control="TextInput" />
+					<entityUID label="实体" control="DetailBox" detailWindow="ime.appworkshop.ApplicationItemSelectWindow" dataProvider="Entity" valueField="uid" dataSource="outer" />
+					<labelField label="显示字段" control="ComboBox" dataProvider="Property@${this.param.param.entityUID}" dataSource="outer" />
+					<queryUID label="查询定义" control="ComboBox" dataProvider="EntityQuery@${this.param.param.entityUID}" dataSource="outer" />
+					<pageUID label="页面窗口" control="DetailBox" detailWindow="ime.appworkshop.ApplicationItemSelectWindow" dataProvider="QueryPage" valueField="uid" dataSource="outer" />
+					<selectName label="选择类型" control="TextInput" />
+				</List>
+				<List name="FreeForm" addItem="true">
+					<title label="窗口标题" control="TextInput" />
+					<formUID label="自由表单" control="DetailBox" detailWindow="ime.appworkshop.ApplicationItemSelectWindow" dataProvider="FreeForm" valueField="uid" dataSource="outer" />
+				</List>
+				<List name="PageWindow" addItem="true">
+					<title label="窗口标题" control="TextInput" />
+					<pageUID label="页面窗口" control="DetailBox" detailWindow="ime.appworkshop.ApplicationItemSelectWindow" dataProvider="QueryPage" valueField="uid" dataSource="outer" />
+				</List>
+				<List name="WorkflowTask" addItem="true">
+					<definitionUID label="工作流" control="ComboBox" dataProvider="WFDefinition" dataSource="outer" />
+					<taskUID label="起始任务" control="ComboBox" dataProvider="WFHumanStartTask.${this.param.param.definitionUID}" dataSource="outer"/>
+				</List>
+				<List name="FireEvent" addItem="true">
+					<confirm label="提示信息" control="TextInput" />
+					<event label="事件名称" control="ComboBox" dataProvider="QueryEvent" dataSource="outer" />
+				</List>
+			</definition>
+			<definition name="DataGridColumn">
+				<propertySheet>
+					<uid label="字段" editable="false" dataProvider="columnRef" dataSource="outer"/>
+					<label label="列名" control="TextInput" />
+					<width label="宽度" control="NumericStepper" minimum="10" maximum="1000" />
+					<editable label="可编辑" control="ComboBox">
+						<dataProvider>
+							<item label="是" value="true" />
+							<item label="否" value="false" />
+						</dataProvider>
+					</editable>
+					<itemEditor label="编辑控件" control="ComboBox" editable="this.editable == &quot;true&quot;" dataProvider="ColumnEditor" dataSource="outer"/>
+					<editorVal label="控件参数" control="List" definition="${this.itemEditor}" editable="this.editable == &quot;true&quot;"/>
+					<sortable label="可排序" control="ComboBox">
+						<dataProvider>
+							<item label="是" value="true" />
+							<item label="否" value="false" />
+						</dataProvider>
+					</sortable>
+					<textAlign label="对启方式" control="ComboBox">
+						<dataProvider>
+							<item label="左对启" value="left" />
+							<item label="居中" value="center" />
+							<item label="右对启" value="right" />
+						</dataProvider>
+					</textAlign>
+					<hyperlink label="超链接" control="ComboBox" dataProvider="Hyperlink" dataSource="outer" />
+				</propertySheet>
+				<List name="EntityField">
+					<entityUID label="实体" control="DetailBox" editable="false" detailWindow="ime.appworkshop.ApplicationItemSelectWindow" dataProvider="Entity" valueField="uid" dataSource="outer" />
+					<labelField label="名称属性" control="ComboBox" dataProvider="Property@${this.editorVal.entityUID}" dataSource="outer" />
+					<shortcutField label="快捷查询属性" control="ComboBox" dataProvider="Property@${this.editorVal.entityUID}" dataSource="outer" />
+					<formUID label="表单定义" control="ComboBox" dataProvider="EntityForm@${this.editorVal.entityUID}" dataSource="outer" />
+					<queryUID label="查询定义" control="ComboBox" dataProvider="EntityQuery@${this.editorVal.entityUID}" dataSource="outer" />
+					<pageUID label="页面定义" control="DetailBox" detailWindow="ime.appworkshop.ApplicationItemSelectWindow" dataProvider="QueryPage" valueField="uid" dataSource="outer" />
+					<forceAssociation  label="强制关联" control="ComboBox">
+						<dataProvider>
+							<item label="是" value="true" />
+							<item label="否" value="false" />
+						</dataProvider>	
+					</forceAssociation>
+					<mode label="操作模式" control="ComboBox">
+						<dataProvider>
+							<item label="选择" value="select" />
+							<item label="快捷输入" value="shortcutQuery" />
+							<item label="下拉" value="dropdown" />
+						</dataProvider>	
+					</mode>
+				</List>
+			</definition>
+			<definition name="DataGridActionColumn">
+				<propertySheet>
+					<label label="列名" control="TextInput" />
+					<width label="宽度" control="NumericStepper" minimum="10" maximum="1000" />
+					<textAlign label="对启方式" control="ComboBox">
+						<dataProvider>
+							<item label="左对启" value="left" />
+							<item label="居中" value="center" />
+							<item label="右对启" value="right" />
+						</dataProvider>
+					</textAlign>
+					<actions label="功能项" control="Array">
+						<itemDefinition>
+							<hyperlink label="功能" control="ComboBox" dataProvider="Hyperlink" dataSource="outer" />
+							<name label="名称" />
+						</itemDefinition>
+					</actions>
+				</propertySheet>
+			</definition>
+		</PropertySheetDefinition>	
+	</QueryEditor>
+	<QueryPageEditor>
+		<controls label="控件">
+			<Panel label="Panel" />
+			<TabNavigator label="TabNavigator" />
+			<HBox label="HBox" />
+			<HDividedBox label="HDividedBox" />
+			<VBox label="VBox" />
+			<VDividedBox label="VDividedBox" />
+			<MultilevelTree label="分级实体树" />
+			<CustomerControl label="自定义控件" />
+		</controls>
+		<PropertySheetDefinition>
+			<definition name="QueryPage">
+				<propertySheet>
+					<label label="名称" control="TextInput" />
+					<control label="布局控件" control="ComboBox" >
+						<dataProvider>
+							<item label="Panel" value="Panel" />
+							<item label="TabNavigator" value="TabNavigator" />
+							<item label="HBox" value="HBox" />
+							<item label="HDividedBox" value="HDividedBox" />
+							<item label="VBox" value="VBox" />
+							<item label="VDividedBox" value="VDividedBox" />
+						</dataProvider>
+					</control>
+					<layout label="布局" control="ComboBox" >
+						<dataProvider>
+							<item label="水平" value="horizontal" />
+							<item label="垂直" value="vertical" />
+						</dataProvider>
+					</layout>
+				</propertySheet>
+			</definition>
+			<definition name="Panel">
+				<propertySheet>
+					<title label="标题" control="TextInput" />
+					<layout label="布局" control="ComboBox" >
+						<dataProvider>
+							<item label="水平" value="horizontal" />
+							<item label="垂直" value="vertical" />
+						</dataProvider>
+					</layout>
+					<width label="宽度" control="TextInput" restrict="0-9%"/>
+					<height label="高度" control="TextInput" restrict="0-9%"/>
+					<control label="控件" control="ComboBox" >
+						<dataProvider>
+							<item label="Panel" value="Panel" />
+							<item label="TabNavigator" value="TabNavigator" />
+							<item label="HBox" value="HBox" />
+							<item label="HDividedBox" value="HDividedBox" />
+							<item label="VBox" value="VBox" />
+							<item label="VDividedBox" value="VDividedBox" />
+						</dataProvider>
+					</control>
+				</propertySheet>
+			</definition>
+			<definition name="LayoutControl">
+				<propertySheet>
+					<t_label label="显示名称" control="TextInput" />
+					<width label="宽度" control="TextInput" restrict="0-9%"/>
+					<height label="高度" control="TextInput" restrict="0-9%"/>
+					<control label="控件" control="ComboBox" >
+						<dataProvider>
+							<item label="Panel" value="Panel" />
+							<item label="TabNavigator" value="TabNavigator" />
+							<item label="HBox" value="HBox" />
+							<item label="HDividedBox" value="HDividedBox" />
+							<item label="VBox" value="VBox" />
+							<item label="VDividedBox" value="VDividedBox" />
+						</dataProvider>
+					</control>
+				</propertySheet>
+			</definition>
+			<definition name="QueryControl">
+				<propertySheet>
+					<name label="名称" control="TextInput" restrict="a-zA-Z0-9_"/>
+					<label label="显示名称" control="TextInput" />
+					<width label="宽度" control="TextInput" restrict="0-9%"/>
+					<height label="高度" control="TextInput" restrict="0-9%"/>
+				</propertySheet>
+			</definition>
+			<definition name="ReportControl">
+				<propertySheet>
+					<name label="名称" control="TextInput" restrict="a-zA-Z0-9_"/>
+					<label label="显示名称" control="TextInput" />
+					<width label="宽度" control="TextInput" restrict="0-9%"/>
+					<height label="高度" control="TextInput" restrict="0-9%"/>
+				</propertySheet>
+			</definition>
+			<definition name="MultilevelTree">
+				<propertySheet>
+					<name label="名称" control="TextInput" restrict="a-zA-Z0-9_"/>
+					<entityUID label="分级实体" control="DetailBox" detailWindow="ime.appworkshop.ApplicationItemSelectWindow" dataProvider="Entity" valueField="uid" dataSource="outer" />
+					<labelField label="名称属性" control="ComboBox" dataProvider="Field@${this.entityUID}" dataSource="outer" />
+					<parentIdField label="父节点ID" control="ComboBox" dataProvider="Field@${this.entityUID}" dataSource="outer" />
+					<queryUID label="查询定义" control="ComboBox" dataProvider="EntityQuery@${this.entityUID}" dataSource="outer" />
+					<formUID label="编辑表单" control="ComboBox" dataProvider="EntityForm@${this.entityUID}" dataSource="outer" />
+					<permission label="控制权限" control="DetailBox" detailWindow="ime.appworkshop.ApplicationItemSelectWindow" dataProvider="Permission" valueField="id" dataSource="outer" />
+					<domainLimit label="仅限登入域" control="ComboBox">
+						<dataProvider>
+							<item label="是" value="true" />
+							<item label="否" value="false" />
+						</dataProvider>
+					</domainLimit>
+					<width label="宽度" control="TextInput" restrict="0-9%"/>
+					<height label="高度" control="TextInput" restrict="0-9%"/>
+				</propertySheet>
+			</definition>
+			<definition name="CustomerControl">
+				<propertySheet>
+					<name label="名称" control="TextInput" restrict="a-zA-Z0-9_"/>
+					<width label="宽度" control="TextInput" restrict="0-9%"/>
+					<height label="高度" control="TextInput" restrict="0-9%"/>
+					<!--
+					<clazzName label="类名" control="TextInput" restrict="a-zA-Z0-9_."/>
+					-->
+					<type label="类型" control="ComboBox" dataProvider="CustomerControl" dataSource="outer" />
+					<properties label="属性" control="TextInput" />
+				</propertySheet>
+			</definition>
+		</PropertySheetDefinition>
+	</QueryPageEditor>
+	<ReportEditor>
+		<PropertySheetDefinition>
+			<definition name="Report">
+				<propertySheet>
+					<name label="名称" control="TextInput" />
+					<permission label="控制权限" control="DetailBox" detailWindow="ime.appworkshop.ApplicationItemSelectWindow" dataProvider="Permission" valueField="id" dataSource="outer" />
+					<save label="保存" control="ComboBox">
+						<dataProvider>
+							<item label="自动保存" value="auto" />
+							<item label="手动保存" value="manual" />
+						</dataProvider>
+					</save>
+				</propertySheet>
+			</definition>
+			<definition name="Table">
+				<propertySheet>
+					<table label="表格">
+						<name label="名称" control="TextInput" />
+						<fixedY label="固定Y坐标" control="ComboBox" dataProvider="yesno" />
+						<headRow label="表头行数" control="NumericStepper" minimum="0" maximum="10"/>
+						<tailRow label="表尾行数" control="NumericStepper" minimum="0" maximum="10"/>
+					</table>
+					<cell label="单元格">
+						<width label="width" control="NumericStepper" minimum="1" maximum="2147483647" />
+						<height label="height" control="NumericStepper" minimum="1" maximum="2147483647" />
+						<dataSource label="数据源" control="ComboBox" dataProvider="tableDataSource" dataSource="outer" />
+						<labelField label="显示字段" control="TextInput" />
+						<viewMode label="显示模式" control="ComboBox">
+							<dataProvider>
+								<item label="文本" value="text" />
+								<item label="html" value="html" />
+								<item label="方程" value="equation" />
+							</dataProvider>
+						</viewMode>
+						<fillMode   label="填充方式" control="ComboBox" >
+							<dataProvider>
+								<item label="无填充"   value="0" />
+								<item label="垂直填充" value="1" />
+								<item label="水平填充" value="2" />
+								<item label="双向填充" value="4" />
+							</dataProvider>
+						</fillMode>
+						<sameMerge label="合并相同单元格" control="ComboBox" editable="this.cell.fillMode == &quot;1&quot; || this.cell.fillMode == &quot;2&quot;">
+							<dataProvider>
+								<item label="是" value="true" />
+								<item label="否" value="false" />
+							</dataProvider>
+						</sameMerge>
+						<mergeExp label="合并条件" control="TextInput" editable="this.cell.sameMerge == &quot;true&quot;" />
+						<href label="超链接" control="TextArea" />
+					</cell>
+				</propertySheet>
+			</definition>
+			<definition name="text">
+				<propertySheet>
+					<x label="x" control="NumericStepper" minimum="1" maximum="2147483647" />
+					<y label="y" control="NumericStepper" minimum="1" maximum="2147483647" />
+					<width label="width" control="NumericStepper" minimum="1" maximum="2147483647" />
+					<height label="height" control="NumericStepper" minimum="1" maximum="2147483647" />
+				</propertySheet>
+			</definition>
+			<definition name="linkarea">
+				<propertySheet>
+					<x label="x" control="NumericStepper" minimum="1" maximum="2147483647" />
+					<y label="y" control="NumericStepper" minimum="1" maximum="2147483647" />
+					<width label="width" control="NumericStepper" minimum="1" maximum="2147483647" />
+					<height label="height" control="NumericStepper" minimum="1" maximum="2147483647" />
+					<url label="链接地址" control="TextInput"  />
+				</propertySheet>
+			</definition>
+			<definition name="image">
+				<propertySheet>
+					<x label="x" control="NumericStepper" minimum="1" maximum="2147483647" />
+					<y label="y" control="NumericStepper" minimum="1" maximum="2147483647" />
+					<width label="width" control="NumericStepper" minimum="1" maximum="2147483647" />
+					<height label="height" control="NumericStepper" minimum="1" maximum="2147483647" />
+					<url label="图片" control="Image"  />
+				</propertySheet>
+			</definition>
+			<definition name="chart">
+				<propertySheet>
+					<x label="x" control="NumericStepper" minimum="1" maximum="2147483647" />
+					<y label="y" control="NumericStepper" minimum="1" maximum="2147483647" />
+					<width label="width" control="NumericStepper" minimum="1" maximum="2147483647" />
+					<height label="height" control="NumericStepper" minimum="1" maximum="2147483647" />
+					<chartDef label="属性定义" control="DetailBox" detailWindow="ime.appstudio.ChartPropertyWindow"  />
+				</propertySheet>
+			</definition>
+			<definition name="PivotTable">
+				<propertySheet>
+					<x label="x" control="NumericStepper" minimum="1" maximum="2147483647" />
+					<y label="y" control="NumericStepper" minimum="1" maximum="2147483647" />
+					<width label="width" control="NumericStepper" minimum="1" maximum="2147483647" />
+					<height label="height" control="NumericStepper" minimum="1" maximum="2147483647" />
+					<pivotDef label="属性定义" control="DetailBox" detailWindow="ime.appstudio.PivotTableWindow"  />
+				</propertySheet>
+			</definition>
+		</PropertySheetDefinition>
+	</ReportEditor>
+	<WorkflowEditor>
+	</WorkflowEditor>
+	<MobileUIEditor>
+		<controlType>
+			<property type="string">
+				<control type="TextInput" label="TextInput"/>
+				<control type="Password" label="Password"/>
+				<control type="TextArea" label="TextArea"/>
+				<control type="BarCode" label="BarCode"/>
+			</property>
+			<property type="long">
+				<control type="TextInput" label="TextInput"/>
+				<control type="NumericStepper" label="NumericStepper"/>
+			</property>
+			<property type="double">
+				<control type="TextInput" label="TextInput"/>
+			</property>
+			<property type="timestamp">
+				<control type="DateField" label="DateField"/>
+				<control type="TimeEntry" label="TimeEntry"/>
+				<control type="DateTimeEntry" label="DateTimeEntry"/>
+			</property>
+			<property type="boolean">
+				<control type="CheckBox" label="CheckBox"/>
+			</property>
+			<property type="image">
+				<control type="ImageField" label="ImageField"/>
+			</property>
+			<property type="coding">
+				<control type="TextInput" label="TextInput"/>
+			</property>
+			<property type="attachments">
+				<control type="AttachmentList" label="AttachmentList"/>
+			</property>
+			<property type="relation">
+				<control type="EntityField" label="EntityField"/>
+			</property>
+			<property type="principal">
+				<control type="PrincipalSelectField" label="PrincipalSelectField"/>
+			</property>												
+			<property type="valueProvider">
+				<control type="ComboBox" label="ComboBox" />
+				<control type="MultiSelectBox"  label="MultiSelectBox"/>
+				<control type="SingleSelectBox" label="SingleSelectBox"/>
+			</property>
+	  	</controlType>
+	</MobileUIEditor>
+	<help>
+		<message key="Query.Condition.Property" note="查询条件中属性类型的帮助" >
+		</message>
+		<message key="Query.Condition.Parameter" note="查询条件中参数类型的帮助" >
+		</message>
+		<message key="Query.Condition.Literal" note="查询条件中字面值类型的帮助" >
+		</message>
+		<message key="Query.Condition.ServerValue" note="查询条件中计算值类型的帮助" >
+		</message>
+	</help>
+	<!-- JavaScript脚本代码类型库定义 -->
+	<TypeDB name="JavaScript">
+		<class name="String">
+			<constructor name="String">
+				<param name="s" type="String">要存储在 String 对象中或转换成原始字符串的值</param>
+			</constructor>
+			<property name="length" type="int">属性可返回字符串中的字符数目</property>
+			<method name="charAt" returnType="String">
+				返回指定位置的字符
+				<param name="index" type="int">必需。表示字符串中某个位置的数字，即字符在字符串中的下标。</param>
+				<return>指定位置的字符</return>
+			</method>
+			<method name="indexOf" returnType="int">
+				返回某个指定的字符串值在字符串中首次出现的位置。
+				<param name="searchValue" type="String">必需。规定需检索的字符串值。</param>
+				<param name="fromIndex" type="int">可选的整数参数。规定在字符串中开始检索的位置。它的合法取值是0到String.length-1。如省略该参数，则将从字符串的首字符开始检索。</param>
+				<return>指定的字符串值在字符串中首次出现的位置</return>
+			</method>
+			<method name="lastIndexOf" returnType="int">
+				返回一个指定的字符串值最后出现的位置，在一个字符串中的指定位置从后向前搜索。
+				<param name="searchValue" type="String">必需。规定需检索的字符串值。</param>
+				<param name="fromIndex" type="int">可选的整数参数。规定在字符串中开始检索的位置。它的合法取值是0到String.length-1。如省略该参数，则将从字符串的首字符开始检索。</param>
+				<return>指定的字符串值最后出现的位置</return>
+			</method>
+			<method name="match" returnType="String">
+				可在字符串内检索指定的值，或找到一个或多个正则表达式的匹配。
+				<param name="searchValue" type="String">必需。规定要检索的字符串值.</param>
+				<param name="regexp" type="RegExp">必需。规定要匹配的模式的 RegExp 对象。如果该参数不是 RegExp 对象，则需要首先把它传递给 RegExp 构造函数，将其转换为 RegExp 对象。</param>
+				<return>存放匹配结果的数组。</return>
+			</method>
+			<method name="replace" returnType="String">
+				在字符串中用一些字符替换另一些字符，或替换一个与正则表达式匹配的子串。
+				<param name="regexp/substr" type="RegExp">必需。规定子字符串或要替换的模式的 RegExp 对象。请注意，如果该值是一个字符串，则将它作为要检索的直接量文本模式，而不是首先被转换为 RegExp 对象。</param>
+				<param name="replacement" type="String">必需。一个字符串值。规定了替换文本或生成替换文本的函数。</param>
+				<return>一个新的字符串，是用 replacement 替换了 regexp 的第一次匹配或所有匹配之后得到的。</return>
+			</method>
+			<method name="search" returnType="int">
+				检索字符串中指定的子字符串，或检索与正则表达式相匹配的子字符串。
+				<param name="regexp" type="String">该参数可以是需要在 stringObject 中检索的子串，也可以是需要检索的 RegExp 对象。注释：要执行忽略大小写的检索，请追加标志 i。 </param>
+				<return>stringObject 中第一个与 regexp 相匹配的子串的起始位置。注释：如果没有找到任何匹配的子串，则返回 -1.</return>
+			</method>
+			<method name="slice" returnType="String">
+				提取字符串的某个部分，并以新的字符串返回被提取的部分。
+				<param name="start" type="int">要抽取的片断的起始下标。如果是负数，则该参数规定的是从字符串的尾部开始算起的位置。也就是说，-1 指字符串的最后一个字符，-2 指倒数第二个字符，以此类推。</param>
+				<param name="end" type="int">紧接着要抽取的片段的结尾的下标。若未指定此参数，则要提取的子串包括 start 到原字符串结尾的字符串。如果该参数是负数，那么它规定的是从字符串的尾部开始算起的位置。</param>
+				<return>一个新的字符串。包括字符串 stringObject 从 start 开始（包括 start）到 end 结束（不包括 end）为止的所有字符。</return>
+			</method>
+			<method name="split" returnType="Array">
+				把一个字符串分割成字符串数组。
+				<param name="separator" type="String">必需。字符串或正则表达式，从该参数指定的地方分割 stringObject</param>
+				<param name="howmany" type="int">可选。该参数可指定返回的数组的最大长度。如果设置了该参数，返回的子串不会多于这个参数指定的数组。如果没有设置该参数，整个字符串都会被分割，不考虑它的长度。</param>
+				<return>一个字符串数组。</return>
+			</method>
+			<method name="substr" returnType="String">
+				在字符串中抽取从 start 下标开始的指定数目的字符。
+				<param name="start" type="int">必需。要抽取的子串的起始下标。必须是数值。如果是负数，那么该参数声明从字符串的尾部开始算起的位置。也就是说，-1 指字符串中最后一个字符，-2 指倒数第二个字符，以此类推。</param>
+				<param name="length" type="int">可选。子串中的字符数。必须是数值。如果省略了该参数，那么返回从 stringObject 的开始位置到结尾的字串。</param>
+				<return>一个新的字符串，包含从 stringObject 的 start（包括 start 所指的字符） 处开始的 lenght 个字符。如果没有指定 lenght，那么返回的字符串包含从 start 到 stringObject 的结尾的字符。</return>
+			</method>
+			<method name="substring" returnType="String">
+				提取字符串中介于两个指定下标之间的字符.
+				<param name="start" type="int">必需。一个非负的整数，规定要提取的子串的第一个字符在 stringObject 中的位置。</param>
+				<param name="stop" type="int">可选。一个非负的整数，比要提取的子串的最后一个字符在 stringObject 中的位置多 1。如果省略该参数，那么返回的子串会一直到字符串的结尾。 </param>
+				<return>一个新的字符串，该字符串值包含 stringObject 的一个子字符串，其内容是从 start 处到 stop-1 处的所有字符，其长度为 stop 减 start。</return>
+			</method>
+			<method name="toLowerCase" returnType="String">
+				把字符串转换为小写
+				<return>一个新的字符串，在其中 stringObject 的所有大写字符全部被转换为了小写字符。</return>
+			</method>
+			<method name="toUpperCase" returnType="String">
+				把字符串转换为大写。
+				<return>一个新的字符串，在其中 stringObject 的所有小写字符全部被转换为了大写字符。</return>
+			</method>
+		</class>
+		<class name="Array">
+			<constructor name="Array">
+				<param name="element ..., elementn" type="Object">参数列表。当使用这些参数来调用构造函数 Array() 时，新创建的数组的元素就会被初始化为这些值。它的 length 字段也会被设置为参数的个数。</param>
+			</constructor>
+			<property name="length" type="int">属性可设置或返回数组中元素的数目</property>
+			<method name="concat" returnType="Array">
+				连接两个或多个数组.
+				<param name="arrayX" type="Array">必需。该参数可以是具体的值，也可以是数组对象。可以是任意多个。</param>
+				<return>返回一个新的数组。</return>
+			</method>
+			<method name="join" returnType="String">
+				把数组中的所有元素放入一个字符串.
+				<param name="separator" type="String">可选。指定要使用的分隔符。如果省略该参数，则使用逗号作为分隔符。</param>
+				<return>返回一个字符串。该字符串是通过把 arrayObject 的每个元素转换为字符串，然后把这些字符串连接起来，在两个元素之间插入 separator 字符串而生成的。</return>
+			</method>
+			<method name="pop" returnType="Object">
+				删除并返回数组的最后一个元素。
+				<return>arrayObject 的最后一个元素。</return>
+			</method>
+			<method name="push" returnType="int">
+				向数组的末尾添加一个或多个元素，并返回新的长度。
+				<param name="newelement1" type="Object">必需。要添加到数组的第一个元素。</param>
+				<param name="newelement2" type="Object">可选。要添加到数组的第二个元素。</param>
+				<param name="newelementX" type="Object">可选。可添加多个元素。</param>
+				<return>把指定的值添加到数组后的新长度。</return>
+			</method>
+			<method name="reverse" returnType="Array">
+				用于颠倒数组中元素的顺序。
+				<return>返回颠倒过的数组.</return>
+			</method>
+			<method name="shift" returnType="Object">
+				把数组的第一个元素从其中删除，并返回第一个元素的值.
+				<return>数组原来的第一个元素的值。如果数组是空的，那么 shift() 方法将不进行任何操作，返回 undefined 值。</return>
+			</method>
+			<method name="slice" returnType="Array">
+				从已有的数组中返回选定的元素。请注意，该方法并不会修改数组，而是返回一个子数组。
+				<param name="start" type="int">必需。规定从何处开始选取。如果是负数，那么它规定从数组尾部开始算起的位置。也就是说，-1 指最后一个元素，-2 指倒数第二个元素，以此类推。</param>
+				<param name="end" type="int">可选。规定从何处结束选取。该参数是数组片断结束处的数组下标。如果没有指定该参数，那么切分的数组包含从 start 到数组结束的所有元素。如果这个参数是负数，那么它规定的是从数组尾部开始算起的元素。</param>
+				<return>返回一个新的数组，包含从 start 到 end （不包括该元素）的 arrayObject 中的元素。</return>
+			</method>
+			<method name="sort" returnType="Array">
+				对数组的元素进行排序。
+				<param name="sortby" type="function">可选。规定排序顺序。必须是函数。</param>
+				<return>对数组的引用。请注意，数组在原数组上进行排序，不生成副本。</return>
+			</method>
+			<method name="splice" returnType="Array">
+				用于插入、删除或替换数组的元素.
+				<param name="index" type="int">必需。规定从何处添加/删除元素。该参数是开始插入和（或）删除的数组元素的下标，必须是数字。</param>
+				<param name="howmany" type="int">必需。规定应该删除多少元素。必须是数字，但可以是 "0"。如果未规定此参数，则删除从 index 开始到原数组结尾的所有元素。</param>
+				<param name="element1" type="Object">可选。规定要添加到数组的新元素。从 index 所指的下标处开始插入。</param>
+				<param name="...elementX" type="Object">可选。可向数组添加若干元素。</param>
+				<return>如果从 arrayObject 中删除了元素，则返回的是含有被删除的元素的数组。</return>
+			</method>
+			<method name="toString" returnType="String">
+				可把数组转换为字符串，并返回结果。
+				<return>arrayObject 的字符串表示。返回值与没有参数的 join() 方法返回的字符串相同。</return>
+			</method>
+			<method name="unshift" returnType="int">
+				向数组的开头添加一个或更多元素，并返回新的长度。
+				<param name="newelement1" type="Object">必需。向数组添加的第一个元素。</param>
+				<param name="newelement2" type="Object">可选。向数组添加的第二个元素。</param>
+				<param name="newelementX" type="Object">可选。可添加若干个元素。</param>
+				<return>arrayObject 的新长度。</return>
+			</method>
+		</class>
+		<class name="Date">
+			<constructor name="Date">
+			</constructor>
+			<method name="getDate" returnType="int">
+				可返回月份的某一天。
+				<return>dateObject 所指的月份中的某一天，使用本地时间。返回值是 1 ~ 31 之间的一个整数。</return>
+			</method>
+			<method name="getDay" returnType="int">
+				可返回表示星期的某一天的数字。
+				<return>dateObject 所指的星期中的某一天，使用本地时间。返回值是 0（周日） 到 6（周六） 之间的一个整数。</return>
+			</method>
+			<method name="getMonth" returnType="int">
+				可返回表示月份的数字。
+				<return>dateObject 的月份字段，使用本地时间。返回值是 0（一月） 到 11（十二月） 之间的一个整数。</return>
+			</method>
+			<method name="getFullYear" returnType="int">
+				可返回一个表示年份的 4 位数字。
+				<return>当 dateObject 用本地时间表示时返回的年份。返回值是一个四位数，表示包括世纪值在内的完整年份，而不是两位数的缩写形式。</return>
+			</method>
+			<method name="getHours" returnType="int">
+				可返回时间的小时字段。
+				<return>dateObject 的小时字段，以本地时间显示。返回值是 0 （午夜） 到 23 （晚上 11 点）之间的一个整数。</return>
+			</method>
+			<method name="getMinutes" returnType="int">
+				可返回时间的分钟字段。
+				<return>dateObject 的分钟字段，以本地时间显示。返回值是 0 ~ 59 之间的一个整数。</return>
+			</method>
+			<method name="getSeconds" returnType="int">
+				可返回时间的秒。
+				<return>dateObject 的秒钟字段，以本地时间显示。返回值是 0 ~ 59 之间的一个整数。</return>
+			</method>
+			<method name="getMilliseconds" returnType="int">
+				可返回时间的毫秒。
+				<return>dateObject 的毫秒字段，以本地时间显示。返回值是 0 ~ 999 之间的一个整数。</return>
+			</method>
+			<method name="getTime" returnType="int">
+				可返回距 1970 年 1 月 1 日之间的毫秒数。
+				<return>dateObject 指定的日期和时间距 1970 年 1 月 1 日午夜（GMT 时间）之间的毫秒数。</return>
+			</method>
+			<method name="getTimezoneOffset" returnType="int">
+				可返回格林威治时间和本地时间之间的时差，以分钟为单位。
+				<return>本地时间与 GMT 时间之间的时间差，以分钟为单位。</return>
+			</method>
+			<method name="getUTCDate" returnType="int">
+				可根据世界时返回一个月 (UTC) 中的某一天。
+				<return>dateObject 用世界时表示时，返回该月中的某一天 （是 1 ~ 31 中的一个值）。</return>
+			</method>
+			<method name="getUTCDay" returnType="int">
+				根据世界时返回表示星期的一天的一个数字。
+				<return>dateObject 用世界时表示时，返回该星期中的某一天 ，该值是 0（星期天） ~ 6（星期六） 中的一个值。</return>
+			</method>
+			<method name="getUTCMonth" returnType="int">
+				可返回一个表示月份的数字（按照世界时 UTC）。
+				<return>返回 dateObject 用世界时表示时的月份，该值是 0（一月） ~ 11（十二月） 之间中的一个整数。</return>
+			</method>
+			<method name="getUTCFullYear" returnType="int">
+				可返回根据世界时 (UTC) 表示的年份的四位数字。
+				<return>返回 dateObject 用世界时表示时的年份，该值是一个四位的整数，而不是两位数的缩写。</return>
+			</method>
+			<method name="getUTCHours" returnType="int">
+				可根据世界时 (UTC) 返回时间的小时。
+				<return>返回 dateObject 用世界时表示时的小时字段，该值是一个 0（午夜） ~ 23（晚上 11 点） 之间的整数。</return>
+			</method>
+			<method name="getUTCMinutes" returnType="int">
+				可根据世界时 (UTC) 返回时间的分钟字段。
+				<return>返回 dateObject 用世界时表示时的分钟字段，该值是一个 0 ~ 59 之间的整数。</return>
+			</method>
+			<method name="getUTCSeconds" returnType="int">
+				可根据世界时返回时间的秒.
+				<return>当 dateObject 用世界时表示时，返回它的秒字段，该值是一个 0 ~ 59 之间的整数。</return>
+			</method>
+			<method name="getUTCMilliseconds" returnType="int">
+				可根据世界时 (UTC) 返回时间的毫秒。
+				<return>当 dateObject 用世界时表示时，返回它的毫秒字段，该值是一个 0 ~ 999 之间的整数。</return>
+			</method>
+			<method name="parse" returnType="int">
+				可解析一个日期时间字符串，并返回 1970/1/1 午夜距离该日期时间的毫秒数。
+				<param name="datestring" type="String">必需。表示日期和时间的字符串。</param>
+				<return>指定的日期和时间据 1970/1/1 午夜（GMT 时间）之间的毫秒数。</return>
+			</method>
+			<method name="setDate" returnType="int">
+				用于设置一个月的某一天。
+				<param name="day" type="int">必需。表示一个月中的一天的一个数值（1 ~ 31）。</param>
+				<return>调整过的日期的毫秒表示。</return>
+			</method>
+			<method name="setMonth" returnType="int">
+				用于设置月份。
+				<param name="month" type="int">必需。一个表示月份的数值，该值介于 0（一月） ~ 11（十二月） 之间。</param>
+				<param name="day" type="int">可选。一个表示月的某一天的数值，该值介于 1 ~ 31 之间（以本地时间计）。在 EMCAScript 标准化之前，不支持该参数。</param>
+				<return>调整过的日期的毫秒表示。</return>
+			</method>
+			<method name="setFullYear" returnType="int">
+				用于设置年份。
+				<param name="year" type="int">必需。表示年份的四位整数。用本地时间表示。</param>
+				<param name="month" type="int">可选。表示月份的数值，介于 0 ~ 11 之间。用本地时间表示。</param>
+				<param name="day" type="int">可选。表示月中某一天的数值，介于 1 ~ 31 之间。用本地时间表示。</param>
+				<return>返回调整过的日期的毫秒表示。</return>
+			</method>
+			<method name="setHours" returnType="int">
+				用于设置指定的时间的小时字段。
+				<param name="hour" type="int">必需。表示小时的数值，介于 0（午夜） ~ 23（晚上11点） 之间，以本地时间计（下同）。</param>
+				<param name="min" type="int">可选。表示分钟的数值，介于 0 ~ 59 之间。在 EMCAScript 标准化之前，不支持该参数。</param>
+				<param name="sec" type="int">可选。表示秒的数值，介于 0 ~ 59 之间。在 EMCAScript 标准化之前，不支持该参数。</param>
+				<param name="millisec" type="int">可选。表示毫秒的数值，介于 0 ~ 999之间。在 EMCAScript 标准化之前，不支持该参数。</param>
+				<return>调整过的日期的毫秒表示。</return>
+			</method>
+			<method name="setMinutes" returnType="int">
+				用于设置指定时间的分钟字段。
+				<param name="min" type="int">必需。表示分钟的数值，介于 0 ~ 59 之间，以本地时间计（下同）。</param>
+				<param name="sec" type="int">可选。表示秒的数值，介于 0 ~ 59 之间。在 EMCAScript 标准化之前，不支持该参数。</param>
+				<param name="millisec" type="int">可选。表示毫秒的数值，介于 0 ~ 999 之间。在 EMCAScript 标准化之前，不支持该参数。</param>
+				<return>调整过的日期的毫秒表示。</return>
+			</method>
+			<method name="setSeconds" returnType="int">
+				用于设置指定时间的秒钟字段。
+				<param name="sec" type="int">必需。表示秒的数值，该值是介于 0 ~ 59 之间的整数。</param>
+				<param name="millisec" type="int">可选。表示毫秒的数值，介于 0 ~ 999 之间。在 EMCAScript 标准化之前，不支持该参数。</param>
+				<return>调整过的日期的毫秒表示。</return>
+			</method>
+			<method name="setMilliseconds" returnType="int">
+				用于设置指定时间的毫秒字段。
+				<param name="millisec" type="int">必需。用于设置 dateObject 毫秒字段，该参数是介于 0 ~ 999 之间的整数。</param>
+				<return>调整过的日期的毫秒表示。</return>
+			</method>
+			<method name="setTime" returnType="int">
+				以毫秒设置 Date 对象。
+				<param name="millisec" type="int">必需。要设置的日期和时间据 GMT 时间 1970 年 1 月 1 日午夜之间的毫秒数。这种类型的毫秒值可以传递给 Date() 构造函数，可以通过调用 Date.UTC() 和 Date.parse() 方法获得该值。以毫秒形式表示日期可以使它独立于时区。</param>
+				<return>返回参数 millisec。</return>
+			</method>
+			<method name="setUTCDate" returnType="int">
+				用于根据世界时 (UTC) 设置一个月中的某一天。
+				<param name="day" type="int">必需。要给 dateObject 设置的一个月中的某一天，用世界时表示。该参数是 1 ~ 31 之间的整数。</param>
+				<return>调整过的日期的毫秒表示。</return>
+			</method>
+			<method name="setUTCMonth" returnType="int">
+				用于根据世界时 (UTC) 来设置月份。
+				<param name="month" type="int">必需。要给 dateObject 设置的月份字段的值，用世界时表示。该参数是 0（一月） ~ 11（十二月） 之间的整数。</param>
+				<param name="day" type="int">可选。在 1 ~ 31 之间的整数，用作 dateObject 的天字段，用世界时表示。</param>
+				<return>调整过的日期的毫秒表示。</return>
+			</method>
+			<method name="setUTCFullYear" returnType="int">
+				用于根据世界时 (UTC) 设置年份。
+				<param name="year" type="int">必需。要给 dateObject 设置的年份字段的值。该参数应该是含有世纪值的完整年份，如 1999，而不只是缩写的年份值，比如 99。</param>
+				<param name="month" type="int">可选。要给 dateObject 设置的月份字段的值。使用世界时表示。该参数是 0 ~ 11 之间的整数。</param>
+				<param name="day" type="int">可选。要给 dateObject 设置的天字段的值。使用世界时表示。该参数是 1 ~ 31 之间的整数。</param>
+				<return>返回调整过的日期的毫秒表示。</return>
+			</method>
+			<method name="setUTCHours" returnType="int">
+				用于根据世界时 (UTC) 设置小时（0 - 23）。
+				<param name="hour" type="int">必需。要给 dateObject 设置的小时字段的值。该参数是 0 ~ 23 之间的整数。</param>
+				<param name="min" type="int">可选。要给 dateObject 设置的分钟字段的值。该参数是 0 ~ 59 之间的整数。</param>
+				<param name="sec" type="int">可选。要给 dateObject 设置的秒字段的值。该参数是 0 ~ 59 之间的整数。</param>
+				<param name="millisec" type="int">可选。要给 dateObject 设置的毫秒字段的值。该参数是 1 ~ 999 之间的整数。</param>
+				<return>调整过的日期的毫秒表示。</return>
+			</method>
+			<method name="setUTCMinutes" returnType="int">
+				用于根据世界时 (UTC) 来设置指定时间的分钟。
+				<param name="min" type="int">必需。要给 dateObject 设置的分钟字段的值，用世界时表示。该参数应该是 0 ~ 59 之间的整数。</param>
+				<param name="sec" type="int">可选。要给 dateObject 设置的秒字段的值。使用世界时表示。该参数是 0 ~ 59 之间的整数。</param>
+				<param name="millisec" type="int">可选。要给 dateObject 设置的毫秒字段的值。使用世界时表示。该参数是 0 ~ 999 之间的整数。</param>
+				<return>调整过的日期的毫秒表示。</return>
+			</method>
+			<method name="setUTCSeconds" returnType="int">
+				用于根据世界时 (UTC) 设置指定时间的秒。
+				<param name="sec" type="int">必需。要给 dateObject 设置的秒字段的值。使用世界时表示。该参数是 0 ~ 59 之间的整数。</param>
+				<param name="millisec" type="int">可选。要给 dateObject 设置的毫秒字段的值。使用世界时表示。该参数是 0 ~ 999 之间的整数。</param>
+				<return>调整过的日期的毫秒表示。</return>
+			</method>
+			<method name="setUTCMilliseconds" returnType="int">
+				用于根据世界时 (UTC) 设置指定时间的毫秒。
+				<param name="millisec" type="int">必需。要给 dateObject 设置的毫秒字段的值。使用世界时表示。该参数是 0 ~ 999 之间的整数。</param>
+				<return>调整过的日期的毫秒表示。</return>
+			</method>
+			<method name="toString" returnType="String">
+				可把 Date 对象转换为字符串，并返回结果。
+				<return>dateObject 的字符串表示，使用本地时间表示。</return>
+			</method>
+			<method name="toTimeString" returnType="String">
+				可把 Date 对象的时间部分转换为字符串，并返回结果。
+				<return>dateObject 的时间部分的字符串表示，由实现决定，使用本地时间表示。</return>
+			</method>
+			<method name="toDateString" returnType="String">
+				可把 Date 对象的日期部分转换为字符串，并返回结果。
+				<return>dateObject 的日期部分的字符串表示，由实现决定，使用本地时间表示。</return>
+			</method>
+			<method name="toUTCString" returnType="String">
+				可根据世界时 (UTC) 把 Date 对象转换为字符串，并返回结果。
+				<return>dateObject 的字符串表示，用世界时表示。</return>
+			</method>
+			<method name="toLocaleString" returnType="String">
+				可根据本地时间把 Date 对象转换为字符串，并返回结果。
+				<return>dateObject 的字符串表示，以本地时间区表示，并根据本地规则格式化。</return>
+			</method>
+			<method name="toLocaleTimeString" returnType="String">
+				可根据本地时间把 Date 对象的时间部分转换为字符串，并返回结果。
+				<return>dateObject 的时间部分的字符串表示，以本地时间区表示，并根据本地规则格式化。</return>
+			</method>
+			<method name="toLocaleDateString" returnType="String">
+				可根据本地时间把 Date 对象的日期部分转换为字符串，并返回结果。
+				<return>dateObject 的日期部分的字符串表示，以本地时间区表示，并根据本地规则格式化。</return>
+			</method>
+		</class>
+		<class name="Math">
+			<property name="E" type="double">代表算术常量 e，即自然对数的底数，其值近似于 2.71828。</property>
+			<property name="LN2" type="double">就是 loge2，即 2 的自然对数，其值近似于 0.69314718055994528623。</property>
+			<property name="LN10" type="double">就是 loge10，即 10 的自然对数，其值近似于 2.3025850929940459011。</property>
+			<property name="LOG2E" type="double">就是 log2e，即以 2 为底 e 的对数，其值近似于 1.442695040888963387。</property>
+			<property name="LOG10E" type="double">就是 log10e，即以 10 为底 e 的对数，其值近似于 0.43429448190325181667。</property>
+			<property name="PI" type="double">就是 π，即圆的周长和它的直径之比。这个值近似为 3.141592653589793。</property>
+			<property name="SQRT1_2" type="double">返回 2 的平方根的倒数。这个值近似为 0.7071067811865476。</property>
+			<property name="SQRT2" type="double">返回 2 的平方根。这个值近似为 1.4142135623730951。</property>
+			<method name="abs" returnType="Number">
+				可返回数的绝对值。
+				<param name="x" type="Number">必需。必须是一个数值。</param>
+				<return>x 的绝对值。</return>
+			</method>
+			<method name="acos" returnType="Number">
+				可返回一个数的反余弦。
+				<param name="x" type="Number">必需。必须是 -1.0 ~ 1.0 之间的数。</param>
+				<return>x 的反余弦值。返回的值是 0 到 PI 之间的弧度值。</return>
+			</method>
+			<method name="asin" returnType="Number">
+				可返回一个数的反正弦值。
+				<param name="x" type="Number">必需。必须是一个数值，该值介于 -1.0 ~ 1.0 之间。</param>
+				<return>x 的反正弦值。返回的值是 -PI/2 到 PI/2 之间的弧度值。</return>
+			</method>
+			<method name="atan" returnType="Number">
+				可返回数字的反正切值。
+				<param name="x" type="Number">必需。必须是一个数值。</param>
+				<return>x 的反正切值。返回的值是 -PI/2 到 PI/2 之间的弧度值。</return>
+			</method>
+			<method name="atan2" returnType="Number">
+				可返回从 x 轴到点 (x,y) 之间的角度。
+				<param name="x" type="Number">必需。指定点的 X 坐标。</param>
+				<param name="y" type="Number">必需。指定点的 Y 坐标。</param>
+				<return>-PI 到 PI 之间的值，是从 X 轴正向逆时针旋转到点 (x,y) 时经过的角度。</return>
+			</method>
+			<method name="ceil" returnType="int">
+				可对一个数进行上舍入。
+				<param name="x" type="Number">必需。必须是一个数值。</param>
+				<return>大于等于 x，并且与它最接近的整数。</return>
+			</method>
+			<method name="cos" returnType="Number">
+				可返回一个数字的余弦值。
+				<param name="x" type="Number">必需。必须是一个数值。</param>
+				<return>x 的余弦值。返回的是 -1.0 到 1.0 之间的数。</return>
+			</method>
+			<method name="exp" returnType="Number">
+				可返回 e 的 x 次幂的值。
+				<param name="x" type="Number">必需。任意数值或表达式。被用作指数。</param>
+				<return>返回 e 的 x 次幂。e 代表自然对数的底数，其值近似为 2.71828。</return>
+			</method>
+			<method name="floor" returnType="int">
+				可对一个数进行下舍入。
+				<param name="x" type="Number">必需。任意数值或表达式。</param>
+				<return>小于等于 x，且与 x 最接近的整数。</return>
+			</method>
+			<method name="log" returnType="Number">
+				可返回一个数的自然对数。
+				<param name="x" type="Number">必需。任意数值或表达式。</param>
+				<return>x 的自然对数。</return>
+			</method>
+			<method name="max" returnType="Number">
+				可返回两个指定的数中带有较大的值的那个数。
+				<param name="x" type="Number">任意数值</param>
+				<param name="y" type="Number">任意数值</param>
+				<return>参数中最大的值。如果没有参数，则返回 -Infinity。如果有某个参数为 NaN，或是不能转换成数字的非数字值，则返回 NaN。</return>
+			</method>
+			<method name="min" returnType="Number">
+				可返回指定的数字中带有最低值的数字。
+				<param name="x" type="Number">任意数值</param>
+				<param name="y" type="Number">任意数值</param>
+				<return>参数中最小的值。如果没有参数，则返回 Infinity。如果有某个参数为 NaN，或是不能转换成数字的非数字值，则返回 NaN。</return>
+			</method>
+			<method name="pow" returnType="int">
+				可返回 x 的 y 次幂的值。
+				<param name="x" type="int">必需。底数。必须是数字。</param>
+				<param name="y" type="int">必需。幂数。必须是数字。</param>
+				<return>x 的 y 次幂。</return>
+			</method>
+			<method name="random" returnType="Number">
+				可返回介于 0 ~ 1 之间的一个随机数。
+				<return>0.0 ~ 1.0 之间的一个伪随机数。</return>
+			</method>
+			<method name="round" returnType="int">
+				可把一个数字舍入为最接近的整数。
+				<param name="x" type="Number">必需。必须是数字。</param>
+				<return>与 x 最接近的整数。</return>
+			</method>
+			<method name="sin" returnType="Number">
+				可返回一个数字的正弦。
+				<param name="x" type="Number">必需。一个以弧度表示的角。将角度乘以 0.017453293 （2PI/360）即可转换为弧度。</param>
+				<return>参数 x 的正弦值。返回值在 -1.0 到 1.0 之间。</return>
+			</method>
+			<method name="sqrt" returnType="Number">
+				可返回一个数的平方根。
+				<param name="x" type="Number">必需。必须是大于等于 0 的数。</param>
+				<return>参数 x 的平方根。如果 x 小于 0，则返回 NaN。</return>
+			</method>
+			<method name="tan" returnType="Number">
+				可返回一个表示某个角的正切的数字。
+				<param name="x" type="Number">必需。一个以弧度表示的角。将角度乘以 0.017453293 （2PI/360）即可转换为弧度。</param>
+				<return>参数 x 的正切值。</return>
+			</method>
+		</class>
+		<class name="JSON">
+			<method name="stringify" returnType="String">
+				返回 JSON 格式的字符串
+				<param name="value" type="Object">必需。要转换为 JSON 字符串的 JavaScript 值。</param>
+				<param name="replacer" type="Object">（可选）在 stringify 输出中转换或过滤键/值对的函数或数组。</param>
+				<param name="space" type="Object">（可选）控制在返回的字符串中添加的空格的字符串或数字。</param>
+				<return>JSON 格式的字符串。</return>
+			</method>
+			<method name="parse" returnType="Object">
+				接受 JSON 格式的字符串并返回表示该值的 JavaScript 对象。
+				<param name="text" type="String">要解析的 JSON 字符串。</param>
+				<param name="reviver" type="function">（可选）转换每个解析的键/值对的函数。</param>
+				<return>JavaScript 对象。</return>
+			</method>
+		</class>
+		<class name="Number">
+			<constructor name="Number">
+				<param name="value" type="Number">要创建的 Number 对象的数值，或是要转换成数字的值。</param>
+			</constructor>
+			<property name="MAX_VALUE" type="Number">可表示的最大的数。它的近似值为 1.7976931348623157 x 10308。</property>
+			<property name="MIN_VALUE" type="Number">可表示的最小的数（接近 0 ，但不是负数）。它的近似值为 5 x 10-324。</property>
+			<property name="NaN" type="String">NaN 属性是代表非数字值的特殊值。</property>
+			<property name="NEGATIVE_INFINITY" type="">代表负无穷大。</property>
+			<property name="POSITIVE_INFINITY" type="">代表正无穷大。</property>
+			<method name="toString" returnType="String">
+				把一个 Number 对象转换为一个字符串，并返回结果。
+				<param name="radix" type="int">可选。规定表示数字的基数，使 2 ~ 36 之间的整数。若省略该参数，则使用基数 10。但是要注意，如果该参数是 10 以外的其他值，则 ECMAScript 标准允许实现返回任意值。</param>
+				<return>数字的字符串表示。</return>
+			</method>
+			<method name="toLocaleString" returnType="String">
+				可把一个 Number 对象转换为本地格式的字符串。
+				<return>数字的字符串表示，由实现决定，根据本地规范进行格式化，可能影响到小数点或千分位分隔符采用的标点符号。</return>
+			</method>
+			<method name="toFixed" returnType="String">
+				可把 Number 四舍五入为指定小数位数的数字。
+				<param name="num" type="Number">必需。规定小数的位数，是 0 ~ 20 之间的值，包括 0 和 20，有些实现可以支持更大的数值范围。如果省略了该参数，将用 0 代替。</param>
+				<return>返回 NumberObject 的字符串表示，不采用指数计数法，小数点后有固定的 num 位数字。</return>
+			</method>
+			<method name="toExponential" returnType="String">
+				可把对象的值转换成指数计数法。
+				<param name="num" type="Number">必需。规定指数计数法中的小数位数，是 0 ~ 20 之间的值，包括 0 和 20，有些实现可以支持更大的数值范围。如果省略了该参数，将使用尽可能多的数字。</param>
+				<return>返回 NumberObject 的字符串表示，采用指数计数法，即小数点之前有一位数字，小数点之后有 num 位数字。</return>
+			</method>
+			<method name="toPrecision" returnType="String">
+				可在对象的值超出指定位数时将其转换为指数计数法。
+				<param name="num" type="Number">必需。规定必须被转换为指数计数法的最小位数。该参数是 1 ~ 21 之间（且包括 1 和 21）的值。有效实现允许有选择地支持更大或更小的 num。如果省略了该参数，则调用方法 toString()，而不是把数字转换成十进制的值。</param>
+				<return>返回 NumberObject 的字符串表示，包含 num 个有效数字。</return>
+			</method>
+		</class>
+		<class name="Object">
+			<constructor name="Object">
+			</constructor>
+			<method name="hasOwnProperty" returnType="Boolean">
+				是否拥有指定的属性值
+				<param name="name" type="String">属性名称</param>
+				<return>true/false</return>
+			</method>
+		</class>
+		<class name="Boolean">
+			<constructor name="Boolean">
+				<param name="value" type="Boolean">要转换成布尔的值。</param>
+			</constructor>
+			<method name="toString" returnType="String">
+				把一个 Boolean 对象转换为一个字符串，并返回结果。
+				<return>布尔的字符串表示</return>
+			</method>
+			<method name="valueOf" returnType="Boolean">
+				把一个 对象转换为布尔值，并返回结果。
+				<param name="value" type="Object">要转换成布尔的值。</param>
+				<return>转换后的布尔值</return>
+			</method>
+		</class>
+		<method name="include" returnType="void">
+			装入其他JavaScript文件
+			<param name="file" type="String">JavaScript文件</param>
+		</method>
+		<method name="decodeURI" returnType="String">
+			可对 encodeURI() 函数编码过的 URI 进行解码。
+			<param name="URIstring" type="String">必需。一个字符串，含有要解码的 URI 或其他要解码的文本。</param>
+			<return>URIstring 的副本，其中的十六进制转义序列将被它们表示的字符替换。</return>
+		</method>
+		<method name="decodeURIComponent" returnType="String">
+			可对 encodeURIComponent() 函数编码的 URI 进行解码。
+			<param name="URIstring" type="String">必需。一个字符串，含有要解码的 URI 或其他要解码的文本。</param>
+			<return>URIstring 的副本，其中的十六进制转义序列将被它们表示的字符替换。</return>
+		</method>
+		<method name="encodeURI" returnType="String">
+			可把字符串作为 URI 进行编码。
+			<param name="URIstring" type="String">必需。一个字符串，含有 URI 或其他要编码的文本。</param>
+			<return>URIstring 的副本，其中的某些字符将被十六进制的转义序列进行替换。</return>
+		</method>
+		<method name="encodeURIComponent" returnType="String">
+			可把字符串作为 URI 组件进行编码。
+			<param name="URIstring" type="String">必需。一个字符串，含有 URI 组件 或其他要编码的文本。</param>
+			<return>URIstring 的副本，其中的某些字符将被十六进制的转义序列进行替换。</return>
+		</method>
+		<method name="escape" returnType="String">
+			可对字符串进行编码，这样就可以在所有的计算机上读取该字符串。
+			<param name="string" type="String">必需。要被转义或编码的字符串。</param>
+			<return>已编码的 string 的副本。其中某些字符被替换成了十六进制的转义序列。</return>
+		</method>
+		<method name="eval" returnType="String">
+			可计算某个字符串，并执行其中的的 JavaScript 代码。
+			<param name="string" type="String">必需。要计算的字符串，其中含有要计算的 JavaScript 表达式或要执行的语句。</param>
+			<return>通过计算 string 得到的值（如果有的话）。</return>
+		</method>
+		<method name="isFinite" returnType="boolean">
+			用于检查其参数是否是无穷大。
+			<param name="number" type="Number">必需。要检测的数字。</param>
+			<return>如果 number 是有限数字（或可转换为有限数字），那么返回 true。否则，如果 number 是 NaN（非数字），或者是正、负无穷大的数，则返回 false。</return>
+		</method>
+		<method name="isNaN" returnType="boolean">
+			用于检查其参数是否是非数字值。
+			<param name="number" type="Number">必需。要检测的值。</param>
+			<return>如果 x 是特殊的非数字值 NaN（或者能被转换为这样的值），返回的值就是 true。如果 x 是其他值,则返回 false。</return>
+		</method>
+		<method name="parseFloat" returnType="double">
+			可解析一个字符串，并返回一个浮点数。
+			<param name="x" type="String">必需。要被解析的字符串。</param>
+			<return>返回解析后的数字。</return>
+		</method>
+		<method name="parseInt" returnType="int">
+			可解析一个字符串，并返回一个整数。
+			<param name="string" type="String">必需。要被解析的字符串。</param>
+			<param name="radix" type="Number">可选。表示要解析的数字的基数。该值介于 2 ~ 36 之间。如果省略该参数或其值为 0，则数字将以 10 为基础来解析。如果它以 “0x” 或 “0X” 开头，将以 16 为基数。如果该参数小于 2 或者大于 36，则 parseInt() 将返回 NaN。</param>
+			<return>返回解析后的数字。</return>
+		</method>
+		<method name="unescape" returnType="String">
+			可对通过 escape() 编码的字符串进行解码。
+			<param name="string" type="String">必需。要解码或反转义的字符串。</param>
+			<return>string 被解码后的一个副本。</return>
+		</method>
+		<scope name="global">
+			<var name="Math" type="Math" />
+			<var name="JSON" type="JSON" />
+		</scope>
+	</TypeDB>
+	<TypeDB name="CodeTemplate">
+		<template name="alink">
+			<item name="EntityForm" label="实体表单" ><![CDATA[
+		ALink.toString("ime.AppWindow", "EntityForm", {
+			entityName : "",	//实体名称
+			entityUID : "",		//实体定义的UID
+			formUID : "",		//表单定义的UID(可选)
+			action : "",		//实体表单的操作类型，”create”表示创建类型；”edit”表示编辑类型；”view”表示查看类型
+			entityId : 0		//编辑或查看的实体ID，当action为”edit”或”view”时必须指定。
+		});
+				]]>
+			</item>
+			<item name="EntityQuery" label="查询窗口" ><![CDATA[
+		ALink.toString("ime.AppWindow", "EntityQuery", {
+			queryUID : ""		//查询定义的UID
+		});
+				]]>
+			</item>
+			<item name="FreeForm" label="自定义表单" ><![CDATA[
+		ALink.toString("ime.AppWindow", "FreeForm", {
+			fromUID : ""		//自定义表单的UID
+		});
+				]]>
+			</item>
+			<item name="PageWindow" label="页面窗口" ><![CDATA[
+		ALink.toString("ime.AppWindow", "PageWindow", {
+			pageUID : ""		//页面定义的UID
+		});
+				]]>
+			</item>
+			<item name="EntitySelectWindow" label="实体选择窗口" ><![CDATA[
+		ALink.toString("ime.AppWindow", "EntitySelectWindow", {
+			entityUID : "",		//可选择实体的UID
+			queryUID : "",		//实体查询的UID
+			pageUID : ""		//包括实体查询的页面UID。当queryUID未提供时有效。
+		});
+				]]>
+			</item>
+			<item name="Report" label="实体选择窗口" ><![CDATA[
+		ALink.toString("ime.AppWindow", "Report", {
+			entity : null,		//生成报表时所关联的实体对象, 报表类型必须是实体报表
+			/* 是否批量生成报表
+			batchMode : true,	//批量生成报表模式, 在批量模式下的报表类型必须是实体报表
+			entities : [],		//批量生成报表时所关联的实体数组
+			*/
+			/* 报表的数据源条件定义
+			conditionMap : {
+				dsName : {				//dsName为报表中数据源的名称
+					addtionalList:{		//为数据源查询时添加的额外条件
+						type : 0,			//条件类型，定义为"Or":1,"And":2,"Not":3,"Between":4,"=":5,">=":7,">":9,"<=":11,"<":13,"!=":15,"Like":19,"In":20,"IsNotNull":23,"IsNull":24;
+						option : true,		//是否可选
+						leftEntity : "",	//条件左值的实体名称
+						leftField : "",		//条件左传的实体字段
+						right : "",			//条件右值,当rightType=param时,right的值为参数名;当rightType=svrval时,right的值为服务计算表达式
+						rightType : "",		//"prop":实体字段, "param":参数, "val":计算表达式, "svrval":服务计算值
+						rightEntity : "",	//条件右值的实体名称,当rightType=prop时有效
+						rightField : "",	//条件右值的实体字段,当rightType=prop时有效
+						valueType : 0,		//"string":1, "integer":2, "long":3, "boolean":4, "float":5, "double":6, "datetime":7
+						right2 : "",		//条件右值2,当条件类型为"Between"时有效,定义同right
+						rightType2 : "",	//当条件类型为"Between"时有效,定义同rightType
+						right2Entity : "",	//当条件类型为"Between"时有效,定义同rightEntity
+						right2Field : ""	//当条件类型为"Between"时有效,定义同rightField
+					}
+				},
+				condition : {}				//报表的默认查询条件, 对象中键名为条件控件的名称,键值为条件控件的值
+			}
+			*/
+			reportUID : ""		//报表定义的UID
+		});
+				]]>
+			</item>
+			<item name="WorkflowTask" label="工作流起始任务" ><![CDATA[
+		ALink.toString("ime.AppWindow", "WorkflowTask", {
+			definitionName : "",//工作流定义的名称
+			taskName : ""		//人工起始任务的名称
+		});
+				]]>
+			</item>
+			<item name="Application" label="业务应用主界面" ><![CDATA[
+		ALink.toString("ime.AppWindow", "Application", {
+			application : ""	//业务应用标识
+		});
+				]]>
+			</item>
+			<item name="Menu" label="业务应用菜单" ><![CDATA[
+		ALink.toString("ime.AppWindow", "Menu", {
+			application : "",	//业务应用标识
+			path : ""			//菜单的路径，用”/”分隔
+		});
+				]]>
+			</item>
+			<item name="WebPage" label="在业务应用主窗口中打开网页" ><![CDATA[
+		ALink.toString("ime.AppWindow", "WebPage", {
+			application : "",	//业务应用标识
+			url : "",			//网页地址
+			label : ""			//网页的显示名称
+		});
+				]]>
+			</item>
+		</template>
+	</TypeDB>
+	<!-- 业务应用客户端脚本代码类型库定义 -->
+	<TypeDB name="AppWindow" include="CodeTemplate">
+		<class name="FormWindow">
+			<method name="getFormProperty" returnType="Object">
+				<![CDATA[ 获取表单属性值  ]]>
+				<param name="propName" type="String"><![CDATA[ 属性名称 ]]></param>
+				<return><![CDATA[ 表单属性结果 ]]></return>
+			</method>
+			<method name="callRemoteQuery" returnType="void">
+				<![CDATA[ 执行远程查询服务  ]]>
+				<param name="hql" type="String"><![CDATA[ HQL语句 ]]></param>
+				<param name="callbackName" type="String"><![CDATA[  回调的表单事件名称 ]]></param>
+			</method>
+			<method name="createEntity" returnType="void">
+				<![CDATA[ 创建一个新的实体对象，创建的实体对象会在表单提交时在同一事务中一并提交。  ]]>
+				<param name="entity" type="Object"><![CDATA[ 实体对象值 ]]></param>
+				<param name="entityName" type="String"><![CDATA[ 实体类型名称 ]]></param>
+			</method>
+			<method name="fireCustomerEvent" returnType="void">
+				<![CDATA[ 触发在表单中的客户自定义事件  ]]>
+				<param name="eventName" type="String"><![CDATA[ 事件名称 ]]></param>
+				<param name="args" type="Object"><![CDATA[ 事件参数 ]]></param>
+			</method>
+			<method name="fireRemoteEvent" returnType="void">
+				<![CDATA[ 触发远程事件  ]]>
+				<param name="eventName" type="String"><![CDATA[ 远程事件名称 ]]></param>
+				<param name="args" type="Object"><![CDATA[ 远程事件参数，args中的属性名对应参数名，属性值对应参数值 ]]></param>
+				<param name="callbackName" type="String"><![CDATA[ 回调事件名称，即在远程事件执行完成后所触发的表单事件名称 ]]></param>
+			</method>
+			<method name="generateCoding" returnType="void">
+				<![CDATA[ 生成自动编码的值  ]]>
+				<param name="fieldName" type="String"><![CDATA[ 自动编码字段名称 ]]></param>
+				<param name="typecode" type="String" default="&quot;&quot;"><![CDATA[ 类型码(可以为空) ]]></param>
+			</method>
+			<method name="getEntity" returnType="Object">
+				<![CDATA[ 获取表单窗口当前正在编辑的实体对象  ]]>
+				<return><![CDATA[ 实体对象  ]]></return>
+			</method>
+			<method name="getExpressionValue" returnType="Object">
+				<![CDATA[ 获取表达式的值  ]]>
+				<param name="exp" type="String"><![CDATA[ 表达式 ]]></param>
+				<return><![CDATA[ 表达式计算结果  ]]></return>
+			</method>
+			<method name="getFieldValue" returnType="Object">
+				<![CDATA[ 获取表单控件的值  ]]>
+				<param name="name" type="String"><![CDATA[ 控件名称 ]]></param>
+				<return><![CDATA[ 表单控件的值  ]]></return>
+			</method>
+			<method name="getFormState" returnType="String">
+				<![CDATA[ 获取表单当前的状态  ]]>
+				<return><![CDATA[ 状态名称  ]]></return>
+			</method>
+			<method name="getOpenParameter" returnType="Object">
+				<![CDATA[ 获取表单打开参数  ]]>
+				<return><![CDATA[ 表单打开参数  ]]></return>
+			</method>
+			<method name="getScriptHost" returnType="Object">
+				<![CDATA[ 获取脚本对象  ]]>
+				<param name="host" type="String"><![CDATA[ 脚本对象的引用表达式 ]]></param>
+				<return><![CDATA[ 脚本对象  ]]></return>
+			</method>
+			<method name="getSubmitAction" returnType="String">
+				<![CDATA[ 获取表单当前的提交行为(create | edit)  ]]>
+				<return><![CDATA[ 提交行为  ]]></return>
+			</method>
+			<method name="getVariable" returnType="Object">
+				<![CDATA[ 获取变量值 ]]>
+				<param name="name" type="String"><![CDATA[ 变量名称 ]]></param>
+				<return><![CDATA[ 变量值  ]]></return>
+			</method>
+			<method name="openALink" returnType="void">
+				<![CDATA[ 打开ALink链接 ]]>
+				<param name="alinkUrl" type="String"><![CDATA[ ALink字符串 ]]></param>
+			</method>
+			<method name="selectTab" returnType="void">
+				<![CDATA[ 打开ALink链接 ]]>
+				<param name="tabName" type="String"><![CDATA[ Tab页名称 ]]></param>
+			</method>
+			<method name="setEditable" returnType="void">
+				<![CDATA[ 设置表单是否可修改 ]]>
+				<param name="editable" type="Boolean"><![CDATA[ 是否可修改 ]]></param>
+			</method>
+			<method name="setFieldProperty" returnType="void">
+				<![CDATA[ 设置表单控件的对象属性 ]]>
+				<param name="fieldName" type="String"><![CDATA[ 控件名称 ]]></param>
+				<param name="propName" type="String"><![CDATA[ 属性名称，目前支持: enabled ]]></param>
+				<param name="propValue" type="Object"><![CDATA[ 属性值 ]]></param>
+			</method>
+			<method name="setFieldValue" returnType="void">
+				<![CDATA[ 设置表单控件的值 ]]>
+				<param name="name" type="String"><![CDATA[ 控件名称 ]]></param>
+				<param name="value" type="Object"><![CDATA[ 控件值 ]]></param>
+			</method>
+			<method name="setFormProperty" returnType="void">
+				<![CDATA[ 设置表单属性 ]]>
+				<param name="propName" type="String"><![CDATA[ 属性名称 ]]></param>
+				<param name="propValue" type="Object"><![CDATA[ 属性值 ]]></param>
+			</method>
+			<method name="setFormState" returnType="void">
+				<![CDATA[ 设置表单当前状态 ]]>
+				<param name="stateName" type="String"><![CDATA[ 表单状态 ]]></param>
+			</method>
+			<method name="setHumanStartTask" returnType="void">
+				<![CDATA[ 将表单设置为人工起始任务模式 ]]>
+				<param name="definitionName" type="String"><![CDATA[ 工作流定义名称 ]]></param>
+				<param name="taskName" type="String"><![CDATA[ 人工起始任务名称 ]]></param>
+			</method>
+			<method name="setStyle" returnType="void">
+				<![CDATA[ 设置表单窗口样式  ]]>
+				<param name="styleName" type="String"><![CDATA[ 样式名称 ]]></param>
+				<param name="value" type="Object"><![CDATA[ 样式值 ]]></param>
+			</method>
+			<method name="setVariable" returnType="void">
+				<![CDATA[ 设置变量值  ]]>
+				<param name="name" type="String"><![CDATA[ 变量名称 ]]></param>
+				<param name="value" type="Object"><![CDATA[ 变量值 ]]></param>
+			</method>
+			<method name="updateEntity" returnType="void">
+				<![CDATA[ 更新指定实体对象的值，更新的实体对象会在表单提交时在同一事务中一并提交。  ]]>
+				<param name="entity" type="Object"><![CDATA[ 实体对象值 ]]></param>
+				<param name="entityName" type="String"><![CDATA[ 实体类型名称  ]]></param>
+			</method>
+			<method name="validateForm" returnType="Boolean">
+				<![CDATA[ 验证表单字段是否填写完整。  ]]>
+			</method>
+			<method name="showMessageBox" returnType="void">
+				<![CDATA[ 显示消息框。  ]]>
+				<param name="message" type="String"><![CDATA[ 消息内容 ]]></param>
+				<param name="title" type="String"><![CDATA[ 标题  ]]></param>
+				<param name="flags" type="String"><![CDATA[ 消息框的按钮风格,如YesNo  ]]></param>
+				<param name="callback" type="String"><![CDATA[ 消息回调事件名称，在该事件中参数detail表示用户点击的按钮，如YES,NO,OK等  ]]></param>
+			</method>
+			<method name="submit" returnType="void">
+				<![CDATA[ 提交当前表单,在此情况下将不确发提交前事件。  ]]>
+			</method>
+		</class>
+		<class name="PageWindow">
+			<method name="executeQuery" returnType="void">
+				<![CDATA[ 获取查询结果数据集  ]]>
+				<param name="queryUid" type="String"><![CDATA[ 查询定义的UID ]]></param>
+				<param name="condition" type="Object"><![CDATA[ 查询条件对象,对象的属性表示查询条件的值 ]]></param>
+				<param name="startNo" type="int"><![CDATA[ 查询结果的起始行数 ]]></param>
+				<param name="count" type="int"><![CDATA[ 查询结果的返回行数 ]]></param>
+				<param name="cbEventName" type="String"><![CDATA[ 回调事件名称，在回调事件中通过result参数获取返回结果 ]]></param>
+			</method>
+			<method name="findEntity" returnType="void">
+				<![CDATA[ 获取查询结果数据集  ]]>
+				<param name="entityName" type="String"><![CDATA[ 实体定义名称 ]]></param>
+				<param name="entityId" type="int"><![CDATA[ 实体ID ]]></param>
+				<param name="cbEventName" type="int"><![CDATA[ 回调事件名称 ]]></param>
+			</method>
+			<method name="fireCustomerEvent" returnType="void">
+				<![CDATA[ 触发在表单中的客户自定义事件  ]]>
+				<param name="eventName" type="String"><![CDATA[ 事件名称 ]]></param>
+				<param name="args" type="Object"><![CDATA[ 事件参数 ]]></param>
+			</method>
+			<method name="fireRemoteEvent" returnType="void">
+				<![CDATA[ 调用实体自定义扩展服务事件  ]]>
+				<param name="entityName" type="String"><![CDATA[ 实体名称 ]]></param>
+				<param name="eventName" type="String"><![CDATA[ 自定义服务事件名称 ]]></param>
+				<param name="eventArgs" type="Object"><![CDATA[ 服务事件调用参数 ]]></param>
+				<param name="cbEventName" type="String"><![CDATA[ 回调事件名称，在回调事件中通过result参数获取返回结果 ]]></param>
+			</method>
+			<method name="getExpressionValue" returnType="Object">
+				<![CDATA[ 获取表达式的值  ]]>
+				<param name="exp" type="String"><![CDATA[ 表达式 ]]></param>
+			</method>
+			<method name="getScriptHost" returnType="Object">
+				<![CDATA[ 获取脚本对象  ]]>
+				<param name="host" type="String"><![CDATA[ 脚本对象的引用表达式 ]]></param>
+				<return><![CDATA[ 脚本对象  ]]></return>
+			</method>
+			<method name="invokeExp" returnType="Object">
+				<![CDATA[ 调用页面中指定组件的表达式函数  ]]>
+				<param name="compName" type="String"><![CDATA[ 页面组件名称 ]]></param>
+				<param name="funcName" type="String"><![CDATA[ 表达式函数名称 ]]></param>
+				<param name="args" type="Array"><![CDATA[ 函数调用参数，必须与函数定义中的参数顺序一致 ]]></param>
+			</method>
+		</class>
+		<class name="QueryControl">
+			<method name="callRemoteQuery" returnType="void">
+				<![CDATA[ 执行远程查询服务  ]]>
+				<param name="hql" type="String"><![CDATA[ HQL语句 ]]></param>
+				<param name="callbackName" type="String"><![CDATA[  回调的表单事件名称 ]]></param>
+			</method>
+			<method name="createEntity" returnType="void">
+				<![CDATA[ 创建一个实体对象,该对象在执行保存动作时被提交。  ]]>
+				<param name="entity" type="Object"><![CDATA[ 实体对象值 ]]></param>
+				<param name="entityName" type="String"><![CDATA[ 实体类型名称 ]]></param>
+			</method>
+			<method name="deleteRecordAt" returnType="void">
+				<![CDATA[ 删除记录。  ]]>
+				<param name="index" type="int"><![CDATA[ 删除记录的索引号 ]]></param>
+			</method>
+			<method name="fireCustomerEvent" returnType="void">
+				<![CDATA[ 触发在查询中的客户自定义事件  ]]>
+				<param name="eventName" type="String"><![CDATA[ 事件名称 ]]></param>
+				<param name="args" type="Object"><![CDATA[ 事件参数 ]]></param>
+			</method>
+			<method name="fireRemoteEvent" returnType="void">
+				<![CDATA[ 触发远程事件  ]]>
+				<param name="eventName" type="String"><![CDATA[ 远程事件名称 ]]></param>
+				<param name="args" type="Object"><![CDATA[ 远程事件参数，args中的属性名对应参数名，属性值对应参数值 ]]></param>
+				<param name="callbackName" type="String"><![CDATA[ 回调事件名称，即在远程事件执行完成后所触发的表单事件名称 ]]></param>
+			</method>
+			<method name="getAllEntities" returnType="Array">
+				<![CDATA[ 返回当前窗口中所有的实体对象  ]]>
+				<param name="entityName" type="String"><![CDATA[ 实体类型名称 ]]></param>
+			</method>
+			<method name="getAllRecords" returnType="Array">
+				<![CDATA[ 返回当前窗口中所有的记录对象  ]]>
+			</method>
+			<method name="getEntityAt" returnType="Object">
+				<![CDATA[ 返回当前窗口中指定序列号的实体对象  ]]>
+				<param name="entityName" type="String"><![CDATA[ 实体类型名称 ]]></param>
+				<param name="index" type="int"><![CDATA[ 实体所在的序列号 ]]></param>
+			</method>
+			<method name="getExpressionValue" returnType="Object">
+				<![CDATA[ 获取表达式的值  ]]>
+				<param name="exp" type="String"><![CDATA[ 表达式 ]]></param>
+				<return><![CDATA[ 表达式计算结果  ]]></return>
+			</method>
+			<method name="getOpenParameter" returnType="Object">
+				<![CDATA[ 获取ALink的打开参数  ]]>
+				<return><![CDATA[ 打开参数  ]]></return>
+			</method>
+			<method name="getQueryCondition" returnType="Object">
+				<![CDATA[ 获取查询条件对象  ]]>
+				<return><![CDATA[ 查询条件对象  ]]></return>
+			</method>
+			<method name="getRecordAt" returnType="Object">
+				<![CDATA[ 返回当前窗口中指定序列号的记录  ]]>
+				<param name="index" type="int"><![CDATA[ 记录所在的序列号 ]]></param>
+				<return><![CDATA[ 记录对象  ]]></return>
+			</method>
+			<method name="getScriptHost" returnType="Object">
+				<![CDATA[ 获取脚本对象  ]]>
+				<param name="host" type="String"><![CDATA[ 脚本对象的引用表达式 ]]></param>
+				<return><![CDATA[ 脚本对象  ]]></return>
+			</method>
+			<method name="getSelectedEntities" returnType="Array">
+				<![CDATA[ 返回当前窗口中选中的实体对象  ]]>
+				<param name="entityName" type="String"><![CDATA[ 实体类型名称 ]]></param>
+				<return><![CDATA[ 实体数组  ]]></return>
+			</method>
+			<method name="getSelectedEntity" returnType="Object">
+				<![CDATA[ 返回当前窗口中选中行的实体对象  ]]>
+				<param name="entityName" type="String"><![CDATA[ 实体类型名称 ]]></param>
+				<return><![CDATA[ 实体对象  ]]></return>
+			</method>
+			<method name="getSelectedRecords" returnType="Array">
+				<![CDATA[ 返回当前窗口中选中的记录  ]]>
+				<return><![CDATA[ 选中的记录数组  ]]></return>
+			</method>
+			<method name="getSelectedRecord" returnType="Object">
+				<![CDATA[ 返回当前窗口中选中行的记录  ]]>
+				<return><![CDATA[ 选中的记录  ]]></return>
+			</method>
+			<method name="getSelectedIndexes" returnType="Array">
+				<![CDATA[ 返回当前窗口中选中记录的索引号  ]]>
+				<return><![CDATA[ 选中记录的索引数组  ]]></return>
+			</method>
+			<method name="clearSelection" returnType="void">
+				<![CDATA[ 清除选中的数据记录  ]]>
+			</method>
+			<method name="getVariable" returnType="Object">
+				<![CDATA[ 获取变量值 ]]>
+				<param name="name" type="String"><![CDATA[ 变量名称 ]]></param>
+				<return><![CDATA[ 变量值  ]]></return>
+			</method>
+			<method name="hideColumn" returnType="void">
+				<![CDATA[ 隐藏指定列 ]]>
+				<param name="entityName" type="String"><![CDATA[ 隐藏列所属的实体名称 ]]></param>
+				<param name="fieldName" type="String"><![CDATA[ 隐藏列对应的字段名称 ]]></param>
+			</method>
+			<method name="insertRecord" returnType="void">
+				<![CDATA[ 插入一条数据记录 ]]>
+				<param name="record" type="Object"><![CDATA[ 记录数据 ]]></param>
+				<param name="index" type="int" default="-1"><![CDATA[ 插入位置，未指定的情况下插入到最后一行  ]]></param>
+			</method>
+			<method name="invokeExp" returnType="Object">
+				<![CDATA[ 调用页面中指定组件的表达式函数  ]]>
+				<param name="compName" type="String"><![CDATA[ 页面组件名称 ]]></param>
+				<param name="funcName" type="String"><![CDATA[ 表达式函数名称 ]]></param>
+				<param name="args" type="Array"><![CDATA[ 函数调用参数，必须与函数定义中的参数顺序一致 ]]></param>
+			</method>
+			<method name="openALink" returnType="void">
+				<![CDATA[ 打开ALink链接 ]]>
+				<param name="alinkUrl" type="String"><![CDATA[ ALink字符串 ]]></param>
+			</method>
+			<method name="refresh" returnType="void">
+				<![CDATA[ 刷新查询结果 ]]>
+				<param name="refreshAll" type="Boolean" default="true"><![CDATA[ 当refreshAll=true时刷新所有页，并自动跳转到第一页，否则仅刷新当前页。 ]]></param>
+			</method>
+			<method name="refreshCurrentPage" returnType="void">
+				<![CDATA[ 刷新当前页中的显示数据 ]]>
+			</method>
+			<method name="save" returnType="void">
+				<![CDATA[ 保存当前数据，仅在即时编辑状态时有效。 ]]>
+			</method>
+			<method name="setColumnProperty" returnType="void">
+				<![CDATA[ 设置数据显示列属性。 ]]>
+				<param name="columnName" type="String"><![CDATA[ 数据列名称，必须是主实体的字段名称 ]]></param>
+				<param name="propertyName" type="String"><![CDATA[ 属性名称，目前支持enabled,required两个属性 ]]></param>
+				<param name="propertyValue" type="Object"><![CDATA[ 属性值  ]]></param>
+			</method>
+			<method name="setConditionFormProperty" returnType="void">
+				<![CDATA[ 设置查询条件输入面板中指定控件的属性值。 ]]>
+				<param name="fieldName" type="String"><![CDATA[ 条件面板中的控件名称 ]]></param>
+				<param name="propName" type="String"><![CDATA[ 控件的属性名称 ]]></param>
+				<param name="propValue" type="Object"><![CDATA[ 控件的属性值  ]]></param>
+			</method>
+			<method name="setEditPosition" returnType="void">
+				<![CDATA[ 设置当前编辑焦点的位置。 ]]>
+				<param name="rowIndex" type="int"><![CDATA[ 行索引 ]]></param>
+				<param name="column" type="String"><![CDATA[ 列索引或数据列名称(格式为 实体.字段) ]]></param>
+			</method>
+			<method name="setEntityAt" returnType="void">
+				<![CDATA[ 设置当前窗口中指定序列号的实体对象。 ]]>
+				<param name="entity" type="Object"><![CDATA[ 实体对象 ]]></param>
+				<param name="entityName" type="String"><![CDATA[ 实体类型 ]]></param>
+				<param name="index" type="int"><![CDATA[ 记录所在的序列号 ]]></param>
+			</method>
+			<method name="setProperty" returnType="void">
+				<![CDATA[ 置控件属性 ]]>
+				<param name="propertyName" type="String"><![CDATA[ 属性名称, 目前支持excelPasteEnabled:是否允许从Excel中拷贝数据, autoClearSelection:是否自动清除多选记录 ]]></param>
+				<param name="propertyValue" type="Object"><![CDATA[ 属性值  ]]></param>
+			</method>
+			<method name="setQueryCondition" returnType="void">
+				<![CDATA[ 设置查询条件对象 ]]>
+				<param name="cond" type="Object"><![CDATA[ 查询条件对象  ]]></param>
+			</method>
+			<method name="setRecordAt" returnType="void">
+				<![CDATA[ 设置当前窗口中指定序列号的记录 ]]>
+				<param name="record" type="Object"><![CDATA[ 记录数据  ]]></param>
+				<param name="index" type="int"><![CDATA[ 记录所在的索引号 ]]></param>
+			</method>
+			<method name="setSelectedIndex" returnType="void">
+				<![CDATA[ 设置当前选中的记录 ]]>
+				<param name="index" type="int"><![CDATA[ 记录索引号 ]]></param>
+			</method>
+			<method name="setToolButtonProperty" returnType="void">
+				<![CDATA[ 设置工具条按钮属性 ]]>
+				<param name="btnName" type="String"><![CDATA[ 按钮索引值或按钮名称 ]]></param>
+				<param name="propertyName" type="String"><![CDATA[ 属性名称，目前支持enabled属性 ]]></param>
+				<param name="propertyValue" type="Object"><![CDATA[ 属性值  ]]></param>
+			</method>
+			<method name="setVariable" returnType="void">
+				<![CDATA[ 设置变量值  ]]>
+				<param name="name" type="String"><![CDATA[ 变量名称 ]]></param>
+				<param name="value" type="Object"><![CDATA[ 变量值 ]]></param>
+			</method>
+			<method name="showColumn" returnType="void">
+				<![CDATA[ 显示指定列 ]]>
+				<param name="entityName" type="String"><![CDATA[ 显示列所属的实体名称 ]]></param>
+				<param name="fieldName" type="String"><![CDATA[ 显示列对应的字段名称 ]]></param>
+				<param name="columnLabel" type="String" default=""><![CDATA[ 列头显示名称(可选) ]]></param>
+			</method>
+			<method name="updateEntity" returnType="void">
+				<![CDATA[ 更新一个实体对象,该实体对象通过id属性进行标识，并在执行保存动作时被提交 ]]>
+				<param name="entity" type="Object"><![CDATA[ 实体对象 ]]></param>
+				<param name="entityName" type="String"><![CDATA[ 实体类型 ]]></param>
+			</method>
+			<method name="showMessageBox" returnType="void">
+				<![CDATA[ 显示消息框。  ]]>
+				<param name="message" type="String"><![CDATA[ 消息内容 ]]></param>
+				<param name="title" type="String"><![CDATA[ 标题  ]]></param>
+				<param name="flags" type="String"><![CDATA[ 消息框的按钮风格,如YesNo  ]]></param>
+				<param name="callback" type="String"><![CDATA[ 消息回调事件名称，在该事件中参数detail表示用户点击的按钮，如YES,NO,OK等  ]]></param>
+			</method>
+			<method name="setStatusHtml" returnType="void">
+				<![CDATA[ 设置状态栏中的html信息。 ]]>
+				<param name="html" type="String"><![CDATA[ html格式的字符串 ]]></param>
+			</method>
+		</class>
+		<class name="ReportControl">
+			<method name="appendTableCol" returnType="void">
+				<![CDATA[ 向表格最右端追加列  ]]>
+				<param name="tableName" type="String"><![CDATA[ 表格名称 ]]></param>
+			</method>
+			<method name="appendTableRow" returnType="void">
+				<![CDATA[ 向表格最下方追加行  ]]>
+				<param name="tableName" type="String"><![CDATA[ 表格名称 ]]></param>
+			</method>
+			<method name="fireRemoteEvent" returnType="void">
+				<![CDATA[ 调用实体自定义扩展服务事件  ]]>
+				<param name="entityName" type="String"><![CDATA[ 实体名称 ]]></param>
+				<param name="eventName" type="String"><![CDATA[ 自定义服务事件名称 ]]></param>
+				<param name="eventArgs" type="Object"><![CDATA[ 服务事件调用参数 ]]></param>
+				<param name="cbEventName" type="String"><![CDATA[ 回调事件名称，在回调事件中通过result参数获取返回结果 ]]></param>
+			</method>
+			<method name="fireCustomerEvent" returnType="void">
+				<![CDATA[ 触发在报表中的客户自定义事件  ]]>
+				<param name="eventName" type="String"><![CDATA[ 事件名称 ]]></param>
+				<param name="args" type="Object"><![CDATA[ 事件参数 ]]></param>
+			</method>
+			<method name="getDataSource" returnType="Object">
+				<![CDATA[ 获取数据源对象  ]]>
+				<param name="dsName" type="String"><![CDATA[ 数据源对象名称 ]]></param>
+			</method>
+			<method name="getExpressionValue" returnType="Object">
+				<![CDATA[ 获取表达式的值  ]]>
+				<param name="exp" type="String"><![CDATA[ 表达式 ]]></param>
+				<return><![CDATA[ 表达式计算结果  ]]></return>
+			</method>
+			<method name="getOpenParameter" returnType="Object">
+				<![CDATA[ 获取ALink的打开参数  ]]>
+				<return><![CDATA[ 表单打开参数  ]]></return>
+			</method>
+			<method name="getQueryCondition" returnType="Object">
+				<![CDATA[ 获取查询条件对象  ]]>
+				<return><![CDATA[ 查询条件对象  ]]></return>
+			</method>
+			<method name="getScriptHost" returnType="Object">
+				<![CDATA[ 获取脚本对象  ]]>
+				<param name="host" type="String"><![CDATA[ 脚本对象的引用表达式 ]]></param>
+				<return><![CDATA[ 脚本对象  ]]></return>
+			</method>
+			<method name="getTableProperties" returnType="Object">
+				<![CDATA[ 获取表格属性  ]]>
+				<param name="tableName" type="String"><![CDATA[ 表格名称 ]]></param>
+				<return><![CDATA[ 表格属性对象，包括x,y,width,height,rowCount,colCount等属性值  ]]></return>
+			</method>
+			<method name="getTableCell" returnType="Object">
+				<![CDATA[ 获取表格单元格数据  ]]>
+				<param name="tableName" type="String"><![CDATA[ 表格名称 ]]></param>
+				<param name="rowIndex" type="int"><![CDATA[ 单元格行号 ]]></param>
+				<param name="colIndex" type="int"><![CDATA[ 单元格列号 ]]></param>
+				<return><![CDATA[ 单元格数据对象  ]]></return>
+			</method>
+			<method name="insertTableColBefor" returnType="void">
+				<![CDATA[ 向表格指定的列之前插入新列  ]]>
+				<param name="tableName" type="String"><![CDATA[ 表格名称 ]]></param>
+				<param name="colIndex" type="int"><![CDATA[ 单元格列号 ]]></param>
+			</method>
+			<method name="insertTableRowAfter" returnType="void">
+				<![CDATA[ 向表格指定的行之后插入新行  ]]>
+				<param name="tableName" type="String"><![CDATA[ 表格名称 ]]></param>
+				<param name="rowIndex" type="int"><![CDATA[ 行号 ]]></param>
+			</method>
+			<method name="insertTableRowBefor" returnType="void">
+				<![CDATA[ 向表格指定的行之前插入新行  ]]>
+				<param name="tableName" type="String"><![CDATA[ 表格名称 ]]></param>
+				<param name="rowIndex" type="int"><![CDATA[ 行号 ]]></param>
+			</method>
+			<method name="mergeTableCell" returnType="void">
+				<![CDATA[ 合并单元格  ]]>
+				<param name="tableName" type="String"><![CDATA[ 表格名称 ]]></param>
+				<param name="x1" type="int"><![CDATA[ 最左单元格列号 ]]></param>
+				<param name="y1" type="int"><![CDATA[ 最上单元格行号 ]]></param>
+				<param name="x2" type="int"><![CDATA[ 最右单元格列号]]></param>
+				<param name="y2" type="int"><![CDATA[ 最下单元格行号 ]]></param>
+			</method>
+			<method name="openALink" returnType="void">
+				<![CDATA[ 打开ALink链接 ]]>
+				<param name="alinkUrl" type="String"><![CDATA[ ALink字符串 ]]></param>
+			</method>
+			<method name="setConditionFormProperty" returnType="void">
+				<![CDATA[ 设置查询条件输入面板中指定控件的属性值。 ]]>
+				<param name="fieldName" type="String"><![CDATA[ 条件面板中的控件名称 ]]></param>
+				<param name="propName" type="String"><![CDATA[ 控件的属性名称 ]]></param>
+				<param name="propValue" type="Object"><![CDATA[ 控件的属性值  ]]></param>
+			</method>
+			<method name="setDataSource" returnType="void">
+				<![CDATA[ 设置数据源对象。 ]]>
+				<param name="dsName" type="String"><![CDATA[ 数据源对象名称 ]]></param>
+				<param name="dsValue" type="Object"><![CDATA[ 数据源对象值  ]]></param>
+			</method>
+			<method name="setDataSourceField" returnType="void">
+				<![CDATA[ 设置数据源对象中的属性。 ]]>
+				<param name="dsName" type="String"><![CDATA[ 数据源对象名称 ]]></param>
+				<param name="fieldName" type="String"><![CDATA[ 数据源对象的字段名称  ]]></param>
+				<param name="fieldValue" type="Object"><![CDATA[ 数据源对象的字段值  ]]></param>
+			</method>
+			<method name="setPivotTable" returnType="void">
+				<![CDATA[ 设置数据透视表的生成方式。 ]]>
+				<param name="tableName" type="String"><![CDATA[ 表格名称 ]]></param>
+				<param name="xPivots" type="Object"><![CDATA[ 列轴定义，每个轴的定义为：{label:显示名称, field:字段名称}  ]]></param>
+				<param name="yPivots" type="Object"><![CDATA[ 行轴定义，每个轴的定义为：{label:显示名称, field:字段名称}  ]]></param>
+				<param name="sql" type="String"><![CDATA[ 获取数据的SQL语句，该SQL语句中必须拥有列轴定义和行轴定义中的所有字段 ]]></param>
+				<param name="dataField" type="String"><![CDATA[ 统计结果数据的字段名 ]]></param>
+				<param name="style" type="Object"><![CDATA[ 表格样式数据:{dataLink:数据链接, dataStyle:数据单元格样式(name1=value1;name2=value2)} ]]></param>
+				<param name="recordSet" type="Array"><![CDATA[ 透视表数据集, 与sql参数互斥 ]]></param>
+			</method>
+			<method name="setQueryCondition" returnType="void">
+				<![CDATA[ 设置查询条件对象 ]]>
+				<param name="cond" type="Object"><![CDATA[ 查询条件对象  ]]></param>
+			</method>
+			<method name="setTableCell" returnType="void">
+				<![CDATA[ 设置表格单元格数据  ]]>
+				<param name="tableName" type="String"><![CDATA[ 表格名称 ]]></param>
+				<param name="rowIndex" type="int"><![CDATA[ 单元格行号 ]]></param>
+				<param name="colIndex" type="int"><![CDATA[ 单元格列号 ]]></param>
+				<param name="cellObj" type="Object"><![CDATA[ 单元格数据，例:{fillColor:"#FF0000"},其中fillColor表示单元格背景色  ]]></param>
+			</method>
+			<method name="setTableColWidth" returnType="void">
+				<![CDATA[ 设置表格指定列的宽度  ]]>
+				<param name="tableName" type="String"><![CDATA[ 表格名称 ]]></param>
+				<param name="colIndex" type="int"><![CDATA[ 单元格列号 ]]></param>
+				<param name="width" type="int"><![CDATA[ 宽度  ]]></param>
+			</method>
+			<method name="setTableRowHeight" returnType="void">
+				<![CDATA[ 设置表格指定行的高度  ]]>
+				<param name="tableName" type="String"><![CDATA[ 表格名称 ]]></param>
+				<param name="rowIndex" type="int"><![CDATA[ 行号 ]]></param>
+				<param name="height" type="int"><![CDATA[ 高度  ]]></param>
+			</method>
+			<method name="showContextMenu" returnType="void">
+				<![CDATA[ 在当前鼠标位置显示上下文菜单  ]]>
+				<param name="menuData" type="Object"><![CDATA[ 菜单数据定义，类型为对象数组，每一个对象代表一个菜单项，在菜单项中label表示菜单名;action表示菜单执行动作,执行动作中可以触发事件，也可以打开ALink，触发事件的定义为event:{事件名称}[?参数1=xx&参数2=xx...]，打开ALink的动作直接用action表示ALink链接即可;在菜单中也可指定iconUrl表示图标所在地址，地址路径为绝对路径。 ]]></param>
+			</method>
+		</class>
+		<scope name="global">
+			<scope name="form_event">
+				<var name="form" type="FormWindow" />
+			</scope>
+			<scope name="query_event">
+				<var name="query" type="QueryControl" />
+			</scope>
+			<scope name="page_event">
+				<var name="page" type="PageWindow" />
+			</scope>
+			<scope name="report_event">
+				<var name="report" type="ReportControl" />
+			</scope>
+		</scope>
+	</TypeDB>
+	<!-- 服务扩展脚本代码类型库定义 -->
+	<TypeDB name="ServiceExtension">
+		<class name="Principal">
+			<method name="getId" returnType="Long">
+				<![CDATA[ 获取操作员ID  ]]>
+				<return><![CDATA[ 操作员ID ]]></return>
+			</method>
+			<method name="getName" returnType="String">
+				<![CDATA[ 获取操作员姓名  ]]>
+				<return><![CDATA[ 操作员姓名  ]]></return>
+			</method>
+			<method name="getLoginId" returnType="String">
+				<![CDATA[ 获取操作员登入帐户名称(不包括域)  ]]>
+				<return><![CDATA[ 登入帐户名称  ]]></return>
+			</method>
+			<method name="getEmail" returnType="String">
+				<![CDATA[ 获取操作员邮箱地址  ]]>
+				<return><![CDATA[ 邮箱地址  ]]></return>
+			</method>
+			<method name="getFullLoginId" returnType="String">
+				<![CDATA[ 获取操作员登入帐户的完整名称(包括域)  ]]>
+				<return><![CDATA[ 登入帐户完整名称  ]]></return>
+			</method>
+		</class>
+		<class name="ScriptService">
+			<method name="setDefaultLogin" returnType="void">
+				<![CDATA[ 设置默认登入用户，用于创建或修改数据。  ]]>
+			</method>
+			<method name="beginTransaction" returnType="void">
+				<![CDATA[ 启动数据库事务  ]]>
+			</method>
+			<method name="commit" returnType="void">
+				<![CDATA[ 提交数据库事务  ]]>
+			</method>
+			<method name="rollback" returnType="void">
+				<![CDATA[ 回滚数据库事务  ]]>
+			</method>
+			<method name="createEntity" returnType="JSEntity">
+				<![CDATA[ 创建实体对象  ]]>
+				<param name="entityName" type="String"><![CDATA[ 实体名称 ]]></param>
+				<return><![CDATA[ 创建的实体对象  ]]></return>
+			</method>
+			<method name="saveEntity" returnType="void">
+				<![CDATA[ 保存实体对象  ]]>
+				<param name="entity" type="JSEntity"><![CDATA[ 实体对象 ]]></param>
+			</method>
+			<method name="removeEntity" returnType="void">
+				<![CDATA[ 删除实体对象  ]]>
+				<param name="entityName" type="String"><![CDATA[ 实体名称 ]]></param>
+				<param name="entityId" type="int"><![CDATA[ 实体对象ID ]]></param>
+			</method>
+			<method name="findEntity" returnType="JSEntity">
+				<![CDATA[ 根据实体ID查找实体对象  ]]>
+				<param name="entityName" type="String"><![CDATA[ 实体名称 ]]></param>
+				<param name="entityId" type="int"><![CDATA[ 实体对象ID ]]></param>
+				<return><![CDATA[ 找到的实体对象或null  ]]></return>
+			</method>
+			<method name="queryHQL" returnType="Array">
+				<![CDATA[ 执行Hibernate查询语句并返回查询结果  ]]>
+				<param name="hql" type="String"><![CDATA[ Hibernate查询语句 ]]></param>
+				<return><![CDATA[ 查询结果  ]]></return>
+			</method>
+			<method name="executeHQL" returnType="int">
+				<![CDATA[ 执行Hibernate查询语句并返回执行结果 ]]>
+				<param name="hql" type="String"><![CDATA[ Hibernate查询语句 ]]></param>
+				<return><![CDATA[ 执行结果  ]]></return>
+			</method>
+			<method name="querySQL" returnType="Array">
+				<![CDATA[ 执行SQL语句并返回查询结果  ]]>
+				<param name="sql" type="String"><![CDATA[ SQL语句 ]]></param>
+				<return><![CDATA[ 查询结果  ]]></return>
+			</method>
+			<method name="executeSQL" returnType="int">
+				<![CDATA[ 执行SQL语句并返回执行结果 ]]>
+				<param name="sql" type="String"><![CDATA[ SQL语句 ]]></param>
+				<return><![CDATA[ 执行结果  ]]></return>
+			</method>
+			<method name="createSQLQuery" returnType="ScriptQuery">
+				<![CDATA[ 创建SQL查询对象 ]]>
+				<param name="sql" type="String"><![CDATA[ SQL语句 ]]></param>
+				<return><![CDATA[ SQL查询对象  ]]></return>
+			</method>
+			<method name="createHQLQuery" returnType="ScriptQuery">
+				<![CDATA[ 创建HQL查询对象 ]]>
+				<param name="sql" type="String"><![CDATA[ HQL语句 ]]></param>
+				<return><![CDATA[ HQL查询对象  ]]></return>
+			</method>
+			<method name="queryEntity" returnType="Array">
+				<![CDATA[ 执行实体查询语句 ]]>
+				<param name="hql" type="String"><![CDATA[ 实体查询语句 ]]></param>
+				<return><![CDATA[ 实体对象数组  每条记录对象类型为JSEntity]]></return>
+			</method>
+			<method name="getDomainProperty" returnType="String">
+				<![CDATA[ 获取当前登入域的属性值 ]]>
+				<param name="name" type="String"><![CDATA[ 属性名称 ]]></param>
+				<return><![CDATA[ 属性值  ]]></return>
+			</method>
+			<method name="getPrincipal" returnType="Principal">
+				<![CDATA[ 根据ID获取登入用户对象 ]]>
+				<param name="id" type="Object"><![CDATA[ 类型为String或Long的操作员ID ]]></param>
+				<return><![CDATA[ 操作员对象  ]]></return>
+			</method>
+			<method name="getLoginId" returnType="String">
+				<![CDATA[ 根据ID获取登入用户的完整帐户名称 ]]>
+				<param name="id" type="Object"><![CDATA[ 类型为String或Long的操作员ID ]]></param>
+				<return><![CDATA[ 完整帐户名称  ]]></return>
+			</method>
+			<method name="sendNotifyMessage" returnType="void">
+				<![CDATA[ 向用户发送通知消息 ]]>
+				<param name="userLoginId" type="String"><![CDATA[ 用户的完整登入名 ]]></param>
+				<param name="title" type="String"><![CDATA[ 消息标题 ]]></param>
+				<param name="body" type="String"><![CDATA[ 消息内容 ]]></param>
+			</method>
+			<method name="sendMessage" returnType="void">
+				<![CDATA[ 向用户发送消息 ]]>
+				<param name="userLoginId" type="String"><![CDATA[ 用户的完整登入名 ]]></param>
+				<param name="messageXml" type="String"><![CDATA[ 消息 ]]></param>
+			</method>
+			<method name="getCurrentPrincipal" returnType="Principal">
+				<![CDATA[ 获取当前登入用户对象 ]]>
+				<return><![CDATA[ 操作员对象  ]]></return>
+			</method>
+			<method name="getSessionAttribute" returnType="Object">
+				<![CDATA[ 获取当前会话中的属性值 ]]>
+				<param name="name" type="String"><![CDATA[ 属性名称 ]]></param>
+				<return><![CDATA[ 会话属性  ]]></return>
+			</method>
+			<method name="setSessionAttribute" returnType="void">
+				<![CDATA[ 设置当前会话中的属性值 ]]>
+				<param name="name" type="String"><![CDATA[ 属性名称 ]]></param>
+				<param name="value" type="Object"><![CDATA[ 属性值 ]]></param>
+			</method>
+		</class>
+		<class name="ScriptQuery">
+			<method name="setString" returnType="void">
+				<![CDATA[ 设置字符串参数  ]]>
+				<param name="name" type="String"><![CDATA[ 参数名称 ]]></param>
+				<param name="value" type="String"><![CDATA[ 参数值 ]]></param>
+			</method>
+			<method name="setInt" returnType="void">
+				<![CDATA[ 设置整数参数  ]]>
+				<param name="name" type="String"><![CDATA[ 参数名称 ]]></param>
+				<param name="value" type="int"><![CDATA[ 参数值 ]]></param>
+			</method>
+			<method name="setLong" returnType="void">
+				<![CDATA[ 设置长整数参数  ]]>
+				<param name="name" type="String"><![CDATA[ 参数名称 ]]></param>
+				<param name="value" type="long"><![CDATA[ 参数值 ]]></param>
+			</method>
+			<method name="setDouble" returnType="void">
+				<![CDATA[ 设置浮点数参数  ]]>
+				<param name="name" type="String"><![CDATA[ 参数名称 ]]></param>
+				<param name="value" type="double"><![CDATA[ 参数值 ]]></param>
+			</method>
+			<method name="setBoolean" returnType="void">
+				<![CDATA[ 设置布尔值参数  ]]>
+				<param name="name" type="String"><![CDATA[ 参数名称 ]]></param>
+				<param name="value" type="boolean"><![CDATA[ 参数值 ]]></param>
+			</method>
+			<method name="setTimestamp" returnType="void">
+				<![CDATA[ 设置时间参数  ]]>
+				<param name="name" type="String"><![CDATA[ 参数名称 ]]></param>
+				<param name="value" type="Date"><![CDATA[ 参数值 ]]></param>
+			</method>
+			<method name="setFirstResult" returnType="void">
+				<![CDATA[ 设置起始行数  ]]>
+				<param name="first" type="int"><![CDATA[ 起始行数 ]]></param>
+			</method>
+			<method name="setMaxResults" returnType="void">
+				<![CDATA[ 设置最大获取行数  ]]>
+				<param name="maxSize" type="int"><![CDATA[ 最大行数 ]]></param>
+			</method>
+			<method name="executeUpdate" returnType="int">
+				<![CDATA[ 执行Update语句并返回影响的记录数  ]]>
+				<return><![CDATA[ 执行Update语句后影响的记录数  ]]></return>
+			</method>
+			<method name="executeQuery" returnType="Array">
+				<![CDATA[ 执行查询语句并返回查询结果  ]]>
+				<return><![CDATA[ 查询结果  ]]></return>
+			</method>
+		</class>
+		<class name="ScriptLogger">
+			<method name="info" returnType="void">
+				<![CDATA[ 记录日志信息，日志信息将记录到日志文件中 ]]>
+				<param name="message" type="String"><![CDATA[ 日志内容 ]]></param>
+			</method>
+			<method name="warn" returnType="void">
+				<![CDATA[ 记录警告日志，警告日志将记录到日志文件中 ]]>
+				<param name="message" type="String"><![CDATA[ 日志内容 ]]></param>
+			</method>
+			<method name="error" returnType="void">
+				<![CDATA[ 记录错误日志，错误日志将记录到日志文件中 ]]>
+				<param name="message" type="String"><![CDATA[ 日志内容 ]]></param>
+			</method>
+			<method name="trace" returnType="void">
+				<![CDATA[ 输出打印日志，打印日志将返回给客户端，打印日志只在调试时输出 ]]>
+				<param name="message" type="String"><![CDATA[ 日志内容 ]]></param>
+			</method>
+		</class>
+		<class name="JSEntity">
+			<method name="get" returnType="Object">
+				<![CDATA[ 获取实体属性 ]]>
+				<param name="name" type="String"><![CDATA[ 属性名称 ]]></param>
+				<return><![CDATA[ 属性值  ]]></return>
+			</method>
+			<method name="set" returnType="void">
+				<![CDATA[ 设置实体属性 ]]>
+				<param name="name" type="String"><![CDATA[ 属性名称 ]]></param>
+				<param name="value" type="Object"><![CDATA[ 属性值 ]]></param>
+			</method>
+			<method name="getEntityName" returnType="String">
+				<![CDATA[ 获取实体名称 ]]>
+				<return><![CDATA[ 实体名称  ]]></return>
+			</method>
+			<method name="save" returnType="void">
+				<![CDATA[ 保存实体对象 ]]>
+			</method>
+			<method name="createHumanStartWorkflowContext" returnType="WorkflowContext">
+				<![CDATA[ 设置并返回人工起始任务的工作流上下文对象  ]]>
+				<param name="definitionName" type="String"><![CDATA[ 工作流定义名称 ]]></param>
+				<param name="taskName" type="String"><![CDATA[ 人工起始任务名称 ]]></param>
+				<return><![CDATA[ 工作流上下文对象  ]]></return>
+			</method>
+			<method name="getWorkflowContext" returnType="WorkflowContext">
+				<![CDATA[ 获取当前实体中的工作流上下文对象 ]]>
+				<return><![CDATA[ 工作流上下文对象  ]]></return>
+			</method>
+			<method name="setWorkflowContext" returnType="void">
+				<![CDATA[ 设置实体的工作流上下文对象 ]]>
+				<param name="wfContext" type="WorkflowContext"><![CDATA[ 工作流上下文对象 ]]></param>
+			</method>
+		</class>
+		<class name="WorkflowContext">
+			<method name="getMode" returnType="String">
+				<![CDATA[ 工作流上下文模式，包括以下几项: "HumanStart"表示人工起始任务; "HumanSubmit"表示人工交任务; ]]>
+				<return><![CDATA[ 工作流上下文模式  ]]></return>
+			</method>
+			<method name="setMode" returnType="void">
+				<![CDATA[ 设置工作流上下文模式 ]]>
+				<param name="mode" type="String"><![CDATA[ 工作流上下文模式，包括以下几项: "HumanStart"表示人工起始任务; "HumanSubmit"表示人工交任务; ]]></param>
+			</method>
+			<method name="getProcessId" returnType="long">
+				<![CDATA[ 获取工作流的实例ID ]]>
+				<return><![CDATA[ 工作流的实例ID  ]]></return>
+			</method>
+			<method name="setProcessId" returnType="void">
+				<![CDATA[ 设置工作流的实例ID ]]>
+				<param name="processId" type="long"><![CDATA[ 工作流的实例ID ]]></param>
+			</method>
+			<method name="getProcessName" returnType="String">
+				<![CDATA[ 获取工作流的实例名称 ]]>
+				<return><![CDATA[ 工作流的实例名称  ]]></return>
+			</method>
+			<method name="setProcessName" returnType="void">
+				<![CDATA[ 设置工作流的实例名称 ]]>
+				<param name="name" type="String"><![CDATA[ 工作流的实例名称 ]]></param>
+			</method>
+			<method name="getSubmit" returnType="String">
+				<![CDATA[ 获取工作流的提交方式，即流程节点的流转名称 ]]>
+				<return><![CDATA[ 工作流的提交方式  ]]></return>
+			</method>
+			<method name="setSubmit" returnType="void">
+				<![CDATA[ 设置工作流的提交方式 ]]>
+				<param name="submit" type="String"><![CDATA[ 工作流的提交方式 ]]></param>
+			</method>
+			<method name="getSubmitNote" returnType="String">
+				<![CDATA[ 获取工作流的提交方式的说明 ]]>
+				<return><![CDATA[ 工作流的提交方式说明  ]]></return>
+			</method>
+			<method name="setSubmitNote" returnType="void">
+				<![CDATA[ 设置工作流的提交方式说明 ]]>
+				<param name="submitNote" type="String"><![CDATA[ 工作流的提交方式说明 ]]></param>
+			</method>
+			<method name="getWorkItemId" returnType="long">
+				<![CDATA[ 获取工作项ID ]]>
+				<return><![CDATA[ 工作项ID  ]]></return>
+			</method>
+			<method name="setWorkItemId" returnType="void">
+				<![CDATA[ 设置工作项ID ]]>
+				<param name="workItemId" type="long"><![CDATA[ 工作项ID ]]></param>
+			</method>
+			<method name="getFormState" returnType="int">
+				<![CDATA[ 获取表单状态值 ]]>
+				<return><![CDATA[ 表单状态值  ]]></return>
+			</method>
+			<method name="setFormState" returnType="void">
+				<![CDATA[ 设置表单状态值 ]]>
+				<param name="formState" type="int"><![CDATA[ 表单状态值 ]]></param>
+			</method>
+			<method name="getFormStateName" returnType="String">
+				<![CDATA[ 获取表单状态名称 ]]>
+				<return><![CDATA[ 表单状态名称  ]]></return>
+			</method>
+			<method name="setFormStateName" returnType="void">
+				<![CDATA[ 设置表单状态名称 ]]>
+				<param name="formStateName" type="String"><![CDATA[ 表单状态名称 ]]></param>
+			</method>
+			<method name="getTargetPrincipalId" returnType="long">
+				<![CDATA[ 获取表单提交的目标用户Principal对象ID，即将表单提交给指定ID的用户 ]]>
+				<return><![CDATA[ 用户Principal对象ID  ]]></return>
+			</method>
+			<method name="setTargetPrincipalId" returnType="void">
+				<![CDATA[ 设置表单提交的目标用户Principal对象ID，即将表单提交给指定ID的用户 ]]>
+				<param name="principalId" type="long"><![CDATA[ 用户Principal对象ID ]]></param>
+			</method>
+		</class>
+		<scope name="global">
+			<scope name="entity_extension">
+				<var name="service" type="ScriptService" />
+				<var name="logger" type="ScriptLogger" />
+			</scope>
+			<scope name="server_script">
+				<var name="service" type="ScriptService" />
+				<var name="logger" type="ScriptLogger" />
+			</scope>
+		</scope>
+	</TypeDB>
+	<!-- 实体服务扩展脚本代码类型库定义 -->
+	<TypeDB name="EntityEvent" parent="ServiceExtension">
+		<class name="ScriptEvent">
+			<method name="getEntity" returnType="JSEntity">
+				<![CDATA[ 获取事件对应的实体对象 ]]>
+				<return><![CDATA[ 实体对象  ]]></return>
+			</method>
+			<method name="getSubmitMode" returnType="String">
+				<![CDATA[ 获取提交方式名称 ]]>
+				<return><![CDATA[ 提交方式名称  ]]></return>
+			</method>
+			<method name="getSubmitNote" returnType="String">
+				<![CDATA[ 获取提交备注内容 ]]>
+				<return><![CDATA[ 提交备注内容  ]]></return>
+			</method>
+			<method name="getName" returnType="String">
+				<![CDATA[ 获取事件名称 ]]>
+				<return><![CDATA[ 事件名称 ]]></return>
+			</method>
+			<method name="isDefaultPrevented" returnType="Boolean">
+				<![CDATA[ 默认行为是否已取消 ]]>
+				<return><![CDATA[ true/false ]]></return>
+			</method>
+			<method name="preventedDefault" returnType="void">
+				<![CDATA[ 取消服务处理的默认行为 ]]>
+			</method>
+			<method name="stopPropagation" returnType="void">
+				<![CDATA[ 阻止消息向其他消息处理器分发]]>
+			</method>
+			<method name="isPropagationStoped" returnType="Boolean">
+				<![CDATA[ 消息分发是否已中止]]>
+				<return><![CDATA[ true/false ]]></return>
+			</method>
+			<method name="getAttribute" returnType="Object">
+				<![CDATA[ 获取事件相关属性]]>
+				<param name="name" type="String"><![CDATA[ 名称 ]]></param>
+				<return><![CDATA[ 事件相关属性 ]]></return>
+			</method>
+			<method name="setAttribute" returnType="void">
+				<![CDATA[ 设置事件相关属性]]>
+				<param name="name" type="String"><![CDATA[ 名称 ]]></param>
+				<param name="value" type="Obejct"><![CDATA[ 值 ]]></param>
+			</method>
+		</class>
+		<class name="Map">
+			<method name="get" returnType="Object">
+				<![CDATA[ 获取key对应的值 ]]>
+				<param name="key" type="String"><![CDATA[ 名称 ]]></param>
+				<return><![CDATA[ 值  ]]></return>
+			</method>
+			<method name="put" returnType="void">
+				<![CDATA[ 设置key对应的值 ]]>
+				<param name="key" type="String"><![CDATA[ 名称 ]]></param>
+				<param name="value" type="Object"><![CDATA[ 值 ]]></param>
+			</method>
+			<method name="size" returnType="int">
+				<![CDATA[ 获取Map的大小 ]]>
+				<return><![CDATA[ Map的大小 ]]></return>
+			</method>
+			<method name="clear" returnType="void">
+				<![CDATA[ 清空Map内容 ]]>
+			</method>
+		</class>
+		<scope name="global">
+			<scope name="system_event">
+				<var name="service" type="ScriptService" />
+				<var name="logger" type="ScriptLogger" />
+				<var name="event" type="ScriptEvent" />
+			</scope>
+			<scope name="customer_event">
+				<var name="service" type="ScriptService" />
+				<var name="logger" type="ScriptLogger" />
+				<var name="param" type="Map" />
+				<var name="returnValue" type="Map" />
+			</scope>
+		</scope>
+	</TypeDB>
+	<!-- 工作流脚本代码类型库定义 -->
+	<TypeDB name="Workflow" parent="ServiceExtension">
+		<class name="ActivityContext">
+			<method name="getNextWorker" returnType="Principal">
+				<![CDATA[ 获取任务的提交目标用户 ]]>
+				<return><![CDATA[ 提交目标用户  ]]></return>
+			</method>
+			<method name="setNextWorker" returnType="void">
+				<![CDATA[ 设置任务的执行用户 ]]>
+				<param name="worker" type="Principal"><![CDATA[ 执行用户 ]]></param>
+			</method>
+			
+			<method name="getSubmiter" returnType="Principal">
+				<![CDATA[ 获取任务的提交人对象 ]]>
+				<return><![CDATA[ 提交人对象  ]]></return>
+			</method>
+			<method name="getWorkEntity" returnType="JSEntity">
+				<![CDATA[ 获取当前正在处理的工作实体对象 ]]>
+				<return><![CDATA[ 工作实体对象  ]]></return>
+			</method>
+			<method name="getEntityCreator" returnType="Principal">
+				<![CDATA[ 获取当前工作实体的创建者对象 ]]>
+				<return><![CDATA[ 操作员对象  ]]></return>
+			</method>
+			<method name="getProcessActivator" returnType="Principal">
+				<![CDATA[ 获取当前工作流实例的发起人对象 ]]>
+				<return><![CDATA[ 操作员对象  ]]></return>
+			</method>
+			<method name="getSubmitMode" returnType="String">
+				<![CDATA[ 获取提交方式名称 ]]>
+				<return><![CDATA[ 提交方式  ]]></return>
+			</method>
+			<method name="getSubmitNode" returnType="String">
+				<![CDATA[ 获取提交备注内容 ]]>
+				<return><![CDATA[ 备注内容  ]]></return>
+			</method>
+			<method name="getWorker" returnType="Principal">
+				<![CDATA[ 获取任务分配后的工作者对象 ]]>
+				<return><![CDATA[ 操作员对象  ]]></return>
+			</method>
+			<method name="getVariable" returnType="String">
+				<![CDATA[ 获取工作流实例中的变量值 ]]>
+				<param name="name" type="String"><![CDATA[ 变量名 ]]></param>
+				<return><![CDATA[ 变量值  ]]></return>
+			</method>
+			<method name="setVariable" returnType="void">
+				<![CDATA[ 设置工作流实例中的变量值 ]]>
+				<param name="name" type="String"><![CDATA[ 变量名 ]]></param>
+				<param name="value" type="String"><![CDATA[ 变量值 ]]></param>
+			</method>
+			<method name="setNotifyMessage" returnType="void">
+				<![CDATA[ 设置任务的通知消息内容 ]]>
+				<param name="message" type="String"><![CDATA[ 消息内容 ]]></param>
+			</method>
+		</class>
+		<scope name="global">
+			<scope name="workflow_event">
+				<var name="service" type="ScriptService" />
+				<var name="logger" type="ScriptLogger" />
+				<var name="ctx" type="ActivityContext" />
+			</scope>
+		</scope>
+	</TypeDB>
+	<!-- 服务扩展脚本代码类型库定义 -->
+	<TypeDB name="XPTControl" parent="ServiceExtension">
+		<class name="XPTScriptControl">
+			<method name="setData" returnType="void">
+				<![CDATA[ 设置数据源内容 ]]>
+				<param name="dsName" type="String"><![CDATA[ 数据源名称 ]]></param>
+				<param name="value" type="Object"><![CDATA[ 数据源值 ]]></param>
+			</method>
+			<method name="getData" returnType="Object">
+				<![CDATA[ 获取数据源内容 ]]>
+				<param name="dsName" type="String"><![CDATA[ 数据源名称 ]]></param>
+				<return><![CDATA[ 数据源值  ]]></return>
+			</method>
+			<method name="executeQuery" returnType="Object">
+				<![CDATA[ 执行查询数据源 ]]>
+				<param name="name" type="String"><![CDATA[ 数据源名称 ]]></param>
+				<param name="startNo" type="int"><![CDATA[ 起始行号 ]]></param>
+				<param name="size" type="int"><![CDATA[ 返回记录数 ]]></param>
+				<param name="params" type="Object" default="null"><![CDATA[ 查询参数 ]]></param>
+				<return><![CDATA[ 查询结果  ]]></return>
+			</method>
+			<method name="getProperties" returnType="Map">
+				<![CDATA[ 获取控件的属性对象 ]]>
+				<return><![CDATA[ 属性对象  ]]></return>
+			</method>
+			<method name="getPageProperties" returnType="Map">
+				<![CDATA[ 获取页面的属性对象 ]]>
+				<return><![CDATA[ 属性对象  ]]></return>
+			</method>
+			<method name="setPageProperties" returnType="void">
+				<![CDATA[ 设置页面的属性对象 ]]>
+				<param name="name" type="String"><![CDATA[ 属性名称 ]]></param>
+				<param name="value" type="Object"><![CDATA[ 属性值]]></param>
+			</method>
+			<method name="getSiteProperties" returnType="Map">
+				<![CDATA[ 获取站点的属性对象 ]]>
+				<return><![CDATA[ 属性对象  ]]></return>
+			</method>
+			<method name="gotoVisualState" returnType="void">
+				<![CDATA[ 使控件进入指定的视觉状态 ]]>
+				<param name="visualState" type="String"><![CDATA[ 视觉状态 ]]></param>
+			</method>
+			<method name="setLink" returnType="void">
+				<![CDATA[ 设置链接参数 ]]>
+				<param name="link" type="String"><![CDATA[ 链接名 ]]></param>
+				<param name="param" type="Object"><![CDATA[ 链接参数 ]]></param>
+			</method>
+			<method name="getLinkUrl" returnType="String">
+				<![CDATA[ 获取链接的URL地址 ]]>
+				<param name="linkName" type="String"><![CDATA[ 链接名称 ]]></param>
+				<return><![CDATA[ 链接的URL地址 ]]></return>
+			</method>
+			<method name="getBorderSize" returnType="String">
+				<![CDATA[ 获取边框的计算大小，边框的计算大小计算公式为：控件大小-边框宽度 ]]>
+				<param name="borderWidth" type="int"><![CDATA[ 左边框和右边框的宽度之和 ]]></param>
+				<param name="borderHeight" type="int"><![CDATA[ 上边框和下边框的宽度之和 ]]></param>
+				<return><![CDATA[ 边框大小的CSS样式 ]]></return>
+			</method>
+			<method name="getAjaxUrl" returnType="String">
+				<![CDATA[ 获取用Ajax调用控件行为的URL地址 ]]>
+				<param name="action" type="String"><![CDATA[ 行为名称 ]]></param>
+				<param name="params" type="String"><![CDATA[ 执行行为时的参数，格式为"参数1=值1,参数2=值2,..."，在行为中通过 args.参数名 获取值 ]]></param>
+				<return><![CDATA[ Ajax URL  ]]></return>
+			</method>
+		</class>
+		<class name="XPTControlAction">
+			<method name="getParameter" returnType="String">
+				<![CDATA[ 获取行为参数 ]]>
+				<param name="name" type="String"><![CDATA[ 参数名 ]]></param>
+				<return><![CDATA[ 参数值  ]]></return>
+			</method>
+			<method name="getUploadFilePath" returnType="String">
+				<![CDATA[ 获取上传文件的保存路径 ]]>
+				<param name="name" type="String"><![CDATA[ 上传文件的表单参数名 ]]></param>
+				<return><![CDATA[ 上传文件的相对路径  ]]></return>
+			</method>
+			<method name="getSessionAttribute" returnType="Object">
+				<![CDATA[ 获取HttpSession属性 ]]>
+				<param name="name" type="String"><![CDATA[ 属性名 ]]></param>
+				<return><![CDATA[ 属性值  ]]></return>
+			</method>
+			<method name="setSessionAttribute" returnType="void">
+				<![CDATA[ 设置HttpSession中的属性 ]]>
+				<param name="name" type="String"><![CDATA[ 属性名 ]]></param>
+				<param name="value" type="Object"><![CDATA[ 属性值 ]]></param>
+			</method>
+			<method name="getRequestAttribute" returnType="Object">
+				<![CDATA[ 获取HttpRequest中的属性 ]]>
+				<param name="name" type="String"><![CDATA[ 属性名 ]]></param>
+				<return><![CDATA[ 属性值  ]]></return>
+			</method>
+		</class>
+		<class name="VMUtil">
+			<method name="getAttachmentProperty" returnType="String">
+				<![CDATA[ 获取单个附件的名称或路径 ]]>
+				<param name="str" type="String"><![CDATA[ 附件列表字符串 ]]></param>
+				<param name="type" type="String"><![CDATA[ 获取的类型，name或path ]]></param>
+				<param name="index" type="int"><![CDATA[ 下标 ]]></param>
+				<return><![CDATA[ 单个附件的名称或路径 ]]></return>
+			</method>
+			<method name="getFileSize" returnType="double">
+				<![CDATA[ 获取文件的大小 ]]>
+				<param name="filePath" type="String"><![CDATA[ 文件路径,以根路径为起点 ]]></param>
+				<return><![CDATA[ 文件的大小 ]]></return>
+			</method>
+			<method name="getImageUrl" returnType="String">
+				<![CDATA[ 将图片控件中保存的值转换为图片的Url地址 ]]>
+				<param name="imageValue" type="String"><![CDATA[ 图片控件值 ]]></param>
+				<return><![CDATA[ 图片的URL地址 ]]></return>
+			</method>
+			<method name="formatDate" returnType="String">
+				<![CDATA[ 对日期时间对象做格式转换 ]]>
+				<param name="date" type="Date"><![CDATA[ 日期时间对象 ]]></param>
+				<param name="format" type="String"><![CDATA[ 日期格式，如yyyy-MM-dd HH:mm:ss ]]></param>
+				<return><![CDATA[ 转换结果 ]]></return>
+			</method>
+			<method name="formatMoney" returnType="String">
+				<![CDATA[ 以货币类型显示数据 ]]>
+				<param name="money" type="Long"><![CDATA[ 货币值，单位：分 ]]></param>
+				<return><![CDATA[ 以元为单位的货币显示值 ]]></return>
+			</method>
+			<method name="toFixed" returnType="String">
+				<![CDATA[ 将浮点数以指定的精度显示 ]]>
+				<param name="value" type="Number"><![CDATA[ 浮点数 ]]></param>
+				<param name="fix" type="int"><![CDATA[ 显示精度 ]]></param>
+				<return><![CDATA[ 字符串 ]]></return>
+			</method>
+		</class>
+		<scope name="global">
+			<scope name="control_action">
+				<var name="service" type="ScriptService" />
+				<var name="logger" type="ScriptLogger" />
+				<var name="control" type="XPTScriptControl" />
+				<var name="action" type="XPTControlAction" />
+				<var name="util" type="VMUtil" />
+			</scope>
+		</scope>
+	</TypeDB>
+	<!-- 服务扩展脚本代码类型库定义 -->
+	<TypeDB name="MobileUIScript" parent="ServiceExtension">
+		<class name="MobilePage">
+			<method name="setData" returnType="void">
+				<![CDATA[ 设置数据源内容 ]]>
+				<param name="dsName" type="String"><![CDATA[ 数据源名称 ]]></param>
+				<param name="value" type="Object"><![CDATA[ 数据源值 ]]></param>
+			</method>
+			<method name="getData" returnType="Object">
+				<![CDATA[ 获取数据源内容 ]]>
+				<param name="dsName" type="String"><![CDATA[ 数据源名称 ]]></param>
+				<return><![CDATA[ 数据源值  ]]></return>
+			</method>
+			<method name="executeQuery" returnType="Object">
+				<![CDATA[ 执行查询数据源 ]]>
+				<param name="name" type="String"><![CDATA[ 数据源名称 ]]></param>
+				<param name="startNo" type="int"><![CDATA[ 起始行号 ]]></param>
+				<param name="size" type="int"><![CDATA[ 返回记录数 ]]></param>
+				<param name="params" type="Object" default="null"><![CDATA[ 查询参数 ]]></param>
+				<return><![CDATA[ 查询结果  ]]></return>
+			</method>
+			<method name="getParameter" returnType="String">
+				<![CDATA[ 获取行为参数 ]]>
+				<param name="name" type="String"><![CDATA[ 参数名 ]]></param>
+				<return><![CDATA[ 参数值  ]]></return>
+			</method>
+			<method name="getSessionAttribute" returnType="Object">
+				<![CDATA[ 获取HttpSession属性 ]]>
+				<param name="name" type="String"><![CDATA[ 属性名 ]]></param>
+				<return><![CDATA[ 属性值  ]]></return>
+			</method>
+			<method name="setSessionAttribute" returnType="void">
+				<![CDATA[ 设置HttpSession属性 ]]>
+				<param name="name" type="String"><![CDATA[ 属性名 ]]></param>
+				<param name="value" type="Object"><![CDATA[ 属性值 ]]></param>
+			</method>
+		</class>
+		<scope name="global">
+			<scope name="mobile_action">
+				<var name="service" type="ScriptService" />
+				<var name="logger" type="ScriptLogger" />
+				<var name="page" type="MobilePage" />
+			</scope>
+		</scope>
+	</TypeDB>
+	<TypeDB name="VMEditor">
+		<class name="VMUtil">
+			<method name="getAttachmentProperty" returnType="String">
+				<![CDATA[ 获取单个附件的名称或路径 ]]>
+				<param name="str" type="String"><![CDATA[ 附件列表字符串 ]]></param>
+				<param name="type" type="String"><![CDATA[ 获取的类型，name或path ]]></param>
+				<param name="index" type="int"><![CDATA[ 下标 ]]></param>
+				<return><![CDATA[ 单个附件的名称或路径 ]]></return>
+			</method>
+			<method name="getFileSize" returnType="double">
+				<![CDATA[ 获取文件的大小 ]]>
+				<param name="filePath" type="String"><![CDATA[ 文件路径,以根路径为起点 ]]></param>
+				<return><![CDATA[ 文件的大小 ]]></return>
+			</method>
+			<method name="getImageUrl" returnType="String">
+				<![CDATA[ 将图片控件中保存的值转换为图片的Url地址 ]]>
+				<param name="imageValue" type="String"><![CDATA[ 图片控件值 ]]></param>
+				<return><![CDATA[ 图片的URL地址 ]]></return>
+			</method>
+			<method name="formatDate" returnType="String">
+				<![CDATA[ 对日期时间对象做格式转换 ]]>
+				<param name="date" type="Date"><![CDATA[ 日期时间对象 ]]></param>
+				<param name="format" type="String"><![CDATA[ 日期格式，如yyyy-MM-dd HH:mm:ss ]]></param>
+				<return><![CDATA[ 转换结果 ]]></return>
+			</method>
+			<method name="formatMoney" returnType="String">
+				<![CDATA[ 以货币类型显示数据 ]]>
+				<param name="money" type="Long"><![CDATA[ 货币值，单位：分 ]]></param>
+				<return><![CDATA[ 以元为单位的货币显示值 ]]></return>
+			</method>
+			<method name="toFixed" returnType="String">
+				<![CDATA[ 将浮点数以指定的精度显示 ]]>
+				<param name="value" type="Number"><![CDATA[ 浮点数 ]]></param>
+				<param name="fix" type="int"><![CDATA[ 显示精度 ]]></param>
+				<return><![CDATA[ 字符串 ]]></return>
+			</method>
+		</class>
+		<class name="XPTScriptControl">
+			<method name="getLinkUrl" returnType="String">
+				<![CDATA[ 获取链接的URL地址 ]]>
+				<param name="linkName" type="String"><![CDATA[ 链接名称 ]]></param>
+				<return><![CDATA[ 链接的URL地址 ]]></return>
+			</method>
+			<method name="getBorderSize" returnType="String">
+				<![CDATA[ 获取边框的计算大小，边框的计算大小计算公式为：控件大小-边框宽度 ]]>
+				<param name="borderWidth" type="int"><![CDATA[ 左边框和右边框的宽度之和 ]]></param>
+				<param name="borderHeight" type="int"><![CDATA[ 上边框和下边框的宽度之和 ]]></param>
+				<return><![CDATA[ 边框大小的CSS样式 ]]></return>
+			</method>
+			<method name="getAjaxUrl" returnType="String">
+				<![CDATA[ 获取用Ajax调用控件行为的URL地址 ]]>
+				<param name="action" type="String"><![CDATA[ 行为名称 ]]></param>
+				<param name="params" type="String"><![CDATA[ 执行行为时的参数，格式为"参数1=值1,参数2=值2,..."，在行为中通过 args.参数名 获取值 ]]></param>
+				<return><![CDATA[ Ajax URL  ]]></return>
+			</method>
+		</class>
+		<class name="MobilePage">
+			<method name="getAjaxSOA" returnType="String">
+				<![CDATA[ 获取javascript中AjaxSOA的构造语句 ]]>
+				<param name="callService" type="String"><![CDATA[ AJAX的服务名称 ]]></param>
+				<return><![CDATA[ AjaxSOA对象的构建代码，例如"new AjaxSOA(...)"  ]]></return>
+			</method>
+		</class>
+		<scope name="global">
+			<scope name="vm_editor">
+				<var name="util" type="VMUtil" />
+				<var name="control" type="XPTScriptControl" />
+			</scope>
+			<scope name="mobile_editor">
+				<var name="util" type="VMUtil" />
+				<var name="page" type="MobilePage" />
+			</scope>
+		</scope>
+	</TypeDB>
+</workshop>

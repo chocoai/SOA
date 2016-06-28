@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Entity log="true" workflow="true" lastId="19" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.2BFCE1B52493" name="AMS_ArtWithdrawal" label="人工提现" note="" nodeID="728" dbcreated="true"> 
+  <relation/>  
+  <extension/>  
+  <property uid="sys_0" label="编号" name="id" type="long" systemProperty="true" group="系统属性字段" editorPart="Entity"/>  
+  <property uid="sys_1" label="域ID" name="domainId" type="long" systemProperty="true" group="系统属性字段" editorPart="Entity"/>  
+  <property uid="log_0" label="创建者ID" name="FM_CreatePrinId" type="long" systemProperty="true" group="系统属性字段" editorPart="Entity"/>  
+  <property uid="log_1" label="创建者" name="FM_CreatePrinName" type="string" length="100" systemProperty="true" group="系统属性字段" editorPart="Entity"/>  
+  <property uid="log_2" label="更新者ID" name="FM_UpdatePrinId" type="long" systemProperty="true" group="系统属性字段" editorPart="Entity"/>  
+  <property uid="log_3" label="更新者" name="FM_UpdatePrinName" type="string" length="100" systemProperty="true" group="系统属性字段" editorPart="Entity"/>  
+  <property uid="log_4" label="创建时间" name="FM_CreateTime" type="timestamp" systemProperty="true" group="系统属性字段" editorPart="Entity"/>  
+  <property uid="log_5" label="更新时间" name="FM_UpdateTime" type="timestamp" systemProperty="true" group="系统属性字段" editorPart="Entity"/>  
+  <property uid="wf_0" label="状态" name="WF_State" type="long" systemProperty="true" group="系统属性字段" editorPart="Entity"/>  
+  <property uid="wf_1" label="状态名称" name="WF_StateName" type="string" length="50" systemProperty="true" group="系统属性字段" editorPart="Entity"/>  
+  <property uid="wf_2" label="所属流程" name="WF_ProcessId" type="long" systemProperty="true" group="系统属性字段" editorPart="Entity"/>  
+  <property uid="wf_3" label="流程名称" name="WF_ProcessName" type="string" length="100" systemProperty="true" group="系统属性字段" editorPart="Entity"/>  
+  <property uid="wf_4" label="处理人ID" name="WF_ProcessorPrinId" type="long" systemProperty="true" group="系统属性字段" editorPart="Entity"/>  
+  <property uid="wf_5" label="处理人" name="WF_ProcessorPrinName" type="string" length="100" systemProperty="true" group="系统属性字段" editorPart="Entity"/>  
+  <property uid="wf_6" label="工作项ID" name="WF_WorkItemId" type="long" systemProperty="true" group="系统属性字段" editorPart="Entity"/>  
+  <property name="member" label="会员" type="relation" uid="id_1" group="业务属性字段" entityUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0" labelField="name" editorPart="Entity" dbcreated="true"/>  
+  <property name="member_uuid" label="会员userId" type="string" length="100" uid="id_2" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="total_money" label="提现金额" type="long" uid="id_3" group="业务属性字段" currency="true" editorPart="Entity" dbcreated="true"/>  
+  <property name="accountNo" label="银行帐号" type="string" length="100" uid="id_4" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="account_name" label="开户名" type="string" length="100" uid="id_5" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="identity_cardNo" label="身份证号码" type="string" length="100" uid="id_6" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="phone" label="手机号码" type="string" length="100" uid="id_7" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="operator" label="经办人" type="principal" uid="id_8" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="operator_date" label="经办时间" type="timestamp" length="100" uid="id_9" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="auditor" label="审核人" type="principal" uid="id_10" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="auditor_date" label="审核时间" type="timestamp" length="100" uid="id_11" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="bank_name" label="开户行" type="string" length="100" uid="id_12" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="remark" label="备注" type="string" length="1000" uid="id_13" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="system_member" label="系统会员" type="relation" uid="id_14" group="业务属性字段" entityUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0" labelField="name" editorPart="Entity" dbcreated="true"/>  
+  <property name="branchAccountNo" label="开户支行号" type="string" length="100" uid="id_15" editorPart="Entity" dbcreated="true"/>  
+  <property name="code" label="编码" type="coding" length="100" uid="id_16" codingPattern="ART${year:4,0}${month:2,0}${date:2,0}-${sequence:4,0}" editorPart="Entity" resetPeriod="3" recyclable="false" zeroStart="true" dbcreated="true"/>  
+  <property name="reportState" label="报表状态" type="long" uid="id_19" valueProvider="多账户.人工提现报表状态" editorPart="Entity" dbcreated="true"/> 
+</Entity>

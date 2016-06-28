@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "PUBLIC" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class entity-name="AMS_OutAccountType" table="DYNA_AMS_OutAccountType">
+    <id name="id" type="long">
+      <generator class="sequence">
+        <param name="sequence">IDSEQ_AMS_OutAccountType</param>
+      </generator>
+    </id>
+    <property name="domainId" not-null="false" type="long" index="IDX_DOMAINID"/>
+    <property name="code_no" not-null="false" type="string" length="50"/>
+    <property name="name" not-null="false" type="string" length="100"/>
+    <property name="integrate_org_id" not-null="false" type="long" index="integrate_org_idx"/>
+    <property name="integrate_org_label" not-null="false" type="string" length="200"/>
+  </class>
+</hibernate-mapping>

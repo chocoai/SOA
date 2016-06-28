@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityQuery name="应用配置" label="应用配置" note="" share="false" multiselect="false" editable="false" autopaging="true" pagingMode="VirtualizingPaging" virtualizingPagingEnabled="true" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.31EF2D9FA3C1" nodeID="1117">
+  <queryEntities>
+    <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.BC3119324A07" name="AMS_AppConfig" label="应用配置" alias="a0" master="true" />
+  </queryEntities>
+  <DataGrid>
+    <color />
+    <column name="application" label="应用" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.BC3119324A07.id_3" width="100" isBranch="false" editable="" sortable="" textAlign="" dataField="AMS_AppConfig$application_label" />
+    <column name="appNo" label="应用编号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.BC3119324A07.id_11" width="100" isBranch="false" dataField="AMS_AppConfig$appNo" />
+    <column name="isOpen" label="是否开启" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.BC3119324A07.id_8" width="100" isBranch="false" dataField="AMS_AppConfig$isOpen" />
+    <column name="accountNo" label="账户集编号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.BC3119324A07.id_2" width="100" isBranch="false" dataField="AMS_AppConfig$accountNo" />
+    <column name="openApp" label="开通应用" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.BC3119324A07.id_6" width="100" isBranch="false" dataField="AMS_AppConfig$openApp_label" />
+    <column name="openAppNo" label="开通应用编号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.BC3119324A07.id_9" width="100" isBranch="false" dataField="AMS_AppConfig$openAppNo" />
+    <column name="sourceAccountNo" label="对应账户集编号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.BC3119324A07.id_10" width="100" isBranch="false" dataField="AMS_AppConfig$sourceAccountNo" />
+  </DataGrid>
+  <editState />
+  <toolbar>
+    <button label="新建" action="alink" selection="none" permission="" permissionName="" visiable="true" alink="alink://ime.AppWindow/EntityForm?{action:&quot;create&quot;,entityUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.BC3119324A07&quot;,formUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.616D18B4A6FC&quot;,formState:&quot;state1&quot;}" />
+    <button label="编辑" action="alink" selection="single" permission="" permissionName="" visiable="true" alink="alink://ime.AppWindow/EntityForm?{action:&quot;edit&quot;,entityUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.BC3119324A07&quot;,formUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.616D18B4A6FC&quot;,formState:&quot;state2&quot;}" />
+    <button label="删除" action="delete" selection="single" />
+  </toolbar>
+  <xmlQuery version="2.0" name="" label="">
+    <select domainScope="true">
+      <other label="其他" uid="other" name="other" />
+      <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.BC3119324A07" name="AMS_AppConfig" label="应用配置" alias="a0">
+        <field uid="sys_0" name="id" label="编号" type="long" />
+        <field uid="sys_1" name="domainId" label="域ID" type="long" />
+        <field uid="id_3" name="application" label="应用" type="relation" />
+        <field uid="id_11" name="appNo" label="应用编号" type="string" />
+        <field uid="id_1" name="config_type" label="配置类型" type="long" />
+        <field uid="id_8" name="isOpen" label="是否开启" type="boolean" />
+        <field uid="id_2" name="accountNo" label="账户集编号" type="string" />
+        <field uid="id_6" name="openApp" label="开通应用" type="relation" />
+        <field uid="id_9" name="openAppNo" label="开通应用编号" type="string" />
+        <field uid="id_10" name="sourceAccountNo" label="对应账户集编号" type="string" />
+      </Entity>
+    </select>
+    <where>
+      <exp type="2">
+        <exp type="19" valueType="1" option="true" rightType="param" right="appNo" leftEntity="AMS_AppConfig" leftField="appNo" uid="exp0" />
+        <exp type="5" valueType="3" option="false" leftEntity="AMS_AppConfig" leftField="application_id" uid="exp1" rightType="val" right="$page.master.selectedEntity.id" />
+      </exp>
+    </where>
+    <other>
+      <groupBy label="Group By" />
+      <orderBy label="Order By" />
+    </other>
+  </xmlQuery>
+  <conditionForm>
+    <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2">
+      <TabNavigator>
+        <tab label="default">
+          <Label width="82" height="25" text="应用编号:" propertyUID="id_11" x="2" y="2" style="" />
+          <TextInput name="appNo" width="139" height="25" x="63" y="2" />
+        </tab>
+      </TabNavigator>
+    </Window>
+  </conditionForm>
+  <StatSetting />
+  <queryEvent />
+</EntityQuery>

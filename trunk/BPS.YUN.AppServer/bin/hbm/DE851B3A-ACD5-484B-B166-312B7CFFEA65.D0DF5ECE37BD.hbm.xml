@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "PUBLIC" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class entity-name="BPS_DirConsumeOrder" table="DYNA_BPS_DirConsumeOrder">
+    <id name="id" type="long">
+      <generator class="native"/>
+    </id>
+    <property name="domainId" not-null="false" type="long" index="IDX_DOMAINID"/>
+    <property name="account_type_id" not-null="false" type="long" index="account_type_idx"/>
+    <property name="account_type_label" not-null="false" type="string" length="200"/>
+    <property name="description" not-null="false" type="string" length="1024"/>
+    <property name="amount" not-null="false" type="long"/>
+    <property name="user_count" not-null="false" type="long"/>
+    <property name="company_id" not-null="false" type="long" index="company_idx"/>
+    <property name="company_label" not-null="false" type="string" length="200"/>
+    <property name="apply_date" not-null="false" type="timestamp" length="100"/>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "PUBLIC" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class entity-name="AMS_OrderDetail" table="DYNA_AMS_OrderDetail">
+    <id name="id" type="long">
+      <generator class="native"/>
+    </id>
+    <property name="domainId" not-null="false" type="long" index="IDX_DOMAINID"/>
+    <property name="owner_order_id" not-null="false" type="long" index="owner_order_idx"/>
+    <property name="owner_order_label" not-null="false" type="string" length="200"/>
+    <property name="goods_count" not-null="false" type="long"/>
+    <property name="unit_price" not-null="false" type="long"/>
+    <property name="total_price" not-null="false" type="long"/>
+    <property name="spec" not-null="false" type="string" length="100"/>
+    <property name="art_no" not-null="false" type="string" length="100"/>
+    <property name="goods_name" not-null="false" type="string" length="512"/>
+    <property name="goods_uuid" not-null="false" type="string" length="100"/>
+    <property name="goods_image" not-null="false" type="string" length="100"/>
+    <property name="begin_time" not-null="false" type="timestamp" length="100"/>
+    <property name="end_time" not-null="false" type="timestamp" length="100"/>
+    <property name="activity_id" not-null="false" type="long"/>
+    <property name="out_system" not-null="false" type="string" length="100"/>
+    <property name="return_goods_id" not-null="false" type="long" index="return_goods_idx"/>
+    <property name="return_goods_label" not-null="false" type="string" length="200"/>
+    <property name="edit_unit_price" not-null="false" type="long"/>
+    <property name="edit_total_price" not-null="false" type="long"/>
+    <property name="is_return_delivery_price" not-null="false" type="boolean" length="100"/>
+    <property name="recharge_number" not-null="false" type="string" length="100"/>
+    <property name="recharge_type" not-null="false" type="long"/>
+    <property name="remarks" not-null="false" type="string" length="100"/>
+    <property name="wec_provinceId" not-null="false" type="string" length="100"/>
+    <property name="wec_cityId" not-null="false" type="string" length="100"/>
+    <property name="wec_payProjectId" not-null="false" type="string" length="100"/>
+    <property name="wec_payUnitId" not-null="false" type="string" length="100"/>
+    <property name="wec_account" not-null="false" type="string" length="100"/>
+    <property name="wec_productId" not-null="false" type="string" length="100"/>
+    <property name="wec_contractId" not-null="false" type="string" length="100"/>
+    <property name="wec_payMentDay" not-null="false" type="string" length="100"/>
+  </class>
+</hibernate-mapping>

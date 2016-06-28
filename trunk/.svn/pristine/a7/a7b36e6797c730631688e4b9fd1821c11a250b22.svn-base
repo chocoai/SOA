@@ -1,0 +1,75 @@
+
+.ws_toolbar {
+		background:	url("../images/ws/toolbar_bk.jpg");
+		border-bottom : solid #808080 1px;
+		border-left : solid #FFFFFF 1px;
+		border-right : solid #808080 1px;
+		border-top : solid #FFFFFF 1px;
+		margin : 0px;
+		-moz-user-select : none;
+		padding : 0px;
+	}
+.ws_toolbar .handle {
+		background-color : #D4D0C8;
+		border-bottom : solid #808080 1px;
+		border-left : solid #FFFFFF 1px;
+		border-right : solid #808080 1px;
+		border-top : solid #FFFFFF 1px;
+		margin-left:1px;
+		margin-bottom : 1px;
+		margin-top : 2px;
+		cursor : default;
+		height : 100%;
+		overflow : hidden;
+		vertical-align : middle;
+		width : 3px;
+	}
+.ws_toolbar .toolbutton {
+		background:	url("../images/ws/tbutton_bk.jpg");
+		behavior: url('../js/coolbutton.htc'); 
+		cursor: default; font: icon;word-break:keep-all;
+		text-align:	left; 
+		border: 1px solid #B7B7B7;
+		vertical-align : middle;
+	}
+.ws_toolbar .cool_button_raised	{
+		border:			1px solid;
+		border-color:	ButtonHighlight #9090BB #9090BB ButtonHighlight;
+	}
+.ws_toolbar .cool_button_pressed	{
+		border:			1px solid;
+		border-color:	#9090BB ButtonHighlight ButtonHighlight #9090BB;
+		background-image: url("../images/ws/tileback.gif");
+	}
+.ws_toolbar .separator {
+		background-color : #D4D0C8;
+		border-left : solid #808080 1px;
+		border-right : solid #FFFFFF 1px;
+		height : 100%;
+		margin-bottom : 1px;
+		margin-top : 2px;
+		margin-left:2px;
+		margin-right:1px;
+		overflow : hidden;
+		vertical-align : middle;
+		width : 2px;
+	}
+
+.ws_toolbar .dropbutton {
+		background:	url("../images/ws/tbutton_bk.jpg"); 
+		cursor: default; font: icon;word-break:keep-all;
+		border: 1px solid #B7B7B7;
+		vertical-align : middle;
+		padding:1px;
+		height: 20px;
+		droparrow_img: "downarrow.gif";
+	}
+.ws_toolbar .button_raised	{
+		border:			1px solid;
+		border-color:	ButtonHighlight #9090BB #9090BB ButtonHighlight;
+	}
+.ws_toolbar .button_pressed	{
+		border:			1px solid;
+		border-color:	#9090BB ButtonHighlight ButtonHighlight #9090BB;
+	}
+

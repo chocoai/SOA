@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityForm name="支付渠道" label="支付渠道" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.1C63CBA54F58" nodeID="566"> 
+              <formEntity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.4BCBC9D2C1A9"/>  
+              <formState> 
+                <state label="基础" uid="state0" basedOn="null"> 
+                  <rule type="required" property="name" label="名称" rule="true"/>  
+                  <rule type="required" property="codeNo" label="渠道编号" rule="true"/> 
+                </state> 
+              </formState>  
+              <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2"> 
+                <TabNavigator> 
+                  <tab label="default"> 
+                    <Label width="82" height="25" text="渠道编号:" propertyUID="id_2" x="3" y="3" style=""/>  
+                    <TextInput propertyUID="id_2" width="159" height="25" x="83" y="3"/>  
+                    <Label width="59" height="25" text="名称:" propertyUID="id_1" x="243" y="3" style=""/>  
+                    <TextInput propertyUID="id_1" width="159" height="25" x="323" y="3"/>  
+                    <Label width="82" height="25" text="备注:" propertyUID="id_12" x="3" y="59" style=""/>  
+                    <TextArea propertyUID="id_12" width="399" height="55" x="83" y="59"/>  
+                    <Label width="82" height="25" text="商户号:" propertyUID="id_9" x="3" y="31" style=""/>  
+                    <TextInput propertyUID="id_9" width="159" height="25" x="83" y="31"/> 
+                  </tab> 
+                </TabNavigator> 
+              </Window>  
+              <formEvent/> 
+            </EntityForm>

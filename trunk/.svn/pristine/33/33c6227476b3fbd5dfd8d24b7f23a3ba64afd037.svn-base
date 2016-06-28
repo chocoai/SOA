@@ -1,0 +1,119 @@
+package bps.external.soa.member;
+
+import apf.util.BusinessException;
+import bps.common.BizException;
+import bps.common.Constant;
+import bps.common.ErrorCode;
+import bps.common.Util;
+import bps.external.soa.SoaServiceUtil;
+import bps.external.soa.process.Extension;
+import ime.soa.ISOAService;
+import org.apache.commons.lang.StringUtils;
+import org.apache.log4j.Logger;
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import javax.servlet.http.HttpServletRequest;
+import java.text.SimpleDateFormat;
+import java.util.Map;
+
+/**
+ * Created by Administrator on 2016/5/6.
+ */
+public class SoaMemberWithoutConfirm implements ISOAService {
+
+    private static Logger logger = Logger.getLogger("memberWithoutConfirm");
+    private static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    public JSONObject doService(String arg0, JSONArray arg1) throws Exception {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    public JSONObject doService(String s, JSONObject json) throws Exception {
+        logger.info("s=" + s + " json=" + json);
+        if("bindPhoneWithoutConfirm".equals(s)){
+            return bindPhoneWithoutConfirm(json);
+        }else
+            throw new BusinessException("SOA.NoSuchMethod", (new StringBuilder()).append("找不到相应的服务:").append(getServiceName()).append(".").append(s).toString());
+
+    }
+
+    public String getServiceName() {
+        // TODO Auto-generated method stub
+        return "MemberServiceWithoutConfirm";
+    }
+
+    public boolean isMustLogined() {
+        // TODO Auto-generated method stub
+        return false;
+    }
+
+    public boolean isMustValidateClient() {
+        // TODO Auto-generated method stub
+        return false;
+    }
+
+
+    public JSONObject bindPhoneWithoutConfirm(JSONObject json) throws BusinessException{
+        logger.info("=======================bindPhoneWithoutConfirm start===========================");
+
+        try{
+            HttpServletRequest request = (HttpServletRequest)json.get("$request");
+            String bizId  = (String)request.getParameter("sysid");
+            String version = (String)request.getParameter("v");
+            String bizUserId = (String)json.get("bizUserId");
+            String phone = (String)json.get("phone");
+
+            if(StringUtils.isBlank(bizId))
+                throw new BizException(ErrorCode.PARAM_ERROR_NULL, "参数sysid为空或null");
+            if(StringUtils.isBlank(version))
+                throw new BizException(ErrorCode.PARAM_ERROR_NULL, "参数v为空或null");
+            if(StringUtils.isBlank(bizUserId))
+                throw new BizException(ErrorCode.PARAM_ERROR_NULL, "参数bizUserId为空或null");
+            if(StringUtils.isBlank(phone))
+                throw new BizException(ErrorCode.PARAM_ERROR_NULL, "参数phone为空或null");
+            if(!Util.isNumeric(phone))
+                throw new BizException(ErrorCode.PARAM_ERROR,"传入非手机号码"+ phone);
+            if(phone.length() != 11)
+                throw new BizException(ErrorCode.PARAM_ERROR,"传入非手机号码" + phone);
+            //检查应用使用接口权限
+            SoaServiceUtil.judgeSoaAvailable(bizId, "bindPhone", version);
+
+            bizUserId = bizUserId.trim();
+
+            //获取会员实体并检查用户是否存在
+            Long applicationId = SoaServiceUtil.getApplicationId(bizId);
+            Map<String, Object> memberEntity = SoaServiceUtil.getMemberEntity(applicationId, bizUserId);
+
+            //用户不可用，则不允许操作
+            if(!Constant.USER_STATE_ACTIVATION.equals(memberEntity.get("user_state"))){
+                throw new BizException(ErrorCode.USER_IS_NOT_USEFUL, "当前用户不可用。");
+            }
+
+            //检测用户是否已经绑定手机
+            if(memberEntity.get("isPhone_checked") != null && (Boolean)memberEntity.get("isPhone_checked")){
+                throw new BizException(ErrorCode.HAS_BIND_PHONE,"手机已绑定");
+            }
+
+
+            //绑定手机
+            Long memberId = (Long)memberEntity.get("id");
+            logger.info("bindPhoneWithoutConfirm参数:memberId=" + memberId + ",phone=" + phone);
+            Extension.memberService.bindPhone(memberId, phone);
+
+            logger.info("=======================bindPhone end===========================");
+            JSONObject ret = new JSONObject();
+            ret.put("bizUserId", bizUserId);
+            ret.put("phone", phone);
+            return ret;
+        }catch(BizException bizE){
+            String message = bizE.getMessage() == null ? "其他错误" :bizE.getMessage();
+            logger.error(message, bizE);
+            throw new BusinessException(bizE.getErrorCode(), message);
+        }catch(Exception e){
+            logger.error(e.getMessage(), e);
+            throw new BusinessException(ErrorCode.OTHER_ERROR, "其他错误。");
+        }
+
+    }
+}

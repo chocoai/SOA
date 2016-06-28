@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "PUBLIC" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class entity-name="AMS_SubAccount" table="DYNA_AMS_SubAccount">
+    <id name="id" type="long">
+      <generator class="native"/>
+    </id>
+    <property name="domainId" not-null="false" type="long" index="IDX_DOMAINID"/>
+    <property name="valid_date" not-null="false" type="timestamp" length="100"/>
+    <property name="mainAccount_id" not-null="false" type="long" index="mainAccount_idx"/>
+    <property name="mainAccount_label" not-null="false" type="string" length="200"/>
+    <property name="amount" not-null="false" type="long"/>
+    <property name="freeze_amount" not-null="false" type="long"/>
+    <property name="userId" not-null="false" type="string" length="100"/>
+  </class>
+</hibernate-mapping>

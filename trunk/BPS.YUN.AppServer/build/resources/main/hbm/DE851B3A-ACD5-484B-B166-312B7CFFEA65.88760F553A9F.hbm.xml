@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "PUBLIC" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class entity-name="AMS_RepayInfo" table="DYNA_AMS_RepayInfo">
+    <id name="id" type="long">
+      <generator class="sequence">
+        <param name="sequence">IDSEQ_AMS_RepayInfo</param>
+      </generator>
+    </id>
+    <property name="domainId" not-null="false" type="long" index="IDX_DOMAINID"/>
+    <property name="goods_type" not-null="false" type="long"/>
+    <property name="goods_id" not-null="false" type="long"/>
+    <property name="period" not-null="false" type="long"/>
+    <property name="amount" not-null="false" type="long"/>
+    <property name="interest" not-null="false" type="long"/>
+    <property name="principal" not-null="false" type="long"/>
+    <property name="overplusPrincipal" not-null="false" type="long"/>
+  </class>
+</hibernate-mapping>

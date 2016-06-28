@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Entity lastId="5" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.CE9199C70F3D" name="AMS_RiskAttention" label="风险关注" note="" log="false" workflow="false" nodeID="773" dbcreated="true"> 
+  <property uid="sys_0" label="编号" name="id" type="long" systemProperty="true"/>  
+  <property uid="sys_1" label="域ID" name="domainId" type="long" systemProperty="true"/>  
+  <relation/>  
+  <extension/>  
+  <property name="addDate" label="创建时间" type="timestamp" length="100" uid="id_2" dbcreated="true"/>  
+  <property name="state" label="状态" type="long" uid="id_3" valueProvider="多账户.风险关注状态" dbcreated="true"/>  
+  <property name="memo" label="操作备注" type="string" length="100" uid="id_4" dbcreated="true"/>  
+  <property name="member" label="会员" type="relation" uid="id_5" entityUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0" dbcreated="true"/> 
+</Entity>

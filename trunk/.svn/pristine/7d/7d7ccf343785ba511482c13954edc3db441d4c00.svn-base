@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Entity log="true" lastId="5" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.B800CF07371B" name="AMS_ReturnMessage" label="退货退款留言" note="" workflow="false" nodeID="331" dbcreated="true"> 
+  <property uid="sys_0" label="编号" name="id" type="long" systemProperty="true" editorPart="Entity"/>  
+  <property uid="sys_1" label="域ID" name="domainId" type="long" systemProperty="true" editorPart="Entity"/>  
+  <relation/>  
+  <extension/>  
+  <property uid="log_0" label="创建者ID" name="FM_CreatePrinId" type="long" systemProperty="true" editorPart="Entity"/>  
+  <property uid="log_1" label="创建者" name="FM_CreatePrinName" type="string" length="100" systemProperty="true" editorPart="Entity"/>  
+  <property uid="log_2" label="更新者ID" name="FM_UpdatePrinId" type="long" systemProperty="true" editorPart="Entity"/>  
+  <property uid="log_3" label="更新者" name="FM_UpdatePrinName" type="string" length="100" systemProperty="true" editorPart="Entity"/>  
+  <property uid="log_4" label="创建时间" name="FM_CreateTime" type="timestamp" systemProperty="true" editorPart="Entity"/>  
+  <property uid="log_5" label="更新时间" name="FM_UpdateTime" type="timestamp" systemProperty="true" editorPart="Entity"/>  
+  <property name="returnRefund" label="退款单" type="relation" uid="id_1" entityUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.F505638B609A" labelField="returnRefundNo" editorPart="Entity" dbcreated="true"/>  
+  <property name="member" label="留言用户" type="relation" uid="id_2" entityUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0" labelField="name" editorPart="Entity" dbcreated="true"/>  
+  <property name="message" label="留言内容" type="string" length="10000" uid="id_3" editorPart="Entity" dbcreated="true"/>  
+  <property name="image" label="留言图片" type="string" length="1000" uid="id_4" editorPart="Entity" dbcreated="true"/>  
+  <property name="member_type" label="用户类型" type="long" uid="id_5" valueProvider="订单.退款留言用户类型" dbcreated="true"/> 
+</Entity>

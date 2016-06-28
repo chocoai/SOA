@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityQuery name="机构管理" label="机构管理" note="" share="false" multiselect="false" editable="false" autopaging="true" pagingMode="VirtualizingPaging" virtualizingPagingEnabled="true" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.A30D05F76497" nodeID="664">
+  <queryEntities>
+    <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.5A11C43DEB1B" name="AMS_Organization" label="应用" alias="a0" selectAll="true" isBranch="true" master="true" />
+  </queryEntities>
+  <DataGrid>
+    <color />
+    <column name="name" label="名称" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.5A11C43DEB1B.id_1" width="100" isBranch="false" dataField="AMS_Organization$name" />
+    <column name="codeNo" label="应用号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.5A11C43DEB1B.id_27" width="100" isBranch="false" dataField="AMS_Organization$codeNo" />
+    <column name="member" label="对应企业会员" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.5A11C43DEB1B.id_3" width="100" isBranch="false" dataField="AMS_Organization$member_label" />
+    <column name="company" label="拓展分公司" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.5A11C43DEB1B.id_7" width="100" isBranch="false" dataField="AMS_Organization$company_label" />
+    <column name="sysid" label="系统编号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.5A11C43DEB1B.id_8" width="100" isBranch="false" dataField="AMS_Organization$sysid" />
+    <column name="cert_password" label="证书密码" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.5A11C43DEB1B.id_25" width="100" isBranch="false" dataField="AMS_Organization$cert_password" />
+    <column name="cert" label="证书" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.5A11C43DEB1B.id_26" width="100" isBranch="false" dataField="AMS_Organization$cert" />
+  </DataGrid>
+  <editState />
+  <toolbar>
+    <button label="新建" action="alink" selection="none" permission="" permissionName="" visiable="true" param="{   &quot;target&quot;: &quot;ime.AppWindow&quot;,   &quot;form&quot;: &quot;EntityForm&quot;,   &quot;param&quot;: {     &quot;action&quot;: &quot;create&quot;,     &quot;entityUID&quot;: &quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.5A11C43DEB1B&quot;,     &quot;formUID&quot;: &quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.88E7DAEED93C&quot;,     &quot;formState&quot;: &quot;state0&quot;,     &quot;title&quot;: &quot;新建&quot;   } }" Button="System.Windows.Controls.Button: 新建" alink="alink://ime.AppWindow/EntityForm?{action:&quot;create&quot;,entityUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.5A11C43DEB1B&quot;,formUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.88E7DAEED93C&quot;,formState:&quot;state0&quot;,title:&quot;新建&quot;}" />
+    <button label="编辑" action="alink" selection="single" permission="" permissionName="" visiable="true" param="{   &quot;target&quot;: &quot;ime.AppWindow&quot;,   &quot;form&quot;: &quot;EntityForm&quot;,   &quot;param&quot;: {     &quot;action&quot;: &quot;edit&quot;,     &quot;entityUID&quot;: &quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.5A11C43DEB1B&quot;,     &quot;formUID&quot;: &quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.88E7DAEED93C&quot;,     &quot;formState&quot;: &quot;state0&quot;,     &quot;title&quot;: &quot;编辑&quot;   } }" Button="System.Windows.Controls.Button: 编辑" alink="alink://ime.AppWindow/EntityForm?{action:&quot;edit&quot;,entityUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.5A11C43DEB1B&quot;,formUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.88E7DAEED93C&quot;,formState:&quot;state0&quot;,title:&quot;编辑&quot;}" />
+    <button label="删除" action="delete" selection="single" />
+    <button label="应用接口添加" action="alink" selection="single" permission="" permissionName="" visiable="true" param="{&#xD;&#xA;  &quot;target&quot;: &quot;ime.AppWindow&quot;,&#xD;&#xA;  &quot;form&quot;: &quot;EntityQuery&quot;,&#xD;&#xA;  &quot;param&quot;: {&#xD;&#xA;    &quot;entityUID&quot;: &quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.AE541FAEF6A1&quot;,&#xD;&#xA;    &quot;queryUID&quot;: &quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.AF94EDF799FF&quot;&#xD;&#xA;  }&#xD;&#xA;}" Button="System.Windows.Controls.Button: 应用接口添加" alink="alink://ime.AppWindow/EntityQuery?{entityUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.AE541FAEF6A1&quot;,queryUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.AF94EDF799FF&quot;}" />
+  </toolbar>
+  <xmlQuery version="2.0" name="" label="">
+    <select domainScope="true">
+      <other label="其他" uid="other" name="other" />
+      <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.5A11C43DEB1B" name="AMS_Organization" label="应用" alias="a0" selectAll="true" isBranch="true">
+        <field uid="sys_0" name="id" label="编号" type="long" />
+        <field uid="sys_1" name="domainId" label="域ID" type="long" />
+        <field uid="id_1" name="name" label="名称" type="string" />
+        <field uid="id_3" name="member" label="对应企业会员" type="relation" />
+        <field uid="id_7" name="company" label="拓展分公司" type="relation" />
+        <field uid="id_8" name="sysid" label="系统编号" type="string" />
+        <field uid="id_9" name="public_key" label="公钥" type="string" />
+        <field uid="id_10" name="private_key" label="私钥" type="string" />
+        <field uid="id_11" name="allowed_ip" label="接入IP" type="string" />
+        <field uid="id_12" name="timerange" label="允许的时间差" type="long" />
+        <field uid="id_13" name="state" label="状态" type="long" />
+        <field uid="id_14" name="encryption" label="加密方式" type="string" />
+        <field uid="id_16" name="remark" label="备注" type="string" />
+        <field uid="id_18" name="allowedIP" label="允许IP" type="string" />
+        <field uid="id_19" name="country" label="国家" type="string" />
+        <field uid="id_20" name="locality" label="位置（市）" type="string" />
+        <field uid="id_21" name="organization" label="组织" type="string" />
+        <field uid="id_22" name="organizationUnit" label="组织单位(部门)" type="string" />
+        <field uid="id_23" name="org_state" label="省" type="string" />
+        <field uid="id_24" name="member_uuid" label="对应会员uid" type="string" />
+        <field uid="id_25" name="cert_password" label="证书密码" type="string" />
+        <field uid="id_26" name="cert" label="证书" type="attachments" />
+        <field uid="id_27" name="codeNo" label="应用号" type="string" />
+        <field uid="id_28" name="app_type" label="应用类型" type="long" />
+        <field uid="id_29" name="ipc_path" label="ICP备案许可证" type="string" />
+        <field uid="id_30" name="license_path" label="行业许可证" type="string" />
+        <field uid="id_31" name="credit_path" label="信用机构代码证" type="string" />
+        <field uid="id_32" name="web_url" label="网址" type="string" />
+      </Entity>
+    </select>
+    <where>
+      <exp type="2" />
+    </where>
+    <other>
+      <groupBy label="Group By" />
+      <orderBy label="Order By">
+        <field uid="sys_0" name="id" label="编号" type="long" entity="AMS_Organization" order="desc" />
+      </orderBy>
+    </other>
+  </xmlQuery>
+  <conditionForm>
+    <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2">
+      <TabNavigator>
+        <tab label="default">
+          <Label width="82" height="25" text="机构号:" propertyUID="id_2" x="3" y="3" style="" />
+          <TextInput name="codeNo" width="139" height="25" x="63" y="3" />
+          <Label width="82" height="25" text="名称:" propertyUID="id_1" x="203" y="3" style="" />
+          <TextInput name="name" width="139" height="25" x="243" y="3" />
+        </tab>
+      </TabNavigator>
+    </Window>
+  </conditionForm>
+  <StatSetting />
+  <queryEvent />
+</EntityQuery>

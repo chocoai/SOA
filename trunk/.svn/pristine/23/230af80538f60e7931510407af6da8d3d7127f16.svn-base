@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "PUBLIC" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class entity-name="AMS_PosQrCode" table="DYNA_AMS_PosQrCode">
+    <id name="id" type="long">
+      <generator class="native"/>
+    </id>
+    <property name="domainId" not-null="false" type="long" index="IDX_DOMAINID"/>
+    <property name="member_id" not-null="false" type="long" index="member_idx"/>
+    <property name="member_label" not-null="false" type="string" length="200"/>
+    <property name="random_code" not-null="false" type="string" length="100"/>
+    <property name="state" not-null="false" type="long"/>
+    <property name="account_type_id" not-null="false" type="long" index="account_type_idx"/>
+    <property name="account_type_label" not-null="false" type="string" length="200"/>
+    <property name="create_time" not-null="false" type="timestamp" length="100"/>
+    <property name="qr_code" not-null="false" type="string" length="100"/>
+    <property name="member_bank_id" not-null="false" type="long" index="member_bank_idx"/>
+    <property name="member_bank_label" not-null="false" type="string" length="200"/>
+    <property name="pay_type" not-null="false" type="long"/>
+    <property name="invalid_time" not-null="false" type="timestamp" length="100"/>
+    <property name="check_time" not-null="false" type="timestamp" length="100"/>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<service id="remoting-service" 
+    class="flex.messaging.services.RemotingService">
+
+    <adapters>
+        <adapter-definition id="java-object" class="ime.brazeds.adapters.JavaAdapter" default="true"/>
+    </adapters>
+
+    <default-channels>
+        <channel ref="ime-amf"/>
+    </default-channels>
+	
+	<!-- ime.core -->
+	<destination id="RoleService">
+		<properties>
+			<source>ime.security.services.RoleService</source>
+		</properties>
+	</destination>
+	<destination id="LoginSession">
+		<properties>
+			<source>ime.security.LoginSession</source>
+			<exclude-methods>
+				<method name="trustLogin"/>
+			</exclude-methods>
+		</properties>
+	</destination>
+	<destination id="ResourceTypeService">
+		<properties>
+			<source>ime.core.services.ResourceTypeService</source>
+		</properties>
+	</destination>
+	<destination id="ResourceService">
+		<properties>
+			<source>ime.core.services.ResourceService</source>
+		</properties>
+	</destination>
+	<destination id="PrincipalService">
+		<properties>
+			<source>ime.security.services.PrincipalService</source>
+		</properties>
+	</destination>
+	<destination id="PermissionService">
+		<properties>
+			<source>ime.security.services.PermissionService</source>
+		</properties>
+	</destination>
+	<destination id="PagePermissionService">
+		<properties>
+			<source>ime.security.services.PagePermissionService</source>
+		</properties>
+	</destination>
+	<destination id="GroupService">
+		<properties>
+			<source>ime.core.services.GroupService</source>
+		</properties>
+	</destination>
+	<destination id="ActionService">
+		<properties>
+			<source>ime.core.services.ActionService</source>
+		</properties>
+	</destination>
+	<destination id="QueryService">
+		<properties>
+			<source>ime.core.services.QueryService</source>
+		</properties>
+	</destination>
+	<destination id="DomainService">
+		<properties>
+			<source>ime.core.services.DomainService</source>
+		</properties>
+	</destination>
+	<destination id="DictionaryService">
+		<properties>
+			<source>ime.core.services.DictionaryService</source>
+		</properties>
+	</destination>
+	<destination id="DynamicEntityService">
+		<properties>
+			<source>ime.core.services.DynamicEntityService</source>
+			<exclude-methods>
+				<method name="getEntityCount"/>
+				<method name="queryEntity"/>
+			</exclude-methods>
+		</properties>
+	</destination>
+	<destination id="WorkshopService">
+		<properties>
+			<source>ime.core.services.WorkshopService</source>
+		</properties>
+	</destination>
+	<destination id="SequenceService">
+		<properties>
+			<source>ime.core.services.SequenceService</source>
+		</properties>
+	</destination>
+	<destination id="DocumentService">
+		<properties>
+			<source>ime.core.services.DocumentService</source>
+		</properties>
+	</destination>
+	<destination id="SOAService">
+		<properties>
+			<source>ime.soa.service.SOAService</source>
+		</properties>
+	</destination>
+	
+	<!-- ime.workflow -->
+	<destination id="WorkflowService">
+		<properties>
+			<source>ime.workflow.services.WorkflowService</source>
+		</properties>
+	</destination>
+	<destination id="WDService">
+		<properties>
+			<source>ime.workflow.services.WorkflowDefinitionService</source>
+		</properties>
+	</destination>
+	
+	<!-- ime.bizservice -->
+	<destination id="ServiceManager">
+		<properties>
+			<source>ime.bizservice.services.ServiceManager</source>
+		</properties>
+	</destination>
+	
+	<!-- ime.calendar -->
+	<destination id="CalendarService">
+		<properties>
+			<source>ime.calendar.services.CalendarService</source>
+		</properties>
+	</destination>
+	<destination id="CalendarEventService">
+		<properties>
+			<source>ime.calendar.services.CalendarEventService</source>
+		</properties>
+	</destination>
+	
+	<!-- ime.organization -->
+	<destination id="DepartmentService">
+		<properties>
+			<source>ime.organization.services.DepartmentService</source>
+		</properties>
+	</destination>
+	
+	<!-- ime.webcallcenter -->
+	<destination id="WebCallCenter">
+		<properties>
+			<source>ime.webcallcenter.WebCallCenter</source>
+		</properties>
+	</destination>
+	<!-- ime.debugservice -->
+	<destination id="DebugService">
+		<properties>
+			<source>ime.script.debug.rhino.debugger.DebugService</source>
+		</properties>
+	</destination>
+	<destination id="MessageService">
+		<properties>
+			<source>ime.message.services.MessageService</source>
+		</properties>
+	</destination>
+	<destination id="TeamworkService">
+		<properties>
+			<source>ime.teamwork.services.TeamworkService</source>
+		</properties>
+	</destination>
+</service>

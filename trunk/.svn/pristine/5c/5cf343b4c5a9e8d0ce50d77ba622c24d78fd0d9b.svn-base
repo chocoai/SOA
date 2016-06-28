@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityForm name="冻结调帐单" label="冻结调帐单" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.A3E79D735C3B" nodeID="644"> 
+              <formEntity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.5A22A926805A"/>  
+              <formState> 
+                <state label="基础" uid="state0" basedOn="null"> 
+                  <rule type="required" property="userId" label="用户ID" rule="true"/>  
+                  <rule type="required" property="account_type" label="账户类型" rule="true"/>  
+                  <rule type="required" property="freeze_type" label="冻结类型" rule="true"/>  
+                  <rule type="required" property="freeze_bizid" label="冻结业务号" rule="true"/>  
+                  <rule type="required" property="amount" label="金额" rule="true"/> 
+                </state> 
+              </formState>  
+              <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2"> 
+                <TabNavigator> 
+                  <tab label="default"> 
+                    <Label width="82" height="25" text="用户ID:" propertyUID="id_1" x="3" y="3" style=""/>  
+                    <TextInput propertyUID="id_1" width="199" height="25" x="83" y="3"/>  
+                    <Label width="82" height="25" text="账户类型:" propertyUID="id_2" x="303" y="3" style=""/>  
+                    <EntityField propertyUID="id_2" width="199" height="25" x="383" y="3" formUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.08C4EDCDF8B7" queryUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.2B567171416F" forceAssociation="" mode="dropdown"/>  
+                    <Label width="82" height="25" text="冻结类型:" propertyUID="id_4" x="2" y="31" style=""/>  
+                    <ComboBox propertyUID="id_4" width="199" height="25" x="83" y="31"/>  
+                    <Label width="82" height="25" text="冻结业务号:" propertyUID="id_6" x="3" y="59" style=""/>  
+                    <TextInput propertyUID="id_6" width="199" height="25" x="83" y="59"/>  
+                    <Label width="82" height="25" text="金额:" propertyUID="id_8" x="303" y="31" style=""/>  
+                    <TextInput propertyUID="id_8" width="199" height="25" x="383" y="31"/>  
+                    <Label width="82" height="25" text="备注:" propertyUID="id_9" x="2" y="87" style=""/>  
+                    <TextArea propertyUID="id_9" width="499" height="83" x="83" y="87"/> 
+                  </tab> 
+                </TabNavigator> 
+              </Window>  
+              <formEvent/> 
+            </EntityForm>

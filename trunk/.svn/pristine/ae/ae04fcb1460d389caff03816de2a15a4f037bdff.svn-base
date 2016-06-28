@@ -1,0 +1,112 @@
+package bps.external.application;
+
+import java.util.Map;
+
+import javax.servlet.ServletContextEvent;
+import javax.servlet.ServletContextListener;
+
+import bps.common.JedisUtils;
+import org.apache.log4j.Logger;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import bps.common.ReadXML;
+import bps.external.application.notice.RabbitCousumer;
+
+public class Extension implements ServletContextListener {
+	public static Map<String, String> paramMap;
+	public Logger logger = Logger.getLogger(Exception.class);
+//	public Cousumer instantCousumer = null;
+	public void contextDestroyed(ServletContextEvent arg0) {
+//		instantCousumer.shutdown();
+
+		logger.info("销毁Extension");
+	}
+
+	public void contextInitialized(ServletContextEvent arg0) {
+		logger.info("开始加载dubbo");
+		try {
+		//读配置信息
+		paramMap=ReadXML.getParamMap();
+		//启动dubbo 
+		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String[]{"dubbo-provider.xml"});    
+		context.start();
+		} catch(Exception e) {
+			logger.error(e.getMessage(), e);
+		}
+		logger.info("加载dubbo完成");
+		
+		//加载消费者
+		logger.info("加载消费者开始");
+//		new Thread(new Runnable() {
+//			
+//			public void run() {
+//				// TODO Auto-generated method stub
+//				loadCousumer();
+//			}
+//		}).start();
+//		try {
+//			Thread.sleep(2000);
+//		} catch (InterruptedException e) {
+//			// TODO Auto-generated catch block
+//			logger.error(e.getMessage(), e);
+//		}
+//		CousumerThread cousumerThread = new CousumerThread();
+//		cousumerThread.start();
+		RabbitCousumer cousume = new RabbitCousumer();
+		cousume.start();
+//		TransMonitorRabbitCousumer transMonitorRabbitCousumer = new TransMonitorRabbitCousumer();
+//		transMonitorRabbitCousumer.start();
+
+		String ip 	= Extension.paramMap.get("cache.ip");
+		int port = Integer.valueOf(Extension.paramMap.get("cache.port"));
+
+		logger.info("加载消费者完成");
+		//设置redis联接参数
+		JedisUtils.setParam(ip,port);
+//		CopyOfTranxServiceImplaaaa.main(null);
+	}
+	
+//	private void loadCousumer() {
+//		//String[] param = { "10.55.3.237:2181", "group2", "topic1", "1" };
+//		
+//
+//		try {
+//			logger.info("paramMap"+paramMap);
+//			String zooKeeper = paramMap.get("Kafka.cousumer.zooKeeper");
+//			if(zooKeeper == null || zooKeeper.equals("")) {
+//				return;
+//			}
+//			String topic = paramMap.get("Kafka.cousumer.instant.topic");
+//			int threads = Integer.parseInt(paramMap.get("Kafka.cousumer.instant.threads"));
+//		
+//			String groupId = "instant2";
+//			logger.info("----kafka init-----");
+//			logger.info("zooKeeper="+zooKeeper+"groupId="+groupId+"topic="+topic);
+//			instantCousumer = new Cousumer(zooKeeper, groupId, topic);
+//			instantCousumer.setCousumerEvent(new CousumerEvent() {
+//				
+//				public void notifyMsg(String msg) {
+//					// TODO Auto-generated method stub
+//					try {
+//						//执行操作
+//						logger.info("msg=" + msg);
+//						if(!msg.equals("test")) {
+//							JSONObject param = new JSONObject(msg);
+//							BackNotice backNotice = new BackNotice(param);
+//							backNotice.start();
+//						}
+//					} catch (Exception e) {
+//						logger.error(e.getMessage(), e);
+//					}
+//				}
+//			});
+//			logger.info("----kafka start-----");
+//			instantCousumer.run(threads);
+//			logger.info("----instantCousumer-----");
+//		} catch (Exception e) {
+//			// TODO: handle exception
+//			logger.error(e.getMessage(), e);
+//		}
+//	}
+	
+}

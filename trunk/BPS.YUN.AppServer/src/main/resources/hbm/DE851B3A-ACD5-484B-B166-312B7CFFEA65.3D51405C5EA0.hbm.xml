@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "PUBLIC" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class entity-name="AMS_Order" table="DYNA_AMS_Order">
+    <id name="id" type="long">
+      <generator class="sequence">
+        <param name="sequence">IDSEQ_AMS_Order</param>
+      </generator>
+    </id>
+    <property name="domainId" not-null="false" type="long" index="IDX_DOMAINID"/>
+    <property name="create_time" not-null="false" type="timestamp" length="100"/>
+    <property name="orderNo" not-null="false" type="string" length="100"/>
+    <property name="order_money" not-null="false" type="long"/>
+    <property name="coupon_refund_amount" not-null="false" type="long"/>
+    <property name="fee_refund_amount" not-null="false" type="long"/>
+    <property name="order_state" not-null="false" type="long"/>
+    <property name="presenter_phone" not-null="false" type="string" length="100"/>
+    <property name="is_present" not-null="false" type="boolean" length="100"/>
+    <property name="source" not-null="false" type="long"/>
+    <property name="remark" not-null="false" type="string" length="500"/>
+    <property name="order_type" not-null="false" type="long"/>
+    <property name="bank_code" not-null="false" type="string" length="100"/>
+    <property name="account_name" not-null="false" type="string" length="100"/>
+    <property name="accountNo" not-null="false" type="string" length="100"/>
+    <property name="description" not-null="false" type="string" length="1024"/>
+    <property name="target_phone" not-null="false" type="string" length="100"/>
+    <property name="bank_name" not-null="false" type="string" length="100"/>
+    <property name="pay_time" not-null="false" type="timestamp" length="100"/>
+    <property name="delivery_time" not-null="false" type="timestamp" length="100"/>
+    <property name="confirm_time" not-null="false" type="timestamp" length="100"/>
+    <property name="member_uuid" not-null="false" type="string" length="100"/>
+    <property name="member_id" not-null="false" type="long"/>
+    <property name="member_name" not-null="false" type="string" length="100"/>
+    <property name="member_ip" not-null="false" type="string" length="100"/>
+    <property name="target_uuid" not-null="false" type="string" length="100"/>
+    <property name="target_member_id" not-null="false" type="long"/>
+    <property name="target_member_name" not-null="false" type="string" length="100"/>
+    <property name="sub_trade_type" not-null="false" type="long"/>
+    <property name="orgNo" not-null="false" type="string" length="100"/>
+    <property name="memberNo" not-null="false" type="string" length="100"/>
+    <property name="target_memberNo" not-null="false" type="string" length="100"/>
+    <property name="trade_type" not-null="false" type="long"/>
+    <property name="account_type_id" not-null="false" type="long" index="account_type_idx"/>
+    <property name="account_type_label" not-null="false" type="string" length="200"/>
+    <property name="accountNo_encrypt" not-null="false" type="string" length="100"/>
+    <property name="card_type" not-null="false" type="long"/>
+    <property name="account_prop" not-null="false" type="long"/>
+    <property name="extend_info" not-null="false" type="string" length="1024"/>
+    <property name="org_user_id" not-null="false" type="string" length="100"/>
+    <property name="order_name" not-null="false" type="string" length="100"/>
+    <property name="transaction_type" not-null="false" type="long"/>
+    <property name="isArtificial" not-null="false" type="boolean" length="100"/>
+    <property name="out_serial_number" not-null="false" type="string" length="100"/>
+    <property name="ordErexpireDatetime" not-null="false" type="timestamp" length="100"/>
+    <property name="showUrl" not-null="false" type="string" length="128"/>
+    <property name="splitRule" not-null="false" type="string" length="512"/>
+    <property name="bizOrderNo" not-null="false" type="string" length="100"/>
+    <property name="goodsType" not-null="false" type="long"/>
+    <property name="goodsNo" not-null="false" type="string" length="100"/>
+    <property name="goodsName" not-null="false" type="string" length="100"/>
+    <property name="biz_trade_code" not-null="false" type="string" length="100"/>
+    <property name="industry_code" not-null="false" type="string" length="100"/>
+    <property name="industry_name" not-null="false" type="string" length="100"/>
+    <property name="application_id" not-null="false" type="long" index="application_idx"/>
+    <property name="application_label" not-null="false" type="string" length="200"/>
+    <property name="frontUrl" not-null="false" type="string" length="500"/>
+    <property name="backUrl" not-null="false" type="string" length="500"/>
+    <property name="is_exsit_command" not-null="false" type="boolean" length="100"/>
+    <property name="summary" not-null="false" type="string" length="500"/>
+    <property name="fee" not-null="false" type="long"/>
+    <property name="recieverList" not-null="false" type="string" length="4000"/>
+    <property name="bizBatchNo" not-null="false" type="string" length="100"/>
+    <property name="collectPayList" not-null="false" type="string" length="4000"/>
+    <property name="refund_orderNo" not-null="false" type="string" length="100"/>
+    <property name="refundList" not-null="false" type="string" length="100"/>
+    <property name="bank_money" not-null="false" type="long"/>
+    <property name="target_app_id" not-null="false" type="long" index="target_app_idx"/>
+    <property name="target_app_label" not-null="false" type="string" length="200"/>
+  </class>
+</hibernate-mapping>

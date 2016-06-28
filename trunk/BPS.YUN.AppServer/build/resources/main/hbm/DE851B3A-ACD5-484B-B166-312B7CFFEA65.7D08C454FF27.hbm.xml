@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "PUBLIC" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class entity-name="AMS_Subject" table="DYNA_AMS_Subject">
+    <id name="id" type="long">
+      <generator class="sequence">
+        <param name="sequence">IDSEQ_AMS_Subject</param>
+      </generator>
+    </id>
+    <property name="domainId" not-null="false" type="long" index="IDX_DOMAINID"/>
+    <property name="biz_subject_no" not-null="false" type="string" length="100"/>
+    <property name="application_id" not-null="false" type="long" index="application_idx"/>
+    <property name="application_label" not-null="false" type="string" length="200"/>
+    <property name="name" not-null="false" type="string" length="100"/>
+    <property name="amount" not-null="false" type="long"/>
+    <property name="total_amount" not-null="false" type="long"/>
+    <property name="annual_yield" not-null="false" type="double"/>
+    <property name="begin_date" not-null="false" type="timestamp" length="100"/>
+    <property name="end_date" not-null="false" type="timestamp" length="100"/>
+    <property name="repay_period_number" not-null="false" type="long"/>
+    <property name="repay_type" not-null="false" type="long"/>
+    <property name="guarantee_type" not-null="false" type="long"/>
+    <property name="url" not-null="false" type="string" length="100"/>
+    <property name="description" not-null="false" type="string" length="100"/>
+    <property name="create_time" not-null="false" type="timestamp" length="100"/>
+    <property name="extend_info" not-null="false" type="string" length="100"/>
+    <property name="subject_no" not-null="false" type="string" length="100"/>
+    <property name="borrower_id" not-null="false" type="long" index="borrower_idx"/>
+    <property name="borrower_label" not-null="false" type="string" length="200"/>
+    <property name="investment_horizon" not-null="false" type="long"/>
+    <property name="investment_horizon_scale" not-null="false" type="long"/>
+    <property name="highest_amount" not-null="false" type="long"/>
+  </class>
+</hibernate-mapping>

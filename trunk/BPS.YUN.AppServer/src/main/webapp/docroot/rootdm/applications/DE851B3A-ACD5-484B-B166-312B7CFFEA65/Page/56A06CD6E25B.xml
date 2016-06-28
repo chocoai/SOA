@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<QueryPage label="交易日志查询" control="VDividedBox" layout="vertical" controlUID="root" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.56A06CD6E25B" name="交易日志查询" nodeID="1202"> 
+              <Panel label="Panel" width="100%" height="70%" controlUID="ctrl0" title="业务交易日志查询" control="Panel" layout=""> 
+                <QueryControl label="业务交易日志查询" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.71FA787B0E0C" width="100%" height="100%" controlUID="ctrl2" name="master"/> 
+              </Panel>  
+              <Panel label="Panel" width="100%" height="30%" controlUID="ctrl1" title="账户交易明细" control="Panel" layout=""> 
+                <QueryControl label="交易账户变更日志" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.0E089217441A" width="100%" height="100%" controlUID="ctrl3" name=""/> 
+              </Panel>  
+              <event label="初始化事件" type="initialize" name="initialize"/>  
+              <event label="确定事件" type="okEvent" name="okEvent"/> 
+            </QueryPage>

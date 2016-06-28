@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityForm name="调帐单" label="调帐单" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.8F891E2A6DF7" nodeID="688">
+  <formEntity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.DB0B4F5A8724" />
+  <formState>
+    <state label="基础" uid="state0" basedOn="null">
+      <rule type="value" property="source_userId" label="源会员ID" rule="$this.source_member.userId" />
+      <rule type="enabled" property="source_userId" label="源会员ID" rule="false" />
+      <rule type="value" property="target_userId" label="目标会员ID" rule="$this.target_member.userId" />
+      <rule type="enabled" property="target_userId" label="目标会员ID" rule="false" />
+      <rule type="value" property="source_name" label="源会员名称" rule="$this.source_member.name" />
+      <rule type="enabled" property="source_name" label="源会员名称" rule="false" />
+      <rule type="value" property="target_name" label="目标会员名称" rule="$this.target_member.name" />
+      <rule type="enabled" property="target_name" label="目标会员名称" rule="false" />
+      <rule type="value" property="source_memberNo" label="源会员号" rule="$this.source_member.memberNo" />
+      <rule type="enabled" property="source_memberNo" label="源会员号" rule="false" />
+      <rule type="required" property="account_type" label="帐户类型" rule="true" />
+      <rule type="required" property="trade_money" label="交易金额(元)" rule="true" />
+      <rule type="required" property="source_member" label="源会员" rule="true" />
+      <rule type="required" property="target_member" label="目标会员" rule="true" />
+      <rule type="value" property="taget_memberNo" label="目标会员号" rule="$this.target_member.memberNo" />
+      <rule type="enabled" property="taget_memberNo" label="目标会员号" rule="false" />
+      <rule type="value" property="WF_ProcessName" label="流程名称" rule="$this.bizid" />
+      <rule type="enabled" property="WF_ProcessName" label="流程名称" rule="false" />
+      <rule type="enabled" property="bizid" label="业务编号" rule="false" />
+      <rule type="enabled" property="operator" label="经办人" rule="false" />
+      <rule type="value" property="target_memberNo" label="目标会员号" rule="$this.target_member.memberNo" />
+      <rule type="enabled" property="target_memberNo" label="目标会员号" rule="false" />
+      <rule type="enabled" property="auditor" label="审核人" rule="false" />
+      <rule type="enabled" property="auditor_date" label="审核时间" rule="false" />
+    </state>
+    <state label="新建" uid="state1" basedOn="state0">
+      <rule type="enabled" property="auditor" label="审核人" rule="false" />
+      <rule type="enabled" property="auditor_date" label="审核时间" rule="false" />
+    </state>
+    <state label="编辑" uid="state2" basedOn="state0" />
+    <state label="审核" uid="state3" basedOn="state0">
+      <rule type="enabled" property="*" label="所有" rule="false" />
+    </state>
+  </formState>
+  <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2">
+    <TabNavigator>
+      <tab label="default">
+        <Label width="82" height="25" text="源会员ID:" propertyUID="id_1" x="243" y="59" style="" />
+        <TextInput propertyUID="id_1" width="160" height="25" x="322" y="59" />
+        <Label width="82" height="25" text="目标会员ID:" propertyUID="id_2" x="243" y="115" style="" />
+        <TextInput propertyUID="id_2" width="160" height="25" x="322" y="115" />
+        <Label width="82" height="25" text="帐户类型:" propertyUID="id_4" x="3" y="143" style="" />
+        <EntityField propertyUID="id_4" width="159" height="25" x="83" y="143" formUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.08C4EDCDF8B7" queryUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.4925E9AC6CA8" mode="dropdown" />
+        <Label width="82" height="25" text="交易金额(元):" propertyUID="id_5" x="243" y="171" style="" />
+        <TextInput propertyUID="id_5" width="159" height="25" x="323" y="171" />
+        <Label width="82" height="25" text="备注:" propertyUID="id_3" x="3" y="227" style="" />
+        <TextArea propertyUID="id_3" width="399" height="139" x="83" y="227" />
+        <Label width="82" height="25" text="源会员:" propertyUID="id_11" x="3" y="31" style="" />
+        <EntityField propertyUID="id_11" width="159" height="25" x="83" y="31" queryUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.0FEFC23F6561" />
+        <Label width="82" height="25" text="目标会员:" propertyUID="id_12" x="3" y="87" style="" />
+        <EntityField propertyUID="id_12" width="159" height="25" x="83" y="87" queryUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.0FEFC23F6561" formUID="" />
+        <Label width="82" height="25" text="源会员名称:" propertyUID="id_13" x="243" y="31" style="" />
+        <TextInput propertyUID="id_13" width="159" height="25" x="323" y="31" />
+        <Label width="82" height="25" text="目标会员名称:" propertyUID="id_14" x="243" y="87" style="" />
+        <TextInput propertyUID="id_14" width="159" height="25" x="323" y="87" />
+        <Label width="82" height="25" text="源会员号:" propertyUID="id_15" x="2" y="59" style="" />
+        <TextInput propertyUID="id_15" width="159" height="25" x="83" y="59" />
+        <Label width="82" height="25" text="目标会员号:" propertyUID="id_20" x="2" y="115" style="" />
+        <TextInput propertyUID="id_20" width="159" height="25" x="83" y="115" />
+        <Label width="82" height="25" text="审核人:" propertyUID="id_17" x="2" y="199" style="" />
+        <PrincipalSelectField propertyUID="id_17" width="159" height="25" x="83" y="199" />
+        <Label width="82" height="25" text="审核时间:" propertyUID="id_18" x="243" y="199" style="" />
+        <DateField propertyUID="id_18" width="159" height="25" x="323" y="199" />
+        <Label width="82" height="25" text="业务编号:" propertyUID="id_21" x="2" y="3" style="" />
+        <TextInput propertyUID="id_21" width="399" height="25" x="83" y="3" />
+        <Label width="82" height="25" text="经办人:" propertyUID="id_19" x="2" y="171" style="" />
+        <PrincipalSelectField propertyUID="id_19" width="159" height="25" x="83" y="171" />
+        <Label width="82" height="25" text="目标账户类型:" propertyUID="id_25" x="243" y="143" style="" />
+        <EntityField propertyUID="id_25" width="159" height="25" x="323" y="143" mode="dropdown" queryUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.FD5FC56A4F8B" />
+      </tab>
+    </TabNavigator>
+  </Window>
+  <formEvent>
+    <event name="initialize" type="initialize" label="初始化事件" systemEvent="true"><![CDATA[
+form.setFieldProperty("source_userId", "enabled", false);
+form.setFieldProperty("target_userId", "enabled", false);
+
+var loginInfo = form.getExpressionValue("$loginInfo");
+
+var state = form.getFormState();
+
+if(state == "新建"){
+	form.generateCoding("bizid", "T");
+	form.setFieldValue("operator",  {id:loginInfo.principalId, name:loginInfo.principalName});
+}else if(state == "审核"){
+	form.setFieldValue("auditor",  {id:loginInfo.principalId, name:loginInfo.principalName});
+	var date = new Date();
+	form.setFieldValue("auditor_date",date);
+	
+}
+]]></event>
+    <event name="preSubmit" type="preSubmit" label="提交前事件" systemEvent="true"><![CDATA[var state = submitType.state;
+
+form.setVariable("submitState", state);
+if(state == 2){		//正在受理
+	var source_userId = form.getFieldValue("source_userId");
+	var target_userId = form.getFieldValue("target_userId");
+	if(source_userId == target_userId){
+		
+		form.setFieldValue("target_member","");
+		form.setFieldValue("target_userId","");
+		form.validateForm();
+		return{error:true,message:"源目标会员不能和目标会员一致"}
+	}
+}]]></event>
+  </formEvent>
+</EntityForm>

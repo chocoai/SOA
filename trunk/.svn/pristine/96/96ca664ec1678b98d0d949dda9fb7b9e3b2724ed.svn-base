@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityQuery name="所有冻结记录查询" label="所有冻结记录查询" note="" share="false" multiselect="false" editable="false" autopaging="true" pagingMode="NormalPaging" virtualizingPagingEnabled="false" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.5880ACD4076F" nodeID="650"> 
+              <queryEntities> 
+                <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0" name="AMS_Member" label="会员" alias="a1" selectAll="true" isBranch="true"/>  
+                <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.8AC88B058E20" name="AMS_FreezeLog" label="冻结记录" alias="a0" selectAll="true" isBranch="true" master="true"/> 
+              </queryEntities>  
+              <DataGrid> 
+                <color/>  
+                <column name="account_type" label="账户类型" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.8AC88B058E20.id_4" width="100" isBranch="false" editable="" sortable="" textAlign="" dataField="AMS_FreezeLog$account_type_label"/>  
+                <column name="freeze_date" label="冻结日期" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.8AC88B058E20.id_1" width="102" isBranch="false" editable="" sortable="" textAlign="" dataField="AMS_FreezeLog$freeze_date"/>  
+                <column name="freeze_amount" label="冻结金额" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.8AC88B058E20.id_2" width="67" isBranch="false" dataField="AMS_FreezeLog$freeze_amount" editable="" sortable="" textAlign=""/>  
+                <column name="bizid" label="业务ID" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.8AC88B058E20.id_7" width="150" isBranch="false" editable="" sortable="" textAlign="" dataField="AMS_FreezeLog$bizid"/>  
+                <column name="freeze_state" label="状态" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.8AC88B058E20.id_6" width="55" isBranch="false" dataField="AMS_FreezeLog$freeze_state" editable="" sortable="" textAlign=""/>  
+                <column name="balance" label="剩余冻结金额" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.8AC88B058E20.id_10" width="82" isBranch="false" editable="" sortable="" textAlign="" dataField="AMS_FreezeLog$balance"/>  
+                <column name="userId" label="用户ID" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.8AC88B058E20.id_8" width="192" isBranch="false" editable="" sortable="" textAlign="" dataField="AMS_FreezeLog$userId"/>  
+                <column name="name" label="名称" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0.id_1" width="100" isBranch="false" dataField="AMS_Member$name"/>  
+                <column name="phone" label="手机" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0.id_4" width="100" isBranch="false" dataField="AMS_Member$phone"/> 
+              </DataGrid>  
+              <editState/>  
+              <toolbar> 
+                <button label="冻结日志明细" action="alink" selection="single" visiable="true" alink="alink://ime.AppWindow/EntityQuery?{title:&quot;冻结日志查询&quot;,entityUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.06DBF8EC435A&quot;,queryUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.CF4088F94BBA&quot;}"/> 
+              </toolbar>  
+              <xmlQuery version="2.0" name="" label=""> 
+                <select domainScope="true"> 
+                  <other label="其他" uid="other" name="other"/>  
+                  <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.8AC88B058E20" name="AMS_FreezeLog" label="冻结记录" alias="a0" selectAll="true" isBranch="true"> 
+                    <field uid="sys_0" name="id" label="编号" type="long"/>  
+                    <field uid="sys_1" name="domainId" label="域ID" type="long"/>  
+                    <field uid="id_1" name="freeze_date" label="冻结日期" type="timestamp"/>  
+                    <field uid="id_2" name="freeze_amount" label="冻结金额" type="long" currency="true"/>  
+                    <field uid="id_4" name="account_type" label="账户类型" type="relation"/>  
+                    <field uid="id_5" name="account_id" label="账户ID" type="long"/>  
+                    <field uid="id_6" name="freeze_state" label="状态" type="long"/>  
+                    <field uid="id_7" name="bizid" label="业务ID" type="string"/>  
+                    <field uid="id_8" name="userId" label="用户ID" type="string"/>  
+                    <field uid="id_10" name="balance" label="剩余冻结金额" type="long" currency="true"/>  
+                    <field uid="id_11" name="requestId" label="请求流水号" type="string"/> 
+                  </Entity>  
+                  <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0" name="AMS_Member" label="会员" alias="a1" selectAll="true" isBranch="true"> 
+                    <field uid="sys_0" name="id" label="编号" type="long"/>  
+                    <field uid="sys_1" name="domainId" label="域ID" type="long"/>  
+                    <field uid="log_0" name="FM_CreatePrinId" label="创建者ID" type="long"/>  
+                    <field uid="log_1" name="FM_CreatePrinName" label="创建者" type="string"/>  
+                    <field uid="log_2" name="FM_UpdatePrinId" label="更新者ID" type="long"/>  
+                    <field uid="log_3" name="FM_UpdatePrinName" label="更新者" type="string"/>  
+                    <field uid="log_4" name="FM_CreateTime" label="创建时间" type="timestamp"/>  
+                    <field uid="log_5" name="FM_UpdateTime" label="更新时间" type="timestamp"/>  
+                    <field uid="id_1" name="name" label="名称" type="string"/>  
+                    <field uid="id_4" name="phone" label="手机" type="string"/>  
+                    <field uid="id_6" name="address" label="地址" type="string"/>  
+                    <field uid="id_7" name="user_state" label="会员状态" type="long"/>  
+                    <field uid="id_23" name="member_type" label="会员类型" type="long"/>  
+                    <field uid="id_24" name="userId" label="会员uuid" type="string"/>  
+                    <field uid="id_26" name="login_password" label="登录密码" type="string"/>  
+                    <field uid="id_27" name="pay_password" label="支付密码" type="string"/>  
+                    <field uid="id_28" name="email" label="邮件" type="string"/>  
+                    <field uid="id_29" name="country" label="国家" type="string"/>  
+                    <field uid="id_30" name="province" label="省" type="string"/>  
+                    <field uid="id_31" name="area" label="地区" type="string"/>  
+                    <field uid="id_32" name="identity_cardNo" label="身份证号码" type="string"/>  
+                    <field uid="id_34" name="user_name" label="昵称" type="string"/>  
+                    <field uid="id_36" name="last_login_time" label="最近一次登录时间" type="timestamp"/>  
+                    <field uid="id_37" name="isPhone_checked" label="手机号码是否验证" type="boolean"/>  
+                    <field uid="id_38" name="isEmail_checked" label="邮箱是否验证" type="boolean"/>  
+                    <field uid="id_40" name="register_time" label="注册时间" type="timestamp"/>  
+                    <field uid="id_41" name="login_fail_amount" label="登录失败次数" type="long"/>  
+                    <field uid="id_42" name="pay_fail_amount" label="支付失败次数" type="long"/>  
+                    <field uid="id_43" name="last_login_fail_time" label="最后一次登录失败时间" type="timestamp"/>  
+                    <field uid="id_44" name="last_pay_fail_time" label="最后一次支付失败时间" type="timestamp"/>  
+                    <field uid="id_45" name="isSecurityIssue" label="是否设置安全问题" type="boolean"/>  
+                    <field uid="id_47" name="isSetExtendInfo" label="是否设置扩展信息" type="boolean"/>  
+                    <field uid="id_48" name="loginId" label="登录帐号" type="string"/>  
+                    <field uid="id_50" name="wxUserId" label="微信号" type="string"/>  
+                    <field uid="id_53" name="memberNo" label="客户号" type="string"/>  
+                    <field uid="id_54" name="belong_orgNo" label="所属机构号" type="string"/>  
+                    <field uid="id_56" name="bind_orgNo" label="绑定机构号" type="string"/>  
+                    <field uid="id_58" name="isIdentity_checked" label="是否实名认证" type="boolean"/>  
+                    <field uid="id_61" name="identity_cardNo_encrypt" label="身份证(加密)" type="string"/>  
+                    <field uid="id_62" name="identity_cardNo_md5" label="身份证(md5加密)" type="string"/>  
+                    <field uid="id_63" name="register_ip" label="注册ip" type="string"/>  
+                    <field uid="id_64" name="company_id" label="分公司编号" type="long"/>  
+                    <field uid="id_65" name="company_name" label="分公司名字" type="string"/>  
+                    <field uid="id_66" name="login_time" label="本次登录时间" type="timestamp"/> 
+                  </Entity> 
+                </select>  
+                <where> 
+                  <exp type="2"> 
+                    <exp type="19" valueType="1" option="true" leftEntity="AMS_FreezeLog" leftField="userId" uid="exp0" rightType="param" right="userId"/>  
+                    <exp type="5" valueType="3" option="true" rightType="param" right="freeze_state" leftEntity="AMS_FreezeLog" leftField="freeze_state" uid="exp1"/>  
+                    <exp type="7" valueType="7" option="true" rightType="param" right="start_freeze_date" leftEntity="AMS_FreezeLog" leftField="freeze_date" uid="exp2"/>  
+                    <exp type="11" valueType="7" option="true" rightType="param" right="end_freeze_date" leftEntity="AMS_FreezeLog" leftField="freeze_date" uid="exp3"/>  
+                    <exp type="19" valueType="1" option="true" rightType="param" right="bizid" leftEntity="AMS_FreezeLog" leftField="bizid" uid="exp4"/>  
+                    <exp type="5" valueType="1" option="true" rightType="prop" rightEntity="AMS_FreezeLog" rightField="userId" leftEntity="AMS_Member" leftField="userId" uid="exp5"/> 
+                  </exp> 
+                </where>  
+                <other> 
+                  <groupBy label="Group By"/>  
+                  <orderBy label="Order By"> 
+                    <field uid="sys_0" name="id" label="编号" type="long" entity="AMS_FreezeLog" order="desc"/> 
+                  </orderBy> 
+                </other> 
+              </xmlQuery>  
+              <conditionForm> 
+                <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2"> 
+                  <TabNavigator> 
+                    <tab label="default"> 
+                      <Label width="82" height="25" text="用户ID:" propertyUID="id_8" x="3" y="3" style=""/>  
+                      <TextInput name="userId" width="179" height="25" x="63" y="3"/>  
+                      <Label width="82" height="25" text="状态:" propertyUID="id_6" x="243" y="3" style=""/>  
+                      <ComboBox valueProvider="多账户.冻结状态" name="freeze_state" width="120" height="25" x="282" y="3"/>  
+                      <Label width="99" height="25" text="冻结日期:" propertyUID="id_1" x="423" y="3" style=""/>  
+                      <DateField name="start_freeze_date" width="139" height="25" x="483" y="3"/>  
+                      <Label label="Label" text="至" x="623" y="3" width="49" height="24" style=""/>  
+                      <DateField label="DateField" x="643" y="2" width="139" height="24" name="end_freeze_date"/>  
+                      <Label width="82" height="25" text="业务ID:" propertyUID="id_7" x="3" y="31" style=""/>  
+                      <TextInput name="bizid" width="179" height="25" x="63" y="31"/> 
+                    </tab> 
+                  </TabNavigator> 
+                </Window> 
+              </conditionForm>  
+              <StatSetting/>  
+              <queryEvent/> 
+            </EntityQuery>

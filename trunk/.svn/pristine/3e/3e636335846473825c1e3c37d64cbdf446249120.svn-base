@@ -1,0 +1,256 @@
+package bps.web.monitor;
+
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpUtils;
+
+import org.apache.log4j.Logger;
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import com.alibaba.dubbo.common.utils.StringUtils;
+
+import redis.clients.jedis.Jedis;
+import redis.clients.jedis.JedisPool;
+import bps.common.Constant;
+import bps.common.HttpUtil;
+import bps.common.JedisUtils;
+//import bps.web.process.Extension;
+import bps.external.soa.process.Extension;
+
+public class HealthMonitor {
+	private static Logger logger = Logger.getLogger(HealthMonitor.class);
+	
+	private static String web2Url = null;
+	private static String externalWeb1Url = null;
+	private static String externalWeb2Url = null;
+	private static String soa1Url= null;
+	private static String soa2Url = null;
+	private static String service1Url = null;
+	private static String service2Url = null;
+	private static String service3Url = null;
+	private static String redis1Url = null;
+	
+	private static int web2Port;
+	private static int externalWeb1Port;
+	private static int externalWeb2Port;
+	private static int soa1Port;
+	private static int soa2Port;
+	private static int service1Port;
+	private static int service2Port;
+	private static int service3Port;
+	private static int redis1Port;
+	
+	private static String communicateMonitorJsp = "communicateMonitor.jsp";
+	
+	static{
+		try{
+			web2Url = null;
+			externalWeb1Url = null;
+			externalWeb2Url = null;
+			soa1Url= "http://10.55.3.236";
+			soa2Url = null;
+			service1Url = "http://10.55.3.237";
+			service2Url = null;
+			service3Url = null;
+			redis1Url = "http://10.55.3.237";
+			
+			web2Port = 0;
+			externalWeb1Port = 0;
+			externalWeb2Port = 0;
+			soa1Port = 6003;
+			soa2Port = 0;
+			service1Port = 9380;
+			service2Port = 0;
+			service3Port = 0;
+			redis1Port = 6379;
+		}catch(Exception e){
+			logger.error(e.getMessage());
+		}
+	}
+	
+	public String monitor(){
+		logger.info("============================HealthMonitor.monitor start=========================");
+
+		List<Map<String, Object>> monitorResultDbList = new ArrayList<Map<String, Object>>();
+		Map<String, Object> monitorResultDb;
+		
+		String responseCode = Constant.HEALTH_MONITOR_RESULT_RES_SUC;
+		String errorInfo = "";
+		String errorType = "";
+		String errorObject = "";
+		String loggerLevel = "400803";
+		
+		int webCommunicateWrongNum = 0;
+		int soaCommunicateWrongNum = 0;
+		int serviceCommunicateWrongNum = 0;
+		
+		int webWarnNum = 1;
+		int soaWarnNum = 1;
+		int serviceWarnNum = 1;
+		
+		int webErrorNum = 1;
+		int soaErrorNum = 1;
+		int serviceErrorNum = 1;
+		
+		int webFatalNum = 1;
+		int soaFatalNum = 1;
+		int serviceFatalNum = 1;
+		
+		HttpUtil httpUtil = new HttpUtil();
+		
+		//监测服务器是否正常运行
+		String soa1CommunicateResult = httpUtil.get(soa1Url + ":" + soa1Port + "//" + communicateMonitorJsp, "");
+		String soa1CommunicateResultLast = soa1CommunicateResult == null ? null : soa1CommunicateResult.trim();
+		if("ok".equals(soa1CommunicateResultLast)){
+			monitorResultDbList.add(buildMonitorResult("soa", soa1Url, soa1Port, Constant.HEALTH_MONITOR_TYPE_COMMUNICATE, Constant.HEALTH_MONITOR_RESULT_TYPE_SUCCESS));
+		}else{
+			monitorResultDbList.add(buildMonitorResult("soa", soa1Url, soa1Port, Constant.HEALTH_MONITOR_TYPE_COMMUNICATE, Constant.HEALTH_MONITOR_RESULT_TYPE_ERROR));
+			
+			responseCode = Constant.HEALTH_MONITOR_RESULT_RES_ERR_COM;
+			errorInfo = "SOA通信异常";
+			errorType = "通信异常";
+			errorObject = soa1Url + ":" + soa1Port;
+			
+			webCommunicateWrongNum++;
+		}
+		
+		String service1CommunicateResult = httpUtil.get(service1Url + ":" + service1Port + "//" + communicateMonitorJsp, "");
+		String service1CommunicateResultLast = service1CommunicateResult == null ? null : service1CommunicateResult.trim();
+		if("ok".equals(service1CommunicateResultLast)){
+			monitorResultDbList.add(buildMonitorResult("service", service1Url, service1Port, Constant.HEALTH_MONITOR_TYPE_COMMUNICATE, Constant.HEALTH_MONITOR_RESULT_TYPE_SUCCESS));
+		}else{
+			monitorResultDbList.add(buildMonitorResult("service", service1Url, service1Port, Constant.HEALTH_MONITOR_TYPE_COMMUNICATE, Constant.HEALTH_MONITOR_RESULT_TYPE_ERROR));
+		
+			responseCode = Constant.HEALTH_MONITOR_RESULT_RES_ERR_COM;
+			errorInfo = "应用层通信异常";
+			errorType = "通信异常";
+			errorObject = service1Url + ":" + service1Port;
+			
+			serviceCommunicateWrongNum++;
+		}
+		
+		//检查redis
+		if(monitorRedis(redis1Url, redis1Port)){
+			monitorResultDbList.add(buildMonitorResult("redis", redis1Url, redis1Port, Constant.HEALTH_MONITOR_TYPE_REDIS, Constant.HEALTH_MONITOR_RESULT_TYPE_SUCCESS));
+		}else{
+			monitorResultDbList.add(buildMonitorResult("redis", redis1Url, redis1Port, Constant.HEALTH_MONITOR_TYPE_REDIS, Constant.HEALTH_MONITOR_RESULT_TYPE_ERROR));
+		
+			responseCode = Constant.HEALTH_MONITOR_RESULT_RES_ERR_REDIS;
+			errorInfo = "redis异常";
+			errorType = "redis异常";
+			errorObject = redis1Url + ":" + redis1Port;
+		}
+		
+		//把监测记录写入到数据库
+		try{
+			//Extension.monitorService.addHealthMonitorRecord(monitorResultDbList);
+		}catch(Exception e){
+			logger.error(e.getMessage());
+
+			responseCode = Constant.HEALTH_MONITOR_RESULT_RES_ERR_DB;
+			errorInfo = "数据库异常";
+			errorType = "数据库异常";
+			errorObject = "数据库";
+		}
+		
+		//返回给监测中心
+		if(webCommunicateWrongNum >= webFatalNum || soaCommunicateWrongNum >= soaFatalNum || serviceCommunicateWrongNum >= serviceFatalNum){
+			loggerLevel = "400800";
+		}else if(webCommunicateWrongNum >= webErrorNum || soaCommunicateWrongNum >= soaErrorNum || serviceCommunicateWrongNum >= serviceErrorNum){
+			loggerLevel = "400801";
+		}else if(webCommunicateWrongNum >= webWarnNum || soaCommunicateWrongNum >= soaWarnNum || serviceCommunicateWrongNum >= serviceWarnNum){
+			loggerLevel = "400802";
+		}
+		
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
+		String dateStr = sdf.format(new Date());
+		
+		StringBuilder sb = new StringBuilder();
+		sb.append("02").append("|");
+		sb.append("100130").append("|");
+		sb.append("云账户").append("|");
+		sb.append(dateStr.substring(0, 8)).append("|");
+		sb.append(dateStr.substring(8,14)).append("|");
+		sb.append(responseCode).append("|");
+		sb.append("").append("|");
+		sb.append(errorInfo).append("|");
+		sb.append(errorType).append("|");
+		sb.append(errorObject).append("|");
+		sb.append(loggerLevel);
+		
+		String lengthStr = String.valueOf(sb.toString().length());
+		int lengthStrLength = lengthStr.length();
+		for(int i = lengthStrLength; i < 6; i++){
+			lengthStr = "0" + lengthStr;
+		}
+
+		String ret = lengthStr + sb.toString();
+		
+		logger.info("返回:" + ret);
+		logger.info("============================HealthMonitor.monitor end=========================");
+		return ret;
+	}
+	
+	/**
+	 * 组装
+	 * @param serviceType
+	 * @param ip
+	 * @param port
+	 * @param monitorType
+	 * @param result
+	 * @return
+	 */
+	private Map<String, Object> buildMonitorResult(String serviceType, String ip, int port, int monitorType, int result){
+		Map<String, Object> ret = new HashMap<String, Object>();
+		
+		try{
+			ret.put("ip", ip);
+			ret.put("port", port);
+			ret.put("serviceType", serviceType);
+			ret.put("monitorType", monitorType);
+			ret.put("monitorResult", result);
+		}catch(Exception e){
+			logger.error(e.getMessage());
+		}
+		
+		return ret;
+	}
+	
+	/**
+	 * redis监测
+	 * @param ip
+	 * @param port
+	 * @return
+	 */
+	private boolean monitorRedis(String ip, int port){
+		JedisPool pool = null;
+		Jedis jedis = null;
+		boolean ret = true;
+		
+		try{
+			pool = JedisUtils.getPool(ip, port);
+			jedis = pool.getResource();
+			String content = jedis.get(Constant.REDIS_KEY_PI_APP_CONF);
+			if(StringUtils.isBlank(content)){
+				ret = false;
+			}
+		}catch(Exception e){
+			// 释放redis对象
+			pool.returnBrokenResource(jedis);
+			logger.error(e.getMessage(), e);
+
+			ret = false;
+		}finally{
+			// 返还到连接池
+			JedisUtils.returnResource(pool, jedis);
+		}
+		
+		return ret;
+	}
+}

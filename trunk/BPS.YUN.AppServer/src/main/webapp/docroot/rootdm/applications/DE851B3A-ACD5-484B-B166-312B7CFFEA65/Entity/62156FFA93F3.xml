@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Entity lastId="31" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.62156FFA93F3" name="AMS_AccountType" label="账户集" note="" log="false" workflow="false" nodeID="504" dbcreated="true"> 
+  <relation/>  
+  <extension/>  
+  <property uid="sys_0" label="编号" name="id" type="long" systemProperty="true" editorPart="Entity" group="系统属性字段"/>  
+  <property uid="sys_1" label="域ID" name="domainId" type="long" systemProperty="true" editorPart="Entity" group="系统属性字段"/>  
+  <property name="codeNo" label="编号" type="string" length="100" uid="id_3" editorPart="Entity" group="业务属性字段" dbcreated="true"/>  
+  <property name="valid_type" label="有效期类型" type="long" uid="id_4" editorPart="Entity" valueProvider="多账户.账户有效期类型" group="业务属性字段" dbcreated="true"/>  
+  <property name="valid_merge" label="有效期合并" type="long" uid="id_6" editorPart="Entity" valueProvider="多账户.有效期合并类型" group="业务属性字段" dbcreated="true"/>  
+  <property name="name" label="名称" type="string" length="100" uid="id_7" editorPart="Entity" group="业务属性字段" dbcreated="true"/>  
+  <property name="biz_type" label="账户集类型" type="long" uid="id_14" group="业务属性字段" editorPart="Entity" dbcreated="true" valueProvider="多账户.账户集类型"/>  
+  <property name="biz_def" label="业务数据定义" type="string" length="1024" uid="id_15" note="JSON格式" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="account_prop" label="账户属性" type="long" uid="id_17" group="业务属性字段" valueProvider="多账户.账户属性" editorPart="Entity" dbcreated="true"/>  
+  <property name="extend_day" label="默认延长时间(日)" type="long" uid="id_18" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="rbm_rate" label="人民币比例" type="double" uid="id_19" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="application" label="应用" type="relation" uid="id_25" group="业务属性字段" entityUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.5A11C43DEB1B" editorPart="Entity" dbcreated="true" labelField="name"/>  
+  <property name="description" label="描述" type="string" length="101" uid="id_26" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="member" label="企业会员" type="relation" uid="id_27" group="业务属性字段" entityUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0" editorPart="Entity" labelField="name" dbcreated="true"/>  
+  <property name="account_kind" label="账户类型" type="long" uid="id_28" group="业务属性字段" valueProvider="多账户.账户类型" editorPart="Entity" dbcreated="true"/>  
+  <property name="applicationNo" label="应用编号" type="string" length="100" uid="id_29" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="unit" label="单位" type="string" length="100" uid="id_30" group="业务属性字段" dbcreated="true" editorPart="Entity"/>  
+  <property name="is_marketing_account" label="是否是营销专用账户" type="boolean" length="100" uid="id_31" group="业务属性字段" dbcreated="true"/> 
+</Entity>

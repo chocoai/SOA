@@ -1,0 +1,54 @@
+<Page title="移动应用Ajax" cache="false" loaded="loaded" xmlns:ui="qs.ui" active="onActive">
+	<prop.header>
+		<Header>
+			<prop.lefter>
+				<Button icon="images/goback.png" text="返回" height="34" click="goBack"/>
+			</prop.lefter>
+			<prop.righter>
+				<Button icon="" text="设置" click="onSetting"/>
+			</prop.righter>
+			<ui:TextInput />
+		</Header>
+	</prop.header>
+	<Scrollable>
+		<ui:Container>
+			<SwapView name="swap" height="200" />
+			<List name="list">
+			</List>
+			<Html name="h" url="test/content.html" />
+		</ui:Container>
+	</Scrollable>
+	<func.script>
+		this.onActive = function(event){
+			//this.h.refresh();
+		}
+		this.loaded = function(event){
+			this.swap.items([
+				{image:"test/1.jpg"},
+				{image:"test/2.jpg"},
+				{image:"test/3.jpg"},
+				{image:"test/4.jpg"}
+			]);
+			this.list.items([
+				{label:"item1"},
+				{label:"item2"},
+				{label:"item3"},
+				{label:"item4"},
+				{label:"item5"},
+				{label:"item6"},
+				{label:"item7"},
+				{label:"item1"},
+				{label:"item2"},
+				{label:"item3"},
+				{label:"item4"},
+				{label:"item5"},
+				{label:"item6"},
+				{label:"item7"}
+			]);
+		}
+		this.goBack = function(event){
+			qs.m.app.back();
+		}
+	</func.script>
+</Page>
+		

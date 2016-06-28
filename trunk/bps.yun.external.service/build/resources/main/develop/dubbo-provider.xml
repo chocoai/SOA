@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<beans xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+    xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"  
+    xsi:schemaLocation="http://www.springframework.org/schema/beans          
+    http://www.springframework.org/schema/beans/spring-beans.xsd          
+    http://code.alibabatech.com/schema/dubbo          
+    http://code.alibabatech.com/schema/dubbo/dubbo.xsd">  
+
+	<!-- 提供方应用信息，用于计算依赖关系 -->  
+	<dubbo:application name="hello-world-app"  />  
+	
+	<!-- 使用multicast广播注册中心暴露服务地址 -->  
+	<!--  <dubbo:registry address="multicast://224.5.6.7:1234" /> -->  
+
+	<!-- 使用zookeeper注册中心暴露服务地址 -->  
+	<dubbo:registry protocol="zookeeper" address="10.55.3.237:4111" />  
+
+	<!-- 用dubbo协议在20880端口暴露服务 -->  
+	<dubbo:protocol name="dubbo" port="21910" />  
+
+	<!-- 声明需要暴露的服务接口 -->  
+	<dubbo:service interface="bps.external.application.service.increment.MobileRechargeService" ref="recharge" />  
+
+    <!-- 和本地bean一样实现服务 -->  
+	<bean id="recharge" class="bps.external.application.increment.MobileRechargeServiceImpl" />  
+	
+	<!-- 声明需要暴露的服务接口 -->  
+	<dubbo:service interface="bps.external.application.service.trade.ItsService" ref="its" />  
+
+    <!-- 和本地bean一样实现服务 -->  
+	<bean id="its" class="bps.external.application.trade.its.ItsServiceImpl" />  
+	
+	<!-- 声明需要暴露的服务接口 -->  
+	<dubbo:service interface="bps.external.application.service.trade.UserManageService" ref="userManage" />  
+
+    <!-- 和本地bean一样实现服务 -->  
+	<bean id="userManage" class="bps.external.application.trade.its.UserManageServiceImpl" />  
+	
+	<!-- 声明需要暴露的服务接口 -->  
+	<dubbo:service interface="bps.external.application.service.increment.OtherService" ref="other" />  
+
+    <!-- 和本地bean一样实现服务 -->  
+	<bean id="other" class="bps.external.application.increment.other.OtherServiceImpl" />  
+	
+	<!-- 声明需要暴露的服务接口 -->  
+	<dubbo:service interface="bps.external.application.service.trade.TltDaiFuService" ref="tltDaiFu" />  
+
+    <!-- 和本地bean一样实现服务 -->  
+	<bean id="tltDaiFu" class="bps.external.application.trade.TltDaiFuServiceImpl" />  
+	
+	<!-- 和本地bean一样实现服务 -->  
+	<bean id="wsCard" class="bps.external.application.trade.WsCardServiceImpl" />  
+	
+	<!-- 声明需要暴露的服务接口 -->  
+	<dubbo:service interface="bps.external.application.service.trade.WsCardService" ref="wsCard" />   
+	
+	<!-- 和本地bean一样实现服务 -->  
+	<bean id="waterElectricityCoal" class="bps.external.application.increment.WaterElectricityCoalServiceImpl" />  
+	
+	<!-- 声明需要暴露的服务接口 -->  
+	<dubbo:service interface="bps.external.application.service.increment.WaterElectricityCoalService" ref="waterElectricityCoal" />
+
+	<!-- 和本地bean一样实现服务 -->
+	<bean class="bps.external.application.checkAccount.WskCheckAccountImpl" id="wskCheckAccount"/>
+	<!-- 声明需要暴露的服务接口 -->
+	<dubbo:service ref="wskCheckAccount" interface="bps.external.application.service.checkAccount.WskCheckAccountService"/>
+	<!-- 声明需要暴露的服务接口 -->
+	<dubbo:service ref="gateway" interface="bps.external.application.service.trade.GatewayService"/>
+	<!-- 和本地bean一样实现服务 -->
+	<bean class="bps.external.application.trade.GatewayServiceImpl" id="gateway"/>
+	<!-- 声明需要暴露的服务接口 -->
+	<dubbo:service ref="tltIDCheck" interface="bps.external.application.service.checkID.TltIDCheckService"/>
+	<!-- 和本地bean一样实现服务 -->
+	<bean class="bps.external.application.checkID.TltIDCheckServiceImpl" id="tltIDCheck"/>
+	
+
+</beans>  

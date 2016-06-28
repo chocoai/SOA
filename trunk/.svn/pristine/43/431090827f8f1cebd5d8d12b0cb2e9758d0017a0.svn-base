@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityForm name="系统版本" label="系统版本" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.4B4321346B41" nodeID="452"> 
+              <formEntity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.9303642EBFE6"/>  
+              <formState> 
+                <state label="基础" uid="state0" basedOn="null"> 
+                  <rule type="updateEvent" property="filebag" label="安装包" rule="updatefilebag"/>  
+                  <rule type="enabled" property="download_url" label="下载地址" rule="false"/> 
+                </state>  
+                <state label="新建" uid="state1" basedOn="state0"> 
+                  <rule type="required" property="versionNo" label="版本号" rule="true"/>  
+                  <rule type="required" property="publish_date" label="发布日期" rule="true"/>  
+                  <rule type="required" property="update_content" label="更新内容" rule="true"/>  
+                  <rule type="required" property="platform_type" label="平台类型" rule="true"/>  
+                  <rule type="required" property="filebag" label="安装包" rule="true"/> 
+                </state>  
+                <state label="编辑" uid="state2" basedOn="state0"> 
+                  <rule type="enabled" property="versionNo" label="版本号" rule="true"/>  
+                  <rule type="enabled" property="download_url" label="下载地址" rule="true"/>  
+                  <rule type="enabled" property="publish_date" label="发布日期" rule="true"/>  
+                  <rule type="enabled" property="update_content" label="更新内容" rule="true"/>  
+                  <rule type="enabled" property="platform_type" label="平台类型" rule="true"/>  
+                  <rule type="enabled" property="isForced" label="是否强制更新" rule="true"/> 
+                </state> 
+              </formState>  
+              <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2"> 
+                <TabNavigator> 
+                  <tab label="default"> 
+                    <Label width="82" height="25" text="版本号:" propertyUID="id_1" x="3" y="3" style=""/>  
+                    <TextInput propertyUID="id_1" width="139" height="25" x="83" y="3" toolTip=""/>  
+                    <Label width="82" height="25" text="平台类型:" propertyUID="id_11" x="243" y="3" style=""/>  
+                    <ComboBox propertyUID="id_11" width="139" height="25" x="323" y="3" valueProviderEditable="false"/>  
+                    <Label width="82" height="25" text="发布日期:" propertyUID="id_9" x="3" y="31" style=""/>  
+                    <DateField propertyUID="id_9" width="139" height="25" x="83" y="31"/>  
+                    <CheckBox propertyUID="id_5" width="100" height="25" label="是否强制更新" x="243" y="31"/>  
+                    <Label width="82" height="25" text="下载地址:" propertyUID="id_6" x="3" y="59" style=""/>  
+                    <TextInput propertyUID="id_6" width="379" height="25" x="83" y="59"/>  
+                    <Label width="82" height="25" text="更新内容:" propertyUID="id_10" x="3" y="87" style=""/>  
+                    <TextArea propertyUID="id_10" width="379" height="139" x="83" y="87"/>  
+                    <Label width="70" height="25" text="安装包:" propertyUID="id_12" x="3" y="227" style=""/>  
+                    <AttachmentList propertyUID="id_12" width="378" height="129" x="83" y="227" imageFile="{   &quot;$is_checked&quot;: false }"/> 
+                  </tab> 
+                </TabNavigator> 
+              </Window>  
+              <formEvent> 
+                <event name="updatefilebag" type="customerEvent" label="updatefilebag"><![CDATA[var url = window.location.host;
+var protocol =window.location.protocol;
+var filename/*:String*/ = form.getFieldValue("filebag");
+var index = filename.indexOf(":");
+var subfilename = filename.slice(index+1);
+var pageUrl = protocol+"//"+url+"/docroot/attachments"+subfilename;
+form.setFieldValue("download_url",pageUrl);
+]]></event> 
+              </formEvent> 
+            </EntityForm>

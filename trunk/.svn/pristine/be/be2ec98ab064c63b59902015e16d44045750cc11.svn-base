@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityQuery name="风险关注日志" label="风险关注日志" note="" share="false" multiselect="false" editable="false" autopaging="true" pagingMode="VirtualizingPaging" virtualizingPagingEnabled="true" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.5608EE9B0096" nodeID="856"> 
+              <queryEntities> 
+                <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0" name="AMS_Member" label="会员" alias="a1" selectAll="true" isBranch="true"/>  
+                <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.06444467C44B" name="AMS_RiskAttentionLog" label="风险关注日志" alias="a0" selectAll="true" isBranch="true" master="true"/> 
+              </queryEntities>  
+              <DataGrid> 
+                <color/>  
+                <column name="id" label="编号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.06444467C44B.sys_0" width="100" isBranch="false" dataField="AMS_RiskAttentionLog$id" editable="" sortable="" textAlign=""/>  
+                <column name="phone" label="手机" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0.id_4" width="100" isBranch="false"/>  
+                <column name="addDate" label="创建时间" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.06444467C44B.id_2" width="117" isBranch="false" editable="" sortable="" textAlign="" dataField="AMS_RiskAttentionLog$addDate"/>  
+                <column name="riskRule" label="风险关注规则" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.06444467C44B.id_3" width="100" isBranch="false" dataField="AMS_RiskAttentionLog$riskRule"/>  
+                <column name="memo" label="备注" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.06444467C44B.id_6" width="100" isBranch="false" dataField="AMS_RiskAttentionLog$memo"/> 
+              </DataGrid>  
+              <editState/>  
+              <toolbar/>  
+              <xmlQuery version="2.0" name="" label=""> 
+                <select domainScope="true"> 
+                  <other label="其他" uid="other" name="other"/>  
+                  <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.06444467C44B" name="AMS_RiskAttentionLog" label="风险关注日志" alias="a0" selectAll="true" isBranch="true"> 
+                    <field uid="sys_0" name="id" label="编号" type="long"/>  
+                    <field uid="sys_1" name="domainId" label="域ID" type="long"/>  
+                    <field uid="id_1" name="member" label="会员" type="relation"/>  
+                    <field uid="id_2" name="addDate" label="创建时间" type="timestamp"/>  
+                    <field uid="id_3" name="riskRule" label="风险关注规则" type="long"/>  
+                    <field uid="id_6" name="memo" label="备注" type="string"/> 
+                  </Entity>  
+                  <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0" name="AMS_Member" label="会员" alias="a1" selectAll="true" isBranch="true"> 
+                    <field uid="sys_0" name="id" label="编号" type="long"/>  
+                    <field uid="sys_1" name="domainId" label="域ID" type="long"/>  
+                    <field uid="log_0" name="FM_CreatePrinId" label="创建者ID" type="long"/>  
+                    <field uid="log_1" name="FM_CreatePrinName" label="创建者" type="string"/>  
+                    <field uid="log_2" name="FM_UpdatePrinId" label="更新者ID" type="long"/>  
+                    <field uid="log_3" name="FM_UpdatePrinName" label="更新者" type="string"/>  
+                    <field uid="log_4" name="FM_CreateTime" label="创建时间" type="timestamp"/>  
+                    <field uid="log_5" name="FM_UpdateTime" label="更新时间" type="timestamp"/>  
+                    <field uid="id_1" name="name" label="名称" type="string"/>  
+                    <field uid="id_4" name="phone" label="手机" type="string"/>  
+                    <field uid="id_6" name="address" label="地址" type="string"/>  
+                    <field uid="id_7" name="user_state" label="会员状态" type="long"/>  
+                    <field uid="id_23" name="member_type" label="会员类型" type="long"/>  
+                    <field uid="id_24" name="userId" label="会员uuid" type="string"/>  
+                    <field uid="id_26" name="login_password" label="登录密码" type="string"/>  
+                    <field uid="id_27" name="pay_password" label="支付密码" type="string"/>  
+                    <field uid="id_28" name="email" label="邮箱" type="string"/>  
+                    <field uid="id_29" name="country" label="国家" type="string"/>  
+                    <field uid="id_30" name="province" label="省" type="string"/>  
+                    <field uid="id_31" name="area" label="地区" type="string"/>  
+                    <field uid="id_32" name="identity_cardNo" label="身份证号码" type="string"/>  
+                    <field uid="id_34" name="user_name" label="昵称" type="string"/>  
+                    <field uid="id_36" name="last_login_time" label="最近一次登录时间" type="timestamp"/>  
+                    <field uid="id_37" name="isPhone_checked" label="手机号码是否验证" type="boolean"/>  
+                    <field uid="id_38" name="isEmail_checked" label="邮箱是否验证" type="boolean"/>  
+                    <field uid="id_40" name="register_time" label="注册时间" type="timestamp"/>  
+                    <field uid="id_41" name="login_fail_amount" label="登录失败次数" type="long"/>  
+                    <field uid="id_42" name="pay_fail_amount" label="支付失败次数" type="long"/>  
+                    <field uid="id_43" name="last_login_fail_time" label="最后一次登录失败时间" type="timestamp"/>  
+                    <field uid="id_44" name="last_pay_fail_time" label="最后一次支付失败时间" type="timestamp"/>  
+                    <field uid="id_45" name="isSecurityIssue" label="是否设置安全问题" type="boolean"/>  
+                    <field uid="id_47" name="isSetExtendInfo" label="是否设置扩展信息" type="boolean"/>  
+                    <field uid="id_48" name="loginId" label="登录帐号" type="string"/>  
+                    <field uid="id_50" name="wxUserId" label="微信号" type="string"/>  
+                    <field uid="id_53" name="memberNo" label="客户号" type="string"/>  
+                    <field uid="id_54" name="belong_orgNo" label="所属机构号" type="string"/>  
+                    <field uid="id_56" name="bind_orgNo" label="绑定机构号" type="string"/>  
+                    <field uid="id_58" name="isIdentity_checked" label="是否实名认证" type="boolean"/>  
+                    <field uid="id_61" name="identity_cardNo_encrypt" label="身份证(加密)" type="string"/>  
+                    <field uid="id_62" name="identity_cardNo_md5" label="身份证(md5加密)" type="string"/>  
+                    <field uid="id_63" name="register_ip" label="注册ip" type="string"/>  
+                    <field uid="id_64" name="company_id" label="分公司编号" type="long"/>  
+                    <field uid="id_65" name="company_name" label="分公司名字" type="string"/>  
+                    <field uid="id_66" name="login_time" label="本次登录时间" type="timestamp"/>  
+                    <field uid="id_67" name="bank_code" label="绑定银行卡代码" type="string"/>  
+                    <field uid="id_68" name="remark" label="备注" type="string"/>  
+                    <field uid="id_69" name="real_name_time" label="实名时间" type="timestamp"/>  
+                    <field uid="id_70" name="isRiskUser" label="是否加入黑名单" type="boolean"/>  
+                    <field uid="id_71" name="phone_pay_password" label="手机支付密码" type="string"/>  
+                    <field uid="id_72" name="phone_pay_fail_amount" label="手机支付失败次数" type="long"/>  
+                    <field uid="id_73" name="last_phone_pay_fail_time" label="最后一次手机支付失败时间" type="timestamp"/>  
+                    <field uid="id_74" name="source" label="来源" type="long"/>  
+                    <field uid="id_75" name="isFree" label="是否免密" type="boolean"/>  
+                    <field uid="id_76" name="free_limit" label="免密额度" type="string"/> 
+                  </Entity> 
+                </select>  
+                <where> 
+                  <exp type="2"> 
+                    <exp type="19" valueType="1" option="true" rightType="param" right="member" leftEntity="AMS_RiskAttentionLog" leftField="member_label" uid="exp0"/>  
+                    <exp type="5" valueType="3" option="true" rightType="prop" rightEntity="AMS_Member" rightField="id" leftEntity="AMS_RiskAttentionLog" leftField="member_id" uid="exp1"/> 
+                  </exp> 
+                </where>  
+                <other> 
+                  <groupBy label="Group By"/>  
+                  <orderBy label="Order By"/> 
+                </other> 
+              </xmlQuery>  
+              <conditionForm> 
+                <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2"> 
+                  <TabNavigator> 
+                    <tab label="default"> 
+                      <Label label="Label" text="会员:" x="2" y="2" width="100" height="24" style=""/>  
+                      <TextInput label="TextInput" x="43" y="2" width="159" height="24" name="member"/> 
+                    </tab> 
+                  </TabNavigator> 
+                </Window> 
+              </conditionForm>  
+              <StatSetting/>  
+              <queryEvent/> 
+            </EntityQuery>

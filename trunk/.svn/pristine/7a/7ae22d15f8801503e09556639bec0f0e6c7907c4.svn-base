@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<QueryPage label="邮件模板管理" control="Panel" layout="vertical" controlUID="root" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.001A1E899D9F" name="邮件模板管理" nodeID="2251"> 
+              <QueryControl label="邮件模板管理" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.4BE30B08F380" width="100%" height="100%" controlUID="ctrl0"/>  
+              <event label="初始化事件" type="initialize" name="initialize"/>  
+              <event label="确定事件" type="okEvent" name="okEvent"/> 
+            </QueryPage>

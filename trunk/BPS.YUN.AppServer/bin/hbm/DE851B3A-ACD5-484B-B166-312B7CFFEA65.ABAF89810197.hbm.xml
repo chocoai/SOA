@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "PUBLIC" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class entity-name="AMS_TradeRequestLog" table="DYNA_AMS_TradeRequestLog">
+    <id name="id" type="long">
+      <generator class="native"/>
+    </id>
+    <property name="domainId" not-null="false" type="long" index="IDX_DOMAINID"/>
+    <property name="userId" not-null="false" type="string" length="100"/>
+    <property name="create_time" not-null="false" type="timestamp" length="100"/>
+    <property name="requestId" not-null="false" type="string" length="100"/>
+    <property name="ret_code1" not-null="false" type="string" length="100"/>
+    <property name="ret_code2" not-null="false" type="string" length="100"/>
+    <property name="pickup_url" not-null="false" type="string" length="100"/>
+    <property name="receive_url" not-null="false" type="string" length="100"/>
+    <property name="account_no" not-null="false" type="string" length="100"/>
+    <property name="trade_type" not-null="false" type="long"/>
+    <property name="request_time" not-null="false" type="timestamp" length="100"/>
+    <property name="trade_money" not-null="false" type="long"/>
+    <property name="bizid" not-null="false" type="string" length="100"/>
+    <property name="systemId" not-null="false" type="string" length="100"/>
+    <property name="errorMessage" not-null="false" type="string" length="100"/>
+    <property name="outSystem" not-null="false" type="string"/>
+    <property name="out_requestId" not-null="false" type="string" length="100"/>
+  </class>
+</hibernate-mapping>

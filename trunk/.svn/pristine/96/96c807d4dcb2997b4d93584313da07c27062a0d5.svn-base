@@ -1,0 +1,939 @@
+package bps.checkaccount;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Properties;
+
+import org.apache.log4j.Logger;
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+
+import apf.util.EntityManagerUtil;
+import apf.util.SessionContext;
+import bps.common.Constant;
+import bps.process.Extension;
+
+import com.jcraft.jsch.ChannelSftp;
+import com.jcraft.jsch.JSch;
+import com.kinorsoft.tools.FileUtil;
+
+import ime.calendar.TrigerHandler;
+import ime.core.Environment;
+import ime.core.Reserved;
+import ime.core.services.DynamicEntityService;
+import ime.security.LoginSession;
+
+
+public class WsCardCheckTriger implements TrigerHandler {
+//	private static Logger logger                    = Logger.getLogger("WsCardCheckTriger.jsp");
+//	private static String instCode                  = null;
+//	private static String consumePayChannelNo       = Constant.PAY_CHANNEL_BUSINESS;
+//	private static String rechargePayChannelNo      = Constant.PAY_CHANNEL_AMS;
+//	private static String consumePayInterfaceNo     = Constant.PAY_INTERFACE_BUSINESS_GETWAY;
+//	private static String rechargePayInterfaceNo     = Constant.PAY_INTERFACE_AMS;
+//	private static String outTradeType_consume         = "PAY";
+//	private static String outTradeType_recharge        = "CHARGE";
+//	private static Long tradeType_consume         = Constant.TRADE_TYPE_DEPOSIT;
+//	private static Long tradeType_recharge        = Constant.TRADE_TYPE_TRANSFER;
+//	private static Long tradeType_rechargeSub     = Constant.SUB_TRADE_TYPE_WSK;
+//	private static String sftpUrl                    = null;
+//	private static int sftpPort                      = 0;
+//	private static String sftpCharset                = null;
+//	private static String sftpUserName               = null;
+//	private static String sftpPassword               = null;
+//	private static String sftpRemotePath             = null;
+//	private static int stfpTimeout                = 30000;
+//	private static String tradeSeparatorChar        = null;
+//	private static Map<String, Long> checkAccountIdMap = new HashMap<String, Long>();
+//	private static Map<String, Long> checkResultMap = new HashMap<String, Long>();
+//	private static Map<String, String> outSystemFileMap = new HashMap<String, String>();
+//	private static Map<String, String> checkAccountFileMap = new HashMap<String, String>();
+//	private static Date ftpDownLoadTime             = null;
+//	private static String wsCardAccountFilePath     = null;
+//	private static Map<String, String> saveFilePath_consume = new HashMap<String, String>();
+//	private static Map<String, String> saveFilePath_consumeRollback = new HashMap<String, String>();
+//	private static Map<String, String> saveFilePath_recharge = new HashMap<String, String>();
+//	private static Long checkResult_consume = null;
+//	private static Long checkResult_recharge = null;
+	
+	public void handle() {
+//		logger.info("===========================================WsCardCheckTriger.handle start========================================");
+//		
+//		Calendar calendar = Calendar.getInstance();
+//		calendar.set(Calendar.DATE, calendar.get(Calendar.DATE) - 1);
+//		Date date = calendar.getTime();
+//		
+//		try {
+//			check(date);
+//		} catch (Exception ex) {
+//			logger.error(ex.getMessage(), ex);
+//		}
+//		
+//		logger.info("===========================================WsCardCheckTriger.handle end========================================");
+	}
+	
+//	public static void check(Date date) throws Exception{
+////		logger.info("===========================================WsCardCheckTriger.check start========================================");
+////		
+////		if(instCode == null){
+////			instCode = ime.core.Environment.instance().getSystemProperty("AlipayConfig.wscard.inst.instCode");
+////		}
+////		
+////		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+////		String dateStr = sdf.format(date);
+////		
+////		//创建对账记录
+////		createAccountRecord();
+////		
+////		//创建相关目录和相关文件名
+////		fileOpe(dateStr);
+////		
+////		//从数据库中读取交易日志到内存中
+////		List<Map<String, Object>> tradeLog_consume = getConsumeTradeLog(date, tradeType_consume);
+////		List<Map<String, Object>> tradeLog_recharege = getRechargeTradeLog(date, tradeType_recharge, tradeType_rechargeSub);
+////		
+////		//交易日志原始保存到文件中
+////		tradeLogSaveToFile(tradeLog_consume, "consume");
+////		tradeLogSaveToFile(tradeLog_recharege, "recharge");
+////		
+////		//生成需要从ftp服务器中下载文件的文件名列表
+////		String downloadFileConsume = generateFileName(instCode, outTradeType_consume, dateStr);
+////		String downloadFileRecharge = generateFileName(instCode, outTradeType_recharge, dateStr);
+////	
+////		//获取对账文件内容
+////		//Map<String, String> outFileContentMap = ftpDownLoadFile(ftpUrl, ftpPort, ftpCharset, ftpUserName, ftpPassword, ftpRemotePath, fileConsume, fileRecharge);
+////		ChannelSftp channel = Extension.wskCheckAccountService.sftpConnect(sftpUrl, sftpPort, sftpUserName, sftpPassword, stfpTimeout);
+////		Map<String, String> outFileContentMap = Extension.wskCheckAccountService.sftpDownload(sftpRemotePath, downloadFileConsume, downloadFileRecharge, saveFilePath_consume.get("outLog"), saveFilePath_recharge.get("outLog"), channel);
+////		//修改对账记录中的下载状态字段
+////		updAccountRecordWhenDownLoadSuc("consume");
+////		updAccountRecordWhenDownLoadSuc("recharge");
+////		//并保存到文件中
+////		//outFileSaveToFile(outFileContentMap);
+////		
+////		//进行对账
+////		//消费
+////		logger.info("consume:" + outFileContentMap.get("consume"));
+////		checkOpe(tradeLog_consume, outFileStrToList(outFileContentMap.get("consume")), dateStr, "consume");
+////		
+////		//充值
+////		checkOpe(tradeLog_recharege, outFileStrToList(outFileContentMap.get("recharge")), dateStr, "recharege");
+////		
+////		//更新对账记录
+////		updateAccountRecord(date);
+////		
+////		logger.info("===========================================WsCardCheckTriger.check end========================================");
+//	}
+//	
+//	/**
+//	 * 创建初始两个对账记录。消费，充值。
+//	 * @throws Exception 
+//	 */
+//	public static void createAccountRecord() throws Exception{
+//		logger.info("===========================================WsCardCheckTriger.createAccountRecord start========================================");
+//		SessionContext ctx = null;
+//		try{
+//			ctx = EntityManagerUtil.currentContext();
+//			Session session = ctx.getHibernateSession();
+//			Transaction tx = session.getTransaction();
+//			Boolean isActive = !tx.isActive();
+//			try{
+//				if(isActive){
+//					tx.begin();
+//				}
+//				
+//				LoginSession.backUse(null, Reserved.BACKUSER_ID, Reserved.MAIN_DOMAIN_ID);
+//				
+//				Map<String, String> checkAccountMap = new HashMap<String, String>();
+//				checkAccountMap.put("pay_channelNo", consumePayChannelNo);
+//				checkAccountMap.put("remark", "通联卡消费");
+//				checkAccountMap.put("download_state", Constant.CHECK_DOWNLOAD_ERROR.toString());
+//				checkAccountMap.put("check_state", Constant.CHECK_STATUS_NOT_START.toString());
+//				logger.info("checkAccountMap:" + checkAccountMap);
+//				
+//				Map<String, Object> map = DynamicEntityService.createEntity("AMS_CheckAccount", checkAccountMap, null);
+//				
+//				logger.info("map:" + map);
+//				
+//				checkAccountIdMap.put("consume", (Long)map.get("id"));
+//				
+//				checkAccountMap.put("pay_channelNo", rechargePayChannelNo); //充值的支付通道是什么?
+//				checkAccountMap.put("remark", "通联卡充值");  
+//				checkAccountMap.put("download_state", Constant.CHECK_DOWNLOAD_ERROR.toString());
+//				checkAccountMap.put("check_state", Constant.CHECK_STATUS_NOT_START.toString());
+//				map = DynamicEntityService.createEntity("AMS_CheckAccount", checkAccountMap, null);
+//				checkAccountIdMap.put("recharge", (Long)map.get("id"));
+//				
+//				if(isActive){
+//					tx.commit();
+//				}
+//			}
+//			catch(Exception ex){
+//				if(isActive){
+//					tx.rollback();
+//				}
+//				
+//				throw ex;
+//			}
+//		}
+//		catch(Exception ex){
+//			logger.error(ex.getMessage(), ex);
+//			throw ex;
+//		}
+//		finally{
+//			if(ctx != null){
+//				EntityManagerUtil.closeSession(ctx);
+//			}
+//			
+//			logger.info("===========================================WsCardCheckTriger.createAccountRecord end========================================");
+//		}
+//	}
+//	
+//	/**
+//	 * 文件相关操作。
+//	 * 	1、创建相关文件夹。
+//	 * 	2、组装相关文件名称。
+//	 * @throws Exception 
+//	 */
+//	public static void fileOpe(String dateStr) throws Exception{
+//		logger.info("===========================================WsCardCheckTriger.fileOpe start========================================");
+//		//检查是否存在根目录
+//		String rootfilepath = Environment.instance().getSystemProperty(Constant.FILE_ROOT_PATH);
+//		if(rootfilepath == null)
+//			throw new Exception("未设置文件根目录");
+//		
+//		//检查是否存在通联卡对账目录
+//		String checkFilePath = Environment.instance().getSystemProperty("CheckAccount.allinpay.wsCard.filePath");
+//
+//		if(checkFilePath == null)
+//			throw new Exception("未设置通联卡对账目录");
+//		
+//		String filePath_consume = rootfilepath + checkFilePath + "/" + dateStr + "/consume";
+//		String filePath_recharge = rootfilepath + checkFilePath + "/" + dateStr + "/recharge";
+//		
+//		//创建文件夹
+//		if(!FileUtil.isExsit(filePath_consume)){
+//			FileUtil.creatIfNotExsit(filePath_consume);
+//		}
+//		if(!FileUtil.isExsit(filePath_recharge)){
+//			FileUtil.creatIfNotExsit(filePath_recharge);
+//		}
+//		
+//		//组装文件名称
+//		saveFilePath_consume.put("innerLog", filePath_consume + "/innerLog.txt");
+//		saveFilePath_consume.put("outLog", filePath_consume + "/outLog.txt");
+//		saveFilePath_consume.put("diffLog", filePath_consume + "/diffLog.txt");
+//		
+//		saveFilePath_recharge.put("innerLog", filePath_recharge + "/innerLog.txt");
+//		saveFilePath_recharge.put("outLog", filePath_recharge + "/outLog.txt");
+//		saveFilePath_recharge.put("diffLog", filePath_recharge + "/diffLog.txt");
+//		
+//		if(FileUtil.saveToFile("", saveFilePath_consume.get("innerLog") , "UTF-8") == false){
+//			throw new Exception("创建" + saveFilePath_consume.get("innerLog") + "时出错");
+//		}
+//		if(FileUtil.saveToFile("", saveFilePath_consume.get("outLog") , "UTF-8") == false){
+//			throw new Exception("创建" + saveFilePath_consume.get("outLog") + "时出错");
+//		}
+//		if(FileUtil.saveToFile("", saveFilePath_consume.get("diffLog") , "UTF-8") == false){
+//			throw new Exception("创建" + saveFilePath_consume.get("diffLog") + "时出错");
+//		}
+//		if(FileUtil.saveToFile("", saveFilePath_recharge.get("innerLog") , "UTF-8") == false){
+//			throw new Exception("创建" + saveFilePath_recharge.get("innerLog") + "时出错");
+//		}
+//		if(FileUtil.saveToFile("", saveFilePath_recharge.get("outLog") , "UTF-8") == false){
+//			throw new Exception("创建" + saveFilePath_recharge.get("outLog") + "时出错");
+//		}
+//		if(FileUtil.saveToFile("", saveFilePath_recharge.get("diffLog") , "UTF-8") == false){
+//			throw new Exception("创建" + saveFilePath_recharge.get("diffLog") + "时出错");
+//		}
+//		
+//		logger.info("===========================================WsCardCheckTriger.fileOpe end========================================");
+//	}
+//	
+//	/**
+//	 * 获取消费的交易日志。
+//	 * @param  date                      日期
+//	 * @return List<Map<String, Object>> 交易日志信息
+//	 * @throws Exception
+//	 */
+//	public static List<Map<String, Object>> getConsumeTradeLog(Date date, Long tradeType) throws Exception{
+//		logger.info("===========================================WsCardCheckTriger.getConsumeTradeLog start========================================");
+//		//数据检查
+//		if(date == null){
+//			throw new Exception("日期不能为空");
+//		}
+//		if(tradeType == null){
+//			throw new Exception("交易类型不能为空");
+//		}
+//		
+//		SessionContext ctx = null;
+//		List<Map<String, Object>> ret = null;
+//		
+//		try{
+//			ctx = EntityManagerUtil.currentContext();
+//			Session session = ctx.getHibernateSession();
+//			String queryStr = "from AMS_TradeLog where pay_channelNo=:payChannelNo and trade_time=:tradeTime and trade_type=:tradeType";
+//			Query query = session.createQuery(queryStr);
+//			query.setParameter("payChannelNo", consumePayChannelNo);
+//			query.setParameter("tradeTime", date);
+//			query.setParameter("tradeType", tradeType);
+//			
+//			ret = query.list();
+//		}
+//		catch(Exception ex){
+//			logger.error(ex.getMessage(), ex);
+//			throw ex;
+//		}
+//		finally{
+//			if(ctx != null){
+//				EntityManagerUtil.closeSession(ctx);
+//			}
+//		}
+//		
+//		logger.info("===========================================WsCardCheckTriger.getConsumeTradeLog end========================================");
+//		return ret;
+//	}
+//	
+//	/**
+//	 * 获取充值的交易日志。
+//	 * @param  date                      日期
+//	 * @return List<Map<String, Object>> 交易日志信息
+//	 * @throws Exception
+//	 */
+//	public static List<Map<String, Object>> getRechargeTradeLog(Date date, Long tradeType, Long subTradeType) throws Exception{
+//		logger.info("===========================================WsCardCheckTriger.getRechargeTradeLog start========================================");
+//		//数据检查
+//		if(date == null){
+//			throw new Exception("日期不能为空");
+//		}
+//		if(tradeType == null){
+//			throw new Exception("交易类型不能为空");
+//		}
+//		if(subTradeType == null){
+//			throw new Exception("交易子类型不能为空");
+//		}
+//		
+//		//
+//		SessionContext ctx = null;
+//		List<Map<String, Object>> ret = null;
+//		
+//		try{
+//			ctx = EntityManagerUtil.currentContext();
+//			Session session = ctx.getHibernateSession();
+//			String queryStr = "from AMS_TradeLog where pay_channelNo=:payChannelNo and trade_time=:tradeTime and trade_type=:tradeType and sub_trade_type=:subTradeType";
+//			Query query = session.createQuery(queryStr);
+//			query.setParameter("payChannelNo", consumePayChannelNo);
+//			query.setParameter("tradeTime", date);
+//			query.setParameter("tradeType", tradeType);
+//			query.setParameter("subTradeType", subTradeType);
+//			
+//			ret = query.list();
+//		}
+//		catch(Exception ex){
+//			throw ex;
+//		}
+//		finally{
+//			if(ctx != null){
+//				EntityManagerUtil.closeSession(ctx);
+//			}
+//		}
+//		
+//		logger.info("===========================================WsCardCheckTriger.getRechargeTradeLog end========================================");
+//		return ret;
+//	}
+//	
+//	/**
+//	 * 原始交易日志数据保存到文件中。
+//	 * @param tradeLogList
+//	 * @param tradeType
+//	 */
+//	public static void tradeLogSaveToFile(List<Map<String, Object>> tradeLogList, String tradeType) throws Exception{
+//		logger.info("===========================================WsCardCheckTriger.tradeLogSaveToFile start========================================");
+//		//生成文件内容
+//		SimpleDateFormat trade_time_df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+//		StringBuilder sb = new StringBuilder();
+//		sb.append("订单号|通联订单号|交易金额|交易时间|用户ID\n");
+//		
+//		for(Map<String, Object> temp : tradeLogList){
+//			sb.append(temp.get("command_no")).append("|");		//订单号
+//			sb.append(temp.get("out_trade_id")).append("|");	//通联订单号
+//			sb.append(temp.get("trade_money")).append("|");
+//			Date trade_time = (Date)temp.get("trade_time");
+//			String strDate	= trade_time_df.format(trade_time);
+//			sb.append(strDate).append("|");
+//			if(tradeType == "consume"){
+//				sb.append((String)temp.get("target_userId"));
+//			}
+//			else if(tradeType == "recharge"){
+//				sb.append((String)temp.get("source_userId"));
+//			}
+//			
+//			sb.append("\n");
+//		}
+//	
+//		//保存
+//		String filePath = "";
+//		if(tradeType == "consume"){
+//			filePath = saveFilePath_consume.get("innerLog");
+//		}
+//		else{
+//			filePath = saveFilePath_recharge.get("innerLog");
+//		}
+//		
+//		if(FileUtil.saveToFile(sb.toString(), filePath , "UTF-8") == false){
+//			throw new Exception("保存" + filePath + "时出错");
+//		}
+//		
+//		logger.info("===========================================WsCardCheckTriger.tradeLogSaveToFile end========================================");
+//	}
+//	
+//	/**
+//	 * 把外部文件内容保存到本地文件中
+//	 * @param outFileContentList
+//	 * @return
+//	 */
+//	public static void outFileSaveToFile(Map<String, String> outFileContentList) throws Exception{
+//		logger.info("===========================================WsCardCheckTriger.outFileSaveToFile start========================================");
+//		if(FileUtil.saveToFile(outFileContentList.get("consume"), saveFilePath_consume.get("outLog") , "UTF-8") == false){
+//			throw new Exception("保存" + saveFilePath_consume.get("outLog") + "时出错");
+//		}
+//		
+//		if(FileUtil.saveToFile(outFileContentList.get("recharge"), saveFilePath_recharge.get("outLog"), "UTF-8") == false){
+//			throw new Exception("保存" + saveFilePath_recharge.get("outLog") + "时出错");
+//		}
+//		
+//		logger.info("===========================================WsCardCheckTriger.outFileSaveToFile end========================================");
+//	}
+//	
+//	/**
+//	 * 当下载从ftp下载对账文件成功时，更新对账记录
+//	 */
+//	public static void updAccountRecordWhenDownLoadSuc(String tradeType) throws Exception{
+//		logger.info("===========================================WsCardCheckTriger.updAccountRecordWhenDownLoadSuc start========================================");
+//		Long checkAccountId = 0L;
+//		if(tradeType == "consume"){
+//			checkAccountId = checkAccountIdMap.get("consume");
+//		}
+//		else{
+//			checkAccountId = checkAccountIdMap.get("recharge");
+//		}
+//		
+//		SessionContext ctx = null;
+//		try {
+//			ctx = EntityManagerUtil.currentContext();
+//			Session session 	= ctx.getHibernateSession();	//获取会话
+//			Transaction tx 		= session.getTransaction();
+//			Boolean isActive	= !tx.isActive();
+//			try{
+//				if(isActive)
+//					tx.begin();
+//				Query query = session.createQuery("update AMS_CheckAccount set download_state=:download_state where id=:id");
+//				query.setParameter("download_state", Constant.CHECK_DOWNLOAD_SUCCESS);
+//				query.setParameter("id", checkAccountId);
+//				query.executeUpdate();
+//				if (isActive)
+//					tx.commit();
+//			}catch (Exception ex) {
+//				if (isActive)
+//					tx.rollback();
+//				throw ex;
+//			}
+//		}catch (Exception ex) {
+//			throw ex;
+//		}finally {
+//			if(ctx != null){
+//				EntityManagerUtil.closeSession(ctx);
+//			}
+//			
+//			logger.info("===========================================WsCardCheckTriger.updAccountRecordWhenDownLoadSuc end========================================");
+//		}
+//	}
+//	
+//	
+//	/**
+//	 * 建立SFTP连接
+//	 * @param url			FTP服务器地址
+//	 * @param port			FTP服务器商品
+//	 * @param username		用户名
+//	 * @param password		密码
+//	 * @param timeout		超时
+//	 * @return
+//	 * @throws Exception 
+//	 */
+////	public static ChannelSftp sftpConnect(String url, int port, String username,String password, int timeout) throws Exception {
+////		sftpUrl = Environment.instance().getSystemProperty("AlipayConfig.wscard.sftp.url");
+////		sftpPort = Integer.valueOf(Environment.instance().getSystemProperty("AlipayConfig.wscard.sftp.port"));
+////		sftpUserName = Environment.instance().getSystemProperty("AlipayConfig.wscard.sftp.userName");
+////		sftpPassword = Environment.instance().getSystemProperty("AlipayConfig.wscard.sftp.pwd");
+////		sftpRemotePath = Environment.instance().getSystemProperty("AlipayConfig.wscard.sftp.sftpRemotePath");
+////		stfpTimeout = Integer.valueOf(Environment.instance().getSystemProperty("AlipayConfig.wscard.sftp.timeOut"));
+////		
+////		JSch jsch = new JSch(); // 创建JSch对象
+////		com.jcraft.jsch.Session session = jsch.getSession(username, url, port); // 根据用户名，主机ip，端口获取一个Session对象
+////		logger.debug("Session created.");
+////		if (password != null) {
+////		    session.setPassword(password); // 设置密码
+////		}
+////		Properties config = new Properties();
+////		config.put("StrictHostKeyChecking", "no");
+////		session.setConfig(config); // 为Session对象设置properties
+////		session.setTimeout(timeout); // 设置timeout时间
+////		session.connect(); // 通过Session建立链接
+////		logger.info("Session connected.");
+////		
+////		logger.info("Opening Channel.");
+////		com.jcraft.jsch.Channel channel = session.openChannel("sftp"); // 打开SFTP通道
+////		channel.connect(); // 建立SFTP通道的连接
+////		logger.info("连接SFTP成功");
+////		return (ChannelSftp) channel;
+////	}
+//	
+////	public static Map<String, String> sftpDownload(String directory, String downloadFileConsume, String downloadFileRecharge, String saveFileConsume, String saveFileRecharge, ChannelSftp sftp) throws Exception {  
+////	    try {  
+////	        sftp.cd(directory);  
+////	        File fileConsume = new File(saveFileConsume);  
+////	        File fileRecharge = new File(saveFileRecharge);  
+////	        
+////	        logger.info("downloadFileConsume:" + downloadFileConsume);
+////	        logger.info("fileConsume:" + fileConsume);
+////	        sftp.get(downloadFileConsume, new FileOutputStream(fileConsume));  
+////	        sftp.get(downloadFileRecharge, new FileOutputStream(fileRecharge));  
+////	        
+////	        Map<String, String> fileStrMap = new HashMap<String, String>();
+////	        fileStrMap.put("consume", sftpFileToStr(fileConsume));
+////			fileStrMap.put("recharge", sftpFileToStr(fileRecharge));
+////			
+////			return fileStrMap; 
+////	    } catch (Exception e) {  
+////	        throw e; 
+////	    }  
+////	}  
+//	
+//	/**
+//	 * 异常统一处理函数
+//	 * @param  ex
+//	 * @throws Exception
+//	 */
+//	public static void exceptionOpe(Exception ex) throws Exception{
+//		logger.error(ex.getMessage());
+//		throw ex;
+//	}
+//	
+//	/**
+//	 * 生成从ftp中需要下载文件的文件名
+//	 * @param instCode  商户号 
+//	 * @param tradeType 交易类型编码
+//	 * @param dateStr   日期字符串
+//	 * @return 
+//	 */
+//	public static String generateFileName(String instCode, String tradeType, String dateStr){
+//		logger.info("===========================================WsCardCheckTriger.generateFileName start========================================");
+//		StringBuilder sb = new StringBuilder();
+//		sb.setLength(0);
+//		sb.append("TLSW_");
+//		sb.append(instCode);
+//		//sb.append("999290048160001");
+//		sb.append("_");
+//		sb.append(dateStr);
+//		//sb.append("20150811");
+//		sb.append("_");
+//		sb.append(tradeType);
+//		sb.append(".txt");
+//		
+//		logger.info("===========================================WsCardCheckTriger.generateFileName end========================================");
+//		return sb.toString();
+//	}
+//	
+//	/**
+//	 * 把sftp服务器中的文件转换为字符串
+//	 * @param ftpClient
+//	 * @param ftpFileName
+//	 * @return
+//	 * @throws IOException
+//	 */
+////	public static String sftpFileToStr(File file) throws IOException{
+////		InputStream inputStream = null;
+////		BufferedReader br = null;
+////		
+////		try {
+////			FileInputStream fileInputStream = new FileInputStream(file);
+////			br = new BufferedReader(new InputStreamReader(fileInputStream));
+////			String line = "";
+////			StringBuffer sb = new StringBuffer();
+////			while((line = br.readLine()) != null){
+////				sb.append(line);
+////				sb.append("\n");
+////			}
+////			
+////			return sb.toString();
+////		} catch (IOException e) {
+////			throw e;
+////		}
+////		finally{
+////			if(inputStream != null){
+////				inputStream.close();
+////			}
+////			
+////			if(br != null){
+////				br.close();
+////			}
+////		}
+////	}
+//	
+//	/**
+//	 * 把外部对账文件的字符串转换为List<Map<String, Object>>类型
+//	 * @param str
+//	 * @return
+//	 */
+//	public static List<Map<String, Object>> outFileStrToList(String str){
+//		logger.info("===========================================WsCardCheckTriger.outFileStrToList start========================================");
+//		List<Map<String, Object>> outLineList = new ArrayList<Map<String, Object>>();
+//		String[] strLineArray = str.split("\n");
+//		
+//		for(int i = 1; i < strLineArray.length; i++){
+//			Map<String, Object> tempMap = new HashMap<String, Object>();
+//			logger.info("strLineArray[i]:" + strLineArray[i]);
+//			String[] strLineStrSplite = strLineArray[i].split("\\|");
+//			
+//			tempMap.put("tradeDate", strLineStrSplite[0]);
+//			tempMap.put("tradeTime", strLineStrSplite[1]);
+//			tempMap.put("yztFlowNo", strLineStrSplite[2]);
+//			tempMap.put("wsCardFlowNo", strLineStrSplite[3]);
+//			tempMap.put("cardNo", strLineStrSplite[4]);
+//			tempMap.put("tradeMoney", strLineStrSplite[5]);
+//			tempMap.put("cleanDate", strLineStrSplite[6]);
+//			
+//			logger.info("tempMap:" + tempMap);
+//			
+//			outLineList.add(tempMap);
+//		}
+//		
+//		logger.info("===========================================WsCardCheckTriger.outFileStrToList end========================================");
+//		return outLineList;
+//	}
+//	
+//	
+//	public static void checkOpe(List<Map<String, Object>> tradeLogList, List<Map<String, Object>> outLogList, String dateStr, String tradeType) throws Exception{
+//		logger.info("===========================================WsCardCheckTriger.checkOpe start========================================");
+//		List<Map<String, Object>> diffList = new ArrayList<Map<String, Object>>(); //保存对账不一致的数据
+//		
+//		StringBuilder tradeLogSb = new StringBuilder();
+//		tradeLogSb.append("---------交易日志有的，对账文件没有的数据---------\n");
+//		tradeLogSb.append("订单号|通联订单号|交易金额|交易时间|用户ID\n");
+//		
+//		StringBuilder outFileSb = new StringBuilder();
+//		outFileSb.append("---------对账文件有的，交易日志没有的数据---------\n");
+//		outFileSb.append("订单号|通联订单号|交易金额|交易时间\n");
+//		
+//		StringBuilder diffSb = new StringBuilder();
+//		diffSb.append("---------对账文件和交易日志不同的数据---------\n");
+//		diffSb.append("商户订单号|通联订单号|交易金额|交易时间  && 订单号|通联订单号|交易金额|交易时间|用户ID\n");
+//		
+//		//对账-不同
+//		for(int i = 0; i < tradeLogList.size(); i++){
+//			for(int j = 0; j < outLogList.size(); j++){
+//				//String[] fileTradeSplit = fileTradeList.get(j).split("|");
+//				//String flowNo = fileTradeSplit[5];
+//				String yztFlowNo_out = (String)outLogList.get(j).get("yztFlowNo");
+//				String wsCardFlowNo_out = (String)outLogList.get(j).get("wsCardFlowNo");
+//				Long tradeMoney_out = Long.valueOf((String)outLogList.get(j).get("tradeMoney"));
+//				String tradeDate_out = (String)outLogList.get(j).get("tradeDate");
+//				String tradeTime_out = (String)outLogList.get(j).get("tradeTime");
+//				
+//				String commandNo = tradeLogList.get(i).get("command_no").toString();
+//				String yztFlowNo = bps.common.Util.getFlowNoForWsCard(commandNo);
+//				if(yztFlowNo.equals(yztFlowNo_out)){
+//					//对账不一致
+//					Long tradeMoney = Long.valueOf(tradeLogList.get(i).get("trade_money").toString());
+//					if(!tradeMoney.equals(tradeMoney_out)){
+//						Map<String, Object> diffMap = new HashMap<String, Object>();
+//						diffMap.put("command_no", commandNo);
+//						diffMap.put("trade_money", tradeMoney);
+//						diffMap.put("pay_interfaceNo", tradeLogList.get(i).get("pay_interfaceNo"));
+//						diffMap.put("trade_time", tradeLogList.get(i).get("trade_time"));
+//						diffMap.put("out_trade_id", wsCardFlowNo_out);
+//						diffMap.put("out_trade_money", tradeMoney_out);
+//						diffList.add(diffMap);
+//						
+//						diffSb.append(yztFlowNo_out).append("|");
+//						diffSb.append(wsCardFlowNo_out).append("|");
+//						diffSb.append(tradeMoney_out).append("|");
+//						diffSb.append(tradeDate_out + tradeTime_out).append(" && ");
+//						diffSb.append(tradeLogList.get(i).get("command_no")).append("|");
+//						diffSb.append(tradeLogList.get(i).get("out_trade_id")).append("|");
+//						diffSb.append(tradeLogList.get(i).get("trade_money")).append("|");
+//						diffSb.append(tradeLogList.get(i).get("trade_time")).append("|");
+//						String userId = "consume".equals(tradeType) ? (String)tradeLogList.get(i).get("target_userId") : (String)tradeLogList.get(i).get("source_userId");
+//						diffSb.append(userId).append("\n");
+//					}
+//					
+//					tradeLogList.remove(i);
+//					i--;
+//					outLogList.remove(j);
+//					
+//					break;
+//				}
+//			}
+//		}
+//		
+//		//对账-交易日志独有
+//		for(int i = 0; i < tradeLogList.size(); i++){
+//			tradeLogSb.append(tradeLogList.get(i).get("command_no").toString());
+//			tradeLogSb.append("|");
+//			tradeLogSb.append(tradeLogList.get(i).get("out_trade_id").toString());
+//			tradeLogSb.append("|");
+//			tradeLogSb.append(tradeLogList.get(i).get("trade_money").toString());
+//			tradeLogSb.append("|");
+//			tradeLogSb.append(tradeLogList.get(i).get("trade_time").toString());
+//			tradeLogSb.append("|");
+//			String userId = "consume".equals(tradeType) ? (String)tradeLogList.get(i).get("target_userId") : (String)tradeLogList.get(i).get("source_userId");
+//			tradeLogSb.append(userId);
+//			tradeLogSb.append("\n");
+//		}
+//		
+//		//对账-外部对账文件独有
+//		for(int i = 0; i < outLogList.size(); i++){
+//			outFileSb.append((String)(outLogList.get(i).get("yztFlowNo")));
+//			outFileSb.append("|");
+//			outFileSb.append((String)(outLogList.get(i).get("wsCardFlowNo")));
+//			outFileSb.append("|");
+//			outFileSb.append((String)(outLogList.get(i).get("tradeMoney")));
+//			outFileSb.append("|");
+//			outFileSb.append((String)(outLogList.get(i).get("tradeDate")) + (String)(outLogList.get(i).get("tradeTime")));
+//			outFileSb.append("\n");
+//		}
+//				
+//		//对账数据是否正确
+//		Long checkResult = Constant.CHECK_RESULT_ERROR;
+//		if(tradeLogList.size() == 0 && outLogList.size() == 0 && diffList.size() == 0){
+//			checkResult = Constant.CHECK_RESULT_OK;
+//		}
+//		
+//		String filePath = null;
+//		if(tradeType == "consume"){
+//			filePath = saveFilePath_consume.get("diffLog");
+//			checkResult_consume = checkResult;
+//		}
+//		else{
+//			filePath = saveFilePath_recharge.get("diffLog");
+//			checkResult_recharge = checkResult;
+//		}
+//		String diffAllStr = tradeLogSb.toString() + outFileSb.toString() + diffSb.toString();
+//		
+//		//保存文件
+//		if(!FileUtil.saveToFile(diffAllStr, filePath, "UTF-8")){
+//			throw new Exception("保存" + filePath + "时失败。");
+//		}
+//		
+//		//写入数据库
+//		if(checkResult == Constant.CHECK_RESULT_ERROR){
+//			saveToDb(tradeType, outLogList, tradeLogList, diffList);
+//		}
+//		
+//		logger.info("===========================================WsCardCheckTriger.checkOpe end========================================");
+//	}
+//	
+//	
+//	
+//	/**
+//	 * 更新三条对账日志。消费、充值。
+//	 * @param checkDate
+//	 * @param checkResultMap
+//	 * @param outSystemFileMap
+//	 * @param checkAccountFileMap
+//	 * @param checkResultFileMap
+//	 * @throws Exception
+//	 */
+//	public static void updateAccountRecord(Date checkDate) throws Exception{
+//		logger.info("===========================================WsCardCheckTriger.updateAccountRecord start========================================");
+//		SessionContext ctx = null;
+//		
+//		try{
+//			ctx = EntityManagerUtil.currentContext();
+//			Session session = ctx.getHibernateSession();
+//			
+//			StringBuffer sb = new StringBuffer();
+//			sb.append("update AMS_CheckAccount set checkDate=:checkDate, checkResult=:checkResult, outSystemFile=:outSystemFile")
+//				.append(", checkAccountFile=:checkAccountFile, checkResultFile=:checkResultFile")
+//				.append(", check_state=:check_state, download_time=:download_time, check_time=:check_time where id=:id");
+//			
+//			//消费
+//			Query queryConsume = session.createQuery(sb.toString());
+//			queryConsume.setParameter("checkDate", checkDate);
+//			queryConsume.setParameter("checkResult", checkResult_consume);
+//			queryConsume.setParameter("outSystemFile", saveFilePath_consume.get("outLog"));
+//			queryConsume.setParameter("checkAccountFile", saveFilePath_consume.get("innerLog"));
+//			queryConsume.setParameter("checkResultFile", saveFilePath_consume.get("diffLog"));
+//			queryConsume.setParameter("check_state", Constant.CHECK_STATUS_END);
+//			queryConsume.setParameter("download_time", ftpDownLoadTime);
+//			queryConsume.setParameter("check_time", new Date());
+//			queryConsume.setParameter("id", checkAccountIdMap.get("consume"));
+//			
+//			//充值
+//			Query queryRecharge = session.createQuery(sb.toString());
+//			queryRecharge.setParameter("checkDate", checkDate);
+//			queryRecharge.setParameter("checkResult", checkResult_recharge);
+//			queryRecharge.setParameter("outSystemFile", saveFilePath_recharge.get("outLog"));
+//			queryRecharge.setParameter("checkAccountFile", saveFilePath_recharge.get("innerLog"));
+//			queryRecharge.setParameter("checkResultFile", saveFilePath_recharge.get("diffLog"));
+//			queryRecharge.setParameter("check_state", Constant.CHECK_STATUS_END);
+//			queryRecharge.setParameter("download_time", ftpDownLoadTime);
+//			queryRecharge.setParameter("check_time", new Date());
+//			queryRecharge.setParameter("id", checkAccountIdMap.get("recharge"));
+//			
+//			Transaction trans = session.getTransaction();
+//			Boolean isActive = !trans.isActive();
+//			try{
+//				if(isActive){
+//					trans.begin();
+//				}
+//				
+//				queryConsume.executeUpdate();
+//				queryRecharge.executeUpdate();
+//				
+//				if(isActive){
+//					trans.commit();
+//					
+//					logger.info("trans.commit()");
+//				}
+//			}
+//			catch(Exception ex){
+//				if(isActive){
+//					trans.rollback();
+//				}
+//				
+//				throw new Exception(ex.getMessage(), ex);
+//			}
+//		}
+//		catch(Exception ex){
+//			throw ex;
+//		}
+//		finally{
+//			if(ctx != null){
+//				EntityManagerUtil.closeSession(ctx);
+//			}
+//			
+//			logger.info("===========================================WsCardCheckTriger.updateAccountRecord end========================================");
+//		}
+//	}
+//	
+//	/**
+//	 * 把比较之后的内容写入数据库中。（数据库交易记录剩余，对账文件交易记录剩余，对账不同的内容）
+//	 * @param  tradeType       一账通交易类型
+//	 * @param  wsCardTradeType 通联卡交易类型    
+//	 * @param  fileList        对账文件交易记录列表
+//	 * @param  tradeLogList    数据库交易记录列表
+//	 * @param  diffList        对账不同内容列表
+//	 * @throws Exception
+//	 */
+//	public static void saveToDb(String tradeType, List<Map<String, Object>> fileList, List<Map<String, Object>> tradeLogList, List<Map<String, Object>> diffList) throws Exception{
+//		logger.info("===========================================WsCardCheckTriger.saveToDb start========================================");
+//		String payChannelNoStr = "consume".equals(tradeType) ? consumePayChannelNo : rechargePayChannelNo;
+//		String payInterfaceNo = "consume".equals(tradeType) ? consumePayInterfaceNo : rechargePayInterfaceNo;
+//		String tradeTypeConstant = "consume".equals(tradeType) ?  tradeType_consume.toString() : tradeType_recharge.toString();
+//	
+//		SessionContext ctx = null;
+//		
+//		try{
+//			ctx = EntityManagerUtil.currentContext();
+//			Session session = ctx.getHibernateSession();
+//			Transaction trans = session.getTransaction();
+//			Boolean isActive = !trans.isActive();
+//			
+//			try{
+//				if(isActive){
+//					trans.begin();
+//				}
+//				
+//				//数据库交易记录剩余
+//				for(Map<String, Object> tradeLogMap:tradeLogList){
+//					logger.info("--------------数据库交易记录剩余写入数据库----------------");
+//					Map<String, String> tradeLogMapDb = new HashMap<String, String>();
+//					tradeLogMapDb.put("bizid", 				tradeLogMap.get("command_no") == null ? null : tradeLogMap.get("command_no").toString());
+//					tradeLogMapDb.put("e_trade_money", 		tradeLogMap.get("trade_money") == null ? null : tradeLogMap.get("trade_money").toString());
+//					tradeLogMapDb.put("pay_interfaceNo", 	tradeLogMap.get("pay_interfaceNo") == null ? null : tradeLogMap.get("pay_interfaceNo").toString());
+//					tradeLogMapDb.put("pay_channelNo", 		tradeLogMap.get("pay_channelNo") == null ? null : tradeLogMap.get("pay_channelNo").toString());
+//					tradeLogMapDb.put("trade_type", 		tradeLogMap.get("trade_type") == null ? null: tradeLogMap.get("trade_type").toString());
+//					Long trade_time = ((Date)tradeLogMap.get("trade_time")).getTime();
+//					tradeLogMapDb.put("trade_time", 			trade_time == null ? null : trade_time.toString());
+//					tradeLogMapDb.put("error_type", 			"1");
+//					tradeLogMapDb.put("pay_interface_name", 	"通联卡");
+//					DynamicEntityService.createEntity("AMS_ErrorTradeLog", tradeLogMapDb, null);
+//				}
+//				
+//				//对账文件交易记录剩余
+//				for(Map<String, Object> fileMap:fileList){
+//					logger.info("--------------对账文件剩余写入数据库----------------");
+//					Map<String, String> fileMapDb = new HashMap<String, String>();
+//					fileMapDb.put("bizid", 				fileMap.get("yztFlowNo") == null ? null : fileMap.get("yztFlowNo").toString());
+//					fileMapDb.put("out_trade_id", 		fileMap.get("wsCardFlowNo") == null ? null : fileMap.get("wsCardFlowNo").toString());
+//					Double money = Double.valueOf(fileMap.get("tradeMoney").toString()) * 100;
+//					Long money_l = money.longValue();
+//					fileMapDb.put("out_trade_money", 	money_l.toString());
+//					fileMapDb.put("pay_channelNo", 		payChannelNoStr);
+//					fileMapDb.put("trade_type", 			tradeTypeConstant);
+//					fileMapDb.put("trade_time", 			fileMap.get("trade_time") == null ? null : fileMap.get("trade_time").toString());
+//					fileMapDb.put("error_type", 			"2");
+//					fileMapDb.put("out_trade_type", 		tradeTypeConstant);
+//					fileMapDb.put("pay_interfaceNo", 	payInterfaceNo);
+//					fileMapDb.put("pay_interface_name", 	"通联卡");
+//					DynamicEntityService.createEntity("AMS_ErrorTradeLog", fileMapDb, null);
+//				}
+//				
+//				//对账不同的内容
+//				for(Map<String, Object> diffMap:diffList){
+//					logger.info("--------------对账不同的内容写入数据库----------------");
+//					Map<String, String> diffMapDb = new HashMap<String, String>();
+//					diffMapDb.put("bizid", 				diffMap.get("command_no") == null ? null : diffMap.get("command_no").toString());
+//					diffMapDb.put("e_trade_money", 		diffMap.get("trade_money") == null ? null : diffMap.get("trade_money").toString());
+//					diffMapDb.put("pay_interfaceNo", 	diffMap.get("pay_interfaceNo") == null ? null : diffMap.get("pay_interfaceNo").toString());
+//					diffMapDb.put("pay_channelNo", 		payChannelNoStr);
+//					diffMapDb.put("trade_type", 		tradeTypeConstant);
+//					Long trade_time = ((Date)diffMap.get("trade_time")).getTime();
+//					diffMapDb.put("trade_time", 			trade_time == null ? null : trade_time.toString());
+//					diffMapDb.put("out_trade_id", 		diffMap.get("out_trade_id") == null ? null : diffMap.get("out_trade_id").toString());
+//					Double money = Double.valueOf(diffMap.get("out_trade_money").toString()) * 100;
+//					Long money_l = money.longValue();
+//					diffMapDb.put("out_trade_money", 	money_l.toString());
+//					diffMapDb.put("error_type", 			"3");
+//					diffMapDb.put("out_trade_type", 		tradeTypeConstant);
+//					diffMapDb.put("pay_interface_name", 	"通联卡");
+//					DynamicEntityService.createEntity("AMS_ErrorTradeLog", diffMapDb, null);
+//				}
+//				
+//				if(isActive){
+//					trans.commit();
+//				}
+//			}
+//			catch(Exception ex){
+//				if(isActive){
+//					trans.rollback();
+//				}
+//				
+//				throw ex;
+//			}
+//		}
+//		catch(Exception ex){
+//			throw ex;
+//		}
+//		finally{
+//			if(ctx != null){
+//				EntityManagerUtil.closeSession(ctx);
+//			}
+//			
+//			logger.info("===========================================WsCardCheckTriger.saveToDb end========================================");
+//		}
+//	}
+}

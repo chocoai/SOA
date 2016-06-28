@@ -1,0 +1,10 @@
+qsimage /*
+	
+	themes/default/css/ ueditor.css | ueditor.min.css
+	.edui-for-qsimage .edui-icon {
+	    background-position: -380px 0;
+	}
+	ueditor.all.js | ueditor.all.min.js  找到btnCmds数组，添加一个 'qsimage'
+	
+	ueditor.config.js 中找到 labelMap属性 设置一下labelMap:{qsimage:"图片"}
+*/

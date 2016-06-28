@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityQuery name="订单明细查询" label="订单明细查询" note="" share="false" multiselect="false" editable="false" autopaging="false" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.9742FF33890D" nodeID="396"> 
+              <queryEntities> 
+                <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.BB2866424A8C" name="AMS_OrderDetail" label="订单明细" alias="a0" selectAll="true" isBranch="true" master="true"/> 
+              </queryEntities>  
+              <DataGrid> 
+                <color/>  
+                <column name="recharge_number" label="充值号码" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.BB2866424A8C.id_24" width="136" isBranch="false"/>  
+                <column name="recharge_type" label="充值状态" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.BB2866424A8C.id_25" width="100" isBranch="false"/>  
+                <column name="remarks" label="备注" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.BB2866424A8C.id_26" width="100" isBranch="false"/> 
+              </DataGrid>  
+              <editState/>  
+              <toolbar/>  
+              <xmlQuery version="2.0" name="" label=""> 
+                <select domainScope="false"> 
+                  <other label="其他" uid="other" name="other"/>  
+                  <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.BB2866424A8C" name="AMS_OrderDetail" label="订单明细" alias="a0" selectAll="true" isBranch="true"> 
+                    <field uid="sys_0" name="id" label="编号" type="long"/>  
+                    <field uid="sys_1" name="domainId" label="域ID" type="long"/>  
+                    <field uid="id_1" name="owner_order" label="所属订单" type="relation"/>  
+                    <field uid="id_3" name="goods_count" label="数量" type="long"/>  
+                    <field uid="id_4" name="unit_price" label="单价" type="long"/>  
+                    <field uid="id_5" name="total_price" label="总价" type="long"/>  
+                    <field uid="id_7" name="spec" label="规格" type="string"/>  
+                    <field uid="id_8" name="art_no" label="货号" type="string"/>  
+                    <field uid="id_9" name="goods_name" label="商品名称" type="string"/>  
+                    <field uid="id_10" name="goods_uuid" label="UUID" type="string"/>  
+                    <field uid="id_11" name="goods_image" label="商品图片" type="string"/>  
+                    <field uid="id_13" name="begin_time" label="活动开始时间" type="timestamp"/>  
+                    <field uid="id_14" name="end_time" label="活动结束时间" type="timestamp"/>  
+                    <field uid="id_15" name="activity_id" label="活动编号" type="long"/>  
+                    <field uid="id_18" name="out_system" label="外部系统" type="string"/>  
+                    <field uid="id_19" name="return_goods" label="退货" type="relation"/>  
+                    <field uid="id_20" name="edit_unit_price" label="修改后单价" type="long"/>  
+                    <field uid="id_21" name="edit_total_price" label="修改后总价" type="long"/>  
+                    <field uid="id_22" name="is_return_delivery_price" label="是否已退运费" type="boolean"/>  
+                    <field uid="id_24" name="recharge_number" label="充值号码" type="string"/>  
+                    <field uid="id_25" name="recharge_type" label="充值状态" type="long"/>  
+                    <field uid="id_26" name="remarks" label="备注" type="string"/> 
+                  </Entity> 
+                </select>  
+                <where> 
+                  <exp type="2"> 
+                    <exp type="5" valueType="3" option="false" leftEntity="AMS_OrderDetail" leftField="owner_order_id" uid="exp0" rightType="val" right="$page.master.selectedEntity.id"/> 
+                  </exp> 
+                </where>  
+                <other> 
+                  <groupBy label="Group By"/>  
+                  <orderBy label="Order By"/> 
+                </other> 
+              </xmlQuery>  
+              <conditionForm> 
+                <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2"> 
+                  <TabNavigator> 
+                    <tab label="default"/> 
+                  </TabNavigator> 
+                </Window> 
+              </conditionForm>  
+              <StatSetting/>  
+              <queryEvent/> 
+            </EntityQuery>

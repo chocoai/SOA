@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityQuery name="验证码查询" label="验证码查询" note="" share="false" multiselect="false" editable="false" autopaging="true" pagingMode="NormalPaging" virtualizingPagingEnabled="false" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.754B06107DE2" nodeID="814">
+  <queryEntities>
+    <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.863D230C2B08" name="AMS_VerificationCode" label="验证码" alias="a0" selectAll="true" isBranch="true" master="true" />
+  </queryEntities>
+  <DataGrid>
+    <color />
+    <column name="verification_code" label="验证码" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.863D230C2B08.id_1" width="100" isBranch="false" dataField="AMS_VerificationCode$verification_code" />
+    <column name="verification_code_type" label="验证码类型" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.863D230C2B08.id_2" width="79" isBranch="false" editable="" sortable="" textAlign="" dataField="AMS_VerificationCode$verification_code_type" />
+    <column name="create_time" label="创建时间" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.863D230C2B08.id_3" width="100" isBranch="false" dataField="AMS_VerificationCode$create_time" />
+    <column name="invalid_time" label="失效时间" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.863D230C2B08.id_4" width="100" isBranch="false" dataField="AMS_VerificationCode$invalid_time" />
+    <column name="member" label="会员" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.863D230C2B08.id_5" width="100" isBranch="false" dataField="AMS_VerificationCode$member_label" />
+    <column name="phone" label="手机号码" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.863D230C2B08.id_6" width="100" isBranch="false" dataField="AMS_VerificationCode$phone" />
+    <column name="isChecked" label="是否验证" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.863D230C2B08.id_7" width="100" isBranch="false" dataField="AMS_VerificationCode$isChecked" />
+    <column name="check_time" label="验证时间" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.863D230C2B08.id_8" width="100" isBranch="false" dataField="AMS_VerificationCode$check_time" />
+    <column name="email" label="邮箱" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.863D230C2B08.id_9" width="100" isBranch="false" dataField="AMS_VerificationCode$email" />
+  </DataGrid>
+  <editState />
+  <toolbar />
+  <xmlQuery version="2.0" name="" label="">
+    <select domainScope="true">
+      <other label="其他" uid="other" name="other" />
+      <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.863D230C2B08" name="AMS_VerificationCode" label="验证码" alias="a0" selectAll="true" isBranch="true">
+        <field uid="sys_0" name="id" label="编号" type="long" />
+        <field uid="sys_1" name="domainId" label="域ID" type="long" />
+        <field uid="id_1" name="verification_code" label="验证码" type="string" />
+        <field uid="id_2" name="verification_code_type" label="验证码类型" type="long" />
+        <field uid="id_3" name="create_time" label="创建时间" type="timestamp" />
+        <field uid="id_4" name="invalid_time" label="失效时间" type="timestamp" />
+        <field uid="id_5" name="member" label="会员" type="relation" />
+        <field uid="id_6" name="phone" label="手机号码" type="string" />
+        <field uid="id_7" name="isChecked" label="是否验证" type="boolean" />
+        <field uid="id_8" name="check_time" label="验证时间" type="timestamp" />
+        <field uid="id_9" name="email" label="邮箱" type="string" />
+        <field uid="id_10" name="member_type" label="会员类型" type="long" />
+        <field uid="id_11" name="country" label="国家" type="string" />
+        <field name="application" label="应用" type="relation" uid="id_13" />
+      </Entity>
+    </select>
+    <where>
+      <exp type="2">
+        <exp type="19" valueType="1" option="true" rightType="param" right="email" leftEntity="AMS_VerificationCode" leftField="email" uid="exp0" />
+        <exp type="19" valueType="1" option="true" rightType="param" right="phone" leftEntity="AMS_VerificationCode" leftField="phone" uid="exp1" />
+      </exp>
+    </where>
+    <other>
+      <groupBy label="Group By" />
+      <orderBy label="Order By">
+        <field uid="sys_0" name="id" label="编号" type="long" entity="AMS_VerificationCode" order="desc" />
+      </orderBy>
+    </other>
+  </xmlQuery>
+  <conditionForm>
+    <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2">
+      <TabNavigator>
+        <tab label="default">
+          <Label width="82" height="25" text="手机号码:" propertyUID="id_6" x="3" y="3" style="" />
+          <TextInput name="phone" width="139" height="25" x="63" y="3" />
+          <Label width="82" height="25" text="邮箱:" propertyUID="id_9" x="203" y="3" style="" />
+          <TextInput name="email" width="119" height="25" x="263" y="2" />
+        </tab>
+      </TabNavigator>
+    </Window>
+  </conditionForm>
+  <StatSetting />
+  <queryEvent />
+</EntityQuery>

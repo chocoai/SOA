@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>通联云账户-企业服务平台</title>
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/typography.css">
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="js/tab.js"></script>
+<script type="text/javascript" src="js/Control.js"></script>
+<script type="text/javascript" src="js/Util.js"></script>
+<script type="text/javascript" src="js/Constant.js"></script>
+<script>
+	$(document).ready(function(){
+		// $('.btn_del').click(function(){
+		// 	$('#alert').fadeIn();
+		// })
+		$('.close').click(function(){
+			$('#alert').fadeOut();
+		})
+	})
+</script>
+</head>
+
+<div id="alert">
+	<div class="show"></div>
+	<div class="text_div">
+		<textarea id="createMember_extendParam_textarea">
+{
+
+
+
+
+
+
+
+
+}
+		</textarea>
+
+		<textarea id="sendVerificationCode_extendParam_textarea">
+{
+
+
+
+
+
+
+
+
+}
+
+		</textarea>
+
+		<textarea id="setCompanyInfo_companyBasicInfo_textarea">
+{
+	"businessLicense":"",
+	"organizationCode":"",
+	"legalName":"",
+	"legalIds":"",
+	"businessLicensePath":"",
+	"organizationCodePath":"",
+	"taxCertificatePath":"",
+	"bankSettlementPath":"",
+	"legalCertificatePath":""
+}
+
+		</textarea>
+
+		<textarea id="setCompanyInfo_companyExtendInfo_textarea">
+{
+
+
+
+
+
+
+
+
+}
+		</textarea>
+
+		<textarea id="setMemberInfo_userInfo_textarea">
+{
+	"name":"张三",
+	"country":"中国",
+	"province":"浙江省",
+	"area":"杭州市",
+	"address":"西湖"
+}
+		</textarea>
+
+		<textarea id="depositApply_payMethod_textarea">
+{
+	"QUICKPAY":    （QUICKPAY和GATEWAY不能同时出现）
+	{
+		"bankCardNo":"",
+		"amount":""
+	},
+	"GATEWAY":    （QUICKPAY和GATEWAY不能同时出现）
+	{
+		"bankCode":"",
+		"payType":"",
+		"amount":""
+	}
+}
+		</textarea>
+
+		<textarea id="consumeApply_splitRule_textarea">
+[
+	{
+		"bizUserId":"",
+		"amount":"",
+		"fee":"",
+		"splitRuleList":[]
+	}
+]
+		</textarea>
+
+		<textarea id="consumeApply_payMethod_textarea">
+{
+	"ACCOUNT":
+	[
+		{
+			"accountSetNo":"",
+			"amount":""
+		},
+		{
+			"accountSetNo":"",
+			"amount":""
+		}
+	],
+	"QUICKPAY":    （QUICKPAY和GATEWAY不能同时出现）
+	{
+		"bankCardNo":"",
+		"amount":""
+	},
+	"GATEWAY":    （QUICKPAY和GATEWAY不能同时出现）
+	{
+		"bankCode":"",
+		"payType":"",
+		"amount":""
+	}
+}
+		</textarea>
+
+		<textarea id="agentCollectApply_recieverList_textarea">
+[
+	{	
+		"bizUserId":"",
+		"amount":""
+	}
+]	
+		</textarea>
+
+		<textarea id="agentCollectApply_payMethod_textarea">
+{
+	"ACCOUNT":
+	[
+		{
+			"accountSetNo":"",
+			"amount":""
+		},
+		{
+			"accountSetNo":"",
+			"amount":""
+		}
+	],
+	"QUICKPAY":    （QUICKPAY和GATEWAY不能同时出现）
+	{
+		"bankCardNo":"",
+		"amount":""
+	},
+	"GATEWAY":    （QUICKPAY和GATEWAY不能同时出现）
+	{
+		"bankCode":"",
+		"payType":"",
+		"amount":""
+	}
+}
+		</textarea>
+
+		<textarea id="signalAgentPay_collectPayList_textarea">
+[
+	{
+		"bizOrderNo":"",
+		"amount":""
+	}
+]
+		</textarea>
+
+		<textarea id="signalAgentPay_splitRuleList_textarea">
+[
+	{
+		"bizUserId":"",
+		"amount":"",
+		"fee":"",
+		"splitRuleList":[]
+	}
+]
+		</textarea>
+
+		<textarea id="batchAgentPay_batchPayList_textarea">
+[
+	{
+		"bizOrderNo":"",
+		"bizUserId":"",
+		"collectPayList":
+		[
+			{
+				"bizOrderNo":"",
+				"amount":""	
+			}
+		],
+		"accountSetNo":"",
+		"amount":"",
+		"fee":"",
+		"splitRuleList":[],
+		"summary":"",
+		"extendInfo":""
+	}
+]
+		</textarea>
+
+		<textarea id="refund_refundList_textarea">
+[
+	{
+		"bizUserId":"",
+		"amount":""
+	}
+]
+		</textarea>
+
+
+		<div class="btndiv">
+			<a href="javascript:jsonObjSure();" class="ok-btn" >确 定</a>
+			<!-- <a href="javascript:jsonObjCancel();" class="cancal-btn">取 消</a> -->
+		</div>
+<!-- 		<span class="close"><img src="images/close.png"/></span> -->
+	</div>
+
+</div>
+
+
+
+
+<body onload="initPage();">
+	<div id="test"></div>
+
+	<div class="container">
+		<!-- head -->
+		<div class="head clearfix">
+			<div class="logo fl"><a href="#"><img src="images/yun_logo.png" height="60"></a> <span>企业服务平台</span></div>
+			<!--<div class="nav fl">
+				<ul>
+					<li><a href="">首页</a></li>
+					<li><a href="">价格</a></li>
+					<li><a href="">文档</a></li>
+					<li><a href="">社区</a></li>
+				</ul>
+			</div>
+			<div class="subnav fr">
+				<ul>
+					<li class="username">你好，missmay</li>
+					<li><a href="">消息</a></li>
+					<li><a href="">控制台</a></li>
+					<li><a href="">我的账户</a></li>
+					<li><a href="">设置</a></li>
+					<li><a href="">退出</a></li>
+				</ul>
+			</div>-->
+		</div>
+		
+		<!-- content -->
+		<div class="content">
+			<h1 class="title">API在线测试</h1>
+			<div class="content-box clearfix">
+				<div class="fl conleft">
+					<table border="1" bordercolor="#cccccc" cellpadding="0" cellspacing="0" >
+						<tr>
+							<td width="50%">参数名称</td>
+							<td>参数值</td>
+						</tr>
+						<tr>
+							<td colspan="2"><b>基本参数</b></td>							
+						</tr>
+						<tr>
+							<td>sysid</td>
+							<td><input type="text"  id="sysidText"/></td>
+						</tr>
+						<tr>
+							<td>sign</td>
+							<td><input type="text"  id="signText" /></td>
+						</tr>
+						<tr>
+							<td>timestamp</td>
+							<td><input type="text" id="timestampText" value="" /></td>
+						</tr>
+						<tr>
+							<td>v</td>
+							<td><input type="text" id="vText" /></td>
+						</tr>
+						<tr>
+							<td colspan="2"><b>业务参数</b></td>							
+						</tr>
+					</table>
+					<table border="1" bordercolor="#cccccc" cellpadding="0" cellspacing="0" style=" margin-top: -1px;">
+					  <tr>
+					    <td width="95" rowspan="3">req</td>
+					    <td width="100">service</td>
+					    <td colspan="2"><select id="serviceSelect" onchange="serviceChange();"></select></td>
+					  </tr>
+					  <tr>
+					    <td>method</td>
+					    <td colspan="2"><select id="methodSelect" onchange="methodChange();"></select></td>
+					  </tr>					  
+					  <tr>
+					    <td>param</td>					    
+						<td colspan="2" style=" vertical-align: top;">
+							<!--创建会员-->
+							<div id="createMember" class="param-td">
+								<div class="param">
+									<span>bizUserId</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span>memberType</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span>source</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span>extendParam</span>
+									<span><a href="javascript:jsonObjClick('createMember_extendParam_textarea');" class="btn_del" textareaId="createMember_extendParam_textarea">查看详细</a>
+								</span>
+								</div>
+							</div>
+							<!--发送短信验证码-->
+							<div id="sendVerificationCode" class="param-td">
+								<div class="param">
+									<span>bizUserId</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span>phone</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span><em>verificationCodeType</em></span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span>extendParam</span>
+									<span><a href="javascript:jsonObjClick('sendVerificationCode_extendParam_textarea');" textareaId="sendVerificationCode_extendParam_textarea" class="btn_del">查看详细</a>
+									</span>
+								</div>
+							</div>
+							<!--验证短信验证码-->
+							<div id="checkVerificationCode" class="param-td">
+								<div class="param">
+									<span>bizUserId</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span>phone</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span><em>verificationCodeType</em></span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span>verificationCode</span>
+									<span><input type="text" /></span>
+								</div>
+							</div>
+							<!--个人实名验证-->
+							<div id="setRealName" class="param-td">
+								<div class="param">
+									<span>bizUserId</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span>isAuth</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span>name</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span>identityType</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span>identityNo</span>
+									<span><input type="text" /></span>
+								</div>
+							</div>
+							<!--绑定手机-->
+							<div id="bindPhone" class="param-td">
+								<div class="param">
+									<span>bizUserId</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span>phone</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span>verificationCode</span>
+									<span><input type="text" /></span>
+								</div>								
+							</div>
+							<!--企业会员信息-->
+							<div id="setCompanyInfo" class="param-td">
+								<div class="param">
+									<span>bizUserId</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param clearfix">
+									<span>companyBasicInfo</span>
+									<span><a href="javascript:jsonObjClick('setCompanyInfo_companyBasicInfo_textarea');" textareaId="setCompanyInfo_companyBasicInfo_textarea" class="btn_del">查看详细</a>
+
+									</span>
+								</div>
+								<div class="param">
+									<span>companyExtendInfo</span>
+									<span><a href="javascript:jsonObjClick('setCompanyInfo_companyExtendInfo_textarea');" textareaId="setCompanyInfo_companyExtendInfo_textarea" class="btn_del">查看详细</a>
+
+									</span>
+								</div>								
+							</div>
+							<!--设置个人信息-->
+							<div id="setMemberInfo" class="param-td">
+								<div class="param">
+									<span>bizUserId</span>
+									<span><input type="text" /></span>
+								</div>								
+								<div class="param clearfix">
+									<span>userInfo</span>
+									<span><a href="javascript:jsonObjClick('setMemberInfo_userInfo_textarea');" textareaId="setMemberInfo_userInfo_textarea" class="btn_del">查看详细</a>
+
+									</span>
+								</div>							
+							</div>
+							<!--获取会员信息-->
+							<div id="getMemberInfo" class="param-td">
+								<div class="param">
+									<span>bizUserId</span>
+									<span><input type="text" /></span>
+								</div>														
+							</div>
+							<!--查询卡bin-->
+							<div id="getBankCardBin" class="param-td">
+								<div class="param">
+									<span>cardNo</span>
+									<span><input type="text" /></span>
+								</div>								
+														
+							</div>
+							<!--请求绑定银行卡-->
+							<div id="applyBindBankCard" class="param-td">
+								<div class="param">
+									<span>bizUserId</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span>cardNo</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span>phone</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span>name</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span>cardType</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span>bankCode</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span>identityType</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span>identityNo</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span>validate</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span>cvv2</span>
+									<span><input type="text" /></span>
+								</div>
+							</div>
+							<!--确认银行卡绑定-->
+							<div id="bindBankCard" class="param-td">
+								<div class="param">
+									<span>bizUserId</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span>tranceNum</span>
+									<span><input type="text" /></span>
+								</div>								
+								<div class="param">
+									<span>transDate</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span>phone</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span>verificationCode</span>
+									<span><input type="text" /></span>
+								</div>								
+							</div>
+							<!--查询绑定银行卡-->
+							<div id="queryBankCard" class="param-td">
+								<div class="param">
+									<span>bizUserId</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span>cardNo</span>
+									<span><input type="text" /></span>
+								</div>																				
+							</div>
+							<!--解绑绑定银行卡-->
+							<div id="unbindBankCard" class="param-td">
+								<div class="param">
+									<span>bizUserId</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span>cardNo</span>
+									<span><input type="text" /></span>
+								</div>																				
+							</div>
+							
+							<!--更改绑定手机-->
+							<div id="changeBindPhone" class="param-td">
+								<div class="param">
+									<span>bizUserId</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span>oldPhone</span>
+									<span><input type="text" /></span>
+								</div>								
+								<div class="param">
+									<span>oldVerificationCode</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span>newPhone</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span>newVerificationCode</span>
+									<span><input type="text" /></span>
+								</div>								
+							</div>
+							<!--锁定用户-->
+							<div id="lockMember" class="param-td">
+								<div class="param">
+									<span>bizUserId</span>
+									<span><input type="text" /></span>
+								</div>																										
+							</div>
+							<!--解锁用户-->
+							<div id="unlockMember" class="param-td">
+								<div class="param">
+									<span>bizUserId</span>
+									<span><input type="text" /></span>
+								</div>																										
+							</div>
+							
+							
+							
+							
+							
+							<!--	订单接口	-->
+							
+							
+							<!--充值申请-->
+							<div id="depositApply" class="param-td">
+								<div class="param">
+									<span>bizOrderNo</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span>bizUserId</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span>accountSetNo</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span>amount</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span>fee</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span>frontUrl</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span>backUrl</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span><em>ordErexpireDatetime</em></span>
+									<span><input type="text" /></span>
+								</div>								
+								<div class="param clearfix">
+									<span>payMethod</span>
+									<span><a href="javascript:jsonObjClick('depositApply_payMethod_textarea');" textareaId="depositApply_payMethod_textarea" class="btn_del">查看详细</a>
+
+									</span>
+								</div>								
+								<div class="param">
+									<span>industryCode</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span>industryName</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span>source</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span>summary</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span>extendInfo</span>
+									<span><input type="text" /></span>
+								</div>
+							</div>
+							
+							<!--提现申请-->
+							<div id="withdrawApply" class="param-td">
+								<div class="param">
+									<span>bizOrderNo</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span>bizUserId</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span>accountSetNo</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span>amount</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span>fee</span>
+									<span><input type="text" /></span>
+								</div>								
+								<div class="param">
+									<span>backUrl</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span><em>ordErexpireDatetime</em></span>
+									<span><input type="text" /></span>
+								</div>																	
+								<div class="param">
+									<span>bankCardNo</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span>industryCode</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span>industryName</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span>source</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span>summary</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span>extendInfo</span>
+									<span><input type="text" /></span>
+								</div>
+							</div>
+							
+							<!--消费申请-->
+							<div id="consumeApply" class="param-td">
+								<div class="param">
+									<span>payerId</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span>recieverId</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span>bizOrderNo</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span>amount</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span>fee</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param clearfix">
+									<span>splitRule</span>
+									<span><a href="javascript:jsonObjClick('consumeApply_splitRule_textarea');" textareaId="consumeApply_splitRule_textarea" class="btn_del">查看详细</a>
+
+									</span>
+								</div>
+								<div class="param">
+									<span>frontUrl</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span>backUrl</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span>showUrl</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span><em>ordErexpireDatetime</em></span>
+									<span><input type="text" /></span>
+								</div>		
+								<div class="param clearfix">
+									<span>payMethod</span>
+									<span><a href="javascript:jsonObjClick('consumeApply_payMethod_textarea');" textareaId="consumeApply_payMethod_textarea" class="btn_del">查看详细</a>
+
+									</span>
+								</div>
+								<div class="param">
+									<span>goodsName</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span>goodsDesc</span>
+									<span><input type="text" /></span>
+								</div>							
+								<div class="param">
+									<span>industryCode</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span>industryName</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span>source</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span>summary</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span>extendInfo</span>
+									<span><input type="text" /></span>
+								</div>
+							</div>
+							
+							<!--代收申请-->
+							<div id="agentCollectApply" class="param-td">
+								<div class="param">
+									<span>bizOrderNo</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span>payerId</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param clearfix">
+									<span>recieverList</span>
+									<span><a href="javascript:jsonObjClick('agentCollectApply_recieverList_textarea');" textareaId="agentCollectApply_recieverList_textarea" class="btn_del">查看详细</a>
+			
+									</span>
+								</div>
+								<div class="param">
+									<span>goodsType</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span>goodsNo</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span>tradeCode</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span>amount</span>
+									<span><input type="text" /></span>
+								</div>								
+								<div class="param">
+									<span>frontUrl</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span>backUrl</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span>showUrl</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span><em>ordErexpireDatetime</em></span>
+									<span><input type="text" /></span>
+								</div>		
+								<div class="param clearfix">
+									<span>payMethod</span>
+									<span><a href="javascript:jsonObjClick('agentCollectApply_payMethod_textarea');" textareaId="agentCollectApply_payMethod_textarea" class="btn_del">查看详细</a>
+
+									</span>
+								</div>
+								<div class="param">
+									<span>goodsName</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span>goodsDesc</span>
+									<span><input type="text" /></span>
+								</div>							
+								<div class="param">
+									<span>industryCode</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span>industryName</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span>source</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span>summary</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span>extendInfo</span>
+									<span><input type="text" /></span>
+								</div>
+							</div>
+							<!--单笔代付-->
+							<div id="signalAgentPay" class="param-td">
+								<div class="param">
+									<span>bizOrderNo</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span>bizUserId</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param clearfix">
+									<span>collectPayList</span>
+									<span><a href="javascript:jsonObjClick('signalAgentPay_collectPayList_textarea');" textareaId="signalAgentPay_collectPayList_textarea" class="btn_del">查看详细</a>
+
+									</span>
+								</div>
+								<div class="param">
+									<span>accountSetNo</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span>amount</span>
+									<span><input type="text" /></span>
+								</div>								
+								<div class="param">
+									<span>fee</span>
+									<span><input type="text" /></span>
+								</div>								
+								<div class="param clearfix">
+									<span>splitRuleList</span>
+									<span><a href="javascript:jsonObjClick('signalAgentPay_splitRuleList_textarea');" textareaId="signalAgentPay_splitRuleList_textarea" class="btn_del">查看详细</a>
+
+									</span>
+								</div>
+								<div class="param">
+									<span>goodsType</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span>goodsNo</span>
+									<span><input type="text" /></span>
+								</div>		
+								
+								<div class="param">
+									<span>tradeCode</span>
+									<span><input type="text" /></span>
+								</div>								
+								<div class="param">
+									<span>summary</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span>extendInfo</span>
+									<span><input type="text" /></span>
+								</div>
+							</div>
+							<!--批量代付-->
+							<div id="batchAgentPay" class="param-td">
+								<div class="param">
+									<span>bizBatchNo</span>
+									<span><input type="text" /></span>
+								</div>								
+								<div class="param clearfix">
+									<span>batchPayList</span>
+									<span><a href="javascript:jsonObjClick('batchAgentPay_batchPayList_textarea');" textareaId="batchAgentPay_batchPayList_textarea" class="btn_del">查看详细</a>
+
+									</span>
+								</div>								
+								<div class="param">
+									<span>goodsType</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span>goodsNo</span>
+									<span><input type="text" /></span>
+								</div>		
+								
+								<div class="param">
+									<span>tradeCode</span>
+									<span><input type="text" /></span>
+								</div>																
+							</div>
+							<!--支付确认（后台支付）-->
+							<div id="pay" class="param-td">
+								<div class="param">
+									<span>bizUserId</span>
+									<span><input type="text" /></span>
+								</div>								
+								<div class="param">
+									<span>bizOrderNo</span>
+									<span><input type="text" /></span>
+								</div>						
+								<div class="param">
+									<span>tradeNo</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span>verificationCode</span>
+									<span><input type="text" /></span>
+								</div>		
+								
+								<div class="param">
+									<span>consumerIp</span>
+									<span><input type="text" /></span>
+								</div>																
+							</div>
+							<!--查询订单状态-->
+							<div id="getOrderDetail" class="param-td">
+								<div class="param">
+									<span>bizUserId</span>
+									<span><input type="text" /></span>
+								</div>								
+								<div class="param">
+									<span>bizOrderNo</span>
+									<span><input type="text" /></span>
+								</div>																																	
+							</div>
+							<!--查询余额-->
+							<div id="queryBalance" class="param-td">
+								<div class="param">
+									<span>bizUserId</span>
+									<span><input type="text" /></span>
+								</div>								
+								<div class="param">
+									<span>accountSetNo</span>
+									<span><input type="text" /></span>
+								</div>																																	
+							</div>
+							<!--冻结金额-->
+							<div id="freezeMoney" class="param-td">
+								<div class="param">
+									<span>bizUserId</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span>bizFreezenNo</span>
+									<span><input type="text" /></span>
+								</div>									
+								<div class="param">
+									<span>accountSetNo</span>
+									<span><input type="text" /></span>
+								</div>	
+								<div class="param">
+									<span>amount</span>
+									<span><input type="text" /></span>
+								</div>	
+							</div>
+							<!--解冻金额-->
+							<div id="unfreezeMoney" class="param-td">
+								<div class="param">
+									<span>bizUserId</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span>bizFreezenNo</span>
+									<span><input type="text" /></span>
+								</div>									
+								<div class="param">
+									<span>accountSetNo</span>
+									<span><input type="text" /></span>
+								</div>	
+								<div class="param">
+									<span>amount</span>
+									<span><input type="text" /></span>
+								</div>	
+							</div>
+							
+							<!--退款-->
+							<div id="refund" class="param-td">
+								<div class="param">
+									<span>bizOrderNo</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span>oriBizOrderNo</span>
+									<span><input type="text" /></span>
+								</div>
+								<div class="param">
+									<span>bizUserId</span>
+									<span><input type="text" /></span>
+								</div>									
+								<div class="param clearfix">
+									<span>refundList</span>
+									<span><a href="javascript:jsonObjClick('refund_refundList_textarea');" textareaId="refund_refundList_textarea" class="btn_del">查看详细</a>
+
+									</span>
+								</div>
+								<div class="param">
+									<span>amount</span>
+									<span><input type="text" /></span>
+								</div>	
+							</div>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+						</td>
+					  </tr>
+				    </table>
+					<br /><br /><br />
+					<div class="urladd">
+						<p>请求地址</p>
+						<select id="serviceUrlSelect"></select>
+						<a href="javascript:getSignOnClick();" class="send">自动签名</a>
+						<a href="javascript:requestOnClick();" class="send" id="SOARequest">发 送</a>
+					</div>
+					
+					<div class="security">
+						<p>加密 & 解密</p>
+						<p><textarea class="security-txt" id="beforeText"></textarea></p>
+						<p>
+							<select class="psd_select" id="encryptionDecryptionSelect"><option value="1">加密</option><option value="2">解密</option></select>
+							<a href="javascript:encryptionDecryption();" class="security-on">查询</a>
+						</p>
+						<p><textarea class="security-txt" id="afterText"></textarea></p>
+					</div>
+					
+					<div class="test_introduction">
+						<span>测试说明</span>
+						<p>1、页面中出现的请求参数包括必填参数和可选参数；</p>
+						<p>2、自动签名采用真实算法（SHA1WithRSA），待签名内容为sysid + req + timestamp；</p>
+						<p>3、本页面仅在测试环境使用。</p>
+					</div><br /><br /><br /><br /><br />
+					
+					<br /><br /><br /><br /><br />
+						
+					
+				</div>
+				
+				<div class="fr conright">
+					
+					<div class="url">
+						<p>URL地址参数</p>
+						<textarea id="requestUrlText"></textarea>
+					</div>
+					
+					<div class="tab">
+						<ul id="tab-result">
+				        	<li class="current">返回结果</li>				        	
+				         	<li class="normal">接口示例</li>
+				        </ul>
+						<div class="cwarp" id="cwarp">           
+        					<div style="display: block;">
+        						<div class="res_tit">
+        							<h1>Response Header</h1>
+        							<div class="res_con" id="headerDiv">
+        							
+        							</div>
+        						</div>
+        						
+        						<div class="res_tit">
+        							<h1>Response Body</h1>
+        							<div class="res_con res_con2 url" >
+        								<textarea id="bodyTestarea" style="width:95%;height:660px; border: none; color: #999999; line-height:24px; font-family: 'microsoft yahei';">
+
+        								</textarea>
+        							</div>
+        						</div>
+        					</div>
+        					
+        					<div style="display: none;">
+        						<div class="res_tit">        							
+        							<div class="res_con res_con3">
+       
+        							</div>
+        						</div>
+        					</div>
+        					
+        					</div>
+        					<script>switchTab("#tab-result","#cwarp","click","fadeIn","0");</script>
+        				</div>
+					</div>
+					
+					
+				</div>
+				
+			</div> 
+		</div>
+		
+	</div>
+	
+</body>
+</html>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityForm name="文本" label="文本" uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.ECFC54A3CE05" nodeID="175"> 
+              <formEntity uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.138EC7D71F33"/>  
+              <formState> 
+                <state label="基础" uid="state0" basedOn="null"> 
+                  <rule type="required" property="title" label="标题" rule="true"/>  
+                  <rule type="required" property="urlName" label="URL" rule="true"/>  
+                  <rule type="required" property="contents" label="文章内容" rule="true"/>  
+                  <rule type="required" property="note" label="描述" rule="true"/>  
+                  <rule type="required" property="orderNo" label="序号" rule="true"/>  
+                  <rule type="required" property="type" label="文章类别" rule="true"/>  
+                  <rule type="enabled" property="type" label="文章类别" rule="false"/>  
+                  <rule type="value" property="mediaType" label="媒体类型" rule="1"/> 
+                </state>  
+                <state label="新建新闻" uid="state1" basedOn="state0"> 
+                  <rule type="value" property="type" label="文章类别" rule="1"/> 
+                </state>  
+                <state label="新建公告" uid="state2" basedOn="state0"> 
+                  <rule type="value" property="type" label="文章类别" rule="2"/> 
+                </state>  
+                <state label="编辑" uid="state3" basedOn="state0"/> 
+              </formState>  
+              <Window paddingLeft="0" paddingRight="0" paddingTop="0" paddingBottom="0"> 
+                <TabNavigator> 
+                  <tab label="default"> 
+                    <Label width="37" height="25" text="标题:" propertyUID="id_1" x="3" y="3"/>  
+                    <TextInput propertyUID="id_1" width="617" height="25" x="63" y="3"/>  
+                    <Label width="77" height="25" text="文章内容:" propertyUID="id_5" x="3" y="59"/>  
+                    <TextArea propertyUID="id_5" width="617" height="249" x="63" y="59" toolTip=""/>  
+                    <Label width="57" height="25" text="序号:" propertyUID="id_7" x="3" y="31"/>  
+                    <TextInput propertyUID="id_7" width="137" height="25" x="63" y="31"/>  
+                    <Label width="82" height="25" text="文章类别:" propertyUID="id_8" x="203" y="31"/>  
+                    <ComboBox propertyUID="id_8" width="137" height="25" x="263" y="31"/> 
+                  </tab> 
+                </TabNavigator> 
+              </Window>  
+              <formEvent/> 
+            </EntityForm>

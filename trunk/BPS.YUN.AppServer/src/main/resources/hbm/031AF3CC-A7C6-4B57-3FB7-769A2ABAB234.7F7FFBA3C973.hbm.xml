@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "PUBLIC" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class entity-name="Department" table="DYNA_Department">
+    <id name="id" type="long">
+      <generator class="sequence">
+        <param name="sequence">IDSEQ_Department</param>
+      </generator>
+    </id>
+    <property name="domainId" not-null="false" type="long" index="IDX_DOMAINID"/>
+    <property name="ml_parent" not-null="true" type="long"/>
+    <property name="ml_code_" not-null="true" type="long"/>
+    <property name="ml_level_" not-null="true" type="integer"/>
+    <property name="groupId" not-null="false" type="long"/>
+    <property name="roleId" not-null="false" type="long"/>
+    <property name="name" not-null="false" type="string" length="100"/>
+    <property name="note" not-null="false" type="string" length="500"/>
+  </class>
+</hibernate-mapping>

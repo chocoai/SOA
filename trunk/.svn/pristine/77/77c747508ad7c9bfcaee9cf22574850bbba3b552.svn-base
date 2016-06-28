@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE urlrewrite PUBLIC "-//tuckey.org//DTD UrlRewrite 2.6//EN"  
+"http://tuckey.org/res/dtds/urlrewrite2.6.dtd">  
+<urlrewrite>  
+    <rule>  
+		<from>^/service/gateway/frontTrans.do$</from>
+		<to>/gateway/payFront.jsp</to>
+	</rule>
+	
+	<rule>  
+		<from>^/service/gateway/certPay.do$</from>
+		<to>/callback/certPayBack.jsp</to>
+	</rule>
+</urlrewrite>

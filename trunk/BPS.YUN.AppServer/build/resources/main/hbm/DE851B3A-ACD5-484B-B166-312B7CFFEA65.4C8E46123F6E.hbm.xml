@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "PUBLIC" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class entity-name="AMS_CallDispatch" table="DYNA_AMS_CallDispatch">
+    <id name="id" type="long">
+      <generator class="sequence">
+        <param name="sequence">IDSEQ_AMS_CallDispatch</param>
+      </generator>
+    </id>
+    <property name="domainId" not-null="false" type="long" index="IDX_DOMAINID"/>
+    <property name="orgNo" not-null="false" type="string" length="100"/>
+    <property name="send_url" not-null="false" type="string" length="200"/>
+    <property name="send_param" not-null="false" type="string" length="1000"/>
+    <property name="create_time" not-null="false" type="timestamp" length="100"/>
+    <property name="send_next_time" not-null="false" type="timestamp" length="100"/>
+    <property name="send_state" not-null="false" type="long"/>
+    <property name="send_end_time" not-null="false" type="timestamp" length="100"/>
+    <property name="send_number" not-null="false" type="long"/>
+  </class>
+</hibernate-mapping>

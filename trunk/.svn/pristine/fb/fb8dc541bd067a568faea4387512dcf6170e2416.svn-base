@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<params version="3.0.0">
+	
+	<properties>
+		<property name="v39.appKey" value="CE5U7V9L" />
+		<property name="v39.secretKey" value="7232028f75177248bcb69bd209d21a2244" />
+		<property name="v39.version" value="1.3.0" />
+		<property name="v39.phone.url" value="http://v39.boredou.com/api/rechargeGateway.do" />
+	</properties>
+	
+	
+</params>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "PUBLIC" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class entity-name="AMS_MemberBank" table="DYNA_AMS_MemberBank">
+    <id name="id" type="long">
+      <generator class="native"/>
+    </id>
+    <property name="FM_CreatePrinId" not-null="false" type="long" index="IDX_CREATEPRINID"/>
+    <property name="FM_CreatePrinName" not-null="false" length="100" type="string"/>
+    <property name="FM_UpdatePrinId" not-null="false" type="long" index="IDX_UPDATEPRINID"/>
+    <property name="FM_UpdatePrinName" not-null="false" length="100" type="string"/>
+    <property name="FM_CreateTime" not-null="false" type="timestamp"/>
+    <property name="FM_UpdateTime" not-null="false" type="timestamp"/>
+    <property name="domainId" not-null="false" type="long" index="IDX_DOMAINID"/>
+    <property name="accountNo" not-null="false" type="string" length="100"/>
+    <property name="bank_code" not-null="false" type="string" length="100"/>
+    <property name="bank_name" not-null="false" type="string" length="100"/>
+    <property name="bind_time" not-null="false" type="timestamp" length="100"/>
+    <property name="unbind_time" not-null="false" type="timestamp" length="100"/>
+    <property name="member_id" not-null="false" type="long" index="member_idx"/>
+    <property name="member_label" not-null="false" type="string" length="200"/>
+    <property name="card_type" not-null="false" type="long"/>
+    <property name="identity_cardNo" not-null="false" type="string" length="100"/>
+    <property name="account_name" not-null="false" type="string" length="100"/>
+    <property name="account_type_id" not-null="false" type="long" index="account_type_idx"/>
+    <property name="account_type_label" not-null="false" type="string" length="200"/>
+    <property name="bind_state" not-null="false" type="long"/>
+    <property name="account_prop" not-null="false" type="long"/>
+    <property name="accountNo_encrypt" not-null="false" type="string" length="200"/>
+    <property name="acct_validdate" not-null="false" type="string" length="100"/>
+    <property name="cvv2" not-null="false" type="string" length="100"/>
+    <property name="phone" not-null="false" type="string" length="100"/>
+    <property name="contract_no" not-null="false" type="string" length="100"/>
+    <property name="business_card_type" not-null="false" type="long"/>
+  </class>
+</hibernate-mapping>

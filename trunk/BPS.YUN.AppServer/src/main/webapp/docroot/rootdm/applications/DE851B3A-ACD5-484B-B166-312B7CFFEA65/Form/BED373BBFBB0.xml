@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityForm name="SOA接口服务" label="SOA接口服务" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.BED373BBFBB0" nodeID="1107">
+  <formEntity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.AB447E617D1E" />
+  <formState>
+    <state label="基础" uid="state0" basedOn="null" />
+    <state label="新建" uid="state1" basedOn="state0">
+      <rule type="required" property="*" label="所有" rule="true" />
+    </state>
+    <state label="编辑" uid="state2" basedOn="state0" />
+  </formState>
+  <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2">
+    <TabNavigator>
+      <tab label="default">
+        <Label width="82" height="25" text="编号:" propertyUID="id_4" x="2" y="2" style="" />
+        <TextInput propertyUID="id_4" width="179" height="25" x="103" y="3" />
+        <Label width="82" height="25" text="接口中文名称:" propertyUID="id_1" x="2" y="31" style="" />
+        <TextInput propertyUID="id_1" width="179" height="25" x="103" y="31" />
+        <Label width="82" height="25" text="接口英文名称:" propertyUID="id_2" x="2" y="59" style="" />
+        <TextInput propertyUID="id_2" width="179" height="25" x="103" y="59" />
+        <Label width="82" height="25" text="接口版本号:" propertyUID="id_3" x="2" y="87" style="" />
+        <TextInput propertyUID="id_3" width="179" height="25" x="103" y="87" />
+      </tab>
+    </TabNavigator>
+  </Window>
+  <formEvent />
+</EntityForm>

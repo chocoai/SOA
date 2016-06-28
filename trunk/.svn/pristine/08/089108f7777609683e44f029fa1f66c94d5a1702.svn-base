@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityService>
+  <script label="保存之前" name="preUpdate" type="system" tooltip="实体对象保存之前调用的扩展服务" uid="ext0"><![CDATA[var entity/*:JSEntity*/ = event.getEntity();
+var isMaster = entity.get("isMaster");
+if(isMaster == true) {
+	var orgNo = entity.get("orgNo");
+	service.executeHQL("update AMS_AccountType set isMaster=false where orgNo='"+orgNo+"'");
+}]]></script>
+</EntityService>

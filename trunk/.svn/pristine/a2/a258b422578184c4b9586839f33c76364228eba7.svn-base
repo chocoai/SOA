@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityQuery uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.734079E9BC61" name="个人会员管理" label="个人会员管理" note="" share="false" multiselect="false" editable="false" autopaging="true" nodeID="824" pagingMode="NormalPaging" virtualizingPagingEnabled="false">
+  <queryEntities>
+    <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0" name="AMS_Member" label="会员" alias="a0" selectAll="true" isBranch="true" master="true" />
+  </queryEntities>
+  <DataGrid>
+    <color />
+    <column name="application" label="应用" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0.id_81" width="100" isBranch="false" dataField="AMS_Member$application_label" />
+    <column name="phone" label="手机号码" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0.id_4" width="100" isBranch="false" editable="" sortable="" textAlign="" dataField="AMS_Member$phone" />
+    <column name="name" label="名称(企业名称)" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0.id_1" width="90" isBranch="false" dataField="AMS_Member$name" />
+    <column name="identity_cardNo" label="身份证号码" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0.id_32" width="150" isBranch="false" dataField="AMS_Member$identity_cardNo" />
+    <column name="user_state" label="会员状态" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0.id_7" width="79" isBranch="false" editable="" sortable="" textAlign="" dataField="AMS_Member$user_state" />
+    <column name="register_time" label="注册时间" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0.id_40" width="122" isBranch="false" dataField="AMS_Member$register_time" editable="" sortable="" textAlign="" />
+    <column name="last_login_time" label="最近一次登录时间" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0.id_36" width="125" isBranch="false" editable="" sortable="" textAlign="" dataField="AMS_Member$last_login_time" />
+    <column name="last_login_fail_time" label="最后一次登录失败时间" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0.id_43" width="137" isBranch="false" editable="" sortable="" textAlign="" dataField="AMS_Member$last_login_fail_time" />
+    <column name="last_pay_fail_time" label="最后一次支付失败时间" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0.id_44" width="137" isBranch="false" editable="" sortable="" textAlign="" dataField="AMS_Member$last_pay_fail_time" />
+    <column name="memberNo" label="客户号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0.id_53" width="120" isBranch="false" dataField="AMS_Member$memberNo" />
+    <column name="real_name_time" label="实名时间" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0.id_69" width="100" isBranch="false" dataField="AMS_Member$real_name_time" />
+    <column name="register_ip" label="注册ip" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0.id_63" width="100" isBranch="false" dataField="AMS_Member$register_ip" />
+    <column name="userId" label="会员uuid" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0.id_24" width="120" isBranch="false" editable="" sortable="" textAlign="" dataField="AMS_Member$userId" />
+    <column name="is_higher_card" label="是否已强实名认证" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0.id_94" width="100" isBranch="false" />
+  </DataGrid>
+  <editState />
+  <toolbar>
+    <button label="编辑" action="alink" selection="single" permission="" permissionName="" visiable="true" alink="alink://ime.AppWindow/EntityForm?{action:&quot;edit&quot;,entityUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0&quot;,formUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.FC510773222D&quot;,formState:&quot;state2&quot;,title:&quot;编辑会员&quot;}" />
+    <button label="锁定" toolTip="" action="fireEvent" selection="single" permission="" permissionName="" visiable="true" event="closeMember" />
+    <button label="解锁" action="fireEvent" selection="single" permission="" permissionName="" visiable="true" event="openMember" confirmMessage="确认恢复该用户吗" />
+    <button label="身份证解码" action="fireEvent" selection="single" permission="" permissionName="" visiable="true" event="getIdCardNo" confirmMessage="" />
+    <button label="加入黑名单" action="fireEvent" selection="single" visiable="true" event="insertblacklist" confirmMessage="" />
+  </toolbar>
+  <xmlQuery version="2.0" name="" label="">
+    <select domainScope="true">
+      <other label="其他" uid="other" name="other" />
+      <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0" name="AMS_Member" label="会员" alias="a0" selectAll="true" isBranch="true">
+        <field uid="sys_0" name="id" label="编号" type="long" />
+        <field uid="sys_1" name="domainId" label="域ID" type="long" />
+        <field uid="log_0" name="FM_CreatePrinId" label="创建者ID" type="long" />
+        <field uid="log_1" name="FM_CreatePrinName" label="创建者" type="string" />
+        <field uid="log_2" name="FM_UpdatePrinId" label="更新者ID" type="long" />
+        <field uid="log_3" name="FM_UpdatePrinName" label="更新者" type="string" />
+        <field uid="log_4" name="FM_CreateTime" label="创建时间" type="timestamp" />
+        <field uid="log_5" name="FM_UpdateTime" label="更新时间" type="timestamp" />
+        <field uid="id_1" name="name" label="名称(企业名称)" type="string" />
+        <field uid="id_4" name="phone" label="手机号码" type="string" />
+        <field uid="id_6" name="address" label="地址" type="string" />
+        <field uid="id_7" name="user_state" label="会员状态" type="long" />
+        <field uid="id_23" name="member_type" label="会员类型" type="long" />
+        <field uid="id_24" name="userId" label="会员uuid" type="string" />
+        <field uid="id_26" name="login_password" label="登录密码" type="string" />
+        <field uid="id_27" name="pay_password" label="支付密码" type="string" />
+        <field uid="id_28" name="email" label="邮箱" type="string" />
+        <field uid="id_29" name="country" label="国家" type="string" />
+        <field uid="id_30" name="province" label="省" type="string" />
+        <field uid="id_31" name="area" label="地区" type="string" />
+        <field uid="id_32" name="identity_cardNo" label="身份证号码" type="string" />
+        <field uid="id_34" name="user_name" label="昵称" type="string" />
+        <field uid="id_36" name="last_login_time" label="最近一次登录时间" type="timestamp" />
+        <field uid="id_37" name="isPhone_checked" label="手机号码是否验证" type="boolean" />
+        <field uid="id_38" name="isEmail_checked" label="邮箱是否验证" type="boolean" />
+        <field uid="id_40" name="register_time" label="注册时间" type="timestamp" />
+        <field uid="id_41" name="login_fail_amount" label="登录失败次数" type="long" />
+        <field uid="id_42" name="pay_fail_amount" label="支付失败次数" type="long" />
+        <field uid="id_43" name="last_login_fail_time" label="最后一次登录失败时间" type="timestamp" />
+        <field uid="id_44" name="last_pay_fail_time" label="最后一次支付失败时间" type="timestamp" />
+        <field uid="id_45" name="isSecurityIssue" label="是否设置安全问题" type="boolean" />
+        <field uid="id_47" name="isSetExtendInfo" label="是否设置扩展信息" type="boolean" />
+        <field uid="id_53" name="memberNo" label="客户号" type="string" />
+        <field uid="id_58" name="isIdentity_checked" label="是否实名认证" type="boolean" />
+        <field uid="id_61" name="identity_cardNo_encrypt" label="身份证(加密)" type="string" />
+        <field uid="id_62" name="identity_cardNo_md5" label="身份证(md5加密)" type="string" />
+        <field uid="id_63" name="register_ip" label="注册ip" type="string" />
+        <field uid="id_66" name="login_time" label="本次登录时间" type="timestamp" />
+        <field uid="id_68" name="remark" label="备注" type="string" />
+        <field uid="id_69" name="real_name_time" label="实名时间" type="timestamp" />
+        <field uid="id_70" name="isRiskUser" label="是否加入黑名单" type="boolean" />
+        <field uid="id_74" name="source" label="来源" type="long" />
+        <field uid="id_81" name="application" label="应用" type="relation" />
+        <field uid="id_85" name="isSMS_login_notice" label="是否开启登录手机通知" type="boolean" />
+        <field uid="id_86" name="isEmail_login_notice" label="是否开启登录邮箱通知" type="boolean" />
+        <field uid="id_87" name="belong_applicationNo" label="所属应用编号" type="string" />
+        <field uid="id_88" name="isDeveloper" label="是否是开发者" type="boolean" />
+        <field uid="id_89" name="biz_user_id" label="业务系统名称" type="string" />
+        <field name="is_higher_card" label="是否已强实名认证" type="boolean" uid="id_94" />
+      </Entity>
+    </select>
+    <where>
+      <exp type="2">
+        <exp type="19" valueType="1" option="true" leftEntity="AMS_Member" leftField="phone" uid="exp1" rightType="param" right="phone" />
+        <exp type="5" valueType="3" option="true" rightType="param" right="user_state" leftEntity="AMS_Member" leftField="user_state" uid="exp4" />
+        <exp type="5" valueType="3" option="true" leftEntity="AMS_Member" leftField="member_type" uid="exp6" rightType="val" right="3" />
+        <exp type="19" valueType="1" option="true" rightType="param" right="name" leftEntity="AMS_Member" leftField="name" uid="exp0" />
+        <exp type="19" valueType="1" option="true" rightType="param" right="memberNo" leftEntity="AMS_Member" leftField="memberNo" uid="exp2" />
+        <exp type="19" valueType="1" option="true" rightType="param" right="biz_user_id" leftEntity="AMS_Member" leftField="biz_user_id" uid="exp3" />
+        <exp type="19" valueType="1" option="true" rightType="param" right="userId" leftEntity="AMS_Member" leftField="userId" uid="exp5" />
+      </exp>
+    </where>
+    <other>
+      <groupBy label="Group By" />
+      <orderBy label="Order By">
+        <field uid="sys_0" name="id" label="编号" type="long" entity="AMS_Member" order="desc" />
+      </orderBy>
+    </other>
+  </xmlQuery>
+  <conditionForm>
+    <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2">
+      <TabNavigator>
+        <tab label="default">
+          <Label width="82" height="25" text="手机:" propertyUID="id_4" x="2" y="3" style="" />
+          <TextInput name="phone" width="139" height="25" x="63" y="3" />
+          <Label width="82" height="25" text="会员状态:" propertyUID="id_7" x="203" y="3" style="" />
+          <ComboBox valueProvider="多账户.会员状态" name="user_state" width="139" height="25" x="303" y="3" />
+          <Label width="82" height="25" text="名称:" propertyUID="id_1" x="443" y="3" style="" />
+          <TextInput name="name" width="139" height="25" x="503" y="3" />
+          <Label label="Label" text="会员类型:" x="643" y="3" width="100" height="24" style="" />
+          <ComboBox label="ComboBox" x="703" y="3" width="119" height="24" valueProvider="多账户.会员类型" name="member_type" />
+          <Label width="82" height="25" text="客户号:" propertyUID="id_53" x="2" y="31" style="" />
+          <TextInput name="memberNo" width="139" height="25" x="63" y="31" />
+          <Label width="99" height="25" text="业务系统名称:" propertyUID="id_89" x="203" y="31" style="" />
+          <TextInput name="biz_user_id" width="139" height="25" x="303" y="31" />
+          <Label width="82" height="25" text="会员uuid:" propertyUID="id_24" x="443" y="31" style="" />
+          <TextInput name="userId" width="139" height="25" x="503" y="31" />
+        </tab>
+      </TabNavigator>
+    </Window>
+  </conditionForm>
+  <StatSetting />
+  <queryEvent>
+    <event name="closeMember" type="customerEvent" label="closeMember"><![CDATA[var entity/*:$Entity.AMS_Member*/ = query.getSelectedEntities("AMS_Member")[0];
+var param/*:Object*/ = {};
+param.member_id 	= entity.id;
+
+query.fireRemoteEvent("closeMember", param, "cb_closeMember");
+]]></event>
+    <event name="openMember" type="customerEvent" label="openMember"><![CDATA[var entity/*:$Entity.AMS_Member*/ = query.getSelectedEntities("AMS_Member")[0];
+var param/*:Object*/ = {};
+param.member_id 	= entity.id;
+
+query.fireRemoteEvent("openMember", param, "cb_openMember");
+]]></event>
+    <event name="cb_closeMember" type="remoteEvent" label="cb_closeMember"><![CDATA[alert("锁定成功");
+query.refresh();
+]]></event>
+    <event name="cb_openMember" type="remoteEvent" label="cb_openMember"><![CDATA[alert("恢复成功");
+query.refresh();
+]]></event>
+    <event name="getIdCardNo" type="customerEvent" label="getIdCardNo"><![CDATA[
+var alink/*:String*/ = "alink://ime.AppWindow/FreeForm?";
+var param/*:Object*/ = {};
+param.title     = "身份证解码";
+param.formUID 	= "DE851B3A-ACD5-484B-B166-312B7CFFEA65.99A006E8F08D";
+
+alink += JSON.encode(param);
+query.openALink(alink);
+
+]]></event>
+    <event name="insertblacklist" type="customerEvent" label="insertblacklist"><![CDATA[
+
+var alink/*:String*/ = "alink://ime.AppWindow/FreeForm?";
+var param/*:Object*/ = {};
+param.title     = "加入黑名单";
+param.formUID 	= "DE851B3A-ACD5-484B-B166-312B7CFFEA65.A02E40E2CFBF";
+
+alink += JSON.encode(param);
+query.openALink(alink);
+
+
+
+
+
+//
+//var member_entity/*:$Entity.AMS_Member*/ = query.getSelectedEntity("AMS_Member");
+//var param = {};
+//param.id = member_entity.id;
+//query.fireRemoteEvent("AMS_Member.insertblcaklist", param, "insertblcaklist_result");
+//]]></event>
+    <event name="insertblcaklist_result" type="customerEvent" label="insertblcaklist_result"><![CDATA[if(result.isinsertblack){
+	alert("加入黑名单成功")
+}else{
+	alert("改用户已加入黑名单")
+}]]></event>
+  </queryEvent>
+</EntityQuery>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityQuery name="查询未建站企业" label="查询未建站企业" note="" share="false" multiselect="false" editable="false" autopaging="true" uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.AA08A11315CB" nodeID="162"> 
+              <queryEntities> 
+                <Entity uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.76A3C4E92743" name="DomainCompany" label="注册企业" alias="a0" selectAll="true" isBranch="true" master="true"/> 
+              </queryEntities>  
+              <DataGrid> 
+                <color/>  
+                <column name="name" label="名称" uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.76A3C4E92743.id_1" width="300" isBranch="false"/> 
+              </DataGrid>  
+              <editState/>  
+              <toolbar/>  
+              <xmlQuery version="2.0" name="" label=""> 
+                <select domainScope="false"> 
+                  <other label="其他" uid="other" name="other"/>  
+                  <Entity uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.76A3C4E92743" name="DomainCompany" label="注册企业" alias="a0" selectAll="true" isBranch="true"> 
+                    <field uid="sys_0" name="id" label="编号" type="long"/>  
+                    <field uid="sys_1" name="domainId" label="所属域ID" type="long"/>  
+                    <field uid="id_1" name="name" label="名称" type="string"/>  
+                    <field uid="id_2" name="domain_id" label="注册域ID" type="long"/>  
+                    <field uid="id_3" name="domainName" label="企业域名" type="string"/>  
+                    <field uid="id_4" name="parentName" label="上级企业" type="string"/>  
+                    <field uid="id_5" name="is_site_created" label="是否建站" type="boolean"/>  
+                    <field uid="id_6" name="company_uid" label="唯一UID" type="string"/>  
+                    <field uid="id_7" name="xpt_site" label="XPT站点域名" type="string"/> 
+                  </Entity> 
+                </select>  
+                <where> 
+                  <exp type="2"> 
+                    <exp type="1" option="true" uid="exp2"> 
+                      <exp type="24" valueType="4" option="true" leftEntity="DomainCompany" leftField="is_site_created" uid="exp1"/>  
+                      <exp type="5" valueType="4" option="true" rightType="val" right="false" leftEntity="DomainCompany" leftField="is_site_created" uid="exp3"/> 
+                    </exp> 
+                  </exp> 
+                </where>  
+                <other> 
+                  <groupBy label="Group By"/>  
+                  <orderBy label="Order By"/> 
+                </other> 
+              </xmlQuery>  
+              <conditionForm> 
+                <Window paddingLeft="1" paddingRight="1" paddingTop="1" paddingBottom="1"> 
+                  <TabNavigator> 
+                    <tab label="default"/> 
+                  </TabNavigator> 
+                </Window> 
+              </conditionForm>  
+              <queryEvent/> 
+            </EntityQuery>

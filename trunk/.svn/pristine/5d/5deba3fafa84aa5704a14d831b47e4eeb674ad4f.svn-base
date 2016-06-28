@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityForm name="银行代码" label="银行代码" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.D3A8200DB4D1" nodeID="458"> 
+              <formEntity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E8D05E4D8AD6"/>  
+              <formState/>  
+              <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2"> 
+                <TabNavigator> 
+                  <tab label="default"> 
+                    <Label width="82" height="25" text="银行代码:" propertyUID="id_1" x="3" y="4" style=""/>  
+                    <TextInput propertyUID="id_1" width="119" height="25" x="83" y="3"/>  
+                    <Label width="82" height="25" text="卡类型:" propertyUID="id_2" x="3" y="31" style=""/>  
+                    <ComboBox propertyUID="id_2" width="119" height="25" x="83" y="31"/>  
+                    <Label width="82" height="25" text="银行:" propertyUID="id_3" x="3" y="59" style=""/>  
+                    <EntityField propertyUID="id_3" width="119" height="25" x="83" y="59"/> 
+                  </tab> 
+                </TabNavigator> 
+              </Window>  
+              <formEvent/> 
+            </EntityForm>

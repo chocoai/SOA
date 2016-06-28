@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<FreeForm label="电话回访" name="电话回访" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E1191EF63259" nodeID="858"> 
+            <formState/>  
+            <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2"> 
+              <TabNavigator> 
+                <tab label="default"> 
+                  <Label label="Label" text="回访结果:" x="2" y="3" width="100" height="24" style=""/>  
+                  <ComboBox label="ComboBox" x="63" y="3" width="159" height="24" valueProvider="多账户.处理结果" name="backresult"/>  
+                  <Label label="Label" text="主机号码" x="223" y="3" width="100" height="24" style=""/>  
+                  <TextInput label="TextInput" x="283" y="3" width="159" height="24" name="callingNo"/>  
+                  <Label label="Label" text="被叫号码" x="223" y="31" width="100" height="24" style="color:#000000;"/>  
+                  <Label label="Label" text="回拨时间" x="2" y="31" width="100" height="24" style=""/>  
+                  <Label label="Label" text="客服ID" x="3" y="87" width="100" height="24" style=""/>  
+                  <Label label="Label" text="回访备注" x="3" y="115" width="100" height="24" style=""/>  
+                  <TextInput label="TextInput" x="63" y="87" width="379" height="24" name="serviceId"/>  
+                  <TextArea label="TextArea" width="379" height="100" x="63" y="115" name="memo"/>  
+                  <DateField label="DateField" x="63" y="31" width="159" height="24" name="callDate"/>  
+                  <Label label="Label" text="是否录音" x="2" y="59" width="100" height="24" style=""/>  
+                  <ComboBox label="ComboBox" x="63" y="58" width="159" height="24" valueProvider="多账户.是否录音" name="isRecord"/>  
+                  <EntityField label="EntityField" x="283" y="31" width="159" height="24" name="calledNo" entityUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.A274F80E0641" required="true" queryUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.092897F076F8" labelField="phone" pageUID="" mode=""/> 
+                </tab> 
+              </TabNavigator> 
+            </Window>  
+            <formEvent> 
+              <event name="preSubmit" type="preSubmit" label="提交前事件" systemEvent="true"><![CDATA[var query/*:QueryControl*/ = form.getScriptHost("$opener");
+var member_entity/*:$Entity.AMS_Member*/ = query.getSelectedEntity("AMS_Member");
+var param = {};
+param.member_id = member_entity.id;
+param.backresult = form.getFieldValue("backresult");
+param.remark = form.getFieldValue("remark");
+
+param.callingNo = form.getFieldValue("callingNo");
+var entityCall = form.getFieldValue("calledNo");
+param.calledNo = entityCall.phone;
+param.callDate = form.getFieldValue("callDate");
+
+
+param.serviceId = form.getFieldValue("serviceId");
+param.memo = form.getFieldValue("memo");
+param.isRecord = form.getFieldValue("isRecord");
+
+form.fireRemoteEvent("AMS_SafetyLevel.phoneback", param, "phoneback_result");
+]]></event>  
+              <event name="phoneback_result" type="remoteEvent" label="phoneback_result"><![CDATA[if(result.state == "ok"){
+	alert("成功");
+}else{
+	var message = result.errorMessage;
+	alert(message);
+}]]></event>  
+              <event name="initialize" type="initialize" label="初始化事件" systemEvent="true"><![CDATA[
+var query/*:QueryControl*/ = form.getScriptHost("$opener");
+var user_id = form.getExpressionValue('$opener.selectedEntity("AMS_Member").id');
+//默认取第一张银行预留手机号码
+
+
+
+var entity/*:$Entity.AMS_Member*/ = query.getSelectedEntity("AMS_Member");
+
+
+form.setFieldValue("callDate",new Date());
+form.setFieldValue("calledNo",entity.phone);
+form.setFieldProperty("backresult","required",true);
+form.setFieldProperty("callingNo","required",true);
+form.setFieldProperty("calledNo","required",true);
+form.setFieldProperty("callDate","required",true);
+form.setFieldProperty("serviceId","enabled",false);
+var loginInfo = form.getExpressionValue("$loginInfo");
+var serviceId/*:String*/ = loginInfo.fullLoginName;
+var loginname= serviceId.replace("ime.com","allinpay.com");
+form.setFieldValue("serviceId",loginname);
+form.setFieldProperty("isRecord","required",true);
+
+
+var param1 = {};
+param1.id = user_id;
+form.fireRemoteEvent("AMS_SafetyLevel.getBankPhone", param1, "getBankPhone_result");
+
+]]></event>  
+              <event name="getBankPhone_result" type="remoteEvent" label="getBankPhone_result"><![CDATA[if(result != null){
+	form.setFieldValue("calledNo",result);
+}]]></event> 
+            </formEvent> 
+          </FreeForm>

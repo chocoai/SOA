@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityQuery name="人工提现报表审核" label="人工提现报表审核" note="" share="false" multiselect="true" editable="false" autopaging="true" pagingMode="VirtualizingPaging" virtualizingPagingEnabled="true" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.D9A9FB4B405C" nodeID="736"> 
+              <queryEntities> 
+                <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.2BFCE1B52493" name="AMS_ArtWithdrawal" label="人工提现" alias="a0" selectAll="true" isBranch="true" master="true"/> 
+              </queryEntities>  
+              <DataGrid> 
+                <color/>  
+                <column name="WF_StateName" label="状态名称" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.2BFCE1B52493.wf_1" width="69" isBranch="false" editable="" sortable="" textAlign=""/>  
+                <column name="reportState" label="报表状态" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.2BFCE1B52493.id_19" width="100" isBranch="false" editable="" sortable="" textAlign=""/>  
+                <column name="member_uuid" label="会员userId" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.2BFCE1B52493.id_2" width="133" isBranch="false" editable="" sortable="" textAlign=""/>  
+                <column name="member" label="会员" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.2BFCE1B52493.id_1" width="76" isBranch="false" editable="" sortable="" textAlign=""/>  
+                <column name="total_money" label="提现金额" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.2BFCE1B52493.id_3" width="98" isBranch="false" editable="" sortable="" textAlign=""/>  
+                <column name="accountNo" label="银行帐号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.2BFCE1B52493.id_4" width="100" isBranch="false"/>  
+                <column name="account_name" label="开户名" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.2BFCE1B52493.id_5" width="92" isBranch="false" editable="" sortable="" textAlign=""/>  
+                <column name="identity_cardNo" label="身份证号码" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.2BFCE1B52493.id_6" width="112" isBranch="false" editable="" sortable="" textAlign=""/>  
+                <column name="phone" label="手机号码" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.2BFCE1B52493.id_7" width="128" isBranch="false" editable="" sortable="" textAlign=""/>  
+                <column name="operator" label="经办人" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.2BFCE1B52493.id_8" width="79" isBranch="false" editable="" sortable="" textAlign=""/>  
+                <column name="operator_date" label="经办时间" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.2BFCE1B52493.id_9" width="100" isBranch="false" editable="" sortable="" textAlign=""/>  
+                <column name="auditor" label="审核人" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.2BFCE1B52493.id_10" width="100" isBranch="false"/>  
+                <column name="auditor_date" label="审核时间" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.2BFCE1B52493.id_11" width="100" isBranch="false"/> 
+              </DataGrid>  
+              <editState/>  
+              <toolbar> 
+                <button label="报表审核" action="fireEvent" selection="multi" permission="" permissionName="" visiable="true" event="ConfirmReport" confirmMessage="确认审核"/> 
+              </toolbar>  
+              <xmlQuery version="2.0" name="" label=""> 
+                <select domainScope="true"> 
+                  <other label="其他" uid="other" name="other"/>  
+                  <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.2BFCE1B52493" name="AMS_ArtWithdrawal" label="人工提现" alias="a0" selectAll="true" isBranch="true"> 
+                    <field uid="sys_0" name="id" label="编号" type="long" entity="AMS_ArtWithdrawal"/>  
+                    <field uid="sys_1" name="domainId" label="域ID" type="long"/>  
+                    <field uid="log_0" name="FM_CreatePrinId" label="创建者ID" type="long"/>  
+                    <field uid="log_1" name="FM_CreatePrinName" label="创建者" type="string"/>  
+                    <field uid="log_2" name="FM_UpdatePrinId" label="更新者ID" type="long"/>  
+                    <field uid="log_3" name="FM_UpdatePrinName" label="更新者" type="string"/>  
+                    <field uid="log_4" name="FM_CreateTime" label="创建时间" type="timestamp"/>  
+                    <field uid="log_5" name="FM_UpdateTime" label="更新时间" type="timestamp"/>  
+                    <field uid="wf_0" name="WF_State" label="状态" type="long"/>  
+                    <field uid="wf_1" name="WF_StateName" label="状态名称" type="string"/>  
+                    <field uid="wf_2" name="WF_ProcessId" label="所属流程" type="long"/>  
+                    <field uid="wf_3" name="WF_ProcessName" label="流程名称" type="string"/>  
+                    <field uid="wf_4" name="WF_ProcessorPrinId" label="处理人ID" type="long"/>  
+                    <field uid="wf_5" name="WF_ProcessorPrinName" label="处理人" type="string"/>  
+                    <field uid="wf_6" name="WF_WorkItemId" label="工作项ID" type="long"/>  
+                    <field uid="id_1" name="member" label="会员" type="relation"/>  
+                    <field uid="id_2" name="member_uuid" label="会员userId" type="string"/>  
+                    <field uid="id_3" name="total_money" label="提现金额" type="long" currency="true"/>  
+                    <field uid="id_4" name="accountNo" label="银行帐号" type="string"/>  
+                    <field uid="id_5" name="account_name" label="开户名" type="string"/>  
+                    <field uid="id_6" name="identity_cardNo" label="身份证号码" type="string"/>  
+                    <field uid="id_7" name="phone" label="手机号码" type="string"/>  
+                    <field uid="id_8" name="operator" label="经办人" type="principal"/>  
+                    <field uid="id_9" name="operator_date" label="经办时间" type="timestamp"/>  
+                    <field uid="id_10" name="auditor" label="审核人" type="principal"/>  
+                    <field uid="id_11" name="auditor_date" label="审核时间" type="timestamp"/>  
+                    <field uid="id_12" name="bank_name" label="开户行" type="string"/>  
+                    <field uid="id_13" name="remark" label="备注" type="string"/>  
+                    <field uid="id_14" name="system_member" label="系统会员" type="relation"/>  
+                    <field uid="id_15" name="branchAccountNo" label="开户支行号" type="string"/>  
+                    <field uid="id_16" name="code" label="编码" type="coding"/>  
+                    <field uid="id_19" name="reportState" label="报表状态" type="long"/> 
+                  </Entity> 
+                </select>  
+                <where> 
+                  <exp type="2"> 
+                    <exp type="5" valueType="3" option="true" leftEntity="AMS_ArtWithdrawal" leftField="WF_State" uid="exp0" rightType="val" right="4"/>  
+                    <exp type="19" valueType="1" option="true" rightType="param" right="member_uuid" leftEntity="AMS_ArtWithdrawal" leftField="member_uuid" uid="exp1"/>  
+                    <exp type="19" valueType="1" option="true" rightType="param" right="accountNo" leftEntity="AMS_ArtWithdrawal" leftField="account_name" uid="exp2"/>  
+                    <exp type="19" valueType="1" option="true" leftEntity="AMS_ArtWithdrawal" leftField="phone" uid="exp3" rightType="param" right="phone"/>  
+                    <exp type="19" valueType="1" option="true" leftEntity="AMS_ArtWithdrawal" leftField="reportState" uid="exp4" rightType="param" right="reportstate"/>  
+                    <exp type="1" option="true" uid="exp5"> 
+                      <exp type="5" valueType="3" option="true" leftEntity="AMS_ArtWithdrawal" leftField="reportState" uid="exp6" rightType="val" right="2"/>  
+                      <exp type="5" valueType="3" option="true" rightType="val" right="3" leftEntity="AMS_ArtWithdrawal" leftField="reportState" uid="exp7"/> 
+                    </exp>  
+                    <exp type="5" valueType="3" option="true" rightType="val" right="$loginInfo.principalId" leftEntity="AMS_ArtWithdrawal" leftField="auditor_id" uid="exp8"/> 
+                  </exp> 
+                </where>  
+                <other> 
+                  <groupBy label="Group By"/>  
+                  <orderBy label="Order By"> 
+                    <field uid="sys_0" name="id" label="编号" type="long" entity="AMS_ArtWithdrawal" order="desc"/> 
+                  </orderBy> 
+                </other> 
+              </xmlQuery>  
+              <conditionForm> 
+                <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2"> 
+                  <TabNavigator> 
+                    <tab label="default"> 
+                      <Label width="82" height="25" text="会员userId:" propertyUID="id_2" x="2" y="2" style=""/>  
+                      <TextInput name="member_uuid" width="179" height="25" x="83" y="2"/>  
+                      <Label width="82" height="25" text="手机号码:" propertyUID="id_7" x="263" y="2" style=""/>  
+                      <TextInput name="phone" width="139" height="25" x="323" y="3"/>  
+                      <Label label="Label" text="报表状态:" x="463" y="2" width="100" height="24" style=""/>  
+                      <ComboBox label="ComboBox" x="523" y="2" width="119" height="24" valueProvider="多账户.人工提现报表状态" name="reportstate"/> 
+                    </tab> 
+                  </TabNavigator> 
+                </Window> 
+              </conditionForm>  
+              <StatSetting/>  
+              <queryEvent> 
+                <event name="ConfirmReport" type="customerEvent" label="ConfirmReport"><![CDATA[var list/*:Array*/ = query.getSelectedRecords();
+var idlist/*:String*/ = "";
+for(var i = 0 ;i<list.length;i++){
+	idlist+=list[i].AMS_ArtWithdrawal.id+",";
+	if(list[i].AMS_ArtWithdrawal.reportState == 3){
+		return{error:true,message:"该报表已审核"}
+	}
+}
+var param = {};
+param.idlist = idlist.substr(0,(idlist.length)-1);
+query.fireRemoteEvent("AMS_ArtWithdrawal.updateOutReport", param, "updateOutReport_return");]]></event>  
+                <event name="updateOutReport_return" type="customerEvent" label="updateOutReport_return"><![CDATA[if(result !=null ){
+	query.refreshCurrentPage();
+}]]></event> 
+              </queryEvent> 
+            </EntityQuery>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityQuery name="支付渠道管理" label="支付渠道管理" note="" share="false" multiselect="false" editable="false" autopaging="true" pagingMode="VirtualizingPaging" virtualizingPagingEnabled="true" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.A3FB5C07A44B" nodeID="567"> 
+              <queryEntities> 
+                <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.4BCBC9D2C1A9" name="AMS_PayChannel" label="支付渠道" alias="a0" selectAll="true" isBranch="true" master="true"/> 
+              </queryEntities>  
+              <DataGrid> 
+                <color/>  
+                <column name="merchant_id" label="商户号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.4BCBC9D2C1A9.id_9" width="162" isBranch="false" dataField="AMS_PayChannel$merchant_id"/>  
+                <column name="name" label="名称" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.4BCBC9D2C1A9.id_1" width="153" isBranch="false" dataField="AMS_PayChannel$name"/>  
+                <column name="codeNo" label="渠道代码" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.4BCBC9D2C1A9.id_2" width="121" isBranch="false" dataField="AMS_PayChannel$codeNo"/>  
+                <column name="remark" label="备注" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.4BCBC9D2C1A9.id_12" width="228" isBranch="false" dataField="AMS_PayChannel$remark"/> 
+              </DataGrid>  
+              <editState/>  
+              <toolbar> 
+                <button label="新建" action="alink" selection="none" permission="" permissionName="" visiable="true" param="{   &quot;target&quot;: &quot;ime.AppWindow&quot;,   &quot;form&quot;: &quot;EntityForm&quot;,   &quot;param&quot;: {     &quot;action&quot;: &quot;create&quot;,     &quot;entityUID&quot;: &quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.4BCBC9D2C1A9&quot;,     &quot;formUID&quot;: &quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.1C63CBA54F58&quot;,     &quot;formState&quot;: &quot;state0&quot;   } }" Button="System.Windows.Controls.Button: 新建" alink="alink://ime.AppWindow/EntityForm?{action:&quot;create&quot;,entityUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.4BCBC9D2C1A9&quot;,formUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.1C63CBA54F58&quot;,formState:&quot;state0&quot;}"/>  
+                <button label="编辑" action="alink" selection="single" permission="" permissionName="" visiable="true" param="{   &quot;target&quot;: &quot;ime.AppWindow&quot;,   &quot;form&quot;: &quot;EntityForm&quot;,   &quot;param&quot;: {     &quot;action&quot;: &quot;edit&quot;,     &quot;entityUID&quot;: &quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.4BCBC9D2C1A9&quot;,     &quot;formUID&quot;: &quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.1C63CBA54F58&quot;,     &quot;formState&quot;: &quot;state0&quot;   } }" Button="System.Windows.Controls.Button: 编辑" alink="alink://ime.AppWindow/EntityForm?{action:&quot;edit&quot;,entityUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.4BCBC9D2C1A9&quot;,formUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.1C63CBA54F58&quot;,formState:&quot;state0&quot;}"/>  
+                <button label="删除" action="delete" selection="single"/>  
+                <button label="导入配置" action="fireEvent" selection="none" visiable="true" Button="System.Windows.Controls.Button: 导入配置" param="{   &quot;event&quot;: &quot;updatePayChannelManage&quot;,   &quot;confirmMessage&quot;: &quot;确认导入吗&quot; }" event="updatePayChannelManage" confirmMessage="确认导入吗"/> 
+              </toolbar>  
+              <xmlQuery version="2.0" name="" label=""> 
+                <select domainScope="true"> 
+                  <other label="其他" uid="other" name="other"/>  
+                  <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.4BCBC9D2C1A9" name="AMS_PayChannel" label="支付渠道" alias="a0" selectAll="true" isBranch="true"> 
+                    <field uid="sys_0" name="id" label="编号" type="long"/>  
+                    <field uid="sys_1" name="domainId" label="域ID" type="long"/>  
+                    <field uid="id_1" name="name" label="名称" type="string"/>  
+                    <field uid="log_0" name="FM_CreatePrinId" label="创建者ID" type="long"/>  
+                    <field uid="log_1" name="FM_CreatePrinName" label="创建者" type="string"/>  
+                    <field uid="log_2" name="FM_UpdatePrinId" label="更新者ID" type="long"/>  
+                    <field uid="log_3" name="FM_UpdatePrinName" label="更新者" type="string"/>  
+                    <field uid="log_4" name="FM_CreateTime" label="创建时间" type="timestamp"/>  
+                    <field uid="log_5" name="FM_UpdateTime" label="更新时间" type="timestamp"/>  
+                    <field uid="id_2" name="codeNo" label="渠道代码" type="string"/>  
+                    <field uid="id_3" name="handling_settle_type" label="手续费结算方式" type="long"/>  
+                    <field uid="id_4" name="handling_settle_cycle" label="手续费结算周期" type="long"/>  
+                    <field uid="id_5" name="capital_settle_cycle" label="资金结算周期" type="long"/>  
+                    <field uid="id_8" name="system_uuid" label="系统用户ID" type="string"/>  
+                    <field uid="id_9" name="merchant_id" label="商户号" type="string"/>  
+                    <field uid="id_10" name="publickey" label="公匙证书路径" type="string"/>  
+                    <field uid="id_11" name="privatekey" label="私匙证书路径" type="string"/>  
+                    <field uid="id_12" name="remark" label="备注" type="string"/>  
+                    <field uid="id_13" name="short_name" label="简称" type="string"/> 
+                  </Entity> 
+                </select>  
+                <where> 
+                  <exp type="2"/> 
+                </where>  
+                <other> 
+                  <groupBy label="Group By"/>  
+                  <orderBy label="Order By"> 
+                    <field uid="sys_0" name="id" label="编号" type="long" entity="AMS_PayChannel" order="desc"/> 
+                  </orderBy> 
+                </other> 
+              </xmlQuery>  
+              <conditionForm> 
+                <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2"> 
+                  <TabNavigator> 
+                    <tab label="default"> 
+                      <Label width="82" height="25" text="名称:" propertyUID="id_1" x="3" y="3" style=""/>  
+                      <TextInput name="name" width="139" height="25" x="63" y="3"/>  
+                      <Label width="82" height="25" text="商户号:" propertyUID="id_9" x="203" y="3" style=""/>  
+                      <TextInput name="merchant_id" width="139" height="25" x="263" y="3"/> 
+                    </tab> 
+                  </TabNavigator> 
+                </Window> 
+              </conditionForm>  
+              <StatSetting/>  
+              <queryEvent> 
+                <event name="updatePayChannelManage" type="customerEvent" label="updatePayChannelManage"><![CDATA[query.fireRemoteEvent("AMS_Member.updatePayChannelManage", {}, "cb_updateRiskUserList");]]></event>  
+                <event name="cb_updatePayChannelManage" type="remoteEvent" label="cb_updatePayChannelManage"><![CDATA[alert("导入成功");]]></event> 
+              </queryEvent> 
+            </EntityQuery>

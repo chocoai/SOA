@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<workflow>
+  <definition uid="5C703DA0-07D2-4D91-94BC-79A108BAB168" path="" id="3" name="手工提现" noInstance="false" domain="1" createTime="2015/08/31 10:48:00" updateTime="2015/08/31 10:48:00">
+    <variables></variables>
+    <note></note>
+    <workForm><![CDATA[<work_form>
+  <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.2BFCE1B52493" name="AMS_ArtWithdrawal" label="人工提现">
+    <state name="提交，待审核" value="2" uid="A2B26404-53E8-4103-85BF-AE1BF9048A55" />
+    <state name="审核失败" value="3" uid="96DB29B2-2EF1-46DC-BC6C-B5163343AA04" />
+    <state name="审核成功" value="4" uid="30764AC8-A2EA-4DF6-AF46-24A885421ABC" />
+    <state name="结束" value="5" uid="D919911E-2BFB-4FC1-8447-CC220293CA54" />
+    <state name="报表审核通过" value="6" uid="400F30AE-155B-4389-A501-E9FF65138D2F" />
+  </Entity>
+  <EntityForm uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.B83BFDFD814E" name="" label="人工提现" />
+</work_form>]]></workForm>
+  </definition>
+  <diagram> 
+    <swimlanes> 
+      <swimlane name="经办人" uid="8037E6DF-39FD-4A66-AB50-432B816D44C6" width="322" type="other"/>  
+      <swimlane name="人工提现审核" uid="39357D10-04CD-4263-BEBF-A436581A3246" width="247" type="role" id="102" roleUid="5da29030-185d-4ac7-a354-a802ee319574"/> 
+    </swimlanes>  
+    <node id="10" x="361" y="68" width="150" height="50" swimlane="39357D10-04CD-4263-BEBF-A436581A3246"/>  
+    <node id="11" x="59" y="9" width="150" height="50" swimlane="8037E6DF-39FD-4A66-AB50-432B816D44C6"/>  
+    <node id="9" x="17" y="146" width="142" height="62" swimlane="8037E6DF-39FD-4A66-AB50-432B816D44C6"/>  
+    <node id="12" x="361" y="375" width="150" height="50" swimlane="39357D10-04CD-4263-BEBF-A436581A3246"/>  
+    <connection id="12"> 
+      <point x="209" y="34"/>  
+      <point x="436" y="34"/>  
+      <point x="436" y="58"/> 
+    </connection>  
+    <connection id="14"> 
+      <point x="436" y="118"/>  
+      <point x="436" y="242"/>  
+      <point x="436" y="242"/>  
+      <point x="436" y="365"/> 
+    </connection>  
+    <connection id="13"> 
+      <point x="88" y="146"/>  
+      <point x="88" y="93"/>  
+      <point x="351" y="93"/> 
+    </connection>  
+    <connection id="15"> 
+      <point x="436" y="118"/>  
+      <point x="436" y="178"/>  
+      <point x="169" y="178"/> 
+    </connection>  
+    <connection id="11"> 
+      <point x="88" y="208"/>  
+      <point x="88" y="400"/>  
+      <point x="351" y="400"/> 
+    </connection> 
+  </diagram>
+</workflow>

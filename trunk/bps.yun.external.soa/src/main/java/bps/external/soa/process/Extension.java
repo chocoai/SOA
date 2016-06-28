@@ -1,0 +1,153 @@
+package bps.external.soa.process;
+
+import bps.external.application.service.trade.GatewayService;
+import bps.external.soa.member.SoaMemberSimple;
+import bps.external.soa.member.SoaMemberWithoutConfirm;
+import bps.external.soa.order.SoaOrderWithoutConfirm;
+import bps.service.*;
+import ime.soa.SOAServiceManager;
+import ime.soa.SystemManager;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.ServletContextEvent;
+import javax.servlet.ServletContextListener;
+
+import org.apache.commons.lang.StringUtils;
+import org.apache.log4j.Logger;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import apf.framework.Framework;
+import bps.common.JedisUtils;
+import bps.common.ReadXML;
+import bps.external.application.service.increment.OtherService;
+import bps.external.soa.SoaMemberService;
+import bps.external.soa.SoaOrderService;
+
+
+public class Extension implements ServletContextListener {
+	public static Map<String, String> paramMap;
+	public Logger logger = Logger.getLogger(Exception.class);
+	private static final String ENCRYPTION_TYPE = "SHA1WithRSA";
+	public static List<Map<String, Object>> keyList = new ArrayList<>();
+	public static MemberService memberService;
+	public static OrderService orderService;
+	public static CodeService codeService;
+	public static OtherService otherService;
+	public static AccountService accountService;
+	public static AdjustAccountService adjustAccountService;
+	public static GoodsService goodsService;
+	public static GatewayService gatewayService;
+	public static MonitorService monitorService;
+
+//	private static String cacheIp = null;
+//	private static int cachePort = 0;
+
+	public void contextDestroyed(ServletContextEvent sce) {
+		logger.info("销毁Extension");
+	}
+
+	public void contextInitialized(ServletContextEvent sce) {
+		logger.info("开始加载dubbo");
+		try {
+			ime.dwr.TransactionRemoter.enabled = true;
+			logger.info("创建dubbo开始");
+			paramMap = 					ReadXML.getParamMap();
+			Framework.instance().setResourcePath(this.getClass().getResource("/").getPath());
+	        ClassPathXmlApplicationContext CTX=new ClassPathXmlApplicationContext(	new String[] { "dubbo-comsumer.xml" });
+
+			String ip 	= paramMap.get("cache.ip");
+			int port = Integer.valueOf(paramMap.get("cache.port"));
+			//设置redis联接参数
+			JedisUtils.setParam(ip, port);
+			load();
+
+			SOAServiceManager.getInstance().addService(new SoaMemberService());
+			SOAServiceManager.getInstance().addService(new SoaOrderService());
+			SOAServiceManager.getInstance().addService(new SoaMemberWithoutConfirm());
+			SOAServiceManager.getInstance().addService(new SoaOrderWithoutConfirm());
+			SOAServiceManager.getInstance().addService(new SoaMemberSimple());
+
+			memberService = (MemberService)CTX.getBean("member");
+			orderService = (OrderService)CTX.getBean("order");
+			accountService = (AccountService)CTX.getBean("account");
+			adjustAccountService = (AdjustAccountService)CTX.getBean("adjust");
+			codeService = (CodeService)CTX.getBean("code");
+			otherService = (OtherService)CTX.getBean("other");
+			goodsService = (GoodsService)CTX.getBean("goods");
+			gatewayService =(GatewayService)CTX.getBean("gateway");
+			monitorService =(MonitorService)CTX.getBean("monitor");
+
+
+		} catch(Exception e) {
+			logger.error(e.getMessage(), e);
+		}
+
+		logger.info("加载dubbo完成");
+	}
+
+	 public void load(){
+		keyList = new ArrayList<>();
+
+        try{
+
+        	JSONArray list = new JSONArray(JedisUtils.getCacheByKey("orgList"));
+            if(null !=list){
+                SystemManager systemManager = SystemManager.getInstance();
+                for(int i=0;i<list.length();i++){
+                	JSONObject obj = list.getJSONObject(i);
+                    String sysid = obj.optString("sysid");
+                    if(sysid==null || sysid.equals("null")){
+                    	sysid = "";
+                    }
+
+                    Long id = obj.optLong("id");
+
+                    String allowedIP = obj.optString("allowed_ip");
+                    if(allowedIP==null || allowedIP.equals("null")){
+                    	allowedIP = "";
+                    }
+                    String timerange = obj.optString("timerange");
+                    if(timerange==null || timerange.equals("null")){
+                    	timerange = "";
+                    }
+                    String publicKey = obj.optString("public_key");
+                    if(publicKey==null || publicKey.equals("null")){
+                    	publicKey = "";
+                    }
+                    String privateKey = obj.optString("private_key");
+                    if(privateKey==null || publicKey.equals("null")){
+                    	privateKey = "";
+                    }
+                    String encryption = obj.optString("encryption");
+                    if(StringUtils.isBlank(encryption) ||encryption.equals("null")){
+                        encryption = ENCRYPTION_TYPE;
+                    }
+                    Long memberId = obj.optLong("member_id");
+                    Long withdrawReserveModel = obj.optLong("withdrawReserveModel");
+                    if(!StringUtils.isBlank(sysid) && !StringUtils.isBlank(publicKey)){
+                    	logger.info("sysid=" + sysid + ",id=" + id + ",allowedIP" + allowedIP + ",publicKey" + publicKey + ",privateKey" + privateKey + ",encryption" + encryption);
+
+                    	Map<String, Object> keyMap = new HashMap<>();
+                     	keyMap.put("sysid", sysid);
+                     	keyMap.put("id", id);
+                     	keyMap.put("publicKey", publicKey);
+                     	keyMap.put("privateKey", privateKey);
+                    	keyMap.put("member_id", memberId);
+                     	keyMap.put("withdrawReserveModel",withdrawReserveModel);
+                     	keyList.add(keyMap);
+                        
+                        systemManager.addSystem(sysid, publicKey, privateKey, allowedIP, timerange, 0L, encryption, true);
+                    }
+                }
+            }
+        }catch(Exception e){
+            logger.error(e.getMessage(),e);
+        }
+	}
+}

@@ -1,0 +1,17 @@
+package bps.external.application.service.trade;
+
+import bps.common.BizException;
+
+import java.util.Map;
+
+/**
+ * Created by Administrator on 2016/5/18.
+ */
+public interface DaikouService{
+
+    public Map<String, String> daikou(Map<String, Object> params) throws BizException;
+
+    public Map<String, String> query(Map<String, Object> params) throws BizException;
+
+    public Map<String, String> refund(Map<String, Object> params) throws BizException;
+}

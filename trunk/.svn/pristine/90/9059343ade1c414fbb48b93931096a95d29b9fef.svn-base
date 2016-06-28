@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<framework xmlns:apf="http://www.apf.org/framework" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.apf.org/framework framework.xsd ">  
+  <database>MySQL</database>  
+  <installer partdir="E:/partfiles"/>  
+  <persistence util="EntityManagerUtil"/>  
+  <integrate> 
+    <part name="ime.core" partfile="part-core.xml"/>  
+    <part name="ime.organization" partfile="part-organization.xml"/>  
+    <part name="ime.workflow" partfile="part-workflow.xml"/>  
+    <part name="ime.bizservice" partfile="part-bizservice.xml"/>  
+    <part name="ime.calendar" partfile="part-calendar.xml"/>  
+    <part name="ime.message" partfile="part-message.xml"/>  
+    <part name="ime.teamwork" partfile="part-teamwork.xml"/> 
+  </integrate> 
+</framework>

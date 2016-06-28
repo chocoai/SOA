@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityQuery name="交易码管理" label="交易码管理" note="" share="false" multiselect="false" editable="false" autopaging="true" pagingMode="VirtualizingPaging" virtualizingPagingEnabled="true" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.EAEA9E848ADE" nodeID="969">
+  <queryEntities>
+    <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.C8505CB19417" name="AMS_TradeCode" label="交易码" alias="a0" selectAll="true" isBranch="true" master="true" />
+  </queryEntities>
+  <DataGrid>
+    <color />
+    <column name="accountTypeNo" label="账户集编号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.C8505CB19417.id_3" width="100" isBranch="false" />
+    <column name="tradeCode" label="交易码" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.C8505CB19417.id_1" width="100" isBranch="false" />
+    <column name="description" label="描述" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.C8505CB19417.id_2" width="100" isBranch="false" />
+  </DataGrid>
+  <editState />
+  <toolbar>
+    <button label="新建" action="alink" selection="none" visiable="true" Button="System.Windows.Controls.Button: 新建" param="{&#xD;&#xA;  &quot;target&quot;: &quot;ime.AppWindow&quot;,&#xD;&#xA;  &quot;form&quot;: &quot;EntityForm&quot;,&#xD;&#xA;  &quot;param&quot;: {&#xD;&#xA;    &quot;action&quot;: &quot;create&quot;,&#xD;&#xA;    &quot;entityUID&quot;: &quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.C8505CB19417&quot;,&#xD;&#xA;    &quot;formUID&quot;: &quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.B4879A7711FB&quot;,&#xD;&#xA;    &quot;formState&quot;: &quot;state1&quot;&#xD;&#xA;  }&#xD;&#xA;}" alink="alink://ime.AppWindow/EntityForm?{action:&quot;create&quot;,entityUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.C8505CB19417&quot;,formUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.B4879A7711FB&quot;,formState:&quot;state1&quot;}" />
+    <button label="编辑" action="alink" selection="single" visiable="true" Button="System.Windows.Controls.Button: 编辑" param="{&#xD;&#xA;  &quot;target&quot;: &quot;ime.AppWindow&quot;,&#xD;&#xA;  &quot;form&quot;: &quot;EntityForm&quot;,&#xD;&#xA;  &quot;param&quot;: {&#xD;&#xA;    &quot;action&quot;: &quot;edit&quot;,&#xD;&#xA;    &quot;entityUID&quot;: &quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.C8505CB19417&quot;,&#xD;&#xA;    &quot;formUID&quot;: &quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.B4879A7711FB&quot;,&#xD;&#xA;    &quot;formState&quot;: &quot;state2&quot;&#xD;&#xA;  }&#xD;&#xA;}" alink="alink://ime.AppWindow/EntityForm?{action:&quot;edit&quot;,entityUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.C8505CB19417&quot;,formUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.B4879A7711FB&quot;,formState:&quot;state2&quot;}" />
+    <button label="删除" action="delete" selection="single" />
+  </toolbar>
+  <xmlQuery version="2.0" name="" label="">
+    <select domainScope="true">
+      <other label="其他" uid="other" name="other" />
+      <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.C8505CB19417" name="AMS_TradeCode" label="交易码" alias="a0" selectAll="true" isBranch="true">
+        <field uid="sys_0" name="id" label="编号" type="long" />
+        <field uid="sys_1" name="domainId" label="域ID" type="long" />
+        <field uid="id_1" name="tradeCode" label="交易码" type="string" />
+        <field uid="id_2" name="description" label="描述" type="string" />
+        <field uid="id_3" name="accountTypeNo" label="账户集编号" type="string" />
+      </Entity>
+    </select>
+    <where>
+      <exp type="2" />
+    </where>
+    <other>
+      <groupBy label="Group By" />
+      <orderBy label="Order By" />
+    </other>
+  </xmlQuery>
+  <conditionForm>
+    <Window paddingLeft="1" paddingRight="1" paddingTop="1" paddingBottom="1">
+      <TabNavigator>
+        <tab label="default" />
+      </TabNavigator>
+    </Window>
+  </conditionForm>
+  <StatSetting />
+  <queryEvent />
+</EntityQuery>

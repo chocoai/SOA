@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityQuery name="支付通道查询" label="支付通道查询" note="" share="false" multiselect="false" editable="false" autopaging="false" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.12EE8757EAA3" nodeID="573"> 
+              <queryEntities> 
+                <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.6439A7310C28" name="AMS_PayInterface" label="支付通道" alias="a0" master="true"/> 
+              </queryEntities>  
+              <DataGrid> 
+                <color> 
+                  <condition columnLabel="整行" column="$row" color="#548DD4" backgroundColor="#FFFFFF" expression=""/> 
+                </color>  
+                <column name="codeNo" label="通道编号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.6439A7310C28.id_1" width="100" isBranch="false" dataField="AMS_PayInterface$codeNo"/>  
+                <column name="pay_channel" label="支付渠道" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.6439A7310C28.id_2" width="100" isBranch="false" dataField="AMS_PayInterface$pay_channel_label"/>  
+                <column name="name" label="名称" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.6439A7310C28.id_3" width="100" isBranch="false" dataField="AMS_PayInterface$name"/>  
+                <column name="system_member" label="系统用户" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.6439A7310C28.id_5" width="100" isBranch="false" dataField="AMS_PayInterface$system_member_label"/>  
+                <column name="system_uuid" label="系统用户ID" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.6439A7310C28.id_6" width="100" isBranch="false" dataField="AMS_PayInterface$system_uuid"/>  
+                <column name="short_name" label="简称" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.6439A7310C28.id_7" width="100" isBranch="false" dataField="AMS_PayInterface$short_name"/>  
+                <column name="remark" label="备注" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.6439A7310C28.id_4" width="100" isBranch="false" dataField="AMS_PayInterface$remark"/> 
+              </DataGrid>  
+              <editState/>  
+              <toolbar> 
+                <button label="新建" action="alink" selection="none" permission="" permissionName="" visiable="true" param="{   &quot;target&quot;: &quot;ime.AppWindow&quot;,   &quot;form&quot;: &quot;EntityForm&quot;,   &quot;openMode&quot;: {},   &quot;param&quot;: {     &quot;action&quot;: &quot;create&quot;,     &quot;entityUID&quot;: &quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.6439A7310C28&quot;,     &quot;formUID&quot;: &quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.3443B3139499&quot;,     &quot;formState&quot;: &quot;state1&quot;   } }" Button="System.Windows.Controls.Button: 新建" alink="alink://ime.AppWindow/EntityForm?{action:&quot;create&quot;,entityUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.6439A7310C28&quot;,formUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.3443B3139499&quot;,formState:&quot;state1&quot;}"/>  
+                <button label="编辑" action="alink" selection="single" permission="" permissionName="" visiable="true" param="{   &quot;target&quot;: &quot;ime.AppWindow&quot;,   &quot;form&quot;: &quot;EntityForm&quot;,   &quot;openMode&quot;: {},   &quot;param&quot;: {     &quot;action&quot;: &quot;edit&quot;,     &quot;entityUID&quot;: &quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.6439A7310C28&quot;,     &quot;formUID&quot;: &quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.3443B3139499&quot;,     &quot;formState&quot;: &quot;state0&quot;   } }" Button="System.Windows.Controls.Button: 编辑" alink="alink://ime.AppWindow/EntityForm?{action:&quot;edit&quot;,entityUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.6439A7310C28&quot;,formUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.3443B3139499&quot;,formState:&quot;state0&quot;}"/>  
+                <button label="删除" action="delete" selection="single" permission="" permissionName="" visiable="true" Button="System.Windows.Controls.Button: 删除"/>  
+                <button label="设置通道银行" action="alink" selection="single" permission="" permissionName="" visiable="true" param="{   &quot;target&quot;: &quot;ime.AppWindow&quot;,   &quot;form&quot;: &quot;EntityQuery&quot;,   &quot;openMode&quot;: {},   &quot;param&quot;: {     &quot;title&quot;: &quot;通道银行管理&quot;,     &quot;entityUID&quot;: &quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.CB465E1B5453&quot;,     &quot;queryUID&quot;: &quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.8D0A55E4ACA5&quot;   } }" Button="System.Windows.Controls.Button: 设置通道银行" alink="alink://ime.AppWindow/EntityQuery?{title:&quot;通道银行管理&quot;,entityUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.CB465E1B5453&quot;,queryUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.8D0A55E4ACA5&quot;}"/> 
+              </toolbar>  
+              <xmlQuery version="2.0" name="" label=""> 
+                <select domainScope="true"> 
+                  <other label="其他" uid="other" name="other"/>  
+                  <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.6439A7310C28" name="AMS_PayInterface" label="支付通道" alias="a0"> 
+                    <field uid="sys_0" name="id" label="编号" type="long"/>  
+                    <field uid="sys_1" name="domainId" label="域ID" type="long"/>  
+                    <field uid="id_1" name="codeNo" label="通道编号" type="string" entity="AMS_PayInterface"/>  
+                    <field uid="id_2" name="pay_channel" label="支付渠道" type="relation"/>  
+                    <field uid="id_3" name="name" label="名称" type="string"/>  
+                    <field uid="id_4" name="remark" label="备注" type="string"/>  
+                    <field uid="id_5" name="system_member" label="系统用户" type="relation"/>  
+                    <field uid="id_6" name="system_uuid" label="系统用户ID" type="string"/>  
+                    <field uid="id_7" name="short_name" label="简称" type="string"/> 
+                  </Entity> 
+                </select>  
+                <where> 
+                  <exp type="2"> 
+                    <exp type="5" valueType="3" option="false" rightType="val" right="$page.master.selectedEntity.id" leftEntity="AMS_PayInterface" leftField="pay_channel_id" uid="exp0"/> 
+                  </exp> 
+                </where>  
+                <other> 
+                  <groupBy label="Group By"/>  
+                  <orderBy label="Order By"> 
+                    <field uid="id_1" name="codeNo" label="通道编号" type="string" entity="AMS_PayInterface"/> 
+                  </orderBy> 
+                </other> 
+              </xmlQuery>  
+              <conditionForm> 
+                <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2"> 
+                  <TabNavigator> 
+                    <tab label="default"/> 
+                  </TabNavigator> 
+                </Window> 
+              </conditionForm>  
+              <StatSetting/>  
+              <queryEvent/> 
+            </EntityQuery>

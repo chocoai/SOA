@@ -1,0 +1,493 @@
+package bps.checkaccount;
+
+import ime.calendar.TrigerHandler;
+import ime.core.Environment;
+import ime.core.Reserved;
+import ime.core.services.DynamicEntityService;
+import ime.security.LoginSession;
+
+import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+import org.apache.log4j.Logger;
+
+import apf.util.EntityManagerUtil;
+import apf.util.SessionContext;
+import bps.common.Constant;
+
+import com.kinorsoft.allinpay.gateway.*;
+import com.kinorsoft.tools.FileUtil;
+
+			 
+public class ShortcutCheckTriger implements TrigerHandler {
+	
+//	private static Logger logger = Logger.getLogger(ShortcutCheckTriger.class.getName());
+//	private static SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+//	private static SimpleDateFormat trade_time_df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+//	private static Long checkAccountId = null;
+//	/*对账文件相对路径*/
+//	private static final String CHECK_FILE_PATH = "CheckAccount.allinpay.shortcut.filePath";
+//	
+//	private static Date checkDate	= null;
+//	private static Date downloadDate	= null;
+	
+	//第二天定时触发
+	public void handle() {
+//		logger.info("GatewayCheckTriger begin ");
+//		try{
+//			Calendar cal = Calendar.getInstance();
+//			//cal.set(Calendar.DAY_OF_MONTH, cal.get(Calendar.DAY_OF_MONTH)-1);
+//			//cal.add(Calendar.DAY_OF_MONTH, -1);
+//			Date dt = cal.getTime();
+//			gatewayCheckAccount(dt);
+//		}catch(Exception e){
+//			logger.error("对账失败");
+//			logger.error(e.getMessage(), e);
+//		}
+//		
+//		logger.info("GatewayCheckTriger end ");
+	}
+	
+	/** 
+	 * 快捷对账
+	 * @param date 对账日期
+	*/
+//	public static void gatewayCheckAccount(Date date) throws Exception {
+//		logger.info("gatewayCheckAccount: 	date:" + df.format(date));
+//		
+//		SessionContext ctx = null;
+//		try {
+//			LoginSession loginSession = new LoginSession();
+//			LoginSession.backUse(null, Reserved.BACKUSER_ID, Reserved.MAIN_DOMAIN_ID);
+//			
+//			ctx = EntityManagerUtil.currentContext();
+//			Session session 	= ctx.getHibernateSession();	//获取会话
+//			Transaction tx 		= session.getTransaction();
+//			Boolean isActive	= !tx.isActive();
+//			try{
+//				if(isActive)
+//					tx.begin();
+//				//创建对账记录
+//				Map<String, String> checkAccountMap = new HashMap<String, String>();
+//				checkAccountMap.put("pay_channelNo", 		Constant.PAY_CHANNEL_QUICK);
+//				
+//				Map<String, Object> map = DynamicEntityService.createEntity("AMS_CheckAccount", checkAccountMap, null);
+//				checkAccountId = (Long)map.get("id");
+//				if (isActive)
+//					tx.commit();
+//			}catch (Exception e) {
+//				if (isActive)
+//					tx.rollback();
+//				throw e;
+//			}
+//		}catch (Exception e) {
+//			throw e;
+//		}finally {
+//			EntityManagerUtil.closeSession(ctx);
+//		}
+//		
+//		checkDate = date;
+//		try{				
+//			String settday = df.format(date);
+//			String checkAccountData = null;
+//			String filepath = null;
+//			String checkFilePath = null;
+//			Environment environment = Environment.instance();
+//			try {
+//				//获取通联对账数据
+//				checkAccountData = CheckFileDownLoad.reconciled(settday);
+//				//获取对账文件路径
+//				String rootfilepath = environment.getSystemProperty(Constant.FILE_ROOT_PATH);
+//				if(rootfilepath == null)
+//					throw new Exception("未设置文件根目录");
+//				checkFilePath = environment.getSystemProperty(CHECK_FILE_PATH);
+//				if(checkFilePath == null)
+//					throw new Exception("未设置对账文件目录");
+//				filepath	= rootfilepath + checkFilePath;
+//				//判断文件路径
+//				if(!FileUtil.isExsit(filepath))
+//					FileUtil.creatIfNotExsit(filepath);
+//				//生成通联对账文件
+//				String file = filepath + File.separatorChar  + "ALLINPAY-SHORTCUT-" + settday + ".txt";
+//				FileUtil.saveToFile(checkAccountData, file, "UTF-8");
+//				downloadDate = new Date();
+//			} catch(Exception e) {
+//				try {
+//					LoginSession loginSession = new LoginSession();
+//					LoginSession.backUse(null, Reserved.BACKUSER_ID, Reserved.MAIN_DOMAIN_ID);
+//					
+//					ctx = EntityManagerUtil.currentContext();
+//					Session session 	= ctx.getHibernateSession();	//获取会话
+//					Transaction tx 		= session.getTransaction();
+//					Boolean isActive	= !tx.isActive();
+//					try{
+//						if(isActive)
+//							tx.begin();
+//						Query query = session.createQuery("update AMS_CheckAccount set download_state=:download_state where id=:id");
+//						query.setParameter("download_state", 0L);
+//						query.setParameter("id", checkAccountId);
+//						query.executeUpdate();
+//						if (isActive)
+//							tx.commit();
+//					}catch (Exception e1) {
+//						if (isActive)
+//							tx.rollback();
+//						throw e1;
+//					}
+//				}catch (Exception e1) {
+//					throw e1;
+//				}finally {
+//					EntityManagerUtil.closeSession(ctx);
+//				}
+//				throw e;
+//			}
+//			
+//			//解析对账数据
+//	        String[] contfees = checkAccountData.split("\r\n");
+//	        //封装对账数据
+//			Map<String,Map<String,String>> tlDataMap = getTlMap(contfees);
+//			
+//			//查询交易日志
+//			List<Map<String,Object>> amsList = getTradeLog(date);
+//			StringBuilder sb = new StringBuilder();
+//			sb.append("订单号|通联订单号|交易金额|交易时间|用户ID\n");
+//			
+//			for(Map<String, Object> temp : amsList){
+//				sb.append(temp.get("bizid")).append("|");		//订单号
+//				sb.append(temp.get("out_trade_id")).append("|");	//通联订单号
+//				sb.append(temp.get("trade_money")).append("|");
+//				Date trade_time = (Date)temp.get("trade_time");
+//				String strDate	= trade_time_df.format(trade_time);
+//				sb.append(strDate).append("|");
+//				sb.append((String)temp.get("target_userId"));
+//				sb.append("\n");
+//			}
+//			//生成多帐户对账文件
+//			FileUtil.saveToFile(sb.toString(), filepath + File.separatorChar + settday + ".txt", "UTF-8");
+//
+//			//数据进行对比,并生成对账文件
+//			compare(settday, tlDataMap, amsList);
+//
+//		}catch(Exception e){
+//			logger.error("生成对账文件失败");
+//			logger.error(e.getMessage(), e);
+//		}
+//		
+//	}
+//	
+//	/**
+//	 * 封装通联对账数据，以map形式返回，以交易流水号为key.
+//	 * @param contfees
+//	 * @return
+//	 */
+//	private static Map<String,Map<String,String>> getTlMap(String[] contfees){
+//		logger.info("contfees:" + contfees.toString());
+//		Map<String,Map<String,String>> bankList = new HashMap<String, Map<String, String>>();
+//		Map<String, String> row;
+//		for( int i = 1; i < contfees.length; i++ ){
+//			row = new HashMap<String, String>();
+//			String[] rows = contfees[i].split("\\|");
+//			logger.info("row:" + rows.toString());
+//			/*
+//			row.put("orderNo", rows[4]);
+//			row.put("tl_orderNo", rows[5]);
+//			row.put("trade_money", rows[6]);
+//			row.put("trade_time", rows[3]);
+//			*/
+//			row.put("orderNo", rows[3]);
+//			row.put("tl_orderNo", rows[13]);
+//			row.put("trade_money", rows[6]);
+//			row.put("trade_time", rows[4]+rows[5]);
+//			row.put("out_trade_type", rows[2]);
+//			
+//			bankList.put(rows[3], row);
+//		}
+//		return bankList;
+//	}
+//	
+//	/**
+//	 * 查询交易日志
+//	 * @param SETTDAY
+//	 * @return
+//	 * @throws Exception
+//	 */
+//	private static List<Map<String, Object>> getTradeLog(Date settDay)throws Exception{
+//		if(settDay == null)
+//			throw new Exception("请传入参数 SETTDAY");
+//		Calendar cal = Calendar.getInstance();
+//		cal.setTime(settDay);
+//		cal.set(Calendar.HOUR_OF_DAY, 0);
+//		cal.set(Calendar.MINUTE, 0);
+//		cal.set(Calendar.MINUTE, 0);
+//		cal.set(Calendar.DAY_OF_MONTH, cal.get(Calendar.DAY_OF_MONTH)-1);
+//		
+//		Date beginDt = cal.getTime();
+//		
+//		cal.set(Calendar.HOUR_OF_DAY, 23);
+//		cal.set(Calendar.MINUTE, 59);
+//		cal.set(Calendar.MINUTE, 59);
+//		Date endDt = cal.getTime();
+//
+//		SessionContext ctx = null;
+//		List<Map<String, Object>> list = null;
+//		try {
+//			
+//			ctx = EntityManagerUtil.currentContext();
+//			Session session 	= ctx.getHibernateSession();	//获取会话
+//			Query query = session.createQuery("from AMS_TradeLog where pay_channelNo=:pay_channelNo and trade_type=:trade_type and trade_time>=:beginDt and trade_time<=:endDt");
+//			query.setParameter("beginDt", beginDt);
+//			query.setParameter("endDt", endDt);
+//			query.setParameter("pay_channelNo", Constant.PAY_CHANNEL_QUICK);
+//			query.setParameter("trade_type", Constant.TRADE_TYPE_DEPOSIT);
+//			
+//			list = query.list();
+//		}catch (Exception e) {
+//			throw e;
+//		} finally {
+//			EntityManagerUtil.closeSession(ctx);
+//		}
+//		return list;
+//	}
+//	
+//	/**
+//	 * 保存对账结果文件
+//	 * @param SETTDAY
+//	 * @param bankDataList
+//	 * @param amsList
+//	 * @throws Exception
+//	 */
+//	private static void compare(String settday, Map<String,Map<String,String>> bankDataMap, List<Map<String,Object>> amsList)throws Exception{
+//		List<String> amsHaveList = new ArrayList<String>();
+//		List<Map<String,Object>> amsErrorList = new ArrayList<Map<String,Object>>();
+//		amsHaveList.add("---------快捷没有的，系统有的数据---------\n");
+//		amsHaveList.add("订单号|通联订单号|交易金额|交易时间|用户ID\n");
+//		
+//		List<String> bankHaveList = new ArrayList<String>();
+//		List<Map<String,String>> bankErrorList = new ArrayList<Map<String,String>>();
+//		bankHaveList.add("---------快捷有的，系统没有的数据---------\n");
+//		bankHaveList.add("订单号|通联订单号|交易金额|交易时间\n");
+//		
+//		List<String> differList = new ArrayList<String>();
+//		List<Map<String,Object>> differErrorList = new ArrayList<Map<String,Object>>();
+//		differList.add("---------快捷和系统不同的数据---------\n");
+//		differList.add("商户订单号|通联订单号|交易金额|交易时间  && 订单号|通联订单号|交易金额|交易时间|用户ID\n");
+//		
+//		Environment environment = Environment.instance();
+//		//获取手续费
+//		String handlingFee = environment.getSystemProperty("AlipayConfig.gateway.handlingFee");
+//		if(handlingFee==null || handlingFee=="")
+//			handlingFee = "0";
+//		logger.info("handlingFee：" + handlingFee);
+//		
+//		
+//		if(amsList != null && bankDataMap!=null){
+//			for(int i=0; i<amsList.size(); i++){
+//				Map<String,Object> amsMap = amsList.get(i);
+//				String ams_order_no	 	= String.valueOf(amsMap.get("bizid"));
+//				Date trade_time			= (Date)amsMap.get("trade_time");
+//				String ams_out_trade_id	= (String)amsMap.get("out_trade_id");
+//				String ams_trade_time  	= trade_time_df.format(trade_time);
+//				//原交易金额 + 手续费
+//				Double money = (Long)amsMap.get("trade_money") / 100.0;
+//				String ams_trade_money	= money.toString();
+//				String userId			= String.valueOf(amsMap.get("target_userId"));
+//				
+//				//查询通联交易数据
+//				Map<String,String> bankMap = bankDataMap.get(ams_order_no);
+//				if(bankMap == null)
+//					continue;
+//				String orderNo 			= bankMap.get("orderNo");
+//				String tl_orderNo		= bankMap.get("tl_orderNo");
+//				String tl_trade_money	= bankMap.get("trade_money");
+//				String tl_trade_time	= bankMap.get("trade_time");
+//				logger.info("tl_trade_money:"+Double.valueOf(tl_trade_money)+"ams_trade_money:"+Double.valueOf(ams_trade_money));
+//				if((Double.valueOf(tl_trade_money)).equals(Double.valueOf(ams_trade_money)) && ams_out_trade_id.equals(tl_orderNo)){
+//					//完全匹配
+//				}else{	//生成差异化数据
+//					differList.add(orderNo + "|" + tl_orderNo + "|"+ tl_trade_money +" "+ tl_trade_time + " && " 
+//							+ ams_order_no+ "|" + ams_out_trade_id+ "|"+ ams_trade_money + "|" + ams_trade_time + "|" + userId +"\n");
+//					
+//					Map<String,Object> temp = new HashMap<String, Object>();
+//					temp.put("bizid", amsMap.get("bizid"));
+//					temp.put("e_trade_money", amsMap.get("trade_money"));
+//					temp.put("userId", amsMap.get("target_userId"));
+//					temp.put("trade_time", amsMap.get("trade_time"));
+//					temp.put("pay_interfaceNo", amsMap.get("pay_interfaceNo"));
+//					temp.put("out_trade_id", bankMap.get("tl_orderNo"));
+//					temp.put("out_trade_money", bankMap.get("trade_money"));
+//					temp.put("out_trade_type", bankMap.get("out_trade_type"));
+//					differErrorList.add(temp);
+//				}
+//				
+//				bankDataMap.remove(ams_order_no);	//删除通联集合数据
+//				amsList.remove(i);					//删除多帐户集合数据
+//				i--;								//复位
+//			}
+//			
+//		}
+//		//多帐户集合中是否存在剩余数据
+//		if( amsList != null){
+//			for(int i=0; i<amsList.size(); i++){
+//				Map<String,Object> amsMap = amsList.get(i);
+//				String ams_order_no	 	= String.valueOf(amsMap.get("bizid"));
+//				Date trade_time			= (Date)amsMap.get("trade_time");
+//				String ams_out_trade_id	= (String)amsMap.get("out_trade_id");
+//				String ams_trade_time  	= trade_time_df.format(trade_time);
+//				String ams_trade_money	= String.valueOf(amsMap.get("trade_money"));
+//				String userId			= String.valueOf(amsMap.get("target_userId"));
+//				
+//				amsHaveList.add(ams_order_no+"|"+ams_out_trade_id+ "|"+ ams_trade_money + "|" + ams_trade_time + "|" + userId +"\n");
+//				amsErrorList.add(amsMap);
+//			}
+//		}
+//		
+//		//通联数据集合中是否剩余数据
+//		if(bankDataMap != null){
+//			for(String key : bankDataMap.keySet()){
+//				Map<String,String> bankMap = bankDataMap.get(key);
+//				String orderNo 		= bankMap.get("orderNo");
+//				String tl_orderNo	= bankMap.get("tl_orderNo");
+//				String tl_trade_money	= bankMap.get("trade_money");
+//				String tl_trade_time	= bankMap.get("trade_time");
+//
+//				bankHaveList.add(orderNo+"|"+ tl_orderNo +"|"+ tl_trade_money +"|"+ tl_trade_time +"\n");
+//				bankErrorList.add(bankMap);
+//			}
+//		}
+//		
+//		String strContent = "";
+//		
+//		for( int i = 0; i < amsHaveList.size(); i++ ){
+//			strContent += amsHaveList.get(i);
+//		}
+//		for( int i = 0; i < bankHaveList.size(); i++ ){
+//			strContent += bankHaveList.get(i);
+//		}
+//		for( int i = 0; i < differList.size(); i++ ){
+//			strContent += differList.get(i);
+//		}
+//		//文件路径
+//		String rootfilepath = environment.getSystemProperty(Constant.FILE_ROOT_PATH);
+//		String checkFilePath = environment.getSystemProperty(CHECK_FILE_PATH);
+//		
+//		String filePath = rootfilepath + checkFilePath;
+//		FileUtil.saveToFile(strContent, filePath + File.separatorChar +"SHORTCUT-RESULT-" + settday + ".txt", "UTF-8");
+//		//对账结果
+//		Long checkResult = Constant.CHECK_RESULT_ERROR;
+//		if(amsHaveList.size()==2 && bankHaveList.size()==2 && differList.size()==2)
+//			checkResult = Constant.CHECK_RESULT_OK;
+//		
+//		SessionContext ctx = null;
+//		try {
+//			
+//			ctx = EntityManagerUtil.currentContext();
+//			Session session 	= ctx.getHibernateSession();	//获取会话
+//
+//			StringBuffer sb = new StringBuffer();
+//			sb.append("update AMS_CheckAccount set checkDate=:checkDate, checkResult=:checkResult, outSystemFile=:outSystemFile")
+//				.append(", checkAccountFile=:checkAccountFile, checkResultFile=:checkResultFile, download_state=:download_state")
+//				.append(", check_state=:check_state, download_time=:download_time, check_time=:check_time where id=:id");
+//			Query query = session.createQuery(sb.toString());
+//			query.setParameter("checkDate", checkDate);
+//			query.setParameter("checkResult", checkResult);
+//			query.setParameter("outSystemFile", "ALLINPAY-SHORTCUT-" + settday + ".txt:" + checkFilePath + "/" + "ALLINPAY-SHORTCUT-" + settday + ".txt");
+//			query.setParameter("checkAccountFile", settday + ".txt:" + checkFilePath + "/" + settday + ".txt");
+//			query.setParameter("checkResultFile", "SHORTCUT-RESULT-" + settday + ".txt:" + checkFilePath + "/" + "SHORTCUT-RESULT-" + settday + ".txt");
+//			query.setParameter("download_state", 1L);
+//			query.setParameter("check_state", 1L);
+//			query.setParameter("download_time", downloadDate);
+//			query.setParameter("check_time", new Date());
+//			query.setParameter("id", checkAccountId);
+//			
+//			Transaction tx 		= session.getTransaction();
+//			Boolean isActive	= !tx.isActive();
+//			
+//			LoginSession loginSession = new LoginSession();
+//			LoginSession.backUse(null, Reserved.BACKUSER_ID, Reserved.MAIN_DOMAIN_ID);
+//			try{
+//				if(isActive)
+//					tx.begin();
+//				query.executeUpdate();
+//
+//				if(checkResult.equals(Constant.CHECK_RESULT_ERROR)) {
+//					for( int i = 0; i < amsErrorList.size(); i++ ){
+//						logger.info("--------------amsErrorList----------------");
+//						Map<String, Object> amsError = amsErrorList.get(i);
+//						Map<String, String> errorTradeLogMap = new HashMap<String, String>();
+//						errorTradeLogMap.put("bizid", 				amsError.get("bizid").toString());
+//						errorTradeLogMap.put("e_trade_money", 		amsError.get("trade_money").toString());
+//						errorTradeLogMap.put("pay_interfaceNo", 	amsError.get("pay_interfaceNo").toString());
+//						errorTradeLogMap.put("pay_channelNo", 		Constant.PAY_CHANNEL_QUICK);
+//						errorTradeLogMap.put("trade_type", 			Constant.TRADE_TYPE_DEPOSIT.toString());
+//						Long trade_time = ((Date)amsError.get("trade_time")).getTime();
+//						errorTradeLogMap.put("trade_time", 			trade_time.toString());
+//						errorTradeLogMap.put("error_type", 			"1");
+//						errorTradeLogMap.put("pay_interface_name", 	"快捷支付");
+//						logger.info(errorTradeLogMap);
+//						DynamicEntityService.createEntity("AMS_ErrorTradeLog", errorTradeLogMap, null);
+//					}
+//					for( int i = 0; i < bankErrorList.size(); i++ ){
+//						logger.info("--------------bankErrorList----------------");
+//						Map<String, String> bankError = bankErrorList.get(i);
+//						Map<String, String> errorTradeLogMap = new HashMap<String, String>();
+//						errorTradeLogMap.put("bizid", 				bankError.get("orderNo"));
+//						errorTradeLogMap.put("out_trade_id", 		bankError.get("tl_orderNo"));
+//						Double money = Double.valueOf(bankError.get("trade_money")) * 100;
+//						Long money_l = money.longValue();
+//						errorTradeLogMap.put("out_trade_money", 	money_l.toString());
+//						errorTradeLogMap.put("pay_channelNo", 		Constant.PAY_CHANNEL_QUICK);
+//						errorTradeLogMap.put("trade_type", 			Constant.TRADE_TYPE_DEPOSIT.toString());
+//						errorTradeLogMap.put("trade_time", 			bankError.get("trade_time"));
+//						errorTradeLogMap.put("error_type", 			"2");
+//						errorTradeLogMap.put("out_trade_type", 		bankError.get("out_trade_type"));
+//						errorTradeLogMap.put("pay_interfaceNo", 	Constant.PAY_CHANNEL_QUICK);
+//						errorTradeLogMap.put("pay_interface_name", 	"快捷支付");
+//						logger.info(errorTradeLogMap);
+//						DynamicEntityService.createEntity("AMS_ErrorTradeLog", errorTradeLogMap, null);
+//					}
+//					for( int i = 0; i < differErrorList.size(); i++ ){
+//						logger.info("--------------differErrorList----------------");
+//						Map<String, Object> differError = differErrorList.get(i);
+//						Map<String, String> errorTradeLogMap = new HashMap<String, String>();
+//						errorTradeLogMap.put("bizid", 				differError.get("bizid").toString());
+//						errorTradeLogMap.put("e_trade_money", 		differError.get("e_trade_money").toString());
+//						errorTradeLogMap.put("pay_interfaceNo", 	differError.get("pay_interfaceNo").toString());
+//						errorTradeLogMap.put("pay_channelNo", 		Constant.PAY_CHANNEL_QUICK);
+//						errorTradeLogMap.put("trade_type", 			Constant.TRADE_TYPE_DEPOSIT.toString());
+//						Long trade_time = ((Date)differError.get("trade_time")).getTime();
+//						errorTradeLogMap.put("trade_time", 			trade_time.toString());
+//						errorTradeLogMap.put("out_trade_id", 		differError.get("out_trade_id").toString());
+//						Double money = Double.valueOf(differError.get("out_trade_money").toString()) * 100;
+//						Long money_l = money.longValue();
+//						errorTradeLogMap.put("out_trade_money", 	money_l.toString());
+//						errorTradeLogMap.put("error_type", 			"3");
+//						errorTradeLogMap.put("out_trade_type", 		differError.get("out_trade_type").toString());
+//						errorTradeLogMap.put("pay_interface_name", 	"快捷支付");
+//						logger.info(errorTradeLogMap);
+//						DynamicEntityService.createEntity("AMS_ErrorTradeLog", errorTradeLogMap, null);
+//					}
+//				}
+//				if (isActive)
+//					tx.commit();
+//			}catch (Exception e) {
+//				if (isActive)
+//					tx.rollback();
+//				throw e;
+//			}
+//		}catch (Exception e) {
+//			throw e;
+//		}finally {
+//			EntityManagerUtil.closeSession(ctx);
+//			logger.info("compare end");
+//		}
+//	}
+}

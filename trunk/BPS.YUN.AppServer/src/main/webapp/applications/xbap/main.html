@@ -1,0 +1,124 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+	<head>
+		<title></title>
+        <meta http-equiv="X-UA-Compatible" content="IE=8"/>
+        <script type='text/javascript' src='../../js/share/util.js'></script>
+        <script type='text/javascript' src='../../js/share/json.js'></script>
+        <script type='text/javascript' src='../../js/share/config.js'></script>
+	</head>
+	<style>
+		.button_black_left { position:relative; padding:0; margin:0; float:left; height:40px; background:url(images/btn_black_left.png); background-repeat:no-repeat; width:6px; }
+		.button_black_center { position:relative; padding:0; margin:0; float:left; height:40px; background:url(images/btn_black_center.png); background-repeat:repeat-x; }
+		.button_black_right { position:relative; padding:0; margin:0; float:left; height:40px; width:44px; background:url(images/btn_black_right.png); background-repeat:no-repeat; }
+
+		/* Button text styles. */
+		.button_black_text { color:#FFF; font-family:Segoe UI, Arial, Helvetica, Verdana, MS Sans Serif; font-size:16px; position:relative; top:7px; text-align:center; white-space:nowrap; padding:10px; text-decoration: none; }
+		.button_black_big_text:hover {text-decoration: none;}
+
+		a.button_wrapper {text-decoration:none; cursor:pointer;}
+		a.button_wrapper:hover {text-decoration:none;}
+	</style>
+    <script language="JavaScript" type="text/javascript">
+
+        var baseUrl = $base_url("util.js");
+
+        $import(baseUrl, "js/share/AC_OETags.js");
+        $import(baseUrl, "dwr/engine.js");
+        $import(baseUrl, "dwr/util.js");
+        $import(baseUrl, "js/share/iDesktop.js");
+        $import(baseUrl, "js/share/FlexHelper.js");
+        $import(baseUrl, "js/share/ScriptProxy.js");
+
+        function getRelativeUrl() {
+            var pathname = window.location.href;
+            var index = pathname.indexOf("/applications", 0);
+            if (index != -1) {
+                var path = pathname.substring(0, index);
+                return path;
+            }
+        }
+        
+        function getDesktopConfig() {
+            if (config) {
+                if (config.applicationTitle && config.applicationTitle.text && config.applicationTitle.text.length > 0)
+                    document.title = config.applicationTitle.text;
+                return config;
+            }
+            else
+                return {};
+        }
+        function invoke_internal(functionName, json_args) {
+            var args = JSON.decode(json_args);
+            if (args == null || !(args instanceof Array))
+                args = [];
+
+            if (functionName == "window.open") {
+                window.open(args[0]);
+                return;
+            }
+
+            var ret = null;
+            var part = functionName.split(".");
+            if (part.length == 1) {
+                var func = eval(functionName);
+                if (func == null)
+                    return null;
+                ret = func.apply(null, args)
+            }
+            else {
+                var obj = eval(part[0]);
+                if (obj != null && obj[part[1]] != null)
+                    ret = obj[part[1]].apply(obj, args);
+            }
+            return JSON.encode(ret);
+        }
+        function xbap_setruntime(runtime) {
+            FlexHelper.initWithRuntime(runtime);
+        }
+        function xbap_getcookie(name) {
+            return FlexHelper.getCookie("JSESSIONID");
+        }
+        self.moveTo(0, 0);
+        self.resizeTo(screen.availWidth, screen.availHeight);
+    </script>
+    <script type="text/javascript">
+        var appScriptHost = null;
+        function setAppScriptHost(host) {
+            appScriptHost = host;
+
+            window.setTimeout(function () {
+                appScriptHost.setMenuBar("NoMenu");
+                webui.openALink("alink://ime.AppWindow/Application?{application:'PM'}");
+            }, 1);
+        }
+        webui = {};
+
+        webui.changePage = function (menu) {
+            if (appScriptHost != null)
+                appScriptHost.changeAppPage(menu);
+        }
+        webui.openALink = function (alink) {
+            if (appScriptHost != null)
+                appScriptHost.openALink(alink);
+        }
+        function test() {
+            webui.changePage("需求管理/需求管理");
+        }
+    </script>
+	<body>
+        <input type="button" onclick="test()" />
+	    <iframe src="../../svr/xbap/QWebDesktop.xbap" width="800" height="500">
+        </iframe>
+		<div class="button_black">
+			<a class="button_wrapper" href="../../downloads/dotnetfx40/dotNetFx40_Full_x86_x64.exe" depclickevents="WEDCSClick[ea_name|Install.Net Framework 4.5|ea_offer|prd|ea_action|dwn|cpgnguid|Install .NET]">
+				<div class="button_black_left"></div>
+                <div class="button_black_center">
+					<span class="button_black_text">安装 <span translate="no">.NET Framework</span> 4 </span>
+					<div style="clear:both;"></div>
+                </div>
+                <div class="button_black_right"></div>
+            </a>
+		</div>
+	</body>
+</html>

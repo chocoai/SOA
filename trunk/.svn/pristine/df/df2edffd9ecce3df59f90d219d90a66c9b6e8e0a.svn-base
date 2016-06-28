@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.0D1791EB8F4D" name="AMS_AccountChgLog" label="账户变更日志" note="" log="false" workflow="false" nodeID="715" lastId="37" dbcreated="true"> 
+  <relation/>  
+  <extension/>  
+  <property uid="sys_0" label="编号" name="id" type="long" systemProperty="true" editorPart="Entity" group="系统属性字段"/>  
+  <property uid="sys_1" label="域ID" name="domainId" type="long" systemProperty="true" editorPart="Entity" group="系统属性字段"/>  
+  <property name="account_id" label="账户ID" type="long" uid="id_2" editorPart="Entity" group="业务属性字段" dbcreated="true"/>  
+  <property name="sub_account_id" label="子账户ID" type="long" uid="id_3" editorPart="Entity" group="业务属性字段" dbcreated="true"/>  
+  <property name="account_type" label="账户类型" type="relation" uid="id_4" editorPart="Entity" entityUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.62156FFA93F3" labelField="name" shortcutField="name" group="业务属性字段" dbcreated="true"/>  
+  <property name="trade_type" label="交易类型" type="long" uid="id_5" editorPart="Entity" valueProvider="多账户.交易类型" group="业务属性字段" dbcreated="true"/>  
+  <property name="chg_time" label="变更时间" type="timestamp" length="100" uid="id_7" editorPart="Entity" group="业务属性字段" dbcreated="true"/>  
+  <property name="old_freeze_money" label="原有冻结金额" type="long" uid="id_9" editorPart="Entity" currency="true" group="业务属性字段" dbcreated="true"/>  
+  <property name="cur_freeze_money" label="现有冻结金额" type="long" uid="id_10" editorPart="Entity" currency="true" group="业务属性字段" dbcreated="true"/>  
+  <property name="chg_freeze_money" label="变更冻结金额" type="long" uid="id_11" editorPart="Entity" currency="true" group="业务属性字段" dbcreated="true"/>  
+  <property name="cur_money" label="现有金额" type="long" uid="id_12" editorPart="Entity" currency="true" group="业务属性字段" dbcreated="true"/>  
+  <property name="old_money" label="原始金额" type="long" uid="id_13" editorPart="Entity" currency="true" group="业务属性字段" dbcreated="true"/>  
+  <property name="chg_money" label="变更金额" type="long" uid="id_14" editorPart="Entity" currency="true" group="业务属性字段" dbcreated="true"/>  
+  <property name="old_valid_date" label="原有效期" type="timestamp" length="100" uid="id_17" editorPart="Entity" group="业务属性字段" dbcreated="true"/>  
+  <property name="cur_valid_date" label="现有效期" type="timestamp" length="100" uid="id_18" editorPart="Entity" group="业务属性字段" dbcreated="true"/>  
+  <property name="userId" label="用户ID" type="string" length="100" uid="id_19" editorPart="Entity" group="业务属性字段" dbcreated="true"/>  
+  <property name="bizid" label="业务编号" type="string" length="100" uid="id_20" editorPart="Entity" group="业务属性字段" dbcreated="true"/>  
+  <property name="remark" label="备注" type="string" length="100" uid="id_21" editorPart="Entity" group="业务属性字段" dbcreated="true"/>  
+  <property name="trade_id" label="交易流水号" type="string" length="100" uid="id_24" editorPart="Entity" group="业务属性字段" dbcreated="true"/>  
+  <property name="out_trade_id" label="外部交易流水" type="string" length="100" uid="id_25" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="isMaster" label="是否主交易" type="boolean" length="100" uid="id_27" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="pay_mode" label="支付方式" type="string" length="100" uid="id_28" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="pay_channelNo" label="支付渠道" type="string" length="100" uid="id_30" editorPart="Entity" group="业务属性字段" dbcreated="true"/>  
+  <property name="sub_trade_type" label="交易子类型" type="long" uid="id_32" group="业务属性字段" valueProvider="多账户.交易子类型" editorPart="Entity" dbcreated="true"/>  
+  <property name="extend_info" label="扩展信息" type="string" length="1024" uid="id_33" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="pay_interfaceNo" label="支付通道编号" type="string" length="100" uid="id_34" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="bank_code" label="银行代码" type="string" length="100" uid="id_35" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="command_no" label="支付指令号" type="string" length="100" uid="id_36" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="biz_orderNo" label="商户订单号" type="string" length="100" uid="id_37" group="业务属性字段" editorPart="Entity" dbcreated="true"/> 
+</Entity>

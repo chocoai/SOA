@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "PUBLIC" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class entity-name="AMS_CallDispatchLog" table="DYNA_AMS_CallDispatchLog">
+    <id name="id" type="long">
+      <generator class="sequence">
+        <param name="sequence">IDSEQ_AMS_CallDispatchLog</param>
+      </generator>
+    </id>
+    <property name="domainId" not-null="false" type="long" index="IDX_DOMAINID"/>
+    <property name="call_dispatch_id" not-null="false" type="long" index="call_dispatch_idx"/>
+    <property name="call_dispatch_label" not-null="false" type="string" length="200"/>
+    <property name="url" not-null="false" type="string" length="2000"/>
+    <property name="state" not-null="false" type="long"/>
+    <property name="error_msg" not-null="false" type="string" length="200"/>
+    <property name="create_time" not-null="false" type="timestamp" length="100"/>
+  </class>
+</hibernate-mapping>

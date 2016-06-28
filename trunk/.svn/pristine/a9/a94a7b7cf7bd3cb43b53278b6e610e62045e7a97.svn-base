@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ReportPage label="交易手续费统计" name="交易手续费统计" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.CEC4E1036215" nodeID="1850"> 
+              <ReportControl uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.D38950607FA6"/> 
+            </ReportPage>

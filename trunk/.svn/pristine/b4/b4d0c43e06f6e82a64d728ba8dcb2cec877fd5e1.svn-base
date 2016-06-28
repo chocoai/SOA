@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityForm name="交易规则" label="交易规则" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.2F15DCE76C8B" nodeID="560">
+  <formEntity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.15DFE7996D02" />
+  <formState>
+    <state label="基础" uid="state0" basedOn="null">
+      <rule type="value" property="pay_interfaceNo" label="支付通道编号" rule="$this.payInterface.codeNo" />
+      <rule type="value" property="accountNo" label="账户编号" rule="$this.account_type.codeNo" />
+    </state>
+  </formState>
+  <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2">
+    <TabNavigator>
+      <tab label="default">
+        <Label width="82" height="25" text="交易类型:" propertyUID="id_1" x="3" y="2" style="" />
+        <ComboBox propertyUID="id_1" width="159" height="25" x="83" y="3" />
+        <Label width="82" height="25" text="交易子类型:" propertyUID="id_2" x="263" y="3" style="" />
+        <ComboBox propertyUID="id_2" width="119" height="25" x="363" y="3" />
+        <Label width="82" height="25" text="通道:" propertyUID="id_3" x="2" y="31" style="" />
+        <EntityField propertyUID="id_3" width="159" height="25" x="83" y="31" formUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.3443B3139499" queryUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.2452D4DF3338" />
+        <Label width="99" height="25" text="支付通道编号:" propertyUID="id_4" x="263" y="31" style="" />
+        <TextInput propertyUID="id_4" width="119" height="25" x="363" y="31" />
+        <CheckBox propertyUID="id_6" width="100" height="25" label="借记卡" x="2" y="87" />
+        <CheckBox propertyUID="id_7" width="100" height="25" label="信用卡" x="183" y="87" />
+        <Label width="82" height="25" text="账户类型:" propertyUID="id_5" x="3" y="59" style="" />
+        <EntityField propertyUID="id_5" width="159" height="25" x="83" y="59" formUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.08C4EDCDF8B7" queryUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.FD5FC56A4F8B" mode="dropdown" />
+        <Label width="82" height="25" text="账户编号:" propertyUID="id_9" x="263" y="59" style="" />
+        <TextInput propertyUID="id_9" width="119" height="25" x="363" y="59" />
+        <CheckBox name="account" label="账户" propertyUID="id_10" x="386" y="87" width="100" height="24" />
+      </tab>
+    </TabNavigator>
+  </Window>
+  <formEvent />
+</EntityForm>

@@ -1,0 +1,208 @@
+package bps.checkaccount;
+
+import ime.calendar.TrigerHandler;
+import ime.core.Reserved;
+import ime.security.LoginSession;
+
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.log4j.Logger;
+import org.hibernate.Query;
+import org.hibernate.Session;
+
+import bps.common.Constant;
+import bps.process.SafetyLevel;
+import apf.util.EntityManagerUtil;
+import apf.util.SessionContext;
+
+public class RiskAttentionTriger implements TrigerHandler {
+	
+//	private static Logger logger = Logger.getLogger(RiskAttentionTriger.class.getName());
+//	private static SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+    
+	//第二天定时触发
+	public void handle() {
+//		logger.info("RiskAttentionTrigerStart begin ");
+//		try{
+//			Calendar cal = Calendar.getInstance();
+//			cal.set(Calendar.DATE, cal.get(Calendar.DATE)-1);
+//			Date dt = cal.getTime();
+//			RiskAttentionTrigerStart(dt);
+//		}catch(Exception e){
+//			logger.error("风险关注失败");
+//			logger.error(e.getMessage(), e);
+//		}
+//		
+//		logger.info("RiskAttentionTrigerStart end ");
+	}
+	
+	/** 
+	 * 风险关注
+	 * @param date 风险关注日期
+	*/
+//	public static void RiskAttentionTrigerStart(Date date) throws Exception {
+//		logger.info("RiskAttentionTrigerStart: 	date:" + date);
+//		SessionContext ctx = null;
+//        try {
+//            LoginSession loginSession = new LoginSession();
+//            LoginSession.backUse(null, Reserved.BACKUSER_ID, Reserved.MAIN_DOMAIN_ID);
+//            
+//            ctx = EntityManagerUtil.currentContext();
+//            Session session     = ctx.getHibernateSession();    //获取会话
+//            try{
+//                Query query = session.createQuery("from AMS_Order where order_state=:order_state and create_time >:create_time");
+//                query.setParameter("order_state", Constant.ORDER_STATE_SUCCESS);
+//                query.setParameter("create_time", date);
+//                List list = query.list();
+//                query = session.createQuery("from AMS_ParamConfig");
+//                List parameter_list = query.list();
+//                Map<String ,Long> parameter = new HashMap<String, Long>();
+//                for(Object o : parameter_list){
+//                    Map<String ,Object> order = (Map<String ,Object>)o;
+//                    if(order.get("param_name") !=null && order.get("param_name").equals("IP_SET")){
+//                        parameter.put("IP_SET", Long.valueOf((String)order.get("param_value")));  
+//                        continue;
+//                    }
+//                    if(order.get("param_name") !=null && order.get("param_name").equals("IP_SET_MONEY")){
+//                        parameter.put("IP_SET_MONEY", Long.valueOf((String)order.get("param_value")));  
+//                        continue;
+//                    }
+//                    if(order.get("param_name") !=null && order.get("param_name").equals("PHONE_RECHARGE")){
+//                        parameter.put("PHONE_RECHARGE", Long.valueOf((String)order.get("param_value")));  
+//                        continue;
+//                    }
+//                    if(order.get("param_name") !=null && order.get("param_name").equals("PHONE_RECHARGE_MONEY")){
+//                        parameter.put("PHONE_RECHARGE_MONEY", Long.valueOf((String)order.get("param_value")));  
+//                        continue;
+//                    }
+//                    if(order.get("param_name") !=null && order.get("param_name").equals("RECHARGE")){
+//                        parameter.put("RECHARGE", Long.valueOf((String)order.get("param_value")));  
+//                        continue;
+//                    }
+//                    if(order.get("param_name") !=null && order.get("param_name").equals("RECHARGE_MONEY")){
+//                        parameter.put("RECHARGE_MONEY", Long.valueOf((String)order.get("param_value")));  
+//                        continue;
+//                    }
+//                    if(order.get("param_name") !=null && order.get("param_name").equals("SHOPPING")){
+//                        parameter.put("SHOPPING", Long.valueOf((String)order.get("param_value")));  
+//                        continue;
+//                    }
+//                    if(order.get("param_name") !=null && order.get("param_name").equals("SHOPPING_MONEY")){
+//                        parameter.put("SHOPPING_MONEY", Long.valueOf((String)order.get("param_value")));  
+//                        continue;
+//                    }
+//                    if(order.get("param_name") !=null && order.get("param_name").equals("TRANSFER")){
+//                        parameter.put("TRANSFER", Long.valueOf((String)order.get("param_value")));  
+//                        continue;
+//                    }
+//                    if(order.get("param_name") !=null && order.get("param_name").equals("TRANSFER_MONEY")){
+//                        parameter.put("TRANSFER_MONEY", Long.valueOf((String)order.get("param_value")));  
+//                        continue;
+//                    }
+//                }
+//                Map<Long,List<Map<String,Object>>> member_order = new HashMap<Long, List<Map<String,Object>>>();
+//                for(Object o :list){
+//                    Map<String ,Object> order = (Map<String ,Object>)o;
+//                    Long member_id = (Long) order.get("member_id");
+//                    if(member_order.get(member_id) == null){
+//                        List<Map<String,Object>> list_map = new ArrayList<Map<String,Object>>();
+//                        list_map.add(order);
+//                        member_order.put(member_id, list_map);
+//                    }else{
+//                        List<Map<String,Object>> list_map = member_order.get(member_id);
+//                        list_map.add(order);
+//                        member_order.put(member_id, list_map);
+//                    }
+//                }//把订单根据会员id进行包装
+//                for (Long member_id : member_order.keySet()) {
+//                    List<Map<String,Object>> list_map = member_order.get(member_id);
+//                    int transfer = 0;
+//                    int phone_recharge = 0;
+//                    int shopping = 0;
+//                    int recharge = 0;
+//                    Long transfer_money = 0l;
+//                    Long phone_recharge_money = 0l;
+//                    Long shopping_money = 0l;
+//                    Long recharge_money = 0l;
+//                    Long ip_set_money = 0l;
+//                    HashSet<String> ip_set = new HashSet<String>();
+//                    for(Map<String,Object> order_map : list_map){
+//                        String ip = order_map.get("member_ip") == null?"":(String)order_map.get("member_ip");
+//                        if(!ip.equals("")){
+//                            ip_set.add(ip);
+//                        }
+//                        ip_set_money += order_map.get("order_money") == null ?0l:(Long)order_map.get("order_money");
+//                        if(order_map.get("order_type").equals(Constant.ORDER_TYPE_TRANSFER_2ACCOUNT) || order_map.get("order_type").equals(Constant.ORDER_TYPE_TRANSFER_2BANK)){
+//                            transfer++;
+//                            transfer_money += order_map.get("order_money") == null ?0l:(Long)order_map.get("order_money");
+//                        }else if(order_map.get("order_type").equals(Constant.ORDER_TYPE_PHONE)){
+//                            phone_recharge++;
+//                            phone_recharge_money += order_map.get("order_money") == null ?0l:(Long)order_map.get("order_money");
+//                        }else if(order_map.get("order_type").equals(Constant.ORDER_TYPE_SHOPPING)){
+//                            shopping++;
+//                            shopping_money += order_map.get("order_money") == null ?0l:(Long)order_map.get("order_money");
+//                        }else if(order_map.get("order_type").equals(Constant.ORDER_TYPE_DEPOSIT)){
+//                            recharge++;
+//                            recharge_money += order_map.get("order_money") == null ?0l:(Long)order_map.get("order_money");
+//                        }
+//                    }
+//                    if(parameter.get("TRANSFER") !=null && transfer > parameter.get("TRANSFER") && parameter.get("TRANSFER_MONEY") !=null && transfer_money > parameter.get("TRANSFER_MONEY")){//当日转账业务次数和金额均超过风险线
+//                        SafetyLevel.addRiskAttentionLog(member_id,Constant.RISKRLUE_1, session);
+//                    }
+//                    if(parameter.get("PHONE_RECHARGE") !=null && phone_recharge > parameter.get("PHONE_RECHARGE") && parameter.get("PHONE_RECHARGE_MONEY") !=null && phone_recharge_money > parameter.get("PHONE_RECHARGE_MONEY")){
+//                    	SafetyLevel.addRiskAttentionLog(member_id,Constant.RISKRLUE_2, session);
+//                    }
+//                    if(parameter.get("SHOPPING") !=null && shopping > parameter.get("SHOPPING") && parameter.get("SHOPPING_MONEY") !=null && shopping_money > parameter.get("SHOPPING_MONEY")){
+//                    	SafetyLevel.addRiskAttentionLog(member_id,Constant.RISKRLUE_3, session);
+//                    }
+//                    if(parameter.get("RECHARGE") !=null && recharge > parameter.get("RECHARGE") && parameter.get("RECHARGE_MONEY") !=null && recharge_money > parameter.get("RECHARGE_MONEY")){
+//                    	SafetyLevel.addRiskAttentionLog(member_id,Constant.RISKRLUE_4, session);
+//                    }
+//                    if(parameter.get("IP_SET") !=null && ip_set.size() > parameter.get("IP_SET") && parameter.get("RECHARGE_MONEY") !=null && ip_set_money > parameter.get("RECHARGE_MONEY")){
+//                    	SafetyLevel.addRiskAttentionLog(member_id,Constant.RISKRLUE_5, session);
+//                    }
+//                }
+//                Calendar cal = Calendar.getInstance();
+//                cal.set(Calendar.DATE, cal.get(Calendar.DATE)-1);
+//                Date dt = cal.getTime();
+//                Calendar cal2 = Calendar.getInstance();
+//                cal2.set(Calendar.DATE, cal2.get(Calendar.DATE)-2);
+//                Date dt2 = cal2.getTime();
+//                query = session.createQuery("select count(*),member_id from AMS_RiskAttentionLog where addDate >:addDate2 and addDate <:addDate group by member_id");
+//                query.setParameter("addDate2", dt2);
+//                query.setParameter("addDate", dt);
+//                List<Object[]> list_date = query.list();
+//                query = session.createQuery("select count(*),member_id from AMS_RiskAttentionLog where addDate >:addDate group by member_id");
+//                query.setParameter("addDate", dt);
+//                List<Object[]>  list_date2 = query.list();
+//                for(Object[] o :list_date){
+//                    Long member_id = (Long)o[1];
+//                    for(Object[] o2 :list_date2){
+//                        Long member_id2 = (Long)o2[1];
+//                        if(member_id.equals(member_id2)){
+//                            //连续两天进入风险关注日志，生成一条风险关注
+//                            SafetyLevel.addRiskAttention(member_id2, session);
+//                            break;
+//                        }
+//                    }
+//                }
+//                
+//                
+//            }catch (Exception e) {
+//                throw e;
+//            }
+//        }catch (Exception e) {
+//            throw e;
+//        }finally {
+//            EntityManagerUtil.closeSession(ctx);
+//        }
+//	}
+	
+}

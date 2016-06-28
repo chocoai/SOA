@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<QueryPage label="风险关注日志" control="Panel" layout="vertical" controlUID="root" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.3B0FA98AD5C1" name="风险关注日志" nodeID="1921"> 
+              <QueryControl label="风险关注日志" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.5608EE9B0096" width="100%" height="100%" controlUID="ctrl0" name=""/>  
+              <event label="初始化事件" type="initialize" name="initialize"/>  
+              <event label="确定事件" type="okEvent" name="okEvent"/> 
+            </QueryPage>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityQuery name="手续费冲帐审核" label="手续费冲帐审核" note="" share="false" multiselect="false" editable="false" autopaging="true" pagingMode="NormalPaging" virtualizingPagingEnabled="false" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.A12D17911FE1" nodeID="544"> 
+              <queryEntities> 
+                <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.AE56854E19FC" name="AMS_ChargeReverseEntry" label="手续费冲账" alias="a0" selectAll="true" isBranch="true" master="true"/> 
+              </queryEntities>  
+              <DataGrid> 
+                <color/>  
+                <column name="WF_StateName" label="状态名称" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.AE56854E19FC.wf_1" width="104" isBranch="false"/>  
+                <column name="WF_ProcessorPrinName" label="处理人" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.AE56854E19FC.wf_5" width="74" isBranch="false"/>  
+                <column name="prev_balance" label="上期手续费轧差余额" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.AE56854E19FC.id_1" width="127" isBranch="false"/>  
+                <column name="trade_money" label="冲账金额" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.AE56854E19FC.id_9" width="100" isBranch="false"/>  
+                <column name="balance" label="本期手续费轧差余额" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.AE56854E19FC.id_8" width="126" isBranch="false"/>  
+                <column name="operator" label="经办人" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.AE56854E19FC.id_4" width="70" isBranch="false"/>  
+                <column name="operator_date" label="经办时间" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.AE56854E19FC.id_5" width="148" isBranch="false"/>  
+                <column name="auditor" label="审核人" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.AE56854E19FC.id_6" width="71" isBranch="false"/>  
+                <column name="auditor_date" label="审核时间" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.AE56854E19FC.id_7" width="145" isBranch="false"/> 
+              </DataGrid>  
+              <editState/>  
+              <toolbar> 
+                <button label="审核" action="alink" selection="single" permission="" permissionName="" visiable="true" param="{   &quot;target&quot;: &quot;ime.AppWindow&quot;,   &quot;form&quot;: &quot;TaskForm&quot;,   &quot;param&quot;: {} }" Button="System.Windows.Controls.Button: 审核" alink="alink://ime.AppWindow/TaskForm?{}"/>  
+                <button label="按钮" action="alink" selection="single" visiable="true" Button="System.Windows.Controls.Button: 按钮" param="{   &quot;target&quot;: &quot;ime.AppWindow&quot;,   &quot;form&quot;: &quot;WorkflowActivityLog&quot;,   &quot;param&quot;: {} }" alink="alink://ime.AppWindow/WorkflowActivityLog?{}"/> 
+              </toolbar>  
+              <xmlQuery version="2.0" name="" label=""> 
+                <select domainScope="true"> 
+                  <other label="其他" uid="other" name="other"/>  
+                  <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.AE56854E19FC" name="AMS_ChargeReverseEntry" label="手续费冲账" alias="a0" selectAll="true" isBranch="true"> 
+                    <field uid="sys_0" name="id" label="编号" type="long"/>  
+                    <field uid="sys_1" name="domainId" label="域ID" type="long"/>  
+                    <field uid="id_1" name="prev_balance" label="上期手续费轧差余额" type="long"/>  
+                    <field uid="id_4" name="operator" label="经办人" type="principal"/>  
+                    <field uid="id_5" name="operator_date" label="经办时间" type="timestamp"/>  
+                    <field uid="id_6" name="auditor" label="审核人" type="principal"/>  
+                    <field uid="id_7" name="auditor_date" label="审核时间" type="timestamp"/>  
+                    <field uid="log_0" name="FM_CreatePrinId" label="创建者ID" type="long"/>  
+                    <field uid="log_1" name="FM_CreatePrinName" label="创建者" type="string"/>  
+                    <field uid="log_2" name="FM_UpdatePrinId" label="更新者ID" type="long"/>  
+                    <field uid="log_3" name="FM_UpdatePrinName" label="更新者" type="string"/>  
+                    <field uid="log_4" name="FM_CreateTime" label="创建时间" type="timestamp"/>  
+                    <field uid="log_5" name="FM_UpdateTime" label="更新时间" type="timestamp"/>  
+                    <field uid="wf_0" name="WF_State" label="状态" type="long"/>  
+                    <field uid="wf_1" name="WF_StateName" label="状态名称" type="string"/>  
+                    <field uid="wf_2" name="WF_ProcessId" label="所属流程" type="long"/>  
+                    <field uid="wf_3" name="WF_ProcessName" label="流程名称" type="string"/>  
+                    <field uid="wf_4" name="WF_ProcessorPrinId" label="处理人ID" type="long"/>  
+                    <field uid="wf_5" name="WF_ProcessorPrinName" label="处理人" type="string"/>  
+                    <field uid="wf_6" name="WF_WorkItemId" label="工作项ID" type="long"/>  
+                    <field uid="id_8" name="balance" label="本期手续费轧差余额" type="long"/>  
+                    <field uid="id_9" name="trade_money" label="冲账金额" type="long"/> 
+                  </Entity> 
+                </select>  
+                <where> 
+                  <exp type="2"/> 
+                </where>  
+                <other> 
+                  <groupBy label="Group By"/>  
+                  <orderBy label="Order By"/> 
+                </other> 
+              </xmlQuery>  
+              <conditionForm> 
+                <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2"> 
+                  <TabNavigator> 
+                    <tab label="default"/> 
+                  </TabNavigator> 
+                </Window> 
+              </conditionForm>  
+              <StatSetting/>  
+              <queryEvent/> 
+            </EntityQuery>

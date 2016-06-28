@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Report label="分公司收入统计" name="分公司收入统计" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.D38950607FA6" nodeID="874"> 
+            <dataSource> 
+              <xmlQuery version="2.0" uid="28074B4A-7216-4659-A607-B21C1175ED57" name="handle_stat" label="分公司手续费统计"> 
+                <select domainScope="true"> 
+                  <other label="其他" uid="other" name="other"> 
+                    <field name="sum(a0.trade_money)" uid="other0" fieldType="otherField" MySQLName="" SQLServerName="" OracleName="" label="交易金额" alias="trade_money" calcexp="toFixed(other.trade_money/100.0, 2)"/>  
+                    <field name="sum(a0.handling_fee)" uid="other1" fieldType="otherField" MySQLName="" SQLServerName="" OracleName="" label="手续费" alias="handling_fee" calcexp="toFixed(other.handling_fee/100, 2)"/> 
+                  </other>  
+                  <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.5A11C43DEB1B" name="AMS_Organization" label="机构" alias="a1" selectAll="false"> 
+                    <field uid="id_1" name="name" label="名称" type="string" entity="AMS_Organization"/>  
+                    <field uid="id_2" name="codeNo" label="机构号" type="string" entity="AMS_Organization"/>  
+                    <field uid="id_7" name="company" label="拓展分公司" type="relation" entity="AMS_Organization"/> 
+                  </Entity>  
+                  <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.C8355B9478BE" name="AMS_HandlingLog" label="手续费日志" alias="a0" selectAll="false"/> 
+                </select>  
+                <where> 
+                  <exp type="2"> 
+                    <exp type="5" valueType="1" option="true" leftEntity="AMS_HandlingLog" leftField="orgNo" uid="exp0" rightType="prop" rightEntity="AMS_Organization" rightField="codeNo"/>  
+                    <exp type="7" valueType="7" option="true" leftEntity="AMS_HandlingLog" leftField="trade_time" uid="exp1" rightType="param" right="beginDt"/>  
+                    <exp type="11" valueType="7" option="true" leftEntity="AMS_HandlingLog" leftField="trade_time" uid="exp2" rightType="param" right="endDt"/> 
+                  </exp> 
+                </where>  
+                <other> 
+                  <groupBy label="Group By"> 
+                    <field uid="id_2" name="codeNo" label="机构号" type="string" entity="AMS_Organization"/>  
+                    <field uid="id_1" name="name" label="名称" type="string" entity="AMS_Organization"/>  
+                    <field uid="id_7" name="company" label="拓展分公司" type="relation" entity="AMS_Organization"/> 
+                  </groupBy>  
+                  <orderBy label="Order By"/> 
+                </other> 
+              </xmlQuery>  
+              <other label="其他" name="other" uid="other"/> 
+            </dataSource>  
+            <events label="事件"> 
+              <event name="initialize" label="初始化事件"/>  
+              <event name="preQuery" label="查询前事件"/>  
+              <event name="postQuery" label="查询后事件"/>  
+              <event name="reportCreated" label="报表生成事件"/>  
+              <event name="printed" label="打印事件" systemEvent="true"/> 
+            </events>  
+            <Document> 
+              <table width="668" height="236" headRow="0" fixedY="false" tailRow="0" name="" x="60" y="96" uid="547306eb-e4d5-47d9-bf94-f3c5c2c6da67"> 
+                <tr> 
+                  <td width="668" height="72" rowIndex="0" colIndex="0" sameMerge="" mergeExp="" href="" viewMode="" colSpan="5" textAlign="center" fontSize="26" fontWeight="bold"><![CDATA[一账通交易手续费收入分配表-分公司]]></td> 
+                </tr>  
+                <tr> 
+                  <td width="186" height="44" rowIndex="1" colIndex="0" sameMerge="" mergeExp="" href="" viewMode=""><![CDATA[出表日期:]]></td>  
+                  <td width="89" height="44" rowIndex="1" colIndex="1" sameMerge="" mergeExp="" href="" viewMode=""><![CDATA[]]></td>  
+                  <td width="205" height="44" rowIndex="1" colIndex="2" sameMerge="" mergeExp="" href="" viewMode=""><![CDATA[]]></td>  
+                  <td width="95" height="44" rowIndex="1" colIndex="3" sameMerge="" mergeExp="" href="" viewMode=""><![CDATA[]]></td>  
+                  <td width="93" height="44" rowIndex="1" colIndex="4" sameMerge="" mergeExp="" href="" viewMode=""><![CDATA[]]></td> 
+                </tr>  
+                <tr> 
+                  <td width="186" height="41" rowIndex="2" colIndex="0" sameMerge="" mergeExp="" href="" viewMode=""><![CDATA[分公司]]></td>  
+                  <td width="89" height="41" rowIndex="2" colIndex="1" sameMerge="" mergeExp="" href="" viewMode=""><![CDATA[机构号]]></td>  
+                  <td width="205" height="41" rowIndex="2" colIndex="2" sameMerge="" mergeExp="" href="" viewMode=""><![CDATA[机构名称]]></td>  
+                  <td width="95" height="41" rowIndex="2" colIndex="3" sameMerge="" mergeExp="" href="" viewMode=""><![CDATA[交易金额]]></td>  
+                  <td width="93" height="41" rowIndex="2" colIndex="4" sameMerge="" mergeExp="" href="" viewMode=""><![CDATA[交易手续费]]></td> 
+                </tr>  
+                <tr> 
+                  <td width="186" height="41" rowIndex="3" colIndex="0" dataSource="handle_stat" labelField="AMS_Organization.company" dataField="AMS_Organization.company" fillMode="1"><![CDATA[拓展分公司]]></td>  
+                  <td width="89" height="41" rowIndex="3" colIndex="1" dataSource="handle_stat" labelField="AMS_Organization.codeNo" dataField="AMS_Organization.codeNo" fillMode="1"><![CDATA[机构号]]></td>  
+                  <td width="205" height="41" rowIndex="3" colIndex="2" dataSource="handle_stat" labelField="AMS_Organization.name" dataField="AMS_Organization.name" fillMode="1"><![CDATA[名称]]></td>  
+                  <td width="95" height="41" rowIndex="3" colIndex="3" dataSource="handle_stat" labelField="other.trade_money" dataField="other.trade_money" fillMode="1"><![CDATA[交易金额]]></td>  
+                  <td width="93" height="41" rowIndex="3" colIndex="4" dataSource="handle_stat" labelField="other.handling_fee" dataField="other.handling_fee" fillMode="1"><![CDATA[手续费]]></td> 
+                </tr>  
+                <tr> 
+                  <td width="186" height="38" rowIndex="4" colIndex="0" sameMerge="" mergeExp="" href="" viewMode=""><![CDATA[合计]]></td>  
+                  <td width="89" height="38" rowIndex="4" colIndex="1"/>  
+                  <td width="205" height="38" rowIndex="4" colIndex="2"/>  
+                  <td width="95" height="38" rowIndex="4" colIndex="3"/>  
+                  <td width="93" height="38" rowIndex="4" colIndex="4"><![CDATA[]]></td> 
+                </tr> 
+              </table> 
+            </Document>  
+            <conditionForm> 
+              <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2"> 
+                <TabNavigator> 
+                  <tab label="default"> 
+                    <Label label="Label" text="起始日期:" x="2" y="3" width="60" height="24" style=""/>  
+                    <DateField label="DateField" x="63" y="3" width="139" height="24" name="beginDt" required="true"/>  
+                    <Label label="Label" text="至" x="203" y="3" width="39" height="24" style=""/>  
+                    <DateField label="DateField" x="223" y="3" width="139" height="24" name="endDt" required="true"/> 
+                  </tab> 
+                </TabNavigator> 
+              </Window> 
+            </conditionForm> 
+          </Report>

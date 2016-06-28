@@ -1,0 +1,51 @@
+.ws_panel{
+	}
+.ws_panel .panel_top{
+		height:20;
+		border:1 solid #A3C7E2;
+		border-width:0px 0px 1px 0px;
+	}
+.ws_panel .panel_top .panel_tl{
+		vertical-align:top;
+		width:6;
+		background-image:url(tl.gif);
+		background-repeat:no-repeat; 
+	}
+.ws_panel .panel_top .panel_tc{
+		background-image:url(tc.gif);
+	}
+.ws_panel .panel_top .panel_tr{
+		vertical-align:top;
+		width:6;
+		background-image:url(tr.gif);
+		background-repeat:no-repeat; 
+	}
+
+.ws_panel .panel_bottom{
+		height:0;
+		border:1 solid #A3C7E2;
+		border-width:0px 1px 1px 1px;
+	}
+.ws_panel .panel_bottom .panel_bl{
+		vertical-align:top;
+		width:1%;
+		border:1 solid #A3C7E2;
+		border-width:0px 0px 0px 1px;
+	}
+.ws_panel .panel_bottom .panel_bc{
+		width:98%;
+		border:1 solid #A3C7E2;
+		border-width:0px 0px 1px 0px;
+	}
+.ws_panel .panel_bottom .panel_br{
+		vertical-align:top;
+		width:1%;
+		border:1 solid #A3C7E2;
+		border-width:0px 1px 0px 0px;
+	}
+
+.ws_panel .panel_client{
+		padding:1;
+		border:1 solid #A3C7E2;
+		border-width:0px 1px 0px 1px;
+	}

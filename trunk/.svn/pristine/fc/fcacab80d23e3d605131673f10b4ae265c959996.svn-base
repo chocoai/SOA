@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityQuery name="应用查询（商户）" label="应用查询（商户）" note="" share="false" multiselect="false" editable="false" autopaging="true" pagingMode="VirtualizingPaging" virtualizingPagingEnabled="true" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.EE476AA4241C" nodeID="984">
+  <queryEntities>
+    <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.5A11C43DEB1B" name="AMS_Organization" label="应用" alias="a0" master="true" />
+  </queryEntities>
+  <DataGrid>
+    <color />
+    <column name="name" label="名称" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.5A11C43DEB1B.id_1" width="100" isBranch="false" />
+    <column name="codeNo" label="应用号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.5A11C43DEB1B.id_27" width="100" isBranch="false" />
+    <column name="sysid" label="系统编号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.5A11C43DEB1B.id_8" width="100" isBranch="false" />
+    <column name="app_type" label="应用类型" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.5A11C43DEB1B.id_28" width="100" isBranch="false" />
+    <column name="remark" label="备注" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.5A11C43DEB1B.id_16" width="100" isBranch="false" />
+  </DataGrid>
+  <editState />
+  <toolbar />
+  <xmlQuery version="2.0" name="" label="">
+    <select domainScope="false">
+      <other label="其他" uid="other" name="other" />
+      <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.5A11C43DEB1B" name="AMS_Organization" label="应用" alias="a0">
+        <field uid="sys_0" name="id" label="编号" type="long" />
+        <field uid="sys_1" name="domainId" label="域ID" type="long" />
+        <field uid="id_1" name="name" label="名称" type="string" />
+        <field uid="id_3" name="member" label="对应企业会员" type="relation" />
+        <field uid="id_7" name="company" label="拓展分公司" type="relation" />
+        <field uid="id_8" name="sysid" label="系统编号" type="string" />
+        <field uid="id_9" name="public_key" label="公钥" type="string" />
+        <field uid="id_10" name="private_key" label="私钥" type="string" />
+        <field uid="id_11" name="allowed_ip" label="接入IP" type="string" />
+        <field uid="id_12" name="timerange" label="允许的时间差" type="long" />
+        <field uid="id_13" name="state" label="状态" type="long" />
+        <field uid="id_14" name="encryption" label="加密方式" type="string" />
+        <field uid="id_16" name="remark" label="备注" type="string" />
+        <field uid="id_18" name="allowedIP" label="允许IP" type="string" />
+        <field uid="id_19" name="country" label="国家" type="string" />
+        <field uid="id_20" name="locality" label="位置（市）" type="string" />
+        <field uid="id_21" name="organization" label="组织" type="string" />
+        <field uid="id_22" name="organizationUnit" label="组织单位(部门)" type="string" />
+        <field uid="id_23" name="org_state" label="省" type="string" />
+        <field uid="id_24" name="member_uuid" label="对应会员uid" type="string" />
+        <field uid="id_25" name="cert_password" label="证书密码" type="string" />
+        <field uid="id_26" name="cert" label="证书" type="attachments" />
+        <field uid="id_27" name="codeNo" label="应用号" type="string" />
+        <field uid="id_28" name="app_type" label="应用类型" type="long" />
+        <field uid="id_29" name="ipc_path" label="ICP备案许可证" type="string" />
+        <field uid="id_30" name="license_path" label="行业许可证" type="string" />
+        <field uid="id_31" name="credit_path" label="信用机构代码证" type="string" />
+        <field uid="id_32" name="web_url" label="网址" type="string" />
+      </Entity>
+    </select>
+    <where>
+      <exp type="2">
+        <exp type="5" valueType="3" option="true" rightType="val" right="$user.member_id" leftEntity="AMS_Organization" leftField="member_id" uid="exp0" />
+      </exp>
+    </where>
+    <other>
+      <groupBy label="Group By" />
+      <orderBy label="Order By" />
+    </other>
+  </xmlQuery>
+  <conditionForm>
+    <Window paddingLeft="1" paddingRight="1" paddingTop="1" paddingBottom="1">
+      <TabNavigator>
+        <tab label="default" />
+      </TabNavigator>
+    </Window>
+  </conditionForm>
+  <StatSetting />
+  <queryEvent />
+</EntityQuery>

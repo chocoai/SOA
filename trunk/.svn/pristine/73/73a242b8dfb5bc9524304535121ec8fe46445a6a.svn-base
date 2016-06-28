@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<portal>
+	<panel>
+		<title value=""/><!--标题-->
+		<name value=""/><!--标记 唯一性-->
+		<permissionId value=""/><!--权限设置-->
+		<type value="panel,grid"/><!--panel类型-->
+		<size width="" height=""/><!--大小-->
+		<isPage value=""/><!--是否分页 只有在type为grid时有效-->
+		<pageSize value=""/><!--每页数量 只有在isPage有值的情况下有效-->
+		<dataUrl value=""/><!--grid动态数据构建-->
+		<data><!--grid静态数据构建-->
+			<![CDATA[]]>
+		</data>
+		<colunms><!--列属性 只有在type为grid时有效-->
+			<colunm>
+				<title value="xxx"/><!--列名称-->
+				<name value="xxx"/><!--列属性-->
+				<alink value=""/><!--在type为alink_template,alink_field时有效-->
+				<type value="string,alink_template,alink_field,checkbox,time"/><!--列的类型-->
+				<sort value="true"/><!--是否排序-->
+			</colunm>
+		</colunms>
+		<htmlUrl value=""/><!--panel的动态页面地址-->
+		<html><!--panel的静态数据-->
+			<![CDATA[]]>
+		</html>
+	</panel>
+</portal>

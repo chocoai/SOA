@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<part>
+	<name>ime.teamwork</name>
+	<version>1.0.0</version>
+	<description>
+	<![CDATA[
+		团队工作
+	]]>
+	</description>
+	
+	<dependency>
+		<partname></partname>
+	</dependency>
+	
+	<part_handler class="ime.teamwork.event.PartHandler" />
+	
+</part>

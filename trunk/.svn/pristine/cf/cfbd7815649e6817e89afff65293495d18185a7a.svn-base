@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0" name="AMS_Member" label="会员" note="" log="true" workflow="false" nodeID="815" lastId="94" dbcreated="true"> 
+  <relation/>  
+  <extension/>  
+  <property uid="sys_0" label="编号" name="id" type="long" systemProperty="true" editorPart="Entity" group="系统属性字段"/>  
+  <property uid="sys_1" label="域ID" name="domainId" type="long" systemProperty="true" editorPart="Entity" group="系统属性字段"/>  
+  <property uid="log_0" label="创建者ID" name="FM_CreatePrinId" type="long" systemProperty="true" editorPart="Entity" group="系统属性字段"/>  
+  <property uid="log_1" label="创建者" name="FM_CreatePrinName" type="string" length="100" systemProperty="true" editorPart="Entity" group="系统属性字段"/>  
+  <property uid="log_2" label="更新者ID" name="FM_UpdatePrinId" type="long" systemProperty="true" editorPart="Entity" group="系统属性字段"/>  
+  <property uid="log_3" label="更新者" name="FM_UpdatePrinName" type="string" length="100" systemProperty="true" editorPart="Entity" group="系统属性字段"/>  
+  <property uid="log_4" label="创建时间" name="FM_CreateTime" type="timestamp" systemProperty="true" editorPart="Entity" group="系统属性字段"/>  
+  <property uid="log_5" label="更新时间" name="FM_UpdateTime" type="timestamp" systemProperty="true" editorPart="Entity" group="系统属性字段"/>  
+  <property name="name" label="名称(企业名称)" type="string" length="100" uid="id_1" editorPart="Entity" group="业务属性字段" dbcreated="true"/>  
+  <property name="phone" label="手机号码" type="string" length="100" uid="id_4" editorPart="Entity" group="业务属性字段" dbcreated="true"/>  
+  <property name="address" label="地址" type="string" length="500" uid="id_6" editorPart="Entity" group="业务属性字段" dbcreated="true"/>  
+  <property name="user_state" label="会员状态" type="long" uid="id_7" editorPart="Entity" valueProvider="多账户.会员状态" group="业务属性字段" dbcreated="true"/>  
+  <property name="member_type" label="会员类型" type="long" uid="id_23" valueProvider="多账户.会员类型" editorPart="Entity" group="业务属性字段" dbcreated="true"/>  
+  <property name="userId" label="会员uuid" type="string" length="100" uid="id_24" editorPart="Entity" group="业务属性字段" dbcreated="true"/>  
+  <property name="login_password" label="登录密码" type="string" length="256" uid="id_26" editorPart="Entity" group="业务属性字段" dbcreated="true"/>  
+  <property name="pay_password" label="支付密码" type="string" length="256" uid="id_27" editorPart="Entity" group="业务属性字段" dbcreated="true"/>  
+  <property name="email" label="邮箱" type="string" length="100" uid="id_28" editorPart="Entity" group="业务属性字段" dbcreated="true"/>  
+  <property name="country" label="国家" type="string" length="100" uid="id_29" editorPart="Entity" group="业务属性字段" dbcreated="true"/>  
+  <property name="province" label="省" type="string" length="100" uid="id_30" editorPart="Entity" group="业务属性字段" dbcreated="true"/>  
+  <property name="area" label="地区" type="string" length="100" uid="id_31" editorPart="Entity" group="业务属性字段" dbcreated="true"/>  
+  <property name="identity_cardNo" label="身份证号码" type="string" length="100" uid="id_32" editorPart="Entity" group="业务属性字段" dbcreated="true"/>  
+  <property name="user_name" label="昵称" type="string" length="100" uid="id_34" editorPart="Entity" group="业务属性字段" dbcreated="true"/>  
+  <property name="last_login_time" label="最近一次登录时间" type="timestamp" length="100" uid="id_36" editorPart="Entity" group="业务属性字段" dbcreated="true"/>  
+  <property name="isPhone_checked" label="手机号码是否验证" type="boolean" length="100" uid="id_37" editorPart="Entity" group="业务属性字段" dbcreated="true"/>  
+  <property name="isEmail_checked" label="邮箱是否验证" type="boolean" length="100" uid="id_38" editorPart="Entity" group="业务属性字段" dbcreated="true"/>  
+  <property name="register_time" label="注册时间" type="timestamp" length="100" uid="id_40" editorPart="Entity" group="业务属性字段" dbcreated="true"/>  
+  <property name="login_fail_amount" label="登录失败次数" type="long" uid="id_41" editorPart="Entity" group="业务属性字段" dbcreated="true"/>  
+  <property name="pay_fail_amount" label="支付失败次数" type="long" uid="id_42" editorPart="Entity" group="业务属性字段" dbcreated="true"/>  
+  <property name="last_login_fail_time" label="最后一次登录失败时间" type="timestamp" length="100" uid="id_43" editorPart="Entity" group="业务属性字段" dbcreated="true"/>  
+  <property name="last_pay_fail_time" label="最后一次支付失败时间" type="timestamp" length="100" uid="id_44" editorPart="Entity" group="业务属性字段" dbcreated="true"/>  
+  <property name="isSecurityIssue" label="是否设置安全问题" type="boolean" length="100" uid="id_45" editorPart="Entity" group="业务属性字段" dbcreated="true"/>  
+  <property name="isSetExtendInfo" label="是否设置扩展信息" type="boolean" length="100" uid="id_47" editorPart="Entity" group="业务属性字段" dbcreated="true"/>  
+  <property name="memberNo" label="客户号" type="string" length="100" uid="id_53" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="isIdentity_checked" label="是否实名认证" type="boolean" length="100" uid="id_58" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="identity_cardNo_encrypt" label="身份证(加密)" type="string" length="200" uid="id_61" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="identity_cardNo_md5" label="身份证(md5加密)" type="string" length="100" uid="id_62" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="register_ip" label="注册ip" type="string" length="100" uid="id_63" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="login_time" label="本次登录时间" type="timestamp" length="100" uid="id_66" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="remark" label="备注" type="string" length="1000" uid="id_68" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="real_name_time" label="实名时间" type="timestamp" length="100" uid="id_69" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="isRiskUser" label="是否加入黑名单" type="boolean" length="100" uid="id_70" editorPart="Entity" group="业务属性字段" dbcreated="true"/>  
+  <property name="source" label="来源" type="long" uid="id_74" group="业务属性字段" valueProvider="多账户.注册来源" editorPart="Entity" dbcreated="true"/>  
+  <property name="application" label="应用" type="relation" uid="id_81" group="业务属性字段" entityUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.5A11C43DEB1B" editorPart="Entity" dbcreated="true" labelField="name"/>  
+  <property name="isSMS_login_notice" label="是否开启登录手机通知" type="boolean" length="100" uid="id_85" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="isEmail_login_notice" label="是否开启登录邮箱通知" type="boolean" length="100" uid="id_86" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="belong_applicationNo" label="所属应用编号" type="string" length="100" uid="id_87" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="isDeveloper" label="是否是开发者" type="boolean" length="100" uid="id_88" group="业务属性字段" dbcreated="true" editorPart="Entity"/>  
+  <property name="biz_user_id" label="业务系统名称" type="string" length="100" uid="id_89" group="业务属性字段" dbcreated="true" editorPart="Entity"/>  
+  <property name="is_higher_card" label="是否已强实名认证" type="boolean" length="100" uid="id_94" group="业务属性字段" editorPart="Entity" dbcreated="true"/> 
+</Entity>

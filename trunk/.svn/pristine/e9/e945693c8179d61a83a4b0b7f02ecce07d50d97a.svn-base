@@ -1,0 +1,90 @@
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Desktop</title>
+<script type='text/javascript' src='../../js/share/util.js'></script>
+<script type='text/javascript' src='../../js/share/json.js'></script>
+<script type='text/javascript' src='../../js/share/config.js'></script>
+<script type='text/javascript' src='../../js/share/Exporter.js'></script>
+<script type='text/javascript' src='../../js/share/jquery.js'></script>
+
+<style type="text/css">
+body { 
+	margin  : 0px; 
+	overflow: hidden;
+	font    : Icon;
+}
+.trMenuBar{
+	border : 1 solid black;
+	height : 24px;
+}
+#menuBar{
+	padding: 1px 24px 1px 24px;
+	border : 1 solid black;
+	z-index:100;
+}
+#Desktop{
+	z-index:1;
+}
+</style>
+<script language="JavaScript" type="text/javascript">
+
+var baseUrl = $base_url("util.js");
+
+$import(baseUrl, "js/share/json.js");
+$import(baseUrl, "dwr/engine.js");
+$import(baseUrl, "dwr/util.js");
+$import(baseUrl, "js/office.js");
+$import(baseUrl, "js/share/iDesktop.js");
+$import(baseUrl, "js/share/FlexHelper.js");
+$import(baseUrl, "js/share/ScriptProxy.js");
+
+function getDesktopConfig(){
+	if( config ){
+		if( config.applicationTitle && config.applicationTitle.text && config.applicationTitle.text.length > 0 )
+			document.title = config.applicationTitle.text;
+		return config;
+	}
+	else
+		return {};
+}
+function set_cookie(cookie)
+{
+	document.cookie = cookie;
+}
+function invoke_internal(functionName, json_args)
+{
+	var args = JSON.decode(json_args);
+	if( args == null || !(args instanceof Array) )
+		args = [];
+
+	if( functionName == "window.open" ){
+		window.open(args[0]);
+		return;
+	}
+
+	var ret = null;
+	var part = functionName.split(".");
+	if( part.length == 1 ){
+		var func = eval(functionName);
+		if( func == null )
+			return null;
+		ret = func.apply(null, args)
+	}
+	else {
+		var obj = eval(part[0]);
+		if( obj != null && obj[part[1]] != null )
+			ret = obj[part[1]].apply(obj, args);
+	}
+	return JSON.encode(ret);
+}
+
+</script>
+</head>
+
+<body scroll="no" style="border-style:none" >
+</body>
+<script type="text/javascript">
+	FlexHelper.initWithRuntime(external);
+</script>
+</html>

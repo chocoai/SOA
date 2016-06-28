@@ -1,0 +1,80 @@
+package bps.external.application.increment.other;
+
+import java.util.Map;
+
+import org.apache.commons.lang.StringUtils;
+import org.apache.log4j.Logger;
+
+import bps.common.BizException;
+import bps.external.application.increment.mail.SendMail;
+import bps.external.application.service.increment.OtherService;
+
+public class OtherServiceImpl implements OtherService{
+	 private static Logger logger = Logger.getLogger(OtherServiceImpl.class.getName());
+		
+	/**
+	 * 发送邮件
+	 * @param to_user 目标用户
+	 * @param subject 主题
+	 * @param content 正文
+	 * @throws BizException
+	 */
+	public void sendEmail(String to_user, String subject, String content)throws BizException{
+		if(to_user==null)
+			throw new BizException("99999", "to_user不能为空");
+		if(subject==null)
+			throw new BizException("99999", "subject不能为空");
+		if(content==null)
+			throw new BizException("99999", "content不能为空");
+		
+		SendMail sendEmail = new SendMail(to_user, subject, content);
+		try {
+			sendEmail.start();
+		} catch (Exception e) {
+			logger.error(e.getMessage(), e);
+			throw new BizException("99999", e.getMessage());
+		}
+	}
+	
+	
+	/**
+	 * 获取IP信息
+	 * @param ip
+	 * @throws BizException
+	 */
+	public Map<String, Object> getIpInfo(String ip)throws BizException{
+		if(StringUtils.isBlank(ip)){
+			throw new BizException("99999", "参数ip不能为null或“”");
+		}
+		
+		try{
+			return GetIpInfo.get(ip).getMap();
+		}
+		catch(Exception e){
+			logger.error(e.getMessage(), e);
+			throw new BizException("99999", e.getMessage());
+		}
+	}
+	
+	/**
+	 * 发送短信
+	 * @param mobiles
+	 * @param content
+	 * @throws BizException
+	 */
+	public void sendSM(String mobiles, String content)throws BizException{
+		if(mobiles==null){
+			throw new BizException("99999","mobiles不能为空！");
+		}if(content==null){
+			throw new BizException("99999","content不能为空！");
+		}
+		SendSM sendSM =new SendSM(mobiles, content);
+		try {
+			sendSM.start();
+		} catch (Exception e) {
+			logger.info(e.getMessage());
+			throw new BizException("99999",e.getMessage());
+		}
+	}
+
+}

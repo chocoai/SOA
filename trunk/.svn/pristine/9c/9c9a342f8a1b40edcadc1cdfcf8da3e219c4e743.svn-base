@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot>
+	<server>
+		<address>localhost</address>
+		<port>5222</port>
+		<username>messenger#ime.com</username>
+		<password>messenger</password>
+		<intergrate>false</intergrate>
+	</server>
+	<info>
+		<name>在线助理</name>
+		<inviteMessage>您好，我是在线助理</inviteMessage>
+	</info>
+	<!-- 
+	<im_entry name="msn">
+		<username>ko.alert@gmail.com</username>
+		<password>psihcqqqqtmod</password>
+		<maxlen>380</maxlen>
+	</im_entry>
+	<im_entry name="qq">
+		<username>609355052</username>
+		<password>psihcqqqqtmod</password>
+		<maxlen>380</maxlen>
+	</im_entry>
+	 -->
+	<session initScenario="todayList" timeout="300">
+		<ask pattern="?|help" default="true">
+			<reply><![CDATA[在线助理帮助菜单：
+ 1. 我的任务 [task]
+ 2. 今日安排 [cal]
+»[输入序号或名称进入栏目]]]>
+			</reply>
+			<scenario pattern="1" reference="task">
+			</scenario>
+			<scenario pattern="2" reference="cal">
+			</scenario>
+		</ask>
+		<!-- 工作流任务场景 -->
+		<scenario pattern="task" name="task" class="ime.message.robot.scenario.TaskScenario">
+		</scenario>
+		<!-- 今天日程安排场景 -->
+		<scenario pattern="cal" name="cal" class="ime.calendar.robot.CalendarScenario">
+		</scenario>
+		<scenario pattern="today" name="todayList" class="ime.message.robot.scenario.TodayListScenario">
+		</scenario>
+		<!-- 
+		查询输出场景
+		<scenario name="sells" class="ime.message.robot.QueryScenario">
+			<property name="uid">查询UID</property>
+			<property name="showHead">是否显示表头</property>
+			<property name="fields">显示的字段名称，如"name,amount"</property>
+		</scenario>
+		-->
+	</session>
+</robot>

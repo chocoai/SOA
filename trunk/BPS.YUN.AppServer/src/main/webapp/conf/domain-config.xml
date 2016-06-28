@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<general label="常规" form="true">
+		<application_host label="服务地址" help="如xxx.xxx.xxx:port" >localhost:8080</application_host>
+	</general>
+	<enterprise label="企业信息">
+		<baseInfo label="基本信息" form="true" >
+			<name label="单位名称"></name>
+			<address label="单位地址"></address>
+			<phone label="电话号码"></phone>
+			<fax label="传真"></fax>
+		</baseInfo>
+		<invoiceInfo label="开票信息" form="true">
+			<usdBank label="美元开户银行"></usdBank>
+			<usdAccount label="美元帐号"></usdAccount>
+			<usdEnterpriseName label="公司名称"></usdEnterpriseName>
+			<rmbBank label="人民币开户银行"></rmbBank>
+			<rmbAccount label="人民币帐号"></rmbAccount>
+			<rmbEnterpriseName label="公司名称"></rmbEnterpriseName>
+			<taxNo label="税号"></taxNo>
+			<personName label="姓名"></personName>
+		</invoiceInfo>
+	</enterprise>
+	<desktop label="桌面">
+		<title label="标题" form="true">
+			<image label="图片URL地址" control="TextInput"></image>
+			<text  label="标题名称"   control="TextInput"></text>
+			<fontFamily label="字体" control="TextInput"></fontFamily>
+			<fontSize   label="字号" control="TextInput"></fontSize>
+			<fontWeight label="字型" control="ComboBox" dataProvider="系统.字形"></fontWeight>
+			<color label="颜色" edit="text" control="ColorPicker"></color>
+		</title>
+		<applicationLink label="桌面图标" addchild="true">
+			<template>
+				<![CDATA[ 
+				<link label="" rename="true" form="true">
+					<appName label="应用程序" control="TextInput"></appName>
+					<url label="URL" control="TextInput"></url>
+					<show label="显示方式" control="ComboBox" dataProvider="系统.显示方式"></show>
+					<title label="标题" control="TextInput"></title>
+					<alink label="ALink"  ></alink>
+					<iconUrl label="图标URL" ></iconUrl>
+					<runtime label="运行环境" control="ComboBox" dataProvider="系统.运行环境"></runtime>
+					<autoRun label="自动运行" control="ComboBox" dataProvider="常规.布尔"></autoRun>
+				</link>
+				]]>
+			</template>
+		</applicationLink>
+	</desktop>
+	<mail label="邮件服务">
+		<auto_notify label="任务通知" form="true">
+			<smtp_host label="smtp服务器"></smtp_host>
+			<account label="帐号"></account>
+			<password label="密码"></password>
+		</auto_notify>
+	</mail>
+	<calendar label="日程管理">
+		<config label="参数" form="true">
+			<domainShare label="域内共享" control="ComboBox" dataProvider="常规.是否" />
+		</config>
+	</calendar>
+	<messenger label="即时消息">
+		<config label="参数" form="true">
+			<departmentGroup label="显示部门组" control="ComboBox" dataProvider="常规.是否" />
+		</config>
+		<shareGroup label="公共联系人" addchild="true">
+			<template>
+				<![CDATA[ 
+				<user label="" rename="true" form="true">
+					<name label="名称" control="TextInput"></name>
+					<jid label="即时消息帐号" control="TextInput"></jid>
+				</user>
+				]]>
+			</template>
+		</shareGroup>
+	</messenger>
+</config>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "PUBLIC" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class entity-name="AMS_LoginLog" table="DYNA_AMS_LoginLog">
+    <id name="id" type="long">
+      <generator class="native"/>
+    </id>
+    <property name="domainId" not-null="false" type="long" index="IDX_DOMAINID"/>
+    <property name="member_id" not-null="false" type="long" index="member_idx"/>
+    <property name="member_label" not-null="false" type="string" length="200"/>
+    <property name="login_date" not-null="false" type="timestamp" length="100"/>
+    <property name="login_ip" not-null="false" type="string" length="100"/>
+    <property name="login_address" not-null="false" type="string" length="1000"/>
+    <property name="source" not-null="false" type="long"/>
+    <property name="platform_type" not-null="false" type="string" length="100"/>
+    <property name="platform_name" not-null="false" type="string" length="100"/>
+  </class>
+</hibernate-mapping>

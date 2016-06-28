@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "PUBLIC" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class entity-name="AMS_GoodsComment" table="DYNA_AMS_GoodsComment">
+    <id name="id" type="long">
+      <generator class="sequence">
+        <param name="sequence">IDSEQ_AMS_GoodsComment</param>
+      </generator>
+    </id>
+    <property name="domainId" not-null="false" type="long" index="IDX_DOMAINID"/>
+    <property name="goods_uuid" not-null="false" type="string" length="100"/>
+    <property name="to_order_id" not-null="false" type="long" index="to_order_idx"/>
+    <property name="to_order_label" not-null="false" type="string" length="200"/>
+    <property name="grade" not-null="false" type="long"/>
+    <property name="create_time" not-null="false" type="timestamp" length="100"/>
+    <property name="text" not-null="false" type="string" length="100"/>
+    <property name="member_uuid_id" not-null="false" type="long" index="member_uuid_idx"/>
+    <property name="member_uuid_label" not-null="false" type="string" length="200"/>
+    <property name="goods_name" not-null="false" type="string" length="100"/>
+    <property name="goods_image" not-null="false" type="string" length="100"/>
+    <property name="pay_time" not-null="false" type="timestamp" length="100"/>
+    <property name="shop_name" not-null="false" type="string" length="100"/>
+    <property name="goods_art_no" not-null="false" type="string" length="100"/>
+    <property name="goods_spec" not-null="false" type="string" length="100"/>
+  </class>
+</hibernate-mapping>

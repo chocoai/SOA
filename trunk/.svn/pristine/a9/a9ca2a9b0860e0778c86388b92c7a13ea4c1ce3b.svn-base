@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>报表</title>
+<script type='text/javascript' src='../../js/share/util.js'></script>
+<script type='text/javascript' src='../../js/share/Exporter.js'></script>
+<style type="text/css">
+body {
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+.center {
+	width: 800px;
+	margin: 0;
+	padding: 0;
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
+	text-align: center;
+}
+</style>
+</head>
+<body>
+<OBJECT classid="clsid:1663ed61-23eb-11d2-b92f-008048fdd814" id=factory codebase="../../flash/smsx.cab#Version=6,6,440,26" width=0>
+</OBJECT>
+<div id="convert_div" style="visibility:hidden;position:absolute"></div>
+<div id="toolbar" align="center">
+  <button onclick="javascript:wordPrint();">打印</button>&nbsp;&nbsp;<span style="color:red">首次使用请先安装打印控件</span>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <button onclick="javascript:window.close();">关闭</button>
+</div>
+
+<div id="content" class="center">
+</div>
+<script type="text/javascript">
+var o = window.dialogArguments;//获取 window.showModalDialog传递过来的参数
+isIE = o.isIE;
+pageHeight = o.pageHeight;
+var doc = o.doc;
+var html = "";
+var root = doc.documentElement;
+var size = 0;
+var paddingLeft,paddingRight,paddingTop,paddingBottom;
+if (root.nodeName == 'document') {
+	width = root.getAttribute("width");
+	paddingLeft = root.getAttribute("paddingLeft"); 
+	paddingRight = root.getAttribute("paddingRight");
+	paddingTop = root.getAttribute("paddingTop"); 
+	paddingBottom = root.getAttribute("paddingBottom");
+	
+	var content = document.getElementById("content");
+	if (width) {
+		content.style.width = width + "px";
+	} else {
+		content.style.width = "800px";
+	}
+
+	var childNodes = root.childNodes;
+	for (var index = 0; index < childNodes.length; index++) {
+		var node = childNodes[index];
+		if(node.nodeName == 'page'){
+			size++;
+			var child = node.childNodes;
+			for (var i = 0; i < child.length; i++) {
+				var _node = child[i];
+				if (_node.nodeName == 'text') {
+					var str = Exporter.convertText(_node);
+					if (str)
+						html += str;
+				} else if (_node.nodeName == 'table') {
+					var str = Exporter.convertTable(_node);
+					if (str)
+						html += str;
+				}
+			}
+		}
+	}
+}
+
+var contentDiv = document.getElementById("content");
+contentDiv.innerHTML = html;
+contentDiv.style.height = pageHeight * (size == 0 ? 1 : size) + "px";
+</script>
+</body>
+</html>

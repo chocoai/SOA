@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityForm name="账户余额" label="账户余额" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.523FEBD0F9DC" nodeID="579"> 
+              <formEntity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.22C6DDE44263"/>  
+              <formState/>  
+              <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2"> 
+                <TabNavigator> 
+                  <tab label="default"> 
+                    <Label width="82" height="25" text="入金金额:" propertyUID="id_3" x="2" y="31" style=""/>  
+                    <TextInput propertyUID="id_3" width="139" height="25" x="83" y="31"/>  
+                    <Label width="82" height="25" text="出金金额:" propertyUID="id_4" x="2" y="59" style=""/>  
+                    <TextInput propertyUID="id_4" width="139" height="25" x="83" y="59"/>  
+                    <Label width="82" height="25" text="本期余额:" propertyUID="id_2" x="2" y="87" style=""/>  
+                    <TextInput propertyUID="id_2" width="139" height="25" x="83" y="87"/>  
+                    <Label width="82" height="25" text="创建时间:" propertyUID="log_4" x="2" y="115" style=""/>  
+                    <DateTimeEntry propertyUID="log_4" width="239" height="25" x="83" y="115"/>  
+                    <Label width="82" height="25" text="上期余额:" propertyUID="id_6" x="3" y="2" style=""/>  
+                    <TextInput propertyUID="id_6" width="139" height="25" x="83" y="3"/> 
+                  </tab> 
+                </TabNavigator> 
+              </Window>  
+              <formEvent/> 
+            </EntityForm>

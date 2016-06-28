@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityQuery name="系统会员(账户查询)" label="系统会员(账户查询)" note="" share="false" multiselect="false" editable="false" autopaging="true" pagingMode="VirtualizingPaging" virtualizingPagingEnabled="true" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.82BEE799077D" nodeID="534"> 
+              <queryEntities> 
+                <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.88EAE8E6D388" name="AMS_MemberAccount" label="会员账户" alias="a0" master="true"/> 
+              </queryEntities>  
+              <DataGrid> 
+                <color/>  
+                <column name="userId" label="用户ID" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.88EAE8E6D388.id_10" width="100" isBranch="false" dataField="AMS_MemberAccount$userId"/>  
+                <column name="account_type" label="账户类型" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.88EAE8E6D388.id_2" width="120" isBranch="false" editable="" sortable="" textAlign="" dataField="AMS_MemberAccount$account_type_label"/>  
+                <column name="valid_date" label="有效期限" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.88EAE8E6D388.id_3" width="130" isBranch="false" editable="" sortable="" textAlign="" dataField="AMS_MemberAccount$valid_date"/>  
+                <column name="amount" label="余额" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.88EAE8E6D388.id_4" width="100" isBranch="false" editable="" sortable="" textAlign="" dataField="AMS_MemberAccount$amount"/>  
+                <column name="freeze_amount" label="冻结金额" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.88EAE8E6D388.id_5" width="100" isBranch="false" dataField="AMS_MemberAccount$freeze_amount"/>  
+                <column name="overdraft" label="透支金额" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.88EAE8E6D388.id_6" width="100" isBranch="false" dataField="AMS_MemberAccount$overdraft"/>  
+                <column name="account_state" label="账户状态" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.88EAE8E6D388.id_9" width="100" isBranch="false" dataField="AMS_MemberAccount$account_state"/> 
+              </DataGrid>  
+              <editState/>  
+              <toolbar> 
+                <button label="子账户" action="alink" selection="single" permission="" permissionName="" defaultAction="false" visiable="true" alink="alink://ime.AppWindow/EntityQuery?{title:&quot;子账户查询&quot;,entityUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.A9741F8AC007&quot;,queryUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.36167968DFDE&quot;}"/>  
+                <button label="账户变更日志" action="alink" selection="single" permission="" permissionName="" visiable="true" alink="alink://ime.AppWindow/EntityQuery?{title:&quot;账户变更日志&quot;,entityUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.0D1791EB8F4D&quot;,queryUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.A174997A1794&quot;}"/>  
+                <button label="账户交易日志" action="alink" selection="single" permission="" permissionName="" visiable="true" alink="alink://ime.AppWindow/EntityQuery?{title:&quot;账户交易日志&quot;,entityUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.029E3085EFF8&quot;,queryUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.524C132B515C&quot;}"/>  
+                <button label="账户冻结记录" action="alink" selection="single" permission="" permissionName="" visiable="true" alink="alink://ime.AppWindow/EntityQuery?{title:&quot;账户冻结记录查询&quot;,entityUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.8AC88B058E20&quot;,queryUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.7982B9D3977C&quot;}"/>  
+                <button label="新建" action="alink" selection="none" permission="" permissionName="" visiable="true" param="{   &quot;target&quot;: &quot;ime.AppWindow&quot;,   &quot;form&quot;: &quot;EntityForm&quot;,   &quot;openMode&quot;: {},   &quot;param&quot;: {     &quot;action&quot;: &quot;create&quot;,     &quot;entityUID&quot;: &quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.88EAE8E6D388&quot;,     &quot;formUID&quot;: &quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.E77FE36F21BC&quot;,     &quot;formState&quot;: &quot;state1&quot;,     &quot;title&quot;: &quot;添加账户&quot;   } }" Button="System.Windows.Controls.Button: 新建" alink="alink://ime.AppWindow/EntityForm?{action:&quot;create&quot;,entityUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.88EAE8E6D388&quot;,formUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.E77FE36F21BC&quot;,formState:&quot;state1&quot;,title:&quot;添加账户&quot;}"/>  
+                <button label="编辑" action="alink" selection="single" permission="" permissionName="" visiable="false" param="{   &quot;target&quot;: &quot;ime.AppWindow&quot;,   &quot;form&quot;: &quot;EntityForm&quot;,   &quot;openMode&quot;: {},   &quot;param&quot;: {     &quot;action&quot;: &quot;edit&quot;,     &quot;entityUID&quot;: &quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.88EAE8E6D388&quot;,     &quot;formUID&quot;: &quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.E77FE36F21BC&quot;,     &quot;formState&quot;: &quot;state2&quot;,     &quot;title&quot;: &quot;更改账户信息&quot;   } }" Button="System.Windows.Controls.Button: 编辑" alink="alink://ime.AppWindow/EntityForm?{action:&quot;edit&quot;,entityUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.88EAE8E6D388&quot;,formUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.E77FE36F21BC&quot;,formState:&quot;state2&quot;,title:&quot;更改账户信息&quot;}"/> 
+              </toolbar>  
+              <xmlQuery version="2.0" name="" label=""> 
+                <select domainScope="true"> 
+                  <other label="其他" uid="other" name="other"/>  
+                  <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.88EAE8E6D388" name="AMS_MemberAccount" label="会员账户" alias="a0"> 
+                    <field uid="sys_0" name="id" label="编号" type="long"/>  
+                    <field uid="sys_1" name="domainId" label="域ID" type="long"/>  
+                    <field uid="id_2" name="account_type" label="账户类型" type="relation"/>  
+                    <field uid="id_3" name="valid_date" label="有效期限" type="timestamp"/>  
+                    <field uid="id_4" name="amount" label="余额" type="long" currency="true"/>  
+                    <field uid="id_5" name="freeze_amount" label="冻结金额" type="long" currency="true"/>  
+                    <field uid="id_6" name="overdraft" label="透支金额" type="long" currency="true"/>  
+                    <field uid="id_9" name="account_state" label="账户状态" type="long"/>  
+                    <field uid="id_10" name="userId" label="用户ID" type="string"/> 
+                  </Entity> 
+                </select>  
+                <where> 
+                  <exp type="2"> 
+                    <exp type="5" valueType="1" option="false" leftEntity="AMS_MemberAccount" leftField="userId" uid="exp0" rightType="val" right="$page.master.selectedEntity.userId"/> 
+                  </exp> 
+                </where>  
+                <other> 
+                  <groupBy label="Group By"/>  
+                  <orderBy label="Order By"/> 
+                </other> 
+              </xmlQuery>  
+              <conditionForm> 
+                <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2"> 
+                  <TabNavigator> 
+                    <tab label="default"/> 
+                  </TabNavigator> 
+                </Window> 
+              </conditionForm>  
+              <StatSetting/>  
+              <queryEvent/> 
+            </EntityQuery>

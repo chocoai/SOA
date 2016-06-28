@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<QueryPage label="企业会员账户查询" control="Panel" layout="vertical" controlUID="root" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.DB5C9A9ABA16" name="企业会员账户查询" nodeID="2185"> 
+              <QueryControl label="企业会员账户查询" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.3B96F74B79FC" width="100%" height="100%" controlUID="ctrl0" name=""/>  
+              <event label="初始化事件" type="initialize" name="initialize"/>  
+              <event label="确定事件" type="okEvent" name="okEvent"/> 
+            </QueryPage>

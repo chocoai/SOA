@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<part>
+	<name>ime.organization</name>
+	<version>1.0.0</version>
+	<description>
+	<![CDATA[
+		组织
+	]]>
+	</description>
+	
+	<dependency>
+		<partname></partname>
+	</dependency>
+	
+	<part_handler class="ime.organization.event.PartHandler" />
+	
+</part>

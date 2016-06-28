@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityQuery name="人工提现流程审核" label="人工提现流程审核" note="" share="false" multiselect="false" editable="false" autopaging="true" pagingMode="VirtualizingPaging" virtualizingPagingEnabled="true" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.D3EF4C85D17E" nodeID="735"> 
+              <queryEntities> 
+                <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.2BFCE1B52493" name="AMS_ArtWithdrawal" label="人工提现" alias="a0" selectAll="true" isBranch="true" master="true"/> 
+              </queryEntities>  
+              <DataGrid> 
+                <color/>  
+                <column name="member" label="会员" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.2BFCE1B52493.id_1" width="100" isBranch="false" dataField="AMS_ArtWithdrawal$member_label"/>  
+                <column name="member_uuid" label="会员userId" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.2BFCE1B52493.id_2" width="100" isBranch="false" dataField="AMS_ArtWithdrawal$member_uuid"/>  
+                <column name="total_money" label="提现金额" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.2BFCE1B52493.id_3" width="100" isBranch="false" dataField="AMS_ArtWithdrawal$total_money"/>  
+                <column name="accountNo" label="银行帐号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.2BFCE1B52493.id_4" width="100" isBranch="false" dataField="AMS_ArtWithdrawal$accountNo"/>  
+                <column name="account_name" label="开户名" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.2BFCE1B52493.id_5" width="100" isBranch="false" dataField="AMS_ArtWithdrawal$account_name"/>  
+                <column name="identity_cardNo" label="身份证号码" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.2BFCE1B52493.id_6" width="100" isBranch="false" dataField="AMS_ArtWithdrawal$identity_cardNo"/>  
+                <column name="phone" label="手机号码" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.2BFCE1B52493.id_7" width="100" isBranch="false" dataField="AMS_ArtWithdrawal$phone"/>  
+                <column name="system_member" label="系统会员" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.2BFCE1B52493.id_14" width="100" isBranch="false" dataField="AMS_ArtWithdrawal$system_member_label"/>  
+                <column name="remark" label="备注" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.2BFCE1B52493.id_13" width="100" isBranch="false" dataField="AMS_ArtWithdrawal$remark"/> 
+              </DataGrid>  
+              <editState> 
+                <rule type="enabled" property="member" label="会员" rule="false"/> 
+              </editState>  
+              <toolbar> 
+                <button label="审核" action="alink" selection="single" permission="" permissionName="" visiable="true" alink="alink://ime.AppWindow/TaskForm?{}"/>  
+                <button label="流程日志" action="alink" selection="single" visiable="true" alink="alink://ime.AppWindow/WorkflowActivityLog"/> 
+              </toolbar>  
+              <xmlQuery version="2.0" name="" label=""> 
+                <select domainScope="true"> 
+                  <other label="其他" uid="other" name="other"/>  
+                  <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.2BFCE1B52493" name="AMS_ArtWithdrawal" label="人工提现" alias="a0" selectAll="true" isBranch="true"> 
+                    <field uid="sys_0" name="id" label="编号" type="long" entity="AMS_ArtWithdrawal"/>  
+                    <field uid="sys_1" name="domainId" label="域ID" type="long"/>  
+                    <field uid="log_0" name="FM_CreatePrinId" label="创建者ID" type="long"/>  
+                    <field uid="log_1" name="FM_CreatePrinName" label="创建者" type="string"/>  
+                    <field uid="log_2" name="FM_UpdatePrinId" label="更新者ID" type="long"/>  
+                    <field uid="log_3" name="FM_UpdatePrinName" label="更新者" type="string"/>  
+                    <field uid="log_4" name="FM_CreateTime" label="创建时间" type="timestamp"/>  
+                    <field uid="log_5" name="FM_UpdateTime" label="更新时间" type="timestamp"/>  
+                    <field uid="wf_0" name="WF_State" label="状态" type="long"/>  
+                    <field uid="wf_1" name="WF_StateName" label="状态名称" type="string"/>  
+                    <field uid="wf_2" name="WF_ProcessId" label="所属流程" type="long"/>  
+                    <field uid="wf_3" name="WF_ProcessName" label="流程名称" type="string"/>  
+                    <field uid="wf_4" name="WF_ProcessorPrinId" label="处理人ID" type="long"/>  
+                    <field uid="wf_5" name="WF_ProcessorPrinName" label="处理人" type="string"/>  
+                    <field uid="wf_6" name="WF_WorkItemId" label="工作项ID" type="long"/>  
+                    <field uid="id_1" name="member" label="会员" type="relation"/>  
+                    <field uid="id_2" name="member_uuid" label="会员userId" type="string"/>  
+                    <field uid="id_3" name="total_money" label="提现金额" type="long" currency="true"/>  
+                    <field uid="id_4" name="accountNo" label="银行帐号" type="string"/>  
+                    <field uid="id_5" name="account_name" label="开户名" type="string"/>  
+                    <field uid="id_6" name="identity_cardNo" label="身份证号码" type="string"/>  
+                    <field uid="id_7" name="phone" label="手机号码" type="string"/>  
+                    <field uid="id_8" name="operator" label="经办人" type="principal"/>  
+                    <field uid="id_9" name="operator_date" label="经办时间" type="timestamp"/>  
+                    <field uid="id_10" name="auditor" label="审核人" type="principal"/>  
+                    <field uid="id_11" name="auditor_date" label="审核时间" type="timestamp"/>  
+                    <field uid="id_12" name="bank_name" label="开户行" type="string"/>  
+                    <field uid="id_13" name="remark" label="备注" type="string"/>  
+                    <field uid="id_14" name="system_member" label="系统会员" type="relation"/>  
+                    <field name="branchAccountNo" label="开户支行号" type="string" uid="id_15"/>  
+                    <field name="code" label="编码" type="coding" uid="id_16"/>  
+                    <field name="isoutReport" label="是否导出报表" type="boolean" uid="id_18"/>  
+                    <field name="reportState" label="报表状态" type="long" uid="id_19"/> 
+                  </Entity> 
+                </select>  
+                <where> 
+                  <exp type="2"> 
+                    <exp type="19" valueType="1" option="true" rightType="param" right="member" leftEntity="AMS_ArtWithdrawal" leftField="member_label" uid="exp2"/>  
+                    <exp type="5" valueType="1" option="true" rightType="param" right="phone" leftEntity="AMS_ArtWithdrawal" leftField="phone" uid="exp4"/>  
+                    <exp type="19" valueType="1" option="true" rightType="param" right="member_uuid" leftEntity="AMS_ArtWithdrawal" leftField="member_uuid" uid="exp5"/>  
+                    <exp type="1" option="true" uid="exp6"> 
+                      <exp type="5" valueType="3" option="true" rightType="val" right="$loginInfo.principalId" leftEntity="AMS_ArtWithdrawal" leftField="WF_ProcessorPrinId" uid="exp7"/>  
+                      <exp type="5" valueType="3" option="true" rightType="val" right="$loginInfo.principalId" leftEntity="AMS_ArtWithdrawal" leftField="auditor_id" uid="exp8"/> 
+                    </exp> 
+                  </exp> 
+                </where>  
+                <other> 
+                  <groupBy label="Group By"/>  
+                  <orderBy label="Order By"> 
+                    <field uid="sys_0" name="id" label="编号" type="long" entity="AMS_ArtWithdrawal" order="desc"/> 
+                  </orderBy> 
+                </other> 
+              </xmlQuery>  
+              <conditionForm> 
+                <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2"> 
+                  <TabNavigator> 
+                    <tab label="default"> 
+                      <Label label="Label" text="会员:" x="2" y="2" width="100" height="24" style=""/>  
+                      <TextInput label="TextInput" x="83" y="3" width="140" height="24" name="member"/>  
+                      <Label width="82" height="25" text="手机号码:" propertyUID="id_7" x="223" y="2" style=""/>  
+                      <TextInput name="phone" width="159" height="25" x="283" y="2"/>  
+                      <Label width="82" height="25" text="会员userId:" propertyUID="id_2" x="443" y="2" style=""/>  
+                      <TextInput name="member_uuid" width="199" height="25" x="523" y="2"/> 
+                    </tab> 
+                  </TabNavigator> 
+                </Window> 
+              </conditionForm>  
+              <StatSetting/>  
+              <queryEvent/> 
+            </EntityQuery>

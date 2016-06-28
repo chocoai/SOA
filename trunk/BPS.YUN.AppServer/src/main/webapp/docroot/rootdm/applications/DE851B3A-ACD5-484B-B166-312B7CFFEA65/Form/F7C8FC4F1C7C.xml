@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityForm name="子账户" label="子账户" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.F7C8FC4F1C7C" nodeID="525"> 
+              <formEntity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.A9741F8AC007"/>  
+              <formState> 
+                <state label="基础" uid="state0" basedOn="null"/>  
+                <state label="新建" uid="state1" basedOn="state0"/>  
+                <state label="编辑" uid="state2" basedOn="state0"/> 
+              </formState>  
+              <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2"> 
+                <TabNavigator> 
+                  <tab label="default"> 
+                    <Label width="82" height="25" text="有效期限:" propertyUID="id_1" x="3" y="31" style=""/>  
+                    <DateField propertyUID="id_1" width="159" height="25" x="63" y="31"/>  
+                    <Label width="79" height="25" text="主账户:" propertyUID="id_2" x="243" y="3" style=""/>  
+                    <EntityField propertyUID="id_2" width="159" height="25" x="303" y="3"/>  
+                    <Label width="82" height="25" text="余额:" propertyUID="id_4" x="243" y="31" style=""/>  
+                    <TextInput propertyUID="id_4" width="159" height="25" x="303" y="31"/>  
+                    <Label width="82" height="25" text="用户ID:" propertyUID="id_7" x="3" y="3" style=""/>  
+                    <TextInput propertyUID="id_7" width="159" height="25" x="63" y="3"/> 
+                  </tab> 
+                </TabNavigator> 
+              </Window>  
+              <formEvent/> 
+            </EntityForm>

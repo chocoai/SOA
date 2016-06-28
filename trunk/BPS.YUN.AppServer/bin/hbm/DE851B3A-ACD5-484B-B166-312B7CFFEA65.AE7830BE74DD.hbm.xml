@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "PUBLIC" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class entity-name="AMS_ErrorTradeLog" table="DYNA_AMS_ErrorTradeLog">
+    <id name="id" type="long">
+      <generator class="native"/>
+    </id>
+    <property name="domainId" not-null="false" type="long" index="IDX_DOMAINID"/>
+    <property name="bizid" not-null="false" type="string" length="100"/>
+    <property name="out_trade_id" not-null="false" type="string" length="100"/>
+    <property name="e_trade_money" not-null="false" type="long"/>
+    <property name="userId" not-null="false" type="string" length="100"/>
+    <property name="memberNo" not-null="false" type="string" length="100"/>
+    <property name="pay_channelNo" not-null="false" type="string" length="100"/>
+    <property name="pay_channel_name" not-null="false" type="string" length="100"/>
+    <property name="trade_time" not-null="false" type="string" length="100"/>
+    <property name="error_type" not-null="false" type="long"/>
+    <property name="remark" not-null="false" type="string" length="512"/>
+    <property name="cardNo" not-null="false" type="string" length="100"/>
+    <property name="phone" not-null="false" type="string" length="100"/>
+    <property name="name" not-null="false" type="string" length="100"/>
+    <property name="idDealwith" not-null="false" type="boolean" length="100"/>
+    <property name="out_trade_money" not-null="false" type="long"/>
+    <property name="trade_type" not-null="false" type="long"/>
+    <property name="pay_interfaceNo" not-null="false" type="string" length="100"/>
+    <property name="out_trade_type" not-null="false" type="string" length="100"/>
+    <property name="pay_interface_name" not-null="false" type="string" length="100"/>
+  </class>
+</hibernate-mapping>

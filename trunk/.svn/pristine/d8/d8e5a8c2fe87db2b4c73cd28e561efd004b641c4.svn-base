@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Entity name="Department" label="部门" note="" log="false" workflow="false" multilevel="5" uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.7F7FFBA3C973" nodeID="151" lastId="4" dbcreated="true"> 
+  <property uid="sys_0" label="编号" name="id" type="long" systemProperty="true"/>  
+  <property uid="sys_1" label="域ID" name="domainId" type="long" systemProperty="true"/>  
+  <relation/>  
+  <property uid="ml_0" label="上级节点" name="ml_parent" type="long" systemProperty="true"/>  
+  <property name="groupId" label="组ID" type="long" uid="id_1" systemProperty="true" dbcreated="true"/>  
+  <property name="roleId" label="角色ID" type="long" uid="id_2" systemProperty="true" dbcreated="true"/>  
+  <property name="name" label="名称" type="string" length="100" uid="id_3" systemProperty="true" valueEditable="true" dbcreated="true"/>  
+  <property name="note" label="备注" type="string" length="500" uid="id_4" dbcreated="true"/> 
+</Entity>

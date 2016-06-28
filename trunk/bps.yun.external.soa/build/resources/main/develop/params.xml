@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<params version="3.0.0">
+	
+	<properties>
+		<!-- 接口版本号 -->
+		<property value="version" name="1.0"/>
+		
+		<!-- 网关地址 -->
+			<!-- 支付提交地址 -->
+		<property value="http://ceshi.allinpay.com/gateway/index.do" name="AlipayConfig.gateway.pay.serverUrl"/>
+		<property value="http://10.55.3.236:6003/callback/gatewayBack.jsp" name="AlipayConfig.gateway.receiveUrl"/>
+		<property value="http://10.55.3.236:6003/callback/gatewayFront.jsp" name="AlipayConfig.gateway.pickupUrl"/>
+
+		<property value="" name="AlipayConfig.gateway.orderCurrency"/>
+		<property value="1440" name="AlipayConfig.gateway.orderExpireDatetime"/>
+		
+		<!-- 网关支付前台回调，查询订单是否成功 -->
+		<property name="gateway.front.query.order.state.count" value="15" />
+		<property name="gateway.front.query.order.state.interVal" value="1000" />
+		
+		<property name="cache.ip" value="10.55.3.237" />
+		<property name="cache.port" value="6379" />
+		<property name="debug" value="true" />
+		<!--环境-->
+		<property name="environment"		value="develop" />
+		
+		<!-- 移动认证支付接口配置 -->
+		<property name="AlipayConfig.apppay.version" value="v1.5"/>
+		
+	</properties>
+	
+	
+</params>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityForm name="职员信息" label="职员信息" uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.7F6F46B1EFBD" nodeID="168">
+  <formEntity uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.76A0ECE61239" />
+  <formState>
+    <state label="创建" uid="state0" basedOn="state1">
+      <rule type="value" property="department" label="部门" rule="$opener.page.department.selectedItem" />
+    </state>
+    <state label="基础" uid="state1" basedOn="null">
+      <rule type="updateEvent" property="isLoginEnabled" label="是否允许登入" rule="onLoginEnabledChange" />
+      <rule type="required" property="name" label="姓名" rule="true" />
+      <rule type="required" property="department" label="部门" rule="true" />
+    </state>
+    <state label="编辑" uid="state2" basedOn="state1" />
+    <state label="自我编辑" uid="state3" basedOn="state1">
+      <rule type="enabled" property="name" label="姓名" rule="false" />
+      <rule type="enabled" property="department" label="部门" rule="false" />
+      <rule type="enabled" property="operator" label="操作员" rule="false" />
+      <rule type="enabled" property="loginId" label="登入帐户" rule="false" />
+      <rule type="enabled" property="isLoginEnabled" label="是否允许登入" rule="false" />
+    </state>
+  </formState>
+  <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2">
+    <TabNavigator>
+      <tab label="default">
+        <Label width="82" height="25" text="姓名:" propertyUID="id_1" x="243" y="3" style="" />
+        <TextInput propertyUID="id_1" width="159" height="25" x="303" y="3" />
+        <Label width="82" height="25" text="登入帐户:" propertyUID="id_5" x="243" y="59" style="" />
+        <TextInput propertyUID="id_5" width="159" height="25" x="303" y="59" />
+        <Label width="82" height="25" text="所属部门:" propertyUID="id_3" x="243" y="87" style="" />
+        <EntityField propertyUID="id_3" width="159" height="25" x="303" y="87" />
+        <Label width="82" height="25" text="电子邮件:" propertyUID="id_2" x="243" y="171" style="" />
+        <TextInput propertyUID="id_2" width="159" height="25" x="303" y="171" />
+        <CheckBox name="isLoginEnabled" label="是否允许登入" x="303" y="31" width="97" height="25" />
+        <Label width="82" height="25" text="MSN帐号:" propertyUID="id_8" x="243" y="199" style="" />
+        <TextInput propertyUID="id_8" width="159" height="25" x="303" y="199" />
+        <Label width="82" height="25" text="出生日期:" propertyUID="id_7" x="243" y="143" style="" />
+        <DateField propertyUID="id_7" width="159" height="25" x="303" y="143" />
+        <Label width="82" height="25" text="QQ帐号:" propertyUID="id_9" x="3" y="199" style="" />
+        <TextInput propertyUID="id_9" width="159" height="25" x="63" y="199" />
+        <Label width="82" height="25" text="性别:" propertyUID="id_11" x="243" y="115" style="" />
+        <SingleSelectBox propertyUID="id_11" width="66" height="25" x="303" y="115" />
+        <Label width="82" height="25" text="照片:" propertyUID="id_12" x="3" y="3" style="" />
+        <ImageField propertyUID="id_12" width="159" height="195" x="63" y="3" />
+        <Label width="82" height="25" text="所属会员:" propertyUID="id_10" x="2" y="227" style="" />
+        <EntityField propertyUID="id_10" width="159" height="25" x="63" y="227" formUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.FC510773222D" queryUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.6DEE07E727C9" pageUID="" />
+      </tab>
+    </TabNavigator>
+  </Window>
+  <formEvent>
+    <event name="onLoginEnabledChange" type="customerEvent" label="onLoginEnabledChange"><![CDATA[var entity = form.getEntity();
+var enabled = entity.isLoginEnabled;
+if( enabled == true )
+  enabled = true;
+else
+  enabled = false;
+form.setFieldProperty("loginId", "enabled", enabled);
+
+]]></event>
+    <event name="initialize" type="initialize" label="初始化事件" systemEvent="true"><![CDATA[
+var entity/*:$Entity.Employee*/ = form.getEntity();
+if( form.getFormState() == "自我编辑" )
+	return;
+
+var enabled = entity.isLoginEnabled;
+if( enabled == true )
+  enabled = true;
+else
+  enabled = false;
+form.setFieldProperty("loginId", "enabled", enabled);
+]]></event>
+  </formEvent>
+</EntityForm>

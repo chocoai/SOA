@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityQuery name="应用接口配置" label="应用接口配置" note="" share="false" multiselect="false" editable="false" autopaging="false" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.AF94EDF799FF" nodeID="1108">
+  <queryEntities>
+    <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.AE541FAEF6A1" name="AMS_AppApiConifg" label="应用接口配置" alias="a0" selectAll="true" isBranch="true" master="true" />
+  </queryEntities>
+  <DataGrid>
+    <color />
+    <column name="applicaiton" label="应用" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.AE541FAEF6A1.id_1" width="100" isBranch="false" dataField="AMS_AppApiConifg$applicaiton_label" />
+    <column name="appNo" label="应用编号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.AE541FAEF6A1.id_6" width="92" isBranch="false" dataField="AMS_AppApiConifg$appNo" />
+    <column name="soaService" label="接口服务" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.AE541FAEF6A1.id_2" width="100" isBranch="false" editable="" sortable="" textAlign="" dataField="AMS_AppApiConifg$soaService_label" />
+    <column name="soaVersion" label="接口版本号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.AE541FAEF6A1.id_4" width="100" isBranch="false" dataField="AMS_AppApiConifg$soaVersion" />
+    <column name="isOpen" label="是否启用" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.AE541FAEF6A1.id_5" width="100" isBranch="false" dataField="AMS_AppApiConifg$isOpen" />
+    <column name="soaCodeNo" label="接口编号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.AE541FAEF6A1.id_8" width="100" isBranch="false" dataField="AMS_AppApiConifg$soaCodeNo" />
+    <column name="soaNameEn" label="英文名称" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.AE541FAEF6A1.id_9" width="100" isBranch="false" dataField="AMS_AppApiConifg$soaNameEn" />
+  </DataGrid>
+  <editState />
+  <toolbar>
+    <button label="选择" action="alink" selection="none" permission="" permissionName="" visiable="true" alink="alink://ime.AppWindow/EntitySelectWindow?{entityUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.AB447E617D1E&quot;,labelField:&quot;name_ch&quot;,queryUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.EE534F756B14&quot;,selectName:&quot;getsoa&quot;}" />
+    <button label="编辑" action="alink" selection="single" visiable="true" alink="alink://ime.AppWindow/EntityForm?{action:&quot;edit&quot;,entityUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.AE541FAEF6A1&quot;,formUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.587214428C8B&quot;,formState:&quot;state2&quot;}" />
+    <button label="删除" action="delete" selection="single" />
+  </toolbar>
+  <xmlQuery version="2.0" name="" label="">
+    <select domainScope="true">
+      <other label="其他" uid="other" name="other" />
+      <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.AE541FAEF6A1" name="AMS_AppApiConifg" label="应用接口配置" alias="a0" selectAll="true" isBranch="true">
+        <field uid="sys_0" name="id" label="编号" type="long" />
+        <field uid="sys_1" name="domainId" label="域ID" type="long" />
+        <field uid="id_1" name="applicaiton" label="应用" type="relation" />
+        <field uid="id_6" name="appNo" label="应用编号" type="string" />
+        <field uid="id_2" name="soaService" label="接口服务" type="relation" />
+        <field uid="id_4" name="soaVersion" label="接口版本号" type="string" />
+        <field uid="id_5" name="isOpen" label="是否启用" type="boolean" />
+        <field uid="id_8" name="soaCodeNo" label="接口编号" type="string" />
+        <field uid="id_9" name="soaNameEn" label="英文名称" type="string" />
+      </Entity>
+    </select>
+    <where>
+      <exp type="2">
+        <exp type="19" valueType="1" option="true" leftEntity="AMS_AppApiConifg" leftField="soaService_label" uid="exp1" rightType="param" right="servicename" />
+      </exp>
+    </where>
+    <other>
+      <groupBy label="Group By" />
+      <orderBy label="Order By" />
+    </other>
+  </xmlQuery>
+  <conditionForm>
+    <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2">
+      <TabNavigator>
+        <tab label="default">
+          <Label label="Label" text="接口中文名称:" x="2" y="2" width="100" height="24" style="" />
+          <TextInput label="TextInput" x="103" y="2" width="159" height="24" name="servicename" />
+        </tab>
+      </TabNavigator>
+    </Window>
+  </conditionForm>
+  <StatSetting />
+  <queryEvent>
+    <event name="entitySelect" type="entitySelect" label="实体选择事件" systemEvent="true"><![CDATA[var entity, emp, pro;
+var detailMap = {};
+var applicaiton = query.getExpressionValue("$opener.page.master.selectedEntity");
+
+if(applicaiton!=null){
+	var applicaiton_id = applicaiton.id;
+	var applicaiton_label = applicaiton.name;
+	var appNo = applicaiton.codeNo;
+	// 得到当前窗口的全部(仓单明细)实体对象
+	var details/*:$Entity.AMS_SOAService*/ = query.getAllEntities("AMS_AppApiConifg");    
+	for( i = 0; i < details.length; i++ ){
+		detailMap[details[i].soaService_id] = details[i];
+	}
+	for( i = 0; i < selectedRecords.length; i++ ){ //selectedRecords是实体选择页面选中的内容。
+		emp/*:$Entity.SJ_Resources*/ = selectedRecords[i].AMS_SOAService;   //得到一条记录
+		//pro = selectedRecords[i].DRP_Product;
+	    //判断产品是否已添加
+		var exsit = 0;
+		for( j=0; j<details.length; j++){
+			if(emp.id==details[j].soaService_id){
+				exsit = 1;
+				break;
+			}
+		}
+		if(exsit == 1)
+			continue; 
+		var record = {};
+		entity/*:$Entity.AMS_AppApiConifg*/ = {};      //声明一个实体
+		entity.applicaiton_id = applicaiton_id;
+		entity.applicaiton_label = applicaiton_label;
+		entity.appNo = appNo;
+		entity.soaService_id    = emp.id;                 //关联对像ID。   字段是自动内设
+		entity.soaService_label = emp.name_ch;              //关联对像的内容  字段是自动内设
+		//entity.soaNameCh = emp.name_ch;
+		entity.soaVersion = emp.p_version;
+		
+		entity.soaNameEn = emp.name_en;
+		entity.soaCodeNo = emp.codeNo;
+		entity.isOpen = 1;
+		record.AMS_AppApiConifg = entity;
+		query.insertRecord(record); 	
+	}
+}
+
+
+
+]]></event>
+  </queryEvent>
+</EntityQuery>

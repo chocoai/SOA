@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Entity name="MSGMessage" label="消息" note="" log="false" workflow="false" lastId="10" uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.079120EBBFDD" nodeID="183" dbcreated="true"> 
+  <property uid="sys_0" label="编号" name="id" type="long" systemProperty="true" note="" currency="" valueProvider="" toolTip=""/>  
+  <property uid="sys_1" label="域ID" name="domainId" type="long" systemProperty="true"/>  
+  <relation/>  
+  <extension/>  
+  <property name="msg_head" label="消息头" type="string" length="100" uid="id_1" note="" valueProvider="" toolTip="" dbcreated="true"/>  
+  <property name="msg_body" label="消息内容" type="string" length="2000" uid="id_2" note="" valueProvider="" toolTip="" dbcreated="true"/>  
+  <property name="msg_kind" label="消息种类" type="long" uid="id_3" note="" valueProvider="消息管理.消息种类" toolTip="" currency="" dbcreated="true"/>  
+  <property name="user_sender" label="发送者" type="principal" uid="id_4" note="" toolTip="" dbcreated="true"/>  
+  <property name="user_receiver" label="接收者" type="principal" uid="id_5" note="" toolTip="" dbcreated="true"/>  
+  <property name="sys_sender" label="系统发送者" type="string" length="100" uid="id_6" note="" valueProvider="消息管理.消息系统" toolTip="" dbcreated="true"/>  
+  <property name="send_time" label="发送时间" type="timestamp" length="100" uid="id_8" note="" toolTip="" dbcreated="true"/>  
+  <property name="msg_status" label="消息状态" type="long" uid="id_9" note="" valueProvider="消息管理.消息状态" toolTip="" currency="" dbcreated="true"/>  
+  <property name="msg_type" label="消息类型" type="long" uid="id_10" note="" valueProvider="消息管理.消息类型" toolTip="" currency="" dbcreated="true"/> 
+</Entity>

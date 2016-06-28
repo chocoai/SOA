@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "PUBLIC" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class entity-name="AMS_OrgTradePermission" table="DYNA_AMS_OrgTradePermission">
+    <id name="id" type="long">
+      <generator class="sequence">
+        <param name="sequence">IDSEQ_AMS_OrgTradePermission</param>
+      </generator>
+    </id>
+    <property name="domainId" not-null="false" type="long" index="IDX_DOMAINID"/>
+    <property name="org_id" not-null="false" type="long" index="org_idx"/>
+    <property name="org_label" not-null="false" type="string" length="200"/>
+    <property name="trade_type" not-null="false" type="long"/>
+    <property name="sub_trade_type" not-null="false" type="long"/>
+    <property name="orgNo" not-null="false" type="string" length="100"/>
+  </class>
+</hibernate-mapping>

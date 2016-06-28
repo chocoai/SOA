@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityForm name="卡bin" label="卡bin" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.2DF7EE48498B" nodeID="446"> 
+              <formEntity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.337344C5EE49"/>  
+              <formState/>  
+              <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2"> 
+                <TabNavigator> 
+                  <tab label="default"> 
+                    <Label width="82" height="25" text="卡bin:" propertyUID="id_1" x="3" y="2" style=""/>  
+                    <TextInput propertyUID="id_1" width="159" height="25" x="83" y="3"/>  
+                    <Label width="82" height="25" text="卡种:" propertyUID="id_2" x="263" y="3" style=""/>  
+                    <ComboBox propertyUID="id_2" width="159" height="25" x="323" y="3"/>  
+                    <Label width="82" height="25" text="发卡行代码:" propertyUID="id_3" x="2" y="31" style=""/>  
+                    <TextInput propertyUID="id_3" width="159" height="25" x="83" y="31"/>  
+                    <Label width="82" height="25" text="发卡行:" propertyUID="id_4" x="263" y="31" style=""/>  
+                    <TextInput propertyUID="id_4" width="159" height="25" x="323" y="31"/>  
+                    <Label width="82" height="25" text="卡名:" propertyUID="id_5" x="3" y="59" style=""/>  
+                    <TextInput propertyUID="id_5" width="159" height="25" x="83" y="59"/>  
+                    <Label width="82" height="25" text="卡片长度:" propertyUID="id_6" x="243" y="59" style=""/>  
+                    <TextInput propertyUID="id_6" width="159" height="25" x="323" y="59"/>  
+                    <Label width="82" height="25" text="状态:" propertyUID="id_7" x="3" y="87" style=""/>  
+                    <ComboBox propertyUID="id_7" width="159" height="25" x="83" y="87"/> 
+                  </tab> 
+                </TabNavigator> 
+              </Window>  
+              <formEvent/> 
+            </EntityForm>

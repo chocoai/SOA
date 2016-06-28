@@ -1,0 +1,65 @@
+body{
+	font-size : 14px;
+	margin : 0;
+	padding: 0;
+}
+p{
+	margin-top: 10px;
+}
+.qs-report-page{
+	margin: 0 auto;
+	position: relative;
+	background: white;
+}
+.qs-report-page .qs-report-pageno{
+	position: absolute;
+	right : 50px;
+	bottom: 20px;
+}
+.qs-report-item{
+	position: absolute;
+}
+.qs-report-table table{ 
+    border-spacing: 0px;
+    font-size : 14px;
+}
+.qs-report-table table td{
+	white-space: normal;
+	word-break : break-word;
+}
+.qs-report-table .qs-pivottable td{
+	white-space: nowrap;
+}
+.qs-report-chart{
+	border-radius: 4px;
+	border: 1px solid #e3e3e3;
+}
+@media print 
+{
+    .qs-notprint 
+    {
+        display:none;
+    }
+    .qs-break-page
+    {
+        page-break-after:always;
+    }
+    .mathquill-rendered-math .selectable{
+    	display:none;
+    }
+}
+
+@media screen 
+{
+	.qs-break-page
+    {
+		display:none;
+    }
+}
+@page  
+{ 
+	margin-left  : 1mm;
+	margin-right : 1mm;
+	margin-top   : 1mm;
+	margin-bottom: 1mm;
+} 

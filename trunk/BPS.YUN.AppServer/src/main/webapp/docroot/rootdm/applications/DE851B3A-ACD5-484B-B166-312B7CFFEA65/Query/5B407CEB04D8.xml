@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityQuery name="电话回拨记录" label="电话回拨记录" note="" share="false" multiselect="false" editable="false" autopaging="true" pagingMode="VirtualizingPaging" virtualizingPagingEnabled="true" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.5B407CEB04D8" nodeID="799"> 
+              <queryEntities> 
+                <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.51AD9C33C9D9" name="AMS_SafetyLog" label="安全等级变更日志" alias="a2" selectAll="true" isBranch="true"/>  
+                <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0" name="AMS_Member" label="会员" alias="a1" selectAll="true" isBranch="true"/>  
+                <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.FD5D12FC719B" name="AMS_PhoneBack" label="电话回拨记录" alias="a0" master="true"/> 
+              </queryEntities>  
+              <DataGrid> 
+                <color/>  
+                <column name="callingNo" label="主叫号码" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.FD5D12FC719B.id_1" width="100" isBranch="false" dataField="AMS_PhoneBack$callingNo" editable="" sortable="" textAlign=""/>  
+                <column name="calledNo" label="被叫号码" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.FD5D12FC719B.id_2" width="92" isBranch="false" editable="" sortable="" textAlign="" dataField="AMS_PhoneBack$calledNo"/>  
+                <column name="callDate" label="回拨时间" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.FD5D12FC719B.id_3" width="100" isBranch="false" dataField="AMS_PhoneBack$callDate"/>  
+                <column name="name" label="名称" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0.id_1" width="100" isBranch="false" editable="" sortable="" textAlign="" dataField="AMS_Member$name"/>  
+                <column name="isRecord" label="是否录音" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.FD5D12FC719B.id_4" width="117" isBranch="false" editable="" sortable="" textAlign="" dataField="AMS_PhoneBack$isRecord"/>  
+                <column name="serviceId" label="客服ID" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.FD5D12FC719B.id_5" width="112" isBranch="false" editable="" sortable="" textAlign="" dataField="AMS_PhoneBack$serviceId"/>  
+                <column name="createTime" label="创建时间" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.FD5D12FC719B.id_11" width="100" isBranch="false" editable="" sortable="" textAlign="" dataField="AMS_PhoneBack$createTime"/>  
+                <column name="old_level" label="原有等级" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.51AD9C33C9D9.id_3" width="100" isBranch="false" editable="" sortable="" textAlign="" dataField="AMS_SafetyLog$old_level"/>  
+                <column name="new_level" label="变更等级" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.51AD9C33C9D9.id_4" width="100" isBranch="false" editable="" sortable="" textAlign="" dataField="AMS_SafetyLog$new_level"/>  
+                <column name="state" label="状态" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.FD5D12FC719B.id_9" width="100" isBranch="false" editable="" sortable="" textAlign="" dataField="AMS_PhoneBack$state"/>  
+                <column name="memo" label="备注" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.FD5D12FC719B.id_6" width="134" isBranch="false" editable="" sortable="" textAlign="" dataField="AMS_PhoneBack$memo"/> 
+              </DataGrid>  
+              <editState/>  
+              <toolbar/>  
+              <xmlQuery version="2.0" name="" label=""> 
+                <select domainScope="true"> 
+                  <other label="其他" uid="other" name="other"/>  
+                  <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.FD5D12FC719B" name="AMS_PhoneBack" label="电话回拨记录" alias="a0"> 
+                    <field uid="sys_0" name="id" label="编号" type="long"/>  
+                    <field uid="sys_1" name="domainId" label="域ID" type="long"/>  
+                    <field uid="id_1" name="callingNo" label="主叫号码" type="string"/>  
+                    <field uid="id_2" name="calledNo" label="被叫号码" type="string"/>  
+                    <field uid="id_3" name="callDate" label="回拨时间" type="timestamp"/>  
+                    <field uid="id_4" name="isRecord" label="是否录音" type="string"/>  
+                    <field uid="id_5" name="serviceId" label="客服ID" type="string"/>  
+                    <field uid="id_6" name="memo" label="备注" type="string"/>  
+                    <field uid="id_7" name="safetylog" label="等级变更日志" type="relation"/>  
+                    <field uid="id_9" name="state" label="状态" type="long"/>  
+                    <field uid="id_10" name="member" label="会员" type="relation"/>  
+                    <field uid="id_11" name="createTime" label="创建时间" type="timestamp" entity="AMS_PhoneBack"/> 
+                  </Entity>  
+                  <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0" name="AMS_Member" label="会员" alias="a1" selectAll="true" isBranch="true"> 
+                    <field uid="sys_0" name="id" label="编号" type="long"/>  
+                    <field uid="sys_1" name="domainId" label="域ID" type="long"/>  
+                    <field uid="log_0" name="FM_CreatePrinId" label="创建者ID" type="long"/>  
+                    <field uid="log_1" name="FM_CreatePrinName" label="创建者" type="string"/>  
+                    <field uid="log_2" name="FM_UpdatePrinId" label="更新者ID" type="long"/>  
+                    <field uid="log_3" name="FM_UpdatePrinName" label="更新者" type="string"/>  
+                    <field uid="log_4" name="FM_CreateTime" label="创建时间" type="timestamp"/>  
+                    <field uid="log_5" name="FM_UpdateTime" label="更新时间" type="timestamp"/>  
+                    <field uid="id_1" name="name" label="名称" type="string"/>  
+                    <field uid="id_4" name="phone" label="注册手机号码" type="string"/>  
+                    <field uid="id_6" name="address" label="地址" type="string"/>  
+                    <field uid="id_7" name="user_state" label="会员状态" type="long"/>  
+                    <field uid="id_23" name="member_type" label="会员类型" type="long"/>  
+                    <field uid="id_24" name="userId" label="会员uuid" type="string"/>  
+                    <field uid="id_26" name="login_password" label="登录密码" type="string"/>  
+                    <field uid="id_27" name="pay_password" label="支付密码" type="string"/>  
+                    <field uid="id_28" name="email" label="邮箱" type="string"/>  
+                    <field uid="id_29" name="country" label="国家" type="string"/>  
+                    <field uid="id_30" name="province" label="省" type="string"/>  
+                    <field uid="id_31" name="area" label="地区" type="string"/>  
+                    <field uid="id_32" name="identity_cardNo" label="身份证号码" type="string"/>  
+                    <field uid="id_34" name="user_name" label="昵称" type="string"/>  
+                    <field uid="id_36" name="last_login_time" label="最近一次登录时间" type="timestamp"/>  
+                    <field uid="id_37" name="isPhone_checked" label="手机号码是否验证" type="boolean"/>  
+                    <field uid="id_38" name="isEmail_checked" label="邮箱是否验证" type="boolean"/>  
+                    <field uid="id_40" name="register_time" label="注册时间" type="timestamp"/>  
+                    <field uid="id_41" name="login_fail_amount" label="登录失败次数" type="long"/>  
+                    <field uid="id_42" name="pay_fail_amount" label="支付失败次数" type="long"/>  
+                    <field uid="id_43" name="last_login_fail_time" label="最后一次登录失败时间" type="timestamp"/>  
+                    <field uid="id_44" name="last_pay_fail_time" label="最后一次支付失败时间" type="timestamp"/>  
+                    <field uid="id_45" name="isSecurityIssue" label="是否设置安全问题" type="boolean"/>  
+                    <field uid="id_47" name="isSetExtendInfo" label="是否设置扩展信息" type="boolean"/>  
+                    <field uid="id_48" name="loginId" label="登录帐号" type="string"/>  
+                    <field uid="id_50" name="wxUserId" label="微信号" type="string"/>  
+                    <field uid="id_53" name="memberNo" label="客户号" type="string"/>  
+                    <field uid="id_54" name="belong_orgNo" label="所属机构号" type="string"/>  
+                    <field uid="id_56" name="bind_orgNo" label="绑定机构号" type="string"/>  
+                    <field uid="id_58" name="isIdentity_checked" label="是否实名认证" type="boolean"/>  
+                    <field uid="id_61" name="identity_cardNo_encrypt" label="身份证(加密)" type="string"/>  
+                    <field uid="id_62" name="identity_cardNo_md5" label="身份证(md5加密)" type="string"/>  
+                    <field uid="id_63" name="register_ip" label="注册ip" type="string"/>  
+                    <field uid="id_64" name="company_id" label="分公司编号" type="long"/>  
+                    <field uid="id_65" name="company_name" label="分公司名字" type="string"/>  
+                    <field uid="id_66" name="login_time" label="本次登录时间" type="timestamp"/>  
+                    <field uid="id_67" name="bank_code" label="绑定银行卡代码" type="string"/>  
+                    <field uid="id_68" name="remark" label="备注" type="string"/>  
+                    <field uid="id_69" name="real_name_time" label="实名时间" type="timestamp"/>  
+                    <field uid="id_70" name="isRiskUser" label="是否加入黑名单" type="boolean"/>  
+                    <field uid="id_71" name="phone_pay_password" label="手机支付密码" type="string"/>  
+                    <field uid="id_72" name="phone_pay_fail_amount" label="手机支付失败次数" type="long"/>  
+                    <field uid="id_73" name="last_phone_pay_fail_time" label="最后一次手机支付失败时间" type="timestamp"/>  
+                    <field uid="id_74" name="source" label="来源" type="long"/>  
+                    <field uid="id_75" name="isFree" label="是否免密" type="boolean"/>  
+                    <field uid="id_76" name="free_limit" label="免密额度" type="string"/>  
+                    <field name="free_limit" label="免密额度" type="long" uid="id_77"/>  
+                    <field name="isLoginNotice" label="是否登录通知" type="boolean" uid="id_78"/>  
+                    <field name="isBindBank" label="是否绑定银行" type="boolean" uid="id_79"/> 
+                  </Entity>  
+                  <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.51AD9C33C9D9" name="AMS_SafetyLog" label="安全等级变更日志" alias="a2" selectAll="true" isBranch="true"> 
+                    <field uid="sys_0" name="id" label="编号" type="long"/>  
+                    <field uid="sys_1" name="domainId" label="域ID" type="long"/>  
+                    <field uid="id_1" name="member" label="会员" type="relation"/>  
+                    <field uid="id_2" name="type" label="认证类型" type="long"/>  
+                    <field uid="id_3" name="old_level" label="原有等级" type="long"/>  
+                    <field uid="id_4" name="new_level" label="变更等级" type="long"/>  
+                    <field uid="id_5" name="memo" label="描述" type="string"/>  
+                    <field uid="id_8" name="add_time" label="操作时间" type="timestamp"/>  
+                    <field uid="id_9" name="deal_result" label="处理结果" type="long"/>  
+                    <field uid="id_10" name="operation_type" label="变更属性" type="long"/> 
+                  </Entity> 
+                </select>  
+                <where> 
+                  <exp type="2"> 
+                    <exp type="19" valueType="1" option="true" leftEntity="AMS_Member" leftField="name" uid="exp0" rightType="param" right="member"/>  
+                    <exp type="19" valueType="1" option="true" rightType="param" right="callingNo" leftEntity="AMS_PhoneBack" leftField="callingNo" uid="exp1"/>  
+                    <exp type="19" valueType="1" option="true" rightType="param" right="calledNo" leftEntity="AMS_PhoneBack" leftField="calledNo" uid="exp2"/>  
+                    <exp type="5" valueType="3" option="true" rightType="prop" rightEntity="AMS_PhoneBack" rightField="member_id" leftEntity="AMS_Member" leftField="id" uid="exp3"/>  
+                    <exp type="5" valueType="3" option="true" rightType="prop" rightEntity="AMS_SafetyLog" rightField="id" leftEntity="AMS_PhoneBack" leftField="safetylog_id" uid="exp4"/>  
+                    <exp type="5" valueType="3" option="true" leftEntity="AMS_PhoneBack" leftField="state" uid="exp5" rightType="param" right="state"/> 
+                  </exp> 
+                </where>  
+                <other> 
+                  <groupBy label="Group By"/>  
+                  <orderBy label="Order By"> 
+                    <field uid="id_11" name="createTime" label="创建时间" type="timestamp" entity="AMS_PhoneBack" order="desc"/> 
+                  </orderBy> 
+                </other> 
+              </xmlQuery>  
+              <conditionForm> 
+                <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2"> 
+                  <TabNavigator> 
+                    <tab label="default"> 
+                      <Label label="Label" text="会员名称：" x="2" y="4" width="100" height="24" style=""/>  
+                      <Label label="Label" text="状态：" x="603" y="3" width="100" height="24" style=""/>  
+                      <TextInput label="TextInput" x="63" y="6" width="139" height="24" name="member"/>  
+                      <Label width="82" height="25" text="主叫号码:" propertyUID="id_1" x="203" y="4" style=""/>  
+                      <TextInput name="callingNo" width="139" height="25" x="263" y="3"/>  
+                      <Label width="82" height="25" text="被叫号码:" propertyUID="id_2" x="403" y="5" style=""/>  
+                      <TextInput name="calledNo" width="139" height="25" x="463" y="3"/>  
+                      <ComboBox label="ComboBox" x="643" y="2" width="100" height="24" name="state" valueProvider="多账户.处理结果"/> 
+                    </tab> 
+                  </TabNavigator> 
+                </Window> 
+              </conditionForm>  
+              <StatSetting/>  
+              <queryEvent/> 
+            </EntityQuery>

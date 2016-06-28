@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<workflow>
+  <definition uid="B092501F-3B84-468E-9D34-BBDCF2551FCD" path="" id="4" name="调帐单" noInstance="false" domain="1" createTime="2015/08/31 10:48:00" updateTime="2015/08/31 10:48:00">
+    <variables></variables>
+    <note></note>
+    <workForm><![CDATA[<work_form>
+  <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.DB0B4F5A8724" name="AMS_AdjustAccount" label="调帐单">
+    <state name="提交，待审核" value="2" uid="5E6A3240-77B5-43A4-978F-58D12EECF88E" />
+    <state name="审核失败" value="3" uid="96F33F47-883B-4BEA-9D8C-F2B04531FA96" />
+    <state name="审核成功" value="4" uid="59267F93-0588-4BAF-8EA3-9420AEC3DF72" />
+    <state name="关闭" value="5" uid="65F0A4A5-4AB0-4C38-9A1C-C60ED9C65A03" />
+  </Entity>
+  <EntityForm uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.8F891E2A6DF7" name="" label="调帐单" />
+</work_form>]]></workForm>
+  </definition>
+  <diagram> 
+    <swimlanes> 
+      <swimlane name="经办人" uid="CB6DCCBD-81AB-47D0-AB72-D70567FA3CAA" width="298" type="other"/>  
+      <swimlane name="调帐审核" uid="C67922CE-4313-4A8B-8128-9B2BD749A7FA" width="293" type="role" id="103" roleUid="c74cc79c-3c29-46c6-ab1b-48e744043cfb"/> 
+    </swimlanes>  
+    <node id="16" x="369" y="335" width="150" height="50" swimlane="C67922CE-4313-4A8B-8128-9B2BD749A7FA"/>  
+    <node id="14" x="45" y="202" width="150" height="50" swimlane="CB6DCCBD-81AB-47D0-AB72-D70567FA3CAA"/>  
+    <node id="15" x="42" y="26" width="150" height="50" swimlane="CB6DCCBD-81AB-47D0-AB72-D70567FA3CAA"/>  
+    <node id="13" x="367" y="84" width="150" height="50" swimlane="C67922CE-4313-4A8B-8128-9B2BD749A7FA"/>  
+    <connection id="19"> 
+      <point x="120" y="202"/>  
+      <point x="120" y="118"/>  
+      <point x="357" y="118"/> 
+    </connection>  
+    <connection id="17"> 
+      <point x="120" y="252"/>  
+      <point x="120" y="360"/>  
+      <point x="359" y="360"/> 
+    </connection>  
+    <connection id="16"> 
+      <point x="192" y="51"/>  
+      <point x="442" y="51"/>  
+      <point x="442" y="74"/> 
+    </connection>  
+    <connection id="18"> 
+      <point x="442" y="134"/>  
+      <point x="442" y="230"/>  
+      <point x="444" y="230"/>  
+      <point x="444" y="325"/> 
+    </connection>  
+    <connection id="20"> 
+      <point x="442" y="134"/>  
+      <point x="442" y="227"/>  
+      <point x="205" y="227"/> 
+    </connection> 
+  </diagram>
+</workflow>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.771E56F2BD2D" lastId="5" name="AMS_Delivery" label="物流公司" note="" log="false" workflow="false" nodeID="325" dbcreated="true"> 
+  <relation/>  
+  <extension/>  
+  <property uid="sys_0" label="编号" name="id" type="long" systemProperty="true" editorPart="Entity" group="系统属性字段"/>  
+  <property uid="sys_1" label="域ID" name="domainId" type="long" systemProperty="true" editorPart="Entity" group="系统属性字段"/>  
+  <property name="name" label="物流公司名称" type="string" length="200" uid="id_1" editorPart="Entity" dbcreated="true" group="业务属性字段"/>  
+  <property name="code" label="公司编号" type="string" length="100" uid="id_2" editorPart="Entity" dbcreated="true" group="业务属性字段"/>  
+  <property name="orderNo" label="序号" type="long" uid="id_3" editorPart="Entity" dbcreated="true" group="业务属性字段"/>  
+  <property name="delivery_number" label="物流单号位数" type="long" uid="id_4" editorPart="Entity" dbcreated="true" group="业务属性字段"/>  
+  <property name="type" label="物流单号类型" type="long" uid="id_5" valueProvider="多账户.物流单号类型" editorPart="Entity" dbcreated="true" group="业务属性字段"/> 
+</Entity>

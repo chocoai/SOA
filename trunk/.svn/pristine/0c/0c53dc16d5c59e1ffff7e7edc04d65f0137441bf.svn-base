@@ -1,0 +1,83 @@
+/**   
+* @Title: Test.java 
+* @Package test 
+* @Description: TODO(用一句话描述该文件做什么) 
+* @author huadi   
+* @date 2015年11月13日 下午2:14:29 
+* @version V1.0   
+*/
+package test;
+
+import bps.process.AppDailyStatistics;
+import ime.security.util.TripleDES;
+import bps.common.Constant;
+import org.apache.http.HttpEntity;
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import org.apache.http.util.EntityUtils;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
+/** 
+ * (这里用一句话描述这个类的作用) 
+ * @author huadi
+ * @date 2015年11月13日 下午2:14:29  
+ */
+public class Test {
+
+	/** 
+	 * (这里用一句话描述这个方法的作用) 
+	 * @param args    
+	 */
+	public static void main(String[] args) throws Exception{
+//		try{
+//
+//			Date d1 = new SimpleDateFormat("yyyy-MM-dd").parse("2014-01-01");
+//			Date d2 = new SimpleDateFormat("yyyy-MM-dd").parse("2016-05-18");
+//			Calendar dd = Calendar.getInstance();
+//			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+//			dd.setTime(d1);
+//			while(dd.getTime().before(d2)){
+//
+//				String temp = sdf.format(dd.getTime());
+//				AppDailyStatistics appDailyStatistics = new AppDailyStatistics();
+//				appDailyStatistics.go(temp);
+//				dd.add(Calendar.DATE,1);
+//			}
+//		}
+//		catch (Exception e){
+//			e.printStackTrace();
+//		}
+		aaa();
+
+	}
+	public static void aaa()throws Exception{
+		CloseableHttpClient httpclient = HttpClients.createDefault();
+		HttpGet httpget = new HttpGet("http://122.227.225.142:23661/test/recievePayBack.jsp?aaa=q");
+		CloseableHttpResponse response = httpclient.execute(httpget);
+		try {
+			response.getParams();
+			System.out.println("response:"+response.getParams());
+			HttpEntity entity = response.getEntity();
+			if (entity != null) {
+				System.out.println("entity:"+entity);
+				long len = entity.getContentLength();
+				if (len != -1 && len < 2048) {
+					System.out.println(EntityUtils.toString(entity));
+				} else {
+					// Stream content out
+				}
+			}else {
+				System.out.println("entity2:"+entity);
+			}
+		} finally {
+			response.close();
+		}
+	}
+
+
+}

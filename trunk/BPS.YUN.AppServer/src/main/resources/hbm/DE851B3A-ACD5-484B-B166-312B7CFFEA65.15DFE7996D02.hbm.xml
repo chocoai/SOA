@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "PUBLIC" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class entity-name="AMS_TradeRule" table="DYNA_AMS_TradeRule">
+    <id name="id" type="long">
+      <generator class="sequence">
+        <param name="sequence">IDSEQ_AMS_TradeRule</param>
+      </generator>
+    </id>
+    <property name="FM_CreatePrinId" not-null="false" type="long" index="IDX_CREATEPRINID"/>
+    <property name="FM_CreatePrinName" not-null="false" length="100" type="string"/>
+    <property name="FM_UpdatePrinId" not-null="false" type="long" index="IDX_UPDATEPRINID"/>
+    <property name="FM_UpdatePrinName" not-null="false" length="100" type="string"/>
+    <property name="FM_CreateTime" not-null="false" type="timestamp"/>
+    <property name="FM_UpdateTime" not-null="false" type="timestamp"/>
+    <property name="domainId" not-null="false" type="long" index="IDX_DOMAINID"/>
+    <property name="trade_type" not-null="false" type="long"/>
+    <property name="sub_trade_type" not-null="false" type="long"/>
+    <property name="payInterface_id" not-null="false" type="long" index="payInterface_idx"/>
+    <property name="payInterface_label" not-null="false" type="string" length="200"/>
+    <property name="pay_interfaceNo" not-null="false" type="string" length="100"/>
+    <property name="account_type_id" not-null="false" type="long" index="account_type_idx"/>
+    <property name="account_type_label" not-null="false" type="string" length="200"/>
+    <property name="pay_method_group_id" not-null="false" type="long" index="pay_method_group_idx"/>
+    <property name="pay_method_group_label" not-null="false" type="string" length="200"/>
+    <property name="accountNo" not-null="false" type="string" length="100"/>
+    <property name="debit" not-null="false" type="boolean" length="100"/>
+    <property name="credit" not-null="false" type="boolean" length="100"/>
+    <property name="account" not-null="false" type="boolean" length="100"/>
+  </class>
+</hibernate-mapping>

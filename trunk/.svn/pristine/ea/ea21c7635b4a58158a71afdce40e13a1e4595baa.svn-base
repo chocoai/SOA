@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension class="bps.process.Extension">
+	<entity-event>
+		
+		
+		<event entityName="AMS_Member" class="bps.eventhandler.MemberEntity" />
+		<event entityName="AMS_Organization" class="bps.eventhandler.Organization" />
+		<event entityName="AMS_MemberBank" class="bps.eventhandler.MemberBankHandle" />
+		<event entityName="AMS_AppPiConfig" class="bps.eventhandler.PiAppConfEventHandler" />
+		<event entityName="AMS_AppApiConifg" class="bps.eventhandler.AppApiEventHandler" />
+		<event entityName="AMS_AdjustAccount" class="bps.eventhandler.AdjustAccountEventHandler" />
+		<!-- <event entityName="AMS_ChargeReverseEntry" class="bps.eventhandler.ChargeReverseEntry" />-->
+		<!-- <event entityName="AMS_ErrorTradeHandle" class="bps.eventhandler.ErrorTradeHandle" />-->
+		<!-- <event entityName="AMS_ArtWithdrawal" class="bps.eventhandler.ArtWithdrawalHandle" />-->
+		<!-- <event entityName="AMS_SafetyLevel" class="bps.eventhandler.SafetyLevelHandle" /> -->
+		<!-- <event entityName="AMS_RiskUserList" class="bps.eventhandler.RiskUserListHandle" />-->
+		<!-- <event entityName="Customer" class="com.kinorsoft.CustomerHandler"/> -->
+	</entity-event>
+	<system-event>
+		<!-- <event type="Customer" class="com.kinorsoft.MyEventHandler"/> -->
+	</system-event>
+	<entity-implementer>
+		<!-- <implementer entityName="MyEntity" class="com.kinorsoft.MyEntityImplementer" /> -->
+	</entity-implementer>
+
+	<!-- 属性  -->
+	<properties>
+		
+		
+	</properties>
+</extension>

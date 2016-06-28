@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityQuery name="交易账户变更日志" label="交易账户变更日志" note="" share="false" multiselect="false" editable="false" autopaging="true" pagingMode="NormalPaging" virtualizingPagingEnabled="false" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.0E089217441A" nodeID="720"> 
+              <queryEntities> 
+                <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.0D1791EB8F4D" name="AMS_AccountChgLog" label="账户变更日志" alias="a0" selectAll="true" isBranch="true" master="true"/>  
+                <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0" name="AMS_Member" label="会员" alias="a1" selectAll="true" isBranch="true"/> 
+              </queryEntities>  
+              <DataGrid> 
+                <color/>  
+                <column name="name" label="名称" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0.id_1" width="100" isBranch="false" dataField="AMS_Member$name"/>  
+                <column name="phone" label="手机" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0.id_4" width="100" isBranch="false" dataField="AMS_Member$phone"/>  
+                <column name="member_type" label="会员类型" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0.id_23" width="82" isBranch="false" dataField="AMS_Member$member_type"/>  
+                <column name="trade_type" label="交易类型" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.0D1791EB8F4D.id_5" width="74" isBranch="false" dataField="AMS_AccountChgLog$trade_type"/>  
+                <column name="chg_time" label="变更时间" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.0D1791EB8F4D.id_7" width="100" isBranch="false" dataField="AMS_AccountChgLog$chg_time"/>  
+                <column name="old_freeze_money" label="原有冻结金额" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.0D1791EB8F4D.id_9" width="90" isBranch="false" dataField="AMS_AccountChgLog$old_freeze_money"/>  
+                <column name="cur_freeze_money" label="现有冻结金额" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.0D1791EB8F4D.id_10" width="100" isBranch="false" dataField="AMS_AccountChgLog$cur_freeze_money"/>  
+                <column name="chg_freeze_money" label="变更冻结金额" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.0D1791EB8F4D.id_11" width="100" isBranch="false" dataField="AMS_AccountChgLog$chg_freeze_money"/>  
+                <column name="userId" label="会员uuid" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0.id_24" width="100" isBranch="false" dataField="AMS_Member$userId"/>  
+                <column name="cur_money" label="现有金额" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.0D1791EB8F4D.id_12" width="88" isBranch="false" dataField="AMS_AccountChgLog$cur_money"/>  
+                <column name="old_money" label="原始金额" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.0D1791EB8F4D.id_13" width="81" isBranch="false" dataField="AMS_AccountChgLog$old_money"/>  
+                <column name="chg_money" label="变更金额" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.0D1791EB8F4D.id_14" width="65" isBranch="false" dataField="AMS_AccountChgLog$chg_money"/>  
+                <column name="old_valid_date" label="原有效期" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.0D1791EB8F4D.id_17" width="75" isBranch="false" dataField="AMS_AccountChgLog$old_valid_date"/>  
+                <column name="cur_valid_date" label="现有效期" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.0D1791EB8F4D.id_18" width="100" isBranch="false" dataField="AMS_AccountChgLog$cur_valid_date"/> 
+              </DataGrid>  
+              <editState/>  
+              <toolbar> 
+                <button label="编辑" action="alink" selection="single" permission="" permissionName="" visiable="false" param="{   &quot;target&quot;: &quot;ime.AppWindow&quot;,   &quot;form&quot;: &quot;EntityForm&quot;,   &quot;openMode&quot;: {},   &quot;param&quot;: {     &quot;action&quot;: &quot;edit&quot;,     &quot;entityUID&quot;: &quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.0D1791EB8F4D&quot;,     &quot;formUID&quot;: &quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.F06C884E2A16&quot;,     &quot;title&quot;: &quot;编辑&quot;   } }" Button="System.Windows.Controls.Button: 编辑" alink="alink://ime.AppWindow/EntityForm?{action:&quot;edit&quot;,entityUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.0D1791EB8F4D&quot;,formUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.F06C884E2A16&quot;,title:&quot;编辑&quot;}"/> 
+              </toolbar>  
+              <xmlQuery version="2.0" name="" label=""> 
+                <select domainScope="false"> 
+                  <other label="其他" uid="other" name="other"/>  
+                  <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0" name="AMS_Member" label="会员" alias="a1" selectAll="true" isBranch="true"> 
+                    <field uid="sys_0" name="id" label="编号" type="long"/>  
+                    <field uid="sys_1" name="domainId" label="域ID" type="long"/>  
+                    <field uid="log_0" name="FM_CreatePrinId" label="创建者ID" type="long"/>  
+                    <field uid="log_1" name="FM_CreatePrinName" label="创建者" type="string"/>  
+                    <field uid="log_2" name="FM_UpdatePrinId" label="更新者ID" type="long"/>  
+                    <field uid="log_3" name="FM_UpdatePrinName" label="更新者" type="string"/>  
+                    <field uid="log_4" name="FM_CreateTime" label="创建时间" type="timestamp"/>  
+                    <field uid="log_5" name="FM_UpdateTime" label="更新时间" type="timestamp"/>  
+                    <field uid="id_1" name="name" label="名称" type="string"/>  
+                    <field uid="id_4" name="phone" label="手机" type="string"/>  
+                    <field uid="id_6" name="address" label="地址" type="string"/>  
+                    <field uid="id_7" name="user_state" label="会员状态" type="long"/>  
+                    <field uid="id_23" name="member_type" label="会员类型" type="long"/>  
+                    <field uid="id_24" name="userId" label="会员uuid" type="string"/>  
+                    <field uid="id_26" name="login_password" label="登录密码" type="string"/>  
+                    <field uid="id_27" name="pay_password" label="支付密码" type="string"/>  
+                    <field uid="id_28" name="email" label="邮件" type="string"/>  
+                    <field uid="id_29" name="country" label="国家" type="string"/>  
+                    <field uid="id_30" name="province" label="省" type="string"/>  
+                    <field uid="id_31" name="area" label="地区" type="string"/>  
+                    <field uid="id_32" name="identity_cardNo" label="身份证号码" type="string"/>  
+                    <field uid="id_34" name="user_name" label="昵称" type="string"/>  
+                    <field uid="id_36" name="last_login_time" label="最近一次登录时间" type="timestamp"/>  
+                    <field uid="id_37" name="isPhone_checked" label="手机号码是否验证" type="boolean"/>  
+                    <field uid="id_38" name="isEmail_checked" label="邮箱是否验证" type="boolean"/>  
+                    <field uid="id_40" name="register_time" label="注册时间" type="timestamp"/>  
+                    <field uid="id_41" name="login_fail_amount" label="登录失败次数" type="long"/>  
+                    <field uid="id_42" name="pay_fail_amount" label="支付失败次数" type="long"/>  
+                    <field uid="id_43" name="last_login_fail_time" label="最后一次登录失败时间" type="timestamp"/>  
+                    <field uid="id_44" name="last_pay_fail_time" label="最后一次支付失败时间" type="timestamp"/>  
+                    <field uid="id_45" name="isSecurityIssue" label="是否设置安全问题" type="boolean"/>  
+                    <field uid="id_47" name="isSetExtendInfo" label="是否设置扩展信息" type="boolean"/>  
+                    <field uid="id_48" name="loginId" label="登录帐号" type="string"/>  
+                    <field uid="id_50" name="wxUserId" label="微信号" type="string"/>  
+                    <field uid="id_53" name="memberNo" label="客户号" type="string"/>  
+                    <field uid="id_54" name="belong_orgNo" label="所属机构号" type="string"/>  
+                    <field uid="id_56" name="bind_orgNo" label="绑定机构号" type="string"/>  
+                    <field uid="id_58" name="isIdentity_checked" label="是否实名认证" type="boolean"/>  
+                    <field name="identity_cardNo_encrypt" label="身份证(加密)" type="string" uid="id_61"/>  
+                    <field name="identity_cardNo_md5" label="身份证(md5加密)" type="string" uid="id_62"/>  
+                    <field name="register_ip" label="注册ip" type="string" uid="id_63"/>  
+                    <field name="company_id" label="分公司编号" type="long" uid="id_64"/>  
+                    <field name="company_name" label="分公司名字" type="string" uid="id_65"/>  
+                    <field name="login_time" label="本次登录时间" type="timestamp" uid="id_66"/>  
+                    <field name="bank_code" label="绑定银行卡代码" type="string" uid="id_67"/> 
+                  </Entity>  
+                  <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.0D1791EB8F4D" name="AMS_AccountChgLog" label="账户变更日志" alias="a0" selectAll="true" isBranch="true"> 
+                    <field uid="sys_0" name="id" label="编号" type="long"/>  
+                    <field uid="sys_1" name="domainId" label="域ID" type="long"/>  
+                    <field uid="id_2" name="account_id" label="账户ID" type="long"/>  
+                    <field uid="id_3" name="sub_account_id" label="子账户ID" type="long"/>  
+                    <field uid="id_4" name="account_type" label="账户类型" type="relation"/>  
+                    <field uid="id_5" name="trade_type" label="交易类型" type="long"/>  
+                    <field uid="id_7" name="chg_time" label="变更时间" type="timestamp"/>  
+                    <field uid="id_9" name="old_freeze_money" label="原有冻结金额" type="long" currency="true"/>  
+                    <field uid="id_10" name="cur_freeze_money" label="现有冻结金额" type="long" currency="true"/>  
+                    <field uid="id_11" name="chg_freeze_money" label="变更冻结金额" type="long" currency="true"/>  
+                    <field uid="id_12" name="cur_money" label="现有金额" type="long" currency="true"/>  
+                    <field uid="id_13" name="old_money" label="原始金额" type="long" currency="true"/>  
+                    <field uid="id_14" name="chg_money" label="变更金额" type="long" currency="true"/>  
+                    <field uid="id_17" name="old_valid_date" label="原有效期" type="timestamp"/>  
+                    <field uid="id_18" name="cur_valid_date" label="现有效期" type="timestamp"/>  
+                    <field uid="id_19" name="userId" label="用户ID" type="string"/>  
+                    <field uid="id_20" name="bizid" label="业务编号" type="string"/>  
+                    <field uid="id_21" name="remark" label="备注" type="string"/>  
+                    <field uid="id_24" name="trade_id" label="交易流水号" type="string"/>  
+                    <field uid="id_25" name="out_trade_id" label="外部交易流水" type="string"/>  
+                    <field uid="id_27" name="isMaster" label="是否主交易" type="boolean"/>  
+                    <field uid="id_28" name="pay_mode" label="支付方式" type="string"/>  
+                    <field uid="id_30" name="pay_channelNo" label="支付渠道" type="string"/>  
+                    <field uid="id_32" name="sub_trade_type" label="交易子类型" type="long"/>  
+                    <field uid="id_33" name="extend_info" label="扩展信息" type="string"/>  
+                    <field uid="id_34" name="pay_interfaceNo" label="支付通道编号" type="string"/>  
+                    <field uid="id_35" name="bank_code" label="银行代码" type="string"/>  
+                    <field name="command_no" label="支付指令号" type="string" uid="id_36"/> 
+                  </Entity> 
+                </select>  
+                <where> 
+                  <exp type="2"> 
+                    <exp type="5" valueType="1" option="false" rightType="val" right="$page.master.selectedEntity.trade_id" leftEntity="AMS_AccountChgLog" leftField="trade_id" uid="exp0"/>  
+                    <exp type="5" valueType="1" option="true" rightType="prop" rightEntity="AMS_AccountChgLog" rightField="userId" leftEntity="AMS_Member" leftField="userId" uid="exp1"/> 
+                  </exp> 
+                </where>  
+                <other> 
+                  <groupBy label="Group By"/>  
+                  <orderBy label="Order By"> 
+                    <field uid="sys_0" name="id" label="编号" type="long" entity="AMS_AccountChgLog"/> 
+                  </orderBy> 
+                </other> 
+              </xmlQuery>  
+              <conditionForm> 
+                <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2"> 
+                  <TabNavigator> 
+                    <tab label="default"/> 
+                  </TabNavigator> 
+                </Window> 
+              </conditionForm>  
+              <StatSetting/>  
+              <queryEvent/> 
+            </EntityQuery>

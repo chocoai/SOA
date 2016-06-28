@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dwr PUBLIC "-//GetAhead Limited//DTD Direct Web Remoting 2.0//EN" "http://getahead.org/dwr/dwr20.dtd">
+
+<dwr>
+  <init>
+  	<converter id="hibernate3" class="org.directwebremoting.hibernate.H3BeanConverter"/>
+  </init>
+  
+  <allow>
+  	<convert match="java.lang.Exception" converter="exception">
+  		<param name='include' value='message'/>
+  	</convert>
+  	
+    <convert converter="hibernate3" match="ime.security.entity.Role">
+    	<param name="exclude" value="domain, principals, permissions, group"/> 
+    </convert>
+    <convert converter="hibernate3" match="ime.core.entity.ResourceType">
+    	<param name="exclude" value="actions"/> 
+    </convert>
+    <convert converter="hibernate3" match="ime.core.entity.Resource">
+    	<param name="exclude" value="domain, permissions, group, owner, resourceType"/> 
+    </convert>
+    <convert converter="hibernate3" match="ime.security.entity.Principal">
+    	<param name="exclude" value="domain, roles, group"/> 
+    </convert>
+    <convert converter="hibernate3" match="ime.core.entity.Action">
+    	<param name="exclude" value="permissions, resourceType"/> 
+    </convert>
+    <convert converter="hibernate3" match="ime.core.entity.Group">
+    	<param name="exclude" value="domain, children, parent, resource, owner"/> 
+    </convert>
+    <convert converter="hibernate3" match="ime.core.entity.Domain">
+    	<param name="exclude" value="children, parent, mainGroup, config, configuration, administrator, rootFolderGroup, childrenDomainGroup"/> 
+    </convert>
+    <convert converter="hibernate3" match="ime.core.entity.QueryDefinition">
+    	<param name="exclude" value="group, resource"/> 
+    </convert>
+    <convert converter="hibernate3" match="ime.core.entity.Dictionary">
+    	<param name="exclude" value="dictionaryType, domain"/> 
+    </convert>
+    <convert converter="hibernate3" match="ime.security.entity.PagePermission">
+    	<param name="exclude" value="role, group"/> 
+    </convert>
+    <convert converter="bean" match="ime.security.PermissionView"/>
+    <convert converter="bean" match="ime.core.workflow.WorkflowContext"/>
+    <convert converter="bean" match="ime.security.OnlineState"/>
+    
+    <create creator="new" javascript="RoleService">
+      <param name="class" value="ime.security.services.RoleService"/>
+    </create>
+    <create creator="new" javascript="ResourceTypeService">
+      <param name="class" value="ime.core.services.ResourceTypeService"/>
+    </create>
+    <create creator="new" javascript="ResourceService">
+      <param name="class" value="ime.core.services.ResourceService"/>
+    </create>
+    <create creator="new" javascript="PrincipalService">
+      <param name="class" value="ime.security.services.PrincipalService"/>
+    </create>
+    <create creator="new" javascript="PermissionService">
+      <param name="class" value="ime.security.services.PermissionService"/>
+    </create>
+    <create creator="new" javascript="PagePermissionService">
+      <param name="class" value="ime.security.services.PagePermissionService"/>
+    </create>
+    <create creator="new" javascript="GroupService">
+      <param name="class" value="ime.core.services.GroupService"/>
+    </create>
+    <create creator="new" javascript="ActionService">
+      <param name="class" value="ime.core.services.ActionService"/>
+    </create>
+    <create creator="new" javascript="LoginSession">
+      <param name="class" value="ime.security.LoginSession"/>
+      <exclude method="trustLogin"/>
+    </create>
+    <create creator="new" javascript="QueryService">
+      <param name="class" value="ime.core.services.QueryService"/>
+    </create>
+    <create creator="new" javascript="DomainService">
+      <param name="class" value="ime.core.services.DomainService"/>
+    </create>
+    <create creator="new" javascript="DictionaryService">
+      <param name="class" value="ime.core.services.DictionaryService"/>
+    </create>
+    <create creator="new" javascript="DynamicEntityService">
+      <param name="class" value="ime.core.services.DynamicEntityService"/>
+      <exclude method="getEntityCount, queryEntity"/>
+    </create>
+    <create creator="new" javascript="WorkshopService">
+      <param name="class" value="ime.core.services.WorkshopService"/>
+    </create>
+    <create creator="new" javascript="SequenceService">
+      <param name="class" value="ime.core.services.SequenceService"/>
+    </create>    
+    <create creator="new" javascript="DocumentService">
+      <param name="class" value="ime.document.services.DocumentService"/>
+    </create>
+    <create creator="new" javascript="SOAService">
+      <param name="class" value="ime.soa.service.SOAService"/>
+    </create>
+    <create creator="new" javascript="DebugService">
+      <param name="class" value="ime.script.debug.rhino.debugger.DebugService"/>
+    </create>
+	<create creator="new" javascript="TeamworkService">
+      <param name="class" value="ime.teamwork.services.TeamworkService"/>
+    </create>
+  </allow>
+
+  <signatures>
+  <![CDATA[
+  import java.util.List;
+  import java.util.Map;
+  import ime.security.services.PrincipalService;
+  import ime.security.services.PermissionService;
+  import ime.security.PermissionView;
+  import ime.core.services.DynamicFormService;
+  import ime.core.services.QueryService;
+  import ime.core.workflow.WorkflowContext;
+  
+  PrincipalService.setRoles(Long, List<Long>);
+  PermissionService.setPermissions(long, long, List<PermissionView>);
+  PermissionService.appendRole(long, long, List<PermissionView>);
+  QueryService.executeQuery(String, List<Map<String, String>>, Map<String, String>, int, int);
+  QueryService.getResultCount(String, List<Map<String, String>>, Map<String, String>);
+  ]]>
+  </signatures>
+</dwr>

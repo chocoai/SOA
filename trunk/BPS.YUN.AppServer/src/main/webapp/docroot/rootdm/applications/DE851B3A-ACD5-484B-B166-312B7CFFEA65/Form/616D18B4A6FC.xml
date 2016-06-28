@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityForm name="应用配置" label="应用配置" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.616D18B4A6FC" nodeID="1118">
+  <formEntity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.BC3119324A07" />
+  <formState>
+    <state label="基础" uid="state0" basedOn="null">
+      <rule type="enabled" property="application" label="应用" rule="false" />
+      <rule type="required" property="application" label="应用" rule="true" />
+      <rule type="value" property="appNo" label="应用编号" rule="$this.application.codeNo" />
+      <rule type="enabled" property="appNo" label="应用编号" rule="false" />
+      <rule type="required" property="config_type" label="配置类型" rule="true" />
+      <rule type="updateEvent" property="config_type" label="配置类型" rule="updateconfig_type" />
+      <rule type="value" property="openAppNo" label="开通应用编号" rule="$this.openApp.codeNo" />
+    </state>
+    <state label="新建" uid="state1" basedOn="state0">
+      <rule type="value" property="application" label="应用" rule="$opener.page.master.selectedEntity" />
+      <rule type="value" property="appNo" label="应用编号" rule="$opener.page.master.selectedEntity.codeNo" />
+    </state>
+    <state label="编辑" uid="state2" basedOn="state0" />
+  </formState>
+  <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2">
+    <TabNavigator>
+      <tab label="default">
+        <Label width="82" height="25" text="应用:" propertyUID="id_3" x="2" y="2" style="" />
+        <EntityField propertyUID="id_3" width="179" height="25" x="103" y="3" />
+        <Label width="82" height="25" text="应用编号:" propertyUID="id_11" x="2" y="31" style="" />
+        <TextInput propertyUID="id_11" width="179" height="25" x="103" y="31" />
+        <Label width="82" height="25" text="配置类型:" propertyUID="id_1" x="2" y="59" style="" />
+        <ComboBox propertyUID="id_1" width="179" height="25" x="103" y="59" />
+        <CheckBox name="isOpen" label="是否开启" propertyUID="id_8" x="103" y="87" width="179" height="24" properties="" toolTip="" />
+        <Label width="82" height="25" text="账户集编号:" propertyUID="id_2" x="2" y="115" style="" />
+        <TextInput propertyUID="id_2" width="179" height="25" x="103" y="115" />
+        <Label width="82" height="25" text="开通应用:" propertyUID="id_6" x="2" y="143" style="" />
+        <EntityField propertyUID="id_6" width="179" height="25" x="103" y="143" />
+        <Label width="82" height="25" text="开通应用编号:" propertyUID="id_9" x="2" y="171" style="" />
+        <TextInput propertyUID="id_9" width="179" height="25" x="103" y="171" />
+        <Label width="82" height="25" text="对应账户集编号:" propertyUID="id_10" x="2" y="199" style="" />
+        <TextInput propertyUID="id_10" width="179" height="25" x="103" y="199" />
+        <Label label="Label" text="是否开启" x="2" y="87" width="100" height="24" style="" />
+      </tab>
+    </TabNavigator>
+  </Window>
+  <formEvent>
+    <event name="updateconfig_type" type="customerEvent" label="updateconfig_type"><![CDATA[var config_type = form.getFieldValue("config_type");
+if(config_type == 1){
+	form.setFieldProperty("accountNo","enabled",true);
+	form.setFieldProperty("accountNo","required",true);
+	
+	form.setFieldProperty("openApp","enabled",false);
+	form.setFieldProperty("openApp","required",false);
+	
+
+	form.setFieldProperty("openAppNo","enabled",false);
+	form.setFieldProperty("openAppNo","required",false);
+	form.setFieldProperty("sourceAccountNo","enabled",false);
+	form.setFieldProperty("sourceAccountNo","required",false);
+	form.setFieldValue("openApp","");
+	form.setFieldValue("openAppNo","");
+	form.setFieldValue("sourceAccountNo","");
+	
+	
+}else if(config_type == 2){
+	
+	form.setFieldProperty("openApp","enabled",true);
+	form.setFieldProperty("openApp","required",true);
+	form.setFieldProperty("openAppNo","enabled",true);
+	form.setFieldProperty("openAppNo","required",true);
+	form.setFieldProperty("sourceAccountNo","enabled",true);
+	form.setFieldProperty("sourceAccountNo","required",true);
+	
+	
+	form.setFieldProperty("accountNo","enabled",false);
+	form.setFieldProperty("accountNo","required",false);
+	form.setFieldValue("accountNo","");	
+}]]></event>
+  </formEvent>
+</EntityForm>

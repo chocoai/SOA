@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Entity lastId="4" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E10BC6D43657" name="AMS_PayMethods" label="支付方式" note="" log="false" workflow="false" nodeID="600" dbcreated="true"> 
+  <relation/>  
+  <extension/>  
+  <property uid="sys_0" label="编号" name="id" type="long" systemProperty="true" group="系统属性字段"/>  
+  <property uid="sys_1" label="域ID" name="domainId" type="long" systemProperty="true" group="系统属性字段"/>  
+  <property name="pay_method_group" label="组别" type="relation" uid="id_1" group="业务属性字段" entityUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.D5F8DBD000BA" dbcreated="true"/>  
+  <property name="pay_interface" label="通道" type="relation" uid="id_2" group="业务属性字段" entityUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.6439A7310C28" dbcreated="true"/>  
+  <property name="pay_model_type" label="支付方式类型" type="long" uid="id_3" group="业务属性字段" valueProvider="支付.支付方式类型" dbcreated="true"/>  
+  <property name="createTime" label="创建时间" type="timestamp" length="100" uid="id_4" group="业务属性字段" dbcreated="true"/> 
+</Entity>

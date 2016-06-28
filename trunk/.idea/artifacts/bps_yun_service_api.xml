@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="bps.yun.service.api">
+    <output-path>$PROJECT_DIR$/build/classes/artifacts/service_api</output-path>
+    <root id="archive" name="bps.yun.service.api.jar">
+      <element id="dir-copy" path="$PROJECT_DIR$/bps.yun.service.api/build/classes/main" />
+    </root>
+  </artifact>
+</component>

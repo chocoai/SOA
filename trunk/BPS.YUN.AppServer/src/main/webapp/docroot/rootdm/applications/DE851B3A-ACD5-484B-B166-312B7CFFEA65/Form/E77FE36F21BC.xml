@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityForm name="会员账户" label="会员账户" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E77FE36F21BC" nodeID="531">
+  <formEntity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.88EAE8E6D388" />
+  <formState>
+    <state label="基础" uid="state0" basedOn="null">
+      <rule type="required" property="account_type" label="账户集" rule="true" />
+      <rule type="enabled" property="amount" label="余额" rule="true" />
+      <rule type="enabled" property="freeze_amount" label="冻结金额" rule="true" />
+      <rule type="required" property="account_state" label="账户状态" rule="true" />
+      <rule type="required" property="userId" label="用户ID" rule="true" />
+      <rule type="required" property="biz_type" label="账户集类型" rule="true" />
+      <rule type="required" property="application" label="应用" rule="true" />
+    </state>
+    <state label="新建" uid="state1" basedOn="state0">
+      <rule type="value" property="account_state" label="账户状态" rule="1" />
+      <rule type="value" property="amount" label="余额" rule="0" />
+      <rule type="value" property="freeze_amount" label="冻结金额" rule="0" />
+      <rule type="value" property="overdraft" label="透支金额" rule="0" />
+    </state>
+    <state label="编辑" uid="state2" basedOn="state0" />
+  </formState>
+  <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2">
+    <TabNavigator>
+      <tab label="default">
+        <Label width="82" height="25" text="有效期限:" propertyUID="id_3" x="3" y="59" style="" />
+        <Label width="82" height="25" text="账户类型:" propertyUID="id_2" x="243" y="31" style="" />
+        <EntityField propertyUID="id_2" width="179" height="25" x="303" y="31" formUID="" queryUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.2B567171416F" forceAssociation="true" mode="" />
+        <Label width="82" height="25" text="应用:" propertyUID="id_12" x="3" y="3" style="" />
+        <EntityField propertyUID="id_12" width="179" height="25" x="63" y="3" queryUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.A30D05F76497" formUID="" />
+        <DateField propertyUID="id_3" width="179" height="26" x="63" y="59" />
+        <Label width="82" height="25" text="余额:" propertyUID="id_4" x="243" y="59" style="" />
+        <TextInput propertyUID="id_4" width="179" height="25" x="303" y="59" />
+        <Label width="82" height="25" text="冻结金额:" propertyUID="id_5" x="243" y="87" style="" />
+        <TextInput propertyUID="id_5" width="179" height="25" x="303" y="87" />
+        <Label width="82" height="25" text="透支金额:" propertyUID="id_6" x="3" y="87" style="" />
+        <TextInput propertyUID="id_6" width="179" height="25" x="63" y="87" />
+        <Label width="82" height="25" text="账户状态:" propertyUID="id_9" x="3" y="31" style="" />
+        <ComboBox propertyUID="id_9" width="179" height="25" x="63" y="31" />
+        <Label width="82" height="25" text="会员ID:" propertyUID="id_10" x="243" y="3" style="" />
+        <TextInput propertyUID="id_10" width="179" height="25" x="303" y="3" />
+      </tab>
+    </TabNavigator>
+  </Window>
+  <formEvent />
+</EntityForm>

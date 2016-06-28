@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityQuery name="调帐单管理" label="调帐单管理" note="" share="false" multiselect="false" editable="false" autopaging="true" pagingMode="NormalPaging" virtualizingPagingEnabled="false" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.D41282CF2BB9" nodeID="690"> 
+              <queryEntities> 
+                <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.DB0B4F5A8724" name="AMS_AdjustAccount" label="调帐单" alias="a0" selectAll="true" isBranch="true" master="true"/> 
+              </queryEntities>  
+              <DataGrid> 
+                <color/>  
+                <column name="bizid" label="业务编号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.DB0B4F5A8724.id_21" width="131" isBranch="false" editable="" sortable="" textAlign="" dataField="AMS_AdjustAccount$bizid"/>  
+                <column name="WF_StateName" label="状态名称" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.DB0B4F5A8724.wf_1" width="76" isBranch="false" dataField="AMS_AdjustAccount$WF_StateName" editable="" sortable="" textAlign=""/>  
+                <column name="source_userId" label="源会员ID" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.DB0B4F5A8724.id_1" width="100" isBranch="false" editable="" sortable="" textAlign="" dataField="AMS_AdjustAccount$source_userId"/>  
+                <column name="target_userId" label="目标会员ID" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.DB0B4F5A8724.id_2" width="95" isBranch="false" editable="" sortable="" textAlign="" dataField="AMS_AdjustAccount$target_userId"/>  
+                <column name="account_type" label="帐户类型" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.DB0B4F5A8724.id_4" width="100" isBranch="false" dataField="AMS_AdjustAccount$account_type_label" editable="" sortable="" textAlign=""/>  
+                <column name="trade_money" label="交易金额(元)" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.DB0B4F5A8724.id_5" width="77" isBranch="false" editable="" sortable="" textAlign="" dataField="AMS_AdjustAccount$trade_money"/>  
+                <column name="remark" label="备注" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.DB0B4F5A8724.id_3" width="100" isBranch="false" dataField="AMS_AdjustAccount$remark"/>  
+                <column name="FM_CreateTime" label="创建时间" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.DB0B4F5A8724.log_4" width="100" isBranch="false" dataField="AMS_AdjustAccount$FM_CreateTime"/>  
+                <column name="operator" label="经办人" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.DB0B4F5A8724.id_19" width="100" isBranch="false" editable="" sortable="" textAlign="" dataField="AMS_AdjustAccount$operator_name"/>  
+                <column name="auditor" label="审核人" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.DB0B4F5A8724.id_17" width="100" isBranch="false" dataField="AMS_AdjustAccount$auditor_name"/>  
+                <column name="auditor_date" label="审核时间" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.DB0B4F5A8724.id_18" width="100" isBranch="false" dataField="AMS_AdjustAccount$auditor_date"/>  
+                <column name="error_msg" label="错误原因" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.DB0B4F5A8724.id_22" width="100" isBranch="false" dataField="AMS_AdjustAccount$error_msg"/> 
+              </DataGrid>  
+              <editState/>  
+              <toolbar> 
+                <button label="新建" action="alink" selection="none" permission="" permissionName="" visiable="true" alink="alink://ime.AppWindow/WorkflowTask?{definitionUID:&quot;B092501F-3B84-468E-9D34-BBDCF2551FCD&quot;,taskUID:&quot;E2DBBB6B-CC9E-40B3-938E-B92E2274C4C0&quot;}"/>  
+                <button label="编辑" action="alink" selection="single" permission="" permissionName="" visiable="true" alink="alink://ime.AppWindow/TaskForm?{}"/> 
+              </toolbar>  
+              <xmlQuery version="2.0" name="" label=""> 
+                <select domainScope="true"> 
+                  <other label="其他" uid="other" name="other"/>  
+                  <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.DB0B4F5A8724" name="AMS_AdjustAccount" label="调帐单" alias="a0" selectAll="true" isBranch="true"> 
+                    <field uid="sys_0" name="id" label="编号" type="long"/>  
+                    <field uid="sys_1" name="domainId" label="域ID" type="long"/>  
+                    <field uid="log_0" name="FM_CreatePrinId" label="创建者ID" type="long"/>  
+                    <field uid="log_1" name="FM_CreatePrinName" label="创建者" type="string"/>  
+                    <field uid="log_2" name="FM_UpdatePrinId" label="更新者ID" type="long"/>  
+                    <field uid="log_3" name="FM_UpdatePrinName" label="更新者" type="string"/>  
+                    <field uid="log_4" name="FM_CreateTime" label="创建时间" type="timestamp"/>  
+                    <field uid="log_5" name="FM_UpdateTime" label="更新时间" type="timestamp"/>  
+                    <field uid="wf_0" name="WF_State" label="状态" type="long"/>  
+                    <field uid="wf_1" name="WF_StateName" label="状态名称" type="string"/>  
+                    <field uid="wf_2" name="WF_ProcessId" label="所属流程" type="long"/>  
+                    <field uid="wf_3" name="WF_ProcessName" label="流程名称" type="string"/>  
+                    <field uid="wf_4" name="WF_ProcessorPrinId" label="处理人ID" type="long"/>  
+                    <field uid="wf_5" name="WF_ProcessorPrinName" label="处理人" type="string"/>  
+                    <field uid="wf_6" name="WF_WorkItemId" label="工作项ID" type="long"/>  
+                    <field uid="id_1" name="source_userId" label="源会员ID" type="string"/>  
+                    <field uid="id_2" name="target_userId" label="目标会员ID" type="string"/>  
+                    <field uid="id_3" name="remark" label="备注" type="string"/>  
+                    <field uid="id_4" name="account_type" label="帐户类型" type="relation"/>  
+                    <field uid="id_5" name="trade_money" label="交易金额(元)" type="long" currency="true"/>  
+                    <field uid="id_10" name="errorTradeHandle" label="交易差错处理" type="relation"/>  
+                    <field uid="id_11" name="source_member" label="源会员" type="relation"/>  
+                    <field uid="id_12" name="target_member" label="目标会员" type="relation"/>  
+                    <field uid="id_13" name="source_name" label="源会员名称" type="string"/>  
+                    <field uid="id_14" name="target_name" label="目标会员名称" type="string"/>  
+                    <field uid="id_15" name="source_memberNo" label="源会员号" type="string"/>  
+                    <field uid="id_16" name="taget_memberNo" label="目标会员号" type="string"/>  
+                    <field uid="id_17" name="auditor" label="审核人" type="principal"/>  
+                    <field uid="id_18" name="auditor_date" label="审核时间" type="timestamp"/>  
+                    <field uid="id_19" name="operator" label="经办人" type="principal"/>  
+                    <field uid="id_20" name="target_memberNo" label="目标会员号" type="string"/>  
+                    <field uid="id_21" name="bizid" label="业务编号" type="coding"/>  
+                    <field uid="id_22" name="error_msg" label="错误原因" type="string"/> 
+                  </Entity> 
+                </select>  
+                <where> 
+                  <exp type="2"> 
+                    <exp type="19" valueType="1" option="true" rightType="param" right="source_userId" leftEntity="AMS_AdjustAccount" leftField="source_userId" uid="exp0"/>  
+                    <exp type="19" valueType="1" option="true" rightType="param" right="target_userId" leftEntity="AMS_AdjustAccount" leftField="target_userId" uid="exp1"/>  
+                    <exp type="5" valueType="3" option="true" leftEntity="AMS_AdjustAccount" leftField="WF_ProcessorPrinId" uid="exp2" rightType="val" right="$loginInfo.principalId"/>  
+                    <exp type="15" valueType="3" option="true" rightType="val" right="2" leftEntity="AMS_AdjustAccount" leftField="WF_State" uid="exp3"/>  
+                    <exp type="19" valueType="1" option="true" rightType="param" right="bizid" leftEntity="AMS_AdjustAccount" leftField="bizid" uid="exp4"/> 
+                  </exp> 
+                </where>  
+                <other> 
+                  <groupBy label="Group By"/>  
+                  <orderBy label="Order By"> 
+                    <field uid="sys_0" name="id" label="编号" type="long" entity="AMS_AdjustAccount" order="desc"/> 
+                  </orderBy> 
+                </other> 
+              </xmlQuery>  
+              <conditionForm> 
+                <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2"> 
+                  <TabNavigator> 
+                    <tab label="default"> 
+                      <Label width="82" height="25" text="源会员ID:" propertyUID="id_1" x="183" y="3" style=""/>  
+                      <TextInput name="source_userId" width="139" height="25" x="243" y="3"/>  
+                      <Label width="82" height="25" text="目标会员ID:" propertyUID="id_2" x="383" y="2" style=""/>  
+                      <TextInput name="target_userId" width="139" height="25" x="463" y="2"/>  
+                      <Label width="82" height="25" text="业务编号:" propertyUID="id_21" x="2" y="2" style=""/>  
+                      <TextInput name="bizid" width="119" height="25" x="63" y="3"/> 
+                    </tab> 
+                  </TabNavigator> 
+                </Window> 
+              </conditionForm>  
+              <StatSetting/>  
+              <queryEvent/> 
+            </EntityQuery>

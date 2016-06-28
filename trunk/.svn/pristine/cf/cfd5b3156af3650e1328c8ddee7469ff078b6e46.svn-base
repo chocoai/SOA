@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dwr PUBLIC "-//GetAhead Limited//DTD Direct Web Remoting 2.0//EN" "http://getahead.org/dwr/dwr20.dtd">
+
+<dwr>
+  <init>
+  	<converter id="hibernate3" class="org.directwebremoting.hibernate.H3BeanConverter"/>
+  </init>
+  
+  <allow>
+
+    <convert converter="hibernate3" match="ime.calendar.entity.CalendarEvent">
+    	<param name="exclude" value="owner, calendar, modifier"/> 
+    </convert>
+    <convert converter="hibernate3" match="ime.calendar.entity.Calendar">
+    	<param name="exclude" value="owner, events"/> 
+    </convert>
+    <convert converter="hibernate3" match="ime.calendar.entity.CalendarMap">
+    	<param name="exclude" value="calendar, principal"/> 
+    </convert>
+    <convert converter="hibernate3" match="ime.calendar.services.CalendarPermissionView">
+    </convert>
+    
+    <create creator="new" javascript="CalendarService">
+      <param name="class" value="ime.calendar.services.CalendarService"/>
+    </create>
+    <create creator="new" javascript="CalendarEventService">
+      <param name="class" value="ime.calendar.services.CalendarEventService"/>
+    </create>
+    
+  </allow>
+
+  <signatures>
+  <![CDATA[
+  
+  ]]>
+  </signatures>
+</dwr>

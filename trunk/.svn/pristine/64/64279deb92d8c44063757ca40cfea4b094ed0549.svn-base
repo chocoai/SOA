@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Entity lastId="10" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.51AD9C33C9D9" name="AMS_SafetyLog" label="安全等级变更日志" note="" log="false" workflow="false" nodeID="762" dbcreated="true"> 
+  <property uid="sys_0" label="编号" name="id" type="long" systemProperty="true" editorPart="Entity"/>  
+  <property uid="sys_1" label="域ID" name="domainId" type="long" systemProperty="true" editorPart="Entity"/>  
+  <relation/>  
+  <extension/>  
+  <property name="member" label="会员" type="relation" uid="id_1" entityUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0" labelField="name" editorPart="Entity" dbcreated="true"/>  
+  <property name="type" label="认证类型" type="long" uid="id_2" valueProvider="多账户.认证类型" editorPart="Entity" dbcreated="true"/>  
+  <property name="old_level" label="原有等级" type="long" uid="id_3" valueProvider="多账户.安全等级" editorPart="Entity" dbcreated="true"/>  
+  <property name="new_level" label="变更等级" type="long" uid="id_4" valueProvider="多账户.安全等级" editorPart="Entity" dbcreated="true"/>  
+  <property name="memo" label="描述" type="string" length="100" uid="id_5" editorPart="Entity" dbcreated="true"/>  
+  <property name="add_time" label="操作时间" type="timestamp" length="100" uid="id_8" editorPart="Entity" dbcreated="true"/>  
+  <property name="deal_result" label="处理结果" type="long" uid="id_9" valueProvider="多账户.处理结果" editorPart="Entity" dbcreated="true"/>  
+  <property name="operation_type" label="变更属性" type="long" uid="id_10" valueProvider="多账户.变更属性" editorPart="Entity" dbcreated="true"/> 
+</Entity>

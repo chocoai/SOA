@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityQuery name="话费订单查询" label="话费订单查询" note="" share="false" multiselect="false" editable="false" autopaging="true" pagingMode="NormalPaging" virtualizingPagingEnabled="false" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.DFF45252E22B" nodeID="381"> 
+              <queryEntities> 
+                <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.BB2866424A8C" name="AMS_OrderDetail" label="订单明细" alias="a1" selectAll="true" isBranch="true"/>  
+                <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.3D51405C5EA0" name="AMS_Order" label="订单" alias="a0" selectAll="true" isBranch="true" master="true"/> 
+              </queryEntities>  
+              <DataGrid> 
+                <color/>  
+                <column name="orderNo" label="订单号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.3D51405C5EA0.id_2" width="147" isBranch="false" dataField="AMS_Order$orderNo"/>  
+                <column name="order_money" label="金额" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.3D51405C5EA0.id_4" width="100" isBranch="false" dataField="AMS_Order$order_money"/>  
+                <column name="order_state" label="订单状态" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.3D51405C5EA0.id_5" width="100" isBranch="false" dataField="AMS_Order$order_state"/>  
+                <column name="memberNo" label="会员号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.3D51405C5EA0.id_68" width="100" isBranch="false" dataField="AMS_Order$memberNo"/>  
+                <column name="member_name" label="会员名称" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.3D51405C5EA0.id_65" width="100" isBranch="false" dataField="AMS_Order$member_name"/>  
+                <column name="create_time" label="生成时间" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.3D51405C5EA0.id_1" width="148" isBranch="false" dataField="AMS_Order$create_time"/>  
+                <column name="pay_time" label="支付时间" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.3D51405C5EA0.id_38" width="164" isBranch="false" dataField="AMS_Order$pay_time"/>  
+                <column name="member_ip" label="用户ip" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.3D51405C5EA0.id_87" width="100" isBranch="false" dataField="AMS_Order$member_ip"/>  
+                <column name="recharge_number" label="充值号码" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.BB2866424A8C.id_24" width="100" isBranch="false" dataField="AMS_OrderDetail$recharge_number"/>  
+                <column name="total_price" label="总价" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.BB2866424A8C.id_5" width="100" isBranch="false" dataField="AMS_OrderDetail$total_price"/> 
+              </DataGrid>  
+              <editState/>  
+              <toolbar/>  
+              <xmlQuery version="2.0" name="" label=""> 
+                <select domainScope="true"> 
+                  <other label="其他" uid="other" name="other"/>  
+                  <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.3D51405C5EA0" name="AMS_Order" label="订单" alias="a0" selectAll="true" isBranch="true"> 
+                    <field uid="sys_0" name="id" label="编号" type="long"/>  
+                    <field uid="sys_1" name="domainId" label="域ID" type="long"/>  
+                    <field uid="id_1" name="create_time" label="生成时间" type="timestamp"/>  
+                    <field uid="id_2" name="orderNo" label="订单号" type="string"/>  
+                    <field uid="id_4" name="order_money" label="金额" type="long" currency="true"/>  
+                    <field uid="id_5" name="order_state" label="订单状态" type="long"/>  
+                    <field uid="id_6" name="presenter_phone" label="赠送人手机" type="string"/>  
+                    <field uid="id_7" name="is_present" label="是否赠送" type="boolean"/>  
+                    <field uid="id_9" name="delivery_price" label="配送费" type="long" currency="true"/>  
+                    <field uid="id_12" name="source" label="订单来源" type="long"/>  
+                    <field uid="id_16" name="phone" label="手机号码" type="string"/>  
+                    <field uid="id_17" name="address" label="送货地址" type="string"/>  
+                    <field uid="id_18" name="postcode" label="邮政编码" type="string"/>  
+                    <field uid="id_19" name="receiver" label="收货人" type="string"/>  
+                    <field uid="id_20" name="remark" label="备注" type="string"/>  
+                    <field uid="id_21" name="order_type" label="订单类型" type="long"/>  
+                    <field uid="id_24" name="bank_code" label="银行代码" type="string"/>  
+                    <field uid="id_25" name="account_name" label="账户名" type="string"/>  
+                    <field uid="id_26" name="accountNo" label="帐号" type="string"/>  
+                    <field uid="id_30" name="description" label="描述" type="string"/>  
+                    <field uid="id_35" name="target_phone" label="对方手机" type="string"/>  
+                    <field uid="id_36" name="bank_name" label="银行名称" type="string"/>  
+                    <field uid="id_38" name="pay_time" label="支付时间" type="timestamp"/>  
+                    <field uid="id_39" name="delivery_time" label="发货时间" type="timestamp"/>  
+                    <field uid="id_40" name="confirm_time" label="确认时间" type="timestamp"/>  
+                    <field uid="id_42" name="member_uuid" label="会员uuid" type="string"/>  
+                    <field uid="id_43" name="target_uuid" label="对方会员uuid" type="string"/>  
+                    <field uid="id_46" name="delivery_remark" label="配送说明" type="string"/>  
+                    <field uid="id_49" name="delivery_code" label="配送运单号" type="string"/>  
+                    <field uid="id_50" name="delivery_name" label="物流公司" type="string"/>  
+                    <field uid="id_55" name="delivery_company" label="物流公司代号" type="string"/>  
+                    <field uid="id_56" name="isResultDeliveryPrice" label="是否退运费" type="long"/>  
+                    <field uid="id_59" name="receiving_delay_no" label="收货延迟次数" type="long"/>  
+                    <field uid="id_60" name="receiving_delay_date" label="自动确认收货时间" type="timestamp"/>  
+                    <field uid="id_63" name="sub_trade_type" label="子交易类型" type="long"/>  
+                    <field uid="id_64" name="member_id" label="会员Id" type="long"/>  
+                    <field uid="id_65" name="member_name" label="会员名称" type="string"/>  
+                    <field uid="id_66" name="target_member_id" label="对方会员Id" type="long"/>  
+                    <field uid="id_67" name="orgNo" label="机构号" type="string"/>  
+                    <field uid="id_68" name="memberNo" label="会员号" type="string"/>  
+                    <field uid="id_69" name="target_memberNo" label="对方会员号" type="string"/>  
+                    <field uid="id_70" name="trade_type" label="交易类型" type="long"/>  
+                    <field uid="id_71" name="target_member_name" label="对方会员名称" type="string"/>  
+                    <field uid="id_72" name="account_type" label="账户类型" type="relation"/>  
+                    <field uid="id_77" name="accountNo_encrypt" label="加密账号" type="string"/>  
+                    <field uid="id_80" name="card_type" label="卡类型" type="long"/>  
+                    <field uid="id_81" name="account_prop" label="账户属性" type="long"/>  
+                    <field uid="id_82" name="extend_info" label="扩展信息" type="string"/>  
+                    <field uid="id_87" name="member_ip" label="用户ip" type="string"/>  
+                    <field uid="id_88" name="merchant_order_no" label="商户订单号" type="string"/>  
+                    <field uid="id_89" name="org_user_id" label="机构会员编号" type="string"/>  
+                    <field uid="id_90" name="order_name" label="订单名称" type="string"/>  
+                    <field uid="id_91" name="transaction_type" label="收款方式" type="long"/>  
+                    <field uid="id_93" name="isArtificial" label="是否人工处理" type="boolean"/>  
+                    <field name="out_serial_number" label="外部流水号" type="string" uid="id_94"/>  
+                    <field name="qr_code" label="二维码" type="string" uid="id_95"/> 
+                  </Entity>  
+                  <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.BB2866424A8C" name="AMS_OrderDetail" label="订单明细" alias="a1" selectAll="true" isBranch="true"> 
+                    <field uid="sys_0" name="id" label="编号" type="long"/>  
+                    <field uid="sys_1" name="domainId" label="域ID" type="long"/>  
+                    <field uid="id_1" name="owner_order" label="所属订单" type="relation"/>  
+                    <field uid="id_3" name="goods_count" label="数量" type="long"/>  
+                    <field uid="id_4" name="unit_price" label="单价" type="long" currency="true"/>  
+                    <field uid="id_5" name="total_price" label="总价" type="long" currency="true"/>  
+                    <field uid="id_7" name="spec" label="规格" type="string"/>  
+                    <field uid="id_8" name="art_no" label="货号" type="string"/>  
+                    <field uid="id_9" name="goods_name" label="商品名称" type="string"/>  
+                    <field uid="id_10" name="goods_uuid" label="UUID" type="string"/>  
+                    <field uid="id_11" name="goods_image" label="商品图片" type="string"/>  
+                    <field uid="id_13" name="begin_time" label="活动开始时间" type="timestamp"/>  
+                    <field uid="id_14" name="end_time" label="活动结束时间" type="timestamp"/>  
+                    <field uid="id_15" name="activity_id" label="活动编号" type="long"/>  
+                    <field uid="id_18" name="out_system" label="外部系统" type="string"/>  
+                    <field uid="id_19" name="return_goods" label="退货" type="relation"/>  
+                    <field uid="id_20" name="edit_unit_price" label="修改后单价" type="long"/>  
+                    <field uid="id_21" name="edit_total_price" label="修改后总价" type="long"/>  
+                    <field uid="id_22" name="is_return_delivery_price" label="是否已退运费" type="boolean"/>  
+                    <field uid="id_24" name="recharge_number" label="充值号码" type="string"/>  
+                    <field uid="id_25" name="recharge_type" label="充值状态" type="long"/>  
+                    <field uid="id_26" name="remarks" label="备注" type="string"/>  
+                    <field name="wec_provinceId" label="水电煤-省份id" type="string" uid="id_28"/>  
+                    <field name="wec_cityId" label="水电煤-城市id" type="string" uid="id_29"/>  
+                    <field name="wec_payProjectId" label="水电煤-缴费类型Id" type="string" uid="id_30"/>  
+                    <field name="wec_payUnitId" label="水电煤-缴费单位Id" type="string" uid="id_31"/>  
+                    <field name="wec_account" label="水电煤-户号" type="string" uid="id_32"/>  
+                    <field name="wec_productId" label="水电煤-产品编号Id" type="string" uid="id_33"/>  
+                    <field name="wec_contractId" label="水电煤-合同号" type="string" uid="id_34"/>  
+                    <field name="wec_payMentDay" label="水电煤-账期" type="string" uid="id_35"/> 
+                  </Entity> 
+                </select>  
+                <where> 
+                  <exp type="2"> 
+                    <exp type="5" valueType="3" option="true" rightType="val" right="2" leftEntity="AMS_Order" leftField="trade_type" uid="exp0"/>  
+                    <exp type="5" valueType="3" option="true" rightType="val" right="4" leftEntity="AMS_Order" leftField="sub_trade_type" uid="exp1"/>  
+                    <exp type="5" valueType="3" option="true" rightType="prop" rightEntity="AMS_OrderDetail" rightField="owner_order_id" leftEntity="AMS_Order" leftField="id" uid="exp2"/>  
+                    <exp type="19" valueType="1" option="true" rightType="param" right="member_name" leftEntity="AMS_Order" leftField="member_name" uid="exp3"/>  
+                    <exp type="19" valueType="1" option="true" rightType="param" right="member_uuid" leftEntity="AMS_Order" leftField="member_uuid" uid="exp4"/>  
+                    <exp type="19" valueType="1" option="true" leftEntity="AMS_Order" leftField="orderNo" uid="exp5" rightType="param" right="orderNo"/> 
+                  </exp> 
+                </where>  
+                <other> 
+                  <groupBy label="Group By"/>  
+                  <orderBy label="Order By"> 
+                    <field uid="sys_0" name="id" label="编号" type="long" entity="AMS_Order" order="desc"/> 
+                  </orderBy> 
+                </other> 
+              </xmlQuery>  
+              <conditionForm> 
+                <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2"> 
+                  <TabNavigator> 
+                    <tab label="default"> 
+                      <Label width="82" height="25" text="订单号:" propertyUID="id_2" x="3" y="3" style=""/>  
+                      <TextInput name="orderNo" width="139" height="25" x="63" y="3"/>  
+                      <Label width="79" height="25" text="订单状态:" propertyUID="id_5" x="3" y="31" style=""/>  
+                      <ComboBox valueProvider="订单.订单状态" name="order_state" width="139" height="25" x="63" y="31"/>  
+                      <Label width="82" height="25" text="会员名称:" propertyUID="id_65" x="203" y="3" style=""/>  
+                      <TextInput name="member_name" width="119" height="25" x="283" y="3"/>  
+                      <Label width="82" height="25" text="会员uuid:" propertyUID="id_42" x="203" y="31" style=""/>  
+                      <TextInput name="member_uuid" width="179" height="25" x="283" y="31"/>  
+                      <Label width="82" height="25" text="会员号:" propertyUID="id_68" x="403" y="3" style=""/>  
+                      <TextInput name="memberNo" width="159" height="25" x="463" y="3"/> 
+                    </tab> 
+                  </TabNavigator> 
+                </Window> 
+              </conditionForm>  
+              <StatSetting/>  
+              <queryEvent/> 
+            </EntityQuery>

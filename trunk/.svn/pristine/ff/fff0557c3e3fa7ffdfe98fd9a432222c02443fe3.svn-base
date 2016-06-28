@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "PUBLIC" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class entity-name="AMS_AgentDetail" table="DYNA_AMS_AgentDetail">
+    <id name="id" type="long">
+      <generator class="sequence">
+        <param name="sequence">IDSEQ_AMS_AgentDetail</param>
+      </generator>
+    </id>
+    <property name="domainId" not-null="false" type="long" index="IDX_DOMAINID"/>
+    <property name="agentOrder_id" not-null="false" type="long" index="agentOrder_idx"/>
+    <property name="agentOrder_label" not-null="false" type="string" length="200"/>
+    <property name="bizUserId" not-null="false" type="string" length="100"/>
+    <property name="userId" not-null="false" type="string" length="100"/>
+    <property name="sk_amount" not-null="false" type="long"/>
+    <property name="ys_amount" not-null="false" type="long"/>
+    <property name="tk_amount" not-null="false" type="long"/>
+  </class>
+</hibernate-mapping>

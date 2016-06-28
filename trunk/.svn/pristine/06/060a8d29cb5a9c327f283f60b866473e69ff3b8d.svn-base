@@ -1,0 +1,1046 @@
+package bps.external.application.increment;
+
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.commons.lang.StringUtils;
+import org.apache.log4j.Logger;
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import bps.common.BizException;
+import bps.common.ErrorCode;
+import bps.common.MD5Util;
+import bps.external.application.Extension;
+import flex.messaging.util.URLEncoder;
+
+/**
+ * @ProjectName：allinpay.wallet
+ * @Package    ：com.kinorsoft.order.increment
+ * @ClassName  ：WaterElectricityCoal     
+ * @Description：水电煤接口
+ * @Author     ：张雄
+ * @CreateDate ：2015.06.25
+ * @version    ：v1.0
+ */
+public class WaterElectricityCoalServiceImpl implements bps.external.application.service.increment.WaterElectricityCoalService{
+	//本地测试标识
+	private static Boolean isDebug = false;
+	//日志对象
+	private static Logger logger = Logger.getLogger(WaterElectricityCoalServiceImpl.class);
+	//应用的appkey
+	private static String key = null;
+	//开放平台的openId
+	private static String openId = null; 
+	//公共事业省份查询
+	private static String provinceQueryUrl = null;   
+	//公共事业城市查询
+	private static String cityQueryUrl = null;      
+	//公共事业充值类型查询
+	private static String projectQueryUrl = null; 
+	//公共事业缴费单位查询
+	private static String unitQueryUrl = null;       
+	//水电煤商品信息查询
+	private static String productQueryUrl = null;  
+	//水电煤缴费方式查询
+	private static String payModeQueryUrl = null;
+	//水电煤账户欠费查询
+	private static String balanceQueryUrl = null; 
+	//公共事业充值
+	private static String orderRechargeUrl = null;    
+	//订单状态查询
+	private static String orderStatusQueryUrl = null; 
+	//历史订单列表查询
+	private static String orderListQueryUrl = null;   
+
+	//获得key和openId
+	static{
+		key = Extension.paramMap.get("juheApi.WaterElectricityCoal.key");
+		openId = Extension.paramMap.get("juheApi.openId");
+	}
+
+	/**
+	 * 公共事业省份查询
+	 * @return JSONObject 省份数据
+	 * @throws Exception
+	 */
+	public Map<String, Object> queryProvince() throws BizException{
+		logger.info("================================WaterElectricityCoalServiceImpl.queryProvince start=================================");
+		
+		try{
+			//检验数据
+			if(provinceQueryUrl == null){
+				provinceQueryUrl = Extension.paramMap.get("juheApi.WaterElectricityCoal.provinceQueryUrl");
+			}
+			
+			//组装url
+			String provinceQueryUrlComplete = provinceQueryUrl + "?key=" + key;
+			logger.info("request:" + provinceQueryUrlComplete);
+			
+			JSONObject response = null;
+			try{
+				//发送get请求，并获取response
+				response = getHttp(provinceQueryUrlComplete);
+				logger.info("response:" + response.toString());
+			
+				//判断返回是否正确,并组装返回值
+				Map<String, Object> retMap = new HashMap<String, Object>();
+				int errorCode = (Integer) response.get("error_code");
+				if(errorCode == 0){
+					List<Map<String, Object>> result = new ArrayList<Map<String, Object>>();
+					JSONArray jsonArray = (JSONArray)response.get("result");
+					
+					for(int i = 0; i < jsonArray.length(); i++){
+						result.add((Map<String, Object>)(((JSONObject)jsonArray.get(i)).getMap()));
+					}
+					
+					retMap.put("status", "ok");
+					retMap.put("resCode", String.valueOf(errorCode));
+					retMap.put("resMsg", (String)response.getString("reason"));
+					retMap.put("returnValue", result);
+				}
+				else{
+					retMap.put("status", "error");
+					retMap.put("resCode", String.valueOf(errorCode));
+					retMap.put("resMsg", (String)response.getString("reason"));
+				}
+				
+				logger.info("================================WaterElectricityCoalServiceImpl.queryProvince end=================================");
+				return retMap;
+			}
+			catch(Exception ex){
+				logger.error(ex.getMessage(), ex);
+				throw ex;
+			}
+		}catch(BizException bizE){
+			throw bizE;
+		}catch(Exception e){
+			throw new BizException(ErrorCode.OTHER_ERROR, e.getMessage());
+		}
+	}
+	
+	/**
+	 * 公共事业城市查询
+	 * @param  provideId  notNullable  查询的省份id
+	 * @return JSONObject 城市信息
+	 * @throws Exception
+	 */
+	public Map<String, Object> queryCity(String provinceId) throws BizException{
+		logger.info("================================WaterElectricityCoalServiceImpl.queryCity start=================================");
+		logger.info("参数--provinceId:" + provinceId);
+		
+		try{
+			//检查数据
+			if(StringUtils.isBlank(provinceId)){
+				String msg = "参数provinceId为“”或null。";
+				logger.error(msg);
+				throw new Exception(msg);
+			}
+			
+			if(cityQueryUrl == null){
+				cityQueryUrl = Extension.paramMap.get("juheApi.WaterElectricityCoal.cityQueryUrl");
+			}
+			
+			//组装url
+			StringBuffer sb = new StringBuffer();
+			sb.setLength(0);
+			sb.append(cityQueryUrl);
+			sb.append("?key=").append(key);
+			sb.append("&provid=").append(provinceId);
+			String cityQueryUrlComplete = sb.toString();
+			
+			logger.info("request:" + cityQueryUrlComplete);
+			
+			JSONObject response = null;
+			
+			try{
+				//发送get请求，并获取response
+				response = getHttp(cityQueryUrlComplete);
+				
+				logger.info("response:" + response.toString());
+				
+				//判断返回是否正确,并组装返回值
+				Map<String, Object> retMap = new HashMap<String, Object>();
+				int errorCode = (Integer) response.get("error_code");
+				if(errorCode == 0){
+					List<Map<String, Object>> result = new ArrayList<Map<String, Object>>();
+					JSONArray jsonArray = (JSONArray)response.get("result");
+					for(int i = 0; i < jsonArray.length(); i++){
+						result.add(((JSONObject)jsonArray.get(i)).getMap());
+					}
+
+					retMap.put("status", "ok");
+					retMap.put("resCode", String.valueOf(errorCode));
+					retMap.put("resMsg", (String)response.getString("reason"));
+					retMap.put("returnValue", result);
+				}
+				else{
+					retMap.put("status", "error");
+					retMap.put("resCode", String.valueOf(errorCode));
+					retMap.put("resMsg", (String)response.getString("reason"));
+				}
+				
+				logger.info("================================WaterElectricityCoalServiceImpl.queryCity end=================================");
+				return retMap;
+			}
+			catch(Exception ex){
+				logger.error(ex.getMessage(), ex);
+				throw ex;
+			}
+		}catch(BizException bizE){
+			throw bizE;
+		}catch(Exception e){
+			throw new BizException(ErrorCode.OTHER_ERROR, e.getMessage());
+		}
+	}
+	
+	/**
+	 * 公共事业充值类型查询
+	 * @param  provinceId notNullable  省份id
+	 * @param  cityId     notNullable  城市id
+	 * @return JSONObject 充值类型信息
+	 * @throws Exception
+	 */
+	public Map<String, Object> queryProject(String provinceId, String cityId) throws BizException{
+		logger.info("================================WaterElectricityCoalServiceImpl.queryProject start=================================");
+		logger.info("参数--provinceId:" + provinceId + ";cityId:" + cityId);
+		
+		try{
+			//检查数据
+			if(StringUtils.isBlank(provinceId)){
+				String msg = "参数provinceId为“”或null。";
+				logger.error(msg);
+				throw new Exception(msg);
+			}
+			
+			if(StringUtils.isBlank(cityId)){
+				String msg = "参数cityId为“”或null。";
+				logger.error(msg);
+				throw new Exception(msg);
+			}
+			
+			if(projectQueryUrl == null){
+				projectQueryUrl = Extension.paramMap.get("juheApi.WaterElectricityCoal.projectQueryUrl");
+			}
+			
+			//组装url
+			StringBuffer sb = new StringBuffer();
+			sb.setLength(0);
+			sb.append(projectQueryUrl);
+			sb.append("?key=").append(key);
+			sb.append("&provid=").append(provinceId);
+			sb.append("&cityid=").append(cityId);
+			String projectQueryUrlComplete = sb.toString();
+			
+			logger.info("request:" + projectQueryUrlComplete);
+			
+			JSONObject response = null;
+			
+			//发送get请求，并获取response
+			response = getHttp(projectQueryUrlComplete);
+			
+			logger.info("response:" + response.toString());
+			
+			//判断返回是否正确,并组装返回值
+			Map<String, Object> retMap = new HashMap<String, Object>();
+			int errorCode = (Integer)response.get("error_code");
+			if(errorCode == 0){
+				List<Map<String, Object>> result = new ArrayList<Map<String, Object>>();
+				JSONArray jsonArray = (JSONArray)response.get("result");
+				for(int i = 0; i < jsonArray.length(); i++){
+					result.add(((JSONObject)jsonArray.get(i)).getMap());
+				}
+				
+				retMap.put("status", "ok");
+				retMap.put("resCode", String.valueOf(errorCode));
+				retMap.put("resMsg", (String)response.getString("reason"));
+				retMap.put("returnValue", result);
+			}
+			else{
+				retMap.put("status", "error");
+				retMap.put("resCode", String.valueOf(errorCode));
+				retMap.put("resMsg", (String)response.getString("reason"));
+			}
+			
+			logger.info("================================WaterElectricityCoalServiceImpl.queryProject end=================================");
+			return retMap;
+		}catch(BizException bizE){
+			throw bizE;
+		}catch(Exception e){
+			throw new BizException(ErrorCode.OTHER_ERROR, e.getMessage());
+		}
+		
+	}
+	
+	/**
+	 * 公共事业缴费单位查询
+	 * @param  provinceId notNullable  省份id
+	 * @param  cityId     notNullable  城市id
+	 * @param  type       notNullable  类型id，对应queryProject接口返回的payProjectId
+	 * @return JSONObject 缴费单位信息
+	 * @throws Exception
+	 */
+	public Map<String, Object> queryUnit(String provinceId, String cityId, String type) throws BizException{
+		logger.info("================================WaterElectricityCoalServiceImpl.queryUnit start=================================");
+		logger.info("参数--provinceId:" + provinceId + ";cityId:" + cityId + ";type:" + type);
+		
+		try{
+			//检查数据
+			if(StringUtils.isBlank(provinceId)){
+				String msg = "参数provinceId为“”或null。";
+				logger.error(msg);
+				throw new Exception(msg);
+			}
+			
+			if(StringUtils.isBlank(cityId)){
+				String msg = "参数cityId为“”或null。";
+				logger.error(msg);
+				throw new Exception(msg);
+			}
+			
+			if(StringUtils.isBlank(type)){
+				String msg = "参数type为“”或null。";
+				logger.error(msg);
+				throw new Exception(msg);
+			}
+			
+			if(unitQueryUrl == null){
+				unitQueryUrl = Extension.paramMap.get("juheApi.WaterElectricityCoal.unitQueryUrl");
+			}
+			
+			//组装url
+			StringBuffer sb = new StringBuffer();
+			sb.setLength(0);
+			sb.append(unitQueryUrl);
+			sb.append("?key=").append(key);
+			sb.append("&provid=").append(provinceId);
+			sb.append("&cityid=").append(cityId);
+			sb.append("&type=").append(type);
+			String unitQueryUrlComplete = sb.toString();
+			
+			logger.info("request:" + unitQueryUrlComplete);
+			
+			JSONObject response = null;
+			
+			//发送get请求，并获取response
+			response = getHttp(unitQueryUrlComplete);
+			
+			//写入日志
+			logger.info("response:" + response.toString());
+			
+			//判断返回是否正确,并组装返回值
+			Map<String, Object> retMap = new HashMap<String, Object>();
+			int errorCode = (Integer) response.get("error_code");
+			if(errorCode == 0){
+				List<Map<String, Object>> result = new ArrayList<Map<String, Object>>();
+				JSONArray jsonArray = (JSONArray)response.get("result");
+				for(int i = 0; i < jsonArray.length(); i++){
+					result.add(((JSONObject)jsonArray.get(i)).getMap());
+				}
+				
+				retMap.put("status", "ok");
+				retMap.put("resCode", String.valueOf(errorCode));
+				retMap.put("resMsg", (String)response.getString("reason"));
+				retMap.put("returnValue", result);
+			}
+			else{
+				retMap.put("status", "error");
+				retMap.put("resCode", String.valueOf(errorCode));
+				retMap.put("resMsg", (String)response.getString("reason"));
+			}
+			
+			logger.info("================================WaterElectricityCoalServiceImpl.queryUnit end=================================");
+			return retMap;
+		}catch(BizException bizE){
+			throw bizE;
+		}catch(Exception e){
+			throw new BizException(ErrorCode.OTHER_ERROR, e.getMessage());
+		}
+	}
+	
+	/**
+	 * 水电煤商品信息查询
+	 * @param  provinceId notNullable  省份id
+	 * @param  cityId     notNullable  城市id 
+	 * @param  type       notNullable  缴费类型，对应queryUnit接口返回的payProjectId
+	 * @param  code       notNullable  缴费单位，对应queryUnit接口返回的payUnitId
+	 * @return JSONObject 水电煤商品信息
+	 * @throws Exception
+	 */
+	public Map<String, Object> queryProduct(String provinceId, String cityId, String type, String code) throws BizException{
+		logger.info("================================WaterElectricityCoalServiceImpl.queryProduct start=================================");
+		logger.info("参数--provinceId:" + provinceId + ";cityId:" + cityId + ";type:" + type + ";code:" + code);
+		
+		try{
+			//检查数据
+			if(StringUtils.isBlank(provinceId)){
+				String msg = "参数provinceId为“”或null。";
+				logger.error(msg);
+				throw new Exception(msg);
+			}
+			
+			if(StringUtils.isBlank(cityId)){
+				String msg = "参数cityId为“”或null。";
+				logger.error(msg);
+				throw new Exception(msg);
+			}
+			
+			if(StringUtils.isBlank(type)){
+				String msg = "参数type为“”或null。";
+				logger.error(msg);
+				throw new Exception(msg);
+			}
+			
+			if(StringUtils.isBlank(code)){
+				String msg = "参数code为“”或null。";
+				logger.error(msg);
+				throw new Exception(msg);
+			}
+			
+			if(productQueryUrl == null){
+				productQueryUrl = Extension.paramMap.get("juheApi.WaterElectricityCoal.productQueryUrl");
+			}
+			
+			//组装url
+			StringBuffer sb = new StringBuffer();
+			sb.setLength(0);
+			sb.append(productQueryUrl);
+			sb.append("?key=").append(key);
+			sb.append("&provid=").append(provinceId);
+			sb.append("&cityid=").append(cityId);
+			sb.append("&type=").append(type);
+			sb.append("&code=").append(code);
+			String productQueryUrlComplete = sb.toString();
+
+			logger.info("request:" + productQueryUrlComplete);
+			
+			JSONObject response = null;
+			
+			//发送get请求，并获取response
+			response = getHttp(productQueryUrlComplete);
+			
+			logger.info("response:" + response.toString());
+			
+			//判断返回是否正确,并组装返回值
+			Map<String, Object> retMap = new HashMap<String, Object>();
+			int errorCode = (Integer)response.get("error_code");
+			if(errorCode == 0){
+				JSONObject result = (JSONObject)response.get("result");
+				result.remove("inprice");
+				
+				retMap.put("status", "ok");
+				retMap.put("resCode", String.valueOf(errorCode));
+				retMap.put("resMsg", (String)response.getString("reason"));
+				retMap.put("returnValue", result);
+			}
+			else{
+				retMap.put("status", "error");
+				retMap.put("resCode", String.valueOf(errorCode));
+				retMap.put("resMsg", (String)response.getString("reason"));
+			}
+			
+			logger.info("================================WaterElectricityCoalServiceImpl.queryProduct end=================================");
+			return retMap;	
+		}catch(BizException bizE){
+			throw bizE;
+		}catch(Exception e){
+			throw new BizException(ErrorCode.OTHER_ERROR, e.getMessage());
+		}
+	}
+	
+
+	/**
+	 * 查询缴费方式
+	 * @param provinceId 省份id
+	 * @param cityId     城市id
+	 * @param type       缴费类型Id
+	 * @param code       缴费单位Id
+	 * @return
+	 * @throws Exception
+	 */
+	public Map<String, Object> queryPayMode(String provinceId, String cityId, String type, String code) throws BizException{
+		logger.info("================================WaterElectricityCoal.queryPayMode start=====================================");
+		logger.info("参数--provinceId:" + provinceId + " cityId:" + cityId + " type:" + type + " code:" + code);
+		
+		try{
+
+			if(StringUtils.isBlank(provinceId)){
+				throw new Exception("参数provinceId为“”或null。");
+			}
+			if(StringUtils.isBlank(cityId)){
+				throw new Exception("参数cityId为“”或null。");
+			}
+			if(StringUtils.isBlank(type)){
+				throw new Exception("参数type为“”或null。");
+			}
+			if(StringUtils.isBlank(code)){
+				throw new Exception("参数code为“”或null。");
+			}
+			
+			if(payModeQueryUrl == null){
+				payModeQueryUrl = Extension.paramMap.get("juheApi.WaterElectricityCoal.payModeQueryUrl");
+			}
+			
+			StringBuffer sb = new StringBuffer();
+			sb.setLength(0);
+			sb.append(payModeQueryUrl);
+			sb.append("?key=").append(key);
+			sb.append("&provid=").append(provinceId);
+			sb.append("&cityid=").append(cityId);
+			sb.append("&type=").append(type);
+			sb.append("&code=").append(code);
+			String payModeQueryUrlComplete = sb.toString();
+			
+			logger.info("request:" + payModeQueryUrlComplete);
+			
+			JSONObject response = null;
+			
+			//发送get请求，并获取response
+			response = getHttp(payModeQueryUrlComplete);
+			
+			logger.info("response:" + response.toString());
+			
+			Map<String, Object> retMap = new HashMap<String, Object>();
+			List<Map<String, Object>> retPayMode = new ArrayList<Map<String, Object>>();
+			int errorCode = (Integer)response.get("error_code");
+			String errorMsg = (String)response.get("reason");
+			JSONObject result = (JSONObject)response.get("result");
+			if(errorCode == 0){
+				if(result.get("payMode") instanceof JSONArray){
+					JSONArray payModeList = (JSONArray)result.get("payMode");
+					for(int i = 0; i < payModeList.length(); i++){
+						retPayMode.add(((JSONObject)(payModeList.get(i))).getMap());
+					}
+				}else{
+					retPayMode.add(((JSONObject)result.get("payMode")).getMap());
+				}
+				
+				retMap.put("status", "ok");
+				retMap.put("resCode", String.valueOf(errorCode));
+				retMap.put("resMsg", (String)response.getString("reason"));
+				retMap.put("returnValue", retPayMode);
+			}else{
+				retMap.put("status", "error");
+				retMap.put("resCode", String.valueOf(errorCode));
+				retMap.put("resMsg", (String)response.getString("reason"));
+			}
+			
+			logger.info("================================WaterElectricityCoal.queryPayMode end=====================================");
+			return retMap;
+		}catch(BizException bizE){
+			throw bizE;
+		}catch(Exception e){
+			throw new BizException(ErrorCode.OTHER_ERROR, e.getMessage());
+		}
+	}
+	
+	
+	/**
+	 * 水电煤账户欠费查询
+	 * @param  provinceName notNullable  省份名称，urlencode utf8
+	 * @param  cityName     notNullable  城市名称，urlencode utf8
+	 * @param  type         notNullable  类型（001：水费、002：电费、003：燃气费）
+	 * @param  code         notNullable  缴费单位编码
+	 * @param  name         notNullable  缴费单位名称，urlencode utf8
+	 * @param  account      notNullable  条形码或者户号
+	 * @param  cardId       notNullable  水电煤的商品编号
+	 * @param  payModeId    notNullable  缴费方式编号（1：表示account是条形码,2：表示account是户号）
+	 * @return JSONObject   水电煤账户欠费信息
+	 * @throws Exception
+	 */
+	public Map<String, Object> queryBalance(String provinceName, String cityName, String type, String code, String name, String account, String cardId, String payModeId) throws BizException{
+		logger.info("================================WaterElectricityCoal.queryBalance start===================================");
+		logger.info("参数--provinceName:" + provinceName + ";cityName:" + cityName + ";type:" + type + ";code:" + code + ";name:" + name + ";account:" + account + ";cardId:" + cardId + ";payModeId:" + payModeId);
+		
+		try{
+			//检查数据
+			if(StringUtils.isBlank(provinceName)){
+				String msg = "参数provinceName为“”或null。";
+				logger.error(msg);
+				throw new Exception(msg);
+			}
+			
+			if(StringUtils.isBlank(cityName)){
+				String msg = "参数cityName为“”或null。";
+				logger.error(msg);
+				throw new Exception(msg);
+			}
+			
+			if(StringUtils.isBlank(type)){
+				String msg = "参数type为“”或null。";
+				logger.error(msg);
+				throw new Exception(msg);
+			}
+			
+			if(StringUtils.isBlank(code)){
+				String msg = "参数code为“”或null。";
+				logger.error(msg);
+				throw new Exception(msg);
+			}
+			
+			if(StringUtils.isBlank(name)){
+				String msg = "参数name为“”或null。";
+				logger.error(msg);
+				throw new Exception(msg);
+			}
+			
+			if(StringUtils.isBlank(account)){
+				String msg = "参数account为“”或null。";
+				logger.error(msg);
+				throw new Exception(msg);
+			}
+			
+			if(StringUtils.isBlank(cardId)){
+				String msg = "参数cardId为“”或null。";
+				logger.error(msg);
+				throw new Exception(msg);
+			}
+			
+			if(StringUtils.isBlank(payModeId)){
+				String msg = "参数payModeId为“”或null。";
+				logger.error(msg);
+				throw new Exception(msg);
+			}
+			
+			if(balanceQueryUrl == null){
+				balanceQueryUrl = Extension.paramMap.get("juheApi.WaterElectricityCoal.balanceQueryUrl");
+			}
+
+			//转成urlencode utf8
+			provinceName = URLEncoder.encode(provinceName, "utf-8");
+			cityName = URLEncoder.encode(cityName, "utf-8");
+			name = URLEncoder.encode(name, "utf-8");
+			
+			//组装url
+			StringBuffer sb = new StringBuffer();
+			sb.setLength(0);
+			sb.append(balanceQueryUrl);
+			sb.append("?key=").append(key);
+			sb.append("&provname=").append(provinceName);
+			sb.append("&cityname=").append(cityName);
+			sb.append("&type=").append(type);
+			sb.append("&code=").append(code);
+			sb.append("&name=").append(name);
+			sb.append("&account=").append(account);
+			sb.append("&cardid=").append(cardId);
+			sb.append("&paymodeid=").append(payModeId);
+			String balanceQueryUrlComplete = sb.toString();
+			
+			logger.info("request:" + balanceQueryUrlComplete);
+			
+			JSONObject response = null;
+			
+			//发送get请求，并获取response
+			response = getHttp(balanceQueryUrlComplete);
+			logger.info("response:" + response.toString());
+			
+			//判断返回是否正确,并组装返回值
+			Map<String, Object> retMap = new HashMap<String, Object>();
+			List<Map<String, Object>> retBalance = new ArrayList<Map<String, Object>>();
+			int errorCode = (Integer)response.get("error_code");
+			if(errorCode == 0){
+				JSONObject result = (JSONObject)response.get("result");
+				JSONObject balancesObj = (JSONObject)result.get("balances");
+				
+				if(balancesObj.get("balance") instanceof JSONObject){
+					JSONObject balanceObj = (JSONObject)balancesObj.get("balance");
+					double balance = Double.valueOf((String)balanceObj.get("balance"));
+					Long balanceChange =  Math.round(balance * 100);  //元转换为分
+					balanceObj.put("balance", balanceChange);
+					
+					retBalance.add(balanceObj.getMap());
+				}else{
+					JSONArray balanceArray = (JSONArray)balancesObj.get("balance");
+					for(int i = 0; i < balanceArray.length(); i++){
+						JSONObject temp = (JSONObject)balanceArray.get(i);
+						double balance = Double.valueOf((String)temp.get("balance"));
+						Long balanceChange =  Math.round(balance * 100);  //元转换为分
+						
+						temp.put("balance", balanceChange);
+						retBalance.add(temp.getMap());
+					}
+				}
+				
+				retMap.put("status", "ok");
+				retMap.put("resCode", String.valueOf(errorCode));
+				retMap.put("resMsg", (String)response.getString("reason"));
+				retMap.put("returnValue", retBalance);
+			}
+			else{
+				retMap.put("status", "error");
+				retMap.put("resCode", String.valueOf(errorCode));
+				retMap.put("resMsg", (String)response.getString("reason"));
+			}
+			
+			logger.info("================================WaterElectricityCoal.queryBalance end=================================");
+			return retMap;
+		}catch(BizException bizE){
+			throw bizE;
+		}catch(Exception e){
+			throw new BizException(ErrorCode.OTHER_ERROR, e.getMessage());
+		}
+		
+	}
+	
+	/**
+	 * 公共事业充值
+	 * @param  provinceId notNullable  省份id
+	 * @param  cityId     notNullable  城市id 
+	 * @param  type       notNullable  缴费类型编码，对应接口queryUnit返回的:payProjectId
+	 * @param  code       notNullable  缴费单位编码，对应接口queryUnit返回的:payUnitId
+	 * @param  account    notNullable  条形码或者户号
+	 * @param  cardId     notNullable  水电煤的商品编号
+	 * @param  contract   nullable     合同号 （有则必填）
+	 * @param  payMentDay nullable     账期（有则必填）
+	 * @param  orderId    notNullable  自定义订单号（8-32位数字字母）
+	 * @param  amount    notNullable  充值金额（单位：分）
+	 * @return JSONObject 充值信息
+	 * @throws Exception
+	 */
+	public Map<String, Object> recharge(String provinceId, String cityId, String type, String code, String account, String cardId, String contract, String payMentDay, String orderNo, Long amount) throws BizException{
+		logger.info("================================WaterElectricityCoalServiceImpl.recharge end=================================");
+		logger.info("参数--provinceId:" + provinceId + ";cityId:" + cityId + ";type:" + type + ";code:" + code + ";account:" + account + ";cardId:" + cardId + ";contract:" + contract + ";payMentDay:" + payMentDay + ";orderNo:" + orderNo + ";amount:" + amount);
+		
+		try{
+			//检查数据
+			if(StringUtils.isBlank(provinceId)){
+				String msg = "参数provinceId为“”或null。";
+				logger.error(msg);
+				throw new Exception(msg);
+			}
+			
+			if(StringUtils.isBlank(cityId)){
+				String msg = "参数cityId为“”或null。";
+				logger.error(msg);
+				throw new Exception(msg);
+			}
+			
+			if(StringUtils.isBlank(type)){
+				String msg = "参数type为“”或null。";
+				logger.error(msg);
+				throw new Exception(msg);
+			}
+			
+			if(StringUtils.isBlank(code)){
+				String msg = "参数code为“”或null。";
+				logger.error(msg);
+				throw new Exception(msg);
+			}
+			
+			if(StringUtils.isBlank(account)){
+				String msg = "参数account为“”或null。";
+				logger.error(msg);
+				throw new Exception(msg);
+			}
+			
+			if(StringUtils.isBlank(cardId)){
+				String msg = "参数cardId为“”或null。";
+				logger.error(msg);
+				throw new Exception(msg);
+			}
+			
+			if(StringUtils.isBlank(orderNo)){
+				String msg = "参数orderNo为“”或null。";
+				logger.error(msg);
+				throw new Exception(msg);
+			}
+			
+			if(orderRechargeUrl == null){
+				orderRechargeUrl = Extension.paramMap.get("juheApi.WaterElectricityCoal.orderRechargeUrl");
+			}
+			
+			//充值金额保留两位小时
+			String amountFormat = new DecimalFormat("0.00").format(amount / 100.0);
+			
+			//生成校验码
+			StringBuffer sb = new StringBuffer();
+			sb.setLength(0);
+			sb.append(openId).append(key).append(cardId).append(amountFormat).append(orderNo).append(provinceId).append(cityId).append(type).append(code).append(account);
+			String sign = MD5Util.MD5(sb.toString()).toLowerCase();
+			
+			//组装body，并写入日志
+			sb.setLength(0);
+			sb.append("key=").append(key);
+			sb.append("&provid=").append(provinceId);
+			sb.append("&cityid=").append(cityId);
+			sb.append("&type=").append(type);
+			sb.append("&code=").append(code);
+			sb.append("&cardid=").append(cardId);
+			sb.append("&account=").append(account);
+			if(contract != null){
+				sb.append("&contract=").append(contract);
+			}
+			if(payMentDay != null){
+				sb.append("&payMentDay=").append(payMentDay);
+			}
+			sb.append("&orderid=").append(orderNo);
+			sb.append("&cardnum=").append(amountFormat);
+			sb.append("&sign=").append(sign);
+
+			logger.info("request:" + sb.toString());
+
+			//发送post请求，并获取response
+			JSONObject response = postHttp(orderRechargeUrl, sb.toString());
+			
+			logger.info("response:" + response.toString());
+			
+			//判断返回是否正确,并组装返回值
+			Map<String, Object> retMap = new HashMap<String, Object>();
+			JSONObject result = (JSONObject)response.get("result");
+			int errorCode = (Integer)response.get("error_code");
+			if(errorCode == 0){
+				if(result.getInt("status") == 0){
+					retMap.put("status", "pending");
+					retMap.put("resCode", String.valueOf(errorCode));
+					retMap.put("resMsg", (String)response.getString("reason"));
+					retMap.put("returnValue", result.getMap());
+				}else if(result.getInt("status") == 9){
+					retMap.put("status", "error");
+					retMap.put("resCode", String.valueOf(errorCode));
+					retMap.put("resMsg", (String)response.getString("reason"));
+				}else{
+					retMap.put("status", "ok");
+					retMap.put("resCode", String.valueOf(errorCode));
+					retMap.put("resMsg", (String)response.getString("reason"));
+					retMap.put("returnValue", result.getMap());
+				}
+			}else if(errorCode == 209322){
+				retMap.put("status", "pending");
+				retMap.put("resCode", String.valueOf(errorCode));
+				retMap.put("resMsg", (String)response.getString("reason"));
+				retMap.put("returnValue", result.getMap());
+			}
+			else{
+				retMap.put("status", "error");
+				retMap.put("resCode", String.valueOf(errorCode));
+				retMap.put("resMsg", (String)response.getString("reason"));
+			}
+			
+			logger.info("================================WaterElectricityCoalServiceImpl.recharge end=================================");
+			return retMap;
+		}catch(BizException bizE){
+			throw bizE;
+		}catch(Exception e){
+			throw new BizException(ErrorCode.OTHER_ERROR, e.getMessage());
+		}
+	}
+	
+	/**
+	 * 订单状态查询
+	 * @param  orderId    notNullable  商家自定义订单号（8-32位字母数字组合）
+	 * @return JSONObject 订单状态信息
+	 * @throws Exception
+	 */
+	public Map<String, Object> queryOrderStatus(String orderId) throws BizException{
+		logger.info("================================WaterElectricityCoalServiceImpl.queryOrderStatus start=================================");
+		logger.info("参数--orderId:" + orderId);
+		
+		try{
+			//检查数据
+			if(StringUtils.isBlank(orderId)){
+				String msg = "参数orderId为“”或null。";
+				logger.error(msg);
+				throw new Exception(msg);
+			}
+			
+			if(orderStatusQueryUrl == null){
+				orderStatusQueryUrl = Extension.paramMap.get("juheApi.WaterElectricityCoal.orderStatusQueryUrl");
+			}
+			
+			//组装url
+			StringBuffer sb = new StringBuffer();
+			sb.setLength(0);
+			sb.append(orderStatusQueryUrl);
+			sb.append("?key=").append(key);
+			sb.append("&orderid=").append(orderId);
+			String orderStatusQueryUrlComplete = sb.toString();
+	
+			logger.info("request:" + orderStatusQueryUrlComplete);
+		
+			//发送get请求，并获取response
+			JSONObject response = getHttp(orderStatusQueryUrlComplete);
+			
+			logger.info("response:" + response.toString());
+			
+			//判断返回是否正确,并组装返回值
+			Map<String, Object> retMap = new HashMap<String, Object>();
+			int errorCode = (Integer)response.get("error_code");
+			if(errorCode == 0){
+				retMap.put("status", "ok");
+				retMap.put("resCode", String.valueOf(errorCode));
+				retMap.put("resMsg", (String)response.getString("reason"));
+				retMap.put("returnValue", ((JSONObject)response.get("result")).getMap());
+			}
+			else{
+				retMap.put("status", "error");
+				retMap.put("resCode", String.valueOf(errorCode));
+				retMap.put("resMsg", (String)response.getString("reason"));
+			}
+			
+			logger.info("================================WaterElectricityCoalServiceImpl.queryOrderStatus end====================================");
+			return retMap;
+		}catch(BizException bizE){
+			throw bizE;
+		}catch(Exception e){
+			throw new BizException(ErrorCode.OTHER_ERROR, e.getMessage());
+		}
+	}
+	
+	
+	/**
+	 * 历史订单列表
+	 * @param  page       notNullable  当前页
+	 * @param  pageSize   notNullable  每页显示条数
+	 * @return JSONObject 历史订单信息
+	 * @throws Exception
+	 */
+	public Map<String, Object> queryOrderList(int page, int pageSize) throws BizException{
+		logger.info("==============================WaterElectricityCoalServiceImpl.queryOrderList start=======================================");
+		logger.info("参数--page:" + page + ";pageSize:" + pageSize);
+	
+		try{
+			//检查数据
+			if(orderListQueryUrl == null){
+				orderListQueryUrl = Extension.paramMap.get("juheApi.WaterElectricityCoal.orderListQueryUrl");
+			}
+			
+			//组装url，并写入日志
+			StringBuffer sb = new StringBuffer();
+			sb.setLength(0);
+			sb.append(orderListQueryUrl);
+			sb.append("?key=").append(key);
+			sb.append("&page=").append(page);
+			sb.append("&pageSize=").append(pageSize);
+			String orderStatusQueryUrlComplete = sb.toString();
+
+			logger.info("request:" + orderStatusQueryUrlComplete);
+				
+			//发送get请求，并获取response
+			JSONObject response = getHttp(orderStatusQueryUrlComplete);
+			
+			//写入日志
+			logger.info("response:" + response.toString());
+			
+			//判断返回是否正确,并组装返回值
+			Map<String, Object> retMap = new HashMap<String, Object>();
+			int errorCode = (Integer)response.get("error_code");
+			if(errorCode == 0){
+				JSONArray jsonArray = (JSONArray)((JSONObject)response.get("result")).get("data");
+				List<Map<String, Object>> result = new ArrayList<Map<String, Object>>();
+				for(int i = 0; i < jsonArray.length(); i++){
+					result.add(((JSONObject)jsonArray.get(i)).getMap());
+				}
+				
+				retMap.put("status", "ok");
+				retMap.put("resCode", String.valueOf(errorCode));
+				retMap.put("resMsg", (String)response.getString("reason"));
+				retMap.put("returnValue", result);
+			}
+			else{
+				retMap.put("status", "error");
+				retMap.put("resCode", String.valueOf(errorCode));
+				retMap.put("resMsg", (String)response.getString("reason"));
+			}
+			
+			logger.info("=================================WaterElectricityCoalServiceImpl.queryOrderList end=================================");
+			return retMap;
+		}catch(BizException bizE){
+			throw bizE;
+		}catch(Exception e){
+			throw new BizException(ErrorCode.OTHER_ERROR, e.getMessage());
+		}
+	}
+	
+	/**
+	 * get请求
+	 * @param  requestUrl notNullable  请求的url地址
+	 * @return JSONObject 获取的response
+	 * @throws Exception
+	 */
+	public JSONObject getHttp(String requestUrl) throws Exception{
+		String charset = "UTF-8";
+		StringBuffer sb = new StringBuffer();
+		HttpURLConnection conn = null;
+		BufferedReader br = null;
+		String temp = "";
+		
+		try{
+			URL url = new URL(requestUrl);
+			conn = (HttpURLConnection)url.openConnection();
+			conn.setRequestMethod("GET");
+			conn.setConnectTimeout(10000);
+			conn.setReadTimeout(10000);
+			conn.connect();
+			InputStream inputStream = conn.getInputStream();
+			br = new BufferedReader(new InputStreamReader(inputStream, charset));
+			while((temp = br.readLine()) != null){
+				sb.append(temp);
+			}
+			
+			return new JSONObject(sb.toString());
+		}
+		catch(Exception ex){
+			throw ex;
+		}
+		finally{
+			if(conn != null){
+				conn.disconnect();
+			}
+			if(br != null){
+				br.close();
+			}
+		}
+	}
+
+	/**
+	 * Post请求
+	 * @param  requestUrl notNullable 请求的url
+	 * @param  body       notNullable    请求的body
+	 * @return JSONObject 返回的respose内容
+	 * @throws Exception
+	 */
+	public JSONObject postHttp(String requestUrl, String body) throws Exception{
+		String charset = "UTF-8";
+		StringBuffer sb = new StringBuffer();
+		HttpURLConnection conn = null;
+		BufferedReader br = null;
+		String temp = "";
+		
+		try{
+			URL url = new URL(requestUrl);
+			conn = (HttpURLConnection)url.openConnection();
+			conn.setRequestMethod("POST");
+			conn.setDoOutput(true);
+			conn.setConnectTimeout(10000);
+			conn.setReadTimeout(10000);
+			conn.getOutputStream().write(body.getBytes());
+			conn.connect();
+			InputStream inputStream = conn.getInputStream();
+			br = new BufferedReader(new InputStreamReader(inputStream, charset));
+			while((temp = br.readLine()) != null){
+				sb.append(temp);
+			}
+			
+			return new JSONObject(sb.toString());
+		}
+		catch(Exception ex){
+			throw ex;
+		}
+		finally{
+			if(conn != null){
+				conn.disconnect();
+			}
+			if(br != null){
+				br.close();
+			}
+		}
+	}
+}

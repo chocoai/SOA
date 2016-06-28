@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soa>
+	<!-- 信任系统配置 -->
+	<trust_system sysid="ime_public_ssoid" allowedIP="" />
+	
+	<!-- 
+		接入系统配置
+		sysid     : 分配给接入系统的ID
+		secretKey : 分配给接入系统的密钥
+		allowedIP : 接入系统允许的IP地址列表，多地址时用逗号分开  
+		timerange : 接入系统与服务器之间允许的时间差（毫秒），如果为0则不检查时间差
+	-->
+	<system sysid="" secretKey="" name="" allowedIP="" timerange="0"/>
+	
+</soa>

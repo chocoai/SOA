@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions>
+	<data>
+		<!-- 可用的应用程序及该程序中的ALink表单 -->
+		<dataProvider name="applications" >
+			<item label="业务定制应用程序" value="ime.AppWindow" >
+				<item label="实体表单" value="EntityForm" />
+				<item label="实体查询" value="EntityQuery" />
+				<item label="自由表单" value="FreeForm" />
+				<item label="页面窗口" value="PageWindow" />
+				<item label="实体选择窗口" value="EntitySelectWindow" />
+				<item label="工作流起始任务" value="WorkflowTask" />
+				<item label="工作流任务窗口" value="TaskForm" />
+				<item label="工作流活动日志" value="WorkflowActivityLog" />
+				<item label="接管或转交任务" value="DeliverWorkItem" />
+				<item label="工作流批示" value="ReplyActivityNote" />
+			</item>
+		</dataProvider>
+		<dataProvider name="yesno">
+			<item label="是" value="true" />
+			<item label="否" value="false" />
+		</dataProvider>
+	</data>
+</definitions>

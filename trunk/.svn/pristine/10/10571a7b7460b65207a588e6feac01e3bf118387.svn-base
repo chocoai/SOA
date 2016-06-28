@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityQuery name="会员收藏商品查询" label="会员收藏商品查询" note="" share="false" multiselect="false" editable="false" autopaging="true" pagingMode="VirtualizingPaging" virtualizingPagingEnabled="true" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.0FF8B0888610" nodeID="789"> 
+              <queryEntities> 
+                <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.EE418553B3A5" name="AMS_Favourite" label="商品收藏" alias="a0" master="true"/> 
+              </queryEntities>  
+              <DataGrid> 
+                <color/>  
+                <column name="goods_name" label="商品名称" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.EE418553B3A5.id_1" width="281" isBranch="false" editable="" sortable="" textAlign=""/>  
+                <column name="create_time" label="创建时间" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.EE418553B3A5.id_5" width="177" isBranch="false" editable="" sortable="" textAlign=""/>  
+                <column name="goods_image" label="商品图片" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.EE418553B3A5.id_2" width="100" isBranch="false" editable="" sortable="" textAlign=""/> 
+              </DataGrid>  
+              <editState/>  
+              <toolbar/>  
+              <xmlQuery version="2.0" name="" label=""> 
+                <select domainScope="true"> 
+                  <other label="其他" uid="other" name="other"/>  
+                  <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.EE418553B3A5" name="AMS_Favourite" label="商品收藏" alias="a0"> 
+                    <field uid="sys_0" name="id" label="编号" type="long"/>  
+                    <field uid="sys_1" name="domainId" label="域ID" type="long"/>  
+                    <field uid="id_1" name="goods_name" label="商品名称" type="string"/>  
+                    <field uid="id_2" name="goods_image" label="商品图片" type="string"/>  
+                    <field uid="id_3" name="goods_uuid" label="商品uid" type="string"/>  
+                    <field uid="id_4" name="member" label="会员" type="relation"/>  
+                    <field uid="id_5" name="create_time" label="创建时间" type="timestamp"/> 
+                  </Entity> 
+                </select>  
+                <where> 
+                  <exp type="2"> 
+                    <exp type="5" valueType="3" option="true" rightType="val" right="$page.opener.selectedEntity.id" leftEntity="AMS_Favourite" leftField="member_id" uid="exp0"/>  
+                    <exp type="19" valueType="1" option="true" rightType="param" right="goods_name" leftEntity="AMS_Favourite" leftField="goods_name" uid="exp1"/> 
+                  </exp> 
+                </where>  
+                <other> 
+                  <groupBy label="Group By"/>  
+                  <orderBy label="Order By"/> 
+                </other> 
+              </xmlQuery>  
+              <conditionForm> 
+                <Window paddingLeft="1" paddingRight="1" paddingTop="1" paddingBottom="1"> 
+                  <TabNavigator> 
+                    <tab label="default"> 
+                      <Label width="80" height="25" text="商品名称:" propertyUID="id_1" x="2" y="3" style=""/>  
+                      <TextInput name="goods_name" width="179" height="25" x="63" y="3"/> 
+                    </tab> 
+                  </TabNavigator> 
+                </Window> 
+              </conditionForm>  
+              <StatSetting/>  
+              <queryEvent/> 
+            </EntityQuery>

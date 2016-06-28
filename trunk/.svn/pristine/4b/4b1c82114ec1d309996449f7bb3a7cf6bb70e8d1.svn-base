@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityQuery name="操作日志查询" label="操作日志查询" note="" share="false" multiselect="false" editable="false" autopaging="true" pagingMode="VirtualizingPaging" virtualizingPagingEnabled="true" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.03B1FCE495BB" nodeID="726"> 
+              <queryEntities> 
+                <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.91691A133EEC" name="AMS_OperatorLog" label="操作日志" alias="a0" selectAll="true" isBranch="true" master="true"/> 
+              </queryEntities>  
+              <DataGrid> 
+                <color/>  
+                <column name="userId" label="用户ID" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.91691A133EEC.id_5" width="133" isBranch="false"/>  
+                <column name="operator_date" label="操作日期" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.91691A133EEC.id_1" width="150" isBranch="false" editable="" sortable="" textAlign="" dataField="AMS_OperatorLog$operator_date"/>  
+                <column name="operator_type" label="操作类型" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.91691A133EEC.id_2" width="110" isBranch="false" editable="" sortable="" textAlign="" dataField="AMS_OperatorLog$operator_type"/> 
+              </DataGrid>  
+              <editState/>  
+              <toolbar/>  
+              <xmlQuery version="2.0" name="" label=""> 
+                <select domainScope="true"> 
+                  <other label="其他" uid="other" name="other"/>  
+                  <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.91691A133EEC" name="AMS_OperatorLog" label="操作日志" alias="a0" selectAll="true" isBranch="true"> 
+                    <field uid="sys_0" name="id" label="编号" type="long"/>  
+                    <field uid="sys_1" name="domainId" label="域ID" type="long"/>  
+                    <field uid="id_1" name="operator_date" label="操作日期" type="timestamp"/>  
+                    <field uid="id_2" name="operator_type" label="操作类型" type="long"/>  
+                    <field uid="id_4" name="operator_id" label="操作员ID" type="string"/>  
+                    <field uid="id_5" name="userId" label="用户ID" type="string"/> 
+                  </Entity> 
+                </select>  
+                <where> 
+                  <exp type="2"> 
+                    <exp type="5" valueType="1" option="true" leftEntity="AMS_OperatorLog" leftField="userId" uid="exp0" rightType="val" right="$page.opener.selectedEntity.userId"/> 
+                  </exp> 
+                </where>  
+                <other> 
+                  <groupBy label="Group By"/>  
+                  <orderBy label="Order By"/> 
+                </other> 
+              </xmlQuery>  
+              <conditionForm> 
+                <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2"> 
+                  <TabNavigator> 
+                    <tab label="default"/> 
+                  </TabNavigator> 
+                </Window> 
+              </conditionForm>  
+              <StatSetting/>  
+              <queryEvent/> 
+            </EntityQuery>

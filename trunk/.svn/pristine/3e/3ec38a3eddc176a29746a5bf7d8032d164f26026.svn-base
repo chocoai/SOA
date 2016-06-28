@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityQuery name="冻结日志明细" label="冻结日志明细" note="显示所属冻结记录的明细日志" share="false" multiselect="false" editable="false" autopaging="true" pagingMode="VirtualizingPaging" virtualizingPagingEnabled="true" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.CF4088F94BBA" nodeID="638"> 
+              <queryEntities> 
+                <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.06DBF8EC435A" name="AMS_FreezeLogDetail" label="冻结日志明细" alias="a0" selectAll="true" isBranch="true" master="true"/> 
+              </queryEntities>  
+              <DataGrid> 
+                <color/>  
+                <column name="freezeLog_id" label="冻结日志ID" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.06DBF8EC435A.id_1" width="107" isBranch="false" dataField="AMS_FreezeLogDetail$freezeLog_id" editable="" sortable="" textAlign=""/>  
+                <column name="account_type" label="账户类型" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.06DBF8EC435A.id_3" width="100" isBranch="false" editable="" sortable="" textAlign="" dataField="AMS_FreezeLogDetail$account_type_label"/>  
+                <column name="userId" label="用户ID" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.06DBF8EC435A.id_4" width="138" isBranch="false" editable="" sortable="" textAlign="" dataField="AMS_FreezeLogDetail$userId"/>  
+                <column name="freeze_date" label="日期" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.06DBF8EC435A.id_5" width="100" isBranch="false" editable="" sortable="" textAlign="" dataField="AMS_FreezeLogDetail$freeze_date"/>  
+                <column name="freeze_type" label="冻结类型" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.06DBF8EC435A.id_6" width="100" isBranch="false" editable="" sortable="" textAlign="" dataField="AMS_FreezeLogDetail$freeze_type"/>  
+                <column name="freeze_bizid" label="冻结业务号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.06DBF8EC435A.id_8" width="100" isBranch="false" dataField="AMS_FreezeLogDetail$freeze_bizid"/>  
+                <column name="amount" label="金额" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.06DBF8EC435A.id_10" width="88" isBranch="false" dataField="AMS_FreezeLogDetail$amount" editable="" sortable="" textAlign=""/>  
+                <column name="remark" label="备注" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.06DBF8EC435A.id_11" width="100" isBranch="false"/> 
+              </DataGrid>  
+              <editState/>  
+              <toolbar/>  
+              <xmlQuery version="2.0" name="" label=""> 
+                <select domainScope="true"> 
+                  <other label="其他" uid="other" name="other"/>  
+                  <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.06DBF8EC435A" name="AMS_FreezeLogDetail" label="冻结日志明细" alias="a0" selectAll="true" isBranch="true"> 
+                    <field uid="sys_0" name="id" label="编号" type="long"/>  
+                    <field uid="sys_1" name="domainId" label="域ID" type="long"/>  
+                    <field uid="id_1" name="freezeLog_id" label="冻结日志ID" type="long"/>  
+                    <field uid="id_2" name="account_id" label="账户ID" type="long"/>  
+                    <field uid="id_3" name="account_type" label="账户类型" type="relation"/>  
+                    <field uid="id_4" name="userId" label="用户ID" type="string"/>  
+                    <field uid="id_5" name="freeze_date" label="日期" type="timestamp"/>  
+                    <field uid="id_6" name="freeze_type" label="冻结类型" type="long"/>  
+                    <field uid="id_7" name="trade_id" label="交易流水号" type="string"/>  
+                    <field uid="id_8" name="freeze_bizid" label="冻结业务号" type="string"/>  
+                    <field uid="id_9" name="requestId" label="请求业务流水号" type="string"/>  
+                    <field uid="id_10" name="amount" label="金额" type="long" currency="true"/>  
+                    <field uid="id_11" name="remark" label="备注" type="string"/> 
+                  </Entity> 
+                </select>  
+                <where> 
+                  <exp type="2"> 
+                    <exp type="5" valueType="3" option="true" rightType="val" right="$page.opener.selectedEntity.id" leftEntity="AMS_FreezeLogDetail" leftField="freezeLog_id" uid="exp0"/> 
+                  </exp> 
+                </where>  
+                <other> 
+                  <groupBy label="Group By"/>  
+                  <orderBy label="Order By"> 
+                    <field uid="sys_0" name="id" label="编号" type="long" entity="AMS_FreezeLogDetail" order="desc"/> 
+                  </orderBy> 
+                </other> 
+              </xmlQuery>  
+              <conditionForm> 
+                <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2"> 
+                  <TabNavigator> 
+                    <tab label="default"/> 
+                  </TabNavigator> 
+                </Window> 
+              </conditionForm>  
+              <StatSetting/>  
+              <queryEvent/> 
+            </EntityQuery>

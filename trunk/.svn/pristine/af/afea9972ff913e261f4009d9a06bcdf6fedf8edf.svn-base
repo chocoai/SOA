@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 流程图首页定义示例 -->
+<flowmap width="500" height="400">
+	<background color="#C0C0FF" image="/images/background.jpg" />
+	<button name="仓库管理" x="100" y="100" permission="" icon="/images/share/house.png" alink="" />
+	<button name="统计分析" x="280" y="100" permission="" icon="/images/share/report.png" alink="" />
+</flowmap>

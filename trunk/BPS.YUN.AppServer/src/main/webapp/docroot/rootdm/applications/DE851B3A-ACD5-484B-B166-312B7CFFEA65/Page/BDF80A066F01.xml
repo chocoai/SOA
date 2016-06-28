@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<QueryPage label="接入机构管理" control="Panel" layout="vertical" controlUID="root" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.BDF80A066F01" name="接入机构管理" nodeID="1834">
+  <QueryControl label="机构管理" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.A30D05F76497" width="100%" height="100%" controlUID="ctrl0" name="master" />
+  <TabNavigator label="TabNavigator" width="100%" height="100%" controlUID="ctrl1" control="TabNavigator">
+    <QueryControl label="机构专用账户" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.5E603024A182" width="100%" height="100%" controlUID="ctrl5" />
+    <QueryControl label="机构手续费" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.EF8F51FFEB99" width="100%" height="100%" controlUID="ctrl3" />
+    <QueryControl label="机构支付权限设置" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.ECE8A8F65E4D" width="100%" height="100%" controlUID="ctrl2" />
+    <QueryControl label="机构交易权限设置" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.D6E4F49EC447" width="100%" height="100%" controlUID="ctrl4" />
+    <QueryControl label="应用接口设置" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.BC7D6C445D26" width="100%" height="100%" controlUID="ctrl6" name="" />
+    <QueryControl label="应用配置" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.31EF2D9FA3C1" width="100%" height="100%" controlUID="ctrl7" name="" />
+    <QueryControl label="渠道商户管理" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.F76C2C6491B1" width="100%" height="100%" controlUID="ctrl8" name="" />
+  </TabNavigator>
+  <event label="初始化事件" type="initialize" name="initialize" />
+  <event label="确定事件" type="okEvent" name="okEvent" />
+</QueryPage>

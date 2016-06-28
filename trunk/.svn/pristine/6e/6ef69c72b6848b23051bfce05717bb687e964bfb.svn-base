@@ -1,0 +1,15 @@
+<style>
+#test{
+	background-color: rgb(213, 211, 211);
+}
+</style>
+<div id="test" style="color:red;height:100px">hello world</div>
+<a href="sms:13336605321">发送短信</a>
+<button onclick="test()"></button>
+<script type="text/javascript">
+	//$("#test").html("hello world " + new Date().getTime());
+	function test(){
+		qs.m.app.back();
+	}
+</script>
+		

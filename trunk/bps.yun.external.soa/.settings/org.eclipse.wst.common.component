@@ -1,0 +1,549 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-modules id="moduleCoreId" project-version="2.0">
+	<wb-module deploy-name="bps.yun.external.soa">
+		<property name="context-root" value="bps.yun.external.soa"/>
+		<wb-resource deploy-path="/WEB-INF/classes" source-path="src/main/resources"/>
+		<wb-resource deploy-path="/WEB-INF/classes" source-path="src/main/java"/>
+		<wb-resource deploy-path="/" source-path="src/main/webapp"/>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/resource/bps.yun.external.service.api/bps.yun.external.service.api">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/resource/bps.yun.external.service/bps.yun.external.service">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/resource/bps.yun.service.api/bps.yun.service.api">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/resource/bps.yun.service/bps.yun.service">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Administrator/.gradle/caches/modules-2/files-2.1/org.springframework/spring-webmvc/4.1.6.RELEASE/e1ee19a5359f214d65cc18972df8aba17ce1e423/spring-webmvc-4.1.6.RELEASE.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Administrator/.gradle/caches/modules-2/files-2.1/org.springframework/spring-context/4.1.6.RELEASE/15f0b22bf89ed468badbc4eec759af2b916d33e4/spring-context-4.1.6.RELEASE.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Administrator/.gradle/caches/modules-2/files-2.1/com.alibaba/dubbo/2.5.3/2e1ff426ec0f9457f69ab50a9821f2506ff18967/dubbo-2.5.3.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Administrator/.gradle/caches/modules-2/files-2.1/javax.servlet/jstl/1.2/74aca283cd4f4b4f3e425f5820cda58f44409547/jstl-1.2.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Administrator/.gradle/caches/modules-2/files-2.1/org.springframework/spring-beans/4.1.6.RELEASE/ce2d409d470948f11fad41ffdf37dcff4d28cd7c/spring-beans-4.1.6.RELEASE.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Administrator/.gradle/caches/modules-2/files-2.1/org.springframework/spring-core/4.1.6.RELEASE/e2f486124d5dea2d91a9c2ea7d4456bc343ca2cc/spring-core-4.1.6.RELEASE.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Administrator/.gradle/caches/modules-2/files-2.1/org.springframework/spring-expression/4.1.6.RELEASE/8bf70887c2c883a6f6e552dbe46eec35c07adf6a/spring-expression-4.1.6.RELEASE.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Administrator/.gradle/caches/modules-2/files-2.1/org.springframework/spring-web/4.1.6.RELEASE/960101b25d0ec6f45d550bf92c00de8c6a584e6a/spring-web-4.1.6.RELEASE.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Administrator/.gradle/caches/modules-2/files-2.1/org.springframework/spring-aop/4.1.6.RELEASE/686c13ba57d9423dede9c5d580dcadc5c67a2761/spring-aop-4.1.6.RELEASE.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Administrator/.gradle/caches/modules-2/files-2.1/org.javassist/javassist/3.15.0-GA/79907309ca4bb4e5e51d4086cc4179b2611358d7/javassist-3.15.0-GA.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Administrator/.gradle/caches/modules-2/files-2.1/org.jboss.netty/netty/3.2.5.Final/60f6ce4af55b0fcd54dd6522cbf588de0387e2f5/netty-3.2.5.Final.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Administrator/.gradle/caches/modules-2/files-2.1/commons-logging/commons-logging/1.2/4bfc12adfe4842bf07b657f0369c4cb522955686/commons-logging-1.2.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Administrator/.gradle/caches/modules-2/files-2.1/aopalliance/aopalliance/1.0/235ba8b489512805ac13a8f9ea77a1ca5ebe3e8/aopalliance-1.0.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/activation.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/allinpay-core-1.0.0-SNAPSHOT.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/allinpay-security.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/antlr-2.7.6.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/apf.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/asm-3.1.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/backport-util-concurrent.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/bccs-api-lib-1.1.2.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/bcprov-jdk15-138.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/bps.yun.common.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/bsf.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/bsh-2.0b4.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/c3p0-0.9.1.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/cfgatewayadapter.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/cglib-2.1.3.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/com.jcraft.jsch_0.1.31.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/com.kinorsoft.allinpay.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/com.kinorsoft.ams.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/com.kinorsoft.cms.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/com.kinorsoft.tlt.entity.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/com.kinorsoft.tlt.xsigntool.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/commons-beanutils-1.8.3.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/commons-codec-1.3.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/commons-codec-1.8.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/commons-collections-3.1.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/commons-fileupload-1.2.1.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/commons-httpclient-3.0.1.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/commons-io-1.3.2.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/commons-lang-2.4.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/commons-logging-1.1.1.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/commons-net-3.3.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/commons-pool2-2.4.2.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/concurrent-1.3.4.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/cos.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/cryptix-jce-provider.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/derby-10.2.1.6.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/dom4j-1.6.1.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/dubbo-2.4.10.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/dwr.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/ehcache-1.2.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/ejb3-persistence.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/ezmorph-1.0.6.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/flex-messaging-common.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/flex-messaging-core.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/flex-messaging-opt.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/flex-messaging-proxy.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/flex-messaging-remoting.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/hessian-3.2.0.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/hibernate-annotations.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/hibernate-commons-annotations.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/hibernate-entitymanager.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/hibernate-tools.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/hibernate3.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/htmllexer.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/htmlparser.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/httpclient-4.2.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/httpcore-4.2.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/ime.account.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/ime.billing.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/ime.bizservice.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/ime.calendar.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/ime.cms.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/ime.common.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/ime.core.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/ime.export.tool.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/ime.mail.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/ime.message.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/ime.mobile.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/ime.organization.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/ime.product.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/ime.project.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/ime.relation.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/ime.remoting.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/ime.script.debugger.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/ime.server.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/ime.service.client.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/ime.teamwork.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/ime.web.xpt.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/ime.webcallcenter.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/ime.workflow.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/imgscalr-lib-4.2.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/ipaddress.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/iText-2.1.7.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/itext-rtf-2.1.4.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/jackrabbit-api-1.4.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/jackrabbit-core-1.4.5.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/jackrabbit-jcr-commons-1.4.2.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/jackrabbit-jcr-server-1.4.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/jackrabbit-spi-1.4.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/jackrabbit-spi-commons-1.4.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/jackrabbit-text-extractors-1.4.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/jackrabbit-webdav-1.4.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/jackson-annotations-2.2.2.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/jackson-core-2.2.2.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/jackson-databind-2.2.2.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/jackson-mapper-asl-1.5.0.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/jackson-module-jaxb-annotations-2.2.2.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/javassist-3.4.GA.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/jaxen-1.1.1.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/jaxrpc.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/jbarcode.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/jboss-archive-browsing.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/jcr-1.0.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/jdom.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/jedis-2.6.1.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/jopt-simple-3.2.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/js.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/json-lib-2.4-jdk15.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/jta-1.1.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/jtds-1.2.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/kafka-clients-0.8.2.1.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/kafka_2.9.1-0.8.2.1.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/log4j-1.2.15.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/lucene-core-2.2.0.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/lz4-1.2.0.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/mail.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/metrics-core-2.2.0.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/mina-core-2.0.2.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/mysql-connector-java-5.0.8-bin.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/nbxml.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/netty-3.2.5.Final.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/ojdbc6.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/org.json.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/pdfbox-0.6.4.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/poi-3.5.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/poi-contrib-3.5.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/proxool-0.8.3.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/quartz.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/scala-library-2.9.1.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/servlet-api.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/slf4j-api-1.5.3.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/slf4j-api-1.7.6.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/slf4j-log4j12-1.5.3.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/slf4j-log4j12-1.6.1.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/smack.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/smackx.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/snappy-java-1.1.1.6.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/spring-aop-4.0.8.RELEASE.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/spring-beans-4.0.8.RELEASE.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/spring-context-4.0.8.RELEASE.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/spring-context-support-4.0.8.RELEASE.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/spring-core-4.0.8.RELEASE.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/spring-expression-4.0.8.RELEASE.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/spring-messaging-4.0.8.RELEASE.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/spring-web-4.0.8.RELEASE.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/spring-webmvc-4.0.8.RELEASE.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/spring-websocket-4.0.8.RELEASE.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/velocity-1.7.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/velocity-tools-2.0.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/vysper-core.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/vysper-websockets.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/webService1.5.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/xalan.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/xep0060-pubsub.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/xerces-2.6.2.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/xml-apis.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/xmlpull-1.1.3.1.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/xpp3_min-1.1.4c.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/xstream-1.4.1.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/zkclient-0.3.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/zkclient-0.4.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/zookeeper-3.3.1.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/E:/yun/programNew/BPS.YUN/BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/zxing-core.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+	</wb-module>
+</project-modules>

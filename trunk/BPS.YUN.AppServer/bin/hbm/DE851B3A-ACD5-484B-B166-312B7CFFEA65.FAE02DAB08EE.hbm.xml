@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "PUBLIC" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class entity-name="AMS_EmailTemplet" table="DYNA_AMS_EmailTemplet">
+    <id name="id" type="long">
+      <generator class="native"/>
+    </id>
+    <property name="domainId" not-null="false" type="long" index="IDX_DOMAINID"/>
+    <property name="verification_code_type" not-null="false" type="long"/>
+    <property name="contents" not-null="false" type="string" length="8000"/>
+    <property name="codeNo" not-null="false" type="string" length="100"/>
+    <property name="email_url" not-null="false" type="string" length="300"/>
+    <property name="theme" not-null="false" type="string" length="1000"/>
+  </class>
+</hibernate-mapping>

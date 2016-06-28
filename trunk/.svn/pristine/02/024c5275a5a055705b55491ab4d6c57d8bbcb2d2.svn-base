@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.88EAE8E6D388" name="AMS_MemberAccount" label="会员账户" note="" log="false" workflow="false" nodeID="527" lastId="12" dbcreated="true"> 
+  <relation/>  
+  <extension/>  
+  <property uid="sys_0" label="编号" name="id" type="long" systemProperty="true" editorPart="Entity" group="系统属性字段"/>  
+  <property uid="sys_1" label="域ID" name="domainId" type="long" systemProperty="true" editorPart="Entity" group="系统属性字段"/>  
+  <property name="account_type" label="账户集" type="relation" uid="id_2" editorPart="Entity" entityUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.62156FFA93F3" labelField="name" shortcutField="name" group="业务属性字段" dbcreated="true"/>  
+  <property name="valid_date" label="有效期限" type="timestamp" length="100" uid="id_3" editorPart="Entity" group="业务属性字段" dbcreated="true"/>  
+  <property name="amount" label="余额" type="long" uid="id_4" currency="true" editorPart="Entity" group="业务属性字段" dbcreated="true"/>  
+  <property name="freeze_amount" label="冻结金额" type="long" uid="id_5" editorPart="Entity" currency="true" group="业务属性字段" dbcreated="true"/>  
+  <property name="overdraft" label="允许透支金额" type="long" uid="id_6" editorPart="Entity" currency="true" group="业务属性字段" dbcreated="true"/>  
+  <property name="account_state" label="账户状态" type="long" uid="id_9" valueProvider="多账户.账户状态" editorPart="Entity" group="业务属性字段" dbcreated="true"/>  
+  <property name="userId" label="用户ID" type="string" length="100" uid="id_10" editorPart="Entity" group="业务属性字段" dbcreated="true"/>  
+  <property name="biz_type" label="账户集类型" type="long" uid="id_11" group="业务属性字段" valueProvider="多账户.账户集类型" dbcreated="true" editorPart="Entity"/>  
+  <property name="application" label="应用" type="relation" uid="id_12" group="业务属性字段" entityUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.5A11C43DEB1B" labelField="name" dbcreated="true" editorPart="Entity"/> 
+</Entity>

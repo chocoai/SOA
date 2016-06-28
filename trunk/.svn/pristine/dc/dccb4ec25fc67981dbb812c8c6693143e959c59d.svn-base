@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityQuery name="物流公司管理" label="物流公司管理" note="" share="false" multiselect="false" editable="false" autopaging="true" pagingMode="VirtualizingPaging" virtualizingPagingEnabled="true" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.10835217F057" nodeID="330"> 
+              <queryEntities> 
+                <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.771E56F2BD2D" name="AMS_Delivery" label="物流公司" alias="a0" selectAll="true" isBranch="true" master="true"/> 
+              </queryEntities>  
+              <DataGrid> 
+                <color/>  
+                <column name="orderNo" label="序号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.771E56F2BD2D.id_3" width="100" isBranch="false"/>  
+                <column name="code" label="公司编号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.771E56F2BD2D.id_2" width="183" isBranch="false" editable="" sortable="" textAlign=""/>  
+                <column name="name" label="物流公司名称" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.771E56F2BD2D.id_1" width="286" isBranch="false" editable="" sortable="" textAlign=""/>  
+                <column name="delivery_number" label="物流单号位数" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.771E56F2BD2D.id_4" width="116" isBranch="false"/>  
+                <column name="type" label="物流单号类型" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.771E56F2BD2D.id_5" width="141" isBranch="false" editable="" sortable="" textAlign=""/> 
+              </DataGrid>  
+              <editState/>  
+              <toolbar> 
+                <button label="新建" action="alink" selection="none" visiable="true" alink="alink://ime.AppWindow/EntityForm?{action:&quot;create&quot;,entityUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.771E56F2BD2D&quot;,formUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.90AEFC1CA767&quot;,formState:&quot;state1&quot;}"/>  
+                <button label="编辑" action="alink" selection="single" visiable="true" alink="alink://ime.AppWindow/EntityForm?{action:&quot;edit&quot;,entityUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.771E56F2BD2D&quot;,formUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.90AEFC1CA767&quot;,formState:&quot;state2&quot;}"/>  
+                <button label="删除" action="delete" selection="single" visiable="true"/> 
+              </toolbar>  
+              <xmlQuery version="2.0" name="" label=""> 
+                <select domainScope="true"> 
+                  <other label="其他" uid="other" name="other"/>  
+                  <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.771E56F2BD2D" name="AMS_Delivery" label="物流公司" alias="a0" selectAll="true" isBranch="true"> 
+                    <field uid="sys_0" name="id" label="编号" type="long"/>  
+                    <field uid="sys_1" name="domainId" label="域ID" type="long"/>  
+                    <field uid="id_1" name="name" label="物流公司名称" type="string"/>  
+                    <field uid="id_2" name="code" label="公司编号" type="string"/>  
+                    <field uid="id_3" name="orderNo" label="序号" type="long"/>  
+                    <field uid="id_4" name="delivery_number" label="物流单号位数" type="long"/>  
+                    <field uid="id_5" name="type" label="物流单号类型" type="long"/> 
+                  </Entity> 
+                </select>  
+                <where> 
+                  <exp type="2"/> 
+                </where>  
+                <other> 
+                  <groupBy label="Group By"/>  
+                  <orderBy label="Order By"/> 
+                </other> 
+              </xmlQuery>  
+              <conditionForm> 
+                <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2"> 
+                  <TabNavigator> 
+                    <tab label="default"> 
+                      <Label width="100" height="25" text="物流公司名称:" propertyUID="id_1" x="2" y="3" style=""/>  
+                      <TextInput name="name" width="199" height="25" x="103" y="3"/>  
+                      <Label width="79" height="25" text="公司编号:" propertyUID="id_2" x="303" y="3" style=""/>  
+                      <TextInput name="code" width="199" height="25" x="363" y="3"/> 
+                    </tab> 
+                  </TabNavigator> 
+                </Window> 
+              </conditionForm>  
+              <StatSetting/>  
+              <queryEvent/> 
+            </EntityQuery>

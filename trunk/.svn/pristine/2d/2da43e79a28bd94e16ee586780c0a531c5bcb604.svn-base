@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityQuery name="交易路由查询" label="交易路由查询" note="" share="false" multiselect="false" editable="false" autopaging="true" pagingMode="VirtualizingPaging" virtualizingPagingEnabled="true" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E708381337C2" nodeID="586"> 
+              <queryEntities> 
+                <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.CCB2207A5CFF" name="AMS_TradeRoute" label="交易路由" alias="a0" selectAll="true" isBranch="true" master="true"/> 
+              </queryEntities>  
+              <DataGrid> 
+                <color/>  
+                <column name="id" label="编号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.CCB2207A5CFF.sys_0" width="100" isBranch="false" dataField="AMS_TradeRoute$id"/>  
+                <column name="min_trade_money" label="交易最小金额" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.CCB2207A5CFF.id_1" width="100" isBranch="false" dataField="AMS_TradeRoute$min_trade_money"/>  
+                <column name="max_trade_money" label="交易最大金额" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.CCB2207A5CFF.id_2" width="100" isBranch="false" dataField="AMS_TradeRoute$max_trade_money"/>  
+                <column name="trade_type" label="交易类型" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.CCB2207A5CFF.id_3" width="100" isBranch="false" dataField="AMS_TradeRoute$trade_type"/>  
+                <column name="sub_trade_type" label="交易子类型" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.CCB2207A5CFF.id_4" width="100" isBranch="false" dataField="AMS_TradeRoute$sub_trade_type"/>  
+                <column name="card_type" label="卡种" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.CCB2207A5CFF.id_5" width="100" isBranch="false" dataField="AMS_TradeRoute$card_type"/>  
+                <column name="payInterface" label="支付通道" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.CCB2207A5CFF.id_6" width="100" isBranch="false" dataField="AMS_TradeRoute$payInterface_label"/>  
+                <column name="pay_interfaceNo" label="支付通道编号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.CCB2207A5CFF.id_8" width="100" isBranch="false" dataField="AMS_TradeRoute$pay_interfaceNo"/> 
+              </DataGrid>  
+              <editState/>  
+              <toolbar> 
+                <button label="新建" action="alink" selection="none" permission="" permissionName="" visiable="true" param="{   &quot;target&quot;: &quot;ime.AppWindow&quot;,   &quot;form&quot;: &quot;EntityForm&quot;,   &quot;param&quot;: {     &quot;action&quot;: &quot;create&quot;,     &quot;entityUID&quot;: &quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.CCB2207A5CFF&quot;,     &quot;formUID&quot;: &quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.9B4D36C55CF4&quot;,     &quot;formState&quot;: &quot;state0&quot;   } }" Button="System.Windows.Controls.Button: 新建" alink="alink://ime.AppWindow/EntityForm?{action:&quot;create&quot;,entityUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.CCB2207A5CFF&quot;,formUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.9B4D36C55CF4&quot;,formState:&quot;state0&quot;}"/>  
+                <button label="编辑" action="alink" selection="single" permission="" permissionName="" visiable="true" param="{   &quot;target&quot;: &quot;ime.AppWindow&quot;,   &quot;form&quot;: &quot;EntityForm&quot;,   &quot;param&quot;: {     &quot;action&quot;: &quot;edit&quot;,     &quot;entityUID&quot;: &quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.CCB2207A5CFF&quot;,     &quot;formUID&quot;: &quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.9B4D36C55CF4&quot;,     &quot;formState&quot;: &quot;state0&quot;   } }" Button="System.Windows.Controls.Button: 编辑" alink="alink://ime.AppWindow/EntityForm?{action:&quot;edit&quot;,entityUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.CCB2207A5CFF&quot;,formUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.9B4D36C55CF4&quot;,formState:&quot;state0&quot;}"/>  
+                <button label="删除" action="delete" selection="single"/> 
+              </toolbar>  
+              <xmlQuery version="2.0" name="" label=""> 
+                <select domainScope="true"> 
+                  <other label="其他" uid="other" name="other"/>  
+                  <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.CCB2207A5CFF" name="AMS_TradeRoute" label="交易路由" alias="a0" selectAll="true" isBranch="true"> 
+                    <field uid="sys_0" name="id" label="编号" type="long"/>  
+                    <field uid="sys_1" name="domainId" label="域ID" type="long"/>  
+                    <field uid="id_1" name="min_trade_money" label="交易最小金额" type="long"/>  
+                    <field uid="id_2" name="max_trade_money" label="交易最大金额" type="long"/>  
+                    <field uid="id_3" name="trade_type" label="交易类型" type="long"/>  
+                    <field uid="id_4" name="sub_trade_type" label="交易子类型" type="long"/>  
+                    <field uid="id_5" name="card_type" label="卡种" type="long"/>  
+                    <field uid="id_6" name="payInterface" label="支付通道" type="relation"/>  
+                    <field uid="id_8" name="pay_interfaceNo" label="支付通道编号" type="string"/>  
+                    <field uid="id_9" name="pay_type" label="支付类型" type="long"/> 
+                  </Entity> 
+                </select>  
+                <where> 
+                  <exp type="2"/> 
+                </where>  
+                <other> 
+                  <groupBy label="Group By"/>  
+                  <orderBy label="Order By"/> 
+                </other> 
+              </xmlQuery>  
+              <conditionForm> 
+                <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2"> 
+                  <TabNavigator> 
+                    <tab label="default"/> 
+                  </TabNavigator> 
+                </Window> 
+              </conditionForm>  
+              <StatSetting/>  
+              <queryEvent/> 
+            </EntityQuery>

@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>404</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        .content-404{
+            position: relative;
+            background: url("image/404.png") no-repeat center;
+            width: 611px;
+            height: 456px;
+            margin: auto;
+        }
+        .return-link{
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            text-align: center;
+        }
+        .return-link a{
+            font-size: 14px;
+            color: #61ccf0;
+            display: inline-block;
+            margin: 0 100px;
+            text-decoration: none;
+            font-family: "Microsoft YaHei";
+        }
+    </style>
+</head>
+<body>
+<div class="content-404">
+    </div>
+</body>
+</html>

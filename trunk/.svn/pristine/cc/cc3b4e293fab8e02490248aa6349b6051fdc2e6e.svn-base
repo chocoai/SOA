@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityQuery name="对账结果查询" label="对账结果查询" note="" share="false" multiselect="true" editable="false" autopaging="true" pagingMode="NormalPaging" virtualizingPagingEnabled="false" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.34E737A300B4" nodeID="599">
+  <queryEntities>
+    <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.4BCBC9D2C1A9" name="AMS_PayChannel" label="支付渠道" alias="a1" selectAll="true" isBranch="true" />
+    <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.B6CF1EEDBCCB" name="AMS_CheckAccount" label="对账结果" alias="a0" selectAll="true" isBranch="true" master="true" />
+  </queryEntities>
+  <DataGrid>
+    <color />
+    <column name="orgNo" label="应用号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.B6CF1EEDBCCB.id_14" width="131" isBranch="false" />
+    <column name="pay_channelNo" label="支付渠道号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.B6CF1EEDBCCB.id_8" width="100" isBranch="false" dataField="AMS_CheckAccount$pay_channelNo" />
+    <column name="name" label="名称" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.4BCBC9D2C1A9.id_1" width="100" isBranch="false" dataField="AMS_PayChannel$name" />
+    <column name="merchant_id" label="商户号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.4BCBC9D2C1A9.id_9" width="151" isBranch="false" dataField="AMS_PayChannel$merchant_id" />
+    <column name="check_time" label="对账完成时间" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.B6CF1EEDBCCB.id_13" width="100" isBranch="false" dataField="AMS_CheckAccount$check_time" />
+    <column name="checkDate" label="清算日期" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.B6CF1EEDBCCB.id_1" width="127" isBranch="false" editable="" sortable="" textAlign="" dataField="AMS_CheckAccount$checkDate" />
+    <column name="checkResult" label="对账结果" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.B6CF1EEDBCCB.id_3" width="110" isBranch="false" editable="" sortable="" textAlign="" dataField="AMS_CheckAccount$checkResult" />
+    <column name="outSystemFile" label="外部系统对账文件" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.B6CF1EEDBCCB.id_4" width="119" isBranch="false" dataField="AMS_CheckAccount$outSystemFile" />
+    <column name="checkAccountFile" label="本系统对账文件" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.B6CF1EEDBCCB.id_5" width="100" isBranch="false" dataField="AMS_CheckAccount$checkAccountFile" />
+    <column name="download_time" label="下载完成时间" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.B6CF1EEDBCCB.id_12" width="100" isBranch="false" dataField="AMS_CheckAccount$download_time" />
+    <column name="download_state" label="下载状态" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.B6CF1EEDBCCB.id_10" width="100" isBranch="false" dataField="AMS_CheckAccount$download_state" />
+    <column name="check_state" label="对账状态" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.B6CF1EEDBCCB.id_11" width="100" isBranch="false" dataField="AMS_CheckAccount$check_state" />
+    <column name="FM_CreateTime" label="创建时间" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.B6CF1EEDBCCB.log_4" width="214" isBranch="false" editable="" sortable="" textAlign="" dataField="AMS_CheckAccount$FM_CreateTime" />
+  </DataGrid>
+  <editState />
+  <toolbar>
+    <button label="查看" action="alink" selection="single" permission="" permissionName="" visiable="true" alink="alink://ime.AppWindow/EntityForm?{action:&quot;view&quot;,entityUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.B6CF1EEDBCCB&quot;,formUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.BED568041172&quot;,title:&quot;查看&quot;}" />
+    <button label="删除" action="delete" selection="multi" visiable="true" Button="System.Windows.Controls.Button: 删除" />
+  </toolbar>
+  <xmlQuery version="2.0" name="" label="">
+    <select domainScope="true">
+      <other label="其他" uid="other" name="other" />
+      <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.B6CF1EEDBCCB" name="AMS_CheckAccount" label="对账结果" alias="a0" selectAll="true" isBranch="true">
+        <field uid="sys_0" name="id" label="编号" type="long" />
+        <field uid="sys_1" name="domainId" label="域ID" type="long" />
+        <field uid="log_0" name="FM_CreatePrinId" label="创建者ID" type="long" />
+        <field uid="log_1" name="FM_CreatePrinName" label="创建者" type="string" />
+        <field uid="log_2" name="FM_UpdatePrinId" label="更新者ID" type="long" />
+        <field uid="log_3" name="FM_UpdatePrinName" label="更新者" type="string" />
+        <field uid="log_4" name="FM_CreateTime" label="创建时间" type="timestamp" />
+        <field uid="log_5" name="FM_UpdateTime" label="更新时间" type="timestamp" />
+        <field uid="id_1" name="checkDate" label="清算日期" type="timestamp" />
+        <field uid="id_3" name="checkResult" label="对账结果" type="long" />
+        <field uid="id_4" name="outSystemFile" label="外部系统对账文件" type="attachments" />
+        <field uid="id_5" name="checkAccountFile" label="本系统对账文件" type="attachments" />
+        <field uid="id_6" name="checkResultFile" label="对账结果文件" type="attachments" />
+        <field uid="id_7" name="remark" label="备注" type="string" />
+        <field uid="id_8" name="pay_channelNo" label="支付渠道号" type="string" />
+        <field uid="id_10" name="download_state" label="下载状态" type="long" />
+        <field uid="id_11" name="check_state" label="对账状态" type="long" />
+        <field uid="id_12" name="download_time" label="下载完成时间" type="timestamp" />
+        <field uid="id_13" name="check_time" label="对账完成时间" type="timestamp" />
+        <field uid="id_14" name="orgNo" label="应用号" type="string" />
+      </Entity>
+      <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.4BCBC9D2C1A9" name="AMS_PayChannel" label="支付渠道" alias="a1" selectAll="true" isBranch="true">
+        <field uid="sys_0" name="id" label="编号" type="long" />
+        <field uid="sys_1" name="domainId" label="域ID" type="long" />
+        <field uid="id_1" name="name" label="名称" type="string" />
+        <field uid="log_0" name="FM_CreatePrinId" label="创建者ID" type="long" />
+        <field uid="log_1" name="FM_CreatePrinName" label="创建者" type="string" />
+        <field uid="log_2" name="FM_UpdatePrinId" label="更新者ID" type="long" />
+        <field uid="log_3" name="FM_UpdatePrinName" label="更新者" type="string" />
+        <field uid="log_4" name="FM_CreateTime" label="创建时间" type="timestamp" />
+        <field uid="log_5" name="FM_UpdateTime" label="更新时间" type="timestamp" />
+        <field uid="id_2" name="codeNo" label="渠道编号" type="string" />
+        <field uid="id_3" name="handling_settle_type" label="手续费结算方式" type="long" />
+        <field uid="id_4" name="handling_settle_cycle" label="手续费结算周期" type="long" />
+        <field uid="id_5" name="capital_settle_cycle" label="资金结算周期" type="long" />
+        <field uid="id_8" name="system_uuid" label="系统用户ID" type="string" />
+        <field uid="id_9" name="merchant_id" label="商户号" type="string" />
+        <field uid="id_10" name="publickey" label="公匙证书路径" type="string" />
+        <field uid="id_11" name="privatekey" label="私匙证书路径" type="string" />
+        <field uid="id_12" name="remark" label="备注" type="string" />
+        <field uid="id_13" name="short_name" label="简称" type="string" />
+        <field uid="id_14" name="system_member" label="系统用户" type="relation" />
+      </Entity>
+    </select>
+    <where>
+      <exp type="2">
+        <exp type="5" valueType="1" option="true" rightType="param" right="pay_channelNo" leftEntity="AMS_CheckAccount" leftField="pay_channelNo" uid="exp0" />
+        <exp type="7" valueType="7" option="true" rightType="param" right="beginDate" leftEntity="AMS_CheckAccount" leftField="checkDate" uid="exp1" />
+        <exp type="11" valueType="7" option="true" rightType="param" right="endDate" leftEntity="AMS_CheckAccount" leftField="checkDate" uid="exp2" />
+        <exp type="5" valueType="1" option="true" rightType="prop" rightEntity="AMS_PayChannel" rightField="codeNo" leftEntity="AMS_CheckAccount" leftField="pay_channelNo" uid="exp3" />
+      </exp>
+    </where>
+    <other>
+      <groupBy label="Group By" />
+      <orderBy label="Order By">
+        <field uid="sys_0" name="id" label="编号" type="long" entity="AMS_CheckAccount" order="desc" />
+      </orderBy>
+    </other>
+  </xmlQuery>
+  <conditionForm>
+    <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2">
+      <TabNavigator>
+        <tab label="default">
+          <Label width="82" height="25" text="支付渠道号:" propertyUID="id_8" x="2" y="2" style="" />
+          <TextInput name="pay_channelNo" width="139" height="25" x="83" y="3" />
+          <Label width="82" height="25" text="清算日期:" propertyUID="id_1" x="223" y="3" style="" />
+          <DateField name="beginDate" width="139" height="25" x="283" y="3" />
+          <DateField label="DateField" x="443" y="3" width="139" height="24" name="endDate" />
+          <Label label="Label" text="至:" x="423" y="3" width="39" height="24" style="" />
+        </tab>
+      </TabNavigator>
+    </Window>
+  </conditionForm>
+  <StatSetting />
+  <queryEvent />
+</EntityQuery>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityQuery name="账户风控数据" label="账户风控数据" note="" share="false" multiselect="false" editable="false" autopaging="true" pagingMode="NormalPaging" virtualizingPagingEnabled="false" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.0DB3D57A3DF9" nodeID="420"> 
+              <queryEntities> 
+                <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.13EE3E2C00D7" name="AMS_AccountRiskData" label="账户风控数据" alias="a0" master="true"/> 
+              </queryEntities>  
+              <DataGrid> 
+                <color/>  
+                <column name="member_id" label="会员" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.13EE3E2C00D7.id_1" width="100" isBranch="false" dataField="AMS_AccountRiskData$member_id"/>  
+                <column name="account_type" label="账户类型编号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.13EE3E2C00D7.id_2" width="100" isBranch="false" dataField="AMS_AccountRiskData$account_type"/>  
+                <column name="trade_type" label="交易类型" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.13EE3E2C00D7.id_3" width="100" isBranch="false" dataField="AMS_AccountRiskData$trade_type"/>  
+                <column name="sub_trade_type" label="子交易类型" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.13EE3E2C00D7.id_8" width="100" isBranch="false" dataField="AMS_AccountRiskData$sub_trade_type"/>  
+                <column name="pay_channel" label="支付渠道" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.13EE3E2C00D7.id_9" width="100" isBranch="false" dataField="AMS_AccountRiskData$pay_channel"/>  
+                <column name="belong_time" label="累计时间" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.13EE3E2C00D7.id_5" width="100" isBranch="false" dataField="AMS_AccountRiskData$belong_time"/>  
+                <column name="day_total" label="日累计" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.13EE3E2C00D7.id_6" width="100" isBranch="false" dataField="AMS_AccountRiskData$day_total"/>  
+                <column name="day_num" label="日累计次数" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.13EE3E2C00D7.id_10" width="100" isBranch="false" dataField="AMS_AccountRiskData$day_num"/>  
+                <column name="month_total" label="月累计" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.13EE3E2C00D7.id_7" width="100" isBranch="false" dataField="AMS_AccountRiskData$month_total"/> 
+              </DataGrid>  
+              <editState/>  
+              <toolbar> 
+                <button label="删除" action="delete" selection="single" permission="" permissionName="" visiable="false"/> 
+              </toolbar>  
+              <xmlQuery version="2.0" name="" label=""> 
+                <select domainScope="false"> 
+                  <other label="其他" uid="other" name="other"/>  
+                  <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.13EE3E2C00D7" name="AMS_AccountRiskData" label="账户风控数据" alias="a0"> 
+                    <field uid="sys_0" name="id" label="编号" type="long"/>  
+                    <field uid="sys_1" name="domainId" label="域ID" type="long"/>  
+                    <field uid="id_1" name="member_id" label="会员" type="long"/>  
+                    <field uid="id_2" name="account_type" label="账户类型编号" type="string"/>  
+                    <field uid="id_3" name="trade_type" label="交易类型" type="long"/>  
+                    <field uid="id_8" name="sub_trade_type" label="子交易类型" type="long"/>  
+                    <field uid="id_9" name="pay_channel" label="支付渠道" type="string"/>  
+                    <field uid="id_5" name="belong_time" label="累计时间" type="timestamp"/>  
+                    <field uid="id_6" name="day_total" label="日累计" type="long"/>  
+                    <field uid="id_10" name="day_num" label="日累计次数" type="long"/>  
+                    <field uid="id_7" name="month_total" label="月累计" type="long"/> 
+                  </Entity> 
+                </select>  
+                <where> 
+                  <exp type="2"/> 
+                </where>  
+                <other> 
+                  <groupBy label="Group By"/>  
+                  <orderBy label="Order By"/> 
+                </other> 
+              </xmlQuery>  
+              <conditionForm> 
+                <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2"> 
+                  <TabNavigator> 
+                    <tab label="default"/> 
+                  </TabNavigator> 
+                </Window> 
+              </conditionForm>  
+              <StatSetting/>  
+              <queryEvent/> 
+            </EntityQuery>

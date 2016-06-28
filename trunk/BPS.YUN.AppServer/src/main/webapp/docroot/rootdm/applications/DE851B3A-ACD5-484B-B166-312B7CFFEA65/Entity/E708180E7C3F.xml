@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Entity lastId="7" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E708180E7C3F" name="AMS_RechargeCard" label="充值卡" note="" log="false" workflow="false" nodeID="739" dbcreated="true"> 
+  <property uid="sys_0" label="编号" name="id" type="long" systemProperty="true" editorPart="Entity"/>  
+  <property uid="sys_1" label="域ID" name="domainId" type="long" systemProperty="true" editorPart="Entity"/>  
+  <relation/>  
+  <extension/>  
+  <property name="account_type" label="账户类型" type="relation" uid="id_1" editorPart="Entity" entityUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.62156FFA93F3" labelField="name" dbcreated="true"/>  
+  <property name="money" label="面值" type="long" uid="id_2" currency="true" editorPart="Entity" dbcreated="true"/>  
+  <property name="card_no" label="卡号" type="string" length="100" uid="id_3" editorPart="Entity" dbcreated="true"/>  
+  <property name="password" label="密码" type="string" length="100" uid="id_4" editorPart="Entity" dbcreated="true"/>  
+  <property name="company" label="所属商户" type="relation" uid="id_5" entityUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0" labelField="name" editorPart="Entity" dbcreated="true"/>  
+  <property name="member" label="所属会员" type="relation" uid="id_6" entityUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0" labelField="loginId" editorPart="Entity" dbcreated="true"/>  
+  <property name="status" label="状态" type="long" uid="id_7" editorPart="Entity" dbcreated="true"/> 
+</Entity>

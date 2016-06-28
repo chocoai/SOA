@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityQuery name="所有冻结日志明细" label="所有冻结日志明细" note="" share="false" multiselect="false" editable="false" autopaging="true" pagingMode="NormalPaging" virtualizingPagingEnabled="false" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.5434265C68F9" nodeID="639"> 
+              <queryEntities> 
+                <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0" name="AMS_Member" label="会员" alias="a1" selectAll="true" isBranch="true"/>  
+                <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.06DBF8EC435A" name="AMS_FreezeLogDetail" label="冻结日志明细" alias="a0" selectAll="true" isBranch="true" master="true"/> 
+              </queryEntities>  
+              <DataGrid> 
+                <color/>  
+                <column name="freeze_date" label="日期" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.06DBF8EC435A.id_5" width="140" isBranch="false" editable="" sortable="" textAlign="" dataField="AMS_FreezeLogDetail$freeze_date"/>  
+                <column name="freeze_type" label="冻结类型" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.06DBF8EC435A.id_6" width="76" isBranch="false" editable="" sortable="" textAlign="" dataField="AMS_FreezeLogDetail$freeze_type"/>  
+                <column name="freeze_bizid" label="冻结业务号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.06DBF8EC435A.id_8" width="139" isBranch="false" editable="" sortable="" textAlign="" dataField="AMS_FreezeLogDetail$freeze_bizid"/>  
+                <column name="amount" label="金额" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.06DBF8EC435A.id_10" width="77" isBranch="false" editable="" sortable="" textAlign="" dataField="AMS_FreezeLogDetail$amount"/>  
+                <column name="remark" label="备注" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.06DBF8EC435A.id_11" width="100" isBranch="false" dataField="AMS_FreezeLogDetail$remark"/>  
+                <column name="userId" label="用户ID" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.06DBF8EC435A.id_4" width="100" isBranch="false" dataField="AMS_FreezeLogDetail$userId" editable="" sortable="" textAlign=""/>  
+                <column name="name" label="名称" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0.id_1" width="100" isBranch="false" dataField="AMS_Member$name"/>  
+                <column name="phone" label="手机" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0.id_4" width="100" isBranch="false" dataField="AMS_Member$phone"/> 
+              </DataGrid>  
+              <editState/>  
+              <toolbar/>  
+              <xmlQuery version="2.0" name="" label=""> 
+                <select domainScope="true"> 
+                  <other label="其他" uid="other" name="other"/>  
+                  <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.06DBF8EC435A" name="AMS_FreezeLogDetail" label="冻结日志明细" alias="a0" selectAll="true" isBranch="true"> 
+                    <field uid="sys_0" name="id" label="编号" type="long"/>  
+                    <field uid="sys_1" name="domainId" label="域ID" type="long"/>  
+                    <field uid="id_1" name="freezeLog_id" label="冻结日志ID" type="long"/>  
+                    <field uid="id_2" name="account_id" label="账户ID" type="long"/>  
+                    <field uid="id_3" name="account_type" label="账户类型" type="relation"/>  
+                    <field uid="id_4" name="userId" label="用户ID" type="string"/>  
+                    <field uid="id_5" name="freeze_date" label="日期" type="timestamp"/>  
+                    <field uid="id_6" name="freeze_type" label="冻结类型" type="long"/>  
+                    <field uid="id_7" name="trade_id" label="交易流水号" type="string"/>  
+                    <field uid="id_8" name="freeze_bizid" label="冻结业务号" type="string"/>  
+                    <field uid="id_9" name="requestId" label="请求业务流水号" type="string"/>  
+                    <field uid="id_10" name="amount" label="金额" type="long" currency="true"/>  
+                    <field uid="id_11" name="remark" label="备注" type="string"/> 
+                  </Entity>  
+                  <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0" name="AMS_Member" label="会员" alias="a1" selectAll="true" isBranch="true"> 
+                    <field uid="sys_0" name="id" label="编号" type="long"/>  
+                    <field uid="sys_1" name="domainId" label="域ID" type="long"/>  
+                    <field uid="log_0" name="FM_CreatePrinId" label="创建者ID" type="long"/>  
+                    <field uid="log_1" name="FM_CreatePrinName" label="创建者" type="string"/>  
+                    <field uid="log_2" name="FM_UpdatePrinId" label="更新者ID" type="long"/>  
+                    <field uid="log_3" name="FM_UpdatePrinName" label="更新者" type="string"/>  
+                    <field uid="log_4" name="FM_CreateTime" label="创建时间" type="timestamp"/>  
+                    <field uid="log_5" name="FM_UpdateTime" label="更新时间" type="timestamp"/>  
+                    <field uid="id_1" name="name" label="名称" type="string"/>  
+                    <field uid="id_4" name="phone" label="手机" type="string"/>  
+                    <field uid="id_6" name="address" label="地址" type="string"/>  
+                    <field uid="id_7" name="user_state" label="会员状态" type="long"/>  
+                    <field uid="id_23" name="member_type" label="会员类型" type="long"/>  
+                    <field uid="id_24" name="userId" label="会员uuid" type="string"/>  
+                    <field uid="id_26" name="login_password" label="登录密码" type="string"/>  
+                    <field uid="id_27" name="pay_password" label="支付密码" type="string"/>  
+                    <field uid="id_28" name="email" label="邮件" type="string"/>  
+                    <field uid="id_29" name="country" label="国家" type="string"/>  
+                    <field uid="id_30" name="province" label="省" type="string"/>  
+                    <field uid="id_31" name="area" label="地区" type="string"/>  
+                    <field uid="id_32" name="identity_cardNo" label="身份证号码" type="string"/>  
+                    <field uid="id_34" name="user_name" label="昵称" type="string"/>  
+                    <field uid="id_36" name="last_login_time" label="最近一次登录时间" type="timestamp"/>  
+                    <field uid="id_37" name="isPhone_checked" label="手机号码是否验证" type="boolean"/>  
+                    <field uid="id_38" name="isEmail_checked" label="邮箱是否验证" type="boolean"/>  
+                    <field uid="id_40" name="register_time" label="注册时间" type="timestamp"/>  
+                    <field uid="id_41" name="login_fail_amount" label="登录失败次数" type="long"/>  
+                    <field uid="id_42" name="pay_fail_amount" label="支付失败次数" type="long"/>  
+                    <field uid="id_43" name="last_login_fail_time" label="最后一次登录失败时间" type="timestamp"/>  
+                    <field uid="id_44" name="last_pay_fail_time" label="最后一次支付失败时间" type="timestamp"/>  
+                    <field uid="id_45" name="isSecurityIssue" label="是否设置安全问题" type="boolean"/>  
+                    <field uid="id_46" name="isIdentity_checked" label="身份实名认证" type="long"/>  
+                    <field uid="id_47" name="isSetExtendInfo" label="是否设置扩展信息" type="boolean"/>  
+                    <field uid="id_48" name="loginId" label="登录帐号" type="string"/> 
+                  </Entity> 
+                </select>  
+                <where> 
+                  <exp type="2"> 
+                    <exp type="19" valueType="1" option="true" rightType="param" right="userId" leftEntity="AMS_FreezeLogDetail" leftField="userId" uid="exp0"/>  
+                    <exp type="19" valueType="1" option="true" rightType="param" right="freeze_bizid" leftEntity="AMS_FreezeLogDetail" leftField="freeze_bizid" uid="exp1"/>  
+                    <exp type="5" valueType="1" option="true" rightType="prop" rightEntity="AMS_FreezeLogDetail" rightField="userId" leftEntity="AMS_Member" leftField="userId" uid="exp3"/> 
+                  </exp> 
+                </where>  
+                <other> 
+                  <groupBy label="Group By"/>  
+                  <orderBy label="Order By"> 
+                    <field uid="sys_0" name="id" label="编号" type="long" entity="AMS_FreezeLogDetail" order="desc"/> 
+                  </orderBy> 
+                </other> 
+              </xmlQuery>  
+              <conditionForm> 
+                <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2"> 
+                  <TabNavigator> 
+                    <tab label="default"> 
+                      <Label width="82" height="25" text="用户ID:" propertyUID="id_4" x="3" y="3" style=""/>  
+                      <TextInput name="userId" width="159" height="25" x="63" y="3"/>  
+                      <Label width="99" height="25" text="冻结业务号:" propertyUID="id_8" x="223" y="3" style=""/>  
+                      <TextInput name="freeze_bizid" width="139" height="25" x="323" y="3"/>  
+                      <Label width="99" height="25" text="请求业务流水号:" propertyUID="id_9" x="463" y="3" style=""/>  
+                      <TextInput name="requestId" width="139" height="25" x="563" y="3"/> 
+                    </tab> 
+                  </TabNavigator> 
+                </Window> 
+              </conditionForm>  
+              <StatSetting/>  
+              <queryEvent/> 
+            </EntityQuery>

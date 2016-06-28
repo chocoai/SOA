@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityForm name="交易码" label="交易码" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.B4879A7711FB" nodeID="970">
+  <formEntity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.C8505CB19417" />
+  <formState>
+    <state label="基础" uid="state0" basedOn="null" />
+    <state label="新建" uid="state1" basedOn="state0" />
+    <state label="编辑" uid="state2" basedOn="state0" />
+  </formState>
+  <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2">
+    <TabNavigator>
+      <tab label="default">
+        <Label width="82" height="25" text="名称:" propertyUID="id_3" x="3" y="3" style="" />
+        <TextInput propertyUID="id_3" width="159" height="25" x="63" y="3" />
+        <Label width="82" height="25" text="交易码:" propertyUID="id_1" x="263" y="3" style="" />
+        <TextInput propertyUID="id_1" width="199" height="25" x="323" y="3" />
+        <Label width="82" height="25" text="描述:" propertyUID="id_2" x="3" y="31" style="" />
+        <TextArea propertyUID="id_2" width="459" height="195" x="63" y="31" />
+      </tab>
+    </TabNavigator>
+  </Window>
+  <formEvent />
+</EntityForm>

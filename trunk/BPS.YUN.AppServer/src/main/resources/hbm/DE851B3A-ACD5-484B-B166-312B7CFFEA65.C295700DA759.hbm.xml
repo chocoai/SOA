@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "PUBLIC" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class entity-name="AMS_Address" table="DYNA_AMS_Address">
+    <id name="id" type="long">
+      <generator class="sequence">
+        <param name="sequence">IDSEQ_AMS_Address</param>
+      </generator>
+    </id>
+    <property name="domainId" not-null="false" type="long" index="IDX_DOMAINID"/>
+    <property name="owner_user_id" not-null="false" type="long" index="owner_user_idx"/>
+    <property name="owner_user_label" not-null="false" type="string" length="200"/>
+    <property name="province" not-null="false" type="string" length="100"/>
+    <property name="city" not-null="false" type="string" length="100"/>
+    <property name="county" not-null="false" type="string" length="100"/>
+    <property name="address" not-null="false" type="string" length="100"/>
+    <property name="postcode" not-null="false" type="string" length="100"/>
+    <property name="name" not-null="false" type="string" length="100"/>
+    <property name="phone" not-null="false" type="string" length="100"/>
+    <property name="cust_area" not-null="false" type="string" length="100"/>
+    <property name="isDefult" not-null="false" type="boolean" length="100"/>
+  </class>
+</hibernate-mapping>

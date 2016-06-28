@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityQuery name="机构手续费" label="机构手续费" note="" share="false" multiselect="false" editable="false" autopaging="false" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.EF8F51FFEB99" nodeID="676">
+  <queryEntities>
+    <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.A2C9BC2C6831" name="AMS_OrgFee" label="机构手续费" alias="a0" selectAll="true" isBranch="true" master="true" />
+  </queryEntities>
+  <DataGrid>
+    <color />
+    <column name="handling_mode" label="计费模式" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.A2C9BC2C6831.id_1" width="100" isBranch="false" dataField="AMS_OrgFee$handling_mode" />
+    <column name="pay_interface_type" label="支付通道类型" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.A2C9BC2C6831.id_17" width="100" isBranch="false" />
+    <column name="handling_type" label="计费方式" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.A2C9BC2C6831.id_6" width="100" isBranch="false" dataField="AMS_OrgFee$handling_type" />
+    <column name="handling_each" label="固定" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.A2C9BC2C6831.id_3" width="73" isBranch="false" dataField="AMS_OrgFee$handling_each" />
+    <column name="handling_rate" label="比例" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.A2C9BC2C6831.id_4" width="77" isBranch="false" dataField="AMS_OrgFee$handling_rate" />
+    <column name="min_fee" label="最低费用" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.A2C9BC2C6831.id_5" width="73" isBranch="false" dataField="AMS_OrgFee$min_fee" />
+    <column name="max_fee" label="封顶费用" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.A2C9BC2C6831.id_2" width="68" isBranch="false" dataField="AMS_OrgFee$max_fee" />
+    <column name="trade_type" label="交易类型" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.A2C9BC2C6831.id_7" width="100" isBranch="false" dataField="AMS_OrgFee$trade_type" />
+    <column name="sub_trade_type" label="交易子类型" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.A2C9BC2C6831.id_8" width="87" isBranch="false" dataField="AMS_OrgFee$sub_trade_type" />
+    <column name="account_type" label="账户类型" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.A2C9BC2C6831.id_10" width="100" isBranch="false" dataField="AMS_OrgFee$account_type_label" />
+    <column name="accountNo" label="账户编号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.A2C9BC2C6831.id_13" width="100" isBranch="false" dataField="AMS_OrgFee$accountNo" />
+    <column name="pay_interfaceNo" label="通道编号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.A2C9BC2C6831.id_12" width="100" isBranch="false" dataField="AMS_OrgFee$pay_interfaceNo" />
+    <column name="payInterface" label="通道名称" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.A2C9BC2C6831.id_15" width="100" isBranch="false" dataField="AMS_OrgFee$payInterface_label" />
+    <column name="fee_type" label="手续费类型" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.A2C9BC2C6831.id_18" width="100" isBranch="false" />
+  </DataGrid>
+  <editState />
+  <toolbar>
+    <button label="新建" action="alink" selection="none" permission="" permissionName="" visiable="true" param="{   &quot;target&quot;: &quot;ime.AppWindow&quot;,   &quot;form&quot;: &quot;EntityForm&quot;,   &quot;openMode&quot;: {},   &quot;param&quot;: {     &quot;action&quot;: &quot;create&quot;,     &quot;entityUID&quot;: &quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.A2C9BC2C6831&quot;,     &quot;formUID&quot;: &quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.F9BDC030385A&quot;,     &quot;formState&quot;: &quot;state1&quot;,     &quot;title&quot;: &quot;&quot;   } }" Button="System.Windows.Controls.Button: 新建" alink="alink://ime.AppWindow/EntityForm?{action:&quot;create&quot;,entityUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.A2C9BC2C6831&quot;,formUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.F9BDC030385A&quot;,formState:&quot;state1&quot;,title:&quot;&quot;}" />
+    <button label="编辑" action="alink" selection="single" permission="" permissionName="" visiable="true" param="{   &quot;target&quot;: &quot;ime.AppWindow&quot;,   &quot;form&quot;: &quot;EntityForm&quot;,   &quot;openMode&quot;: {},   &quot;param&quot;: {     &quot;action&quot;: &quot;edit&quot;,     &quot;entityUID&quot;: &quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.A2C9BC2C6831&quot;,     &quot;formUID&quot;: &quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.F9BDC030385A&quot;,     &quot;formState&quot;: &quot;state0&quot;   } }" Button="System.Windows.Controls.Button: 编辑" alink="alink://ime.AppWindow/EntityForm?{action:&quot;edit&quot;,entityUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.A2C9BC2C6831&quot;,formUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.F9BDC030385A&quot;,formState:&quot;state0&quot;}" />
+    <button label="删除" action="delete" selection="single" />
+  </toolbar>
+  <xmlQuery version="2.0" name="" label="">
+    <select domainScope="true">
+      <other label="其他" uid="other" name="other" />
+      <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.A2C9BC2C6831" name="AMS_OrgFee" label="机构手续费" alias="a0" selectAll="true" isBranch="true">
+        <field uid="sys_0" name="id" label="编号" type="long" />
+        <field uid="sys_1" name="domainId" label="域ID" type="long" />
+        <field uid="id_1" name="handling_mode" label="计费模式" type="long" />
+        <field uid="id_2" name="max_fee" label="封顶费用" type="long" currency="true" />
+        <field uid="id_3" name="handling_each" label="固定" type="long" currency="true" />
+        <field uid="id_4" name="handling_rate" label="比例" type="double" />
+        <field uid="id_5" name="min_fee" label="最低费用" type="long" currency="true" />
+        <field uid="id_6" name="handling_type" label="计费方式" type="long" />
+        <field uid="id_7" name="trade_type" label="交易类型" type="long" />
+        <field uid="id_8" name="sub_trade_type" label="交易子类型" type="long" />
+        <field uid="id_9" name="orgNo" label="机构号" type="string" />
+        <field uid="id_10" name="account_type" label="账户类型" type="relation" />
+        <field uid="id_12" name="pay_interfaceNo" label="通道编号" type="string" />
+        <field uid="id_13" name="accountNo" label="账户编号" type="string" />
+        <field uid="id_14" name="org" label="机构名称" type="relation" />
+        <field uid="id_15" name="payInterface" label="通道名称" type="relation" />
+        <field uid="id_17" name="pay_interface_type" label="支付通道类型" type="long" />
+        <field uid="id_18" name="fee_type" label="手续费类型" type="long" />
+      </Entity>
+    </select>
+    <where>
+      <exp type="2">
+        <exp type="5" valueType="3" option="false" leftEntity="AMS_OrgFee" leftField="org_id" uid="exp0" rightType="val" right="$page.master.selectedEntity.id" />
+      </exp>
+    </where>
+    <other>
+      <groupBy label="Group By" />
+      <orderBy label="Order By" />
+    </other>
+  </xmlQuery>
+  <conditionForm>
+    <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2">
+      <TabNavigator>
+        <tab label="default" />
+      </TabNavigator>
+    </Window>
+  </conditionForm>
+  <StatSetting />
+  <queryEvent />
+</EntityQuery>

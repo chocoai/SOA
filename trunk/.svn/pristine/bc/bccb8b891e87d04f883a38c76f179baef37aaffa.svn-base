@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<QueryPage label="意见反馈列表" control="Panel" layout="vertical" controlUID="root" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.7B14FD2E48AC" name="意见反馈列表" nodeID="1637"> 
+              <QueryControl label="意见列表" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.78A50FA0514A" width="100%" height="100%" controlUID="ctrl0" name=""/>  
+              <event label="初始化事件" type="initialize" name="initialize"/>  
+              <event label="确定事件" type="okEvent" name="okEvent"/> 
+            </QueryPage>

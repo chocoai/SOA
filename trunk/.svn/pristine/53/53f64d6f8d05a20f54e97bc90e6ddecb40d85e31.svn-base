@@ -1,0 +1,1087 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<dictionary>
+  <type name="消息管理" id="116">
+    <entry name="消息系统" type="String" default="" id="120">
+      <value order="0" enable="true" label="工作流引擎" id="75" value="workflow"/>
+      <value order="1" enable="true" label="消息引擎" id="76" value="messenger"/>
+    </entry>
+    <entry name="消息状态" type="Number" default="" id="118">
+      <value order="0" enable="true" label="未接收" id="69" value="0"/>
+      <value order="1" enable="true" label="已查看" id="70" value="1"/>
+      <value order="2" enable="true" label="已删除" id="71" value="2"/>
+    </entry>
+    <entry name="消息类型" type="Number" default="" id="119">
+      <value order="0" enable="true" label="聊天消息" id="72" value="1"/>
+      <value order="1" enable="true" label="通知消息" id="73" value="2"/>
+      <value order="2" enable="true" label="工作流任务消息" id="74" value="3"/>
+    </entry>
+    <entry name="消息种类" type="Number" default="" id="117">
+      <value order="0" enable="true" label="点对点消息" id="67" value="1"/>
+      <value order="1" enable="true" label="点对多消息" id="68" value="2"/>
+    </entry>
+  </type>
+  <type name="二级行业" id="128">
+    <entry name="3" note="制造业" type="Number" default="" id="131">
+      <value order="0" enable="true" label="食品加工业" id="109" value="1"/>
+      <value order="1" enable="true" label="食品制造业" id="110" value="2"/>
+      <value order="2" enable="true" label="饮料制造业" id="111" value="3"/>
+      <value order="3" enable="true" label="烟草加工业" id="112" value="4"/>
+      <value order="4" enable="true" label="纺织业" id="113" value="5"/>
+      <value order="5" enable="true" label="服装及其他纤维制品制造业" id="114" value="6"/>
+      <value order="6" enable="true" label="皮革、毛皮、羽绒及其制品业" id="115" value="7"/>
+      <value order="7" enable="true" label="木材加工及竹、藤、棕、草制品业" id="116" value="8"/>
+    </entry>
+    <entry name="2" note="采掘业" type="Number" default="" id="130">
+      <value order="0" enable="true" label="煤炭采选业" id="101" value="1"/>
+      <value order="1" enable="true" label="石油和天然气开采业" id="102" value="2"/>
+      <value order="2" enable="true" label="黑色金属矿采选业" id="103" value="3"/>
+      <value order="3" enable="true" label="有色金属矿采选业" id="104" value="4"/>
+      <value order="4" enable="true" label="非金属矿采选业" id="105" value="5"/>
+      <value order="5" enable="true" label="采盐业" id="106" value="6"/>
+      <value order="6" enable="true" label="其他矿采选业" id="107" value="7"/>
+      <value order="7" enable="true" label="木材及竹材采运业" id="108" value="8"/>
+    </entry>
+    <entry name="1" note="农、林、牧、渔业" type="Number" default="" id="129">
+      <value order="0" enable="true" label="农业" id="96" value="1"/>
+      <value order="1" enable="true" label="林业" id="97" value="2"/>
+      <value order="2" enable="true" label="畜牧业" id="98" value="3"/>
+      <value order="3" enable="true" label="渔业" id="99" value="4"/>
+      <value order="4" enable="true" label="农、林、牧、渔服务业" id="100" value="5"/>
+    </entry>
+  </type>
+  <type name="支付" id="203">
+    <entry name="渠道商户-支付方式" type="Number" default="" id="1029">
+      <value order="0" enable="true" label="通联通" id="821" value="20001"/>
+      <value order="1" enable="true" label="网关" id="822" value="10002"/>
+    </entry>
+    <entry name="二维码支付方式" type="String" default="" id="204">
+      <value order="0" enable="true" label="钱包余额账户" id="348" value="1"/>
+      <value order="1" enable="true" label="积分账户" id="349" value="2"/>
+      <value order="2" enable="true" label="快捷银行卡" id="350" value="3"/>
+    </entry>
+    <entry name="支付方式类型" type="String" default="" id="205">
+      <value order="0" enable="true" label="储蓄卡" id="351" value="1"/>
+      <value order="1" enable="true" label="信用卡" id="352" value="2"/>
+      <value order="2" enable="true" label="支付平台" id="353" value="3"/>
+      <value order="3" enable="true" label="万商卡" id="354" value="4"/>
+    </entry>
+    <entry name="支付类型" type="String" default="" id="206">
+      <value order="0" enable="true" label="快捷" id="355" value="1"/>
+      <value order="1" enable="true" label="网关" id="356" value="2"/>
+    </entry>
+  </type>
+  <type name="订单" id="266">
+    <entry name="标的担保方式" type="Number" default="" id="1002">
+      <value order="1" enable="true" label="保险公司担保" id="811" value="2"/>
+      <value order="2" enable="true" label="银行机构担保" id="812" value="3"/>
+      <value order="0" enable="true" label="平台担保" id="810" value="1"/>
+      <value order="3" enable="true" label="担保公司担保" id="813" value="4"/>
+      <value order="4" enable="true" label="无担保" id="865" value="5"/>
+      <value order="5" enable="true" label="其他" id="866" value="99"/>
+    </entry>
+    <entry name="退款退货类型" type="Number" default="" id="280">
+      <value order="0" enable="true" label="退款" id="610" value="1"/>
+      <value order="1" enable="true" label="退货" id="611" value="2"/>
+    </entry>
+    <entry name="退款留言用户类型" type="Number" default="" id="271">
+      <value order="0" enable="true" label="买家" id="579" value="1"/>
+      <value order="1" enable="true" label="卖家" id="580" value="2"/>
+    </entry>
+    <entry name="商品类型" type="Number" default="" id="1007">
+      <value order="0" enable="true" label="标的" id="806" value="1"/>
+    </entry>
+    <entry name="支付结果" type="Number" default="" id="276">
+      <value order="0" enable="true" label="成功" id="591" value="0"/>
+      <value order="1" enable="true" label="未支付" id="592" value="1"/>
+      <value order="2" enable="true" label="进行中" id="593" value="9"/>
+      <value order="3" enable="true" label="失败" id="594" value="2"/>
+    </entry>
+    <entry name="二维码状态" type="String" default="1" id="274">
+      <value order="0" enable="true" label="未使用" id="586" value="1"/>
+      <value order="1" enable="true" label="已使用" id="587" value="2"/>
+      <value order="2" enable="true" label="过期" id="588" value="3"/>
+    </entry>
+    <entry name="外部系统" type="String" default="" id="278">
+      <value order="0" enable="true" label="货到付款" id="597" value="10000"/>
+      <value order="1" enable="true" label="银联b2c" id="598" value="10001"/>
+      <value order="2" enable="true" label="银联b2b" id="599" value="10002"/>
+      <value order="3" enable="true" label="银联移动" id="600" value="10003"/>
+    </entry>
+    <entry name="充值状态" type="String" default="0" id="267">
+      <value order="0" enable="true" label="未充值" id="554" value="0"/>
+      <value order="1" enable="true" label="充值成功" id="555" value="1"/>
+      <value order="2" enable="true" label="充值失败" id="556" value="2"/>
+      <value order="3" enable="true" label="充值异常" id="557" value="3"/>
+    </entry>
+    <entry name="验证码状态" type="Number" default="" id="273">
+      <value order="0" enable="true" label="未使用" id="584" value="0"/>
+      <value order="1" enable="true" label="已使用" id="585" value="1"/>
+    </entry>
+    <entry name="订单状态" type="Number" default="" id="269">
+      <value order="0" enable="true" label="未支付" id="569" value="1"/>
+      <value order="2" enable="true" label="支付" id="572" value="2"/>
+      <value order="4" enable="true" label="交易完成" id="720" value="4"/>
+      <value order="3" enable="true" label="关闭" id="574" value="3"/>
+      <value order="5" enable="true" label="进行中" id="781" value="99"/>
+    </entry>
+    <entry name="调用类型" type="Number" default="" id="270">
+      <value order="0" enable="true" label="页面" id="576" value="1"/>
+      <value order="1" enable="true" label="接口" id="577" value="2"/>
+      <value order="2" enable="true" label="其他" id="578" value="3"/>
+    </entry>
+    <entry name="收款方式" type="String" default="" id="275">
+      <value order="0" enable="true" label="担保交易" id="589" value="1"/>
+      <value order="1" enable="true" label="即时到帐交易" id="590" value="2"/>
+    </entry>
+    <entry name="退款退货状态" type="Number" default="" id="268">
+      <value order="0" enable="true" label="退款审核" id="558" value="1"/>
+      <value order="1" enable="true" label="退款成功" id="559" value="2"/>
+      <value order="2" enable="true" label="退货审核" id="560" value="3"/>
+      <value order="3" enable="true" label="退货审核通过" id="561" value="4"/>
+      <value order="4" enable="true" label="等待收货" id="562" value="5"/>
+      <value order="5" enable="true" label="退货成功" id="563" value="6"/>
+      <value order="6" enable="true" label="退款失败" id="564" value="7"/>
+      <value order="7" enable="true" label="退货失败" id="565" value="8"/>
+      <value order="8" enable="true" label="拒绝退货请求" id="566" value="9"/>
+      <value order="9" enable="true" label="拒绝确认收货" id="567" value="10"/>
+      <value order="10" enable="true" label="拒绝退款请求" id="568" value="11"/>
+    </entry>
+    <entry name="标的还款方式" type="Number" default="" id="1001">
+      <value order="1" enable="true" label="按月付息，到期还本" id="802" value="2"/>
+      <value order="2" enable="true" label="等额本金" id="807" value="3"/>
+      <value order="3" enable="true" label="等额本息" id="808" value="4"/>
+      <value order="4" enable="true" label="其他" id="809" value="99"/>
+      <value order="0" enable="true" label="到期还本付息" id="801" value="1"/>
+    </entry>
+    <entry name="对账结果" type="Number" default="" id="277">
+      <value order="0" enable="true" label="正常" id="595" value="0"/>
+      <value order="1" enable="true" label="失败" id="596" value="1"/>
+    </entry>
+    <entry name="订单类型" type="Number" default="" id="279">
+      <value order="8" enable="true" label="代付" id="719" value="5"/>
+      <value order="7" enable="true" label="代收" id="718" value="4"/>
+      <value order="10" enable="true" label="跨应用转账" id="862" value="7"/>
+      <value order="12" enable="true" label="流标退款" id="863" value="11"/>
+      <value order="0" enable="true" label="充值" id="601" value="1"/>
+      <value order="1" enable="true" label="消费" id="602" value="2"/>
+      <value order="9" enable="true" label="批量代付" id="761" value="6"/>
+      <value order="6" enable="true" label="提现" id="605" value="3"/>
+      <value order="11" enable="true" label="退款" id="763" value="10"/>
+    </entry>
+    <entry name="订单来源" type="Number" default="" id="272">
+      <value order="0" enable="true" label="PC" id="581" value="1"/>
+      <value order="1" enable="true" label="app" id="582" value="2"/>
+    </entry>
+  </type>
+  <type name="手续费" id="309">
+    <entry name="计费对象" type="Number" default="" id="312">
+      <value order="0" enable="true" label="前端" id="691" value="1"/>
+      <value order="1" enable="true" label="后端" id="692" value="2"/>
+    </entry>
+    <entry name="手续费类型" type="" default="" id="1030">
+      <value order="0" enable="true" label="交易" id="823" value="1"/>
+      <value order="2" enable="true" label="银行卡绑卡" id="824" value="3"/>
+      <value order="1" enable="true" label="实名认证" id="825" value="2"/>
+    </entry>
+    <entry name="手续费收费方式" type="Number" default="" id="310">
+      <value order="0" enable="true" label="固定" id="687" value="2"/>
+      <value order="1" enable="true" label="比例" id="688" value="1"/>
+    </entry>
+    <entry name="计费工具" type="Number" default="" id="313">
+      <value order="0" enable="true" label="PC" id="693" value="1"/>
+      <value order="1" enable="true" label="移动" id="694" value="2"/>
+    </entry>
+    <entry name="手续费收费模式" type="Number" default="" id="311">
+      <value order="0" enable="true" label="钆差" id="689" value="2"/>
+      <value order="1" enable="true" label="收支两条线" id="690" value="1"/>
+    </entry>
+  </type>
+  <type name="移动商店" id="291">
+    <entry name="商品状态" type="Number" default="" id="301">
+      <value order="0" enable="true" label="上架" id="663" value="1"/>
+      <value order="1" enable="true" label="下架" id="664" value="2"/>
+    </entry>
+    <entry name="活动状态" type="Number" default="" id="292">
+      <value order="0" enable="true" label="草稿" id="640" value="1"/>
+      <value order="1" enable="true" label="已发布" id="641" value="2"/>
+      <value order="2" enable="true" label="已取消" id="642" value="3"/>
+    </entry>
+    <entry name="交易类型" type="Number" default="" id="303">
+      <value order="0" enable="true" label="支付" id="669" value="1"/>
+      <value order="1" enable="true" label="退货" id="670" value="2"/>
+    </entry>
+    <entry name="交易方式" type="String" default="" id="305">
+      <value order="0" enable="true" label="网银" id="675" value="网银"/>
+      <value order="1" enable="true" label="现金" id="676" value="现金"/>
+    </entry>
+    <entry name="首页位置类型" type="Number" default="" id="304">
+      <value order="0" enable="true" label="轮播图" id="671" value="1"/>
+      <value order="1" enable="true" label="产品分类列表" id="672" value="2"/>
+      <value order="2" enable="true" label="限时抢购" id="673" value="3"/>
+      <value order="3" enable="true" label="精彩推荐" id="674" value="4"/>
+    </entry>
+    <entry name="验证码类型" type="String" default="" id="293">
+      <value order="0" enable="true" label="餐厅预定" id="643" value="MCY_Order_Table"/>
+      <value order="1" enable="true" label="商铺订单" id="644" value="MS_Order"/>
+    </entry>
+    <entry name="验证码状态" type="Number" default="" id="307">
+      <value order="0" enable="true" label="未使用" id="679" value="0"/>
+      <value order="1" enable="true" label="已使用" id="680" value="1"/>
+      <value order="2" enable="true" label="已取消" id="681" value="2"/>
+    </entry>
+    <entry name="目标类型" type="Number" default="" id="297">
+      <value order="0" enable="true" label="商品" id="657" value="1"/>
+      <value order="1" enable="true" label="商户" id="658" value="2"/>
+    </entry>
+    <entry name="活动类型" type="Number" default="" id="300">
+      <value order="0" enable="true" label="预购" id="662" value="1"/>
+    </entry>
+    <entry name="订单来源" type="Number" default="" id="308">
+      <value order="0" enable="true" label="微信" id="682" value="1"/>
+      <value order="1" enable="true" label="PC商城" id="683" value="2"/>
+      <value order="0" enable="true" label="微信自营店" id="684" value="1"/>
+      <value order="2" enable="true" label="微信商城" id="685" value="3"/>
+      <value order="3" enable="true" label="PC自营店" id="686" value="4"/>
+    </entry>
+    <entry name="银行账户类型" type="String" default="" id="306">
+      <value order="0" enable="true" label="企业" id="677" value="1"/>
+      <value order="1" enable="true" label="个人" id="678" value="0"/>
+    </entry>
+    <entry name="已支付订单状态" type="Number" default="" id="295">
+      <value order="0" enable="true" label="已支付" id="647" value="2"/>
+      <value order="1" enable="true" label="货到付款" id="648" value="4"/>
+    </entry>
+    <entry name="订单状态" type="Number" default="" id="296">
+      <value order="0" enable="true" label="未支付" id="649" value="1"/>
+      <value order="1" enable="true" label="已支付" id="650" value="2"/>
+      <value order="2" enable="true" label="已取消" id="651" value="3"/>
+      <value order="3" enable="true" label="货到付款" id="652" value="4"/>
+      <value order="3" enable="true" label="待发货" id="653" value="4"/>
+      <value order="4" enable="true" label="退款" id="654" value="5"/>
+      <value order="5" enable="true" label="未确认收货" id="655" value="6"/>
+      <value order="6" enable="true" label="交易成功" id="656" value="10"/>
+    </entry>
+    <entry name="消息类型" type="Number" default="" id="302">
+      <value order="0" enable="true" label="文本消息" id="665" value="1"/>
+      <value order="1" enable="true" label="单图文消息" id="666" value="2"/>
+      <value order="2" enable="true" label="多图文消息" id="667" value="3"/>
+      <value order="3" enable="true" label="空消息" id="668" value="4"/>
+    </entry>
+    <entry name="开户行" type="String" default="" id="299"/>
+    <entry name="商户状态" type="Number" default="" id="298">
+      <value order="0" enable="true" label="测试中" id="659" value="1"/>
+      <value order="1" enable="true" label="已开通" id="660" value="2"/>
+      <value order="2" enable="true" label="已关闭" id="661" value="3"/>
+    </entry>
+    <entry name="退货方式" type="Number" default="" id="294">
+      <value order="0" enable="true" label="银行退" id="645" value="1"/>
+      <value order="1" enable="true" label="现金退" id="646" value="2"/>
+    </entry>
+  </type>
+  <type name="企业信息" id="105">
+    <entry name="证件类型" type="Number" default="1" id="108">
+      <value order="0" enable="true" label="税务登记证" id="41" value="1"/>
+    </entry>
+    <entry name="所属行业" type="Number" default="7" id="107">
+      <value order="0" enable="true" label="农、林、牧、渔业" id="25" value="1"/>
+      <value order="1" enable="true" label="采掘业" id="26" value="2"/>
+      <value order="2" enable="true" label="制造业" id="27" value="3"/>
+      <value order="3" enable="true" label="电力、煤气及水的生产和供应业" id="28" value="4"/>
+      <value order="4" enable="true" label="建筑业" id="29" value="5"/>
+      <value order="5" enable="true" label="地质勘查业、水利管理业" id="30" value="6"/>
+      <value order="6" enable="true" label="交通运输、仓储及邮电通信业" id="31" value="7"/>
+      <value order="7" enable="true" label="批发和零售贸易、餐饮业" id="32" value="8"/>
+      <value order="8" enable="true" label="金融、保险业" id="33" value="9"/>
+      <value order="9" enable="true" label="房地产业" id="34" value="10"/>
+      <value order="10" enable="true" label="社会服务业" id="35" value="11"/>
+      <value order="11" enable="true" label="卫生、体育和社会福利业" id="36" value="12"/>
+      <value order="12" enable="true" label="教育、文化艺术及广播电影电视业" id="37" value="13"/>
+      <value order="13" enable="true" label="科学研究和综合技术服务业" id="38" value="14"/>
+      <value order="14" enable="true" label="国家机关、政党机关和社会团体" id="39" value="15"/>
+      <value order="15" enable="true" label="其他行业" id="40" value="16"/>
+    </entry>
+    <entry name="客户类型" type="Number" default="4" id="110">
+      <value order="0" enable="true" label="原料供应商" id="46" value="1"/>
+      <value order="1" enable="true" label="产品经销商" id="47" value="2"/>
+      <value order="2" enable="true" label="零售商" id="48" value="3"/>
+      <value order="3" enable="true" label="最终用户" id="49" value="4"/>
+    </entry>
+    <entry name="企业性质" type="Number" default="6" id="111">
+      <value order="0" enable="true" label="国有" id="50" value="1"/>
+      <value order="1" enable="true" label="合作" id="51" value="2"/>
+      <value order="3" enable="true" label="合资" id="52" value="3"/>
+      <value order="4" enable="true" label="独资" id="53" value="4"/>
+      <value order="5" enable="true" label="集体" id="54" value="5"/>
+      <value order="6" enable="true" label="私营" id="55" value="6"/>
+      <value order="7" enable="true" label="其他" id="56" value="7"/>
+    </entry>
+    <entry name="保密级别" type="Number" default="4" id="112">
+      <value order="0" enable="true" label="高度机密" id="57" value="1"/>
+      <value order="1" enable="true" label="机密" id="58" value="2"/>
+      <value order="2" enable="true" label="保密" id="59" value="3"/>
+      <value order="3" enable="true" label="公开" id="60" value="4"/>
+    </entry>
+    <entry name="企业规模" type="Number" default="2" id="106">
+      <value order="0" enable="true" label="10人以下" id="20" value="1"/>
+      <value order="1" enable="true" label="10~50人" id="21" value="2"/>
+      <value order="2" enable="true" label="50~100人" id="22" value="3"/>
+      <value order="3" enable="true" label="100~500" id="23" value="4"/>
+      <value order="4" enable="true" label="500人以上" id="24" value="5"/>
+    </entry>
+    <entry name="活动阶段" type="Number" default="1" id="109">
+      <value order="0" enable="true" label="售前跟踪" id="42" value="1"/>
+      <value order="1" enable="true" label="合同执行" id="43" value="2"/>
+      <value order="2" enable="true" label="售后服务" id="44" value="3"/>
+      <value order="3" enable="true" label="合同期满" id="45" value="4"/>
+    </entry>
+  </type>
+  <type name="应用" id="1104">
+    <entry name="应用配置类型" type="" default="" id="1105">
+      <value order="0" enable="true" label="B2C" id="859" value="1"/>
+      <value order="1" enable="true" label="跨应用" id="860" value="2"/>
+    </entry>
+  </type>
+  <type name="内容管理" id="113">
+    <entry name="媒体类型" type="String" default="" id="115">
+      <value order="0" enable="true" label="纯文本" id="64" value="1"/>
+      <value order="1" enable="true" label="Html" id="65" value="2"/>
+      <value order="2" enable="true" label="视频" id="66" value="3"/>
+    </entry>
+    <entry name="文章类别" type="Number" default="" id="114">
+      <value order="3" enable="true" label="商城文章" id="357" value="4"/>
+      <value order="0" enable="true" label="新闻" id="61" value="1"/>
+      <value order="1" enable="true" label="公告" id="62" value="2"/>
+      <value order="2" enable="true" label="其他" id="63" value="3"/>
+    </entry>
+  </type>
+  <type name="联系人" id="121">
+    <entry name="亲密程度" type="Number" default="2" id="123">
+      <value order="0" enable="true" label="密切" id="80" value="1"/>
+      <value order="1" enable="true" label="较好" id="81" value="2"/>
+      <value order="2" enable="true" label="一般" id="82" value="3"/>
+      <value order="3" enable="true" label="较差" id="83" value="4"/>
+    </entry>
+    <entry name="类型" type="Number" default="" id="122">
+      <value order="0" enable="true" label="媒体" id="77" value="1"/>
+      <value order="1" enable="true" label="记者" id="78" value="2"/>
+      <value order="2" enable="true" label="政府" id="79" value="3"/>
+    </entry>
+    <entry name="来源类型" type="Number" default="3" id="124">
+      <value order="0" enable="true" label="促销活动" id="84" value="1"/>
+      <value order="1" enable="true" label="电话来访" id="85" value="2"/>
+      <value order="2" enable="true" label="独立开发" id="86" value="3"/>
+      <value order="3" enable="true" label="客户介绍" id="87" value="4"/>
+      <value order="4" enable="true" label="互联网" id="88" value="5"/>
+      <value order="5" enable="true" label="其他" id="89" value="6"/>
+    </entry>
+  </type>
+  <type name="银行卡" id="281">
+    <entry name="签约状态" type="Number" default="" id="284">
+      <value order="0" enable="true" label="签约成功" id="620" value="1"/>
+      <value order="1" enable="true" label="签约失败" id="621" value="2"/>
+      <value order="2" enable="true" label="已解约" id="622" value="3"/>
+    </entry>
+    <entry name="账户属性" type="Number" default="" id="282">
+      <value order="0" enable="true" label="个人" id="612" value="0"/>
+      <value order="1" enable="true" label="企业" id="613" value="1"/>
+    </entry>
+    <entry name="绑定状态" type="Number" default="" id="285">
+      <value order="0" enable="true" label="已解除" id="623" value="2"/>
+      <value order="1" enable="true" label="已绑定" id="624" value="1"/>
+    </entry>
+    <entry name="签约类型" type="Number" default="" id="283">
+      <value order="0" enable="true" label="签约申请" id="614" value="1"/>
+      <value order="1" enable="true" label="签约短信" id="615" value="2"/>
+      <value order="2" enable="true" label="签约确认" id="616" value="3"/>
+      <value order="3" enable="true" label="支付申请" id="617" value="4"/>
+      <value order="4" enable="true" label="支付短信" id="618" value="5"/>
+      <value order="5" enable="true" label="支付确认" id="619" value="6"/>
+    </entry>
+    <entry name="短信状态" type="String" default="" id="287">
+      <value order="0" enable="true" label="已发送" id="629" value="1"/>
+      <value order="1" enable="true" label="要发送" id="630" value="2"/>
+      <value order="2" enable="true" label="不发送" id="631" value="3"/>
+    </entry>
+    <entry name="银行卡类型" type="Number" default="" id="286">
+      <value order="0" enable="true" label="借记卡" id="625" value="1"/>
+      <value order="1" enable="true" label="贷记卡" id="626" value="2"/>
+      <value order="2" enable="true" label="准贷记卡" id="627" value="3"/>
+      <value order="3" enable="true" label="预付费卡" id="628" value="6"/>
+    </entry>
+  </type>
+  <type name="对账" id="211">
+    <entry name="差异类型" type="Number" default="" id="215">
+      <value order="0" enable="true" label="长款" id="374" value="1"/>
+      <value order="1" enable="true" label="短款" id="375" value="2"/>
+      <value order="2" enable="true" label="金额不符" id="376" value="3"/>
+    </entry>
+    <entry name="余额类型" type="Number" default="" id="216">
+      <value order="0" enable="true" label="余额" id="377" value="1"/>
+      <value order="1" enable="true" label="轧差" id="378" value="2"/>
+    </entry>
+    <entry name="对账状态" type="Number" default="" id="212">
+      <value order="0" enable="true" label="否" id="370" value="0"/>
+      <value order="1" enable="true" label="是" id="371" value="1"/>
+    </entry>
+    <entry name="处理结果" type="Number" default="" id="213"/>
+    <entry name="下载状态" type="Number" default="" id="214">
+      <value order="0" enable="true" label="否" id="372" value="0"/>
+      <value order="1" enable="true" label="是" id="373" value="1"/>
+    </entry>
+  </type>
+  <type name="调度" id="253">
+    <entry name="调度状态" type="String" default="" id="254">
+      <value order="0" enable="true" label="未发送" id="517" value="1"/>
+      <value order="1" enable="true" label="发送失败" id="518" value="2"/>
+      <value order="2" enable="true" label="发送成功" id="519" value="3"/>
+    </entry>
+  </type>
+  <type name="多账户" id="217">
+    <entry name="网关接口-语言" type="" default="" id="1020">
+      <value order="0" enable="true" label="中文" id="815" value="1"/>
+    </entry>
+    <entry name="监控类型" type="Number" default="" id="249">
+      <value order="0" enable="true" label="交易阻断" id="508" value="0"/>
+      <value order="1" enable="true" label="会员锁定-触发" id="509" value="1"/>
+      <value order="2" enable="true" label="会员锁定-锁定" id="510" value="2"/>
+    </entry>
+    <entry name="冻结类型" type="Number" default="" id="237">
+      <value order="1" enable="true" label="解冻" id="465" value="2"/>
+      <value order="2" enable="true" label="使用" id="466" value="3"/>
+      <value order="0" enable="true" label="冻结" id="467" value="1"/>
+    </entry>
+    <entry name="会员状态" type="Number" default="" id="243">
+      <value order="1" enable="true" label="有效" id="484" value="1"/>
+      <value order="2" enable="true" label="已建" id="485" value="2"/>
+      <value order="3" enable="true" label="审核失败" id="486" value="3"/>
+      <value order="5" enable="true" label="已锁" id="488" value="5"/>
+      <value order="6" enable="true" label="待审核" id="490" value="7"/>
+    </entry>
+    <entry name="验证码类型" type="Number" default="22" id="218">
+      <value order="12" enable="true" label="认证签约短信验证" id="379" value="30"/>
+      <value order="12" enable="true" label="绑定银行卡验证" id="380" value="16"/>
+      <value order="13" enable="true" label="认证支付短信验证" id="381" value="31"/>
+      <value order="0" enable="true" label="手机注册验证" id="382" value="2"/>
+      <value order="1" enable="true" label="修改登录密码" id="383" value="3"/>
+      <value order="2" enable="true" label="修改支付密码" id="384" value="4"/>
+      <value order="3" enable="true" label="找回支付密码" id="385" value="5"/>
+      <value order="4" enable="true" label="修改手机" id="386" value="6"/>
+      <value order="5" enable="true" label="找回登录密码" id="387" value="8"/>
+      <value order="7" enable="true" label="设置新手机" id="388" value="9"/>
+      <value order="8" enable="true" label="提现" id="389" value="13"/>
+      <value order="9" enable="true" label="支付" id="390" value="14"/>
+      <value order="10" enable="true" label="设置安全问题验证" id="391" value="15"/>
+      <value order="8" enable="true" label="充值" id="392" value="11"/>
+      <value order="14" enable="true" label="会员激活" id="393" value="18"/>
+      <value order="15" enable="true" label="邮箱注册验证码" id="394" value="1"/>
+      <value order="16" enable="true" label="审核失败邮件" id="395" value="19"/>
+      <value order="17" enable="true" label="审核成功邮件" id="396" value="20"/>
+      <value order="18" enable="true" label="账户金额增加" id="397" value="21"/>
+      <value order="19" enable="true" label="账户金额减少" id="398" value="22"/>
+      <value order="20" enable="true" label="雇员验证" id="399" value="23"/>
+      <value order="21" enable="true" label="修改雇员认证" id="400" value="24"/>
+    </entry>
+    <entry name="网关接口版本" type="" default="" id="1019">
+      <value order="0" enable="true" label="v1.0" id="814" value="v1.0"/>
+    </entry>
+    <entry name="风险关注状态" type="Number" default="" id="244">
+      <value order="0" enable="true" label="未处理" id="491" value="0"/>
+      <value order="1" enable="true" label="处理中" id="492" value="1"/>
+      <value order="2" enable="true" label="已处理" id="493" value="2"/>
+    </entry>
+    <entry name="安全等级" type="Number" default="" id="238">
+      <value order="0" enable="true" label="安全等级1级" id="468" value="1"/>
+      <value order="1" enable="true" label="安全等级2级" id="469" value="2"/>
+      <value order="2" enable="true" label="安全等级3级" id="470" value="3"/>
+      <value order="3" enable="true" label="安全等级4级" id="471" value="4"/>
+    </entry>
+    <entry name="冻结状态" type="Number" default="" id="225">
+      <value order="0" enable="true" label="冻结中" id="424" value="1"/>
+      <value order="1" enable="true" label="已解冻" id="425" value="2"/>
+      <value order="2" enable="true" label="已使用" id="426" value="3"/>
+    </entry>
+    <entry name="机构状态" type="String" default="" id="239">
+      <value order="0" enable="true" label="正常" id="472" value="1"/>
+      <value order="1" enable="true" label="暂停" id="473" value="2"/>
+      <value order="2" enable="true" label="关闭" id="474" value="3"/>
+    </entry>
+    <entry name="网关接口-字符编码" type="" default="" id="1021">
+      <value order="0" enable="true" label="UTF-8" id="816" value="1"/>
+      <value order="1" enable="true" label="GBK" id="817" value="2"/>
+      <value order="2" enable="true" label="GB2312" id="818" value="3"/>
+    </entry>
+    <entry name="账户有效期类型" type="Number" default="" id="235">
+      <value order="0" enable="true" label="永久" id="460" value="1"/>
+      <value order="1" enable="true" label="延长" id="461" value="2"/>
+      <value order="2" enable="true" label="固定" id="462" value="3"/>
+    </entry>
+    <entry name="会员类型" type="Number" default="" id="248">
+      <value order="0" enable="true" label="系统会员" id="505" value="1"/>
+      <value order="1" enable="true" label="企业会员" id="506" value="2"/>
+      <value order="2" enable="true" label="个人会员" id="507" value="3"/>
+    </entry>
+    <entry name="网关接口-签名方式" type="" default="" id="1022">
+      <value order="0" enable="true" label="MD5验签" id="819" value="0"/>
+      <value order="1" enable="true" label="证书验签" id="820" value="1"/>
+    </entry>
+    <entry name="应用类型" type="" default="" id="925">
+      <value order="0" enable="true" label="web应用" id="706" value="1"/>
+      <value order="1" enable="true" label="app应用" id="707" value="2"/>
+    </entry>
+    <entry name="账户集类型" type="Number" default="" id="920">
+      <value order="0" enable="true" label="现金" id="703" value="1"/>
+      <value order="1" enable="true" label="积分" id="704" value="2"/>
+      <value order="2" enable="true" label="货基" id="705" value="3"/>
+    </entry>
+    <entry name="账户状态" type="Number" default="1" id="222">
+      <value order="1" enable="true" label="正常状态" id="408" value="1"/>
+      <value order="0" enable="true" label="冻结状态" id="409" value="2"/>
+    </entry>
+    <entry name="补充认证" type="String" default="" id="245">
+      <value order="0" enable="true" label="未认证" id="494" value="0"/>
+      <value order="1" enable="true" label="行业认证" id="495" value="1"/>
+      <value order="2" enable="true" label="电话回拨" id="496" value="2"/>
+      <value order="3" enable="true" label="雇员认证" id="497" value="3"/>
+    </entry>
+    <entry name="系统类型" type="Number" default="" id="233">
+      <value order="0" enable="true" label="安卓" id="454" value="1"/>
+      <value order="1" enable="true" label="IOS" id="455" value="2"/>
+    </entry>
+    <entry name="处理结果" type="String" default="" id="226">
+      <value order="0" enable="true" label="成功" id="427" value="0"/>
+      <value order="1" enable="true" label="失败" id="428" value="1"/>
+      <value order="2" enable="true" label="待审" id="429" value="2"/>
+    </entry>
+    <entry name="卡业务类型" type="Number" default="" id="230">
+      <value order="0" enable="true" label="银行卡" id="443" value="1"/>
+      <value order="1" enable="true" label="通联卡" id="444" value="2"/>
+    </entry>
+    <entry name="认证强度" type="Number" default="" id="246">
+      <value order="0" enable="true" label="V0" id="498" value="0"/>
+      <value order="1" enable="true" label="V1" id="499" value="1"/>
+      <value order="2" enable="true" label="V2" id="500" value="2"/>
+      <value order="3" enable="true" label="V3" id="501" value="3"/>
+    </entry>
+    <entry name="注册来源" type="String" default="1" id="236">
+      <value order="2" enable="true" label="迁移导入" id="867" value="9"/>
+      <value order="0" enable="true" label="手机" id="463" value="1"/>
+      <value order="1" enable="true" label="PC" id="464" value="2"/>
+    </entry>
+    <entry name="差错处理状态" type="Number" default="" id="220">
+      <value order="0" enable="true" label="处理中" id="403" value="2"/>
+      <value order="1" enable="true" label="成功" id="404" value="1"/>
+      <value order="2" enable="true" label="失败" id="405" value="0"/>
+    </entry>
+    <entry name="支付通道类型" type="Number" default="" id="250">
+      <value order="0" enable="true" label="内部账户" id="511" value="1"/>
+      <value order="1" enable="true" label="外部支付通道" id="512" value="2"/>
+    </entry>
+    <entry name="实名状态" type="Number" default="" id="221">
+      <value order="0" enable="true" label="否" id="406" value="0"/>
+      <value order="1" enable="true" label="是" id="407" value="1"/>
+    </entry>
+    <entry name="人工提现报表状态" type="String" default="" id="224">
+      <value order="0" enable="true" label="未导出报表" id="421" value="1"/>
+      <value order="1" enable="true" label="已导出报表" id="422" value="2"/>
+      <value order="2" enable="true" label="报表已审核" id="423" value="3"/>
+    </entry>
+    <entry name="操作类型" type="Number" default="" id="247">
+      <value order="0" enable="true" label="冻结账户" id="502" value="1"/>
+      <value order="1" enable="true" label="解冻账户" id="503" value="2"/>
+      <value order="2" enable="true" label="解冻金额" id="504" value="3"/>
+    </entry>
+    <entry name="是否录音" type="String" default="" id="229">
+      <value order="0" enable="true" label="是" id="441" value="1"/>
+      <value order="1" enable="true" label="否" id="442" value="0"/>
+    </entry>
+    <entry name="账户属性" type="Number" default="" id="252">
+      <value order="0" enable="true" label="标准" id="515" value="1"/>
+      <value order="1" enable="true" label="扩展" id="516" value="2"/>
+    </entry>
+    <entry name="账户类型" type="" default="" id="926">
+      <value order="2" enable="true" label="标准准备金账户集" id="710" value="3"/>
+      <value order="3" enable="true" label="标准中间代收账户集" id="711" value="4"/>
+      <value order="4" enable="true" label="标准中间代付账户集" id="712" value="5"/>
+      <value order="5" enable="true" label="托管账户集" id="713" value="6"/>
+      <value order="0" enable="true" label="标准余额账户集" id="708" value="1"/>
+      <value order="1" enable="true" label="标准保证金账户" id="709" value="2"/>
+    </entry>
+    <entry name="变更属性" note="安全等级变更属性" type="Number" default="" id="241">
+      <value order="0" enable="true" label="人工" id="478" value="0"/>
+      <value order="1" enable="true" label="系统" id="479" value="1"/>
+    </entry>
+    <entry name="认证类型" type="Number" default="" id="228">
+      <value order="0" enable="true" label="认证强度V0" id="433" value="0"/>
+      <value order="1" enable="true" label="认证强度V1" id="434" value="1"/>
+      <value order="2" enable="true" label="认证强度V2" id="435" value="2"/>
+      <value order="3" enable="true" label="认证强度V3" id="436" value="3"/>
+      <value order="4" enable="true" label="电话回访" id="437" value="4"/>
+      <value order="5" enable="true" label="行业认证" id="438" value="5"/>
+      <value order="6" enable="true" label="雇员认证" id="439" value="6"/>
+      <value order="7" enable="true" label="安全等级" id="440" value="7"/>
+    </entry>
+    <entry name="有效期合并类型" type="Number" default="" id="240">
+      <value order="0" enable="true" label="按日合并" id="475" value="1"/>
+      <value order="1" enable="true" label="按月合并" id="476" value="2"/>
+      <value order="2" enable="true" label="不合并" id="477" value="0"/>
+    </entry>
+    <entry name="风险关注规则" type="Number" default="" id="231">
+      <value order="0" enable="true" label="当日转账业务超过3笔，且转账金额合计超过1000元" id="445" value="1"/>
+      <value order="1" enable="true" label="当日话费充值业务超过3笔，且金额超过500元" id="446" value="2"/>
+      <value order="2" enable="true" label="当日消费次数超过3笔，且金额合计超过1000元" id="447" value="3"/>
+      <value order="3" enable="true" label="当日充值次数超过3笔，且金额合计超过1000元" id="448" value="4"/>
+      <value order="4" enable="true" label="当日会员交易IP地址达到3个，且金额合计超过1000元" id="449" value="5"/>
+    </entry>
+    <entry name="退款状态" type="Number" default="" id="232">
+      <value order="0" enable="true" label="未退款" id="450" value="1"/>
+      <value order="1" enable="true" label="退款中" id="451" value="2"/>
+      <value order="2" enable="true" label="退款成功" id="452" value="3"/>
+      <value order="3" enable="true" label="退款失败" id="453" value="9"/>
+    </entry>
+    <entry name="积分行为" type="String" default="" id="242">
+      <value order="0" enable="true" label="登录" id="480" value="LOGIN"/>
+      <value order="1" enable="true" label="注册" id="481" value="REGISTER"/>
+      <value order="2" enable="true" label="实名认证" id="482" value="REALNAME"/>
+      <value order="3" enable="true" label="设置安保问题" id="483" value="SETPRO"/>
+    </entry>
+    <entry name="联系人类型" type="Number" default="" id="227">
+      <value order="0" enable="true" label="账户联系人 " id="430" value="1"/>
+      <value order="1" enable="true" label="卡联系人" id="431" value="2"/>
+      <value order="2" enable="true" label="积分联系人" id="432" value="3"/>
+    </entry>
+    <entry name="交易类型" type="Number" default="" id="234">
+      <value order="0" enable="true" label="充值" id="456" value="1"/>
+      <value order="1" enable="true" label="转账" id="457" value="2"/>
+      <value order="4" enable="true" label="提现" id="458" value="3"/>
+      <value order="5" enable="true" label="退款" id="459" value="4"/>
+    </entry>
+    <entry name="接入方式" type="Number" default="" id="251">
+      <value order="0" enable="true" label="支付" id="513" value="1"/>
+      <value order="1" enable="true" label="托管" id="514" value="2"/>
+    </entry>
+    <entry name="交易子类型" type="Number" default="" id="223">
+      <value order="8" enable="true" label="分账" id="743" value="9"/>
+      <value order="11" enable="true" label="转账到银行卡" id="782" value="5"/>
+      <value order="12" enable="true" label="跨应用转账" id="861" value="7"/>
+      <value order="13" enable="true" label="批量退款" id="864" value="11"/>
+      <value order="2" enable="true" label="消费" id="412" value="1"/>
+      <value order="4" enable="true" label="代收" id="716" value="2"/>
+      <value order="5" enable="true" label="代付" id="717" value="3"/>
+      <value order="6" enable="true" label="手续费" id="741" value="30"/>
+      <value order="7" enable="true" label="应用手续费" id="742" value="31"/>
+      <value order="9" enable="true" label="批量代付" id="762" value="4"/>
+      <value order="10" enable="true" label="调帐" id="764" value="6"/>
+    </entry>
+  </type>
+  <type name="微网站" id="314">
+    <entry name="微应用" type="String" default="" id="315">
+      <value order="0" enable="true" label="微商铺" id="695" value="shop"/>
+      <value order="1" enable="true" label="微餐厅" id="696" value="wdcb_s"/>
+      <value order="2" enable="true" label="微网站" id="697" value="wcms"/>
+      <value order="3" enable="true" label="微商城" id="698" value="wmall"/>
+    </entry>
+    <entry name="栏目链接" type="Number" default="" id="316">
+      <value order="2" enable="true" label="微应用" id="699" value="2"/>
+      <value order="3" enable="true" label="外部链接" id="700" value="3"/>
+      <value order="0" enable="true" label="栏目" id="701" value="1"/>
+      <value order="1" enable="true" label="文章" id="702" value="4"/>
+    </entry>
+  </type>
+  <type name="个人信息" id="125">
+    <entry name="教育程度" type="String" default="3" id="126">
+      <value order="0" enable="true" label="博士" id="90" value="1"/>
+      <value order="1" enable="true" label="硕士" id="91" value="2"/>
+      <value order="1" enable="true" label="本科" id="92" value="3"/>
+      <value order="1" enable="true" label="大专" id="93" value="4"/>
+    </entry>
+    <entry name="称谓" type="Number" default="" id="290">
+      <value order="0" enable="true" label="先生" id="638" value="1"/>
+      <value order="1" enable="true" label="女士" id="639" value="2"/>
+    </entry>
+    <entry name="性别" type="Number" default="" id="127">
+      <value order="0" enable="true" label="男" id="94" value="1"/>
+      <value order="1" enable="true" label="女" id="95" value="2"/>
+    </entry>
+  </type>
+  <type name="监测" note="监测" id="1068">
+    <entry name="健康监测类型" note="健康监测类型" type="Number" default="" id="1069">
+      <value order="0" enable="true" label="通信" id="841" value="1"/>
+      <value order="1" enable="true" label="redis" id="842" value="2"/>
+    </entry>
+    <entry name="健康监测结果" note="健康监测结果" type="Number" default="" id="1070">
+      <value order="0" enable="true" label="成功" id="843" value="1"/>
+      <value order="1" enable="true" label="失败" id="844" value="2"/>
+    </entry>
+  </type>
+  <type name="系统" id="100">
+    <entry name="是与否" type="Number" default="" id="210">
+      <value order="0" enable="true" label="是" id="368" value="1"/>
+      <value order="1" enable="true" label="否" id="369" value="2"/>
+    </entry>
+    <entry name="性别" type="Number" default="" id="209">
+      <value order="0" enable="true" label="男" id="366" value="1"/>
+      <value order="1" enable="true" label="女" id="367" value="2"/>
+    </entry>
+    <entry name="显示方式" type="String" default="" id="102">
+      <value order="0" enable="true" label="常规" id="5" value="normal"/>
+      <value order="1" enable="true" label="最大化" id="6" value="maximized"/>
+      <value order="2" enable="true" label="最小化" id="7" value="minimized"/>
+    </entry>
+    <entry name="支付通道" type="String" default="" id="207">
+      <value order="0" enable="true" label="银联" id="358" value="unionpay"/>
+      <value order="1" enable="true" label="招商银行" id="359" value="cmbchina"/>
+      <value order="3" enable="true" label="积分支付" id="360" value="amspay"/>
+      <value order="2" enable="true" label="易宝支付" id="361" value="yibao"/>
+    </entry>
+    <entry name="字形" type="String" default="" id="101">
+      <value order="0" enable="true" label="常规" id="1" value="normal"/>
+      <value order="1" enable="true" label="斜体" id="2" value="italic"/>
+      <value order="2" enable="true" label="粗体" id="3" value="bold"/>
+      <value order="3" enable="true" label="下划线" id="4" value="underline"/>
+    </entry>
+    <entry name="注册企业类型" type="Number" default="" id="208">
+      <value order="0" enable="true" label="商户" id="362" value="1"/>
+      <value order="1" enable="true" label="银行" id="363" value="2"/>
+      <value order="1" enable="true" label="商城" id="364" value="2"/>
+      <value order="2" enable="true" label="代理商" id="365" value="3"/>
+    </entry>
+  </type>
+  <type name="区域" id="132">
+    <entry name="国家代码" type="String" default="CN" id="133">
+      <value order="0" enable="true" label="安哥拉(Angola)" id="117" value="AO"/>
+      <value order="1" enable="true" label="阿富汗(Afghanistan)" id="118" value="AF"/>
+      <value order="2" enable="true" label="阿尔巴尼亚(Albania)" id="119" value="AL"/>
+      <value order="3" enable="true" label="阿尔及利亚(Algeria)" id="120" value="DZ"/>
+      <value order="4" enable="true" label="安道尔共和国(Andorra)" id="121" value="AD"/>
+      <value order="5" enable="true" label="安圭拉岛(Anguilla)" id="122" value="AI"/>
+      <value order="6" enable="true" label="安提瓜和巴布达(Antigua and Barbuda)" id="123" value="AG"/>
+      <value order="7" enable="true" label="阿根廷(Argentina)" id="124" value="AR"/>
+      <value order="8" enable="true" label="亚美尼亚(Armenia)" id="125" value="AM"/>
+      <value order="9" enable="true" label="阿森松(Ascension)" id="126" value="AS"/>
+      <value order="10" enable="true" label="澳大利亚(Australia)" id="127" value="AU"/>
+      <value order="11" enable="true" label="奥地利(Austria)" id="128" value="AT"/>
+      <value order="12" enable="true" label="阿塞拜疆(Azerbaijan)" id="129" value="AZ"/>
+      <value order="13" enable="true" label="巴哈马(Bahamas)" id="130" value="BS"/>
+      <value order="14" enable="true" label="巴林(Bahrain)" id="131" value="BH"/>
+      <value order="15" enable="true" label="孟加拉国(Bangladesh)" id="132" value="BD"/>
+      <value order="16" enable="true" label="巴巴多斯(Barbados)" id="133" value="BB"/>
+      <value order="17" enable="true" label="白俄罗斯(Belarus)" id="134" value="BY"/>
+      <value order="18" enable="true" label="比利时(Belgium)" id="135" value="BE"/>
+      <value order="19" enable="true" label="伯利兹(Belize)" id="136" value="BZ"/>
+      <value order="20" enable="true" label="贝宁(Benin)" id="137" value="BJ"/>
+      <value order="21" enable="true" label="百慕大群岛(Bermuda Is.)" id="138" value="BM"/>
+      <value order="22" enable="true" label="玻利维亚(Bolivia)" id="139" value="BO"/>
+      <value order="23" enable="true" label="博茨瓦纳(Botswana)" id="140" value="BW"/>
+      <value order="24" enable="true" label="巴西(Brazil)" id="141" value="BR"/>
+      <value order="25" enable="true" label="文莱(Brunei)" id="142" value="BN"/>
+      <value order="26" enable="true" label="保加利亚(Bulgaria)" id="143" value="BG"/>
+      <value order="27" enable="true" label="布基纳法索(Burkina-faso)" id="144" value="BF"/>
+      <value order="28" enable="true" label="缅甸(Burma)" id="145" value="MM"/>
+      <value order="29" enable="true" label="布隆迪(Burundi)" id="146" value="BI"/>
+      <value order="30" enable="true" label="喀麦隆(Cameroon)" id="147" value="CM"/>
+      <value order="31" enable="true" label="加拿大(Canada)" id="148" value="CA"/>
+      <value order="32" enable="true" label="开曼群岛(Cayman Is.)" id="149" value="CI"/>
+      <value order="33" enable="true" label="中非共和国(Central African Republic)" id="150" value="CF"/>
+      <value order="34" enable="true" label="乍得(Chad)" id="151" value="TD"/>
+      <value order="35" enable="true" label="智利(Chile)" id="152" value="CL"/>
+      <value order="36" enable="true" label="中国(China)" id="153" value="CN"/>
+      <value order="37" enable="true" label="中国香港(Hongkong)" id="154" value="HK"/>
+      <value order="38" enable="true" label="中国澳门(Macao)" id="155" value="MO"/>
+      <value order="39" enable="true" label="中国台湾(Taiwan)" id="156" value="TW"/>
+      <value order="40" enable="true" label="哥伦比亚(Colombia)" id="157" value="CO"/>
+      <value order="41" enable="true" label="刚果(Congo)" id="158" value="CG"/>
+      <value order="42" enable="true" label="库克群岛(Cook Is.)" id="159" value="CK"/>
+      <value order="43" enable="true" label="哥斯达黎加(Costa Rica)" id="160" value="CR"/>
+      <value order="44" enable="true" label="古巴(Cuba)" id="161" value="CU"/>
+      <value order="45" enable="true" label="塞浦路斯(Cyprus)" id="162" value="CY"/>
+      <value order="46" enable="true" label="捷克(Czech Republic)" id="163" value="CZ"/>
+      <value order="47" enable="true" label="丹麦(Denmark)" id="164" value="DK"/>
+      <value order="48" enable="true" label="吉布提(Djibouti)" id="165" value="DJ"/>
+      <value order="49" enable="true" label="多米尼加共和国(Dominica Rep.)" id="166" value="DO"/>
+      <value order="50" enable="true" label="厄瓜多尔(Ecuador)" id="167" value="EC"/>
+      <value order="51" enable="true" label="埃及(Egypt)" id="168" value="EG"/>
+      <value order="52" enable="true" label="萨尔瓦多(EI Salvador)" id="169" value="SV"/>
+      <value order="53" enable="true" label="爱沙尼亚(Estonia)" id="170" value="EE"/>
+      <value order="54" enable="true" label="埃塞俄比亚(Ethiopia)" id="171" value="ET"/>
+      <value order="55" enable="true" label="斐济(Fiji)" id="172" value="FJ"/>
+      <value order="56" enable="true" label="芬兰(Finland)" id="173" value="FI"/>
+      <value order="57" enable="true" label="法国(France)" id="174" value="FR"/>
+      <value order="58" enable="true" label="法属圭亚那(French Guiana)" id="175" value="GF"/>
+      <value order="59" enable="true" label="加蓬(Gabon)" id="176" value="GA"/>
+      <value order="60" enable="true" label="冈比亚(Gambia)" id="177" value="GM"/>
+      <value order="61" enable="true" label="格鲁吉亚(Georgia)" id="178" value="GE"/>
+      <value order="62" enable="true" label="德国(Germany)" id="179" value="DE"/>
+      <value order="63" enable="true" label="加纳(Ghana)" id="180" value="GH"/>
+      <value order="64" enable="true" label="直布罗陀(Gibraltar)" id="181" value="GI"/>
+      <value order="65" enable="true" label="希腊(Greece)" id="182" value="GR"/>
+      <value order="66" enable="true" label="格林纳达(Grenada)" id="183" value="GD"/>
+      <value order="67" enable="true" label="关岛(Guam)" id="184" value="GU"/>
+      <value order="68" enable="true" label="危地马拉(Guatemala)" id="185" value="GT"/>
+      <value order="69" enable="true" label="几内亚(Guinea)" id="186" value="GN"/>
+      <value order="70" enable="true" label="圭亚那(Guyana)" id="187" value="GY"/>
+      <value order="71" enable="true" label="海地(Haiti)" id="188" value="HT"/>
+      <value order="72" enable="true" label="洪都拉斯(Honduras)" id="189" value="HN"/>
+      <value order="73" enable="true" label="匈牙利(Hungary)" id="190" value="HU"/>
+      <value order="74" enable="true" label="冰岛(Iceland)" id="191" value="IS"/>
+      <value order="75" enable="true" label="印度(India)" id="192" value="IN"/>
+      <value order="76" enable="true" label="印度尼西亚(Indonesia)" id="193" value="ID"/>
+      <value order="77" enable="true" label="伊朗(Iran)" id="194" value="IR"/>
+      <value order="78" enable="true" label="伊拉克(Iraq)" id="195" value="IQ"/>
+      <value order="79" enable="true" label="爱尔兰(Ireland)" id="196" value="IE"/>
+      <value order="80" enable="true" label="以色列(Israel)" id="197" value="IL"/>
+      <value order="81" enable="true" label="意大利(Italy)" id="198" value="IT"/>
+      <value order="82" enable="true" label="科特迪瓦(Ivory Coast)" id="199" value="IC"/>
+      <value order="83" enable="true" label="牙买加(Jamaica)" id="200" value="JM"/>
+      <value order="84" enable="true" label="日本(Japan)" id="201" value="JP"/>
+      <value order="85" enable="true" label="约旦(Jordan)" id="202" value="JO"/>
+      <value order="86" enable="true" label="柬埔寨(Kampuchea (Cambodia ))" id="203" value="KH"/>
+      <value order="87" enable="true" label="哈萨克斯坦(Kazakstan)" id="204" value="KZ"/>
+      <value order="88" enable="true" label="肯尼亚(Kenya)" id="205" value="KE"/>
+      <value order="89" enable="true" label="韩国(Korea)" id="206" value="KR"/>
+      <value order="90" enable="true" label="科威特(Kuwait)" id="207" value="KW"/>
+      <value order="91" enable="true" label="吉尔吉斯坦(Kyrgyzstan)" id="208" value="KG"/>
+      <value order="92" enable="true" label="老挝(Laos)" id="209" value="LA"/>
+      <value order="93" enable="true" label="拉脱维亚(Latvia)" id="210" value="LV"/>
+      <value order="94" enable="true" label="黎巴嫩(Lebanon)" id="211" value="LB"/>
+      <value order="95" enable="true" label="莱索托(Lesotho)" id="212" value="LS"/>
+      <value order="96" enable="true" label="利比里亚(Liberia)" id="213" value="LR"/>
+      <value order="97" enable="true" label="利比亚(Libya)" id="214" value="LY"/>
+      <value order="98" enable="true" label="列支敦士登(Liechtenstein)" id="215" value="LI"/>
+      <value order="99" enable="true" label="立陶宛(Lithuania)" id="216" value="LT"/>
+      <value order="100" enable="true" label="卢森堡(Luxembourg)" id="217" value="LU"/>
+      <value order="101" enable="true" label="马达加斯加(Madagascar)" id="218" value="MG"/>
+      <value order="102" enable="true" label="马拉维(Malawi)" id="219" value="MW"/>
+      <value order="103" enable="true" label="马来西亚(Malaysia)" id="220" value="MY"/>
+      <value order="104" enable="true" label="马尔代夫(Maldives)" id="221" value="MV"/>
+      <value order="105" enable="true" label="马里(Mali)" id="222" value="ML"/>
+      <value order="106" enable="true" label="马耳他(Malta)" id="223" value="MT"/>
+      <value order="107" enable="true" label="马里亚那群岛(Mariana Is)" id="224" value="MI"/>
+      <value order="108" enable="true" label="马提尼克(Martinique)" id="225" value="MQ"/>
+      <value order="109" enable="true" label="毛里求斯(Mauritius)" id="226" value="MU"/>
+      <value order="110" enable="true" label="墨西哥(Mexico)" id="227" value="MX"/>
+      <value order="111" enable="true" label="摩尔多瓦(Moldova, Republic of)" id="228" value="MD"/>
+      <value order="112" enable="true" label="摩纳哥(Monaco)" id="229" value="MC"/>
+      <value order="113" enable="true" label="蒙古(Mongolia)" id="230" value="MN"/>
+      <value order="114" enable="true" label="蒙特塞拉特岛(Montserrat Is)" id="231" value="MS"/>
+      <value order="115" enable="true" label="摩洛哥(Morocco)" id="232" value="MA"/>
+      <value order="116" enable="true" label="莫桑比克(Mozambique)" id="233" value="MZ"/>
+      <value order="117" enable="true" label="纳米比亚(Namibia)" id="234" value="NA"/>
+      <value order="118" enable="true" label="瑙鲁(Nauru)" id="235" value="NR"/>
+      <value order="119" enable="true" label="尼泊尔(Nepal)" id="236" value="NP"/>
+      <value order="120" enable="true" label="荷属安的列斯(Netheriands Antilles)" id="237" value="NT"/>
+      <value order="121" enable="true" label="荷兰(Netherlands)" id="238" value="NL"/>
+      <value order="122" enable="true" label="新西兰(New Zealand)" id="239" value="NZ"/>
+      <value order="123" enable="true" label="尼加拉瓜(Nicaragua)" id="240" value="NI"/>
+      <value order="124" enable="true" label="尼日尔(Niger)" id="241" value="NE"/>
+      <value order="125" enable="true" label="尼日利亚(Nigeria)" id="242" value="NG"/>
+      <value order="126" enable="true" label="朝鲜(North Korea)" id="243" value="KP"/>
+      <value order="127" enable="true" label="挪威(Norway)" id="244" value="NO"/>
+      <value order="128" enable="true" label="阿曼(Oman)" id="245" value="OM"/>
+      <value order="129" enable="true" label="巴基斯坦(Pakistan)" id="246" value="PK"/>
+      <value order="130" enable="true" label="巴拿马(Panama)" id="247" value="PA"/>
+      <value order="131" enable="true" label="巴布亚新几内亚(Papua New Cuinea)" id="248" value="PG"/>
+      <value order="132" enable="true" label="巴拉圭(Paraguay)" id="249" value="PY"/>
+      <value order="133" enable="true" label="秘鲁(Peru)" id="250" value="PE"/>
+      <value order="134" enable="true" label="菲律宾(Philippines)" id="251" value="PH"/>
+      <value order="135" enable="true" label="波兰(Poland)" id="252" value="PL"/>
+      <value order="136" enable="true" label="法属玻利尼西亚(French Polynesia)" id="253" value="PF"/>
+      <value order="137" enable="true" label="葡萄牙(Portugal)" id="254" value="PT"/>
+      <value order="138" enable="true" label="波多黎各(Puerto Rico)" id="255" value="PR"/>
+      <value order="139" enable="true" label="卡塔尔(Qatar)" id="256" value="QA"/>
+      <value order="140" enable="true" label="留尼旺(Reunion)" id="257" value="RE"/>
+      <value order="141" enable="true" label="罗马尼亚(Romania)" id="258" value="RO"/>
+      <value order="142" enable="true" label="俄罗斯(Russia)" id="259" value="RU"/>
+      <value order="143" enable="true" label="圣卢西亚(Saint Lueia)" id="260" value="LC"/>
+      <value order="144" enable="true" label="圣文森特岛(Saint Vincent)" id="261" value="VC"/>
+      <value order="145" enable="true" label="东萨摩亚(美)(Samoa Eastern)" id="262" value="SAE"/>
+      <value order="146" enable="true" label="西萨摩亚(Samoa Western)" id="263" value="SAW"/>
+      <value order="147" enable="true" label="圣马力诺(San Marino)" id="264" value="SM"/>
+      <value order="148" enable="true" label="圣多美和普林西比(Sao Tome and Principe)" id="265" value="ST"/>
+      <value order="149" enable="true" label="沙特阿拉伯(Saudi Arabia)" id="266" value="SA"/>
+      <value order="150" enable="true" label="塞内加尔(Senegal)" id="267" value="SN"/>
+      <value order="151" enable="true" label="塞舌尔(Seychelles)" id="268" value="SC"/>
+      <value order="152" enable="true" label="塞拉利昂(Sierra Leone)" id="269" value="SL"/>
+      <value order="153" enable="true" label="新加坡(Singapore)" id="270" value="SG"/>
+      <value order="154" enable="true" label="斯洛伐克(Slovakia)" id="271" value="SK"/>
+      <value order="155" enable="true" label="斯洛文尼亚(Slovenia)" id="272" value="SI"/>
+      <value order="156" enable="true" label="所罗门群岛(Solomon Is)" id="273" value="SB"/>
+      <value order="157" enable="true" label="索马里(Somali)" id="274" value="SO"/>
+      <value order="158" enable="true" label="南非(South Africa)" id="275" value="ZA"/>
+      <value order="159" enable="true" label="西班牙(Spain)" id="276" value="ES"/>
+      <value order="160" enable="true" label="斯里兰卡(Sri Lanka)" id="277" value="LK"/>
+      <value order="161" enable="true" label="圣卢西亚(St.Lucia)" id="278" value="LC"/>
+      <value order="162" enable="true" label="圣文森特(St.Vincent)" id="279" value="VC"/>
+      <value order="163" enable="true" label="苏丹(Sudan)" id="280" value="SD"/>
+      <value order="164" enable="true" label="苏里南(Suriname)" id="281" value="SR"/>
+      <value order="165" enable="true" label="斯威士兰(Swaziland)" id="282" value="SZ"/>
+      <value order="166" enable="true" label="瑞典(Sweden)" id="283" value="SE"/>
+      <value order="167" enable="true" label="瑞士(Switzerland)" id="284" value="CH"/>
+      <value order="168" enable="true" label="叙利亚(Syria)" id="285" value="SY"/>
+      <value order="169" enable="true" label="塔吉克斯坦(Tajikstan)" id="286" value="TJ"/>
+      <value order="170" enable="true" label="坦桑尼亚(Tanzania)" id="287" value="TZ"/>
+      <value order="171" enable="true" label="泰国(Thailand)" id="288" value="TH"/>
+      <value order="172" enable="true" label="多哥(Togo)" id="289" value="TG"/>
+      <value order="173" enable="true" label="汤加(Tonga)" id="290" value="TO"/>
+      <value order="174" enable="true" label="特立尼达和多巴哥(Trinidad and Tobago)" id="291" value="TT"/>
+      <value order="175" enable="true" label="突尼斯(Tunisia)" id="292" value="TN"/>
+      <value order="176" enable="true" label="土耳其(Turkey)" id="293" value="TR"/>
+      <value order="177" enable="true" label="土库曼斯坦(Turkmenistan)" id="294" value="TM"/>
+      <value order="178" enable="true" label="乌干达(Uganda)" id="295" value="UG"/>
+      <value order="179" enable="true" label="乌克兰(Ukraine)" id="296" value="UA"/>
+      <value order="180" enable="true" label="阿拉伯联合酋长国(United Arab Emirates)" id="297" value="AE"/>
+      <value order="181" enable="true" label="英国(United Kiongdom)" id="298" value="GB"/>
+      <value order="182" enable="true" label="美国(United States of America)" id="299" value="US"/>
+      <value order="183" enable="true" label="乌拉圭(Uruguay)" id="300" value="UY"/>
+      <value order="184" enable="true" label="乌兹别克斯坦(Uzbekistan)" id="301" value="UZ"/>
+      <value order="185" enable="true" label="委内瑞拉(Venezuela)" id="302" value="VE"/>
+      <value order="186" enable="true" label="越南(Vietnam)" id="303" value="VN"/>
+      <value order="187" enable="true" label="也门(Yemen)" id="304" value="YE"/>
+      <value order="188" enable="true" label="南斯拉夫(Yugoslavia)" id="305" value="YU"/>
+      <value order="189" enable="true" label="津巴布韦(Zimbabwe)" id="306" value="ZW"/>
+      <value order="190" enable="true" label="扎伊尔(Zaire)" id="307" value="ZR"/>
+      <value order="191" enable="true" label="赞比亚(Zambia)" id="308" value="ZM"/>
+    </entry>
+    <entry name="CN" note="中国省份代码" type="String" default="" id="134">
+      <value order="0" enable="true" label="北京" id="309" value="北京"/>
+      <value order="1" enable="true" label="河北" id="310" value="河北"/>
+      <value order="2" enable="true" label="黑龙江" id="311" value="黑龙江"/>
+      <value order="3" enable="true" label="江西" id="312" value="江西"/>
+      <value order="4" enable="true" label="广东" id="313" value="广东"/>
+      <value order="5" enable="true" label="云南" id="314" value="云南"/>
+      <value order="6" enable="true" label="宁夏" id="315" value="宁夏"/>
+      <value order="7" enable="true" label="上海" id="316" value="上海"/>
+      <value order="8" enable="true" label="内蒙古" id="317" value="内蒙古"/>
+      <value order="9" enable="true" label="山西" id="318" value="山西"/>
+      <value order="10" enable="true" label="天津" id="319" value="天津"/>
+      <value order="11" enable="true" label="重庆" id="320" value="重庆"/>
+      <value order="12" enable="true" label="辽宁" id="321" value="辽宁"/>
+      <value order="13" enable="true" label="吉林" id="322" value="吉林"/>
+      <value order="14" enable="true" label="新疆" id="323" value="新疆"/>
+      <value order="15" enable="true" label="台湾" id="324" value="台湾"/>
+      <value order="16" enable="true" label="香港" id="325" value="香港"/>
+      <value order="17" enable="true" label="澳门" id="326" value="澳门"/>
+      <value order="18" enable="true" label="西藏" id="327" value="西藏"/>
+      <value order="19" enable="true" label="江苏" id="328" value="江苏"/>
+      <value order="20" enable="true" label="浙江" id="329" value="浙江"/>
+      <value order="21" enable="true" label="山东" id="330" value="山东"/>
+      <value order="22" enable="true" label="广西" id="331" value="广西"/>
+      <value order="23" enable="true" label="海南" id="332" value="海南"/>
+      <value order="24" enable="true" label="四川" id="333" value="四川"/>
+      <value order="25" enable="true" label="贵州" id="334" value="贵州"/>
+      <value order="26" enable="true" label="安徽" id="335" value="安徽"/>
+      <value order="27" enable="true" label="福建" id="336" value="福建"/>
+      <value order="28" enable="true" label="河南" id="337" value="河南"/>
+      <value order="29" enable="true" label="湖北" id="338" value="湖北"/>
+      <value order="30" enable="true" label="湖南" id="339" value="湖南"/>
+      <value order="31" enable="true" label="陕西" id="340" value="陕西"/>
+      <value order="32" enable="true" label="甘肃" id="341" value="甘肃"/>
+      <value order="33" enable="true" label="青海" id="342" value="青海"/>
+    </entry>
+  </type>
+  <type name="会员" id="200">
+    <entry name="企业账户属性" type="Number" default="" id="201">
+      <value order="0" enable="true" label="对公" id="343" value="1"/>
+      <value order="1" enable="true" label="非法人" id="344" value="2"/>
+      <value order="2" enable="true" label="法人" id="345" value="3"/>
+    </entry>
+    <entry name="企业图片类型" type="" default="" id="1082">
+      <value order="0" enable="true" label="营业执照" id="850" value="1"/>
+      <value order="1" enable="true" label="组织机构代码" id="851" value="2"/>
+      <value order="2" enable="true" label="税务登记证" id="852" value="3"/>
+      <value order="3" enable="true" label="银行结算账户开户许可证" id="853" value="4"/>
+      <value order="4" enable="true" label="法人证件" id="854" value="5"/>
+    </entry>
+    <entry name="企业会员审核" type="Number" default="" id="202">
+      <value order="0" enable="true" label="通过" id="346" value="2"/>
+      <value order="1" enable="true" label="失败" id="347" value="3"/>
+    </entry>
+    <entry name="企业审核状态" type="Number" default="" id="1083">
+      <value order="3" enable="true" label="审核失败" id="857" value="3"/>
+      <value order="0" enable="true" label="待审核" id="858" value="1"/>
+      <value order="1" enable="true" label="审核通过" id="856" value="2"/>
+    </entry>
+  </type>
+  <type name="卡券管理" id="260">
+    <entry name="卡券状态" type="Number" default="" id="261">
+      <value order="0" enable="true" label="可用" id="539" value="1"/>
+      <value order="1" enable="true" label="已用" id="540" value="2"/>
+      <value order="2" enable="true" label="删除" id="541" value="3"/>
+    </entry>
+    <entry name="有效期单位" type="Number" default="" id="262">
+      <value order="0" enable="true" label="年" id="542" value="1"/>
+      <value order="1" enable="true" label="月" id="543" value="2"/>
+      <value order="2" enable="true" label="周" id="544" value="3"/>
+      <value order="3" enable="true" label="日" id="545" value="4"/>
+      <value order="4" enable="true" label="时" id="546" value="5"/>
+      <value order="5" enable="true" label="分" id="547" value="6"/>
+    </entry>
+    <entry name="卡券类型" type="String" default="" id="264">
+      <value order="0" enable="true" label="提货券" id="550" value="goods_voucher"/>
+    </entry>
+    <entry name="有效期类型" type="Number" default="" id="265">
+      <value order="0" enable="true" label="一直有效" id="551" value="1"/>
+      <value order="1" enable="true" label="固定周期" id="552" value="2"/>
+      <value order="2" enable="true" label="固定时段" id="553" value="3"/>
+    </entry>
+    <entry name="卡券保护" type="Number" default="" id="263">
+      <value order="0" enable="true" label="常规" id="548" value="1"/>
+      <value order="1" enable="true" label="刷卡保护" id="549" value="2"/>
+    </entry>
+  </type>
+  <type name="常规" id="103">
+    <entry name="true与false" type="String" default="" id="259">
+      <value order="0" enable="true" label="已绑定" id="537" value="true"/>
+      <value order="1" enable="true" label="已解除" id="538" value="false"/>
+    </entry>
+    <entry name="时间范围" type="Number" default="" id="256">
+      <value order="0" enable="true" label="当天" id="523" value="1"/>
+      <value order="3" enable="true" label="前一周" id="524" value="2"/>
+      <value order="4" enable="true" label="前一月" id="525" value="3"/>
+      <value order="5" enable="false" label="上季度" id="526" value="4"/>
+      <value order="6" enable="false" label="前一年" id="527" value="6"/>
+      <value order="7" enable="false" label="本年度一季度" id="528" value="7"/>
+      <value order="8" enable="false" label="本年上半年" id="529" value="8"/>
+      <value order="9" enable="false" label="本年前三季度" id="530" value="9"/>
+      <value order="1" enable="true" label="本周" id="531" value="10"/>
+      <value order="2" enable="true" label="本月" id="532" value="11"/>
+    </entry>
+    <entry name="是与否" type="Number" default="" id="257">
+      <value order="0" enable="true" label="是" id="533" value="1"/>
+      <value order="1" enable="true" label="否" id="534" value="2"/>
+    </entry>
+    <entry name="月份" type="Number" default="" id="104">
+      <value order="0" enable="true" label="一月" id="8" value="1"/>
+      <value order="1" enable="true" label="二月" id="9" value="2"/>
+      <value order="2" enable="true" label="三月" id="10" value="3"/>
+      <value order="3" enable="true" label="四月" id="11" value="4"/>
+      <value order="4" enable="true" label="五月" id="12" value="5"/>
+      <value order="5" enable="true" label="六月" id="13" value="6"/>
+      <value order="6" enable="true" label="七月" id="14" value="7"/>
+      <value order="7" enable="true" label="八月" id="15" value="8"/>
+      <value order="8" enable="true" label="九月" id="16" value="9"/>
+      <value order="9" enable="true" label="十月" id="17" value="10"/>
+      <value order="10" enable="true" label="十一月" id="18" value="11"/>
+      <value order="11" enable="true" label="十二月" id="19" value="12"/>
+    </entry>
+    <entry name="平台类型" type="Number" default="" id="255">
+      <value order="0" enable="true" label="PC" id="520" value="1"/>
+      <value order="1" enable="true" label="IOS" id="521" value="2"/>
+      <value order="2" enable="true" label="Android" id="522" value="3"/>
+    </entry>
+    <entry name="有效与否" type="Number" default="" id="258">
+      <value order="0" enable="true" label="有效" id="535" value="1"/>
+      <value order="1" enable="true" label="无效" id="536" value="0"/>
+    </entry>
+  </type>
+  <type name="微广场" id="288">
+    <entry name="和丰区域" type="String" default="" id="289">
+      <value order="0" enable="true" label="和庭楼" id="632" value="和庭楼"/>
+      <value order="1" enable="true" label="丰庭楼" id="633" value="丰庭楼"/>
+      <value order="2" enable="true" label="创庭楼" id="634" value="创庭楼"/>
+      <value order="3" enable="true" label="意庭楼" id="635" value="意庭楼"/>
+      <value order="4" enable="true" label="谷庭楼" id="636" value="谷庭楼"/>
+      <value order="5" enable="true" label="小洋楼" id="637" value="小洋楼"/>
+    </entry>
+  </type>
+</dictionary>

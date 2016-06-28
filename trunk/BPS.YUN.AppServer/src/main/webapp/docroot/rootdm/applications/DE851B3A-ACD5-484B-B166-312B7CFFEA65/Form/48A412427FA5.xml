@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityForm name="手续费参数" label="手续费参数" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.48A412427FA5" nodeID="407"> 
+              <formEntity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.30963B51D00D"/>  
+              <formState/>  
+              <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2"> 
+                <TabNavigator> 
+                  <tab label="default"> 
+                    <Label width="82" height="25" text="会员类型:" propertyUID="id_1" x="3" y="3" style=""/>  
+                    <ComboBox propertyUID="id_1" width="179" height="25" x="83" y="3"/>  
+                    <Label width="82" height="25" text="实名状态:" propertyUID="id_2" x="283" y="3" style=""/>  
+                    <ComboBox propertyUID="id_2" width="179" height="25" x="363" y="2"/>  
+                    <Label width="82" height="25" text="用户等级:" propertyUID="id_3" x="3" y="31" style=""/>  
+                    <TextInput propertyUID="id_3" width="179" height="25" x="83" y="31"/>  
+                    <Label width="82" height="25" text="支付工具:" propertyUID="id_4" x="283" y="31" style=""/>  
+                    <ComboBox propertyUID="id_4" width="179" height="25" x="363" y="31"/>  
+                    <Label width="82" height="25" text="计费对象:" propertyUID="id_5" x="2" y="59" style=""/>  
+                    <ComboBox propertyUID="id_5" width="179" height="25" x="83" y="59"/>  
+                    <Label width="82" height="25" text="计费模式:" propertyUID="id_7" x="283" y="59" style=""/>  
+                    <ComboBox propertyUID="id_7" width="179" height="25" x="363" y="59"/>  
+                    <Label width="82" height="25" text="封顶费用:" propertyUID="id_11" x="283" y="143" style=""/>  
+                    <TextInput propertyUID="id_11" width="179" height="25" x="363" y="143"/>  
+                    <Label width="82" height="25" text="交易类型:" propertyUID="id_16" x="3" y="87" style=""/>  
+                    <ComboBox propertyUID="id_16" width="179" height="25" x="83" y="87"/>  
+                    <Label width="82" height="25" text="交易子类型:" propertyUID="id_17" x="283" y="87" style=""/>  
+                    <ComboBox propertyUID="id_17" width="179" height="25" x="363" y="87"/>  
+                    <Label width="82" height="25" text="计费方式:" propertyUID="id_15" x="2" y="115" style=""/>  
+                    <ComboBox propertyUID="id_15" width="179" height="25" x="83" y="115"/>  
+                    <Label width="82" height="25" text="最低费用:" propertyUID="id_14" x="3" y="143" style=""/>  
+                    <TextInput propertyUID="id_14" width="179" height="25" x="83" y="143"/>  
+                    <Label width="82" height="25" text="比例:" propertyUID="id_13" x="283" y="115" style=""/>  
+                    <TextInput propertyUID="id_13" width="179" height="25" x="363" y="115"/>  
+                    <Label width="82" height="25" text="单笔:" propertyUID="id_12" x="3" y="171" style=""/>  
+                    <TextInput propertyUID="id_12" width="179" height="25" x="83" y="171"/>  
+                    <Label width="82" height="25" text="来源:" propertyUID="id_18" x="283" y="171" style=""/>  
+                    <ComboBox propertyUID="id_18" width="179" height="25" x="363" y="171"/> 
+                  </tab> 
+                </TabNavigator> 
+              </Window>  
+              <formEvent/> 
+            </EntityForm>

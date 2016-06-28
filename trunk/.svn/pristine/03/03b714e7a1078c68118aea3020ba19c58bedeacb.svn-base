@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.A9741F8AC007" name="AMS_SubAccount" label="子账户" note="" log="false" workflow="false" nodeID="521" lastId="7" dbcreated="true"> 
+  <relation/>  
+  <extension/>  
+  <property uid="sys_0" label="编号" name="id" type="long" systemProperty="true" editorPart="Entity" group="系统属性字段"/>  
+  <property uid="sys_1" label="域ID" name="domainId" type="long" systemProperty="true" editorPart="Entity" group="系统属性字段"/>  
+  <property name="valid_date" label="有效期限" type="timestamp" length="100" uid="id_1" editorPart="Entity" dbcreated="true" group="业务属性字段"/>  
+  <property name="mainAccount" label="主账户" type="relation" uid="id_2" editorPart="Entity" entityUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.88EAE8E6D388" labelField="id" shortcutField="id" dbcreated="true" group="业务属性字段"/>  
+  <property name="amount" label="余额" type="long" uid="id_4" editorPart="Entity" currency="true" dbcreated="true" group="业务属性字段"/>  
+  <property name="freeze_amount" label="冻结金额" type="long" uid="id_6" editorPart="Entity" currency="true" dbcreated="true" group="业务属性字段"/>  
+  <property name="userId" label="用户ID" type="string" length="100" uid="id_7" editorPart="Entity" dbcreated="true" group="业务属性字段"/> 
+</Entity>

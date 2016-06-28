@@ -1,0 +1,275 @@
+package bps.external.application.trade.its;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.SocketException;
+import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Properties;
+
+import org.apache.commons.net.ftp.FTPClient;
+import org.apache.commons.net.ftp.FTPFile;
+
+import com.jcraft.jsch.Channel;
+import com.jcraft.jsch.ChannelSftp;
+import com.jcraft.jsch.JSch;
+import com.jcraft.jsch.Session;
+
+/**
+ * @describe 读取FTP上的文件
+ * @auto li.wang
+ * @date 2013-11-18 下午4:07:34
+ */
+public class FtpUtils {
+	private static org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(FtpUtils.class.getName());
+	private FTPClient ftpClient;
+	private String fileName, strencoding;
+	private String ip;// 服务器IP地址
+	private String userName; // 用户名
+	private String userPwd; // 密码
+	private int port; // 端口号
+	private String path; // 读取文件的存放目录
+	private ChannelSftp sftp = null;
+	public FtpUtils(){
+	}
+	/**
+	 * init ftp servere
+	 */
+	public FtpUtils(String strencoding,String ip,Integer port,String userName,String userPwd){
+		this.strencoding = strencoding;
+		this.ip =ip;
+		this.port =port;
+		this.userName = userName;
+		this.userPwd =userPwd;
+		this.connectServer(ip, port, userName, userPwd);
+	}
+	
+	 /** 
+     * init sftp servere
+     */  
+    public  void connect() {  
+        try {  
+            if(sftp != null){  
+                System.out.println("sftp is not null");  
+            }  
+            JSch jsch = new JSch();  
+            jsch.getSession(userName, ip, port);  
+            Session sshSession = jsch.getSession(userName, ip, port);  
+            System.out.println("Session created.");  
+            sshSession.setPassword(userPwd);  
+            Properties sshConfig = new Properties();  
+            sshConfig.put("StrictHostKeyChecking", "no");  
+            sshSession.setConfig(sshConfig);  
+            sshSession.connect();  
+            System.out.println("Session connected.");  
+            System.out.println("Opening Channel.");  
+            Channel channel = sshSession.openChannel("sftp");  
+            channel.connect();  
+            sftp = (ChannelSftp) channel;
+       
+        } catch (Exception e) {  
+            e.printStackTrace();  
+        }  
+    }
+    
+	
+
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
+
+	public void setPath(String path) {
+		this.path = path;
+		if (path != null && path.length() > 0) {
+			// 跳转到指定目录
+			try {
+				ftpClient.changeWorkingDirectory(path);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+
+	/**
+	 * @param ip
+	 * @param port
+	 * @param userName
+	 * @param userPwd
+	 * @throws SocketException
+	 * @throws IOException
+	 *             function:连接到服务器
+	 */
+	public void connectServer(String ip, int port, String userName,
+			String userPwd) {
+		ftpClient = new FTPClient();
+		try {
+			// 连接
+			ftpClient.connect(ip, port);
+			// 登录
+			ftpClient.login(userName, userPwd);
+			//if (path != null && path.length() > 0) {
+				// 跳转到指定目录
+				//ftpClient.changeWorkingDirectory(path);
+		//	}
+		} catch (SocketException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * @throws IOException
+	 * function:ftp关闭连接
+	 */
+	public void closeServer() {
+		if (ftpClient.isConnected()) {
+			try {
+				ftpClient.logout();
+				ftpClient.disconnect();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	 /**
+	 * sftp 断开链接 
+	 */
+    public void disconnect() {  
+        if(this.sftp != null){  
+            if(this.sftp.isConnected()){  
+                this.sftp.disconnect();  
+            }else if(this.sftp.isClosed()){  
+                System.out.println("sftp is closed already");  
+            }  
+        }  
+  
+    }  
+
+	/**
+	 * @param path
+	 * @return function:读取指定目录下的文件名
+	 * @throws IOException
+	 */
+	public List<String> getFileList(String path) {
+		List<String> fileLists = new ArrayList<String>();
+		// 获得指定目录下所有文件名
+		FTPFile[] ftpFiles = null;
+		try {
+			ftpFiles = ftpClient.listFiles(path);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		for (int i = 0; ftpFiles != null && i < ftpFiles.length; i++) {
+			FTPFile file = ftpFiles[i];
+			if (file.isFile()) {
+				fileLists.add(file.getName());
+			}
+		}
+		return fileLists;
+	}
+
+	/**
+	 * @param readFile
+	 * @return function:从服务器上读取指定的文件
+	 * @throws Exception 
+	 * @throws IOException
+	 */
+	public String readFile() throws Exception {
+		InputStream ins = null;
+		StringBuilder builder = null;
+		try {
+			// 从服务器上读取指定的文件
+			ins = ftpClient.retrieveFileStream(fileName);
+			if(ins == null)
+				throw new Exception("文件不存在");
+			BufferedReader reader = new BufferedReader(new InputStreamReader(
+					ins, strencoding));
+			
+			String line;
+			builder = new StringBuilder(150);
+			while ((line = reader.readLine()) != null) {
+				//System.out.println(line);
+				if(builder.length() !=0)
+					builder.append("\r\n");
+				builder.append(line);
+			}
+			reader.close();
+			if (ins != null) {
+				ins.close();
+			}
+			// 主动调用一次getReply()把接下来的226消费掉. 这样做是可以解决这个返回null问题
+			ftpClient.getReply();
+		} catch (IOException e) {
+			logger.error(e.getMessage(), e);
+			e.printStackTrace();
+		}
+		return builder.toString();
+	}
+	
+	/**
+	 * sftp 读取文件
+	 * @throws Exception 
+	 */
+	public String readFilebysftp() throws Exception{
+		InputStream ins = null;
+		StringBuilder builder = null;
+		try {
+			// 从服务器上读取指定的文件
+			
+			ins = sftp.get(fileName);
+			if(ins == null)
+				throw new Exception("文件不存在");
+			BufferedReader reader = new BufferedReader(new InputStreamReader(
+					ins, strencoding));
+			
+			String line;
+			builder = new StringBuilder(150);
+			while ((line = reader.readLine()) != null) {
+				//System.out.println(line);
+				if(builder.length() !=0)
+					builder.append("\r\n");
+				builder.append(line);
+			}
+			reader.close();
+			if (ins != null) {
+				ins.close();
+			}
+		} catch (IOException e) {
+			logger.error(e.getMessage(), e);
+			e.printStackTrace();
+		}
+		return builder.toString();
+	} 
+	
+
+	/**
+	 * @param fileName
+	 *            function:删除文件
+	 */
+	public void deleteFile(String fileName) {
+		try {
+			ftpClient.deleteFile(fileName);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * @param args
+	 * @throws ParseException
+	 */
+	public static void main(String[] args) throws Exception {
+		FtpUtils ftp = new FtpUtils("gbk","10.55.3.235",21,"ftproot","root");
+		ftp.setPath("/home/ftp");
+		ftp.setFileName("YZT000000000001_20151023_12.csv");
+		String str = ftp.readFile();
+		ftp.closeServer();
+		System.out.println(str);
+	}
+}

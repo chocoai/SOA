@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityQuery name="分公司查询" label="分公司查询" note="" share="false" multiselect="false" editable="false" autopaging="true" pagingMode="VirtualizingPaging" virtualizingPagingEnabled="true" uid="5D5642C8-F819-4B1C-9454-5DAE66AF9CB6.C24B77E0F1FC" nodeID="913"> 
+              <queryEntities> 
+                <Entity uid="5D5642C8-F819-4B1C-9454-5DAE66AF9CB6.1DDC1772071A" name="APA_BranchCompany" label="通联分公司" alias="a0" master="true"/> 
+              </queryEntities>  
+              <DataGrid> 
+                <color/>  
+                <column name="id" label="编号" uid="5D5642C8-F819-4B1C-9454-5DAE66AF9CB6.1DDC1772071A.sys_0" width="100" isBranch="false" dataField="APA_BranchCompany$id"/>  
+                <column name="name" label="名称" uid="5D5642C8-F819-4B1C-9454-5DAE66AF9CB6.1DDC1772071A.id_1" width="583" isBranch="false" dataField="APA_BranchCompany$name"/> 
+              </DataGrid>  
+              <editState/>  
+              <toolbar> 
+                <button label="新建" action="alink" selection="none" permission="" permissionName="" visiable="true" param="{   &quot;target&quot;: &quot;ime.AppWindow&quot;,   &quot;form&quot;: &quot;EntityForm&quot;,   &quot;param&quot;: {     &quot;action&quot;: &quot;create&quot;,     &quot;entityUID&quot;: &quot;5D5642C8-F819-4B1C-9454-5DAE66AF9CB6.1DDC1772071A&quot;,     &quot;formUID&quot;: &quot;5D5642C8-F819-4B1C-9454-5DAE66AF9CB6.54E365A84EAA&quot;   } }" Button="System.Windows.Controls.Button: 新建" alink="alink://ime.AppWindow/EntityForm?{action:&quot;create&quot;,entityUID:&quot;5D5642C8-F819-4B1C-9454-5DAE66AF9CB6.1DDC1772071A&quot;,formUID:&quot;5D5642C8-F819-4B1C-9454-5DAE66AF9CB6.54E365A84EAA&quot;}"/>  
+                <button label="编辑" action="alink" selection="single" permission="" permissionName="" visiable="true" param="{   &quot;target&quot;: &quot;ime.AppWindow&quot;,   &quot;form&quot;: &quot;EntityForm&quot;,   &quot;param&quot;: {     &quot;action&quot;: &quot;edit&quot;,     &quot;entityUID&quot;: &quot;5D5642C8-F819-4B1C-9454-5DAE66AF9CB6.1DDC1772071A&quot;,     &quot;formUID&quot;: &quot;5D5642C8-F819-4B1C-9454-5DAE66AF9CB6.54E365A84EAA&quot;   } }" Button="System.Windows.Controls.Button: 编辑" alink="alink://ime.AppWindow/EntityForm?{action:&quot;edit&quot;,entityUID:&quot;5D5642C8-F819-4B1C-9454-5DAE66AF9CB6.1DDC1772071A&quot;,formUID:&quot;5D5642C8-F819-4B1C-9454-5DAE66AF9CB6.54E365A84EAA&quot;}"/>  
+                <button label="删除" action="delete" selection="single"/> 
+              </toolbar>  
+              <xmlQuery version="2.0" name="" label=""> 
+                <select domainScope="true"> 
+                  <other label="其他" uid="other" name="other"/>  
+                  <Entity uid="5D5642C8-F819-4B1C-9454-5DAE66AF9CB6.1DDC1772071A" name="APA_BranchCompany" label="通联分公司" alias="a0"> 
+                    <field uid="sys_0" name="id" label="编号" type="long"/>  
+                    <field uid="sys_1" name="domainId" label="域ID" type="long"/>  
+                    <field uid="id_1" name="name" label="名称" type="string"/> 
+                  </Entity> 
+                </select>  
+                <where> 
+                  <exp type="2"/> 
+                </where>  
+                <other> 
+                  <groupBy label="Group By"/>  
+                  <orderBy label="Order By"/> 
+                </other> 
+              </xmlQuery>  
+              <conditionForm> 
+                <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2"> 
+                  <TabNavigator> 
+                    <tab label="default"/> 
+                  </TabNavigator> 
+                </Window> 
+              </conditionForm>  
+              <StatSetting/>  
+              <queryEvent/> 
+            </EntityQuery>

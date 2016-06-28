@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Entity lastId="2" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.F867D5044BC3" name="AMS_PrepaidCard" label="预付费卡" note="" log="false" workflow="false" nodeID="753" dbcreated="true"> 
+  <property uid="sys_0" label="编号" name="id" type="long" systemProperty="true"/>  
+  <property uid="sys_1" label="域ID" name="domainId" type="long" systemProperty="true"/>  
+  <relation/>  
+  <extension/>  
+  <property name="card_no" label="卡号" type="string" length="100" uid="id_1" dbcreated="true"/>  
+  <property name="member" label="用户" type="relation" uid="id_2" entityUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0" labelField="userId" dbcreated="true"/> 
+</Entity>

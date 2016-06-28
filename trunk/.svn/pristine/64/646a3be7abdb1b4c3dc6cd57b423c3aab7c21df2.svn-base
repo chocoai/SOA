@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.81AE775D85C9" name="AMS_OutAccountType" label="外部账户类型" note="" log="false" workflow="false" nodeID="498" lastId="3" dbcreated="true"> 
+  <relation/>  
+  <extension/>  
+  <property uid="sys_0" label="编号" name="id" type="long" systemProperty="true" group="系统属性字段" editorPart="Entity"/>  
+  <property uid="sys_1" label="域ID" name="domainId" type="long" systemProperty="true" group="系统属性字段" editorPart="Entity"/>  
+  <property name="code_no" label="编号" type="string" length="50" uid="id_1" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="name" label="名称" type="string" length="100" uid="id_2" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="integrate_org" label="接入机构" type="relation" uid="id_3" group="业务属性字段" editorPart="Entity" entityUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.5A11C43DEB1B" labelField="name" dbcreated="true"/> 
+</Entity>

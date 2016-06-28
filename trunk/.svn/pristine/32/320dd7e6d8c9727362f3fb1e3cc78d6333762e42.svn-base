@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "PUBLIC" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class entity-name="AMS_MessageBox" table="DYNA_AMS_MessageBox">
+    <id name="id" type="long">
+      <generator class="sequence">
+        <param name="sequence">IDSEQ_AMS_MessageBox</param>
+      </generator>
+    </id>
+    <property name="domainId" not-null="false" type="long" index="IDX_DOMAINID"/>
+    <property name="message" not-null="false" type="string" length="2048"/>
+    <property name="type" not-null="false" type="long"/>
+    <property name="reply" not-null="false" type="string" length="512"/>
+    <property name="contact" not-null="false" type="string" length="100"/>
+    <property name="member_id" not-null="false" type="long" index="member_idx"/>
+    <property name="member_label" not-null="false" type="string" length="200"/>
+    <property name="addTime" not-null="false" type="timestamp" length="100"/>
+    <property name="os_type" not-null="false" type="long"/>
+    <property name="os_version" not-null="false" type="string" length="100"/>
+    <property name="brand" not-null="false" type="string" length="100"/>
+    <property name="phone_modle" not-null="false" type="string" length="100"/>
+  </class>
+</hibernate-mapping>

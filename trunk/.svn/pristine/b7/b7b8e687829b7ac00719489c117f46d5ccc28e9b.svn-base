@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Entity name="CMSArticle" label="文章" note="" log="true" workflow="false" lastId="9" uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.138EC7D71F33" nodeID="171" dbcreated="true"> 
+  <property uid="sys_0" label="编号" name="id" type="long" systemProperty="true"/>  
+  <property uid="sys_1" label="域ID" name="domainId" type="long" systemProperty="true"/>  
+  <relation/>  
+  <extension/>  
+  <property uid="log_0" label="创建者ID" name="FM_CreatePrinId" type="long" systemProperty="true"/>  
+  <property uid="log_1" label="创建者" name="FM_CreatePrinName" type="string" length="100" systemProperty="true"/>  
+  <property uid="log_2" label="更新者ID" name="FM_UpdatePrinId" type="long" systemProperty="true"/>  
+  <property uid="log_3" label="更新者" name="FM_UpdatePrinName" type="string" length="100" systemProperty="true"/>  
+  <property uid="log_4" label="创建时间" name="FM_CreateTime" type="timestamp" systemProperty="true"/>  
+  <property uid="log_5" label="更新时间" name="FM_UpdateTime" type="timestamp" systemProperty="true"/>  
+  <property name="title" label="标题" type="string" length="100" uid="id_1" dbcreated="true"/>  
+  <property name="note" label="描述" type="string" length="500" uid="id_2" dbcreated="true"/>  
+  <property name="urlName" label="URL" type="string" length="100" uid="id_3" dbcreated="true"/>  
+  <property name="contents" label="文章内容" type="string" length="800000" uid="id_5" toolTip="" valueProvider="" note="" dbcreated="true"/>  
+  <property name="category" label="所属分类" type="relation" uid="id_6" entityUID="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.138D313138CB" labelField="name" dbcreated="true"/>  
+  <property name="orderNo" label="序号" type="long" uid="id_7" dbcreated="true"/>  
+  <property name="type" label="文章类别" type="long" uid="id_8" toolTip="" valueProvider="内容管理.文章类别" note="" dbcreated="true"/>  
+  <property name="mediaType" label="媒体类型" type="long" uid="id_9" toolTip="" valueProvider="内容管理.媒体类型" note="" dbcreated="true"/> 
+</Entity>

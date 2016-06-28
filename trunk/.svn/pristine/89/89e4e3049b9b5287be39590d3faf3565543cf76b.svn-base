@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityForm name="应用接口配置" label="应用接口配置" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.587214428C8B" nodeID="1109">
+  <formEntity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.AE541FAEF6A1" />
+  <formState>
+    <state label="基础" uid="state0" basedOn="null">
+      <rule type="enabled" property="applicaiton" label="应用" rule="false" />
+      <rule type="required" property="soaService" label="接口服务" rule="true" />
+      <rule type="value" property="soaNameCh" label="接口中文名称" rule="$this.soaService.name_ch" />
+      <rule type="value" property="appNo" label="应用编号" rule="$this.applicaiton.codeNo" />
+      <rule type="enabled" property="appNo" label="应用编号" rule="false" />
+    </state>
+    <state label="新建" uid="state1" basedOn="state0">
+      <rule type="value" property="applicaiton" label="应用" rule="$opener.page.master.selectedEntity" />
+      <rule type="enabled" property="applicaiton" label="应用" rule="false" />
+    </state>
+    <state label="编辑" uid="state2" basedOn="state0" />
+  </formState>
+  <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2">
+    <TabNavigator>
+      <tab label="default">
+        <Label width="82" height="25" text="应用:" propertyUID="id_1" x="2" y="2" style="" />
+        <EntityField propertyUID="id_1" width="179" height="25" x="83" y="3" />
+        <Label width="82" height="25" text="接口服务:" propertyUID="id_2" x="2" y="59" style="" />
+        <EntityField propertyUID="id_2" width="180" height="25" x="82" y="59" />
+        <Label width="82" height="25" text="接口中文名称:" propertyUID="id_3" x="2" y="87" style="" />
+        <TextInput propertyUID="id_3" width="179" height="25" x="83" y="87" />
+        <Label width="82" height="25" text="接口版本号:" propertyUID="id_4" x="2" y="115" style="" />
+        <TextInput propertyUID="id_4" width="179" height="25" x="83" y="115" />
+        <CheckBox name="isOpen" label="是否启用" propertyUID="id_5" x="3" y="143" width="100" height="24" />
+        <Label width="82" height="25" text="应用编号:" propertyUID="id_6" x="2" y="32" style="" />
+        <TextInput propertyUID="id_6" width="179" height="25" x="83" y="32" />
+      </tab>
+    </TabNavigator>
+  </Window>
+  <formEvent>
+    <event name="initialize" type="initialize" label="初始化事件" systemEvent="true"><![CDATA[
+form.setFieldProperty("soaNameCh","enabled",false);
+form.setFieldProperty("soaVersion","enabled",false);
+]]></event>
+  </formEvent>
+</EntityForm>

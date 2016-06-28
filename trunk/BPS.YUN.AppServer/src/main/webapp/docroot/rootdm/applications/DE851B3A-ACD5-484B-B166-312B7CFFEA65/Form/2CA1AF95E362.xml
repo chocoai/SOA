@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityForm name="虚拟商品virtual" label="虚拟商品virtual" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.2CA1AF95E362" nodeID="365"> 
+              <formEntity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.92FC7546F9A9"/>  
+              <formState/>  
+              <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2"> 
+                <TabNavigator> 
+                  <tab label="default"> 
+                    <Label width="82" height="25" text="外部系统:" propertyUID="id_2" x="3" y="31" style=""/>  
+                    <TextInput propertyUID="id_2" width="179" height="25" x="83" y="31"/>  
+                    <Label width="82" height="25" text="名称:" propertyUID="id_3" x="3" y="3" style=""/>  
+                    <TextInput propertyUID="id_3" width="179" height="25" x="83" y="3"/>  
+                    <Label width="82" height="25" text="图片:" propertyUID="id_4" x="3" y="59" style=""/>  
+                    <ImageField propertyUID="id_4" width="179" height="111" x="83" y="59"/> 
+                  </tab> 
+                </TabNavigator> 
+              </Window>  
+              <formEvent/> 
+            </EntityForm>

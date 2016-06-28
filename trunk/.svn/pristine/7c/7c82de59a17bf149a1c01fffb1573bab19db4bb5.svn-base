@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "PUBLIC" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class entity-name="AMS_HandlingParam" table="DYNA_AMS_HandlingParam">
+    <id name="id" type="long">
+      <generator class="native"/>
+    </id>
+    <property name="domainId" not-null="false" type="long" index="IDX_DOMAINID"/>
+    <property name="member_type" not-null="false" type="long"/>
+    <property name="real_name_state" not-null="false" type="long"/>
+    <property name="member_level" not-null="false" type="long"/>
+    <property name="pay_tool" not-null="false" type="long"/>
+    <property name="target" not-null="false" type="long"/>
+    <property name="handling_mode" not-null="false" type="long"/>
+    <property name="max_fee" not-null="false" type="long"/>
+    <property name="handling_each" not-null="false" type="long"/>
+    <property name="handling_rate" not-null="false" type="double"/>
+    <property name="min_fee" not-null="false" type="long"/>
+    <property name="handling_type" not-null="false" type="long"/>
+    <property name="trade_type" not-null="false" type="long"/>
+    <property name="sub_trade_type" not-null="false" type="long"/>
+  </class>
+</hibernate-mapping>

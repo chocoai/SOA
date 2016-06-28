@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "PUBLIC" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class entity-name="AMS_AccountRiskData" table="DYNA_AMS_AccountRiskData">
+    <id name="id" type="long">
+      <generator class="sequence">
+        <param name="sequence">IDSEQ_AMS_AccountRiskData</param>
+      </generator>
+    </id>
+    <property name="domainId" not-null="false" type="long" index="IDX_DOMAINID"/>
+    <property name="member_id" not-null="false" type="long"/>
+    <property name="account_type" not-null="false" type="string" length="20"/>
+    <property name="trade_type" not-null="false" type="long"/>
+    <property name="sub_trade_type" not-null="false" type="long"/>
+    <property name="pay_channel" not-null="false" type="string" length="20"/>
+    <property name="belong_time" not-null="false" type="timestamp" length="100"/>
+    <property name="day_total" not-null="false" type="long"/>
+    <property name="day_num" not-null="false" type="long"/>
+    <property name="month_total" not-null="false" type="long"/>
+  </class>
+</hibernate-mapping>

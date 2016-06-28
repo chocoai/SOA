@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "PUBLIC" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class entity-name="AMS_RechargeCard" table="DYNA_AMS_RechargeCard">
+    <id name="id" type="long">
+      <generator class="sequence">
+        <param name="sequence">IDSEQ_AMS_RechargeCard</param>
+      </generator>
+    </id>
+    <property name="domainId" not-null="false" type="long" index="IDX_DOMAINID"/>
+    <property name="account_type_id" not-null="false" type="long" index="account_type_idx"/>
+    <property name="account_type_label" not-null="false" type="string" length="200"/>
+    <property name="money" not-null="false" type="long"/>
+    <property name="card_no" not-null="false" type="string" length="100"/>
+    <property name="password" not-null="false" type="string" length="100"/>
+    <property name="company_id" not-null="false" type="long" index="company_idx"/>
+    <property name="company_label" not-null="false" type="string" length="200"/>
+    <property name="member_id" not-null="false" type="long" index="member_idx"/>
+    <property name="member_label" not-null="false" type="string" length="200"/>
+    <property name="status" not-null="false" type="long"/>
+  </class>
+</hibernate-mapping>

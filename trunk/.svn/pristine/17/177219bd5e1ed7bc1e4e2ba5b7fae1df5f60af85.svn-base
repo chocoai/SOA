@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityQuery name="银行代码查询" label="银行代码查询" note="" share="false" multiselect="false" editable="false" autopaging="true" pagingMode="VirtualizingPaging" virtualizingPagingEnabled="true" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.BDCA4C2C34E2" nodeID="459"> 
+              <queryEntities> 
+                <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E8D05E4D8AD6" name="AMS_BankCode" label="银行代码" alias="a0" master="true"/> 
+              </queryEntities>  
+              <DataGrid> 
+                <color/>  
+                <column name="bank_code" label="银行代码" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E8D05E4D8AD6.id_1" width="100" isBranch="false"/>  
+                <column name="cart_type" label="卡类型" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E8D05E4D8AD6.id_2" width="100" isBranch="false"/>  
+                <column name="bank" label="银行" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E8D05E4D8AD6.id_3" width="100" isBranch="false"/> 
+              </DataGrid>  
+              <editState/>  
+              <toolbar> 
+                <button label="新建" action="alink" selection="none" alink="alink://ime.AppWindow/EntityForm?{selection:&quot;none&quot;,entityUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.E8D05E4D8AD6&quot;,formUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.D3A8200DB4D1&quot;,action:&quot;create&quot;}"/>  
+                <button label="编辑" action="alink" selection="single" alink="alink://ime.AppWindow/EntityForm?{selection:&quot;single&quot;,entityUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.E8D05E4D8AD6&quot;,formUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.D3A8200DB4D1&quot;,action:&quot;edit&quot;}"/>  
+                <button label="删除" action="delete" selection="single"/> 
+              </toolbar>  
+              <xmlQuery version="2.0" name="" label=""> 
+                <select domainScope="true"> 
+                  <other label="其他" uid="other" name="other"/>  
+                  <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E8D05E4D8AD6" name="AMS_BankCode" label="银行代码" alias="a0"> 
+                    <field uid="sys_0" name="id" label="编号" type="long"/>  
+                    <field uid="sys_1" name="domainId" label="域ID" type="long"/>  
+                    <field uid="id_1" name="bank_code" label="银行代码" type="string"/>  
+                    <field uid="id_2" name="cart_type" label="卡类型" type="long"/>  
+                    <field uid="id_3" name="bank" label="银行" type="relation"/> 
+                  </Entity> 
+                </select>  
+                <where> 
+                  <exp type="2"> 
+                    <exp type="5" valueType="3" option="true" rightType="val" right="$page.bank_info.selectedEntity.id" leftEntity="AMS_BankCode" leftField="bank_id" uid="exp0"/> 
+                  </exp> 
+                </where>  
+                <other> 
+                  <groupBy label="Group By"/>  
+                  <orderBy label="Order By"/> 
+                </other> 
+              </xmlQuery>  
+              <conditionForm> 
+                <Window paddingLeft="1" paddingRight="1" paddingTop="1" paddingBottom="1"> 
+                  <TabNavigator> 
+                    <tab label="default"/> 
+                  </TabNavigator> 
+                </Window> 
+              </conditionForm>  
+              <StatSetting/>  
+              <queryEvent/> 
+            </EntityQuery>

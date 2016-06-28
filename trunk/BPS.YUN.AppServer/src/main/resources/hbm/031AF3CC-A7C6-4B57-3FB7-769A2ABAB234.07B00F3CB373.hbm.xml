@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "PUBLIC" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class entity-name="UserProfile" table="DYNA_UserProfile">
+    <id name="id" type="long">
+      <generator class="sequence">
+        <param name="sequence">IDSEQ_UserProfile</param>
+      </generator>
+    </id>
+    <property name="domainId" not-null="false" type="long" index="IDX_DOMAINID"/>
+    <property name="owner_user_id" not-null="false" type="long" index="owner_user_idx"/>
+    <property name="owner_user_name" not-null="false" type="string" length="100"/>
+    <property name="last_logout_time" not-null="false" type="timestamp" length="100"/>
+    <property name="profile_type" not-null="false" type="string" length="100"/>
+    <property name="profile_content" not-null="false" type="string" length="5000"/>
+  </class>
+</hibernate-mapping>

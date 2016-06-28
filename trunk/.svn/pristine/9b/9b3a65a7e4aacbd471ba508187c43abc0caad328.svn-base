@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityQuery name="手续费日志查询" label="手续费日志查询" note="" share="false" multiselect="false" editable="false" autopaging="true" pagingMode="NormalPaging" virtualizingPagingEnabled="false" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.C8416D0F6CCA" nodeID="402"> 
+              <queryEntities> 
+                <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.C8355B9478BE" name="AMS_HandlingLog" label="手续费日志" alias="a0" selectAll="true" isBranch="true" master="true"/> 
+              </queryEntities>  
+              <DataGrid> 
+                <color/>  
+                <column name="memberNo" label="会员号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.C8355B9478BE.id_1" width="100" isBranch="false"/>  
+                <column name="member_userId" label="会员ID" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.C8355B9478BE.id_3" width="100" isBranch="false"/>  
+                <column name="member_name" label="会员名称" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.C8355B9478BE.id_2" width="100" isBranch="false"/>  
+                <column name="trade_time" label="交易时间" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.C8355B9478BE.id_4" width="100" isBranch="false"/>  
+                <column name="trade_money" label="交易金额" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.C8355B9478BE.id_5" width="100" isBranch="false"/>  
+                <column name="handling_fee" label="手续费" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.C8355B9478BE.id_6" width="100" isBranch="false"/>  
+                <column name="trade_id" label="交易流水" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.C8355B9478BE.id_7" width="100" isBranch="false"/>  
+                <column name="orderNo" label="订单号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.C8355B9478BE.id_8" width="100" isBranch="false"/>  
+                <column name="handling_mode" label="收费模式" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.C8355B9478BE.id_9" width="100" isBranch="false"/>  
+                <column name="is_charge" label="是否已收费" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.C8355B9478BE.id_10" width="100" isBranch="false"/>  
+                <column name="orgNo" label="机构号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.C8355B9478BE.id_11" width="100" isBranch="false"/> 
+              </DataGrid>  
+              <editState/>  
+              <toolbar/>  
+              <xmlQuery version="2.0" name="" label=""> 
+                <select domainScope="true"> 
+                  <other label="其他" uid="other" name="other"/>  
+                  <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.C8355B9478BE" name="AMS_HandlingLog" label="手续费日志" alias="a0" selectAll="true" isBranch="true"> 
+                    <field uid="sys_0" name="id" label="编号" type="long"/>  
+                    <field uid="sys_1" name="domainId" label="域ID" type="long"/>  
+                    <field uid="id_1" name="memberNo" label="会员号" type="string"/>  
+                    <field uid="id_2" name="member_name" label="会员名称" type="string"/>  
+                    <field uid="id_3" name="member_userId" label="会员ID" type="string"/>  
+                    <field uid="id_4" name="trade_time" label="交易时间" type="timestamp"/>  
+                    <field uid="id_5" name="trade_money" label="交易金额" type="long"/>  
+                    <field uid="id_6" name="handling_fee" label="手续费" type="long"/>  
+                    <field uid="id_7" name="trade_id" label="交易流水" type="string"/>  
+                    <field uid="id_8" name="orderNo" label="订单号" type="string"/>  
+                    <field uid="id_9" name="handling_mode" label="收费模式" type="long"/>  
+                    <field uid="id_10" name="is_charge" label="是否已收费" type="boolean"/>  
+                    <field uid="id_11" name="orgNo" label="机构号" type="string"/> 
+                  </Entity> 
+                </select>  
+                <where> 
+                  <exp type="2"> 
+                    <exp type="19" valueType="1" option="true" rightType="param" right="memberNo" leftEntity="AMS_HandlingLog" leftField="memberNo" uid="exp0"/>  
+                    <exp type="19" valueType="1" option="true" rightType="param" right="orderNo" leftEntity="AMS_HandlingLog" leftField="orderNo" uid="exp1"/> 
+                  </exp> 
+                </where>  
+                <other> 
+                  <groupBy label="Group By"/>  
+                  <orderBy label="Order By"/> 
+                </other> 
+              </xmlQuery>  
+              <conditionForm> 
+                <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2"> 
+                  <TabNavigator> 
+                    <tab label="default"> 
+                      <Label width="82" height="25" text="会员号:" propertyUID="id_1" x="3" y="3" style=""/>  
+                      <TextInput name="memberNo" width="159" height="25" x="63" y="3"/>  
+                      <Label width="82" height="25" text="订单号:" propertyUID="id_8" x="243" y="3" style=""/>  
+                      <TextInput name="orderNo" width="159" height="25" x="303" y="3"/> 
+                    </tab> 
+                  </TabNavigator> 
+                </Window> 
+              </conditionForm>  
+              <StatSetting/>  
+              <queryEvent/> 
+            </EntityQuery>

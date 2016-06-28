@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<FreeForm label="安全等级管理" name="安全等级管理" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.A55999723E49" nodeID="865"> 
+            <formState/>  
+            <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2"> 
+              <TabNavigator> 
+                <tab label="default"> 
+                  <Label label="Label" text="安全等级" x="2" y="2" width="100" height="24" style=""/>  
+                  <ComboBox label="ComboBox" x="63" y="3" width="139" height="24" valueProvider="多账户.安全等级" name="safety_level"/> 
+                </tab> 
+              </TabNavigator> 
+            </Window>  
+            <formEvent> 
+              <event name="safety_result" type="remoteEvent" label="safety_result"><![CDATA[
+alert("修改成功");
+
+]]></event>  
+              <event name="preSubmit" type="preSubmit" label="提交前事件" systemEvent="true"><![CDATA[
+var query/*:QueryControl*/ = form.getScriptHost("$opener");
+var entity/*:$Entity.AMS_Member*/ = query.getSelectedEntity("AMS_SafetyLevel");
+
+
+var id = entity.member_id;
+var safety_level =entity.safety_level;
+param = {}
+param.id = id;
+
+
+param.safety_level = form.getFieldValue("safety_level");
+
+
+form.fireRemoteEvent("AMS_SafetyLevel.updateSafetyLevel", param, "safety_result");
+]]></event>  
+              <event name="postSubmit" type="postSubmit" label="提交后事件" systemEvent="true"><![CDATA[
+var query/*:QueryControl*/ = form.getScriptHost("$opener");
+query.refreshCurrentPage();]]></event> 
+            </formEvent> 
+          </FreeForm>

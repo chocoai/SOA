@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityForm name="交易差错处理" label="交易差错处理" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.6D78DD1DC6EA" nodeID="612"> 
+              <formEntity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.60D2317A70D0"/>  
+              <formState> 
+                <state label="基础" uid="state0" basedOn="null"> 
+                  <rule type="enabled" property="operator" label="经办人" rule="false"/>  
+                  <rule type="enabled" property="auditor" label="审核人" rule="false"/>  
+                  <rule type="enabled" property="auditor_date" label="审核时间" rule="false"/>  
+                  <rule type="value" property="WF_ProcessName" label="工作流实例名称" rule="$this.bizid"/>  
+                  <rule type="enabled" property="WF_ProcessName" label="工作流实例名称" rule="false"/> 
+                </state>  
+                <state label="新建" uid="state1" basedOn="state0"/>  
+                <state label="编辑" uid="state2" basedOn="state0"/>  
+                <state label="审核" uid="state3" basedOn="state0"/> 
+              </formState>  
+              <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2"> 
+                <TabNavigator> 
+                  <tab label="default"> 
+                    <Label width="82" height="25" text="单据编号:" propertyUID="id_12" x="3" y="3" style=""/>  
+                    <TextInput propertyUID="id_12" width="159" height="25" x="103" y="3"/>  
+                    <Label width="82" height="25" text="订单编号:" propertyUID="id_2" x="283" y="3" style=""/>  
+                    <TextInput propertyUID="id_2" width="159" height="25" x="383" y="3"/>  
+                    <Label width="100" height="25" text="支付通道编号:" propertyUID="id_6" x="2" y="59" style=""/>  
+                    <TextInput propertyUID="id_6" width="159" height="25" x="103" y="59"/>  
+                    <Label width="99" height="25" text="支付通道名称:" propertyUID="id_7" x="283" y="59" style=""/>  
+                    <TextInput propertyUID="id_7" width="159" height="25" x="383" y="59"/>  
+                    <Label width="82" height="25" text="渠道编号:" propertyUID="id_3" x="2" y="31" style=""/>  
+                    <TextInput propertyUID="id_3" width="159" height="25" x="103" y="31"/>  
+                    <Label width="82" height="25" text="渠道名称:" propertyUID="id_4" x="283" y="31" style=""/>  
+                    <TextInput propertyUID="id_4" width="159" height="25" x="383" y="31"/>  
+                    <Label width="82" height="25" text="交易时间:" propertyUID="id_9" x="3" y="87" style=""/>  
+                    <TextInput propertyUID="id_9" width="159" height="25" x="103" y="87"/>  
+                    <Label width="99" height="25" text="外部交易流水:" propertyUID="id_13" x="283" y="115" style=""/>  
+                    <TextInput propertyUID="id_13" width="159" height="25" x="383" y="115"/>  
+                    <Label width="82" height="25" text="交易金额:" propertyUID="id_5" x="283" y="87" style=""/>  
+                    <TextInput propertyUID="id_5" width="159" height="25" x="383" y="87"/>  
+                    <Label width="82" height="25" text="帐号:" propertyUID="id_11" x="3" y="115" style=""/>  
+                    <TextInput propertyUID="id_11" width="159" height="25" x="103" y="115"/>  
+                    <Label width="82" height="25" text="备注:" propertyUID="id_8" x="3" y="199" style=""/>  
+                    <TextArea propertyUID="id_8" width="439" height="83" x="103" y="199"/>  
+                    <Label width="82" height="25" text="经办人:" propertyUID="id_19" x="2" y="143" style=""/>  
+                    <PrincipalSelectField propertyUID="id_19" width="160" height="25" x="102" y="143"/>  
+                    <Label width="82" height="25" text="审核人:" propertyUID="id_20" x="2" y="170" style=""/>  
+                    <PrincipalSelectField propertyUID="id_20" width="159" height="25" x="103" y="170"/>  
+                    <Label width="82" height="25" text="审核时间:" propertyUID="id_21" x="283" y="171" style=""/>  
+                    <DateField propertyUID="id_21" width="159" height="25" x="383" y="171"/> 
+                  </tab> 
+                </TabNavigator> 
+              </Window>  
+              <formEvent> 
+                <event name="initialize" type="initialize" label="初始化事件" systemEvent="true"><![CDATA[var query/*:QueryControl*/ = form.getScriptHost("$opener");
+if(query != null){
+	var errorTradeLog_entity/*:$Entity.AMS_ErrorTradeLog*/ = query.getSelectedEntity();
+	form.setFieldValue("bizid", 			errorTradeLog_entity.bizid);
+	form.setFieldValue("out_trade_id", 		errorTradeLog_entity.out_trade_id);
+	form.setFieldValue("pay_channelNo", 	errorTradeLog_entity.pay_channelNo);
+	form.setFieldValue("pay_channel_name",	errorTradeLog_entity.pay_channel_name);
+	form.setFieldValue("pay_interfaceNo",	errorTradeLog_entity.pay_interfaceNo);
+	
+	form.setFieldValue("pay_interface_name",	errorTradeLog_entity.pay_interface_name);
+	form.setFieldValue("trade_time",		errorTradeLog_entity.trade_time);
+	form.setFieldValue("out_trade_money",	errorTradeLog_entity.out_trade_money);
+	form.setFieldValue("cardNo",			errorTradeLog_entity.cardNo);
+}
+
+var loginInfo = form.getExpressionValue("$loginInfo");
+
+var state = form.getFormState();
+
+if(state == "新建"){
+	form.generateCoding("codeNo", "T");
+	form.setFieldValue("operator",  {id:loginInfo.principalId, name:loginInfo.principalName});
+}else if(state == "审核"){
+	form.setFieldValue("auditor",  {id:loginInfo.principalId, name:loginInfo.principalName});
+	var date = new Date();
+	form.setFieldValue("auditor_date",date);
+	
+}
+
+
+
+
+]]></event> 
+              </formEvent> 
+            </EntityForm>

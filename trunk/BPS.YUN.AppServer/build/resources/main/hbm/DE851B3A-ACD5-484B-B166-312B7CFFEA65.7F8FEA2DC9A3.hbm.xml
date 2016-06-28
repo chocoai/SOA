@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "PUBLIC" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class entity-name="AMS_HealthMonitor" table="DYNA_AMS_HealthMonitor">
+    <id name="id" type="long">
+      <generator class="sequence">
+        <param name="sequence">IDSEQ_AMS_HealthMonitor</param>
+      </generator>
+    </id>
+    <property name="domainId" not-null="false" type="long" index="IDX_DOMAINID"/>
+    <property name="monitor_time" not-null="false" type="timestamp" length="100"/>
+    <property name="ip" not-null="false" type="string" length="100"/>
+    <property name="port" not-null="false" type="long"/>
+    <property name="service_type" not-null="false" type="string" length="100"/>
+    <property name="monitor_type" not-null="false" type="long"/>
+    <property name="monitor_result" not-null="false" type="long"/>
+  </class>
+</hibernate-mapping>

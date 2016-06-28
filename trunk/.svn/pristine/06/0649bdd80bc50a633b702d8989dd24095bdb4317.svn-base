@@ -1,0 +1,213 @@
+package bps.checkaccount;
+
+import ime.calendar.TrigerHandler;
+import ime.core.Reserved;
+import ime.core.services.DynamicEntityService;
+import ime.security.LoginSession;
+
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.log4j.Logger;
+import org.hibernate.Query;
+import org.hibernate.Session;
+
+import apf.util.EntityManagerUtil;
+import apf.util.SessionContext;
+import bps.common.Constant;
+import bps.process.SafetyLevel;
+
+import com.kinorsoft.ams.services.QueryService;
+
+			 
+public class GradeUPTriger implements TrigerHandler {
+	
+//	private static Logger logger = Logger.getLogger(GradeUPTriger.class.getName());
+//	private static SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+    
+	//第二天定时触发
+	public void handle() {
+//		logger.info("GradeUPTriger begin ");
+//		try{
+//			Calendar cal = Calendar.getInstance();
+//			cal.set(Calendar.DATE, cal.get(Calendar.DATE)-1);
+//			Date dt = cal.getTime();
+//			GradeUPTrigerStart(dt);
+//		}catch(Exception e){
+//			logger.error("自动升级");
+//			logger.error(e.getMessage(), e);
+//		}
+//		logger.info("GradeUPTrigerStart end ");
+	}
+	
+	/** 
+	 * 自动升级
+	 * @param date 自动升级日期
+	*/
+//	public static void GradeUPTrigerStart(Date date) throws Exception {
+//		logger.info("RiskAttentionTrigerStart: 	date:" + df.format(date));
+//		SessionContext ctx = null;
+//        try {
+//            LoginSession loginSession = new LoginSession();
+//            LoginSession.backUse(null, Reserved.BACKUSER_ID, Reserved.MAIN_DOMAIN_ID);
+//            
+//            ctx = EntityManagerUtil.currentContext();
+//            Session session     = ctx.getHibernateSession();    //获取会话
+//            try{
+//                Query query = session.createQuery("from AMS_SafetyLevel where safety_level=:safety_level");
+//                query.setParameter("safety_level", Constant.SAFETY_LEVEL_2);
+//                List list = query.list();
+//                Date newDate = new Date();
+//                Calendar cal = Calendar.getInstance();
+//                cal.set(Calendar.DATE, cal.get(Calendar.DATE)-60);
+//                Date dt = cal.getTime();
+//                Calendar cal2 = Calendar.getInstance();
+//                cal2.set(Calendar.DATE, cal2.get(Calendar.DATE)-15);
+//                Date dt2 = cal2.getTime();
+//                
+//                query = session.createQuery("from AMS_TradingMonitorLog where addTime >:addtime");
+//                query.setParameter("addtime", dt);
+//                List list_ = query.list();
+//                
+//                List<Long> member_lock_list = new ArrayList<Long>();
+//                for(Object o :list_){
+//                    Map<String ,Object> tmLog_map = (Map<String ,Object>)o;
+//                    if(!tmLog_map.get("MonitorType").equals(Constant.MONITORTYPE_LOCKMEMBER_ONE)){
+//                        if(!member_lock_list.contains(tmLog_map.get("member_id"))){
+//                            member_lock_list.add((Long) tmLog_map.get("member_id"));
+//                        }
+//                    }
+//                }
+//                
+//                query = session.createQuery("from AMS_Order where create_time >:create_time and order_state=:order_state order by create_time");
+//                query.setParameter("create_time", dt2);
+//                query.setParameter("order_state", Constant.ORDER_STATE_SUCCESS);
+//                List list_order = query.list();
+//                
+//                Map<Long,List<Map<String,Object>>> member_order_1 = new HashMap<Long, List<Map<String,Object>>>();
+//                for(Object o :list_order){
+//                    Map<String ,Object> order = (Map<String ,Object>)o;
+//                    if(!order.get("order_type").equals(Constant.ORDER_TYPE_DEPOSIT)){
+//                        Long member_id = (Long) order.get("member_id");
+//                        if(member_order_1.get(member_id) == null){
+//                            List<Map<String,Object>> list_map = new ArrayList<Map<String,Object>>();
+//                            list_map.add(order);
+//                            member_order_1.put(member_id, list_map);
+//                        }else{
+//                            List<Map<String,Object>> list_map = member_order_1.get(member_id);
+//                            list_map.add(order);
+//                            member_order_1.put(member_id, list_map);
+//                        }
+//
+//                    }
+//                }//把订单根据会员id进行包装
+//                
+//                query = session.createQuery("from AMS_Order where create_time >:create_time and order_state=:order_state and order_type=:order_type order by create_time");
+//                query.setParameter("create_time", dt);
+//                query.setParameter("order_state", Constant.ORDER_STATE_SUCCESS);
+//                query.setParameter("order_type", Constant.ORDER_TYPE_SHOPPING);
+//                List list_order_ = query.list();
+//                
+//                Map<Long,List<Map<String,Object>>> member_order_2 = new HashMap<Long, List<Map<String,Object>>>();
+//                for(Object o :list_order_){
+//                    Map<String ,Object> order = (Map<String ,Object>)o;
+//                    Long member_id = (Long) order.get("member_id");
+//                    if(member_order_2.get(member_id) == null){
+//                        List<Map<String,Object>> list_map = new ArrayList<Map<String,Object>>();
+//                        list_map.add(order);
+//                        member_order_2.put(member_id, list_map);
+//                    }else{
+//                        List<Map<String,Object>> list_map = member_order_2.get(member_id);
+//                        list_map.add(order);
+//                        member_order_2.put(member_id, list_map);
+//                    }
+//                }//把订单根据会员id进行包装
+//                
+//                for(Object o : list){
+//                    Map<String,Object> safetyleve_map = (Map<String, Object>) o;
+//                    Long member_id = (Long) safetyleve_map.get("member_id");
+//                    Map<String,Object> member = DynamicEntityService.getEntity(member_id, "AMS_Member");
+//                    Date register_time = (Date) member.get("register_time");
+//                    Long times = (date.getTime()-register_time.getTime())/(1000 * 60 * 60 * 24);
+//                    if(times > 60){
+//                        if(!member_lock_list.contains(member_id)){
+//                            Map<String, Object> remain_user = QueryService.queryAccount(""+member.get("userId"), Constant.ACCOUNT_NO_CASH );
+//                            if(remain_user != null){
+//                                //logger.info("member_id+"+member_id);
+//                                //logger.info("userId+"+member.get("userId"));
+//                                //logger.info("remain_user+"+remain_user.get("id"));
+//                                //logger.info(((Long)remain_user.get("amount") - (Long)remain_user.get("freeze_amount")) > 100000);
+//                                //logger.info((Long)remain_user.get("amount"));
+//                                //logger.info((Long)remain_user.get("freeze_amount"));
+//                                if(((Long)remain_user.get("amount") - (Long)remain_user.get("freeze_amount")) > 100000){
+//                                    List list_order_1 = member_order_1.get(member_id);
+//                                    if(list_order_1 == null || list_order_1.isEmpty() || list_order_1.size() == 0){
+//                                        //符合条件
+//                                        //logger.info("Come here .............."+member_id);
+//                                        Long newdate = new Date().getTime();
+//                                        SafetyLevel.addOrEditSafetyLevel(member_id, Constant.SAFETY_LEVEL_4, null, null, session);
+//                                        Map<String,Object> param = new HashMap<String,Object>();
+//                                        param.put("member_id", member_id);
+//                                        param.put("old_level", Constant.SAFETY_LEVEL_2);
+//                                        param.put("new_level", Constant.SAFETY_LEVEL_4);
+//                                        param.put("type", Constant.AUTHENTICATION_TYPE_SAFTY);
+//                                        param.put("memo", "自动升级1");
+//                                        param.put("operation_type", "1");
+//                                        param.put("deal_result", Constant.DEAL_SUSSESS);
+//                                        param.put("add_time", newdate.toString());
+//                                        SafetyLevel.addSafetyLog(param);
+//                                    }
+//                                }else{
+//                                    List list_order_2 = member_order_2.get(member_id);
+//                                    if(list_order_2 != null && list_order_2.size() >= 3){
+//                                        Long money = 0l;
+//                                        for(Object ob :list_order_2){
+//                                            Map<String,Object> order = (Map<String, Object>)ob;
+//                                            money += (Long)order.get("order_money");
+//                                        }
+//                                        //logger.info("moneymoney+++"+money);
+//                                        if(money > 10000){
+//                                            Map<String,Object> order = (Map<String, Object>) list_order_2.get(0);
+//                                            Date create_time = (Date) order.get("create_time");
+//                                            //logger.info("create_time++++++"+create_time);
+//                                            Long time = (date.getTime() - create_time.getTime())/(1000 * 60 * 60 * 24);
+//                                            if(time > 15 ){
+//                                                //符合条件
+//                                                Long newdate = new Date().getTime();
+//                                                SafetyLevel.addOrEditSafetyLevel(member_id, Constant.SAFETY_LEVEL_4, null, null, session);
+//                                                Map<String,Object> param = new HashMap<String,Object>();
+//                                                param.put("member_id", member_id);
+//                                                param.put("old_level", Constant.SAFETY_LEVEL_2);
+//                                                param.put("new_level", Constant.SAFETY_LEVEL_4);
+//                                                param.put("type", Constant.AUTHENTICATION_TYPE_SAFTY);
+//                                                param.put("memo", "自动升级2");
+//                                                param.put("operation_type", "1");
+//                                                param.put("deal_result", Constant.DEAL_SUSSESS);
+//                                                param.put("add_time", newdate.toString());
+//                                                SafetyLevel.addSafetyLog(param);
+//                                            }
+//                                        }
+//                                    }
+//                                }
+//                            }
+//                        }
+//                    }
+//                }
+//                
+//            }catch (Exception e) {
+//                throw e;
+//            }
+//        }catch (Exception e) {
+//            throw e;
+//        }finally {
+//            EntityManagerUtil.closeSession(ctx);
+//        }
+//	}
+	
+}

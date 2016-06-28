@@ -1,0 +1,77 @@
+div.yuimenu {
+	overflow:	hidden;
+	color:		#233D6D;
+	margin:		0;
+	padding:	0;
+	border:		1px solid #718BB7;
+	cursor:		default;
+}
+div.yuimenu div.bd {
+	border:			1px solid #f9f8f7;
+	border-width:	1px 0 1px 0;
+	padding:		0 1px 0 1px;
+	margin:			0;
+}
+div.yuimenu ul {
+
+	list-style-type:none;
+	border:solid 1px #c4c4be;
+	border-width:1px 0 0 0;
+	margin:0;
+	padding:0px 0;
+
+}
+div.yuimenu li.yuimenuitem {
+	
+	padding:4px 24px;
+	background-repeat:no-repeat;
+	background-position: left center;
+}
+div.yuimenu li,
+div.yuimenubar li {
+	
+	cursor:default;
+	white-space:nowrap;
+	text-align:left;
+}
+div.yuimenubar li.yuimenubaritem {
+	
+    float:left;
+    display:inline; /* Prevent margin doubling in IE */
+    border:1px solid #FFFFFF;
+    padding:4px 0px 4px 16px;
+    margin:0;
+}
+div.yuimenubar li.selected {
+	border:	1px solid #8BB8F3;
+	background-color:#C3DAF9;
+	padding:4px 0px 4px 16px;
+}
+div.yuimenu li.selected{
+	
+	border:	1px solid #8BB8F3;
+	background-color:#C3DAF9;
+	padding:3px 23px 3px 23px;
+}
+
+div.yuimenubar div.bd {
+    background-color:#FFFFFF;
+}
+div.yuimenu li a,
+div.yuimenubar li a {
+	cursor:	default;
+	text-decoration:none;
+	color:#233D6D;
+}
+div.yuimenu li.selected a.selected,
+div.yuimenubar li.selected a.selected {
+	cursor:	default;
+	text-decoration:none;
+	color:#233D6D;
+}
+div.yuimenu li.selected a{
+	f:expression(hideFocus=true);
+}
+div.yuimenubar li.selected a{
+	f:expression(hideFocus=true);
+}

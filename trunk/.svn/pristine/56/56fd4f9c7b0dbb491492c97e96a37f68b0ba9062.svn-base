@@ -1,0 +1,12 @@
+#header {
+	background: #dfe8f6 url("../../../images/limiantop.jpg") no-repeat;
+	height: 80px;
+}
+
+/**
+	文件管理树中删除父节点最后一个子节点时父节点显示子节点图标问题
+	把父节点展开的图标统一用folder-open显示
+*/
+.x-tree-node-leaf .x-tree-node-icon {
+	background-image: url(../resources/images/default/tree/folder-open.gif);
+}

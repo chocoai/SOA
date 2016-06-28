@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityQuery name="部门查询" label="部门查询" note="" multiselect="false" editable="false" autopaging="true" uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.8FDDC2CEF574" nodeID="156"> 
+              <queryEntities> 
+                <Entity uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.7F7FFBA3C973" name="Department" label="部门" alias="a0"/> 
+              </queryEntities>  
+              <DataGrid> 
+                <color/>  
+                <column name="name" label="名称" uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.7F7FFBA3C973.id_3" width="100"/>  
+                <column name="note" label="备注" uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.7F7FFBA3C973.id_4" width="100"/> 
+              </DataGrid>  
+              <toolbar> 
+                <button label="新建" action="alink" selection="none" alink="alink://ime.AppWindow/EntityForm?{entityUID:&quot;031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.7F7FFBA3C973&quot;,action:&quot;create&quot;,formUID:&quot;031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.8100C775642D&quot;,formState:&quot;state0&quot;}" permission="" permissionName=""/>  
+                <button label="编辑" action="alink" alink="alink://ime.AppWindow/EntityForm?{formUID:&quot;031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.8100C775642D&quot;,entityUID:&quot;031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.7F7FFBA3C973&quot;,action:&quot;edit&quot;,formState:&quot;state0&quot;}" selection="single" permission="" permissionName=""/>  
+                <button label="删除" action="delete" selection="single" permission="" permissionName=""/> 
+              </toolbar>  
+              <xmlQuery version="2.0" name="" label=""> 
+                <select> 
+                  <other label="其他" uid="other" name="other"/>  
+                  <Entity uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.7F7FFBA3C973" name="Department" label="部门" alias="a0"> 
+                    <field uid="sys_0" name="id" label="编号" type="long"/>  
+                    <field uid="sys_1" name="domainId" label="域ID" type="long"/>  
+                    <field uid="ml_0" name="ml_parent" label="上级节点" type="long"/>  
+                    <field uid="id_1" name="groupId" label="组ID" type="long"/>  
+                    <field uid="id_2" name="roleId" label="角色ID" type="long"/>  
+                    <field uid="id_3" name="name" label="名称" type="string"/>  
+                    <field uid="id_4" name="note" label="备注" type="string"/> 
+                  </Entity> 
+                </select>  
+                <where> 
+                  <exp type="2"/> 
+                </where>  
+                <other> 
+                  <groupBy label="Group By"/>  
+                  <orderBy label="Order By"/> 
+                </other> 
+              </xmlQuery>  
+              <conditionForm> 
+                <Window> 
+                  <TabNavigator> 
+                    <tab label="default"/> 
+                  </TabNavigator> 
+                </Window> 
+              </conditionForm>  
+              <queryEvent/> 
+            </EntityQuery>

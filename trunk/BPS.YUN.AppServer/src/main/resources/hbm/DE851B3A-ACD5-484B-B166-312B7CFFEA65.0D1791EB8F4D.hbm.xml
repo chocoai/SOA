@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "PUBLIC" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class entity-name="AMS_AccountChgLog" table="DYNA_AMS_AccountChgLog">
+    <id name="id" type="long">
+      <generator class="sequence">
+        <param name="sequence">IDSEQ_AMS_AccountChgLog</param>
+      </generator>
+    </id>
+    <property name="domainId" not-null="false" type="long" index="IDX_DOMAINID"/>
+    <property name="account_id" not-null="false" type="long"/>
+    <property name="sub_account_id" not-null="false" type="long"/>
+    <property name="account_type_id" not-null="false" type="long" index="account_type_idx"/>
+    <property name="account_type_label" not-null="false" type="string" length="200"/>
+    <property name="trade_type" not-null="false" type="long"/>
+    <property name="chg_time" not-null="false" type="timestamp" length="100"/>
+    <property name="old_freeze_money" not-null="false" type="long"/>
+    <property name="cur_freeze_money" not-null="false" type="long"/>
+    <property name="chg_freeze_money" not-null="false" type="long"/>
+    <property name="cur_money" not-null="false" type="long"/>
+    <property name="old_money" not-null="false" type="long"/>
+    <property name="chg_money" not-null="false" type="long"/>
+    <property name="old_valid_date" not-null="false" type="timestamp" length="100"/>
+    <property name="cur_valid_date" not-null="false" type="timestamp" length="100"/>
+    <property name="userId" not-null="false" type="string" length="100"/>
+    <property name="bizid" not-null="false" type="string" length="100"/>
+    <property name="remark" not-null="false" type="string" length="100"/>
+    <property name="trade_id" not-null="false" type="string" length="100"/>
+    <property name="out_trade_id" not-null="false" type="string" length="100"/>
+    <property name="isMaster" not-null="false" type="boolean" length="100"/>
+    <property name="pay_mode" not-null="false" type="string" length="100"/>
+    <property name="pay_channelNo" not-null="false" type="string" length="100"/>
+    <property name="sub_trade_type" not-null="false" type="long"/>
+    <property name="extend_info" not-null="false" type="string" length="1024"/>
+    <property name="pay_interfaceNo" not-null="false" type="string" length="100"/>
+    <property name="bank_code" not-null="false" type="string" length="100"/>
+    <property name="command_no" not-null="false" type="string" length="100"/>
+    <property name="biz_orderNo" not-null="false" type="string" length="100"/>
+  </class>
+</hibernate-mapping>

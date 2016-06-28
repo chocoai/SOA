@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Report label="网络支付-应收" name="网络支付-应收" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.2FA1000F1616" nodeID="878" editOnReview="false" autoResize="false" onlyShowContent="false" breakPage="false" showPageNo="true"> 
+            <dataSource> 
+              <xmlQuery version="2.0" uid="968FD2ED-E7F7-402B-A377-DDBE0DA6A48D" name="paychannel" label="查询渠道"> 
+                <select domainScope="true"> 
+                  <other label="其他" uid="other" name="other"/>  
+                  <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.4BCBC9D2C1A9" name="AMS_PayChannel" label="支付渠道" alias="a0" selectAll="true" isBranch="true"> 
+                    <field uid="sys_0" name="id" label="编号" type="long"/>  
+                    <field uid="sys_1" name="domainId" label="域ID" type="long"/>  
+                    <field uid="id_1" name="name" label="名称" type="string"/>  
+                    <field uid="log_0" name="FM_CreatePrinId" label="创建者ID" type="long"/>  
+                    <field uid="log_1" name="FM_CreatePrinName" label="创建者" type="string"/>  
+                    <field uid="log_2" name="FM_UpdatePrinId" label="更新者ID" type="long"/>  
+                    <field uid="log_3" name="FM_UpdatePrinName" label="更新者" type="string"/>  
+                    <field uid="log_4" name="FM_CreateTime" label="创建时间" type="timestamp"/>  
+                    <field uid="log_5" name="FM_UpdateTime" label="更新时间" type="timestamp"/>  
+                    <field uid="id_2" name="codeNo" label="渠道编号" type="string"/>  
+                    <field uid="id_3" name="handling_settle_type" label="手续费结算方式" type="long"/>  
+                    <field uid="id_4" name="handling_settle_cycle" label="手续费结算周期" type="long"/>  
+                    <field uid="id_5" name="capital_settle_cycle" label="资金结算周期" type="long"/>  
+                    <field uid="id_8" name="system_uuid" label="系统用户ID" type="string"/>  
+                    <field uid="id_9" name="merchant_id" label="商户号" type="string"/>  
+                    <field uid="id_10" name="publickey" label="公匙证书路径" type="string"/>  
+                    <field uid="id_11" name="privatekey" label="私匙证书路径" type="string"/>  
+                    <field uid="id_12" name="remark" label="备注" type="string"/>  
+                    <field uid="id_13" name="short_name" label="简称" type="string"/>  
+                    <field uid="id_14" name="system_member" label="系统用户" type="relation"/> 
+                  </Entity> 
+                </select>  
+                <where> 
+                  <exp type="2"> 
+                    <exp type="1" option="true" uid="exp0"> 
+                      <exp type="5" valueType="1" option="true" rightType="val" right="10001" leftEntity="AMS_PayChannel" leftField="codeNo" uid="exp1"/>  
+                      <exp type="5" valueType="1" option="true" rightType="val" right="10002" leftEntity="AMS_PayChannel" leftField="codeNo" uid="exp2"/>  
+                      <exp type="5" valueType="1" option="true" rightType="val" right="20001" leftEntity="AMS_PayChannel" leftField="codeNo" uid="exp3"/> 
+                    </exp> 
+                  </exp> 
+                </where>  
+                <other> 
+                  <groupBy label="Group By"/>  
+                  <orderBy label="Order By"/> 
+                </other> 
+              </xmlQuery>  
+              <xmlQuery version="2.0" uid="0F3F7937-986A-43A3-9D9D-F516D34EB03F" name="trade" label="应收交易金额"> 
+                <select domainScope="true"> 
+                  <other label="其他" uid="other" name="other" selectAll="false"> 
+                    <field name="sum(a0.trade_money)" uid="other0" fieldType="otherField" MySQLName="" SQLServerName="" OracleName="" label="交易金额" alias="trade_money" calcexp="toFixed(other.total, 2)"/>  
+                    <field name="sum(a0.handling_charge)" uid="other1" fieldType="otherField" MySQLName="" SQLServerName="" OracleName="" label="手续费" alias="handling_charge"/> 
+                  </other>  
+                  <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.6439A7310C28" name="AMS_PayInterface" label="支付通道" alias="a2" selectAll="false"/>  
+                  <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.4BCBC9D2C1A9" name="AMS_PayChannel" label="支付渠道" alias="a1" selectAll="false"> 
+                    <field uid="sys_0" name="id" label="编号" type="long" entity="AMS_PayChannel"/> 
+                  </Entity>  
+                  <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.029E3085EFF8" name="AMS_TradeLog" label="交易日志" alias="a0" selectAll="false"> 
+                    <field uid="id_60" name="handling_mode" label="手续费收费模式" type="long" entity="AMS_TradeLog"/> 
+                  </Entity> 
+                </select>  
+                <where> 
+                  <exp type="2"> 
+                    <exp type="5" valueType="3" option="true" rightType="prop" rightEntity="AMS_PayInterface" rightField="pay_channel_id" leftEntity="AMS_PayChannel" leftField="id" uid="exp0"/>  
+                    <exp type="5" valueType="1" option="true" leftEntity="AMS_TradeLog" leftField="source_userId" uid="exp1" rightType="prop" rightEntity="AMS_PayInterface" rightField="system_uuid"/>  
+                    <exp type="7" valueType="7" option="true" rightType="param" right="beginDt" leftEntity="AMS_TradeLog" leftField="trade_time" uid="exp2"/>  
+                    <exp type="11" valueType="7" option="true" rightType="param" right="endDt" leftEntity="AMS_TradeLog" leftField="trade_time" uid="exp3"/>  
+                    <exp type="1" option="true" uid="exp4"> 
+                      <exp type="5" valueType="1" option="true" leftEntity="AMS_PayChannel" leftField="codeNo" uid="exp5" rightType="val" right="10002"/>  
+                      <exp type="5" valueType="1" option="true" leftEntity="AMS_PayChannel" leftField="codeNo" uid="exp6" rightType="val" right="10001"/>  
+                      <exp type="5" valueType="1" option="true" leftEntity="AMS_PayChannel" leftField="codeNo" uid="exp7" rightType="val" right="20001"/> 
+                    </exp> 
+                  </exp> 
+                </where>  
+                <other> 
+                  <groupBy label="Group By"> 
+                    <field uid="sys_0" name="id" label="编号" type="long" entity="AMS_PayChannel"/>  
+                    <field uid="id_60" name="handling_mode" label="手续费收费模式" type="long" entity="AMS_TradeLog"/> 
+                  </groupBy>  
+                  <orderBy label="Order By"/> 
+                </other> 
+              </xmlQuery>  
+              <other label="其他" name="other" uid="other"> 
+                <field name="total" label="合计金额" calcexp="" uid="field0"/>  
+                <field name="reportDt" label="出表日期" calcexp="" uid="field1"/>  
+                <field name="total_handling_charge" label="手续费合计" calcexp="" uid="field2"/>  
+                <field name="total_receivable" label="应收金额合计" calcexp="" uid="field3"/> 
+              </other>  
+              <customerDS name="stat" label="stat" uid="D059509F-A7AF-4976-AAC2-36E1EEDE4AC3"> 
+                <field name="name" label="名称" calcexp="" uid="field0"/>  
+                <field name="merchant_id" label="商户号" calcexp="" uid="field1"/>  
+                <field name="remark" label="备注" calcexp="" uid="field2"/>  
+                <field name="trade_money" label="交易本金" calcexp="" uid="field3"/>  
+                <field name="handling_mode" label="手续费收取模式" calcexp="" uid="field4"/>  
+                <field name="handling_charge" label="手续费金额" calcexp="" uid="field5"/>  
+                <field name="receivable" label="应收渠道金额" calcexp="" uid="field6"/>  
+                <field name="settlementDt" label="清算日期" calcexp="" uid="field7"/> 
+              </customerDS> 
+            </dataSource>  
+            <events label="事件"> 
+              <event name="initialize" label="初始化事件"/>  
+              <event name="preQuery" label="查询前事件"/>  
+              <event name="postQuery" label="查询后事件"><![CDATA[var tradeList/*:Array*/ = report.getDataSource("trade");
+if(tradeList == null)
+	return;
+
+var paychannleList/*:Array*/ = report.getDataSource("paychannel");
+if(paychannleList == null)
+	return;
+
+var stat/*:Array*/ = [];	//组装数据数组
+
+var paychannleMap = {};
+for(var i=0; i<paychannleList.length; i++){
+	paychannleMap[paychannleList[i].AMS_PayChannel.id] = paychannleList[i].AMS_PayChannel;
+}
+
+var cond = report.getQueryCondition();
+var beginDt = DateUtil.format(cond.beginDt, "YYYYMMDD");
+var endDt = DateUtil.format(cond.endDt, "YYYYMMDD");
+
+var total/*:Number*/ = 0;
+var total_handling_charge/*:Number*/ = 0;
+var total_receivable/*:Number*/ =0;
+
+for(var i=0; i<tradeList.length; i++){
+	var other = tradeList[i].other;
+	var paychannel_id	= tradeList[i].AMS_PayChannel.id;
+	var paychannel/*:$Entity.AMS_PayChannel*/ = paychannleMap[paychannel_id];
+	var handling_mode	= tradeList[i].AMS_TradeLog.handling_mode;	
+	
+	var trade_money/*:Number*/ = Number(other.trade_money);
+	var handling_charge/*:Number*/	= Number(other.handling_charge);
+	
+	var obj = {};
+	obj.settlementDt 	= beginDt + "-" + endDt;
+	obj.merchant_id		= paychannel.merchant_id;
+	obj.name			= paychannel.name;
+	obj.remark			= paychannel.remark;
+	obj.trade_money		= (trade_money/100.0).toFixed(2);
+	obj.handling_charge	= (handling_charge/100).toFixed(2);
+	if(handling_mode == 2){
+		obj.handling_mode	= "轧差";
+		obj.remark = "钆差模式下，应收渠道金额=一账通收款交易本金-手续费金额";
+	}else{
+		obj.handling_mode	= "收支两条线";
+		obj.remark = "收支两条线模式下，应收渠道金额=一账通收款交易本金金额";
+	}
+	
+	var receivable/*:Number*/ = trade_money;
+	if(handling_mode == 2)
+		receivable	= trade_money-handling_charge;
+	
+	obj.receivable	= (receivable/100.0).toFixed(2);
+	
+	stat.push(obj);
+	total += trade_money;
+	total_handling_charge +=  handling_charge;
+	total_receivable += receivable;
+}
+
+var other = report.getDataSource("other");
+if(other == null)
+	other = {};
+
+other.total = (total/100.0).toFixed(2);
+other.total_handling_charge	= (total_handling_charge/100.0).toFixed(2);
+other.total_receivable	= (total_receivable/100.0).toFixed(2);
+
+var now  = report.getExpressionValue("now()");
+other.reportDt = DateUtil.format(now, "YYYY-MM-DD");
+
+report.setDataSource("stat", stat);
+report.setDataSource("other", other);]]></event>  
+              <event name="reportCreated" label="报表生成事件"/>  
+              <event name="printed" label="打印事件" systemEvent="true"/> 
+            </events>  
+            <Document pageCount="1" width="1500" height="800" paddingLeft="30" paddingRight="30" paddingTop="50" paddingBottom="50"> 
+              <table width="1390" height="274" headRow="0" fixedY="false" tailRow="0" name="" x="39" y="98" uid="6f12263e-313b-4ebf-b305-7367628ebe97"> 
+                <tr> 
+                  <td width="1390" height="68" rowIndex="0" colIndex="0" sameMerge="" mergeExp="" href="" viewMode="" fontSize="36" borderWidth="0 0 0 0" colSpan="10" textAlign="center" fontWeight="bold"><![CDATA[通联一账通清算-应收]]></td> 
+                </tr>  
+                <tr> 
+                  <td width="413" height="51" rowIndex="1" colIndex="0" sameMerge="" mergeExp="" href="" viewMode="" fontSize="20" borderWidth="0 0 1 0" colSpan="2"><![CDATA[机构名称：个人业务部]]></td>  
+                  <td width="285" height="51" rowIndex="1" colIndex="2" sameMerge="" mergeExp="" href="" viewMode="" fontSize="20" borderWidth="0 0 1 0" colSpan="2"><![CDATA[支付渠道：通联支付网路]]></td>  
+                  <td width="87" height="51" rowIndex="1" colIndex="4" sameMerge="" mergeExp="" href="" viewMode="" fontSize="20" borderWidth="0 0 1 0"><![CDATA[单位：元]]></td>  
+                  <td width="85" height="51" rowIndex="1" colIndex="5" fontSize="20" sameMerge="" mergeExp="" href="" viewMode="" borderWidth="0 0 1 0"><![CDATA[]]></td>  
+                  <td sameMerge="" mergeExp="" href="" viewMode="" width="95" height="51" rowIndex="1" colIndex="6" borderWidth="0 0 1 0" fontSize="20"><![CDATA[出表日期]]></td>  
+                  <td width="187" height="51" rowIndex="1" colIndex="7" sameMerge="" mergeExp="" href="" viewMode="" colSpan="2" borderWidth="0 0 1 0" fontSize="20" fillColor="#FFFFFF"><![CDATA[${other.reportDt}]]></td>  
+                  <td width="238" height="51" rowIndex="1" colIndex="9" sameMerge="" mergeExp="" href="" viewMode="" borderWidth="0 0 1 0" fontSize="20"/> 
+                </tr>  
+                <tr> 
+                  <td width="250" height="54" rowIndex="2" colIndex="0" sameMerge="" mergeExp="" href="" viewMode="" fontWeight="bold" textAlign="center"><![CDATA[商户名称]]></td>  
+                  <td width="163" height="54" rowIndex="2" colIndex="1" sameMerge="" mergeExp="" href="" viewMode="" fontWeight="bold" textAlign="center"><![CDATA[商户号]]></td>  
+                  <td width="184" height="54" rowIndex="2" colIndex="2" sameMerge="" mergeExp="" href="" viewMode="" fontWeight="bold" textAlign="center"><![CDATA[清算日期]]></td>  
+                  <td width="101" height="54" rowIndex="2" colIndex="3" sameMerge="" mergeExp="" href="" viewMode="" fontWeight="bold" textAlign="center"><![CDATA[一帐通收款
+交易本金]]></td>  
+                  <td width="87" height="54" rowIndex="2" colIndex="4" sameMerge="" mergeExp="" href="" viewMode="" fontWeight="bold" textAlign="center"><![CDATA[流水差异]]></td>  
+                  <td width="85" height="54" rowIndex="2" colIndex="5" sameMerge="" mergeExp="" href="" viewMode="" fontWeight="bold" textAlign="center"><![CDATA[其他差异]]></td>  
+                  <td width="95" height="54" rowIndex="2" colIndex="6" sameMerge="" mergeExp="" href="" viewMode="" fontWeight="bold" textAlign="center"><![CDATA[手续费金额]]></td>  
+                  <td width="100" height="54" rowIndex="2" colIndex="7" sameMerge="" mergeExp="" href="" viewMode="" fontWeight="bold" textAlign="center"><![CDATA[手续费
+收取模式]]></td>  
+                  <td width="87" height="54" rowIndex="2" colIndex="8" sameMerge="" mergeExp="" href="" viewMode="" fontWeight="bold" textAlign="center"><![CDATA[应收渠道
+金额]]></td>  
+                  <td width="238" height="54" rowIndex="2" colIndex="9" sameMerge="" mergeExp="" href="" viewMode="" fontWeight="bold" textAlign="center"><![CDATA[备注]]></td> 
+                </tr>  
+                <tr> 
+                  <td width="250" height="47" rowIndex="3" colIndex="0" dataSource="stat" labelField="name" dataField="name" fillMode="1" fillColor="#FFFFFF" textAlign="center"><![CDATA[名称]]></td>  
+                  <td width="163" height="47" rowIndex="3" colIndex="1" dataSource="stat" labelField="merchant_id" dataField="merchant_id" fillMode="1" sameMerge="" mergeExp="" href="" viewMode="" fillColor="#FFFFFF" textAlign="center"><![CDATA[商户号]]></td>  
+                  <td width="184" height="47" rowIndex="3" colIndex="2" href="" dataSource="stat" labelField="settlementDt" fillMode="1" sameMerge="" mergeExp="" viewMode="" fillColor="#FFFFFF" textAlign="center" dataField="settlementDt"><![CDATA[清算日期]]></td>  
+                  <td width="101" height="47" rowIndex="3" colIndex="3" dataSource="stat" labelField="trade_money" dataField="trade_money" fillMode="1" sameMerge="" mergeExp="" href="" viewMode="" fillColor="#FFFFFF" textAlign="center"><![CDATA[交易本金]]></td>  
+                  <td width="87" height="47" rowIndex="3" colIndex="4" fillColor="#FFFFFF" textAlign="center"/>  
+                  <td width="85" height="47" rowIndex="3" colIndex="5" sameMerge="" mergeExp="" href="" viewMode="" fillColor="#FFFFFF" textAlign="center"/>  
+                  <td width="95" height="47" rowIndex="3" colIndex="6" fillColor="#FFFFFF" textAlign="center" dataSource="stat" labelField="handling_charge" dataField="handling_charge" fillMode="1"><![CDATA[手续费金额]]></td>  
+                  <td width="100" height="47" rowIndex="3" colIndex="7" fillColor="#FFFFFF" textAlign="center" dataSource="stat" labelField="handling_mode" dataField="handling_mode" fillMode="1"><![CDATA[手续费收取模式]]></td>  
+                  <td width="87" height="47" rowIndex="3" colIndex="8" fillColor="#FFFFFF" textAlign="center" dataSource="stat" labelField="receivable" dataField="receivable" fillMode="1"><![CDATA[应收渠道金额]]></td>  
+                  <td width="238" height="47" rowIndex="3" colIndex="9" fillColor="#FFFFFF" textAlign="center" dataSource="stat" labelField="remark" dataField="remark" fillMode="1"><![CDATA[备注]]></td> 
+                </tr>  
+                <tr> 
+                  <td width="250" height="54" rowIndex="4" colIndex="0" fillColor="#FFFFFF" sameMerge="" mergeExp="" href="" viewMode="" textAlign="center"><![CDATA[合计]]></td>  
+                  <td width="163" height="54" rowIndex="4" colIndex="1" fillColor="#FFFFFF" textAlign="center"/>  
+                  <td width="184" height="54" rowIndex="4" colIndex="2" sameMerge="" mergeExp="" href="" viewMode="" fillColor="#FFFFFF" textAlign="center"/>  
+                  <td width="101" height="54" rowIndex="4" colIndex="3" fillColor="#FFFFFF" textAlign="center"><![CDATA[${other.total}]]></td>  
+                  <td width="87" height="54" rowIndex="4" colIndex="4" fillColor="#FFFFFF" textAlign="center"/>  
+                  <td width="85" height="54" rowIndex="4" colIndex="5" fillColor="#FFFFFF" textAlign="center"/>  
+                  <td width="95" height="54" rowIndex="4" colIndex="6" fillColor="#FFFFFF" textAlign="center"><![CDATA[${other.total_handling_charge}]]></td>  
+                  <td width="100" height="54" rowIndex="4" colIndex="7" fillColor="#FFFFFF" textAlign="center"><![CDATA[]]></td>  
+                  <td width="87" height="54" rowIndex="4" colIndex="8" fillColor="#FFFFFF" textAlign="center"><![CDATA[${other.total_receivable}]]></td>  
+                  <td width="238" height="54" rowIndex="4" colIndex="9" fillColor="#FFFFFF" textAlign="center"/> 
+                </tr> 
+              </table> 
+            </Document>  
+            <conditionForm> 
+              <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2"> 
+                <TabNavigator> 
+                  <tab label="default"> 
+                    <Label label="Label" text="起始日期:" x="3" y="3" width="79" height="24" style=""/>  
+                    <DateField label="DateField" x="63" y="3" width="139" height="24" name="beginDt" required="true"/>  
+                    <Label label="Label" text="至" x="203" y="3" width="39" height="24" style=""/>  
+                    <DateField label="DateField" x="223" y="3" width="139" height="24" name="endDt" required="true"/> 
+                  </tab> 
+                </TabNavigator> 
+              </Window> 
+            </conditionForm> 
+          </Report>

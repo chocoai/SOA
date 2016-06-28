@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityForm name="注册企业信息" label="注册企业信息" uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.90B46FC3C9B5" nodeID="161"> 
+              <formEntity uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.76A3C4E92743"/>  
+              <formState> 
+                <state label="基础" uid="state0" basedOn="null"> 
+                  <rule type="required" property="name" label="名称" rule="true"/>  
+                  <rule type="required" property="domainName" label="企业域名" rule="true"/>  
+                  <rule type="value" property="parentName" label="上级企业" rule="$opener.page.domain.selectedItem.label"/>  
+                  <rule type="enabled" property="parentName" label="上级企业" rule="false"/> 
+                </state> 
+              </formState>  
+              <Window> 
+                <TabNavigator> 
+                  <tab label="default"> 
+                    <Label width="82" height="25" text="企业名称:" propertyUID="id_1" x="3" y="3"/>  
+                    <TextInput propertyUID="id_1" width="317" height="25" x="63" y="3"/>  
+                    <Label width="82" height="25" text="企业域名:" propertyUID="id_3" x="3" y="31"/>  
+                    <TextInput propertyUID="id_3" width="317" height="25" x="63" y="31"/>  
+                    <Label width="82" height="25" text="上级企业:" propertyUID="id_4" x="3" y="59"/>  
+                    <TextInput propertyUID="id_4" width="317" height="25" x="63" y="59"/> 
+                  </tab> 
+                </TabNavigator> 
+              </Window>  
+              <formEvent/> 
+            </EntityForm>

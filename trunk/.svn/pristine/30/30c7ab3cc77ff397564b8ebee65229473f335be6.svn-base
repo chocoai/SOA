@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<HtmlPage>
+	<Link>
+		<File type="js" url="..." />
+		<File type="css" url="..." />
+	</Link>
+	<Layout>
+		<VLayout ns="ime.xpt" width="100%">
+			<SiteHeader ns="ime.drp" width="100%"></SiteHeader>
+			<SearchBar ns="ime.drp" width="100%"></SearchBar>
+			<HLayout ns="ime.xpt" width="100%">
+				<VLayout ns="ime.xpt" name="left" width="200">
+					<CatalogMenu ns="ime.drp" width="100%" theme="default">
+						<parameter><![CDATA[ {} ]]></parameter>
+					</CatalogMenu>
+					<ArticleList ns="ime.drp" width="100%" articl_type="公告"></ArticleList>
+				</VLayout>
+				<VLayout ns="ime.xpt" name="center" width="600">
+					<AdBar ns="ime.drp" url="xxx.swf" width="100%" height="200"></AdBar>
+					<GoodsCatalogPanel ns="ime.drp" width="100%" height="200" catalog="热销商品"></GoodsCatalogPanel>
+					<GoodsCatalogPanel ns="ime.drp" width="100%" height="200" catalog="最新商品"></GoodsCatalogPanel>
+				</VLayout>
+				<VLayout ns="ime.xpt" name="right" width="200">
+					<ArticleList ns="ime.drp" width="100%" articl_type="帮助"></ArticleList>
+				</VLayout>
+			</HLayout>
+			<SiteFoot ns="ime.drp" width="100%"></SiteFoot>
+		</VLayout>
+	</Layout>
+
+</HtmlPage>

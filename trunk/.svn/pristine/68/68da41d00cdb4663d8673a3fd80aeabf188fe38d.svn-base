@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Entity lastId="6" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.41EC73A129B8" name="AMS_AgentDetail" label="代收付款明细" note="" log="false" workflow="false" nodeID="988" dbcreated="true"> 
+  <relation/>  
+  <extension/>  
+  <property uid="sys_0" label="编号" name="id" type="long" systemProperty="true" group="系统属性字段" editorPart="Entity"/>  
+  <property uid="sys_1" label="域ID" name="domainId" type="long" systemProperty="true" group="系统属性字段" editorPart="Entity"/>  
+  <property name="agentOrder" label="订单" type="relation" uid="id_1" group="业务属性字段" entityUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.3D51405C5EA0" labelField="orderNo" dbcreated="true" editorPart="Entity"/>  
+  <property name="bizUserId" label="收款人(业务系统)" type="string" length="100" uid="id_2" group="业务属性字段" dbcreated="true" editorPart="Entity"/>  
+  <property name="userId" label="收款人" type="string" length="100" uid="id_3" group="业务属性字段" dbcreated="true" editorPart="Entity"/>  
+  <property name="sk_amount" label="应收金额" type="long" uid="id_4" group="业务属性字段" dbcreated="true" editorPart="Entity"/>  
+  <property name="ys_amount" label="已收金额" type="long" uid="id_5" group="业务属性字段" dbcreated="true" editorPart="Entity"/>  
+  <property name="tk_amount" label="退款金额" type="long" uid="id_6" group="业务属性字段" dbcreated="true" editorPart="Entity"/> 
+</Entity>

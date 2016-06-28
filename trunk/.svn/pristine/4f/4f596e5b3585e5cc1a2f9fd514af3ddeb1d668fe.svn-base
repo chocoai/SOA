@@ -1,0 +1,2 @@
+
+include  "BPS.YUN.WebServer","BPS.YUN.AppServer","bps.yun.external.service", "bps.yun.external.service.api", "bps.yun.external.soa", "bps.yun.service", "bps.yun.service.api" 

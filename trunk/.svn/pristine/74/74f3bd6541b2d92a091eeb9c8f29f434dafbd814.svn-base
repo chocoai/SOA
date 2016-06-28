@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityQuery name="账户交易日志查询" label="账户交易日志查询" note="" share="false" multiselect="false" editable="false" autopaging="true" pagingMode="VirtualizingPaging" virtualizingPagingEnabled="true" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.D2C6C76D17E1" nodeID="683"> 
+              <queryEntities> 
+                <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.029E3085EFF8" name="AMS_TradeLog" label="业务交易日志" alias="a1" selectAll="true" isBranch="true"/>  
+                <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.6668BB46A992" name="AMS_AccountTradeLog" label="账户交易日志" alias="a0" selectAll="true" isBranch="true" master="true"/> 
+              </queryEntities>  
+              <DataGrid> 
+                <color/>  
+                <column name="source_userId" label="源会员ID" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.029E3085EFF8.id_39" width="125" isBranch="false" editable="" sortable="" textAlign="" dataField="AMS_TradeLog$source_userId"/>  
+                <column name="target_userId" label="目标会员ID" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.029E3085EFF8.id_40" width="118" isBranch="false" editable="" sortable="" textAlign="" dataField="AMS_TradeLog$target_userId"/>  
+                <column name="trade_type" label="交易类型" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.6668BB46A992.id_4" width="89" isBranch="false" editable="" sortable="" textAlign="" dataField="AMS_AccountTradeLog$trade_type"/>  
+                <column name="trade_time" label="发生时间" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.6668BB46A992.id_12" width="150" isBranch="false" editable="" sortable="" textAlign="" dataField="AMS_AccountTradeLog$trade_time"/>  
+                <column name="transfer_type" label="转账类型" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.6668BB46A992.id_18" width="77" isBranch="false" editable="" sortable="" textAlign="" dataField="AMS_AccountTradeLog$transfer_type"/>  
+                <column name="trade_money" label="交易金额" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.6668BB46A992.id_24" width="100" isBranch="false" dataField="AMS_AccountTradeLog$trade_money"/>  
+                <column name="trade_id" label="交易流水号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.029E3085EFF8.id_33" width="100" isBranch="false" dataField="AMS_TradeLog$trade_id"/>  
+                <column name="biz_trade_id" label="业务交易流水号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.029E3085EFF8.id_41" width="100" isBranch="false" dataField="AMS_TradeLog$biz_trade_id"/>  
+                <column name="out_trade_id" label="外部交易流水号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.029E3085EFF8.id_13" width="100" isBranch="false" dataField="AMS_TradeLog$out_trade_id"/> 
+              </DataGrid>  
+              <editState/>  
+              <toolbar/>  
+              <xmlQuery version="2.0" name="" label=""> 
+                <select domainScope="false"> 
+                  <other label="其他" uid="other" name="other"/>  
+                  <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.6668BB46A992" name="AMS_AccountTradeLog" label="账户交易日志" alias="a0" selectAll="true" isBranch="true"> 
+                    <field uid="sys_0" name="id" label="编号" type="long"/>  
+                    <field uid="sys_1" name="domainId" label="域ID" type="long"/>  
+                    <field uid="id_3" name="tradelog_id" label="交易日志ID" type="long"/>  
+                    <field uid="id_4" name="trade_type" label="交易类型" type="long"/>  
+                    <field uid="id_5" name="account_id" label="会员账户ID" type="long"/>  
+                    <field uid="id_6" name="account_type" label="账户类型" type="relation"/>  
+                    <field uid="id_11" name="log_state" label="日志状态" type="long"/>  
+                    <field uid="id_12" name="trade_time" label="发生时间" type="timestamp" entity="AMS_AccountTradeLog"/>  
+                    <field uid="id_18" name="transfer_type" label="转账类型" type="long"/>  
+                    <field uid="id_19" name="trade_id" label="交易流水号" type="string"/>  
+                    <field uid="id_20" name="out_trade_id" label="外部交易流水号" type="string"/>  
+                    <field uid="id_21" name="out_bizno" label="外部业务号码" type="string"/>  
+                    <field uid="id_22" name="inner_trade_id" label="内部流水号" type="string"/>  
+                    <field uid="id_23" name="userId" label="用户ID" type="string"/>  
+                    <field uid="id_24" name="trade_money" label="交易金额" type="long" currency="true"/> 
+                  </Entity>  
+                  <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.029E3085EFF8" name="AMS_TradeLog" label="业务交易日志" alias="a1" selectAll="true" isBranch="true"> 
+                    <field uid="sys_0" name="id" label="编号" type="long"/>  
+                    <field uid="sys_1" name="domainId" label="域ID" type="long"/>  
+                    <field uid="id_3" name="source_account_id" label="源账户ID" type="long"/>  
+                    <field uid="id_5" name="target_account_id" label="目标账户ID" type="long"/>  
+                    <field uid="id_6" name="account_type" label="账户类型" type="relation"/>  
+                    <field uid="id_7" name="trade_type" label="交易类型" type="long"/>  
+                    <field uid="id_8" name="trade_time" label="交易时间" type="timestamp"/>  
+                    <field uid="id_9" name="rollback_id" label="回滚交易ID" type="long"/>  
+                    <field uid="id_10" name="rollback_source_id" label="回滚交易的目标ID" type="long"/>  
+                    <field uid="id_13" name="out_trade_id" label="外部交易流水号" type="string"/>  
+                    <field uid="id_16" name="remark" label="备注" type="string"/>  
+                    <field uid="id_17" name="operator_id" label="操作员ID" type="string"/>  
+                    <field uid="id_19" name="out_bizno" label="外部业务号码" type="string"/>  
+                    <field uid="id_24" name="trade_money" label="交易金额" type="long" currency="true"/>  
+                    <field uid="id_33" name="trade_id" label="交易流水号" type="string"/>  
+                    <field uid="id_36" name="bizid" label="业务编号" type="string"/>  
+                    <field uid="id_39" name="source_userId" label="源会员ID" type="string"/>  
+                    <field uid="id_40" name="target_userId" label="目标会员ID" type="string"/>  
+                    <field uid="id_41" name="biz_trade_id" label="业务交易流水号" type="string"/> 
+                  </Entity> 
+                </select>  
+                <where> 
+                  <exp type="2"> 
+                    <exp type="5" valueType="3" option="true" rightType="val" right="$page.opener.selectedEntity.id" leftEntity="AMS_AccountTradeLog" leftField="account_id" uid="exp0"/>  
+                    <exp type="5" valueType="3" option="true" rightType="prop" rightEntity="AMS_TradeLog" rightField="id" leftEntity="AMS_AccountTradeLog" leftField="tradelog_id" uid="exp1"/> 
+                  </exp> 
+                </where>  
+                <other> 
+                  <groupBy label="Group By"/>  
+                  <orderBy label="Order By"> 
+                    <field uid="id_12" name="trade_time" label="发生时间" type="timestamp" entity="AMS_AccountTradeLog" order="desc"/> 
+                  </orderBy> 
+                </other> 
+              </xmlQuery>  
+              <conditionForm> 
+                <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2"> 
+                  <TabNavigator> 
+                    <tab label="default"/> 
+                  </TabNavigator> 
+                </Window> 
+              </conditionForm>  
+              <StatSetting/>  
+              <queryEvent/> 
+            </EntityQuery>

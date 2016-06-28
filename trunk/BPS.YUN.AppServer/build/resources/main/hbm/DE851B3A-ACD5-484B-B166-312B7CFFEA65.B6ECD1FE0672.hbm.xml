@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "PUBLIC" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class entity-name="AMS_PayInterfaceAppConfig" table="DYNA_AMS_PayInterfaceAppConfig">
+    <id name="id" type="long">
+      <generator class="sequence">
+        <param name="sequence">IDSEQ_AMS_PayInterfaceAppConfig</param>
+      </generator>
+    </id>
+    <property name="domainId" not-null="false" type="long" index="IDX_DOMAINID"/>
+    <property name="payType" not-null="false" type="long"/>
+    <property name="userName" not-null="false" type="string" length="100"/>
+    <property name="userPass" not-null="false" type="string" length="100"/>
+    <property name="merchant_id" not-null="false" type="string" length="100"/>
+    <property name="tltcerPath" not-null="false" type="string" length="200"/>
+    <property name="pfxPath" not-null="false" type="string" length="100"/>
+    <property name="pfxPassword" not-null="false" type="string" length="100"/>
+    <property name="serverUrl" not-null="false" type="string" length="100"/>
+    <property name="downloadUrl" not-null="false" type="string" length="100"/>
+    <property name="org_sysid" not-null="false" type="string"/>
+    <property name="cert_key" not-null="false" type="string" length="100"/>
+    <property name="version" not-null="false" type="string" length="100"/>
+    <property name="use_language" not-null="false" type="string" length="100"/>
+    <property name="input_charset" not-null="false" type="string" length="100"/>
+    <property name="sign_type" not-null="false" type="string" length="100"/>
+    <property name="application_id" not-null="false" type="long" index="application_idx"/>
+    <property name="application_label" not-null="false" type="string" length="200"/>
+  </class>
+</hibernate-mapping>

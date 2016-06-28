@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityQuery name="参数配置管理" label="参数配置管理" note="" share="false" multiselect="false" editable="false" autopaging="true" pagingMode="VirtualizingPaging" virtualizingPagingEnabled="true" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.70E87C801FEF" nodeID="487"> 
+              <queryEntities> 
+                <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.B63C55E70EB4" name="AMS_ParamConfig" label="参数配置" alias="a0" master="true"/> 
+              </queryEntities>  
+              <DataGrid> 
+                <color/>  
+                <column name="param_name" label="参数类型" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.B63C55E70EB4.id_1" width="170" isBranch="false" editable="" sortable="" textAlign=""/>  
+                <column name="param_value" label="参数值" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.B63C55E70EB4.id_2" width="189" isBranch="false" editable="" sortable="" textAlign=""/>  
+                <column name="remark" label="备注" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.B63C55E70EB4.id_3" width="547" isBranch="false" editable="" sortable="" textAlign=""/> 
+              </DataGrid>  
+              <editState/>  
+              <toolbar> 
+                <button label="新建" action="alink" selection="none" visiable="true" alink="alink://ime.AppWindow/EntityForm?{action:&quot;create&quot;,entityUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.B63C55E70EB4&quot;,formUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.DEEF2C22D97D&quot;,formState:&quot;state1&quot;}"/>  
+                <button label="编辑" action="alink" selection="single" visiable="true" alink="alink://ime.AppWindow/EntityForm?{action:&quot;edit&quot;,entityUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.B63C55E70EB4&quot;,formUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.DEEF2C22D97D&quot;,formState:&quot;state2&quot;}"/>  
+                <button label="删除" action="delete" selection="single"/> 
+              </toolbar>  
+              <xmlQuery version="2.0" name="" label=""> 
+                <select domainScope="true"> 
+                  <other label="其他" uid="other" name="other"/>  
+                  <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.B63C55E70EB4" name="AMS_ParamConfig" label="参数配置" alias="a0"> 
+                    <field uid="sys_0" name="id" label="编号" type="long"/>  
+                    <field uid="sys_1" name="domainId" label="域ID" type="long"/>  
+                    <field uid="log_0" name="FM_CreatePrinId" label="创建者ID" type="long"/>  
+                    <field uid="log_1" name="FM_CreatePrinName" label="创建者" type="string"/>  
+                    <field uid="log_2" name="FM_UpdatePrinId" label="更新者ID" type="long"/>  
+                    <field uid="log_3" name="FM_UpdatePrinName" label="更新者" type="string"/>  
+                    <field uid="log_4" name="FM_CreateTime" label="创建时间" type="timestamp"/>  
+                    <field uid="log_5" name="FM_UpdateTime" label="更新时间" type="timestamp"/>  
+                    <field uid="id_1" name="param_name" label="参数类型" type="string"/>  
+                    <field uid="id_2" name="param_value" label="参数值" type="string"/>  
+                    <field uid="id_3" name="remark" label="备注" type="string"/> 
+                  </Entity> 
+                </select>  
+                <where> 
+                  <exp type="2"/> 
+                </where>  
+                <other> 
+                  <groupBy label="Group By"/>  
+                  <orderBy label="Order By"/> 
+                </other> 
+              </xmlQuery>  
+              <conditionForm> 
+                <Window paddingLeft="1" paddingRight="1" paddingTop="1" paddingBottom="1"> 
+                  <TabNavigator> 
+                    <tab label="default"/> 
+                  </TabNavigator> 
+                </Window> 
+              </conditionForm>  
+              <StatSetting/>  
+              <queryEvent/> 
+            </EntityQuery>

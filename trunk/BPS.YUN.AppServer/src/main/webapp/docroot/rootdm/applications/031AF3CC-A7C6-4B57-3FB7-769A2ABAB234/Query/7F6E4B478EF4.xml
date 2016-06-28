@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityQuery name="职员管理" label="职员管理" note="" multiselect="false" editable="false" autopaging="true" uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.7F6E4B478EF4" nodeID="169"> 
+              <queryEntities> 
+                <Entity uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.76A0ECE61239" name="Employee" label="职员" alias="a0"/> 
+              </queryEntities>  
+              <DataGrid> 
+                <color> 
+                  <condition columnLabel="整行" column="$row" color="#ff" backgroundColor="#FFFFFF" expression="$this.isLoginEnabled = true"/> 
+                </color>  
+                <column name="name" label="姓名" uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.76A0ECE61239.id_1" width="100"/>  
+                <column name="email" label="电子邮件" uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.76A0ECE61239.id_2" width="100"/>  
+                <column name="loginId" label="登入帐户" uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.76A0ECE61239.id_5" width="100"/>  
+                <column name="department" label="部门" uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.76A0ECE61239.id_3" width="100"/>  
+                <column name="isBlocked" label="是否已封锁" uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.76A0ECE61239.id_15" width="100" isBranch="false" dataField="Employee$isBlocked"/> 
+              </DataGrid>  
+              <toolbar> 
+                <button label="新建" action="alink" selection="none" alink="alink://ime.AppWindow/EntityForm?{entityUID:&quot;031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.76A0ECE61239&quot;,formState:&quot;state0&quot;,action:&quot;create&quot;,formUID:&quot;031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.7F6F46B1EFBD&quot;}" permission="" permissionName=""/>  
+                <button label="编辑" action="alink" alink="alink://ime.AppWindow/EntityForm?{formUID:&quot;031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.7F6F46B1EFBD&quot;,entityUID:&quot;031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.76A0ECE61239&quot;,formState:&quot;state1&quot;,action:&quot;edit&quot;}" selection="single" permission="" permissionName=""/>  
+                <button label="删除" action="delete" selection="single" permission="" permissionName=""/>  
+                <button label="设置密码" action="alink" selection="single" permission="" permissionName="" alink="alink://ime.Admin/PasswordForm"/>  
+                <button label="设置角色" action="alink" selection="single" permission="" permissionName="" alink="alink://ime.Admin/SetRoleForm"/>  
+                <button label="帐号解锁" action="fireEvent" selection="single" permission="" permissionName="" visiable="true" event="onUnlock" confirmMessage="确认要解锁此帐号吗？"/> 
+              </toolbar>  
+              <xmlQuery version="2.0" name="" label=""> 
+                <select domainScope="true"> 
+                  <other label="其他" uid="other" name="other"/>  
+                  <Entity uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.76A0ECE61239" name="Employee" label="职员" alias="a0"> 
+                    <field uid="sys_0" name="id" label="编号" type="long"/>  
+                    <field uid="sys_1" name="domainId" label="域ID" type="long"/>  
+                    <field uid="id_1" name="name" label="姓名" type="string"/>  
+                    <field uid="id_2" name="email" label="电子邮件" type="string"/>  
+                    <field uid="id_3" name="department" label="部门" type="relation"/>  
+                    <field uid="id_4" name="operator" label="操作员" type="principal"/>  
+                    <field uid="id_5" name="loginId" label="登入帐户" type="string"/>  
+                    <field uid="id_6" name="isLoginEnabled" label="是否允许登入" type="boolean"/>  
+                    <field uid="id_13" name="lastErrorTime" label="最后一次错误时间" type="timestamp"/>  
+                    <field uid="id_14" name="errorCount" label="错误次数" type="long"/>  
+                    <field uid="id_15" name="isBlocked" label="是否已封锁" type="boolean"/> 
+                  </Entity> 
+                </select>  
+                <where> 
+                  <exp type="2"> 
+                    <exp type="5" uid="exp0" valueType="3" option="true" rightType="val" right="$page.department.selectedItem.id" leftEntity="Employee" leftField="department_id"/> 
+                  </exp> 
+                </where>  
+                <other> 
+                  <groupBy label="Group By"/>  
+                  <orderBy label="Order By"/> 
+                </other> 
+              </xmlQuery>  
+              <conditionForm> 
+                <Window> 
+                  <TabNavigator> 
+                    <tab label="default"/> 
+                  </TabNavigator> 
+                </Window> 
+              </conditionForm>  
+              <queryEvent> 
+                <event name="onUnlock" type="customerEvent" label="onUnlock"><![CDATA[var entities = query.getSelectedEntities("Employee");
+if(entities.length == 0)
+	return {error:true, message:"请选择记录"};
+var entity/*:$Entity.Employee*/ = entities[0];
+if(entity.isBlocked == null || entity.isBlocked == false){
+	return {error:true, message:"此用户未锁定，无需解锁。"};
+}
+var param = {};
+param.employee_id = entity.id;
+query.fireRemoteEvent("Employee.onUnlock", param, "ck_onUnlock");]]></event>  
+                <event name="ck_onUnlock" type="remoteEvent" label="ck_onUnlock"><![CDATA[query.refresh();]]></event> 
+              </queryEvent> 
+            </EntityQuery>

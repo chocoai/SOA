@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Config>
+	<Definitions>
+		<List name="DesktopTitle" addItem="false" >
+			<imageUrl label="标题图片" control="Image"/>
+			<text label="名称" control="TextInput"/>
+			<fontFamily label="字体" control="TextInput"/>
+			<fontWeight label="是否加粗" control="ComboBox" dataProvider="yesno" />
+			<fontSize label="字号" control="TextInput"/>
+			<color label="颜色" control="Color" />
+		</List>
+		<List name="DesktopBackground" addItem="false" >
+			<image label="背景图片" control="Image"/>
+			<scale label="是否拉伸" control="ComboBox" default="no" dataProvider="yesno"/>
+		</List>
+	</Definitions>
+	<PropertySheet label="服务器配置">
+		<General label="常规" type="PropertySheet">
+			<ApplicationAddr label="服务地址" control="TextInput" help="如xxx.xxx.xxx:port"/>
+			<DomainLimit label="指定域" control="TextInput" help="提供指定域后，系统只能登入到该域"/>
+			<DomainList label="可登入域列表" control="Array" help="通过选择方式指定登入域">
+				<itemDefinition>
+					<label label="显示名称" control="TextInput" />
+					<value label="域名称" control="TextInput"/>
+				</itemDefinition>
+			</DomainList>
+			<DebugPort label="远程调试端口" control="TextInput" />
+		</General>
+		<Desktop label="桌面" type="PropertySheet">
+			<Title label="标题" control="List" definition="DesktopTitle">
+			</Title>
+			<Background label="背景" control="List" definition="DesktopBackground" >
+			</Background>
+			<IconAlign label="图标位置" control="ComboBox">
+				<dataProvider>
+					<item label="左侧" value="left" />
+					<item label="底部" value="bottom" />
+				</dataProvider>
+			</IconAlign>
+			<Icons label="快捷方式" control="Array" help="显示在桌面的快捷方式图标">
+				<itemDefinition>
+					<appName label="应用标识" control="TextInput" />
+					<show label="显示窗口" control="ComboBox" default="normal">
+						<dataProvider>
+							<item label="最大化" value="maximized" />
+							<item label="普通" value="normal" />
+						</dataProvider>
+					</show>
+					<iconUrl label="图标" control="Image" />
+					<title label="窗口标题" />
+					<menu label="对应的菜单" control="TextInput" help="与菜单对应后可以根据权限显示快捷方式，格式为&quot;菜单组/菜单名&quot;" />
+					<alink label="应用链接" control="TextInput" help="例:alink://ime.AppWindow/Application?{application:'DRP'}"/>
+				</itemDefinition>
+			</Icons>
+		</Desktop>
+		<EMail label="邮件服务">
+			<NotifyAccount label="通知账号" type="PropertySheet">
+				<SmtpHost label="smtp服务器"></SmtpHost>
+				<Account label="帐号"></Account>
+				<Password label="密码" control="Password"></Password>
+			</NotifyAccount>
+		</EMail>
+		<Calendar label="日历管理" type="PropertySheet">
+			<DomainShare label="域内共享" control="ComboBox" dataProvider="yesno" />
+			<AlertSetting label="默认提醒设置">
+				<AllDayAhead label="全天事件提前量(小时)" control="TextInput" />
+				<InDayAhead label="一天内事件提前量(小时)" control="TextInput" />
+			</AlertSetting>
+		</Calendar>
+	</PropertySheet>
+</Config>

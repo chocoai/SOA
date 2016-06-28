@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityQuery name="SOA接口服务" label="SOA接口服务" note="" share="false" multiselect="false" editable="false" autopaging="true" pagingMode="VirtualizingPaging" virtualizingPagingEnabled="true" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.90D0AA861CA5" nodeID="1106">
+  <queryEntities>
+    <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.AB447E617D1E" name="AMS_SOAService" label="SOA接口服务" alias="a0" master="true" />
+  </queryEntities>
+  <DataGrid>
+    <color />
+    <column name="codeNo" label="编号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.AB447E617D1E.id_4" width="79" isBranch="false" editable="" sortable="" textAlign="" />
+    <column name="name_ch" label="接口中文名称" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.AB447E617D1E.id_1" width="100" isBranch="false" />
+    <column name="name_en" label="接口英文名称" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.AB447E617D1E.id_2" width="100" isBranch="false" />
+    <column name="p_version" label="接口版本号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.AB447E617D1E.id_3" width="100" isBranch="false" />
+  </DataGrid>
+  <editState />
+  <toolbar>
+    <button label="新建" action="alink" selection="none" visiable="true" alink="alink://ime.AppWindow/EntityForm?{action:&quot;create&quot;,entityUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.AB447E617D1E&quot;,formUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.BED373BBFBB0&quot;,formState:&quot;state1&quot;}" />
+    <button label="编辑" action="alink" selection="single" visiable="true" alink="alink://ime.AppWindow/EntityForm?{action:&quot;edit&quot;,entityUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.AB447E617D1E&quot;,formUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.BED373BBFBB0&quot;,formState:&quot;state2&quot;}" />
+    <button label="删除" action="delete" selection="single" visiable="true" />
+  </toolbar>
+  <xmlQuery version="2.0" name="" label="">
+    <select domainScope="true">
+      <other label="其他" uid="other" name="other" />
+      <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.AB447E617D1E" name="AMS_SOAService" label="SOA接口服务" alias="a0">
+        <field uid="sys_0" name="id" label="编号" type="long" />
+        <field uid="sys_1" name="domainId" label="域ID" type="long" />
+        <field uid="id_4" name="codeNo" label="编号" type="string" />
+        <field uid="id_1" name="name_ch" label="接口中文名称" type="string" />
+        <field uid="id_2" name="name_en" label="接口英文名称" type="string" />
+        <field uid="id_3" name="p_version" label="接口版本号" type="string" />
+      </Entity>
+    </select>
+    <where>
+      <exp type="2">
+        <exp type="19" valueType="1" option="true" leftEntity="AMS_SOAService" leftField="name_en" uid="exp0" rightType="param" right="name_en" />
+        <exp type="19" valueType="1" option="true" rightType="param" right="name_ch" leftEntity="AMS_SOAService" leftField="name_ch" uid="exp1" />
+        <exp type="19" valueType="1" option="true" rightType="param" right="p_version" leftEntity="AMS_SOAService" leftField="p_version" uid="exp2" />
+      </exp>
+    </where>
+    <other>
+      <groupBy label="Group By" />
+      <orderBy label="Order By" />
+    </other>
+  </xmlQuery>
+  <conditionForm>
+    <Window paddingLeft="1" paddingRight="1" paddingTop="1" paddingBottom="1">
+      <TabNavigator>
+        <tab label="default">
+          <Label width="82" height="25" text="接口英文名称:" propertyUID="id_2" x="183" y="2" style="" />
+          <TextInput name="name_en" width="100" height="25" x="263" y="2" />
+          <Label width="82" height="25" text="接口中文名称:" propertyUID="id_1" x="2" y="2" style="" />
+          <TextInput name="name_ch" width="100" height="25" x="83" y="2" />
+          <Label width="82" height="25" text="接口版本号:" propertyUID="id_3" x="363" y="2" style="" />
+          <TextInput name="p_version" width="119" height="25" x="443" y="2" />
+        </tab>
+      </TabNavigator>
+    </Window>
+  </conditionForm>
+  <StatSetting />
+  <queryEvent />
+</EntityQuery>

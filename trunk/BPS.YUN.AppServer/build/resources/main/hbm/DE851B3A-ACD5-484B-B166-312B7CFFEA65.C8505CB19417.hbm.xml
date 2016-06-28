@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "PUBLIC" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class entity-name="AMS_TradeCode" table="DYNA_AMS_TradeCode">
+    <id name="id" type="long">
+      <generator class="sequence">
+        <param name="sequence">IDSEQ_AMS_TradeCode</param>
+      </generator>
+    </id>
+    <property name="domainId" not-null="false" type="long" index="IDX_DOMAINID"/>
+    <property name="tradeCode" not-null="false" type="string" length="100"/>
+    <property name="description" not-null="false" type="string" length="100"/>
+    <property name="accountTypeNo" not-null="false" type="string" length="100"/>
+  </class>
+</hibernate-mapping>

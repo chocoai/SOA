@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ime-server version="3.0.0">
+	<!-- 系统属性 -->
+	<properties>
+		<!-- 接口版本 -->
+		<property name="version" value="1.0" />
+	
+		<!-- 密码存储的加密方法 -->
+		<property name="security.provider" value="cryptix.jce.provider.CryptixCrypto" />
+		<property name="password.encryptor" value="SHA1WithRSA" />
+		<property name="password.default" value="123456" />
+		<property name="password.rsa.private_key" value="00989A66BE790AE366648A5CA74499D5731F78FA5AE2F7B4FDAEC5470F8BE7689A5838563DB50290A5AF630799ED223433066233A68A4772C3D3D5C441850685AED9AA077A5F433F214F8966596A9282AFE41DBA9170FF3F3BFD65DBFF3EE3A62878ED402F43138C48C009E46557FA96EAF90531B3C114014E6005686E0E00FD81 7A7F76FA6F2FCE5AE35A2E06178B654C84771880DCB0FB18A8B2B3D846F5FB81EA4F4EEB39E2553AAB0F538ABC503896BD09176D1893420CF07F288B6FBD4C914ED94B4BD3CB8BDF043F9EDDCA0502C8681C0C489E0A2321FB7392A1B354C81839B896DA5FE27A4951289B417324D21C4D5F38ABD1841F7EC35206A28B5CB601" />
+		
+		<!-- 在Oracle数据库中是否为每个实体生成ID序列 -->
+		<property name="system.oracle.generate_id_sequence" value="true" />
+		
+		<!-- 用户登入控件策略: none(不控制), FP(先来优先), LP(后来优先) -->
+		<property name="system.login.policy" value="none" />
+		<!-- 用户被驱逐后显示的消息 -->
+		<property name="system.login.policy.message" value="相同用户已在其他地方登入" />
+		
+		<!-- 是否自动封锁账号  -->
+		<property name="system.login.block" value="false" />
+		<!-- 账号允许错误次数 -->
+		<property name="system.login.block.count" value="3" />
+		<!-- 连续错误周期（分钟） -->
+		<property name="system.login.block.checktime" value="5" />
+		<!-- 账号封锁时间（分钟） -->
+		<property name="system.login.block.duration" value="30" />
+		<property value="1200000" name="short.message.valid.time.normal"/>
+		<!-- 密码设置 -->
+		<property name="login.password.fail.amount"		value="5" />
+		<property name="login.password.locked.time"		value="180" />
+		<property value="10.55.3.236:6999" name="Kafka.url"/>
+		<!-- 证书生成参数  -->
+		<property name="ca.root.name" value="通联宁波分公司" />
+		<property name="ca.root.organizationUnit" value="技术部" />
+		<property name="ca.root.organization" value="无" />
+		<property name="ca.root.locality" value="宁波" />
+		<property name="ca.root.state" value="浙江" />
+		<property name="ca.root.country" value="中国" />
+		<property name="ca.root.alias" value="root" />
+		<property name="ca.root.password" value="123456" />
+		<property name="ca.root.expYear" value="100" />
+		<property name="ca.root.path" value="/home/bps.yun/tomcat9000/webapps/ROOT/WEB-INF/classes/root.pfx" />
+		<property name="ca.root.ip" value="10.55.3.237" />
+		<property name="ca.cert.path" value="/certs" />
+		<!-- redis 服务地址 -->
+		<property name="cache.ip" value="10.55.3.237" />
+		<property name="cache.port" value="6379" />
+		<!--rabbitmq-->
+		<property name="rabbitmq.queue_name" value="instant_develop" />
+		<property name="rabbitmq.ip" value="10.55.3.236" />
+		<property name="rabbitmq.port" value="5672" />
+		<property name="rabbitmq.username" value="root" />
+		<property name="rabbitmq.password" value="huadi" />
+		<property name="rabbitmq.trans.monitor.queue.name" value="transMonitorQueue_develop" />
+
+		<!--<property name="rabbitmq.queue_name.batch_daiFu_one" value="batchDaiFuOne" />-->
+
+		<!--T+1批量代付-->
+		<!--批量代付查询队列名称-->
+		<property name="rabbitmq.queue_name.batch_daiFu_query" value="batchDaiFuQuery_develop" />
+
+		<property name="batch_daiFu_temporary_store" value="redisDaiFuList_develop" />
+		<property name="batch_daiFu_temporary_store_T0" value="redisDaiFuListT0_develop" />
+		<property name="batch_daiFu_each_amount" value="5" />
+
+		<!-- 监测 -->
+			<!-- 报文类型 -->
+		<property name="monitor.trans.message.type" value="00" />
+			<!-- 报文方向-请求 -->
+		<property name="monitor.trans.message.direction.request" value="00" />
+			<!-- 报文方向-应答 -->
+		<property name="monitor.trans.message.direction.response" value="01" />
+			<!-- 业务系统id，监控平台分配 -->
+		<property name="monitor.trans.business.id" value="100130" />
+
+		<!--对账参数-->
+		<property name="CheckAccount.yzt.rootPath" value="/home/bps.yun/jboss-4.2.3.GA/server/default/deploy/IMEServer.war/docroot/attachments" />
+		<property name="CheckAccount.allinpay.gateway.filePath" value="/gateway" />
+		<property name="CheckAccount.allinpay.tlt.filePath" value="/tlt" />
+		<property name="CheckAccount.allinpay.its.filePath"		value="/its" />
+		
+		<!--环境-->
+		<property name="environment"		value="develop" />
+		<property name="DEBUG"		value="true" />
+
+		<!-- 移动认证支付后台通知地址 -->
+		<property name="certPay.receiveUrl"		value="http://122.227.225.142:23661/service/certPay.do" />
+
+		<property name="certBook.path" value="10.55.3.237:9380/IMEServer" /> <!--开发环境-->
+		<property name="environment.type" value="develop" /> <!-- develop:开发 test:测试 product:生产  换环境的时候单词别写错-->
+		<property name="load.application.develop" value="http://10.55.3.236:6003/loadApplication.jsp"/><!--加载应用到缓存地址-->
+		<property name="load.application.test"    value="" />
+		<property name="load.application.product1" value="" />
+		<property name="load.application.product2" value="" />
+	</properties>
+	
+	<!-- 脚本引擎 timeout:超时时间(单位毫秒), 设为0时表示将一直执行到结束 -->
+	<scriptengine timeout="0">
+	</scriptengine>
+
+	<!-- 服务扩展 -->
+	<extension name="kinorsoft.ams" />
+	<extension name="kinorsoft.order" />
+	
+</ime-server>

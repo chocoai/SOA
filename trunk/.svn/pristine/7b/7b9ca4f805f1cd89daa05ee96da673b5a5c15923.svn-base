@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<desktop>
+	<!-- 插件 -->
+	<desktop-plugin>
+		<!-- name:插件, path:插件位置的相对路径 -->
+		<plugin name="ime.workflow" path="" />
+		<plugin name="ime.appwindow" path="" />
+		<plugin name="ime.manager" path="" />
+		<plugin name="ime.messenger" path="" />
+		<plugin name="ime.studio" path="" />
+	</desktop-plugin>
+	
+	<!-- 用户控件 -->
+	<user-controls>
+		<control name="UEditor" label="Html编辑器" propertyType="string">
+			<runtime name="WINRuntime" class="ime.controls.HtmlControl,ime.appwindow" properties="controlUrl=UEditor/UEditor.jsp;jsName=UEditor"/>
+			<runtime name="QSWebRuntime" url="UEditor/QS.UEditor.js" class="qs.ext.UEditor" depends="UEditor/ueditor.config.js;UEditor/ueditor.all.min.js"/>
+			<propertySheet>
+			</propertySheet>
+		</control>
+		<!-- 
+		<control name="CKEditor" label="Html编辑器" propertyType="string">
+			<runtime name="WINRuntime" class="ime.controls.HtmlControl,ime.appwindow" properties="controlUrl=CKEditor/CKEditor.jsp;jsName=CKEditor;"/>
+			<runtime name="QSWebRuntime" url="CKEditor/QS.CKEditor.js" class="qs.ext.CKEditor" depends="CKEditor/ckeditor.js;"/>
+			<propertySheet>
+			</propertySheet>
+		</control>
+		-->
+		<!--
+		<control name="CouponDesigner" label="卡券编辑器" propertyType="string">
+			<runtime name="WINRuntime" class="ime.controls.HtmlControl,ime.appwindow" properties="controlUrl=designer/GoodsCouponDesigner.jsp;jsName=Designer;"/>
+			<propertySheet>
+			</propertySheet>
+		</control>
+		-->
+	</user-controls>
+	<!-- 属性定义控件 -->
+	<property-controls>
+		<!--
+		<control name="ArticleSelector" label="文章选择器">
+			<runtime name="WINRuntime" class="ime.controls.HtmlControl,ime.appwindow" properties="controlUrl=properties/ArticleSelector.jsp;jsName=ArticleSelector;param={scroll:true};"/>
+		</control>
+		-->
+	</property-controls>
+
+	<!-- 属性定义 -->
+	<properties>
+		<property name="SideBar.News.QueryUID" value="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.ED121DE8C1D4" />
+		<property name="SideBar.Bulletin.QueryUID" value="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.ED15D13CCD46" />
+		<property name="Site.Company.EntityUID" value="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.76A3C4E92743" />
+		<property name="Site.Company.QueryUID" value="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.AA08A11315CB" />
+		<property name="Site.Company.QueryUID" value="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.AA08A11315CB" />
+		<property name="SecurityManager.Department.EntityUID" value="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.7F7FFBA3C973" />
+		<property name="SecurityManager.Department.FormUID" value="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.8100C775642D" />
+	</properties>
+</desktop>

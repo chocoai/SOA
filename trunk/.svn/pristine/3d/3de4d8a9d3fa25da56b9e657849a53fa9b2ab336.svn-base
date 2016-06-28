@@ -1,0 +1,34 @@
+package bps.external.application.service.increment;
+
+import java.util.Map;
+
+import bps.common.BizException;
+
+public interface OtherService {
+	
+	/**
+	 * 发送邮件
+	 * @param to_user 目标用户
+	 * @param subject 主题
+	 * @param content 正文
+	 * @throws BizException
+	 */
+	public void sendEmail(String to_user, String subject, String content)throws BizException;
+	
+	
+	/**
+	 * 获取IP信息
+	 * @param ip
+	 * @throws BizException
+	 */
+	public Map<String, Object> getIpInfo(String ip)throws BizException;
+	
+	/**
+	 * 发送短信
+	 * @param mobiles
+	 * @param content
+	 * @throws BizException
+	 */
+	public void sendSM(String mobiles, String content)throws BizException;
+	
+}

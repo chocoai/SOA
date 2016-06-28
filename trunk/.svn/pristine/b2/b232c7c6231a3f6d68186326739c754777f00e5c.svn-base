@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Entity lastId="65" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.709120BF9A98" name="AMS_OrderPayDetail" label="订单支付明细" note="" log="false" workflow="false" nodeID="352" dbcreated="true"> 
+  <relation/>  
+  <extension/>  
+  <property uid="sys_0" label="编号" name="id" type="long" systemProperty="true" editorPart="Entity" group="系统属性字段"/>  
+  <property uid="sys_1" label="域ID" name="domainId" type="long" systemProperty="true" editorPart="Entity" group="系统属性字段"/>  
+  <property name="pay_state" label="支付状态" type="long" uid="id_3" editorPart="Entity" group="业务属性字段" valueProvider="订单.支付结果" dbcreated="true"/>  
+  <property name="account_type" label="账户类型" type="relation" uid="id_6" entityUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.62156FFA93F3" labelField="name" editorPart="Entity" group="业务属性字段" dbcreated="true"/>  
+  <property name="bizid" label="业务编号" type="string" length="100" uid="id_9" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="source_userId" label="源会员uuid" type="string" length="100" uid="id_11" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="source_memberNo" label="源会员客户号" type="string" length="100" uid="id_12" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="source_member_name" label="源会员名称" type="string" length="100" uid="id_13" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="target_userId" label="目标会员uuid" type="string" length="100" uid="id_14" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="target_memberNo" label="目标会员客户号" type="string" length="100" uid="id_15" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="target_member_name" label="目标会员名称" type="string" length="100" uid="id_16" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="trade_type" label="交易类型" type="long" uid="id_17" group="业务属性字段" editorPart="Entity" valueProvider="多账户.交易类型" dbcreated="true"/>  
+  <property name="sub_trade_type" label="子交易类型" type="long" uid="id_18" group="业务属性字段" editorPart="Entity" valueProvider="多账户.交易子类型" dbcreated="true"/>  
+  <property name="trade_money" label="交易金额" type="long" uid="id_19" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="pay_channelNo" label="支付渠道编号" type="string" length="100" uid="id_20" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="isMaster" label="是否主交易" type="boolean" length="100" uid="id_23" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="pay_mode" label="支付方式" type="string" length="100" uid="id_24" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="remark" label="备注" type="string" length="100" uid="id_26" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="orgNo" label="机构号" type="string" length="100" uid="id_27" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="command_no" label="支付指令号" type="string" length="100" uid="id_28" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="trade_seq_no" label="渠道交易序号" type="string" length="100" uid="id_29" group="业务属性字段" editorPart="Entity" note="用于与外部渠道发起批量交易如 0001" dbcreated="true"/>  
+  <property name="accountNo" label="银行账号" type="string" length="100" uid="id_30" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="bank_code" label="银行代码" type="string" length="100" uid="id_31" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="account_name" label="姓名" type="string" length="100" uid="id_32" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="out_ret_code1" label="响应码1" type="string" length="100" uid="id_34" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="out_ret_code2" label="响应码2" type="string" length="100" uid="id_35" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="out_errmsg1" label="错误信息1" type="string" length="512" uid="id_36" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="out_errmsg2" label="错误信息2" type="string" length="512" uid="id_37" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="accountNo_encrypt" label="账号(加密)" type="string" length="100" uid="id_38" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="acct_validdate" label="有效期" type="string" length="100" uid="id_42" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="cvv2" label="cvv2" type="string" length="100" uid="id_43" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="pay_interfaceNo" label="支付通道编号" type="string" length="100" uid="id_44" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="extend_info" label="扩展信息" type="string" length="1024" uid="id_45" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="account_password" label="账户密码" type="string" length="100" uid="id_47" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="card_type" label="卡类型" type="long" uid="id_48" group="业务属性字段" editorPart="Entity" valueProvider="银行卡.银行卡类型" dbcreated="true"/>  
+  <property name="account_prop" label="账户属性" type="long" uid="id_49" group="业务属性字段" editorPart="Entity" valueProvider="银行卡.账户属性" dbcreated="true"/>  
+  <property name="out_trade_id" label="外部流水" type="string" length="100" uid="id_50" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="call_type" label="调用类型" type="long" uid="id_51" group="业务属性字段" valueProvider="订单.调用类型" editorPart="Entity" dbcreated="true"/>  
+  <property name="order_type" label="订单类型" type="long" uid="id_52" group="业务属性字段" valueProvider="订单.订单类型" editorPart="Entity" dbcreated="true"/>  
+  <property name="handling_mode" label="计费模式" type="long" uid="id_53" group="业务属性字段" valueProvider="手续费.手续费收费模式" editorPart="Entity" dbcreated="true"/>  
+  <property name="account_codeNo" label="账户编号" type="string" length="100" uid="id_55" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="refund_status" label="退款状态" type="long" uid="id_56" group="业务属性字段" editorPart="Entity" valueProvider="多账户.退款状态" dbcreated="true"/>  
+  <property name="phone" label="手机号" type="string" length="100" uid="id_57" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="contract_no" label="银行绑定合同号" type="string" length="100" uid="id_58" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="bank_name" label="银行名称" type="string" length="100" uid="id_59" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="target_account_type" label="目标账户类型" type="relation" uid="id_60" group="业务属性字段" entityUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.62156FFA93F3" editorPart="Entity" labelField="name" dbcreated="true"/>  
+  <property name="target_account_codeNo" label="目标账户编号" type="string" length="100" uid="id_61" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="seq_no" label="支付顺序" type="long" uid="id_62" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="pay_serialNo" label="交易流水号" type="string" length="100" uid="id_64" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="pay_type" label="支付方式" type="long" uid="id_65" group="业务属性字段" note="网关支付方式 1个人 4企业网银" editorPart="Entity" dbcreated="true"/> 
+</Entity>

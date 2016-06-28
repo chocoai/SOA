@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<part>
+	<name>ime.calendar</name>
+	<version>1.0.0</version>
+	<description>
+	<![CDATA[
+		日程管理组件
+	]]>
+	</description>
+	
+	<dependency>
+		<partname></partname>
+	</dependency>
+	
+	<part_handler class="ime.calendar.event.PartHandler">
+		<!-- 
+		<property name="schedule.tasks"><![CDATA[
+			[{
+				//日程安排的处理类，必须实现ime.calendar.TrigerHandler接口。
+				handler : "",
+				//维一标识符
+				uniqueId: 9000,	
+				//时间触发模式
+				trigerMode: "ONCE" | "PERIODTIME" | "PERDAY" | "PERWEEK" | "PERMONTH" | "PERYEAR", 
+				/**
+				 * 触发时间，根据触发模式的不同，触发时间的有效数据也不同。
+				 * ONCE       ：使用完整时间触发；
+				 * PERIODTIME ：以trigerTime指定的时间为基础，每经过intervalMills中的总毫秒数后触发一次；
+				 * PERDAY     ：每天在trigerTime指定的[时:分:秒]时触发一次；
+				 * PERWEEK    ：每周在weekDyas指定的星期和trigerTime指定的[时:分:秒]时触发一次；
+				 * PERMONTH   ：每月在trigerTime指定的[日 时:分:秒]时触发一次；
+				 * PERYEAR    ：每年在trigerTime指定的[月-日 时:分:秒]时触发一次；
+				 */
+				trigerTime: "YYYY-MM-DD HH:MI:SS",
+				//周期终止时间
+				expireTime: "YYYY-MM-DD HH:MI:SS",
+				/** 
+				 * 触发的星期，只在触发模式为PERWEEK时有效。
+				 * 从0~6的bit位分别代表周日、周一、周二、周三、周四、周五和周六，1代表触发，0代表不触发。
+				 */
+				weekDays  : 0~6,
+				//间隔时间(毫秒数)，只在触发模式为PERIODTIME时有效，表示时间间隔的毫秒数。
+				intervalMills: 100000,
+				//触发时间的提前量(毫秒) 
+				reminderMills: 0,
+			}]
+		]]></property>
+		 -->
+	</part_handler>
+	
+</part>

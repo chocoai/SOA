@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<FreeForm label="企业会员审核" name="企业会员审核" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.B7CBFB3F395C" nodeID="862">
+  <formState />
+  <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2">
+    <TabNavigator>
+      <tab label="default">
+        <Label label="Label" text="组织机构代码:" x="3" y="31" width="100" height="24" style="" />
+        <TextInput label="TextInput" x="103" y="31" width="199" height="24" name="organization_code" />
+        <Label label="Label" text="企业名称:" x="3" y="59" width="100" height="24" style="" />
+        <TextInput label="TextInput" x="103" y="59" width="499" height="24" name="name" toolTip="" />
+        <Label label="Label" text="营业执照注册号:" x="303" y="31" width="100" height="24" style="" />
+        <TextInput label="TextInput" x="403" y="31" width="199" height="24" name="business_license" />
+        <ImageField label="ImageField" x="103" y="143" width="199" height="111" name="business_license_path" selectPageUrl="" />
+        <Label label="Label" text="营业执照副本" x="3" y="143" width="100" height="24" style="" />
+        <Label label="Label" text="扫描件:" x="3" y="171" width="100" height="24" style="" />
+        <Label label="Label" text="企业地址:" x="3" y="87" width="100" height="24" style="" />
+        <TextInput label="TextInput" x="103" y="87" width="499" height="24" name="address" />
+        <Label label="Label" text="法人姓名:" x="3" y="311" width="100" height="24" style="" />
+        <Label label="Label" text="法人身份证号码:" x="3" y="339" width="100" height="24" style="" />
+        <TextInput label="TextInput" x="103" y="311" width="199" height="24" name="legal_name" />
+        <TextInput label="TextInput" x="103" y="339" width="199" height="24" name="legal_ids" />
+        <Label label="Label" text="法人身份证" x="3" y="367" width="79" height="27" style="" />
+        <Label label="Label" text="正面照片:" x="3" y="395" width="100" height="24" style="" />
+        <Label label="Label" text="法人联系电话:" x="303" y="339" width="100" height="24" style="" />
+        <TextInput label="TextInput" x="403" y="339" width="199" height="24" name="legalPhone" />
+        <Label label="Label" text="开户行名称:" x="3" y="535" width="100" height="24" style="" />
+        <Label label="Label" text="开户行地区代码:" x="2" y="563" width="100" height="24" style="" />
+        <Label label="Label" text="开户行支行名称:" x="2" y="591" width="119" height="24" style="" />
+        <Label label="Label" text="公司对公账户:" x="3" y="507" width="100" height="24" style="" />
+        <HRule label="HRule" x="3" y="283" width="279" height="24" />
+        <HRule label="HRule" x="343" y="283" width="259" height="24" />
+        <Label label="Label" text="法人信息" x="283" y="283" width="100" height="24" style="" />
+        <HRule label="HRule" x="3" y="479" width="279" height="24" />
+        <HRule label="HRule" x="343" y="479" width="259" height="24" />
+        <Label label="Label" text="账户" x="283" y="479" width="100" height="24" style="" />
+        <TextInput label="TextInput" x="103" y="563" width="199" height="24" name="bankCityNo" />
+        <TextInput label="TextInput" x="103" y="535" width="199" height="24" name="parentBankName" />
+        <TextInput label="TextInput" x="103" y="507" width="199" height="24" name="accountNo" toolTip="" />
+        <TextInput label="TextInput" x="103" y="591" width="200" height="24" name="bankName" />
+        <HRule label="HRule" x="3" y="3" width="279" height="24" />
+        <Label label="Label" text="基本信息" x="283" y="3" width="100" height="24" style="" />
+        <HRule label="HRule" x="342" y="3" width="260" height="24" />
+        <Label label="Label" text="审核结果:" x="3" y="927" width="100" height="24" style="" />
+        <Label label="Label" text="审核" x="284" y="899" width="100" height="24" style="color:#E36C09;" />
+        <HRule label="HRule" x="3" y="899" width="280" height="24" />
+        <HRule label="HRule" x="344" y="899" width="259" height="24" />
+        <SingleSelectBox label="SingleSelectBox" x="104" y="927" width="199" height="24" name="check_state" valueProvider="会员.企业会员审核" toolTip="" changeEvent="upd_fail" />
+        <Label label="Label" text="备注:" x="3" y="955" width="100" height="24" style="" />
+        <TextArea label="TextArea" width="499" height="55" x="104" y="955" name="remark" />
+        <Label label="Label" text="联系电话:" x="3" y="115" width="100" height="24" style="" />
+        <TextInput label="TextInput" x="103" y="115" width="199" height="24" name="telephone" />
+        <Label label="Label" text="组织机构代码" x="318" y="142" width="100" height="24" style="" />
+        <Label label="Label" text="扫描件:" x="323" y="171" width="100" height="24" style="" />
+        <ImageField label="ImageField" x="403" y="143" width="199" height="111" name="organization_code_path" />
+        <Label label="Label" text="法人证件类型" x="303" y="311" width="100" height="24" style="" />
+        <ComboBox label="ComboBox" x="403" y="311" width="199" height="24" name="legal_idstype" valueProvider="" />
+        <Label label="Label" text="法人身份证" x="323" y="367" width="100" height="24" style="" />
+        <Label label="Label" text="反面照片:" x="323" y="395" width="100" height="24" style="" />
+        <ImageField label="ImageField" x="403" y="367" width="199" height="111" toolTip="legal_cerificate_back_path" />
+        <ImageField label="ImageField" x="103" y="367" width="199" height="111" fitSize="legal_cerificate_front_path" />
+        <Label label="Label" text="结算开户许可证" x="303" y="507" width="139" height="24" style="" />
+        <ImageField label="ImageField" x="403" y="507" width="199" height="111" />
+        <HRule label="HRule" x="3" y="647" width="279" height="24" />
+        <HRule label="HRule" x="343" y="647" width="259" height="24" />
+        <Label label="Label" text="其他资料" x="283" y="647" width="100" height="24" style="" />
+        <Label label="Label" text="税务登记证路径" x="2" y="675" width="100" height="24" style="" />
+        <ImageField label="ImageField" x="103" y="675" width="199" height="111" name="tax_certificate_path" />
+        <ImageField label="ImageField" x="403" y="675" width="199" height="111" name="org_credit_code_path" />
+        <Label label="Label" text="机构信用代码证" x="303" y="675" width="100" height="24" style="" />
+        <Label label="Label" text="ICP备案许可路径" x="3" y="787" width="100" height="24" style="" />
+        <ImageField label="ImageField" x="103" y="787" width="199" height="111" name="icp_path" />
+        <ImageField label="ImageField" x="403" y="787" width="199" height="111" name="industry_permit_path" />
+        <Label label="Label" text="行业许可证" x="303" y="787" width="100" height="24" style="" />
+        <Label label="Label" text="失败原因:" x="3" y="1011" width="100" height="24" style="" />
+        <TextArea label="TextArea" width="499" height="83" x="103" y="1011" name="fail_reason" />
+        <Label label="Label" text="业务系统名称:" x="2" y="255" width="100" height="24" style="" />
+        <TextInput label="TextInput" x="103" y="255" width="199" height="24" name="biz_user_id" />
+        <Label label="Label" text="会员:" x="323" y="255" width="100" height="24" style="" />
+        <EntityField label="EntityField" x="403" y="255" width="199" height="24" name="member" entityUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0" labelField="name" shortcutField="" formUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.FC510773222D" queryUID="" forceAssociation="true" />
+        <Label label="Label" text="银行代码：" x="3" y="619" width="100" height="24" style="" />
+        <TextInput label="TextInput" x="103" y="619" width="199" height="24" name="bankCode" toolTip="" />
+      </tab>
+    </TabNavigator>
+  </Window>
+  <formEvent>
+    <event name="initialize" type="initialize" label="初始化事件" systemEvent="true"><![CDATA[var query/*:QueryControl*/ = form.getScriptHost("$opener");
+var member_entity/*:$Entity.AMS_MemberEnterprise*/ = query.getSelectedEntity("AMS_MemberEnterprise");
+var member/*:$Entity.AMS_Member*/ = query.getSelectedEntity("AMS_Member");
+//查询企业扩展信息
+//var hql = "from AMS_Member where member_id=" + member_entity.member_id;
+//form.callRemoteQuery(hql, "cb_getMemberExtendInfo");
+form.setVariable("memberEnterprise_id",member_entity.id);
+
+//营业执照注册号
+form.setFieldValue("business_license", 	member_entity.business_license);
+form.setFieldProperty("business_license", 	"enabled", false);
+//组织机构代码
+form.setFieldValue("organization_code", member_entity.organization_code);
+form.setFieldProperty("organization_code", 	"enabled", false);
+//法人姓名
+form.setFieldValue("legal_name", member_entity.legal_name);
+form.setFieldProperty("legal_name", 	"enabled", false);
+//会员
+form.setFieldValue("member", {id:member.id,name:member.name});
+
+//form.setFieldProperty("member", 	"enabled", false);
+
+//法人证件号码
+form.setFieldValue("legal_ids", 	member_entity.legal_ids);
+form.setFieldProperty("legal_ids", 	"enabled", false);
+//营业执照图片路径
+form.setFieldValue("business_license_path", 	member_entity.business_license_path);
+form.setFieldProperty("business_license_path", 	"enabled", false);
+//组织机构代码证路径
+form.setFieldValue("organization_code_path", 	member_entity.organization_code_path);
+form.setFieldProperty("organization_code_path", 	"enabled", false);
+//税务登记证路径
+form.setFieldValue("tax_certificate_path", 	member_entity.tax_certificate_path);
+form.setFieldProperty("tax_certificate_path", 	"enabled", false);
+//银行结算账户开户许可证路径
+form.setFieldValue("bank_settlement_path", 	member_entity.bank_settlement_path);
+form.setFieldProperty("bank_settlement_path", 	"enabled", false);
+//机构信用代码证路径
+form.setFieldValue("org_credit_code_path", 	member_entity.org_credit_code_path);
+form.setFieldProperty("org_credit_code_path", 	"enabled", false);
+//ICP备案许可路径
+form.setFieldValue("icp_path", 	member_entity.icp_path);
+form.setFieldProperty("icp_path", 	"enabled", false);
+//行业许可证路径
+form.setFieldValue("industry_permit_path", 	member_entity.industry_permit_path);
+form.setFieldProperty("industry_permit_path", 	"enabled", false);
+//法人证件-正面路径
+form.setFieldValue("legal_cerificate_front_path", 	member_entity.legal_cerificate_front_path);
+form.setFieldProperty("legal_cerificate_front_path", 	"enabled", false);
+//法人证件-背面路径
+form.setFieldValue("legal_cerificate_back_path", 	member_entity.legal_cerificate_back_path);
+form.setFieldProperty("legal_cerificate_back_path", 	"enabled", false);
+//企业名称
+form.setFieldValue("name", 	member_entity.name);
+form.setFieldProperty("name", 	"enabled", false);
+//企业地址
+form.setFieldValue("address", 	member_entity.address);
+form.setFieldProperty("address", 	"enabled", false);
+//联系电话
+form.setFieldValue("telephone", 	member_entity.telephone);
+form.setFieldProperty("telephone", 	"enabled", false);
+//法人证件类型
+form.setFieldValue("legal_idstype", 	member_entity.legal_idstype);
+form.setFieldProperty("legal_idstype", 	"enabled", false);
+//法人手机
+form.setFieldValue("legalPhone", 	member_entity.legalPhone);
+form.setFieldProperty("legalPhone", 	"enabled", false);
+//企业对公帐号
+form.setFieldValue("accountNo", 	member_entity.accountNo);
+form.setFieldProperty("accountNo", 	"enabled", false);
+//开户行名称
+form.setFieldValue("parentBankName", 	member_entity.parentBankName);
+form.setFieldProperty("parentBankName", 	"enabled", false);
+//开户行地区代码
+form.setFieldValue("bankCityNo", 	member_entity.bankCityNo);
+form.setFieldProperty("bankCityNo", 	"enabled", false);
+//开户行支行名称
+form.setFieldValue("bankName", 	member_entity.bankName);
+form.setFieldProperty("bankName", 	"enabled", false);
+//审核状态
+form.setFieldValue("check_state", 	member_entity.check_state);
+form.setFieldProperty("check_state", 	"required", true);
+//失败原因
+form.setFieldValue("fail_reason", 	member_entity.fail_reason);
+form.setFieldProperty("fail_reason", 	"enabled", false);
+//备注
+form.setFieldValue("remark", 	member_entity.remark);
+form.setFieldProperty("remark", 	"enabled", true);
+//业务系统名称
+form.setFieldValue("biz_user_id", 	member.biz_user_id);
+form.setFieldProperty("biz_user_id", 	"enabled", false);
+//银行代码
+if(member_entity.check_state == 2){
+	form.setFieldProperty("bankCode", 	"enabled", false);
+	form.setFieldProperty("bankCode", 	"required", false);
+}else{
+	form.setFieldProperty("bankCode", 	"enabled", true);
+	form.setFieldProperty("bankCode", 	"required", true);
+}
+
+]]></event>
+    <event name="cb_getMemberExtendInfo" type="remoteEvent" label="cb_getMemberExtendInfo"><![CDATA[if(result != null){
+	var member/*:$Entity.AMS_Member*/ = result[0];
+	form.setFieldValue("biz_user_id",member.biz_user_id);
+}]]></event>
+    <event name="preSubmit" type="preSubmit" label="提交前事件" systemEvent="true"><![CDATA[var isall =  form.validateForm();
+if(!isall){
+	return{error:true,message:"审核结果为必填"}
+}
+var member_entity /*:$AMS_MemberEnterprise*/= form.getExpressionValue("$opener.selectedEntity");
+var param = {};
+param.memberEnterprise_id = member_entity.id;
+param.member_id =  member_entity.member_id;
+param.accountNo = member_entity.accountNo;
+param.bankName = member_entity.bankName;
+param.legal_ids = member_entity.legal_ids;
+param.legal_name = member_entity.legal_name;
+param.legalPhone = member_entity.legalPhone;
+param.state = form.getFieldValue("check_state");
+param.remark = form.getFieldValue("remark");
+param.fail_reason = form.getFieldValue("fail_reason");
+param.bankCode =  form.getFieldValue("bankCode");
+form.fireRemoteEvent("AMS_Member.memberEnAudited", param, "cb_memberAudited");
+]]></event>
+    <event name="cb_memberAudited" type="remoteEvent" label="cb_memberAudited"><![CDATA[]]></event>
+    <event name="upd_fail" type="customerEvent" label="upd_fail"><![CDATA[var check_state = form.getFieldValue("check_state");
+if( check_state == 3){
+	form.setFieldProperty("fail_reason","required",true);
+	form.setFieldProperty("fail_reason","enabled",true);
+}else{
+	form.setFieldProperty("fail_reason","required",false);
+	form.setFieldProperty("fail_reason","enabled",false);
+}]]></event>
+  </formEvent>
+</FreeForm>

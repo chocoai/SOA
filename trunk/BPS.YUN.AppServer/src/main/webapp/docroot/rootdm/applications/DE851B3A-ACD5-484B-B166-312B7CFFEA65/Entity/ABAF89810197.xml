@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Entity lastId="17" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.ABAF89810197" name="AMS_TradeRequestLog" label="交易请求表(废弃)" note="" log="false" workflow="false" nodeID="702" dbcreated="true"> 
+  <property uid="sys_0" label="编号" name="id" type="long" systemProperty="true" editorPart="Entity"/>  
+  <property uid="sys_1" label="域ID" name="domainId" type="long" systemProperty="true" editorPart="Entity"/>  
+  <relation/>  
+  <extension/>  
+  <property name="userId" label="用户ID" type="string" length="100" uid="id_1" editorPart="Entity" dbcreated="true"/>  
+  <property name="create_time" label="请求时间" type="timestamp" length="100" uid="id_2" editorPart="Entity" dbcreated="true"/>  
+  <property name="requestId" label="业务请求流水号" type="string" length="100" uid="id_3" editorPart="Entity" dbcreated="true"/>  
+  <property name="ret_code1" label="处理结果1" type="string" length="100" uid="id_4" editorPart="Entity" valueProvider="多账户.处理结果" dbcreated="true"/>  
+  <property name="ret_code2" label="处理结果2" type="string" length="100" uid="id_5" editorPart="Entity" dbcreated="true"/>  
+  <property name="pickup_url" label="前台url地址" type="string" length="100" uid="id_6" editorPart="Entity" dbcreated="true"/>  
+  <property name="receive_url" label="服务器后台地址" type="string" length="100" uid="id_7" editorPart="Entity" dbcreated="true"/>  
+  <property name="account_no" label="银行帐号" type="string" length="100" uid="id_8" editorPart="Entity" dbcreated="true"/>  
+  <property name="trade_type" label="交易类型" type="long" uid="id_9" valueProvider="多账户.交易类型" editorPart="Entity" dbcreated="true"/>  
+  <property name="request_time" label="提交时间" type="timestamp" length="100" uid="id_10" editorPart="Entity" dbcreated="true"/>  
+  <property name="trade_money" label="交易金额" type="long" uid="id_11" currency="true" editorPart="Entity" dbcreated="true"/>  
+  <property name="bizid" label="业务编号" type="string" length="100" uid="id_12" editorPart="Entity" dbcreated="true"/>  
+  <property name="systemId" label="业务系统编号" type="string" length="100" uid="id_13" editorPart="Entity" dbcreated="true"/>  
+  <property name="errorMessage" label="错误信息" type="string" length="100" uid="id_14" editorPart="Entity" dbcreated="true"/>  
+  <property name="outSystem" label="外部系统" type="string" uid="id_15" valueProvider="多账户.外部系统" editorPart="Entity" dbcreated="true"/>  
+  <property name="out_requestId" label="外部请求流水号" type="string" length="100" uid="id_17" editorPart="Entity" dbcreated="true"/> 
+</Entity>

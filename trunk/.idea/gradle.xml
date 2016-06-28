@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="distributionType" value="LOCAL" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="gradleHome" value="C:/gradle-2.12" />
+        <option name="gradleJvm" value="#JAVA_HOME" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/BPS.YUN.AppServer" />
+            <option value="$PROJECT_DIR$/BPS.YUN.WebServer" />
+            <option value="$PROJECT_DIR$/bps.yun.external.service" />
+            <option value="$PROJECT_DIR$/bps.yun.external.service.api" />
+            <option value="$PROJECT_DIR$/bps.yun.external.soa" />
+            <option value="$PROJECT_DIR$/bps.yun.service" />
+            <option value="$PROJECT_DIR$/bps.yun.service.api" />
+          </set>
+        </option>
+        <option name="myModules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/BPS.YUN.AppServer" />
+            <option value="$PROJECT_DIR$/BPS.YUN.WebServer" />
+            <option value="$PROJECT_DIR$/bps.yun.external.service" />
+            <option value="$PROJECT_DIR$/bps.yun.external.service.api" />
+            <option value="$PROJECT_DIR$/bps.yun.external.soa" />
+            <option value="$PROJECT_DIR$/bps.yun.service" />
+            <option value="$PROJECT_DIR$/bps.yun.service.api" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="LOCAL" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/../../allinpay" />
+        <option name="gradleHome" value="C:/gradle-2.12" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/../../allinpay" />
+          </set>
+        </option>
+        <option name="myModules">
+          <set>
+            <option value="$PROJECT_DIR$/../../allinpay" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>

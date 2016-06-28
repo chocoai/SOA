@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<QueryPage label="安全等级日志查询" control="Panel" layout="vertical" controlUID="root" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.F0E13A52DBED" name="安全等级日志查询" nodeID="1895"> 
+              <QueryControl label="安全等级日志查询" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.2D89B48FC44B" width="100%" height="100%" controlUID="ctrl0" name=""/>  
+              <event label="初始化事件" type="initialize" name="initialize"/>  
+              <event label="确定事件" type="okEvent" name="okEvent"/> 
+            </QueryPage>

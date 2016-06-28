@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Entity name="DomainCompany" label="注册企业" note="" log="false" workflow="false" lastId="4" uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.76A3C4E92743" nodeID="157" dbcreated="true"> 
+  <property uid="sys_0" label="编号" name="id" type="long" systemProperty="true"/>  
+  <property uid="sys_1" label="所属域ID" name="domainId" type="long" systemProperty="true"/>  
+  <relation/>  
+  <property name="name" label="名称" type="string" length="100" uid="id_1" systemProperty="true" valueEditable="true" dbcreated="true"/>  
+  <property name="domain_id" label="注册域ID" type="long" uid="id_2" systemProperty="true" dbcreated="true"/>  
+  <property name="domainName" label="企业域名" type="string" length="100" uid="id_3" systemProperty="true" valueEditable="true" dbcreated="true"/>  
+  <property name="parentName" label="上级企业" type="string" length="100" uid="id_4" systemProperty="true" dbcreated="true"/>  
+  <property name="is_site_created" label="是否建站" type="boolean" uid="id_5" toolTip="" note="" systemProperty="true" valueEditable="true" dbcreated="true"/>  
+  <property name="company_uid" label="唯一UID" type="string" length="50" uid="id_6" note="" systemProperty="true" valueEditable="true" dbcreated="true"/>  
+  <property name="xpt_site" label="XPT站点域名" type="string" length="100" uid="id_7" note="" systemProperty="true" valueEditable="true" dbcreated="true"/> 
+</Entity>

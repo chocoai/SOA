@@ -1,0 +1,74 @@
+.ws_tabpane {
+	position:	relative;
+	width:		100%;		/* width needed weird IE bug */
+	margin-right:	-2px;	/* to make room for the shadow */
+}
+
+.ws_tabpane .tab-row .tab {
+	width:				70px;
+	height:				16px;
+	background-image: url(../images/ws/tab.jpg);
+	position:		relative;
+	top:			0;
+	display:		inline;
+	float:			left;
+	overflow:		hidden;
+	
+	cursor:			Default;
+
+	margin:			1px -1px 1px 2px;
+	padding:		2px 0px 0px 0px;
+	border:			0;
+
+	z-index:		1;
+	font:			icon;
+	white-space:	nowrap;
+	text-align:		center;
+}
+
+.ws_tabpane .tab-row .tab.selected {
+	width:				74px !important;
+	height:				18px !important;
+	background-image:   url(../images/ws/tab.active.jpg);
+	background-repeat:	no-repeat;
+
+	border-bottom-width:0;
+	z-index:			3;
+	padding:			2px 0 0px 0;
+	margin:				1px -3px -3px 0px;
+	top:				-2px;
+	font:				icon;
+}
+
+.ws_tabpane .tab-row .tab a {
+	font:				icon;
+	color:				Black;
+	text-decoration:	none;
+	cursor:				default;
+}
+
+.ws_tabpane .tab-row .tab.hover {
+	font:				icon;
+	width:				70px;
+	height:				16px;
+	background-image:   url(../images/ws/tab.hover.jpg);
+	background-repeat:	no-repeat;
+}
+
+
+.ws_tabpane .tab-page {
+	clear:			both;
+	border:			1px solid rgb( 145, 155, 156 );
+	background:		rgb( 252, 252, 254 );
+	z-index:		2;
+	position:		relative;
+	top:			-2px;
+
+	font:			icon;
+	color:			Black;
+}
+
+.ws_tabpane .tab-row {
+	z-index:		1;
+	white-space:	nowrap;
+}

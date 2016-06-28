@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "PUBLIC" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class entity-name="AMS_PayInterfaceBank" table="DYNA_AMS_PayInterfaceBank">
+    <id name="id" type="long">
+      <generator class="native"/>
+    </id>
+    <property name="domainId" not-null="false" type="long" index="IDX_DOMAINID"/>
+    <property name="pay_interface_id" not-null="false" type="long" index="pay_interface_idx"/>
+    <property name="pay_interface_label" not-null="false" type="string" length="200"/>
+    <property name="bank_id" not-null="false" type="long" index="bank_idx"/>
+    <property name="bank_label" not-null="false" type="string" length="200"/>
+    <property name="remark" not-null="false" type="string" length="100"/>
+    <property name="pay_interfaceNo" not-null="false" type="string" length="100"/>
+    <property name="bank_code" not-null="false" type="string" length="100"/>
+    <property name="debit" not-null="false" type="boolean" length="100"/>
+    <property name="credit" not-null="false" type="boolean" length="100"/>
+    <property name="debit_handling_mode" not-null="false" type="long"/>
+    <property name="credit_handling_mode" not-null="false" type="long"/>
+    <property name="debit_handling_each" not-null="false" type="long"/>
+    <property name="credit_handling_each" not-null="false" type="long"/>
+    <property name="debit_handling_type" not-null="false" type="long"/>
+    <property name="credit_handling_type" not-null="false" type="long"/>
+    <property name="debit_handling_rate" not-null="false" type="double"/>
+    <property name="credit_handling_rate" not-null="false" type="double"/>
+    <property name="debit_limit_single" not-null="false" type="long"/>
+    <property name="debit_limit_day" not-null="false" type="long"/>
+    <property name="debit_limit_month" not-null="false" type="long"/>
+    <property name="debit_remark" not-null="false" type="string" length="100"/>
+    <property name="credit_limit_single" not-null="false" type="string" length="100"/>
+    <property name="credit_limit_day" not-null="false" type="string" length="100"/>
+    <property name="credit_limit_month" not-null="false" type="string" length="100"/>
+    <property name="credit_remark" not-null="false" type="string" length="100"/>
+    <property name="en_bank_code" not-null="false" type="string" length="100"/>
+    <property name="account_prop_p" not-null="false" type="boolean" length="100"/>
+    <property name="account_prop_c" not-null="false" type="boolean" length="100"/>
+    <property name="single" not-null="false" type="boolean" length="100"/>
+    <property name="batch" not-null="false" type="boolean" length="100"/>
+    <property name="is_sms_verify" not-null="false" type="boolean" length="100"/>
+  </class>
+</hibernate-mapping>

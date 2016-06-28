@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<FreeForm label="会员身份证解码" name="会员身份证解码" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.99A006E8F08D" nodeID="864">
+  <formState />
+  <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2">
+    <TabNavigator>
+      <tab label="default">
+        <Label label="Label" text="身份证" x="2" y="2" width="100" height="24" style="" />
+        <TextInput label="TextInput" x="63" y="3" width="219" height="24" name="idcard" />
+      </tab>
+    </TabNavigator>
+  </Window>
+  <formEvent>
+    <event name="initialize" type="initialize" label="初始化事件" systemEvent="true"><![CDATA[var param = {};
+var idCard = "";
+var query/*:QueryControl*/ = form.getScriptHost("$opener");
+var member_entity/*:$Entity.AMS_Member*/ = query.getSelectedEntity("AMS_Member");
+
+
+	param.memberId = member_entity.id;
+	param.accountNo = member_entity.identity_cardNo_encrypt;
+	idCard = member_entity.identity_cardNo_encrypt;
+
+
+
+
+if(idCard == null || idCard ==""){
+	alert("尚未实名");
+}else{
+	form.fireRemoteEvent("AMS_Member.getIdCardNo", param, "getIdCardNo_result");
+}]]></event>
+    <event name="getIdCardNo_result" type="remoteEvent" label="getIdCardNo_result"><![CDATA[
+form.setFieldValue("idcard", result.identity_cardNo);
+form.setFieldProperty("idcard", "enabled", false);]]></event>
+  </formEvent>
+</FreeForm>

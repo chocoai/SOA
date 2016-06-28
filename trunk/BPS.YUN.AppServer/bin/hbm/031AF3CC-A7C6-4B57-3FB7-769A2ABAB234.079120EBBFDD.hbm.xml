@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "PUBLIC" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class entity-name="MSGMessage" table="DYNA_MSGMessage">
+    <id name="id" type="long">
+      <generator class="native"/>
+    </id>
+    <property name="domainId" not-null="false" type="long" index="IDX_DOMAINID"/>
+    <property name="msg_head" not-null="false" type="string" length="100"/>
+    <property name="msg_body" not-null="false" type="string" length="2000"/>
+    <property name="msg_kind" not-null="false" type="long"/>
+    <property name="user_sender_id" not-null="false" type="long" index="user_sender_idx"/>
+    <property name="user_sender_name" not-null="false" type="string" length="100"/>
+    <property name="user_receiver_id" not-null="false" type="long" index="user_receiver_idx"/>
+    <property name="user_receiver_name" not-null="false" type="string" length="100"/>
+    <property name="sys_sender" not-null="false" type="string" length="100"/>
+    <property name="send_time" not-null="false" type="timestamp" length="100"/>
+    <property name="msg_status" not-null="false" type="long"/>
+    <property name="msg_type" not-null="false" type="long"/>
+  </class>
+</hibernate-mapping>

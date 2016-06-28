@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityForm name="风险黑名单" label="风险黑名单" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.5D09C82A0579" nodeID="414"> 
+              <formEntity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.CE02414A7923"/>  
+              <formState> 
+                <state label="加入黑名单" uid="state0" basedOn="null"/> 
+              </formState>  
+              <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2"> 
+                <TabNavigator> 
+                  <tab label="default"> 
+                    <Label width="82" height="25" text="证件号码:" propertyUID="id_3" x="3" y="3" style=""/>  
+                    <TextInput propertyUID="id_3" width="179" height="25" x="83" y="3"/>  
+                    <Label width="82" height="25" text="银行卡号:" propertyUID="id_4" x="3" y="31" style=""/>  
+                    <TextInput propertyUID="id_4" width="179" height="25" x="83" y="31"/>  
+                    <Label width="82" height="25" text="手机号:" propertyUID="id_5" x="263" y="3" style=""/>  
+                    <TextInput propertyUID="id_5" width="179" height="25" x="323" y="3"/>  
+                    <Label width="82" height="25" text="风险描述:" propertyUID="id_8" x="2" y="59" style=""/>  
+                    <TextInput propertyUID="id_8" width="419" height="55" x="83" y="59"/> 
+                  </tab> 
+                </TabNavigator> 
+              </Window>  
+              <formEvent> 
+                <event name="initialize" type="initialize" label="初始化事件" systemEvent="true"><![CDATA[var query/*:QueryControl*/ = form.getScriptHost("$opener");
+
+var entity/*:$Entity.AMS_Member*/ = query.getSelectedEntity("AMS_Member");
+
+form.setFieldValue("userId", entity.userId);
+form.setFieldProperty("userId", "enabled", false);
+
+]]></event> 
+              </formEvent> 
+            </EntityForm>

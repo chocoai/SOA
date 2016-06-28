@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityQuery name="标准账户类型查询（会员账户）" label="标准账户类型查询（会员账户）" note="" share="false" multiselect="false" editable="false" autopaging="true" pagingMode="VirtualizingPaging" virtualizingPagingEnabled="true" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.2B567171416F" nodeID="511">
+  <queryEntities>
+    <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.62156FFA93F3" name="AMS_AccountType" label="账户类型" alias="a0" selectAll="true" isBranch="true" master="true" />
+  </queryEntities>
+  <DataGrid>
+    <color />
+    <column name="codeNo" label="编号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.62156FFA93F3.id_3" width="100" isBranch="false" />
+    <column name="name" label="名称" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.62156FFA93F3.id_7" width="100" isBranch="false" />
+    <column name="valid_type" label="有效期类型" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.62156FFA93F3.id_4" width="100" isBranch="false" />
+    <column name="valid_merge" label="有效期合并" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.62156FFA93F3.id_6" width="100" isBranch="false" />
+  </DataGrid>
+  <editState />
+  <toolbar />
+  <xmlQuery version="2.0" name="" label="">
+    <select domainScope="true">
+      <other label="其他" uid="other" name="other" />
+      <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.62156FFA93F3" name="AMS_AccountType" label="账户类型" alias="a0" selectAll="true" isBranch="true">
+        <field uid="sys_0" name="id" label="编号" type="long" />
+        <field uid="sys_1" name="domainId" label="域ID" type="long" />
+        <field uid="id_3" name="codeNo" label="编号" type="string" />
+        <field uid="id_4" name="valid_type" label="有效期类型" type="long" />
+        <field uid="id_6" name="valid_merge" label="有效期合并" type="long" />
+        <field uid="id_7" name="name" label="名称" type="string" />
+        <field uid="id_14" name="biz_type" label="账户集类型" type="long" />
+        <field uid="id_15" name="biz_def" label="业务数据定义" type="string" />
+        <field uid="id_17" name="account_prop" label="账户属性" type="long" />
+        <field uid="id_18" name="extend_day" label="默认延长时间(日)" type="long" />
+        <field uid="id_19" name="rbm_rate" label="人民币比例" type="double" />
+        <field uid="id_25" name="application" label="应用" type="relation" />
+        <field uid="id_26" name="description" label="描述" type="string" />
+        <field uid="id_27" name="member" label="企业会员" type="relation" />
+        <field uid="id_28" name="account_kind" label="账户类型" type="long" />
+        <field uid="id_29" name="applicationNo" label="应用编号" type="string" />
+        <field uid="id_30" name="unit" label="单位" type="string" />
+      </Entity>
+    </select>
+    <where>
+      <exp type="2">
+        <exp type="19" valueType="1" option="true" rightType="param" right="name" leftEntity="AMS_AccountType" leftField="name" uid="exp0" />
+        <exp type="19" valueType="1" option="true" rightType="param" right="codeNo" leftEntity="AMS_AccountType" leftField="codeNo" uid="exp1" />
+        <exp type="5" valueType="3" option="true" rightType="val" right="1" leftEntity="AMS_AccountType" leftField="account_prop" uid="exp2" />
+      </exp>
+    </where>
+    <other>
+      <groupBy label="Group By" />
+      <orderBy label="Order By" />
+    </other>
+  </xmlQuery>
+  <conditionForm>
+    <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2">
+      <TabNavigator>
+        <tab label="default">
+          <Label width="99" height="25" text="账户类型名称:" propertyUID="id_7" x="3" y="3" style="" />
+          <TextInput name="name" width="119" height="25" x="83" y="3" />
+          <Label width="82" height="25" text="编号:" propertyUID="id_3" x="203" y="3" style="" />
+          <TextInput name="codeNo" width="119" height="25" x="243" y="3" />
+        </tab>
+      </TabNavigator>
+    </Window>
+  </conditionForm>
+  <StatSetting />
+  <queryEvent />
+</EntityQuery>

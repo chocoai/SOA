@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityQuery name="交易差错复核" label="交易差错复核" note="" share="false" multiselect="false" editable="false" autopaging="true" pagingMode="NormalPaging" virtualizingPagingEnabled="false" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.304620B7A00E" nodeID="613"> 
+              <queryEntities> 
+                <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.60D2317A70D0" name="AMS_ErrorTradeHandle" label="交易差错处理" alias="a0" selectAll="true" isBranch="true" master="true"/> 
+              </queryEntities>  
+              <DataGrid> 
+                <color/>  
+                <column name="WF_StateName" label="状态名称" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.60D2317A70D0.wf_1" width="88" isBranch="false" dataField="AMS_ErrorTradeHandle$WF_StateName"/>  
+                <column name="WF_ProcessorPrinName" label="处理人" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.60D2317A70D0.wf_5" width="70" isBranch="false" dataField="AMS_ErrorTradeHandle$WF_ProcessorPrinName"/>  
+                <column name="bizid" label="订单编号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.60D2317A70D0.id_2" width="96" isBranch="false" dataField="AMS_ErrorTradeHandle$bizid"/>  
+                <column name="pay_channelNo" label="渠道编号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.60D2317A70D0.id_3" width="86" isBranch="false" dataField="AMS_ErrorTradeHandle$pay_channelNo"/>  
+                <column name="pay_channel_name" label="渠道名称" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.60D2317A70D0.id_4" width="93" isBranch="false" dataField="AMS_ErrorTradeHandle$pay_channel_name"/>  
+                <column name="trade_time" label="交易时间" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.60D2317A70D0.id_9" width="100" isBranch="false" dataField="AMS_ErrorTradeHandle$trade_time"/>  
+                <column name="out_trade_money" label="交易金额" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.60D2317A70D0.id_5" width="87" isBranch="false" dataField="AMS_ErrorTradeHandle$out_trade_money" editable="" sortable="" textAlign=""> 
+                  <itemEditor> 
+                    <NumericStepper/> 
+                  </itemEditor> 
+                </column>  
+                <column name="pay_interfaceNo" label="支付通道编号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.60D2317A70D0.id_6" width="93" isBranch="false" dataField="AMS_ErrorTradeHandle$pay_interfaceNo"/>  
+                <column name="pay_interface_name" label="支付通道名称" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.60D2317A70D0.id_7" width="96" isBranch="false" dataField="AMS_ErrorTradeHandle$pay_interface_name"/>  
+                <column name="cardNo" label="帐号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.60D2317A70D0.id_11" width="101" isBranch="false" dataField="AMS_ErrorTradeHandle$cardNo"/>  
+                <column name="out_trade_id" label="外部交易流水" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.60D2317A70D0.id_13" width="100" isBranch="false" dataField="AMS_ErrorTradeHandle$out_trade_id"/>  
+                <column name="codeNo" label="单据编号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.60D2317A70D0.id_12" width="100" isBranch="false" dataField="AMS_ErrorTradeHandle$codeNo"/> 
+              </DataGrid>  
+              <editState/>  
+              <toolbar> 
+                <button label="复核" action="alink" selection="single" permission="" permissionName="" visiable="true" param="{   &quot;target&quot;: &quot;ime.AppWindow&quot;,   &quot;form&quot;: &quot;TaskForm&quot;,   &quot;openMode&quot;: {},   &quot;param&quot;: {} }" Button="System.Windows.Controls.Button: 复核" alink="alink://ime.AppWindow/TaskForm?{}"/>  
+                <button label="查看" action="alink" selection="single" visiable="true" Button="System.Windows.Controls.Button: 查看" param="{   &quot;target&quot;: &quot;ime.AppWindow&quot;,   &quot;form&quot;: &quot;EntityForm&quot;,   &quot;param&quot;: {     &quot;action&quot;: &quot;edit&quot;,     &quot;entityUID&quot;: &quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.60D2317A70D0&quot;,     &quot;formUID&quot;: &quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.6D78DD1DC6EA&quot;,     &quot;title&quot;: &quot;查看&quot;   } }" alink="alink://ime.AppWindow/EntityForm?{action:&quot;edit&quot;,entityUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.60D2317A70D0&quot;,formUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.6D78DD1DC6EA&quot;,title:&quot;查看&quot;}"/>  
+                <button label="流程日志" action="alink" selection="single" visiable="true" Button="System.Windows.Controls.Button: 流程日志" param="{   &quot;target&quot;: &quot;ime.AppWindow&quot;,   &quot;form&quot;: &quot;WorkflowActivityLog&quot;,   &quot;param&quot;: {} }" toolTip="" alink="alink://ime.AppWindow/WorkflowActivityLog?{}"/> 
+              </toolbar>  
+              <xmlQuery version="2.0" name="" label=""> 
+                <select domainScope="true"> 
+                  <other label="其他" uid="other" name="other"/>  
+                  <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.60D2317A70D0" name="AMS_ErrorTradeHandle" label="交易差错处理" alias="a0" selectAll="true" isBranch="true"> 
+                    <field uid="sys_0" name="id" label="编号" type="long"/>  
+                    <field uid="sys_1" name="domainId" label="域ID" type="long"/>  
+                    <field uid="wf_0" name="WF_State" label="状态" type="long"/>  
+                    <field uid="wf_1" name="WF_StateName" label="状态名称" type="string"/>  
+                    <field uid="wf_2" name="WF_ProcessId" label="所属流程" type="long"/>  
+                    <field uid="wf_3" name="WF_ProcessName" label="流程名称" type="string"/>  
+                    <field uid="wf_4" name="WF_ProcessorPrinId" label="处理人ID" type="long"/>  
+                    <field uid="wf_5" name="WF_ProcessorPrinName" label="处理人" type="string"/>  
+                    <field uid="wf_6" name="WF_WorkItemId" label="工作项ID" type="long"/>  
+                    <field uid="log_0" name="FM_CreatePrinId" label="创建者ID" type="long"/>  
+                    <field uid="log_1" name="FM_CreatePrinName" label="创建者" type="string"/>  
+                    <field uid="log_2" name="FM_UpdatePrinId" label="更新者ID" type="long"/>  
+                    <field uid="log_3" name="FM_UpdatePrinName" label="更新者" type="string"/>  
+                    <field uid="log_4" name="FM_CreateTime" label="创建时间" type="timestamp"/>  
+                    <field uid="log_5" name="FM_UpdateTime" label="更新时间" type="timestamp"/>  
+                    <field uid="id_2" name="bizid" label="订单编号" type="string"/>  
+                    <field uid="id_3" name="pay_channelNo" label="渠道编号" type="string"/>  
+                    <field uid="id_4" name="pay_channel_name" label="渠道名称" type="string"/>  
+                    <field uid="id_5" name="out_trade_money" label="交易金额" type="long"/>  
+                    <field uid="id_6" name="pay_interfaceNo" label="支付通道编号" type="string"/>  
+                    <field uid="id_7" name="pay_interface_name" label="支付通道名称" type="string"/>  
+                    <field uid="id_8" name="remark" label="备注" type="string"/>  
+                    <field uid="id_9" name="trade_time" label="交易时间" type="string"/>  
+                    <field uid="id_11" name="cardNo" label="帐号" type="string"/>  
+                    <field uid="id_12" name="codeNo" label="单据编号" type="coding"/>  
+                    <field uid="id_13" name="out_trade_id" label="外部交易流水" type="string"/>  
+                    <field uid="id_15" name="error_type" label="差异类型" type="long"/>  
+                    <field uid="id_17" name="error_message" label="失败原因" type="string"/>  
+                    <field uid="id_18" name="treatment_result" label="处理状态" type="long"/>  
+                    <field uid="id_19" name="operator" label="经办人" type="principal"/>  
+                    <field uid="id_20" name="auditor" label="审核人" type="principal"/>  
+                    <field uid="id_21" name="auditor_date" label="审核时间" type="timestamp"/> 
+                  </Entity> 
+                </select>  
+                <where> 
+                  <exp type="2"> 
+                    <exp type="5" valueType="3" option="true" rightType="val" right="$loginInfo.principalId" leftEntity="AMS_ErrorTradeHandle" leftField="WF_ProcessorPrinId" uid="exp0"/> 
+                  </exp> 
+                </where>  
+                <other> 
+                  <groupBy label="Group By"/>  
+                  <orderBy label="Order By"/> 
+                </other> 
+              </xmlQuery>  
+              <conditionForm> 
+                <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2"> 
+                  <TabNavigator> 
+                    <tab label="default"/> 
+                  </TabNavigator> 
+                </Window> 
+              </conditionForm>  
+              <StatSetting/>  
+              <queryEvent/> 
+            </EntityQuery>

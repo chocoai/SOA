@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dwr PUBLIC "-//GetAhead Limited//DTD Direct Web Remoting 2.0//EN" "http://getahead.org/dwr/dwr20.dtd">
+
+<dwr>
+  <init>
+  	<converter id="hibernate3" class="org.directwebremoting.hibernate.H3BeanConverter"/>
+  </init>
+  
+  <allow>
+
+    <convert converter="hibernate3" match="ime.message.entity.EnterpriseReceivedMessage">
+    	<param name="exclude" value="owner"/> 
+    </convert>
+    <convert converter="hibernate3" match="ime.message.entity.EnterpriseSendedMessage">
+    	<param name="exclude" value="owner"/> 
+    </convert>
+    <convert converter="hibernate3" match="ime.message.entity.UserReceivedMessage">
+    	<param name="exclude" value="owner"/> 
+    </convert>
+    <convert converter="hibernate3" match="ime.message.entity.UserSendedMessage">
+    	<param name="exclude" value="owner, receiverRole"/> 
+    </convert>
+    
+    
+    <create creator="new" javascript="MessageService">
+      <param name="class" value="ime.message.services.MessageService"/>
+    </create>
+    
+  </allow>
+
+  <signatures>
+  <![CDATA[
+
+  ]]>
+  </signatures>
+</dwr>

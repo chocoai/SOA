@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityQuery name="机构所属专用账户" label="机构所属专用账户" note="显示机构所属的账户类型" share="false" multiselect="false" editable="false" autopaging="false" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.5E603024A182" nodeID="512">
+  <queryEntities>
+    <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.62156FFA93F3" name="AMS_AccountType" label="账户类型" alias="a0" master="true" />
+  </queryEntities>
+  <DataGrid>
+    <color />
+    <column name="name" label="名称" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.62156FFA93F3.id_7" width="110" isBranch="false" dataField="AMS_AccountType$name" />
+    <column name="codeNo" label="编号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.62156FFA93F3.id_3" width="100" isBranch="false" dataField="AMS_AccountType$codeNo" />
+    <column name="valid_type" label="有效期类型" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.62156FFA93F3.id_4" width="84" isBranch="false" dataField="AMS_AccountType$valid_type" />
+    <column name="account_prop" label="账户属性" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.62156FFA93F3.id_17" width="100" isBranch="false" dataField="AMS_AccountType$account_prop" />
+    <column name="rbm_rate" label="人民币比例" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.62156FFA93F3.id_19" width="80" isBranch="false" dataField="AMS_AccountType$rbm_rate" />
+    <column name="extend_day" label="默认延长时间(日)" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.62156FFA93F3.id_18" width="108" isBranch="false" dataField="AMS_AccountType$extend_day" />
+  </DataGrid>
+  <editState />
+  <toolbar>
+    <button label="新建" action="alink" selection="none" permission="" permissionName="" visiable="true" param="{   &quot;target&quot;: &quot;ime.AppWindow&quot;,   &quot;form&quot;: &quot;EntityForm&quot;,   &quot;param&quot;: {     &quot;action&quot;: &quot;create&quot;,     &quot;entityUID&quot;: &quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.62156FFA93F3&quot;,     &quot;formUID&quot;: &quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.F1DF0150A20B&quot;,     &quot;formState&quot;: &quot;state3&quot;,     &quot;title&quot;: &quot;&quot;   } }" Button="System.Windows.Controls.Button: 新建" alink="alink://ime.AppWindow/EntityForm?{action:&quot;create&quot;,entityUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.62156FFA93F3&quot;,formUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.F1DF0150A20B&quot;,formState:&quot;state3&quot;,title:&quot;&quot;}" />
+    <button label="编辑" action="alink" selection="single" permission="" permissionName="" visiable="true" param="{   &quot;target&quot;: &quot;ime.AppWindow&quot;,   &quot;form&quot;: &quot;EntityForm&quot;,   &quot;param&quot;: {     &quot;action&quot;: &quot;edit&quot;,     &quot;entityUID&quot;: &quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.62156FFA93F3&quot;,     &quot;formUID&quot;: &quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.F1DF0150A20B&quot;,     &quot;formState&quot;: &quot;state2&quot;,     &quot;title&quot;: &quot;&quot;   } }" Button="System.Windows.Controls.Button: 编辑" alink="alink://ime.AppWindow/EntityForm?{action:&quot;edit&quot;,entityUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.62156FFA93F3&quot;,formUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.F1DF0150A20B&quot;,formState:&quot;state2&quot;,title:&quot;&quot;}" />
+    <button label="删除" action="delete" selection="single" />
+    <button label="风控参数" action="fireEvent" selection="single" permission="" permissionName="" visiable="true" param="{   &quot;event&quot;: &quot;onRiskSetting&quot;,   &quot;confirmMessage&quot;: &quot;&quot; }" Button="System.Windows.Controls.Button: 风控参数" event="onRiskSetting" confirmMessage="" />
+  </toolbar>
+  <xmlQuery version="2.0" name="" label="">
+    <select domainScope="true">
+      <other label="其他" uid="other" name="other" />
+      <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.62156FFA93F3" name="AMS_AccountType" label="账户类型" alias="a0">
+        <field uid="sys_0" name="id" label="编号" type="long" />
+        <field uid="sys_1" name="domainId" label="域ID" type="long" />
+        <field uid="id_3" name="codeNo" label="编号" type="string" />
+        <field uid="id_4" name="valid_type" label="有效期类型" type="long" />
+        <field uid="id_6" name="valid_merge" label="有效期合并" type="long" />
+        <field uid="id_7" name="name" label="名称" type="string" />
+        <field uid="id_14" name="biz_type" label="账户集类型" type="long" />
+        <field uid="id_15" name="biz_def" label="业务数据定义" type="string" />
+        <field uid="id_17" name="account_prop" label="账户属性" type="long" />
+        <field uid="id_18" name="extend_day" label="默认延长时间(日)" type="long" />
+        <field uid="id_19" name="rbm_rate" label="人民币比例" type="double" />
+      </Entity>
+    </select>
+    <where>
+      <exp type="2">
+        <exp type="5" valueType="3" option="false" leftEntity="AMS_AccountType" leftField="application_id" uid="exp0" rightType="val" right="$page.master.selectedEntity.id" />
+      </exp>
+    </where>
+    <other>
+      <groupBy label="Group By" />
+      <orderBy label="Order By" />
+    </other>
+  </xmlQuery>
+  <conditionForm>
+    <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2">
+      <TabNavigator>
+        <tab label="default" />
+      </TabNavigator>
+    </Window>
+  </conditionForm>
+  <StatSetting />
+  <queryEvent>
+    <event name="onRiskSetting" type="customerEvent" label="onRiskSetting"><![CDATA[var entity/*:$Entity.AMS_AccountType*/ = query.getSelectedEntity();
+
+var html = [
+	'<form id="account_risk_set" action="../../pages/ams/set_risk.jsp" method="post" target="_blank">',
+		'<input type="hidden" name="accountType" value="', entity.codeNo, '" />',
+	'</form>'
+].join("");
+
+$("body").append(html);
+$("#account_risk_set").submit().remove();]]></event>
+  </queryEvent>
+</EntityQuery>

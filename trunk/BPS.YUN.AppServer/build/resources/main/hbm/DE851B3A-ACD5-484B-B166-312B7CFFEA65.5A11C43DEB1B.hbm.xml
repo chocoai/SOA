@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "PUBLIC" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class entity-name="AMS_Organization" table="DYNA_AMS_Organization">
+    <id name="id" type="long">
+      <generator class="sequence">
+        <param name="sequence">IDSEQ_AMS_Organization</param>
+      </generator>
+    </id>
+    <property name="domainId" not-null="false" type="long" index="IDX_DOMAINID"/>
+    <property name="name" not-null="false" type="string" length="100"/>
+    <property name="member_id" not-null="false" type="long" index="member_idx"/>
+    <property name="member_label" not-null="false" type="string" length="200"/>
+    <property name="company_id" not-null="false" type="long" index="company_idx"/>
+    <property name="company_label" not-null="false" type="string" length="200"/>
+    <property name="sysid" not-null="false" type="string" length="100"/>
+    <property name="public_key" not-null="false" type="string" length="500"/>
+    <property name="private_key" not-null="false" type="string" length="600"/>
+    <property name="allowed_ip" not-null="false" type="string" length="100"/>
+    <property name="timerange" not-null="false" type="long"/>
+    <property name="state" not-null="false" type="long"/>
+    <property name="encryption" not-null="false" type="string" length="100"/>
+    <property name="remark" not-null="false" type="string" length="1024"/>
+    <property name="allowedIP" not-null="false" type="string" length="100"/>
+    <property name="country" not-null="false" type="string" length="100"/>
+    <property name="locality" not-null="false" type="string" length="100"/>
+    <property name="organization" not-null="false" type="string" length="100"/>
+    <property name="organizationUnit" not-null="false" type="string" length="100"/>
+    <property name="org_state" not-null="false" type="string" length="100"/>
+    <property name="member_uuid" not-null="false" type="string" length="100"/>
+    <property name="cert_password" not-null="false" type="string" length="100"/>
+    <property name="cert" not-null="false" type="string" length="1000"/>
+    <property name="codeNo" not-null="false" type="string" length="100"/>
+    <property name="app_type" not-null="false" type="long"/>
+    <property name="ipc_path" not-null="false" type="string" length="500"/>
+    <property name="license_path" not-null="false" type="string" length="500"/>
+    <property name="credit_path" not-null="false" type="string" length="500"/>
+    <property name="web_url" not-null="false" type="string" length="500"/>
+    <property name="is_withdraw_safe_card" not-null="false" type="boolean" length="100"/>
+    <property name="is_withdrawType_t0" not-null="false" type="boolean" length="100"/>
+    <property name="is_withdrawType_t1" not-null="false" type="boolean" length="100"/>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Entity lastId="7" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.27E4D8ACBBC4" name="AMS_PlatformSequenceId" label="平台序列号" note="" log="false" workflow="false" nodeID="472" dbcreated="true"> 
+  <relation/>  
+  <extension/>  
+  <property uid="sys_0" label="编号" name="id" type="long" systemProperty="true" group="系统属性字段"/>  
+  <property uid="sys_1" label="域ID" name="domainId" type="long" systemProperty="true" group="系统属性字段"/>  
+  <property name="platform_Id" label="序列号" type="string" length="100" uid="id_1" group="业务属性字段" dbcreated="true"/>  
+  <property name="id_Number" label="递增最大数" type="long" uid="id_2" group="业务属性字段" dbcreated="true"/>  
+  <property name="id_Length" label="递增数最大长度" type="long" uid="id_3" group="业务属性字段" dbcreated="true"/>  
+  <property name="platform_Code" label="平台编号" type="long" uid="id_4" group="业务属性字段" dbcreated="true"/>  
+  <property name="business_Name" label="服务名称" type="string" length="100" uid="id_5" group="业务属性字段" dbcreated="true"/>  
+  <property name="createTime" label="创建时间" type="timestamp" length="100" uid="id_6" group="业务属性字段" dbcreated="true"/>  
+  <property name="shortTime" label="当前日期时间" type="long" uid="id_7" group="业务属性字段" dbcreated="true"/> 
+</Entity>

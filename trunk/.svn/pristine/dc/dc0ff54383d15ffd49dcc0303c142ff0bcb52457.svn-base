@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Entity uid="5D5642C8-F819-4B1C-9454-5DAE66AF9CB6.29025BC33E98" name="APA_BranchCompanyArea" label="分公司对应区域" note="" log="false" workflow="false" nodeID="914" lastId="2" dbcreated="true"> 
+  <relation/>  
+  <extension/>  
+  <property uid="sys_0" label="编号" name="id" type="long" systemProperty="true" group="系统属性字段" editorPart="Entity"/>  
+  <property uid="sys_1" label="域ID" name="domainId" type="long" systemProperty="true" group="系统属性字段" editorPart="Entity"/>  
+  <property name="area" label="省/地区" type="string" length="100" uid="id_1" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="company" label="通联分公司" type="relation" uid="id_2" group="业务属性字段" editorPart="Entity" entityUID="5D5642C8-F819-4B1C-9454-5DAE66AF9CB6.1DDC1772071A" labelField="name" dbcreated="true"/> 
+</Entity>

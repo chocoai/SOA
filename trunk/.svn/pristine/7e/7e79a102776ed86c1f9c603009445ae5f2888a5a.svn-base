@@ -1,0 +1,6 @@
+#org.springsource.ide.eclipse.gradle.core.preferences.GradleProjectPreferences
+#Tue Aug 25 17:00:59 CST 2015
+build.family.org.gradle.tooling.model.eclipse.HierarchicalEclipseProject=;BPS.YUN.AppServer;BPS.YUN.WebServer;bps.yun.external.service;bps.yun.external.service.api;bps.yun.external.soa;bps.yun.service;bps.yun.service.api;
+org.springsource.ide.eclipse.gradle.classpath.enableSorting=true
+org.springsource.ide.eclipse.gradle.linkedresources=
+org.springsource.ide.eclipse.gradle.rootprojectloc=

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityForm name="企业个人银行卡授权" label="企业个人银行卡授权" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.D2796FC9DB3B" nodeID="1145">
+  <formEntity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.A274F80E0641" />
+  <formState />
+  <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2">
+    <TabNavigator>
+      <tab label="default">
+        <CheckBox propertyUID="id_29" width="219" height="25" label="企业用户是否允许个人银行卡提现" x="3" y="3" />
+      </tab>
+    </TabNavigator>
+  </Window>
+  <formEvent>
+    <event name="initialize" type="initialize" label="初始化事件" systemEvent="true"><![CDATA[var memberBank = form.getEntity();
+var memberId = memberBank.member_id;
+var sql = "from AMS_Member where id = "+memberId;
+form.callRemoteQuery(sql,"callback");
+return{stop:true};
+]]></event>
+    <event name="callback" type="remoteEvent" label="callback"><![CDATA[if(result != null){
+	var member = result[0];
+	var member_type = member.member_type;
+	if(member_type == 3){
+		return{error:true,message:"个人会员不允许该项操作"};
+		return{stop:false};
+	}
+}]]></event>
+  </formEvent>
+</EntityForm>

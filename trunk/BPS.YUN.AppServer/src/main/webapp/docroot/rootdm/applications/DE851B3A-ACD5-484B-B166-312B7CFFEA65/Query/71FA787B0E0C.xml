@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityQuery name="业务交易日志查询" label="业务交易日志查询" note="" share="false" multiselect="false" editable="false" autopaging="true" pagingMode="NormalPaging" virtualizingPagingEnabled="false" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.71FA787B0E0C" nodeID="714">
+  <queryEntities>
+    <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.029E3085EFF8" name="AMS_TradeLog" label="交易日志" alias="a0" selectAll="true" isBranch="true" master="true" />
+  </queryEntities>
+  <DataGrid>
+    <color />
+    <column name="source_memberNo" label="源客户号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.029E3085EFF8.id_42" width="57" isBranch="false" dataField="AMS_TradeLog$source_memberNo" />
+    <column name="source_member_name" label="源名称" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.029E3085EFF8.id_52" width="100" isBranch="false" dataField="AMS_TradeLog$source_member_name" />
+    <column name="source_userId" label="源会员ID" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.029E3085EFF8.id_39" width="130" isBranch="false" dataField="AMS_TradeLog$source_userId" editable="" sortable="" textAlign="" />
+    <column name="target_memberNo" label="目标客户号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.029E3085EFF8.id_43" width="92" isBranch="false" dataField="AMS_TradeLog$target_memberNo" />
+    <column name="target_member_name" label="目标名称" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.029E3085EFF8.id_53" width="100" isBranch="false" dataField="AMS_TradeLog$target_member_name" />
+    <column name="target_userId" label="目标会员ID" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.029E3085EFF8.id_40" width="130" isBranch="false" dataField="AMS_TradeLog$target_userId" editable="" sortable="" textAlign="" />
+    <column name="pay_channelNo" label="支付渠道号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.029E3085EFF8.id_50" width="100" isBranch="false" dataField="AMS_TradeLog$pay_channelNo" />
+    <column name="account_type" label="账户类型" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.029E3085EFF8.id_6" width="76" isBranch="false" editable="" sortable="" textAlign="" dataField="AMS_TradeLog$account_type_label" />
+    <column name="trade_type" label="交易类型" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.029E3085EFF8.id_7" width="86" isBranch="false" editable="" sortable="" textAlign="" dataField="AMS_TradeLog$trade_type" />
+    <column name="sub_trade_type" label="交易子类型" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.029E3085EFF8.id_51" width="100" isBranch="false" dataField="AMS_TradeLog$sub_trade_type" />
+    <column name="trade_time" label="交易时间" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.029E3085EFF8.id_8" width="125" isBranch="false" editable="" sortable="" textAlign="" dataField="AMS_TradeLog$trade_time" />
+    <column name="trade_money" label="交易金额" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.029E3085EFF8.id_24" width="81" isBranch="false" editable="" sortable="" textAlign="" dataField="AMS_TradeLog$trade_money" />
+    <column name="trade_id" label="交易流水号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.029E3085EFF8.id_33" width="100" isBranch="false" dataField="AMS_TradeLog$trade_id" />
+    <column name="bizid" label="业务编号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.029E3085EFF8.id_36" width="100" isBranch="false" dataField="AMS_TradeLog$bizid" />
+    <column name="out_trade_id" label="外部交易流水号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.029E3085EFF8.id_13" width="100" isBranch="false" dataField="AMS_TradeLog$out_trade_id" />
+    <column name="pay_mode" label="支付方式" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.029E3085EFF8.id_46" width="100" isBranch="false" dataField="AMS_TradeLog$pay_mode" />
+    <column name="pay_interfaceNo" label="支付通道编号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.029E3085EFF8.id_57" width="100" isBranch="false" dataField="AMS_TradeLog$pay_interfaceNo" />
+    <column name="target_account_type" label="目标账户类型" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.029E3085EFF8.id_65" width="100" isBranch="false" />
+  </DataGrid>
+  <editState />
+  <toolbar>
+    <button label="导出" action="export" selection="none" visiable="true" />
+    <button label="编辑" action="alink" selection="single" permission="" permissionName="" visiable="true" alink="alink://ime.AppWindow/EntityForm?{action:&quot;edit&quot;,entityUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.029E3085EFF8&quot;,formUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.ED37E15BB70E&quot;,title:&quot;编辑交易日志&quot;}" />
+  </toolbar>
+  <xmlQuery version="2.0" name="" label="">
+    <select domainScope="true">
+      <other label="其他" uid="other" name="other" />
+      <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.029E3085EFF8" name="AMS_TradeLog" label="交易日志" alias="a0" selectAll="true" isBranch="true">
+        <field uid="sys_0" name="id" label="编号" type="long" />
+        <field uid="sys_1" name="domainId" label="域ID" type="long" />
+        <field uid="id_3" name="source_account_id" label="源账户ID" type="long" />
+        <field uid="id_5" name="target_account_id" label="目标账户ID" type="long" />
+        <field uid="id_6" name="account_type" label="账户类型" type="relation" />
+        <field uid="id_7" name="trade_type" label="交易类型" type="long" />
+        <field uid="id_8" name="trade_time" label="交易时间" type="timestamp" />
+        <field uid="id_9" name="rollback_id" label="回滚交易ID" type="long" />
+        <field uid="id_10" name="rollback_source_id" label="回滚交易的目标ID" type="long" />
+        <field uid="id_13" name="out_trade_id" label="外部交易流水号" type="string" />
+        <field uid="id_16" name="remark" label="备注" type="string" />
+        <field uid="id_17" name="operator_id" label="操作员ID" type="string" />
+        <field uid="id_19" name="out_bizno" label="外部业务号码" type="string" />
+        <field uid="id_24" name="trade_money" label="交易金额" type="long" />
+        <field uid="id_33" name="trade_id" label="交易流水号" type="string" />
+        <field uid="id_36" name="bizid" label="业务编号" type="string" />
+        <field uid="id_39" name="source_userId" label="源会员ID" type="string" />
+        <field uid="id_40" name="target_userId" label="目标会员ID" type="string" />
+        <field uid="id_42" name="source_memberNo" label="源客户号" type="string" />
+        <field uid="id_43" name="target_memberNo" label="目标客户号" type="string" />
+        <field uid="id_46" name="pay_mode" label="支付方式" type="string" />
+        <field uid="id_48" name="isMaster" label="是否主交易" type="boolean" />
+        <field uid="id_49" name="orgNo" label="应用号" type="string" />
+        <field uid="id_50" name="pay_channelNo" label="支付渠道号" type="string" />
+        <field uid="id_51" name="sub_trade_type" label="交易子类型" type="long" />
+        <field uid="id_52" name="source_member_name" label="源名称" type="string" />
+        <field uid="id_53" name="target_member_name" label="目标名称" type="string" />
+        <field uid="id_56" name="extend_info" label="扩展信息" type="string" />
+        <field uid="id_57" name="pay_interfaceNo" label="支付通道编号" type="string" />
+        <field uid="id_58" name="bank_code" label="银行代码" type="string" />
+        <field uid="id_59" name="handling_charge" label="后端手续费" type="long" />
+        <field uid="id_60" name="handling_mode" label="手续费收费模式" type="long" />
+        <field uid="id_61" name="command_no" label="支付指令号" type="string" />
+        <field uid="id_62" name="card_type" label="卡类型" type="long" />
+        <field uid="id_63" name="biz_orderNo" label="商户订单号" type="string" />
+        <field uid="id_65" name="target_account_type" label="目标账户类型" type="relation" />
+        <field uid="id_66" name="target_trade_money" label="目标交易金额" type="long" />
+        <field uid="id_68" name="pay_serialNo" label="交易流水号" type="string" />
+      </Entity>
+    </select>
+    <where>
+      <exp type="2">
+        <exp type="19" valueType="1" option="true" leftEntity="AMS_TradeLog" leftField="source_userId" uid="exp0" rightType="param" right="source_member" />
+        <exp type="19" valueType="1" option="true" leftEntity="AMS_TradeLog" leftField="target_userId" uid="exp1" rightType="param" right="target_member" />
+        <exp type="7" valueType="7" option="true" rightType="param" right="start_trade_time" leftEntity="AMS_TradeLog" leftField="trade_time" uid="exp3" />
+        <exp type="11" valueType="7" option="true" rightType="param" right="end_trade_time" leftEntity="AMS_TradeLog" leftField="trade_time" uid="exp4" />
+        <exp type="5" valueType="3" option="true" leftEntity="AMS_TradeLog" leftField="trade_type" uid="exp2" rightType="param" right="trade_type" />
+        <exp type="19" valueType="1" option="true" rightType="param" right="bizid" leftEntity="AMS_TradeLog" leftField="bizid" uid="exp5" />
+        <exp type="19" valueType="1" option="true" leftEntity="AMS_TradeLog" leftField="source_member_name" uid="exp6" rightType="param" right="member_name" />
+        <exp type="19" valueType="1" option="true" leftEntity="AMS_TradeLog" leftField="target_member_name" uid="exp7" rightType="param" right="target_member_name" />
+        <exp type="19" valueType="1" option="true" rightType="param" right="source_memberNo" leftEntity="AMS_TradeLog" leftField="source_memberNo" uid="exp8" />
+        <exp type="19" valueType="1" option="true" rightType="param" right="target_memberNo" leftEntity="AMS_TradeLog" leftField="target_memberNo" uid="exp9" />
+      </exp>
+    </where>
+    <other>
+      <groupBy label="Group By" />
+      <orderBy label="Order By">
+        <field uid="sys_0" name="id" label="编号" type="long" entity="AMS_TradeLog" order="desc" />
+      </orderBy>
+    </other>
+  </xmlQuery>
+  <conditionForm>
+    <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2">
+      <TabNavigator>
+        <tab label="default">
+          <Label width="82" height="25" text="源用户ID:" propertyUID="id_1" x="3" y="3" style="" />
+          <Label width="82" height="25" text="目标用户:" propertyUID="id_2" x="203" y="3" style="" />
+          <TextInput label="TextInput" x="63" y="3" width="139" height="24" name="source_member" />
+          <TextInput label="TextInput" x="263" y="3" width="139" height="24" name="target_member" />
+          <Label width="82" height="25" text="交易时间:" propertyUID="id_8" x="3" y="31" style="" />
+          <DateField name="start_trade_time" width="139" height="25" x="63" y="31" />
+          <Label label="Label" text="至" x="223" y="31" width="39" height="24" style="" />
+          <DateField label="DateField" x="263" y="31" width="139" height="24" name="end_trade_time" />
+          <Label width="82" height="25" text="交易类型:" propertyUID="id_7" x="403" y="3" style="" />
+          <ComboBox valueProvider="多账户.交易类型" name="trade_type" width="139" height="25" x="463" y="3" />
+          <Label width="82" height="25" text="业务编号:" propertyUID="id_36" x="603" y="3" style="" />
+          <TextInput name="bizid" width="139" height="25" x="663" y="3" />
+          <Label width="82" height="25" text="源名称:" propertyUID="id_52" x="403" y="31" style="" />
+          <TextInput name="member_name" width="139" height="25" x="463" y="31" />
+          <Label width="82" height="25" text="目标名称:" propertyUID="id_53" x="603" y="33" style="" />
+          <TextInput name="target_member_name" width="139" height="25" x="663" y="31" />
+          <Label width="82" height="25" text="目标客户号:" propertyUID="id_43" x="803" y="31" style="" />
+          <TextInput name="target_memberNo" width="139" height="25" x="883" y="31" />
+          <Label width="82" height="25" text="源客户号:" propertyUID="id_42" x="803" y="3" style="" />
+          <TextInput name="source_memberNo" width="139" height="25" x="883" y="3" />
+        </tab>
+      </TabNavigator>
+    </Window>
+  </conditionForm>
+  <StatSetting />
+  <queryEvent />
+</EntityQuery>

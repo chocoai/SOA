@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "PUBLIC" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class entity-name="AMS_ChargeReverseEntry" table="DYNA_AMS_ChargeReverseEntry">
+    <id name="id" type="long">
+      <generator class="native"/>
+    </id>
+    <property name="WF_State" not-null="false" type="integer"/>
+    <property name="WF_StateName" not-null="false" length="50" type="string"/>
+    <property name="WF_ProcessId" not-null="false" type="long" index="IDX_PROCESSID"/>
+    <property name="WF_ProcessName" not-null="false" length="100" type="string"/>
+    <property name="FM_CreatePrinId" not-null="false" type="long" index="IDX_CREATEPRINID"/>
+    <property name="FM_CreatePrinName" not-null="false" length="100" type="string"/>
+    <property name="FM_UpdatePrinId" not-null="false" type="long" index="IDX_UPDATEPRINID"/>
+    <property name="FM_UpdatePrinName" not-null="false" length="100" type="string"/>
+    <property name="FM_CreateTime" not-null="false" type="timestamp"/>
+    <property name="FM_UpdateTime" not-null="false" type="timestamp"/>
+    <property name="WF_ProcessorPrinId" not-null="false" type="long" index="IDX_PROCPRINID"/>
+    <property name="WF_ProcessorPrinName" not-null="false" length="100" type="string"/>
+    <property name="WF_WorkItemId" not-null="false" type="long" index="IDX_WORKITEMID"/>
+    <property name="domainId" not-null="false" type="long" index="IDX_DOMAINID"/>
+    <property name="prev_balance" not-null="false" type="long"/>
+    <property name="operator_id" not-null="false" type="long" index="operator_idx"/>
+    <property name="operator_name" not-null="false" type="string" length="100"/>
+    <property name="operator_date" not-null="false" type="timestamp" length="100"/>
+    <property name="auditor_id" not-null="false" type="long" index="auditor_idx"/>
+    <property name="auditor_name" not-null="false" type="string" length="100"/>
+    <property name="auditor_date" not-null="false" type="timestamp" length="100"/>
+    <property name="balance" not-null="false" type="long"/>
+    <property name="trade_money" not-null="false" type="long"/>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Entity lastId="17" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.29A0352C1F08" name="AMS_LinkMan" label="联系人" note="" log="true" workflow="false" nodeID="805" dbcreated="true"> 
+  <property uid="sys_0" label="编号" name="id" type="long" systemProperty="true" editorPart="Entity"/>  
+  <property uid="sys_1" label="域ID" name="domainId" type="long" systemProperty="true" editorPart="Entity"/>  
+  <relation/>  
+  <extension/>  
+  <property uid="log_0" label="创建者ID" name="FM_CreatePrinId" type="long" systemProperty="true" editorPart="Entity"/>  
+  <property uid="log_1" label="创建者" name="FM_CreatePrinName" type="string" length="100" systemProperty="true" editorPart="Entity"/>  
+  <property uid="log_2" label="更新者ID" name="FM_UpdatePrinId" type="long" systemProperty="true" editorPart="Entity"/>  
+  <property uid="log_3" label="更新者" name="FM_UpdatePrinName" type="string" length="100" systemProperty="true" editorPart="Entity"/>  
+  <property uid="log_4" label="创建时间" name="FM_CreateTime" type="timestamp" systemProperty="true" editorPart="Entity"/>  
+  <property uid="log_5" label="更新时间" name="FM_UpdateTime" type="timestamp" systemProperty="true" editorPart="Entity"/>  
+  <property name="member" label="会员" type="relation" uid="id_6" entityUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0" labelField="name" editorPart="Entity" dbcreated="true"/>  
+  <property name="user_name" label="姓名" type="string" length="100" uid="id_7" editorPart="Entity" dbcreated="true"/>  
+  <property name="phone" label="手机" type="string" length="100" uid="id_8" editorPart="Entity" dbcreated="true"/>  
+  <property name="accountNo" label="银行卡号" type="string" length="100" uid="id_9" editorPart="Entity" dbcreated="true"/>  
+  <property name="accountNo_encrypt" label="银行卡号（加密）" type="string" length="100" uid="id_10" editorPart="Entity" dbcreated="true"/>  
+  <property name="bank_name" label="银行名称" type="string" length="100" uid="id_11" editorPart="Entity" dbcreated="true"/>  
+  <property name="bank_code" label="银行代码" type="string" length="100" uid="id_12" editorPart="Entity" dbcreated="true"/>  
+  <property name="contact_type" label="联系人类型" type="long" uid="id_17" valueProvider="多账户.联系人类型" dbcreated="true"/> 
+</Entity>

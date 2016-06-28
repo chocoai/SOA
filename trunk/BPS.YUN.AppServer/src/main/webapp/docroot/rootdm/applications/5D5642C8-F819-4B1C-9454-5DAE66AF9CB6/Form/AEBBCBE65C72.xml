@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityForm name="分公司对应区域" label="分公司对应区域" uid="5D5642C8-F819-4B1C-9454-5DAE66AF9CB6.AEBBCBE65C72" nodeID="918"> 
+              <formEntity uid="5D5642C8-F819-4B1C-9454-5DAE66AF9CB6.29025BC33E98"/>  
+              <formState/>  
+              <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2"> 
+                <TabNavigator> 
+                  <tab label="default"> 
+                    <Label width="82" height="25" text="省/地区:" propertyUID="id_1" x="3" y="31" style=""/>  
+                    <TextInput propertyUID="id_1" width="179" height="25" x="83" y="31"/>  
+                    <Label width="82" height="25" text="通联分公司:" propertyUID="id_2" x="3" y="3" style=""/>  
+                    <EntityField propertyUID="id_2" width="179" height="25" x="83" y="3"/> 
+                  </tab> 
+                </TabNavigator> 
+              </Window>  
+              <formEvent/> 
+            </EntityForm>

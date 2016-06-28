@@ -1,0 +1,415 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=0.5, user-scalable=no, target-densitydpi=320"></meta>
+	
+	<meta name="apple-mobile-web-app-capable" content="yes"></meta>
+	<meta names="apple-mobile-web-app-status-bar-style" content="black-translucent"></meta>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+	<title></title>
+	<link href="css/default/style.css" rel="stylesheet">
+	<link href="css/default/page.css" rel="stylesheet">
+	<script type="text/javascript" src="../lib/jquery-2.1.1.min.js"></script>
+	<script type='text/javascript' src="../lib/json.js"></script>	
+	<script type='text/javascript' src='loader.min.js'></script>
+	<style>
+	@-webkit-keyframes ani-slide {
+	  0% {
+	    -webkit-transform: translate3d(0px, 0px, 0px);
+	  }
+	  
+	  100% {
+	    -webkit-transform: translate3d(0px, 300px, 0px);
+	  }
+	}
+	html{
+		overflow: hidden;
+	}
+	body{
+		background-color : #808080;
+	}
+	.qs-ani-slide{
+		-webkit-animation-name : ani-slide
+	}
+	#log{
+		position : absolute;
+		z-index  : 90000;
+	}
+	.left-button{
+		background: url(images/goback.png) no-repeat scroll left center;
+		background-size: auto 18px;
+		text-indent: 17px;
+
+		display: inline-block;
+		position: absolute;
+		left : 5px;
+		vertical-align:middle;
+	}
+	
+	.qs-m-app{
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		overflow: visible;
+		padding: 0;
+		margin: 0;
+		left: 0;
+		top: 0;
+	}
+	.root{
+		position:absolute;
+		zoom:0.5;
+		width:200%;
+		height:200%;
+		left:0;
+		top:0;
+	}
+	</style>
+	
+	<script>
+	function load(){
+		qs.m.Page.show("p2");
+	}
+	function load2(){
+		qs.m.Page.show("p1");
+	}
+	function back(){
+		qs.m.Page.show("p2", "right");
+	}
+	function test(){
+		
+	}
+	</script>
+</head>
+
+<script id="QXML1" type="text/qxml">
+	<App title="移动应用" startPage="p1" xmlns:ui="qs.ui">
+		<Page name="p1" title="移动应用" loaded="loaded">
+			<prop.header>
+				<Header>
+					<prop.lefter>
+						<Button icon="images/goback.png" text="返回" height="22" click="goBack"/>
+					</prop.lefter>
+					<prop.righter>
+						<Button icon="" text="设置" click="onSetting"/>
+					</prop.righter>
+					<ui:TextInput />
+				</Header>
+			</prop.header>
+			<prop.menu>
+				<PopupView css="{'background-color':'#FFFFFF'}">
+					<Html width="200">
+						<div>菜单1</div>
+						<div>菜单2</div>
+						<div>菜单3</div>
+					</Html>
+				</PopupView>
+			</prop.menu>
+			<Scrollable>
+				<ui:Container>
+					<SwapView name="swap" height="200" />
+					<List name="list">
+					</List>
+				</ui:Container>
+			</Scrollable>
+			<func.script>
+				this.loaded = function(event){
+					this.swap.items([
+						{image:"test/1.jpg"},
+						{image:"test/2.jpg"},
+						{image:"test/3.jpg"},
+						{image:"test/4.jpg"}
+					]);
+					this.list.items([
+						{label:"item1"},
+						{label:"item2"},
+						{label:"item3"},
+						{label:"item4"},
+						{label:"item5"},
+						{label:"item6"},
+						{label:"item7"},
+						{label:"item1"},
+						{label:"item2"},
+						{label:"item3"},
+						{label:"item4"},
+						{label:"item5"},
+						{label:"item6"},
+						{label:"item7"}
+					]);
+				}
+				this.goBack = function(event){
+					qs.m.app.back();
+				}
+				this.onSetting = function(event){
+					//var page = qs.m.app.getPage("p2");
+					//qs.m.app.activePage(page);
+					this.menu.show("left", {maskOpacity:0.5, movePage:true, width:1000});
+					//this.menu.show("down");
+					//this.menu.show("left", {width:200});
+					//this.menu.show("right", {width:200});
+				}
+			</func.script>
+		</Page>
+		<Page name="p2" title="移动应用2" loaded="loaded">
+			<prop.header>
+				<Header>
+					<prop.lefter>
+						<Button icon="images/goback.png" text="返回" height="22" click="goBack"/>
+					</prop.lefter>
+					<prop.righter>
+						<Button icon="" text="设置" />
+					</prop.righter>
+				</Header>
+			</prop.header>
+			<SwapView name="swap" height="200" />
+			<func.script>
+				this.loaded = function(event){
+					this.swap.items([
+						{image:"test/1.jpg"},
+						{image:"test/2.jpg"},
+						{image:"test/3.jpg"},
+						{image:"test/4.jpg"}
+					]);
+				}
+				this.goBack = function(event){
+					qs.m.app.back();
+				}
+			</func.script>
+		</Page>
+	</App>
+</script>
+<script id="QXML2" type="text/qxml">
+	<App title="移动应用" xmlns:ui="qs.ui">
+		<TabPage name="p1" loaded="loaded" options="{classes:'t'}">
+			<prop.header>
+				<Header>
+					<prop.lefter>
+						<Button icon="images/goback.png" text="返回" height="68" click="goBack"/>
+					</prop.lefter>
+					<prop.righter>
+						<Button icon="" text="设置" click="goPage"/>
+					</prop.righter>
+				</Header>
+			</prop.header>
+			<TabItem name="t1" label="首页" icon="../images/icons/icon-excel.png" style="{'background-color':'#808080'}">
+				<Scrollable>
+					<NavBoard name="nav" />
+				</Scrollable>
+			</TabItem>
+			<TabItem name="t2" label="页1" icon="../images/icons/icon-addfile.png">
+				<PagingView name="pv" refresh="onRefresh" loadmore="onLoadMore">
+					<List name="list">
+					</List>
+				</PagingView>
+			</TabItem>
+			<TabItem name="t3" label="页1" icon="../images/icons/icon-addfile.png">
+				<Scrollable>
+					<ui:Container>
+						<SwapView name="swap2" height="200" />
+						<SwitchBox value="false" />
+						<List name="list2">
+						</List>
+					</ui:Container>
+				</Scrollable>
+			</TabItem>
+			<TabItem name="t4" label="页3" icon="../images/icons/icon-excel.png">
+				<Page name="p2" title="移动应用3" style="{'background-color':'#808080'}">
+					<prop.header>
+						<Header>
+							<prop.lefter>
+								<Button icon="images/goback.png" text="返回2" height="34"/>
+							</prop.lefter>
+							<prop.righter>
+								<Button icon="" text="设置2" />
+							</prop.righter>
+						</Header>
+					</prop.header>
+					<Html name="h">
+						<div style="background-color:#8080F0">hello html</div>
+						<button>submit</button>
+					</Html>
+				</Page>
+			</TabItem>
+			<func.script>
+			<![CDATA[
+				this.loaded = function(event){
+					this.nav.items([
+						{label:"公告", icon:"../images/icons/icon-excel.png", goPage:"p2", counter:2},
+						{label:"邮件", icon:"../images/icons/icon-excel.png", goPage:"p3", counter:12},
+						{label:"投票", icon:"../images/icons/icon-excel.png", goUrl:"test/page.html?id=1"},
+						{label:"考勤", icon:"../images/icons/icon-excel.png", counter:112}
+					]);
+					this.swap2.items([
+						{image:"test/1.jpg"},
+						{image:"test/2.jpg"},
+						{image:"test/3.jpg"},
+						{image:"test/4.jpg"}
+					]);
+					this.list.items([
+						{label:"item1", goPage:"p2"},
+						{label:"item2"},
+						{label:"item3"},
+						{label:"item4"},
+						{label:"item5"},
+						{label:"item6"},
+						{label:"item7"},
+						{label:"item1"},
+						{label:"item2"},
+						{label:"item3"},
+						{label:"item4"},
+						{label:"item5"},
+						{label:"item6"},
+						{label:"item7"}
+					]);
+					this.list2.items([
+						{label:"item1", icon:"../images/icons/logout.png"},
+						{label:"item2", icon:"../images/icons/logout.png"},
+						{type:"separator"},
+						{label:"item4", icon:"../images/icons/logout.png", goPage:"p2"},
+						{label:"item5", icon:"../images/icons/logout.png"},
+						{label:"item6", icon:"../images/icons/logout.png"},
+						{label:"item7", icon:"../images/icons/logout.png"},
+						{type:"separator"},
+						{label:"item2", icon:"../images/icons/logout.png"},
+						{label:"item3", icon:"../images/icons/logout.png"},
+						{label:"item4", icon:"../images/icons/logout.png"},
+						{label:"item5", icon:"../images/icons/logout.png"},
+						{label:"item6", icon:"../images/icons/logout.png"},
+						{label:"item7", icon:"../images/icons/logout.png"}
+					]);
+					this.pv.hasMore(true);
+				}
+				this.goPage = function(event){
+					qs.m.app.activePage("p2");
+				}
+				this.onRefresh = function(event){
+					event.preventDefault();
+					qs.m.waitingBox.open();
+					var self = this;
+					setTimeout(function(){
+						self.pv.completeRefresh();
+						self.pv.hasMore(true);
+						qs.m.waitingBox.close();
+					}, 300);
+				}
+				this.onLoadMore = function(event){
+					qs.m.waitingBox.open();
+					var self = this;
+					setTimeout(function(){
+						self.pv.hasMore(false);
+						qs.m.waitingBox.close();
+					}, 300);
+				}
+				this.goBack = function(event){
+					/* Android无效
+					var $file = $('<input type="file"/>');
+					$('body').append($file);
+					$file.trigger("click");
+					*/
+				}
+			]]>
+			</func.script>
+		</TabPage>
+		<Page name="p2" title="移动应用2" loaded="loaded">
+			<prop.header>
+				<Header>
+					<prop.lefter>
+						<Button icon="images/goback.png" text="返回2" height="34" click="goBack"/>
+					</prop.lefter>
+					<prop.righter>
+						<Button icon="" text="设置2" click="onSetting"/>
+					</prop.righter>
+				</Header>
+			</prop.header>
+			<Scrollable>
+				<ui:Container>
+					<SwapView name="swap" height="200" />
+					<List name="list" editable="true">
+					</List>
+				</ui:Container>
+			</Scrollable>
+			<func.script>
+			<![CDATA[
+				this.loaded = function(event){
+					this.swap.items([
+						{image:"test/1.jpg"},
+						{image:"test/2.jpg"},
+						{image:"test/3.jpg"},
+						{image:"test/4.jpg"}
+					]);
+					this.list.items([
+						{label:"item1"},
+						{label:"item2"},
+						{label:"item3"},
+						{label:"item4"},
+						{label:"item5"},
+						{label:"item6"},
+						{label:"item7"},
+						{label:"item1"},
+						{label:"item2"},
+						{label:"item3"},
+						{label:"item4"},
+						{label:"item5"},
+						{label:"item6"},
+						{label:"item7"}
+					]);
+				}
+				this.goBack = function(event){
+					qs.m.app.back();
+				}
+				this.onSetting = function(event){
+					//qs.m.app.loadPage("test/page.html");
+					qs.m.app.activePage("p3");
+				}
+			]]>
+			</func.script>
+		</Page>
+		<IncludePage name="p3" url="test/page.html">
+		</IncludePage>
+		<event.resume def="function(event)">
+		<![CDATA[
+			
+		]]>
+		</event.resume>
+	</App>
+</script>
+<body>
+	<div id="log"></div>
+	<div id="app">
+		
+	</div>
+	<div class="android-bug">&nbsp;</div>
+	<script>
+	
+	var xml = new qs.Xml($("#QXML2").text());
+	if( qs.ui.device.isMobile != true )
+		qs.m.App.instance().zoom(0.5);
+	qs.m.App.instance().load($("#app"), xml);
+	/*
+	var items = [
+	         {
+	        	 label : "主页",
+	        	 icon  : "../images/icons/icon-excel.png"
+	         },
+	         {
+	        	 label : "邮件",
+	        	 icon  : "../images/icons/icon-addfile.png"
+	         },
+	         {
+	        	 label : "通讯录",
+	        	 icon  : "../images/icons/icon-excel.png"
+	         },
+	         {
+	        	 label : "考勤",
+	        	 icon  : "../images/icons/icon-excel.png"
+	         }
+	      ];
+	
+	var tabBar = new qs.m.TabBar();
+	tabBar.items(items);
+	tabBar.render($("#tab1"));
+	*/
+	
+	</script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "PUBLIC" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class entity-name="AMS_TradeLog" table="DYNA_AMS_TradeLog">
+    <id name="id" type="long">
+      <generator class="native"/>
+    </id>
+    <property name="domainId" not-null="false" type="long" index="IDX_DOMAINID"/>
+    <property name="source_account_id" not-null="false" type="long"/>
+    <property name="target_account_id" not-null="false" type="long"/>
+    <property name="account_type_id" not-null="false" type="long" index="account_type_idx"/>
+    <property name="account_type_label" not-null="false" type="string" length="200"/>
+    <property name="trade_type" not-null="false" type="long"/>
+    <property name="trade_time" not-null="false" type="timestamp" length="100"/>
+    <property name="rollback_id" not-null="false" type="long"/>
+    <property name="rollback_source_id" not-null="false" type="long"/>
+    <property name="out_trade_id" not-null="false" type="string" length="100"/>
+    <property name="remark" not-null="false" type="string" length="1024"/>
+    <property name="operator_id" not-null="false" type="string"/>
+    <property name="out_bizno" not-null="false" type="string" length="100"/>
+    <property name="trade_money" not-null="false" type="long"/>
+    <property name="trade_id" not-null="false" type="string" length="100"/>
+    <property name="bizid" not-null="false" type="string" length="100"/>
+    <property name="source_userId" not-null="false" type="string" length="100"/>
+    <property name="target_userId" not-null="false" type="string" length="100"/>
+    <property name="source_memberNo" not-null="false" type="string" length="100"/>
+    <property name="target_memberNo" not-null="false" type="string" length="100"/>
+    <property name="pay_mode" not-null="false" type="string" length="100"/>
+    <property name="isMaster" not-null="false" type="boolean" length="100"/>
+    <property name="orgNo" not-null="false" type="string" length="100"/>
+    <property name="pay_channelNo" not-null="false" type="string" length="100"/>
+    <property name="sub_trade_type" not-null="false" type="long"/>
+    <property name="source_member_name" not-null="false" type="string" length="100"/>
+    <property name="target_member_name" not-null="false" type="string" length="100"/>
+    <property name="extend_info" not-null="false" type="string" length="1024"/>
+    <property name="pay_interfaceNo" not-null="false" type="string" length="100"/>
+    <property name="bank_code" not-null="false" type="string" length="100"/>
+    <property name="handling_charge" not-null="false" type="long"/>
+    <property name="handling_mode" not-null="false" type="long"/>
+    <property name="command_no" not-null="false" type="string" length="100"/>
+    <property name="card_type" not-null="false" type="long"/>
+    <property name="biz_orderNo" not-null="false" type="string" length="100"/>
+  </class>
+</hibernate-mapping>

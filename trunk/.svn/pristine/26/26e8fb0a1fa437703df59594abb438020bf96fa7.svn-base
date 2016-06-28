@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityForm name="通联分公司" label="通联分公司" uid="5D5642C8-F819-4B1C-9454-5DAE66AF9CB6.54E365A84EAA" nodeID="912"> 
+              <formEntity uid="5D5642C8-F819-4B1C-9454-5DAE66AF9CB6.1DDC1772071A"/>  
+              <formState/>  
+              <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2"> 
+                <TabNavigator> 
+                  <tab label="default"> 
+                    <Label width="82" height="25" text="名称:" propertyUID="id_1" x="3" y="3" style=""/>  
+                    <TextInput propertyUID="id_1" width="179" height="25" x="83" y="3"/>  
+                    <Label width="82" height="25" text="会员名称:" propertyUID="id_2" x="2" y="31" style=""/>  
+                    <EntityField propertyUID="id_2" width="179" height="25" x="83" y="31" formUID="" queryUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.6DEE07E727C9"/>  
+                    <Label width="82" height="25" text="用户ID:" propertyUID="id_3" x="2" y="59" style=""/>  
+                    <TextInput propertyUID="id_3" width="399" height="25" x="83" y="59"/> 
+                  </tab> 
+                </TabNavigator> 
+              </Window>  
+              <formEvent/> 
+            </EntityForm>

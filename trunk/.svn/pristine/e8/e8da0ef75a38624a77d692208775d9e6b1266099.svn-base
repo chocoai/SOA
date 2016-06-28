@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityQuery name="订单支付明细查询" label="订单支付明细查询" note="" share="false" multiselect="false" editable="false" autopaging="false" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.8C76F8C40115" nodeID="356">
+  <queryEntities>
+    <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.709120BF9A98" name="AMS_OrderPayDetail" label="订单支付明细" alias="a0" selectAll="true" isBranch="true" master="true" />
+  </queryEntities>
+  <DataGrid>
+    <color />
+    <column name="pay_channelNo" label="支付渠道编号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.709120BF9A98.id_20" width="100" isBranch="false" dataField="AMS_OrderPayDetail$pay_channelNo" />
+    <column name="pay_interfaceNo" label="支付通道编号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.709120BF9A98.id_44" width="100" isBranch="false" dataField="AMS_OrderPayDetail$pay_interfaceNo" />
+    <column name="pay_state" label="支付状态" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.709120BF9A98.id_3" width="100" isBranch="false" dataField="AMS_OrderPayDetail$pay_state" />
+    <column name="account_type" label="账户类型" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.709120BF9A98.id_6" width="100" isBranch="false" dataField="AMS_OrderPayDetail$account_type_label" />
+    <column name="source_userId" label="源会员uuid" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.709120BF9A98.id_11" width="100" isBranch="false" dataField="AMS_OrderPayDetail$source_userId" />
+    <column name="source_memberNo" label="源会员客户号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.709120BF9A98.id_12" width="100" isBranch="false" dataField="AMS_OrderPayDetail$source_memberNo" />
+    <column name="source_member_name" label="源会员名称" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.709120BF9A98.id_13" width="100" isBranch="false" dataField="AMS_OrderPayDetail$source_member_name" />
+    <column name="target_userId" label="目标会员uuid" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.709120BF9A98.id_14" width="100" isBranch="false" dataField="AMS_OrderPayDetail$target_userId" />
+    <column name="target_memberNo" label="目标会员客户号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.709120BF9A98.id_15" width="100" isBranch="false" dataField="AMS_OrderPayDetail$target_memberNo" />
+    <column name="target_member_name" label="目标会员名称" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.709120BF9A98.id_16" width="100" isBranch="false" dataField="AMS_OrderPayDetail$target_member_name" />
+    <column name="command_no" label="支付指令号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.709120BF9A98.id_28" width="100" isBranch="false" dataField="AMS_OrderPayDetail$command_no" />
+    <column name="seq_no" label="支付顺序" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.709120BF9A98.id_62" width="100" isBranch="false" />
+    <column name="out_ret_code1" label="响应码1" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.709120BF9A98.id_34" width="100" isBranch="false" dataField="AMS_OrderPayDetail$out_ret_code1" />
+    <column name="out_ret_code2" label="响应码2" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.709120BF9A98.id_35" width="100" isBranch="false" dataField="AMS_OrderPayDetail$out_ret_code2" />
+    <column name="out_errmsg1" label="错误信息1" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.709120BF9A98.id_36" width="100" isBranch="false" dataField="AMS_OrderPayDetail$out_errmsg1" />
+    <column name="out_errmsg2" label="错误信息2" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.709120BF9A98.id_37" width="100" isBranch="false" dataField="AMS_OrderPayDetail$out_errmsg2" />
+    <column name="out_trade_id" label="外部流水" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.709120BF9A98.id_50" width="100" isBranch="false" dataField="AMS_OrderPayDetail$out_trade_id" />
+    <column name="handling_mode" label="计费模式" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.709120BF9A98.id_53" width="100" isBranch="false" dataField="AMS_OrderPayDetail$handling_mode" />
+    <column name="call_type" label="调用类型" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.709120BF9A98.id_51" width="100" isBranch="false" dataField="AMS_OrderPayDetail$call_type" />
+    <column name="target_account_type" label="目标账户类型" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.709120BF9A98.id_60" width="100" isBranch="false" dataField="AMS_OrderPayDetail$target_account_type_label" />
+  </DataGrid>
+  <editState />
+  <toolbar />
+  <xmlQuery version="2.0" name="" label="">
+    <select domainScope="true">
+      <other label="其他" uid="other" name="other" />
+      <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.709120BF9A98" name="AMS_OrderPayDetail" label="订单支付明细" alias="a0" selectAll="true" isBranch="true">
+        <field uid="sys_0" name="id" label="编号" type="long" />
+        <field uid="sys_1" name="domainId" label="域ID" type="long" />
+        <field uid="id_3" name="pay_state" label="支付状态" type="long" />
+        <field uid="id_6" name="account_type" label="账户类型" type="relation" />
+        <field uid="id_9" name="bizid" label="业务编号" type="string" />
+        <field uid="id_11" name="source_userId" label="源会员uuid" type="string" />
+        <field uid="id_12" name="source_memberNo" label="源会员客户号" type="string" />
+        <field uid="id_13" name="source_member_name" label="源会员名称" type="string" />
+        <field uid="id_14" name="target_userId" label="目标会员uuid" type="string" />
+        <field uid="id_15" name="target_memberNo" label="目标会员客户号" type="string" />
+        <field uid="id_16" name="target_member_name" label="目标会员名称" type="string" />
+        <field uid="id_17" name="trade_type" label="交易类型" type="long" />
+        <field uid="id_18" name="sub_trade_type" label="子交易类型" type="long" />
+        <field uid="id_19" name="trade_money" label="交易金额" type="long" />
+        <field uid="id_20" name="pay_channelNo" label="支付渠道编号" type="string" />
+        <field uid="id_23" name="isMaster" label="是否主交易" type="boolean" />
+        <field uid="id_24" name="pay_mode" label="支付方式" type="string" />
+        <field uid="id_26" name="remark" label="备注" type="string" />
+        <field uid="id_27" name="orgNo" label="机构号" type="string" />
+        <field uid="id_28" name="command_no" label="支付指令号" type="string" />
+        <field uid="id_29" name="trade_seq_no" label="渠道交易序号" type="string" />
+        <field uid="id_30" name="accountNo" label="银行账号" type="string" />
+        <field uid="id_31" name="bank_code" label="银行代码" type="string" />
+        <field uid="id_32" name="account_name" label="姓名" type="string" />
+        <field uid="id_34" name="out_ret_code1" label="响应码1" type="string" />
+        <field uid="id_35" name="out_ret_code2" label="响应码2" type="string" />
+        <field uid="id_36" name="out_errmsg1" label="错误信息1" type="string" />
+        <field uid="id_37" name="out_errmsg2" label="错误信息2" type="string" />
+        <field uid="id_38" name="accountNo_encrypt" label="账号(加密)" type="string" />
+        <field uid="id_42" name="acct_validdate" label="有效期" type="string" />
+        <field uid="id_43" name="cvv2" label="cvv2" type="string" />
+        <field uid="id_44" name="pay_interfaceNo" label="支付通道编号" type="string" />
+        <field uid="id_45" name="extend_info" label="扩展信息" type="string" />
+        <field uid="id_47" name="account_password" label="账户密码" type="string" />
+        <field uid="id_48" name="card_type" label="卡类型" type="long" />
+        <field uid="id_49" name="account_prop" label="账户属性" type="long" />
+        <field uid="id_50" name="out_trade_id" label="外部流水" type="string" />
+        <field uid="id_51" name="call_type" label="调用类型" type="long" />
+        <field uid="id_52" name="order_type" label="订单类型" type="long" />
+        <field uid="id_53" name="handling_mode" label="计费模式" type="long" />
+        <field uid="id_55" name="account_codeNo" label="账户编号" type="string" />
+        <field uid="id_56" name="refund_status" label="退款状态" type="long" />
+        <field uid="id_57" name="phone" label="手机号" type="string" />
+        <field uid="id_58" name="contract_no" label="银行绑定合同号" type="string" />
+        <field uid="id_59" name="bank_name" label="银行名称" type="string" />
+        <field uid="id_60" name="target_account_type" label="目标账户类型" type="relation" />
+        <field uid="id_61" name="target_account_codeNo" label="目标账户编号" type="string" />
+        <field uid="id_62" name="seq_no" label="支付顺序" type="long" />
+        <field uid="id_64" name="pay_serialNo" label="交易流水号" type="string" />
+        <field uid="id_65" name="pay_type" label="支付方式" type="long" />
+      </Entity>
+    </select>
+    <where>
+      <exp type="2">
+        <exp type="5" valueType="1" option="false" rightType="val" right="$page.master.selectedEntity.orderNo" leftEntity="AMS_OrderPayDetail" leftField="bizid" uid="exp0" />
+      </exp>
+    </where>
+    <other>
+      <groupBy label="Group By" />
+      <orderBy label="Order By">
+        <field uid="sys_0" name="id" label="编号" type="long" entity="AMS_OrderPayDetail" />
+      </orderBy>
+    </other>
+  </xmlQuery>
+  <conditionForm>
+    <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2">
+      <TabNavigator>
+        <tab label="default" />
+      </TabNavigator>
+    </Window>
+  </conditionForm>
+  <StatSetting />
+  <queryEvent />
+</EntityQuery>

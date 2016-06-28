@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.DD67B8DFF0AF" name="AMS_OrgTradePermission" label="机构交易权限" note="" log="false" workflow="false" nodeID="665" lastId="5" dbcreated="true"> 
+  <relation/>  
+  <extension/>  
+  <property uid="sys_0" label="编号" name="id" type="long" systemProperty="true" group="系统属性字段" editorPart="Entity"/>  
+  <property uid="sys_1" label="域ID" name="domainId" type="long" systemProperty="true" group="系统属性字段" editorPart="Entity"/>  
+  <property name="org" label="机构名称" type="relation" uid="id_1" group="业务属性字段" entityUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.5A11C43DEB1B" labelField="name" editorPart="Entity" dbcreated="true"/>  
+  <property name="trade_type" label="交易类型" type="long" uid="id_3" group="业务属性字段" editorPart="Entity" valueProvider="多账户.交易类型" dbcreated="true"/>  
+  <property name="sub_trade_type" label="子交易类型" type="long" uid="id_4" group="业务属性字段" editorPart="Entity" valueProvider="多账户.交易子类型" dbcreated="true"/>  
+  <property name="orgNo" label="机构号" type="string" length="100" uid="id_5" group="业务属性字段" dbcreated="true"/> 
+</Entity>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.A274F80E0641" name="AMS_MemberBank" label="会员银行卡" note="" log="true" workflow="false" nodeID="829" lastId="30" dbcreated="true"> 
+  <relation/>  
+  <extension/>  
+  <property uid="sys_0" label="编号" name="id" type="long" systemProperty="true" editorPart="Entity" group="系统属性字段"/>  
+  <property uid="sys_1" label="域ID" name="domainId" type="long" systemProperty="true" editorPart="Entity" group="系统属性字段"/>  
+  <property uid="log_0" label="创建者ID" name="FM_CreatePrinId" type="long" systemProperty="true" editorPart="Entity" group="系统属性字段"/>  
+  <property uid="log_1" label="创建者" name="FM_CreatePrinName" type="string" length="100" systemProperty="true" editorPart="Entity" group="系统属性字段"/>  
+  <property uid="log_2" label="更新者ID" name="FM_UpdatePrinId" type="long" systemProperty="true" editorPart="Entity" group="系统属性字段"/>  
+  <property uid="log_3" label="更新者" name="FM_UpdatePrinName" type="string" length="100" systemProperty="true" editorPart="Entity" group="系统属性字段"/>  
+  <property uid="log_4" label="创建时间" name="FM_CreateTime" type="timestamp" systemProperty="true" editorPart="Entity" group="系统属性字段"/>  
+  <property uid="log_5" label="更新时间" name="FM_UpdateTime" type="timestamp" systemProperty="true" editorPart="Entity" group="系统属性字段"/>  
+  <property name="accountNo" label="帐号" type="string" length="100" uid="id_1" editorPart="Entity" group="业务属性字段" dbcreated="true"/>  
+  <property name="bank_code" label="银行代码" type="string" length="100" uid="id_3" editorPart="Entity" group="业务属性字段" dbcreated="true"/>  
+  <property name="bank_name" label="银行名称" type="string" length="100" uid="id_4" editorPart="Entity" group="业务属性字段" dbcreated="true"/>  
+  <property name="bind_time" label="绑定时间" type="timestamp" length="100" uid="id_6" editorPart="Entity" group="业务属性字段" dbcreated="true"/>  
+  <property name="unbind_time" label="解绑时间" type="timestamp" length="100" uid="id_7" editorPart="Entity" group="业务属性字段" dbcreated="true"/>  
+  <property name="member" label="会员" type="relation" uid="id_8" entityUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0" labelField="userId" editorPart="Entity" group="业务属性字段" dbcreated="true"/>  
+  <property name="card_type" label="卡类型" type="long" uid="id_10" editorPart="Entity" group="业务属性字段" note="信用卡/储蓄卡" valueProvider="银行卡.银行卡类型" dbcreated="true"/>  
+  <property name="identity_cardNo" label="身份证号码" type="string" length="100" uid="id_11" editorPart="Entity" group="业务属性字段" dbcreated="true"/>  
+  <property name="account_name" label="开户名" type="string" length="100" uid="id_12" editorPart="Entity" group="业务属性字段" dbcreated="true"/>  
+  <property name="account_type" label="账户类型" type="relation" uid="id_14" group="业务属性字段" entityUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.62156FFA93F3" labelField="name" editorPart="Entity" dbcreated="true"/>  
+  <property name="bind_state" label="绑定状态" type="long" uid="id_16" group="业务属性字段" editorPart="Entity" valueProvider="银行卡.绑定状态" dbcreated="true"/>  
+  <property name="account_prop" label="账户属性" type="long" uid="id_17" group="业务属性字段" editorPart="Entity" note="个人/企业" valueProvider="银行卡.账户属性" dbcreated="true"/>  
+  <property name="accountNo_encrypt" label="账号(加密)" type="string" length="200" uid="id_19" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="acct_validdate" label="有效期" type="string" length="100" uid="id_20" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="cvv2" label="cvv2" type="string" length="100" uid="id_21" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="phone" label="预留手机号码" type="string" length="100" uid="id_22" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="contract_no" label="协议号" type="string" length="100" uid="id_23" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="business_card_type" label="卡业务类型" type="long" uid="id_24" group="业务属性字段" valueProvider="多账户.卡业务类型" editorPart="Entity" dbcreated="true"/>  
+  <property name="is_safe_card" label="是否是安全卡" type="boolean" length="100" uid="id_25" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="is_person_card_checked" label="企业用户是否允许个人银行卡提现" type="boolean" length="100" uid="id_29" group="业务属性字段" dbcreated="true"/>  
+  <property name="person_card_checked_time" label="企业会员允许个人银行卡提现审核通过时间" type="timestamp" length="100" uid="id_30" group="业务属性字段" dbcreated="true"/> 
+</Entity>

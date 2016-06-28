@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "PUBLIC" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class entity-name="AMS_ArtWithdrawalDetail" table="DYNA_AMS_ArtWithdrawalDetail">
+    <id name="id" type="long">
+      <generator class="native"/>
+    </id>
+    <property name="domainId" not-null="false" type="long" index="IDX_DOMAINID"/>
+    <property name="artWithdrawal_id" not-null="false" type="long" index="artWithdrawal_idx"/>
+    <property name="artWithdrawal_label" not-null="false" type="string" length="200"/>
+    <property name="account_type_id" not-null="false" type="long" index="account_type_idx"/>
+    <property name="account_type_label" not-null="false" type="string" length="200"/>
+    <property name="trade_money" not-null="false" type="long"/>
+    <property name="account_id" not-null="false" type="long"/>
+    <property name="member_account_id" not-null="false" type="long" index="member_account_idx"/>
+    <property name="member_account_label" not-null="false" type="string" length="200"/>
+  </class>
+</hibernate-mapping>

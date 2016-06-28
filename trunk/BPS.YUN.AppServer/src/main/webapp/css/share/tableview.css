@@ -1,0 +1,65 @@
+.ws_tableview {
+		font:		Icon;
+		border:		1px Solid #404040;
+		background:	Window;
+		color:		WindowText;
+	}
+.ws_tableview thead {
+		sortimg_blank: ws_app_path + "images/ws/sort_blank.png";
+		sortimg_asc  : ws_app_path + "images/ws/sort_asc.png";
+		sortimg_des  : ws_app_path + "images/ws/sort_des.png";
+	}
+.ws_tableview thead td{
+		border: 1px solid;
+	}
+.ws_tableview thead .active{
+		border-width:	0px 1px 1px 0px; 
+		border-color:	#404040 #C0C0C0 #666666 #404040; 
+		background:     url("../images/ws/tvhead_bka.jpg");
+		cursor:			default;
+	}
+.ws_tableview thead .deactive{
+		border-width:	0px 1px 1px 0px; 
+		border-color:	#404040 #C0C0C0 #666666 #404040; 
+		background:     url("../images/ws/tvhead_bk.jpg");
+		cursor:			default;
+	}
+.ws_tableview tbody td {
+		border: 1px solid;
+		border-width:	0px 1px 0px 0px; 
+		border-color:	#404040 #C0C0C0 #404040 #404040; 
+		cursor:			default;
+	}
+.ws_tableview tfoot {
+		background:	url("../images/ws/tvfoot_bk.jpg");
+		border:		0px solid;
+	}
+.ws_tableview tfoot td {
+		text-align:		right; 
+		cursor:			default;
+	}
+.ws_tableview .even_row {
+		background:	#EDF3FE;
+	}
+.ws_tableview .odd_row {
+	}
+.ws_tableview .navbutton	{
+		behavior: url('../js/coolbutton.htc'); 
+		cursor: default; font: icon;word-break:keep-all;
+		width: 16px; height: 1px;
+		text-align:	center; 
+		border: 1px solid #BABABA;
+	}
+.ws_tableview .cool_button_raised	{
+		border:			1px solid;
+		border-color:	ButtonHighlight #9090BB #9090BB ButtonHighlight;
+	}
+.ws_tableview .cool_button_pressed	{
+		border:			1px solid;
+		border-color:	#9090BB ButtonHighlight ButtonHighlight #9090BB;
+		background-image: url(../images/ws/tileback.gif);
+	}
+.ws_tableview .selected {
+		background:	#3E80E0;
+		color:		white;
+	}

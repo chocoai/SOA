@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.6439A7310C28" name="AMS_PayInterface" label="支付通道" note="" log="false" workflow="false" nodeID="568" lastId="13" dbcreated="true"> 
+  <relation/>  
+  <extension/>  
+  <property uid="sys_0" label="编号" name="id" type="long" systemProperty="true" group="系统属性字段" editorPart="Entity"/>  
+  <property uid="sys_1" label="域ID" name="domainId" type="long" systemProperty="true" group="系统属性字段" editorPart="Entity"/>  
+  <property name="codeNo" label="通道编号" type="string" length="100" uid="id_1" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="pay_channel" label="支付渠道" type="relation" uid="id_2" group="业务属性字段" entityUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.4BCBC9D2C1A9" labelField="name" editorPart="Entity" dbcreated="true"/>  
+  <property name="name" label="名称" type="string" length="100" uid="id_3" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="remark" label="备注" type="string" length="256" uid="id_4" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="system_member" label="系统用户" type="relation" uid="id_5" group="业务属性字段" editorPart="Entity" entityUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0" labelField="name" dbcreated="true"/>  
+  <property name="system_uuid" label="系统用户ID" type="string" length="100" uid="id_6" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="short_name" label="简称" type="string" length="100" uid="id_7" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="handling_mode" label="手续费收费模式" type="long" uid="id_8" group="业务属性字段" editorPart="Entity" valueProvider="手续费.手续费收费模式" dbcreated="true"/>  
+  <property name="handling_each" label="固定" type="long" uid="id_10" group="业务属性字段" currency="true" editorPart="Entity" dbcreated="true"/>  
+  <property name="handling_rate" label="比率" type="double" uid="id_11" group="业务属性字段" editorPart="Entity" fraction="4" dbcreated="true"/>  
+  <property name="handling_type" label="手续费收费方式" type="long" uid="id_12" group="业务属性字段" editorPart="Entity" valueProvider="手续费.手续费收费方式" dbcreated="true"/>  
+  <property name="pay_type" label="支付类型" type="long" uid="id_13" group="业务属性字段" valueProvider="支付.支付类型" dbcreated="true"/> 
+</Entity>

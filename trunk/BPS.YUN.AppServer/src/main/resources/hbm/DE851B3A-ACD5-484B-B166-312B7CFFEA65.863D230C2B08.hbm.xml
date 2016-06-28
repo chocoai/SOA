@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "PUBLIC" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class entity-name="AMS_VerificationCode" table="DYNA_AMS_VerificationCode">
+    <id name="id" type="long">
+      <generator class="sequence">
+        <param name="sequence">IDSEQ_AMS_VerificationCode</param>
+      </generator>
+    </id>
+    <property name="domainId" not-null="false" type="long" index="IDX_DOMAINID"/>
+    <property name="verification_code" not-null="false" type="string" length="100"/>
+    <property name="verification_code_type" not-null="false" type="long"/>
+    <property name="create_time" not-null="false" type="timestamp" length="100"/>
+    <property name="invalid_time" not-null="false" type="timestamp" length="100"/>
+    <property name="member_id" not-null="false" type="long" index="member_idx"/>
+    <property name="member_label" not-null="false" type="string" length="200"/>
+    <property name="phone" not-null="false" type="string" length="100"/>
+    <property name="isChecked" not-null="false" type="boolean" length="100"/>
+    <property name="check_time" not-null="false" type="timestamp" length="100"/>
+    <property name="email" not-null="false" type="string" length="100"/>
+    <property name="member_type" not-null="false" type="long"/>
+    <property name="country" not-null="false" type="string" length="100"/>
+    <property name="application_id" not-null="false" type="long" index="application_idx"/>
+    <property name="application_label" not-null="false" type="string" length="200"/>
+  </class>
+</hibernate-mapping>

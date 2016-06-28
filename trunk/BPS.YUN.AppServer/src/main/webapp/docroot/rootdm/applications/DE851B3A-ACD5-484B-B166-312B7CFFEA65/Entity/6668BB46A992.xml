@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.6668BB46A992" name="AMS_AccountTradeLog" label="账户交易日志" note="" log="false" workflow="false" nodeID="678" lastId="30" dbcreated="true"> 
+  <property uid="sys_0" label="编号" name="id" type="long" systemProperty="true" editorPart="Entity"/>  
+  <property uid="sys_1" label="域ID" name="domainId" type="long" systemProperty="true" editorPart="Entity"/>  
+  <relation/>  
+  <extension/>  
+  <property name="tradelog_id" label="交易日志ID" type="long" uid="id_3" editorPart="Entity" dbcreated="true"/>  
+  <property name="trade_type" label="交易类型" type="long" uid="id_4" editorPart="Entity" valueProvider="多账户.交易类型" dbcreated="true"/>  
+  <property name="account_id" label="会员账户ID" type="long" uid="id_5" editorPart="Entity" dbcreated="true"/>  
+  <property name="account_type" label="账户类型" type="relation" uid="id_6" editorPart="Entity" entityUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.62156FFA93F3" labelField="name" shortcutField="name" dbcreated="true"/>  
+  <property name="log_state" label="日志状态" type="long" uid="id_11" editorPart="Entity" dbcreated="true"/>  
+  <property name="trade_time" label="发生时间" type="timestamp" length="100" uid="id_12" editorPart="Entity" dbcreated="true"/>  
+  <property name="transfer_type" label="转账类型" type="long" uid="id_18" valueProvider="多账户.转账类型" editorPart="Entity" dbcreated="true"/>  
+  <property name="trade_id" label="交易流水号" type="string" length="100" uid="id_19" editorPart="Entity" dbcreated="true"/>  
+  <property name="out_trade_id" label="外部交易流水号" type="string" length="100" uid="id_20" editorPart="Entity" dbcreated="true"/>  
+  <property name="out_bizno" label="外部业务号码" type="string" length="100" uid="id_21" editorPart="Entity" dbcreated="true"/>  
+  <property name="inner_trade_id" label="内部流水号" type="string" length="100" uid="id_22" editorPart="Entity" dbcreated="true"/>  
+  <property name="userId" label="用户ID" type="string" length="100" uid="id_23" editorPart="Entity" dbcreated="true"/>  
+  <property name="trade_money" label="交易金额" type="long" uid="id_24" currency="true" editorPart="Entity" dbcreated="true"/>  
+  <property name="bizid" label="业务编号" type="string" length="100" uid="id_25" editorPart="Entity" dbcreated="true"/>  
+  <property name="remark" label="备注" type="string" length="1024" uid="id_26" editorPart="Entity" dbcreated="true"/>  
+  <property name="source_userId" label="源会员ID" type="string" length="100" uid="id_27" editorPart="Entity" dbcreated="true"/>  
+  <property name="target_userId" label="目标会员ID" type="string" length="100" uid="id_28" editorPart="Entity" dbcreated="true"/>  
+  <property name="rollback_id" label="回滚交易ID" type="string" length="100" uid="id_29" editorPart="Entity" dbcreated="true"/>  
+  <property name="rollback_source_id" label="回滚交易的目标ID" type="string" length="100" uid="id_30" editorPart="Entity" dbcreated="true"/> 
+</Entity>

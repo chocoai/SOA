@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityQuery name="企业邮箱查询" label="企业邮箱查询" note="" share="false" multiselect="false" editable="false" autopaging="true" pagingMode="VirtualizingPaging" virtualizingPagingEnabled="true" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.F92157EB1C18" nodeID="465"> 
+              <queryEntities> 
+                <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.25B0097A88CB" name="AMS_CompanyEmail" label="企业邮箱" alias="a0" master="true"/> 
+              </queryEntities>  
+              <DataGrid> 
+                <color/>  
+                <column name="company_name" label="公司名称" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.25B0097A88CB.id_1" width="100" isBranch="false"/>  
+                <column name="company_email" label="企业邮箱" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.25B0097A88CB.id_2" width="100" isBranch="false"/>  
+                <column name="remark" label="备注" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.25B0097A88CB.id_3" width="100" isBranch="false"/> 
+              </DataGrid>  
+              <editState/>  
+              <toolbar> 
+                <button label="新建" action="alink" selection="none" alink="alink://ime.AppWindow/EntityForm?{selection:&quot;none&quot;,entityUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.25B0097A88CB&quot;,formUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.1F32A5AA314C&quot;,action:&quot;create&quot;}"/>  
+                <button label="编辑" action="alink" selection="single" alink="alink://ime.AppWindow/EntityForm?{selection:&quot;single&quot;,entityUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.25B0097A88CB&quot;,formUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.1F32A5AA314C&quot;,action:&quot;edit&quot;}"/>  
+                <button label="删除" action="delete" selection="single"/> 
+              </toolbar>  
+              <xmlQuery version="2.0" name="" label=""> 
+                <select domainScope="true"> 
+                  <other label="其他" uid="other" name="other"/>  
+                  <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.25B0097A88CB" name="AMS_CompanyEmail" label="企业邮箱" alias="a0"> 
+                    <field uid="sys_0" name="id" label="编号" type="long" entity="AMS_CompanyEmail"/>  
+                    <field uid="sys_1" name="domainId" label="域ID" type="long"/>  
+                    <field uid="id_1" name="company_name" label="公司名称" type="string"/>  
+                    <field uid="id_2" name="company_email" label="企业邮箱" type="string"/>  
+                    <field uid="id_3" name="remark" label="备注" type="string"/> 
+                  </Entity> 
+                </select>  
+                <where> 
+                  <exp type="2"> 
+                    <exp type="19" valueType="1" option="true" rightType="param" right="company_name" leftEntity="AMS_CompanyEmail" leftField="company_name" uid="exp0"/>  
+                    <exp type="19" valueType="1" option="true" rightType="param" right="company_email" leftEntity="AMS_CompanyEmail" leftField="company_email" uid="exp1"/> 
+                  </exp> 
+                </where>  
+                <other> 
+                  <groupBy label="Group By"/>  
+                  <orderBy label="Order By"> 
+                    <field uid="sys_0" name="id" label="编号" type="long" entity="AMS_CompanyEmail" order="desc"/> 
+                  </orderBy> 
+                </other> 
+              </xmlQuery>  
+              <conditionForm> 
+                <Window paddingLeft="1" paddingRight="1" paddingTop="1" paddingBottom="1"> 
+                  <TabNavigator> 
+                    <tab label="default"> 
+                      <Label width="82" height="25" text="公司名称:" propertyUID="id_1" x="3" y="3" style=""/>  
+                      <TextInput name="company_name" width="100" height="25" x="83" y="3"/>  
+                      <Label width="82" height="25" text="企业邮箱:" propertyUID="id_2" x="203" y="3" style=""/>  
+                      <TextInput name="company_email" width="100" height="25" x="283" y="3"/> 
+                    </tab> 
+                  </TabNavigator> 
+                </Window> 
+              </conditionForm>  
+              <StatSetting/>  
+              <queryEvent/> 
+            </EntityQuery>

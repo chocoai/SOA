@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ResourceSet>
+	<Item key="event.0001">
+		<Locale name="zh_CN">无效的服务事件:{0} {1}</Locale>
+		<Locale name="en">Customer event is not available :{0} {1}</Locale>
+	</Item>
+	
+	<Item key="login.0001">
+		<Locale name="zh_CN">密码错误。</Locale>
+		<Locale name="en">Password error.</Locale>
+	</Item>
+	<Item key="login.0002">
+		<Locale name="zh_CN">用户名或密码错误。</Locale>
+		<Locale name="en">User name or password error.</Locale>
+	</Item>
+	<Item key="login.0003">
+		<Locale name="zh_CN">登入域名错误。</Locale>
+		<Locale name="en">Domain error.</Locale>
+	</Item>
+	<Item key="login.0004">
+		<Locale name="zh_CN">登入域已被删除不能使用。</Locale>
+		<Locale name="en">Domain is removed.</Locale>
+	</Item>
+	<Item key="login.0005">
+		<Locale name="zh_CN">用户账号已被锁定。</Locale>
+		<Locale name="en">User account is locked.</Locale>
+	</Item>
+	<Item key="login.0006">
+		<Locale name="zh_CN">用户账号已被删除。</Locale>
+		<Locale name="en">User account is removed.</Locale>
+	</Item>
+	<Item key="login.0007">
+		<Locale name="zh_CN">登入名无效。</Locale>
+		<Locale name="en">User name error.</Locale>
+	</Item>
+	<Item key="login.0008">
+		<Locale name="zh_CN">您所使用的帐户无法登入到系统。</Locale>
+		<Locale name="en">You can't login in the system.</Locale>
+	</Item>
+	<Item key="login.0009">
+		<Locale name="zh_CN">您尚未登入或登入时间超时，请重新登入。</Locale>
+		<Locale name="en">You are not logged or login timeout, please login again.</Locale>
+	</Item>
+	<Item key="login.0010">
+		<Locale name="zh_CN">您的账户已在其他地方登入，请重新登入。</Locale>
+		<Locale name="en">Your account has elsewhere login, please login again.</Locale>
+	</Item>
+	<Item key="login.0011">
+		<Locale name="zh_CN">相同用户已在其他地方登入。</Locale>
+		<Locale name="en">The same user has logged in elsewhere.</Locale>
+	</Item>
+</ResourceSet>

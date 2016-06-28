@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityQuery name="SOA接口选择" label="SOA接口选择" note="" share="false" multiselect="true" editable="false" autopaging="true" pagingMode="VirtualizingPaging" virtualizingPagingEnabled="true" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.EE534F756B14" nodeID="1111">
+  <queryEntities>
+    <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.AB447E617D1E" name="AMS_SOAService" label="SOA接口服务" alias="a0" master="true" />
+  </queryEntities>
+  <DataGrid>
+    <color />
+    <column name="codeNo" label="编号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.AB447E617D1E.id_4" width="100" isBranch="false" dataField="AMS_SOAService$codeNo" />
+    <column name="name_ch" label="接口中文名称" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.AB447E617D1E.id_1" width="100" isBranch="false" dataField="AMS_SOAService$name_ch" />
+    <column name="name_en" label="接口英文名称" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.AB447E617D1E.id_2" width="100" isBranch="false" dataField="AMS_SOAService$name_en" />
+    <column name="p_version" label="接口版本号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.AB447E617D1E.id_3" width="100" isBranch="false" dataField="AMS_SOAService$p_version" />
+  </DataGrid>
+  <editState />
+  <toolbar />
+  <xmlQuery version="2.0" name="" label="">
+    <select domainScope="true">
+      <other label="其他" uid="other" name="other" />
+      <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.AB447E617D1E" name="AMS_SOAService" label="SOA接口服务" alias="a0">
+        <field uid="sys_0" name="id" label="编号" type="long" />
+        <field uid="sys_1" name="domainId" label="域ID" type="long" />
+        <field uid="id_4" name="codeNo" label="编号" type="string" />
+        <field uid="id_1" name="name_ch" label="接口中文名称" type="string" />
+        <field uid="id_2" name="name_en" label="接口英文名称" type="string" />
+        <field uid="id_3" name="p_version" label="接口版本号" type="string" />
+      </Entity>
+    </select>
+    <where>
+      <exp type="2">
+        <exp type="19" valueType="1" option="true" rightType="param" right="name_ch" leftEntity="AMS_SOAService" leftField="name_ch" uid="exp0" />
+      </exp>
+    </where>
+    <other>
+      <groupBy label="Group By" />
+      <orderBy label="Order By" />
+    </other>
+  </xmlQuery>
+  <conditionForm>
+    <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2">
+      <TabNavigator>
+        <tab label="default">
+          <Label label="Label" text="接口中文名称" x="2" y="2" width="100" height="24" style="" />
+          <TextInput label="TextInput" x="103" y="2" width="159" height="24" name="name_ch" />
+        </tab>
+      </TabNavigator>
+    </Window>
+  </conditionForm>
+  <StatSetting />
+  <queryEvent />
+</EntityQuery>

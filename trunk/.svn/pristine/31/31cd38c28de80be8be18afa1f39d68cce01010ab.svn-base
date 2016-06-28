@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Report label="会员注册按月查询" name="会员注册按月查询" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.101F38E7128D" nodeID="871"> 
+            <dataSource> 
+              <xmlQuery version="2.0" uid="9ED29B57-7DB3-438F-95FB-44E03809033F" name="ds" label="注册数"> 
+                <select domainScope="true"> 
+                  <other label="其他" uid="other" name="other"> 
+                    <field name="count(*)" uid="other0" fieldType="otherField" MySQLName="" SQLServerName="" OracleName="" label="注册数" alias="amount"/>  
+                    <field name="to_char(a0.register_time, 'yyyy-mm')" uid="other1" fieldType="otherField" MySQLName="" SQLServerName="" OracleName="" label="dt" alias="dt" entity="other"/> 
+                  </other>  
+                  <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0" name="AMS_Member" label="会员" alias="a0" selectAll="false"/> 
+                </select>  
+                <where> 
+                  <exp type="2"> 
+                    <exp type="7" valueType="7" option="true" rightType="param" right="beginDt" leftEntity="AMS_Member" leftField="FM_CreateTime" uid="exp0"/>  
+                    <exp type="11" valueType="7" option="true" rightType="param" right="endDt" leftEntity="AMS_Member" leftField="FM_CreateTime" uid="exp1"/>  
+                    <exp type="5" valueType="3" option="true" leftEntity="AMS_Member" leftField="member_type" uid="exp2" rightType="val" right="3"/> 
+                  </exp> 
+                </where>  
+                <other> 
+                  <groupBy label="Group By"> 
+                    <field name="to_char(a0.register_time, 'yyyy-mm')" uid="other1" fieldType="otherField" MySQLName="" SQLServerName="" OracleName="" label="dt" alias="dt" entity="other"/> 
+                  </groupBy>  
+                  <orderBy label="Order By"> 
+                    <field name="to_char(a0.register_time, 'yyyy-mm')" uid="other1" fieldType="otherField" MySQLName="" SQLServerName="" OracleName="" label="dt" alias="dt" entity="other"/> 
+                  </orderBy> 
+                </other> 
+              </xmlQuery>  
+              <other label="其他" name="other" uid="other"> 
+                <field name="reportdate" label="注册时间" calcexp="" uid="field0"/>  
+                <field name="sumAmount" label="合计数" calcexp="" uid="field1"/> 
+              </other> 
+            </dataSource>  
+            <events label="事件"> 
+              <event name="initialize" label="初始化事件"><![CDATA[var qc/*:Object*/ = report.getQueryCondition();
+qc.selectDt = 10; //本周
+
+var now/*:Date*/ = new Date();
+var b_yyyy 	= now.getFullYear();
+var b_MM	= now.getMonth();
+var dd		= now.getDate();
+var day		= now.getDay();
+if( day == 0 ){
+	day = 7;
+}
+var b_dd = Number(dd) - day + 1;
+var beginDt = new Date(b_yyyy,b_MM,1);
+var e_dd =  Number(dd) - day + 7;
+var endDt	= new Date(b_yyyy,(b_MM + 1),0);
+
+qc.beginDt = beginDt;
+qc.endDt = endDt;
+report.setQueryCondition(qc);]]></event>  
+              <event name="preQuery" label="查询前事件"/>  
+              <event name="postQuery" label="查询后事件"><![CDATA[var ds/*:Array*/ = report.getDataSource("ds");
+var other/*:Object*/ = report.getDataSource("other");
+if( other == null || oher == ""){
+	other = {};
+}
+var sumAmount = 0;
+for( var i = 0; i < ds.length; i++ ){
+	sumAmount += Number(ds[i].other.amount);
+}
+other.sumAmount = sumAmount;
+var qc = report.getQueryCondition();
+var beginDate = qc.beginDt;
+var endDate = qc.endDt;
+other.reportdate = "注册时间：" + Util.formatDate(beginDate,"yyyy-MM") + " 至 " +Util.formatDate(endDate,"yyyy-MM");
+report.setDataSource("other", other);
+report.setDataSource("ds", ds);
+]]></event>  
+              <event name="reportCreated" label="报表生成事件"/>  
+              <event name="printed" label="打印事件" systemEvent="true"/>  
+              <event name="setDt" label="setDt" type="customer" isBranch="false"><![CDATA[var qc/*:Object*/ = report.getQueryCondition();
+var selectDt = qc.selectDt;
+
+var now/*:Date*/ = new Date();
+var yyyy 	= now.getFullYear();
+var MM	= now.getMonth();
+var dd		= now.getDate();
+var day		= now.getDay();
+
+if( day == 0 ){
+	day = 7;
+}
+
+var beginDt/*:Date*/ 	= "";
+var end/*:Date*/ 		= "";
+if( selectDt == 1 ){    			//今天
+	beginDt = now;
+	endDt   = now;
+}else if( selectDt == 2 ){			//前一周
+	var b_dd = Number(dd) - (day+7) + 1;
+	var beginDt = new Date(yyyy, MM, b_dd);
+	var e_dd =  Number(dd) - (day+7) + 7;
+	var endDt	= new Date(yyyy, MM, e_dd);
+	
+}else if( selectDt == 3 ){			//前一月
+	var beginDt = new Date(yyyy, (MM-1), 1);
+	var endDt	= new Date(yyyy, MM, 0);
+}else if( selectDt == 10 ){			//本周
+	var b_dd = Number(dd) - day + 1;
+	var beginDt = new Date(yyyy, MM, b_dd);
+	var e_dd =  Number(dd) - day + 7;
+	var endDt	= new Date(yyyy, MM, e_dd);
+}else if( selectDt == 11 ){
+	//本月
+	var beginDt = new Date(yyyy, MM, 1);
+	var endDt	= new Date(yyyy, (MM+1), 0);
+}
+
+
+qc.beginDt = beginDt;
+qc.endDt = endDt;
+report.setQueryCondition(qc);]]></event> 
+            </events>  
+            <Document> 
+              <table width="410" headRow="0" fixedY="false" tailRow="0" name="" height="79" x="189" y="123" uid="c86f92bd-dea8-4a24-96e4-385683e03be1"> 
+                <tr> 
+                  <td width="188" fillColor="#FFCC00" sameMerge="" mergeExp="" href="" viewMode="" textAlign="center" height="29" rowIndex="0" colIndex="0"><![CDATA[注册年月]]></td>  
+                  <td width="222" fillColor="#FFCC00" sameMerge="" mergeExp="" href="" viewMode="" textAlign="center" height="29" rowIndex="0" colIndex="1"><![CDATA[注册数]]></td> 
+                </tr>  
+                <tr> 
+                  <td width="188" dataSource="ds" labelField="other.dt" fillMode="1" dataField="other.dt" fillColor="#FFFFFF" textAlign="center" sameMerge="" mergeExp="" href="" viewMode="" height="25" rowIndex="1" colIndex="0"><![CDATA[dt]]></td>  
+                  <td width="222" dataSource="ds" labelField="other.amount" fillMode="1" dataField="other.amount" fillColor="#FFFFFF" sameMerge="" mergeExp="" href="" viewMode="" textAlign="center" height="25" rowIndex="1" colIndex="1"><![CDATA[注册数]]></td> 
+                </tr>  
+                <tr> 
+                  <td width="188" fillColor="#FFFFFF" textAlign="center" sameMerge="" mergeExp="" href="" viewMode="" height="25" rowIndex="2" colIndex="0"><![CDATA[合计]]></td>  
+                  <td width="222" fillColor="#FFFFFF" sameMerge="" mergeExp="" href="" viewMode="" textAlign="center" height="25" rowIndex="2" colIndex="1"><![CDATA[${other.sumAmount}]]></td> 
+                </tr> 
+              </table>  
+              <text x="347" y="50" uid="32A264AE-3D39-4533-BF47-C4677D62746E" width="144" height="41"><![CDATA[<HTML><BODY><P><SPAN STYLE="font-weight:bold;font-size:24;">会员注册</SPAN></P></BODY></HTML>]]></text>  
+              <text uid="493BB2BC-9CFC-4717-8C35-826FBFD6D20F" x="191" y="97" width="310" height="30"><![CDATA[<HTML><BODY><P>${other.reportdate}</P></BODY></HTML>]]></text>  
+              <chart type="ColumnChart" x="53" y="235" width="700" height="527" dataProvider="ds"> 
+                <horizontalAxis> 
+                  <CategoryAxis categoryField="other.dt"/> 
+                </horizontalAxis>  
+                <series> 
+                  <ColumnSeries displayLabel="其他.注册数" displayName="其他.注册数" yField="other.amount" xField="other.dt"/> 
+                </series> 
+              </chart> 
+            </Document>  
+            <conditionForm> 
+              <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2"> 
+                <TabNavigator> 
+                  <tab label="default"> 
+                    <Label label="Label" text="开始日期:" x="2" y="3" width="60" height="24" style=""/>  
+                    <Label label="Label" text="至:" x="203" y="3" width="39" height="24" style=""/>  
+                    <DateField label="DateField" x="63" y="3" width="139" height="24" name="beginDt" required="true"/>  
+                    <DateField label="DateField" x="228" y="3" width="139" height="24" name="endDt" required="true"/> 
+                  </tab> 
+                </TabNavigator> 
+              </Window> 
+            </conditionForm> 
+          </Report>

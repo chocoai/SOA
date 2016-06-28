@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dwr PUBLIC "-//GetAhead Limited//DTD Direct Web Remoting 2.0//EN" "http://getahead.org/dwr/dwr20.dtd">
+
+<dwr>
+  <init>
+  	<converter id="hibernate3" class="org.directwebremoting.hibernate.H3BeanConverter"/>
+  </init>
+  
+  <allow>
+
+    <convert converter="hibernate3" match="ime.workflow.definition.entity.ANDJoin">
+    	<param name="exclude" value="startState, finishState, processDefinition, sourceTransitions, targetTransitions"/> 
+    </convert>
+    <convert converter="hibernate3" match="ime.workflow.definition.entity.ANDSplit">
+    	<param name="exclude" value="startState, finishState, processDefinition, sourceTransitions, targetTransitions"/> 
+    </convert>
+    <convert converter="hibernate3" match="ime.workflow.definition.entity.AutoTask">
+    	<param name="exclude" value="startState, finishState, processDefinition, sourceTransitions, targetTransitions"/> 
+    </convert>
+    <convert converter="hibernate3" match="ime.workflow.definition.entity.EndTask">
+    	<param name="exclude" value="startState, finishState, processDefinition, sourceTransitions, targetTransitions"/> 
+    </convert>
+    <convert converter="hibernate3" match="ime.workflow.definition.entity.HumanStartTask">
+    	<param name="exclude" value="startState, finishState, processDefinition, sourceTransitions, targetTransitions, role, department, team"/> 
+    </convert>
+    <convert converter="hibernate3" match="ime.workflow.definition.entity.HumanTask">
+    	<param name="exclude" value="startState, finishState, processDefinition, sourceTransitions, targetTransitions, role, department, team, forms"/> 
+    </convert>
+    <convert converter="hibernate3" match="ime.workflow.definition.entity.SubProcessTask">
+    	<param name="exclude" value="startState, finishState, processDefinition, sourceTransitions, targetTransitions, subprocess, startTask, formUIXml"/> 
+    </convert>
+    <convert converter="hibernate3" match="ime.workflow.definition.entity.MessageReceiveTask">
+    	<param name="exclude" value="startState, finishState, processDefinition, sourceTransitions, targetTransitions"/> 
+    </convert>
+    <convert converter="hibernate3" match="ime.workflow.definition.entity.MessageSendTask">
+    	<param name="exclude" value="startState, finishState, processDefinition, sourceTransitions, targetTransitions"/> 
+    </convert>
+    <convert converter="hibernate3" match="ime.workflow.definition.entity.MessageStartTask">
+    	<param name="exclude" value="startState, finishState, processDefinition, sourceTransitions, targetTransitions"/> 
+    </convert>
+    <convert converter="hibernate3" match="ime.workflow.definition.entity.Node">
+    	<param name="exclude" value="processDefinition, sourceTransitions, targetTransitions"/> 
+    </convert>
+    <convert converter="hibernate3" match="ime.workflow.definition.entity.ORJoin">
+    	<param name="exclude" value="startState, finishState, processDefinition, sourceTransitions, targetTransitions"/> 
+    </convert>
+    <convert converter="hibernate3" match="ime.workflow.definition.entity.ORSplit">
+    	<param name="exclude" value="startState, finishState, processDefinition, sourceTransitions, targetTransitions"/> 
+    </convert>
+    <convert converter="hibernate3" match="ime.workflow.definition.entity.ProcessDefinition">
+    	<param name="exclude" value="domain, states, nodes, transitions, diagram"/> 
+    </convert>
+    <convert converter="hibernate3" match="ime.workflow.definition.entity.ProcessState">
+    	<param name="exclude" value=" processDefinition"/> 
+    </convert>
+    <convert converter="hibernate3" match="ime.workflow.definition.entity.RouteTask">
+    	<param name="exclude" value="startState, finishState, processDefinition, sourceTransitions, targetTransitions"/> 
+    </convert>
+    <convert converter="hibernate3" match="ime.workflow.definition.entity.StartTask">
+    	<param name="exclude" value="startState, finishState, processDefinition, sourceTransitions, targetTransitions"/> 
+    </convert>
+    <convert converter="hibernate3" match="ime.workflow.definition.entity.Task">
+    	<param name="exclude" value="startState, finishState, processDefinition, sourceTransitions, targetTransitions"/> 
+    </convert>
+    <convert converter="hibernate3" match="ime.workflow.definition.entity.TimeStartTask">
+    	<param name="exclude" value="startState, finishState, trigerItem, processDefinition, sourceTransitions, targetTransitions"/> 
+    </convert>
+    <convert converter="hibernate3" match="ime.workflow.definition.entity.TimeTask">
+    	<param name="exclude" value="startState, finishState, processDefinition, sourceTransitions, targetTransitions"/> 
+    </convert>
+    <convert converter="hibernate3" match="ime.workflow.definition.entity.Transition">
+    	<param name="exclude" value="processDefinition, source, target"/> 
+    </convert>
+    <convert converter="hibernate3" match="ime.workflow.instance.entity.WorkItem">
+    	<param name="exclude" value="processInstance, worker, prevWorker, task"/> 
+    </convert>
+    <convert converter="hibernate3" match="ime.workflow.instance.entity.HumanActivityLog">
+    	<param name="exclude" value="executor, submitTarget, processInstance"/> 
+    </convert>
+    
+    <create creator="new" javascript="WDService">
+      <param name="class" value="ime.workflow.services.WorkflowDefinitionService"/>
+    </create>
+    <create creator="new" javascript="WorkflowService">
+      <param name="class" value="ime.workflow.services.WorkflowService"/>
+    </create>
+  </allow>
+
+  <signatures>
+  <![CDATA[
+  import java.util.List;
+  import ime.workflow.definition.entity.ProcessState;
+  import ime.workflow.services.WorkflowDefinitionService;
+  
+  WorkflowDefinitionService.saveStates(Long, List<ProcessState>);
+ 
+  ]]>
+  </signatures>
+</dwr>

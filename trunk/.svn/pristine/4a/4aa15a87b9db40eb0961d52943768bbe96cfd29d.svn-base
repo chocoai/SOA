@@ -1,0 +1,66 @@
+.ws_slider {
+	position:			relative;
+	background-color:	rgb(230,230,230);
+	-moz-user-focus:	normal;
+	-moz-user-select:	none;
+	cursor:				default;
+}
+
+.horizontal {
+	width:				200px;
+	height:				27px;
+}
+
+.vertical {
+	width:				29px;
+	height:				200px;
+}
+
+.ws_slider .handle {
+	position:			absolute;	
+	font-size:			1px;
+	overflow:			hidden;
+	-moz-user-select:	none;
+	cursor:				default;
+}
+
+.ws_slider.horizontal .handle {
+	width:				31px;
+	height:				14px;
+	icon:	"handle.horizontal.png";
+}
+
+.ws_slider.horizontal .handle div {}
+.ws_slider.horizontal .handle.hover {}
+
+.ws_slider.vertical .handle {
+	width:				15px;
+	height:				31px;
+	icon:	"handle.vertical.png";
+}
+
+.ws_slider.vertical .handle.hover {}
+
+.ws_slider .line {
+	position:			absolute;
+	font-size:			0.01mm;
+	overflow:			hidden;
+	border:				1px solid rgb(90,97,90);
+	background:			rgb(189,190,189);
+}
+.ws_slider.vertical .line {
+	width:				5px;
+}
+
+.ws_slider.horizontal .line {
+	height:				5px;
+}
+
+.ws_slider .line div {
+	width:		1px;
+	height:		1px;
+	
+	border:				1px solid;
+	border-color:		rgb(230,230,230) rgb(189,190,189)
+						rgb(189,190,189) rgb(230,230,230);
+}

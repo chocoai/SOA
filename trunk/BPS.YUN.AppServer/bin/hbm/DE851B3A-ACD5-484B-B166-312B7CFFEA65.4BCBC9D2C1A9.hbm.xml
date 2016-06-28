@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "PUBLIC" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class entity-name="AMS_PayChannel" table="DYNA_AMS_PayChannel">
+    <id name="id" type="long">
+      <generator class="native"/>
+    </id>
+    <property name="FM_CreatePrinId" not-null="false" type="long" index="IDX_CREATEPRINID"/>
+    <property name="FM_CreatePrinName" not-null="false" length="100" type="string"/>
+    <property name="FM_UpdatePrinId" not-null="false" type="long" index="IDX_UPDATEPRINID"/>
+    <property name="FM_UpdatePrinName" not-null="false" length="100" type="string"/>
+    <property name="FM_CreateTime" not-null="false" type="timestamp"/>
+    <property name="FM_UpdateTime" not-null="false" type="timestamp"/>
+    <property name="domainId" not-null="false" type="long" index="IDX_DOMAINID"/>
+    <property name="name" not-null="false" type="string" length="100"/>
+    <property name="codeNo" not-null="false" type="string" length="100"/>
+    <property name="handling_settle_type" not-null="false" type="long"/>
+    <property name="handling_settle_cycle" not-null="false" type="long"/>
+    <property name="capital_settle_cycle" not-null="false" type="long"/>
+    <property name="system_uuid" not-null="false" type="string" length="100"/>
+    <property name="merchant_id" not-null="false" type="string" length="100"/>
+    <property name="publickey" not-null="false" type="string" length="100"/>
+    <property name="privatekey" not-null="false" type="string" length="100"/>
+    <property name="remark" not-null="false" type="string" length="512"/>
+    <property name="short_name" not-null="false" type="string" length="100"/>
+    <property name="system_member_id" not-null="false" type="long" index="system_member_idx"/>
+    <property name="system_member_label" not-null="false" type="string" length="200"/>
+  </class>
+</hibernate-mapping>

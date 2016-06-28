@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityQuery name="卡bin管理" label="卡bin管理" note="" share="false" multiselect="false" editable="false" autopaging="true" pagingMode="NormalPaging" virtualizingPagingEnabled="false" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.B15BE3A59C74" nodeID="447"> 
+              <queryEntities> 
+                <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.337344C5EE49" name="AMS_CardBin" label="卡bin" alias="a0" selectAll="true" isBranch="true" master="true"/> 
+              </queryEntities>  
+              <DataGrid> 
+                <color/>  
+                <column name="card_bin" label="卡bin" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.337344C5EE49.id_1" width="100" isBranch="false" dataField="AMS_CardBin$card_bin"/>  
+                <column name="card_type" label="卡种" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.337344C5EE49.id_2" width="100" isBranch="false" dataField="AMS_CardBin$card_type"/>  
+                <column name="bank_code" label="发卡行代码" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.337344C5EE49.id_3" width="100" isBranch="false" dataField="AMS_CardBin$bank_code"/>  
+                <column name="bank_name" label="发卡行" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.337344C5EE49.id_4" width="140" isBranch="false" dataField="AMS_CardBin$bank_name"/>  
+                <column name="card_name" label="卡名" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.337344C5EE49.id_5" width="100" isBranch="false" dataField="AMS_CardBin$card_name"/>  
+                <column name="card_length" label="卡片长度" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.337344C5EE49.id_6" width="100" isBranch="false" dataField="AMS_CardBin$card_length"/>  
+                <column name="card_state" label="状态" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.337344C5EE49.id_7" width="100" isBranch="false" dataField="AMS_CardBin$card_state"/>  
+                <column name="card_type_label" label="卡种名称" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.337344C5EE49.id_9" width="100" isBranch="false"/> 
+              </DataGrid>  
+              <editState/>  
+              <toolbar> 
+                <button label="新建" action="alink" selection="none" alink="alink://ime.AppWindow/EntityForm?{selection:&quot;none&quot;,entityUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.337344C5EE49&quot;,formUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.2DF7EE48498B&quot;,action:&quot;create&quot;}"/>  
+                <button label="编辑" action="alink" selection="single" alink="alink://ime.AppWindow/EntityForm?{selection:&quot;single&quot;,entityUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.337344C5EE49&quot;,formUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.2DF7EE48498B&quot;,action:&quot;edit&quot;}"/>  
+                <button label="删除" action="delete" selection="single"/> 
+              </toolbar>  
+              <xmlQuery version="2.0" name="" label=""> 
+                <select domainScope="true"> 
+                  <other label="其他" uid="other" name="other"/>  
+                  <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.337344C5EE49" name="AMS_CardBin" label="卡bin" alias="a0" selectAll="true" isBranch="true"> 
+                    <field uid="sys_0" name="id" label="编号" type="long"/>  
+                    <field uid="sys_1" name="domainId" label="域ID" type="long"/>  
+                    <field uid="id_1" name="card_bin" label="卡bin" type="string"/>  
+                    <field uid="id_2" name="card_type" label="卡种" type="long"/>  
+                    <field uid="id_3" name="bank_code" label="发卡行代码" type="string"/>  
+                    <field uid="id_4" name="bank_name" label="发卡行" type="string"/>  
+                    <field uid="id_5" name="card_name" label="卡名" type="string"/>  
+                    <field uid="id_6" name="card_length" label="卡片长度" type="long"/>  
+                    <field uid="id_7" name="card_state" label="状态" type="long"/>  
+                    <field uid="id_9" name="card_type_label" label="卡种名称" type="string"/> 
+                  </Entity> 
+                </select>  
+                <where> 
+                  <exp type="2"> 
+                    <exp type="19" valueType="1" option="true" rightType="param" right="card_bin" leftEntity="AMS_CardBin" leftField="card_bin" uid="exp0"/>  
+                    <exp type="19" valueType="1" option="true" rightType="param" right="bank_code" leftEntity="AMS_CardBin" leftField="bank_code" uid="exp1"/>  
+                    <exp type="19" valueType="1" option="true" leftEntity="AMS_CardBin" leftField="bank_name" uid="exp2" rightType="param" right="bank_name"/> 
+                  </exp> 
+                </where>  
+                <other> 
+                  <groupBy label="Group By"/>  
+                  <orderBy label="Order By"> 
+                    <field uid="id_3" name="bank_code" label="发卡行代码" type="string" entity="AMS_CardBin" order="asc"/> 
+                  </orderBy> 
+                </other> 
+              </xmlQuery>  
+              <conditionForm> 
+                <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2"> 
+                  <TabNavigator> 
+                    <tab label="default"> 
+                      <Label width="82" height="25" text="卡bin:" propertyUID="id_1" x="3" y="3" style=""/>  
+                      <TextInput name="card_bin" width="139" height="25" x="63" y="3"/>  
+                      <Label width="82" height="25" text="发卡行代码:" propertyUID="id_3" x="203" y="3" style=""/>  
+                      <TextInput name="bank_code" width="119" height="25" x="283" y="3"/>  
+                      <Label width="82" height="25" text="发卡行:" propertyUID="id_4" x="403" y="3" style=""/>  
+                      <TextInput name="bank_name" width="139" height="25" x="463" y="3"/> 
+                    </tab> 
+                  </TabNavigator> 
+                </Window> 
+              </conditionForm>  
+              <StatSetting/>  
+              <queryEvent/> 
+            </EntityQuery>

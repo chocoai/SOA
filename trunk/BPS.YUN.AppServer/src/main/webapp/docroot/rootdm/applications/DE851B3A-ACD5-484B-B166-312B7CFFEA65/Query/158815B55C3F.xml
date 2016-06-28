@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityQuery name="会员外部账户查询" label="会员外部账户查询" note="" share="false" multiselect="false" editable="false" autopaging="true" pagingMode="NormalPaging" virtualizingPagingEnabled="false" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.158815B55C3F" nodeID="520"> 
+              <queryEntities> 
+                <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0" name="AMS_Member" label="会员" alias="a1" selectAll="true" isBranch="true"/>  
+                <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.66ABAC9D4F29" name="AMS_MemberOutAccount" label="外部会员账户" alias="a0" master="true"/> 
+              </queryEntities>  
+              <DataGrid> 
+                <color/>  
+                <column name="name" label="名称" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0.id_1" width="100" isBranch="false" dataField="AMS_Member$name"/>  
+                <column name="memberNo" label="客户号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0.id_53" width="100" isBranch="false" dataField="AMS_Member$memberNo"/>  
+                <column name="identity_cardNo" label="身份证号码" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0.id_32" width="100" isBranch="false" dataField="AMS_Member$identity_cardNo"/>  
+                <column name="member_type" label="会员类型" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0.id_23" width="100" isBranch="false" dataField="AMS_Member$member_type"/>  
+                <column name="phone" label="手机" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0.id_4" width="100" isBranch="false" dataField="AMS_Member$phone"/>  
+                <column name="account_type" label="账户类型" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.66ABAC9D4F29.id_2" width="100" isBranch="false" dataField="AMS_MemberOutAccount$account_type_label"/>  
+                <column name="open_time" label="开通时间" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.66ABAC9D4F29.id_4" width="100" isBranch="false" dataField="AMS_MemberOutAccount$open_time"/>  
+                <column name="open_state" label="开通状态" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.66ABAC9D4F29.id_5" width="100" isBranch="false" dataField="AMS_MemberOutAccount$open_state"/>  
+                <column name="open_state_label" label="开通状态名称" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.66ABAC9D4F29.id_6" width="100" isBranch="false" dataField="AMS_MemberOutAccount$open_state_label"/>  
+                <column name="peer_account_id" label="外部账户ID" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.66ABAC9D4F29.id_3" width="100" isBranch="false" dataField="AMS_MemberOutAccount$peer_account_id"/> 
+              </DataGrid>  
+              <editState/>  
+              <toolbar/>  
+              <xmlQuery version="2.0" name="" label=""> 
+                <select domainScope="true"> 
+                  <other label="其他" uid="other" name="other"/>  
+                  <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.66ABAC9D4F29" name="AMS_MemberOutAccount" label="外部会员账户" alias="a0"> 
+                    <field uid="sys_0" name="id" label="编号" type="long" entity="AMS_MemberOutAccount"/>  
+                    <field uid="sys_1" name="domainId" label="域ID" type="long"/>  
+                    <field uid="id_1" name="member" label="会员" type="relation"/>  
+                    <field uid="id_2" name="account_type" label="账户类型" type="relation"/>  
+                    <field uid="id_3" name="peer_account_id" label="外部账户ID" type="string"/>  
+                    <field uid="id_4" name="open_time" label="开通时间" type="timestamp"/>  
+                    <field uid="id_5" name="open_state" label="开通状态" type="long"/>  
+                    <field uid="id_6" name="open_state_label" label="开通状态名称" type="string"/> 
+                  </Entity>  
+                  <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0" name="AMS_Member" label="会员" alias="a1" selectAll="true" isBranch="true"> 
+                    <field uid="sys_0" name="id" label="编号" type="long"/>  
+                    <field uid="sys_1" name="domainId" label="域ID" type="long"/>  
+                    <field uid="log_0" name="FM_CreatePrinId" label="创建者ID" type="long"/>  
+                    <field uid="log_1" name="FM_CreatePrinName" label="创建者" type="string"/>  
+                    <field uid="log_2" name="FM_UpdatePrinId" label="更新者ID" type="long"/>  
+                    <field uid="log_3" name="FM_UpdatePrinName" label="更新者" type="string"/>  
+                    <field uid="log_4" name="FM_CreateTime" label="创建时间" type="timestamp"/>  
+                    <field uid="log_5" name="FM_UpdateTime" label="更新时间" type="timestamp"/>  
+                    <field uid="id_1" name="name" label="名称" type="string"/>  
+                    <field uid="id_4" name="phone" label="手机" type="string"/>  
+                    <field uid="id_6" name="address" label="地址" type="string"/>  
+                    <field uid="id_7" name="user_state" label="会员状态" type="long"/>  
+                    <field uid="id_23" name="member_type" label="会员类型" type="long"/>  
+                    <field uid="id_24" name="userId" label="会员uuid" type="string"/>  
+                    <field uid="id_26" name="login_password" label="登录密码" type="string"/>  
+                    <field uid="id_27" name="pay_password" label="支付密码" type="string"/>  
+                    <field uid="id_28" name="email" label="邮件" type="string"/>  
+                    <field uid="id_29" name="country" label="国家" type="string"/>  
+                    <field uid="id_30" name="province" label="省" type="string"/>  
+                    <field uid="id_31" name="area" label="地区" type="string"/>  
+                    <field uid="id_32" name="identity_cardNo" label="身份证号码" type="string"/>  
+                    <field uid="id_34" name="user_name" label="昵称" type="string"/>  
+                    <field uid="id_36" name="last_login_time" label="最近一次登录时间" type="timestamp"/>  
+                    <field uid="id_37" name="isPhone_checked" label="手机号码是否验证" type="boolean"/>  
+                    <field uid="id_38" name="isEmail_checked" label="邮箱是否验证" type="boolean"/>  
+                    <field uid="id_40" name="register_time" label="注册时间" type="timestamp"/>  
+                    <field uid="id_41" name="login_fail_amount" label="登录失败次数" type="long"/>  
+                    <field uid="id_42" name="pay_fail_amount" label="支付失败次数" type="long"/>  
+                    <field uid="id_43" name="last_login_fail_time" label="最后一次登录失败时间" type="timestamp"/>  
+                    <field uid="id_44" name="last_pay_fail_time" label="最后一次支付失败时间" type="timestamp"/>  
+                    <field uid="id_45" name="isSecurityIssue" label="是否设置安全问题" type="boolean"/>  
+                    <field uid="id_47" name="isSetExtendInfo" label="是否设置扩展信息" type="boolean"/>  
+                    <field uid="id_48" name="loginId" label="登录帐号" type="string"/>  
+                    <field uid="id_50" name="wxUserId" label="微信号" type="string"/>  
+                    <field uid="id_53" name="memberNo" label="客户号" type="string"/>  
+                    <field uid="id_54" name="belong_orgNo" label="所属机构号" type="string"/>  
+                    <field uid="id_56" name="bind_orgNo" label="绑定机构号" type="string"/>  
+                    <field uid="id_58" name="isIdentity_checked" label="是否实名认证" type="boolean"/> 
+                  </Entity> 
+                </select>  
+                <where> 
+                  <exp type="2"> 
+                    <exp type="5" valueType="3" option="true" rightType="prop" rightEntity="AMS_Member" rightField="id" leftEntity="AMS_MemberOutAccount" leftField="member_id" uid="exp0"/> 
+                  </exp> 
+                </where>  
+                <other> 
+                  <groupBy label="Group By"/>  
+                  <orderBy label="Order By"> 
+                    <field uid="sys_0" name="id" label="编号" type="long" entity="AMS_MemberOutAccount" order="desc"/> 
+                  </orderBy> 
+                </other> 
+              </xmlQuery>  
+              <conditionForm> 
+                <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2"> 
+                  <TabNavigator> 
+                    <tab label="default"> 
+                      <Label width="82" height="25" text="手机:" propertyUID="id_4" x="2" y="3" style=""/>  
+                      <TextInput name="phone" width="139" height="25" x="63" y="3"/> 
+                    </tab> 
+                  </TabNavigator> 
+                </Window> 
+              </conditionForm>  
+              <StatSetting/>  
+              <queryEvent/> 
+            </EntityQuery>

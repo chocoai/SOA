@@ -1,0 +1,1536 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module external.linked.project.id=":bps.yun.external.service" external.linked.project.path="$MODULE_DIR$" external.root.project.path="$MODULE_DIR$/.." external.system.id="GRADLE" external.system.module.group="trunk" external.system.module.version="1.0" type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="false">
+    <output url="file://$MODULE_DIR$/build/classes/main" />
+    <output-test url="file://$MODULE_DIR$/build/classes/test" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/resources" type="java-test-resource" />
+      <excludeFolder url="file://$MODULE_DIR$/.gradle" />
+      <excludeFolder url="file://$MODULE_DIR$/build" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="bps.yun.external.service.api" />
+    <orderEntry type="module" module-name="bps.yun.service" />
+    <orderEntry type="module" module-name="bps.yun.service.api" />
+    <orderEntry type="module-library">
+      <library name="Gradle: activation">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/activation.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: allinpay-core-1.0.0-SNAPSHOT">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/allinpay-core-1.0.0-SNAPSHOT.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: allinpay-security">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/allinpay-security.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: antlr-2.7.6">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/antlr-2.7.6.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: apf">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/apf.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: asm-3.1">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/asm-3.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: backport-util-concurrent">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/backport-util-concurrent.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: bccs-api-lib-1.1.2">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/bccs-api-lib-1.1.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: bcprov-jdk15-138">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/bcprov-jdk15-138.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: bsf">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/bsf.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: bsh-2.0b4">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/bsh-2.0b4.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: c3p0-0.9.1">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/c3p0-0.9.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: cfgatewayadapter">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/cfgatewayadapter.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: cglib-2.1.3">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/cglib-2.1.3.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: com.jcraft.jsch_0.1.31">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/com.jcraft.jsch_0.1.31.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: com.kinorsoft.allinpay">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/com.kinorsoft.allinpay.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: com.kinorsoft.ams">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/com.kinorsoft.ams.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: com.kinorsoft.cms">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/com.kinorsoft.cms.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: com.kinorsoft.tlt.entity">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/com.kinorsoft.tlt.entity.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: com.kinorsoft.tlt.xsigntool">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/com.kinorsoft.tlt.xsigntool.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: commons-beanutils-1.8.3">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/commons-beanutils-1.8.3.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: commons-codec-1.3">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/commons-codec-1.3.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: commons-codec-1.8">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/commons-codec-1.8.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: commons-collections-3.1">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/commons-collections-3.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: commons-fileupload-1.2.1">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/commons-fileupload-1.2.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: commons-httpclient-3.0.1">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/commons-httpclient-3.0.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: commons-io-1.3.2">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/commons-io-1.3.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: commons-lang-2.4">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/commons-lang-2.4.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: commons-logging-1.1.1">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/commons-logging-1.1.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: commons-net-3.3">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/commons-net-3.3.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: commons-pool2-2.4.2">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/commons-pool2-2.4.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: concurrent-1.3.4">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/concurrent-1.3.4.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: cos">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/cos.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: cryptix-jce-provider">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/cryptix-jce-provider.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: derby-10.2.1.6">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/derby-10.2.1.6.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: dom4j-1.6.1">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/dom4j-1.6.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: dubbo-2.4.10">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/dubbo-2.4.10.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: dwr">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/dwr.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: ehcache-1.2">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/ehcache-1.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: ejb3-persistence">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/ejb3-persistence.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: ezmorph-1.0.6">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/ezmorph-1.0.6.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: flex-messaging-common">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/flex-messaging-common.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: flex-messaging-core">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/flex-messaging-core.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: flex-messaging-opt">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/flex-messaging-opt.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: flex-messaging-proxy">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/flex-messaging-proxy.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: flex-messaging-remoting">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/flex-messaging-remoting.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: hessian-3.2.0">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/hessian-3.2.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: hibernate-annotations">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/hibernate-annotations.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: hibernate-commons-annotations">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/hibernate-commons-annotations.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: hibernate-entitymanager">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/hibernate-entitymanager.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: hibernate-tools">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/hibernate-tools.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: hibernate3">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/hibernate3.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: htmllexer">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/htmllexer.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: htmlparser">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/htmlparser.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: httpclient-4.2">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/httpclient-4.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: httpcore-4.2">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/httpcore-4.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: ime.account">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/ime.account.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: ime.billing">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/ime.billing.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: ime.bizservice">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/ime.bizservice.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: ime.calendar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/ime.calendar.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: ime.cms">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/ime.cms.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: ime.common">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/ime.common.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: ime.core">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/ime.core.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: ime.export.tool">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/ime.export.tool.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: ime.mail">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/ime.mail.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: ime.message">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/ime.message.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: ime.mobile">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/ime.mobile.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: ime.organization">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/ime.organization.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: ime.product">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/ime.product.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: ime.project">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/ime.project.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: ime.relation">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/ime.relation.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: ime.remoting">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/ime.remoting.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: ime.script.debugger">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/ime.script.debugger.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: ime.server">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/ime.server.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: ime.service.client">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/ime.service.client.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: ime.teamwork">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/ime.teamwork.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: ime.web.xpt">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/ime.web.xpt.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: ime.webcallcenter">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/ime.webcallcenter.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: ime.workflow">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/ime.workflow.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: imgscalr-lib-4.2">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/imgscalr-lib-4.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: ipaddress">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/ipaddress.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: iText-2.1.7">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/iText-2.1.7.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: itext-rtf-2.1.4">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/itext-rtf-2.1.4.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: jackrabbit-api-1.4">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/jackrabbit-api-1.4.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: jackrabbit-core-1.4.5">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/jackrabbit-core-1.4.5.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: jackrabbit-jcr-commons-1.4.2">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/jackrabbit-jcr-commons-1.4.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: jackrabbit-jcr-server-1.4">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/jackrabbit-jcr-server-1.4.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: jackrabbit-spi-1.4">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/jackrabbit-spi-1.4.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: jackrabbit-spi-commons-1.4">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/jackrabbit-spi-commons-1.4.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: jackrabbit-text-extractors-1.4">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/jackrabbit-text-extractors-1.4.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: jackrabbit-webdav-1.4">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/jackrabbit-webdav-1.4.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: jackson-annotations-2.2.2">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/jackson-annotations-2.2.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: jackson-core-2.2.2">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/jackson-core-2.2.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: jackson-databind-2.2.2">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/jackson-databind-2.2.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: jackson-mapper-asl-1.5.0">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/jackson-mapper-asl-1.5.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: jackson-module-jaxb-annotations-2.2.2">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/jackson-module-jaxb-annotations-2.2.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: javassist-3.4.GA">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/javassist-3.4.GA.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: jaxen-1.1.1">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/jaxen-1.1.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: jaxrpc">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/jaxrpc.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: jbarcode">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/jbarcode.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: jboss-archive-browsing">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/jboss-archive-browsing.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: jcr-1.0">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/jcr-1.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: jdom">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/jdom.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: jedis-2.6.1">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/jedis-2.6.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: jopt-simple-3.2">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/jopt-simple-3.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: js">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/js.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: json-lib-2.4-jdk15">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/json-lib-2.4-jdk15.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: jta-1.1">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/jta-1.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: jtds-1.2">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/jtds-1.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: jxl">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/jxl.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: kafka-clients-0.8.2.1">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/kafka-clients-0.8.2.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: kafka_2.9.1-0.8.2.1">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/kafka_2.9.1-0.8.2.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: log4j-1.2.15">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/log4j-1.2.15.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: lucene-core-2.2.0">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/lucene-core-2.2.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: lz4-1.2.0">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/lz4-1.2.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: mail">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/mail.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: metrics-core-2.2.0">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/metrics-core-2.2.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: mina-core-2.0.2">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/mina-core-2.0.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: mysql-connector-java-5.0.8-bin">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/mysql-connector-java-5.0.8-bin.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: nbxml">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/nbxml.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: netty-3.2.5.Final">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/netty-3.2.5.Final.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: ojdbc6">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/ojdbc6.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: org.json">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/org.json.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: pdfbox-0.6.4">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/pdfbox-0.6.4.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: poi-3.5">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/poi-3.5.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: poi-contrib-3.5">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/poi-contrib-3.5.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: proxool-0.8.3">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/proxool-0.8.3.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: quartz">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/quartz.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: rabbitmq-client">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/rabbitmq-client.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: scala-library-2.9.1">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/scala-library-2.9.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: servlet-api">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/servlet-api.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: slf4j-api-1.5.3">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/slf4j-api-1.5.3.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: slf4j-api-1.7.6">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/slf4j-api-1.7.6.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: slf4j-log4j12-1.5.3">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/slf4j-log4j12-1.5.3.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: slf4j-log4j12-1.6.1">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/slf4j-log4j12-1.6.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: smack">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/smack.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: smackx">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/smackx.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: snappy-java-1.1.1.6">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/snappy-java-1.1.1.6.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: spring-aop-4.0.8.RELEASE">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/spring-aop-4.0.8.RELEASE.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: spring-beans-4.0.8.RELEASE">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/spring-beans-4.0.8.RELEASE.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: spring-context-4.0.8.RELEASE">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/spring-context-4.0.8.RELEASE.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: spring-context-support-4.0.8.RELEASE">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/spring-context-support-4.0.8.RELEASE.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: spring-core-4.0.8.RELEASE">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/spring-core-4.0.8.RELEASE.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: spring-expression-4.0.8.RELEASE">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/spring-expression-4.0.8.RELEASE.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: spring-messaging-4.0.8.RELEASE">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/spring-messaging-4.0.8.RELEASE.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: spring-web-4.0.8.RELEASE">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/spring-web-4.0.8.RELEASE.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: spring-webmvc-4.0.8.RELEASE">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/spring-webmvc-4.0.8.RELEASE.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: spring-websocket-4.0.8.RELEASE">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/spring-websocket-4.0.8.RELEASE.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: velocity-1.7">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/velocity-1.7.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: velocity-tools-2.0">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/velocity-tools-2.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: vysper-core">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/vysper-core.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: vysper-websockets">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/vysper-websockets.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: webService1.5">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/webService1.5.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: xalan">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/xalan.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: xep0060-pubsub">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/xep0060-pubsub.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: xerces-2.6.2">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/xerces-2.6.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: xml-apis">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/xml-apis.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: xmlpull-1.1.3.1">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/xmlpull-1.1.3.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: xpp3_min-1.1.4c">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/xpp3_min-1.1.4c.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: xstream-1.4.1">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/xstream-1.4.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: zkclient-0.3">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/zkclient-0.3.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: zkclient-0.4">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/zkclient-0.4.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: zookeeper-3.3.1">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/zookeeper-3.3.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: zxing-core">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/zxing-core.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="library" name="Gradle: commons-collections:commons-collections:3.2" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: junit:junit:4.12" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: org.hamcrest:hamcrest-core:1.3" level="project" />
+    <orderEntry type="module-library">
+      <library name="Gradle: bps.yun.portal.api">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/bps.yun.portal.api.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: bps.yun.potal.soa">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/bps.yun.potal.soa.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: uninopay-sdk">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/uninopay-sdk.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Gradle: bps.yun.common">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../BPS.YUN.AppServer/src/main/webapp/WEB-INF/lib/bps.yun.common.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+  </component>
+</module>

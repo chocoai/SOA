@@ -1,0 +1,47 @@
+<link href="${themeUrl}css/panel.css" rel="stylesheet" type="text/css" />
+<div class="ime_drp_panel" style="$!{innerCSS}">
+	<div class="title">
+	    <div class="left"></div>
+	    <div class="middle">$!{param.title}</div>
+	    <div class="right"></div>
+	    <div class="mid_wz">
+	    #foreach( $item in $param.moreUrl.getList() )
+	       #if($velocityCount>1)
+	       	|
+	       #end
+		   &nbsp;<a href="$item.url">$item.name</a>&nbsp; 
+	    #end 
+	    </div>
+	</div>
+	<div class="content" style="width:100%;height:100%;overflow:hidden">
+	#if( $param.layout == "horizontal" )
+		#set( $gap = 0 )
+		#if( $param.horizontalGap )
+			#set( $gap = $param.horizontalGap )
+		#end
+		
+		#set( $curleft = 0 )
+		#foreach( $part in $children )
+    		#if( $velocityCount == $children.size() )
+				#set( $gap = 0 )
+			#end
+		<div style="float:left;$!{part.getInnerCSS()};margin:0 $!{gap}px 0 0">
+			$part.render($request, $response)
+		</div>
+		#end
+	#else
+		#set( $gap = 0 )
+		#if( $param.verticalGap )
+			#set( $gap = $param.verticalGap )
+		#end
+		#foreach( $part in $children )
+			#if( $velocityCount == $children.size() )
+            	#set( $gap = 0 )
+            #end
+		<div style="$!{part.getInnerCSS()};margin:0 0 $!{gap}px 0">
+			$part.render($request, $response)
+		</div>
+		#end
+	#end
+	</div>
+</div>

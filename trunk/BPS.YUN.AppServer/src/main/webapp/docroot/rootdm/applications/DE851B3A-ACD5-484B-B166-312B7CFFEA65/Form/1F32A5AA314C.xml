@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityForm name="企业邮箱" label="企业邮箱" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.1F32A5AA314C" nodeID="464"> 
+              <formEntity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.25B0097A88CB"/>  
+              <formState> 
+                <state label="状态" uid="state0" basedOn="null"> 
+                  <rule type="required" property="company_name" label="公司名称" rule="true"/>  
+                  <rule type="required" property="company_email" label="企业邮箱" rule="true"/> 
+                </state> 
+              </formState>  
+              <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2"> 
+                <TabNavigator> 
+                  <tab label="default"> 
+                    <Label width="82" height="25" text="公司名称:" propertyUID="id_1" x="3" y="3" style=""/>  
+                    <TextInput propertyUID="id_1" width="219" height="25" x="83" y="3"/>  
+                    <Label width="82" height="25" text="企业邮箱:" propertyUID="id_2" x="3" y="31" style=""/>  
+                    <TextInput propertyUID="id_2" width="219" height="25" x="83" y="31"/>  
+                    <Label width="82" height="25" text="备注:" propertyUID="id_3" x="3" y="59" style=""/>  
+                    <TextArea propertyUID="id_3" width="219" height="83" x="83" y="59" toolTip=""/> 
+                  </tab> 
+                </TabNavigator> 
+              </Window>  
+              <formEvent/> 
+            </EntityForm>

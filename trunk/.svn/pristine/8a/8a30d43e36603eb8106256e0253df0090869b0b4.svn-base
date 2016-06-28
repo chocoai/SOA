@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Entity lastId="11" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.337F98126F83" name="AMS_MessageBox" label="留言箱" note="" log="false" workflow="false" nodeID="841" dbcreated="true"> 
+  <relation/>  
+  <extension/>  
+  <property uid="sys_0" label="编号" name="id" type="long" systemProperty="true" group="系统属性字段" editorPart="Entity"/>  
+  <property uid="sys_1" label="域ID" name="domainId" type="long" systemProperty="true" group="系统属性字段" editorPart="Entity"/>  
+  <property name="message" label="内容" type="string" length="2048" uid="id_2" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="type" label="类型" type="long" uid="id_3" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="reply" label="回复" type="string" length="512" uid="id_4" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="contact" label="联系方式" type="string" length="100" uid="id_5" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="member" label="会员" type="relation" uid="id_6" group="业务属性字段" entityUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0" labelField="phone" editorPart="Entity" dbcreated="true"/>  
+  <property name="addTime" label="添加时间" type="timestamp" length="100" uid="id_7" editorPart="Entity" group="业务属性字段" dbcreated="true"/>  
+  <property name="os_type" label="系统类型" type="long" uid="id_8" group="业务属性字段" dbcreated="true"/>  
+  <property name="os_version" label="操作系统版本" type="string" length="100" uid="id_9" group="业务属性字段" dbcreated="true"/>  
+  <property name="brand" label="手机品牌" type="string" length="100" uid="id_10" group="业务属性字段" dbcreated="true"/>  
+  <property name="phone_modle" label="手机型号" type="string" length="100" uid="id_11" group="业务属性字段" dbcreated="true"/> 
+</Entity>

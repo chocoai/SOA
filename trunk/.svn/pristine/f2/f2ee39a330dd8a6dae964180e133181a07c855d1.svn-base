@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dwr PUBLIC "-//GetAhead Limited//DTD Direct Web Remoting 2.0//EN" "http://getahead.org/dwr/dwr20.dtd">
+
+<dwr>
+  <init>
+  	<converter id="hibernate3" class="org.directwebremoting.hibernate.H3BeanConverter"/>
+  </init>
+  
+  <allow>
+
+    <convert converter="hibernate3" match="ime.relation.entity.Contact">
+    	<param name="exclude" value="enterpriseCustomer, creater, owner, realUser"/> 
+    </convert>
+    <convert converter="hibernate3" match="ime.relation.entity.Enterprise">
+    	<param name="exclude" value="domain, enterpriseCustomers, personalCustomers, staffs"/> 
+    </convert>
+    <convert converter="hibernate3" match="ime.relation.entity.EnterpriseCustomer">
+    	<param name="exclude" value="creater, realEnterprise, staffs, owner, properties"/> 
+    </convert>
+    <convert converter="hibernate3" match="ime.relation.entity.EnterpriseCustomerProperty">
+    	<param name="exclude" value="owner"/> 
+    </convert>
+    <convert converter="hibernate3" match="ime.relation.entity.EnterpriseProperty">
+    	<param name="exclude" value="owner"/> 
+    </convert>
+    <convert converter="hibernate3" match="ime.relation.entity.PersonalCustomer">
+    	<param name="exclude" value="owner, creater"/> 
+    </convert>
+    <convert converter="hibernate3" match="ime.relation.entity.EUser">
+    	<param name="exclude" value="owner, principal, workContacts, privateContacts"/> 
+    </convert>
+    <convert converter="hibernate3" match="ime.relation.entity.PUser">
+    	<param name="exclude" value="principal, privateContacts"/> 
+    </convert>
+    <convert converter="hibernate3" match="ime.relation.entity.Address">    	
+    </convert>
+    
+    <create creator="new" javascript="ContactService">
+      <param name="class" value="ime.relation.services.ContactService"/>
+    </create>
+    <create creator="new" javascript="EnterpriseCustomerService">
+      <param name="class" value="ime.relation.services.EnterpriseCustomerService"/>
+    </create>
+    <create creator="new" javascript="EnterpriseService">
+      <param name="class" value="ime.relation.services.EnterpriseService"/>
+    </create>
+    <create creator="new" javascript="PersonalCustomerService">
+      <param name="class" value="ime.relation.services.PersonalCustomerService"/>
+    </create>
+    <create creator="new" javascript="UserService">
+      <param name="class" value="ime.relation.services.UserService"/>
+    </create>
+  </allow>
+
+  <signatures>
+  <![CDATA[
+  
+  ]]>
+  </signatures>
+</dwr>

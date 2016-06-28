@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "PUBLIC" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class entity-name="AMS_BankCode" table="DYNA_AMS_BankCode">
+    <id name="id" type="long">
+      <generator class="native"/>
+    </id>
+    <property name="domainId" not-null="false" type="long" index="IDX_DOMAINID"/>
+    <property name="bank_code" not-null="false" type="string" length="100"/>
+    <property name="cart_type" not-null="false" type="long"/>
+    <property name="bank_id" not-null="false" type="long" index="bank_idx"/>
+    <property name="bank_label" not-null="false" type="string" length="200"/>
+  </class>
+</hibernate-mapping>

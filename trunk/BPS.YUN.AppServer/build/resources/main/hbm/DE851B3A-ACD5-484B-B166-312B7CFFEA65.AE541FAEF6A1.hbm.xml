@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "PUBLIC" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class entity-name="AMS_AppApiConifg" table="DYNA_AMS_AppApiConifg">
+    <id name="id" type="long">
+      <generator class="sequence">
+        <param name="sequence">IDSEQ_AMS_AppApiConifg</param>
+      </generator>
+    </id>
+    <property name="domainId" not-null="false" type="long" index="IDX_DOMAINID"/>
+    <property name="applicaiton_id" not-null="false" type="long" index="applicaiton_idx"/>
+    <property name="applicaiton_label" not-null="false" type="string" length="200"/>
+    <property name="appNo" not-null="false" type="string" length="100"/>
+    <property name="soaService_id" not-null="false" type="long" index="soaService_idx"/>
+    <property name="soaService_label" not-null="false" type="string" length="200"/>
+    <property name="soaVersion" not-null="false" type="string" length="100"/>
+    <property name="isOpen" not-null="false" type="boolean" length="100"/>
+    <property name="soaCodeNo" not-null="false" type="string" length="100"/>
+    <property name="soaNameEn" not-null="false" type="string" length="100"/>
+  </class>
+</hibernate-mapping>

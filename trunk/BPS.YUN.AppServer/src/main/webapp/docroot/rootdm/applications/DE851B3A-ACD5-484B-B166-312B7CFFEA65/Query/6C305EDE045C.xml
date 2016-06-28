@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityQuery name="手续费参数管理" label="手续费参数管理" note="" share="false" multiselect="false" editable="false" autopaging="true" pagingMode="VirtualizingPaging" virtualizingPagingEnabled="true" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.6C305EDE045C" nodeID="408"> 
+              <queryEntities> 
+                <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.30963B51D00D" name="AMS_HandlingParam" label="手续费参数" alias="a0" selectAll="true" isBranch="true" master="true"/> 
+              </queryEntities>  
+              <DataGrid> 
+                <color/>  
+                <column name="member_type" label="会员类型" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.30963B51D00D.id_1" width="100" isBranch="false" dataField="AMS_HandlingParam$member_type"/>  
+                <column name="real_name_state" label="实名状态" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.30963B51D00D.id_2" width="65" isBranch="false" dataField="AMS_HandlingParam$real_name_state"/>  
+                <column name="pay_tool" label="支付工具" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.30963B51D00D.id_4" width="100" isBranch="false" dataField="AMS_HandlingParam$pay_tool"/>  
+                <column name="target" label="计费对象" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.30963B51D00D.id_5" width="86" isBranch="false" dataField="AMS_HandlingParam$target"/>  
+                <column name="handling_mode" label="计费模式" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.30963B51D00D.id_7" width="86" isBranch="false" dataField="AMS_HandlingParam$handling_mode"/>  
+                <column name="handling_type" label="计费方式" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.30963B51D00D.id_15" width="100" isBranch="false" dataField="AMS_HandlingParam$handling_type"/>  
+                <column name="min_fee" label="最低费用" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.30963B51D00D.id_14" width="100" isBranch="false" dataField="AMS_HandlingParam$min_fee"/>  
+                <column name="max_fee" label="封顶费用" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.30963B51D00D.id_11" width="71" isBranch="false" dataField="AMS_HandlingParam$max_fee"/>  
+                <column name="handling_each" label="单笔" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.30963B51D00D.id_12" width="75" isBranch="false" dataField="AMS_HandlingParam$handling_each"/>  
+                <column name="handling_rate" label="比例" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.30963B51D00D.id_13" width="82" isBranch="false" dataField="AMS_HandlingParam$handling_rate"/>  
+                <column name="trade_type" label="交易类型" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.30963B51D00D.id_16" width="100" isBranch="false" dataField="AMS_HandlingParam$trade_type"/>  
+                <column name="sub_trade_type" label="交易子类型" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.30963B51D00D.id_17" width="100" isBranch="false" dataField="AMS_HandlingParam$sub_trade_type"/> 
+              </DataGrid>  
+              <editState/>  
+              <toolbar> 
+                <button label="新建" action="alink" selection="none" alink="alink://ime.AppWindow/EntityForm?{selection:&quot;none&quot;,entityUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.30963B51D00D&quot;,formUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.48A412427FA5&quot;,action:&quot;create&quot;}"/>  
+                <button label="编辑" action="alink" selection="single" alink="alink://ime.AppWindow/EntityForm?{selection:&quot;single&quot;,entityUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.30963B51D00D&quot;,formUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.48A412427FA5&quot;,action:&quot;edit&quot;}"/>  
+                <button label="删除" action="delete" selection="single"/> 
+              </toolbar>  
+              <xmlQuery version="2.0" name="" label=""> 
+                <select domainScope="true"> 
+                  <other label="其他" uid="other" name="other"/>  
+                  <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.30963B51D00D" name="AMS_HandlingParam" label="手续费参数" alias="a0" selectAll="true" isBranch="true"> 
+                    <field uid="sys_0" name="id" label="编号" type="long"/>  
+                    <field uid="sys_1" name="domainId" label="域ID" type="long"/>  
+                    <field uid="id_1" name="member_type" label="会员类型" type="long"/>  
+                    <field uid="id_2" name="real_name_state" label="实名状态" type="long"/>  
+                    <field uid="id_3" name="member_level" label="用户等级" type="long"/>  
+                    <field uid="id_4" name="pay_tool" label="支付工具" type="long"/>  
+                    <field uid="id_5" name="target" label="计费对象" type="long"/>  
+                    <field uid="id_7" name="handling_mode" label="计费模式" type="long"/>  
+                    <field uid="id_11" name="max_fee" label="封顶费用" type="long"/>  
+                    <field uid="id_12" name="handling_each" label="单笔" type="long"/>  
+                    <field uid="id_13" name="handling_rate" label="比例" type="double"/>  
+                    <field uid="id_14" name="min_fee" label="最低费用" type="long"/>  
+                    <field uid="id_15" name="handling_type" label="计费方式" type="long"/>  
+                    <field uid="id_16" name="trade_type" label="交易类型" type="long"/>  
+                    <field uid="id_17" name="sub_trade_type" label="交易子类型" type="long"/> 
+                  </Entity> 
+                </select>  
+                <where> 
+                  <exp type="2"/> 
+                </where>  
+                <other> 
+                  <groupBy label="Group By"/>  
+                  <orderBy label="Order By"/> 
+                </other> 
+              </xmlQuery>  
+              <conditionForm> 
+                <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2"> 
+                  <TabNavigator> 
+                    <tab label="default"/> 
+                  </TabNavigator> 
+                </Window> 
+              </conditionForm>  
+              <StatSetting/>  
+              <queryEvent/> 
+            </EntityQuery>

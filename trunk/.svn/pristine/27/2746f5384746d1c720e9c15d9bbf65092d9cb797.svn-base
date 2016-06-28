@@ -1,0 +1,103 @@
+package bps.testDemo;
+
+import apf.framework.Framework;
+import apf.util.BusinessException;
+import bps.portal.PortalServiceImpl;
+import bps.account.AccountServiceImpl;
+import bps.common.BizException;
+import bps.member.MemberServiceImpl;
+import bps.order.OrderServiceImpl;
+import bps.service.AccountService;
+import bps.service.MemberService;
+import bps.service.OrderService;
+import bps.service.PortalService;
+import bps.util.CodeUtil;
+import ime.core.Environment;
+import org.json.JSONObject;
+import org.junit.BeforeClass;
+import org.junit.Test;
+
+import java.util.HashMap;
+import java.util.Map;
+
+/**
+ * Created by Administrator on 2016/3/22.
+ */
+public class JunitDemo {
+    OrderService   orderService   = new OrderServiceImpl();
+    MemberService  memberService  = new MemberServiceImpl();
+    AccountService accountService = new AccountServiceImpl();
+    PortalService  portalService  = new PortalServiceImpl();
+    @BeforeClass
+    public static void enter() throws Exception{
+        //String path = HomeControllerTest.class.getResource("/").getPath();
+        //File file = new File(path);
+        //String appPath = file.getParent() + "/src/main/webapp/";
+        String appPath = "C:\\Users\\Administrator\\IdeaProjects\\BPS.YUN\\BPS.YUN.AppServer\\src\\main\\webapp\\";
+        Framework.instance().setApplicationPath(appPath);
+        Framework.instance().setApplicationName("");
+        Framework.instance().initialize();
+    }
+    @Test
+    public void create() throws Exception {
+        Long applicationId = 2L;
+        Map<String,Object> param = new HashMap<>();
+        /**创建应用*/
+        param.put("appType",1l);
+        param.put("name","名称改");
+        param.put("remark","介绍改");
+        param.put("ipcPath","ICP备案许可证链接改");
+        param.put("licensePath","行业许可证链接改");
+        param.put("creditPath","信用机构代码证链接改");
+        param.put("webUrl","网址改");
+        /**创建企业*/
+//        param.put("name","企业名称");
+//        param.put("businessLicence","营业执照注册号");
+//        param.put("organizationCode","组织机构代码");
+//        param.put("legalName","法人姓名");
+//        param.put("legalIds",123456L);
+//        param.put("businessLicenseP","营业执照链接");
+//        param.put("organizationCodeP","组织机构代码链接");
+//        param.put("taxCertificateP","税务登记链接");
+//        param.put("bankSettlementP","银行结算开户许可证链接");
+//        param.put("legalCertificateFP","法人证件正面链接");
+//        param.put("legalCertificateBP","法人证件反面链接");
+//        param.put("bankCardName","银行开户名");
+//        param.put("bankCode","ITS发卡机构编码");
+//        param.put("accountNo","企业银行账号");
+//        param.put("parentBankName","开户银行");
+//        param.put("bankName","开户银行支行");
+//        param.put("bankProvince","浙江省");
+//        param.put("bankCity","宁波市");
+//        param.put("bindCardId","绑卡身份证");
+
+
+//        param.put("beginDate","2015-11-12");
+//        param.put("endDate","2015-12-3");
+//        param.put("amountStart",100L);
+//        param.put("amountEnd",4000L);
+//        param.put("tradeType","in(1L,3L)");
+//        param.put("tradeType",1L);
+//        param.put("isCount",true);
+//        Map<String,Object> ret = portalService.getPayDetailListByApplication(applicationId,param,null,null);/**查询订单列表*/
+//        Map<String,Object> ret = portalService.getPayDetailInfoByApplication("1512117393091248");/**查询订单详细*/
+//        Map<String,Object> ret = portalService.getMemberAccountList(applicationId,param,null,null);/**查询托管账户列表*/
+//        Map<String,Object> ret = portalService.getMemberAccountInfo("1902222929297");/**查询托管账户详细*/
+//        Map<String,Object> ret = portalService.getBankList(applicationId,param,null,null);/**查询银行卡列表*/
+//        Map<String,Object> ret = portalService.getBankInfo(106L);   /**查询银行卡详细*/
+//        Map<String,Object> ret = portalService.getMemberList(applicationId,param,null,null);/**查询实名列表*/
+//        Map<String,Object> ret = portalService.getMemberInfo("1902222929297");/**查询实名详细*/
+//        Map<String,Object> ret= portalService.getBusinessCashValueList("1902222929297",param,null,null);/**查询交易/提现列表*/
+//        Map<String,Object> ret = portalService.getBusinessCashValueInfo("1601206594162207");/**查询充值/提现详细*/
+//        Map<String,Object> ret = portalService.createEnterpriseInfo(param);              //创建企业信息
+//        Map<String,Object> ret = portalService.getAccountOverView(103505L,null,null);/**未确定xxx*/
+//        Map<String, Object> ret = portalService.getTradeStatistic(applicationId,param);
+//        Map<String,Object> ret = portalService.createApplication("b6b77ba9-1b84-4efa-a285-31cfb1084c55",param);
+//        Map<String,Object> ret = portalService.createCashAccountType("df2ea679-6118-4f51-a372-dd2974abd117",200L,"金老板","有钱能买爷高兴");
+//        System.out.println(totalCount);
+//        System.out.println(CodeUtil.getCode("1", 7L, 12));
+        Map<String,Object> ret = portalService.updateApplication(213L,param);
+        System.out.println(new JSONObject(ret));
+    }
+
+}

@@ -1,0 +1,63 @@
+.selected {
+	background:	#7C9CCD;
+	color:		HighlightText;
+}
+
+.grid_layout {
+		border:0;
+	}
+.grid_layout .header_control{
+		font: icon;word-break:keep-all;
+		border:1 solid black;
+		border-width:0px 0px 1px 1px;
+	}
+.grid_layout .header_control td{
+		background:#D0D0DD;
+/*		width:50;*/
+		height:10;
+		border:1 solid black;
+		border-width:1px 1px 0px 0px;
+		padding: 0 2;
+		empty-cells: show;
+	}
+.grid_layout .column_control{
+		font: icon;word-break:keep-all;
+		border:1 solid black;
+		border-width:0px 0px 1px 1px;
+	}
+.grid_layout .column_control td{
+		background:#D0D0DD;
+		height:20;
+		border:1 solid black;
+		border-width:1px 1px 0px 0px;
+		padding: 0 3;
+		empty-cells: show;
+		width :8;
+	}
+.grid_layout .selectall_control{
+		font: icon;word-break:keep-all;
+		border:1 solid black;
+		background:#D0D0DD;
+		height:10;
+		width :8;
+		border:1 solid black;
+		border-width:1px 0px 0px 1px;
+		padding: 0 3;
+		empty-cells: show;
+	}
+.grid_layout .fbody {
+		font: icon;word-break:keep-all;
+		border:1 dashed black;
+		border-width:0px 0px 1px 1px;
+/*		table-layout: fixed; */
+	}
+
+.grid_layout .fbody td{
+		font: icon;
+/*		width:50;*/
+		height:20;
+		border:1 dashed black;
+		border-width:1px 1px 0px 0px;
+		padding: 2;
+		cursor:default;
+	}

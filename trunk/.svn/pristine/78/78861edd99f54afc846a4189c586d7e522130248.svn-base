@@ -1,0 +1,69 @@
+package bps.external.application.service.trade;
+
+import java.util.Map;
+
+import bps.common.BizException;
+
+public interface WsCardService {
+
+	/**
+	 * 账户查询
+	 * @param cardNo      通联卡号,支持多卡查询，最多5张卡，每张卡之间用英文逗号“,”隔开，如：9515600010000000011,9515600010000000012
+	 * @param instAccCode 一账通账户标识
+	 * @return
+	 * @throws BizException
+	 */
+	public Map<String, Object> queryAccount(String cardNos, String instAccCode) throws BizException;
+
+	/**
+     * 支付
+     * @param instAccCode    一账通账户标识
+	 * @param flowNo         一账通流水号
+	 * @param instSellerInfo 卖家商户名称
+	 * @param cardNo         通联卡号
+	 * @param amount         支付金额，单位：分
+	 * @param payCode        支付编码
+     * @throws BizException 
+     */
+	public Map<String, Object> pay(String instAccCode, String flowNo, String instSellerInfo, String cardNo, String amount) throws BizException;
+
+	/**
+     * 交易查询
+     * @param cardNo      String     万商卡卡号。
+     * @param instAccCode String     合作机构账户标识
+     * @param status      String     交易状态（如果为“”，则查全部。0－挂起；1－失败；2－成功；3－已冲正；4－已取消；5－退货）
+     * @param startDate   String     起始日期，yyyyMMdd
+     * @param endDate     String     结束日期，yyyyMMdd
+     * @param currentPage String     查询当前页
+     * @param pageSize    String     页大小
+     * @param extParams
+     * 			status    String     交易状态
+     * @return            Map<String, Object> 交易查询结果
+     * @throws BizException
+     */
+	public Map<String, Object> queryTrans(String cardNo, String instAccCode, String startDate, String endDate, String currentPage, String pageSize, Map<String, Object> extParams) throws BizException;
+
+	/**
+	 * 充值
+     * @param flowNo      String  一账通流水号
+     * @param cardNo	  String  充值卡号
+     * @param amount      String  充值金额，单位：分
+     * @param instAccCode String  合作机构账户标识
+     * @return Map<String, Object> 
+     * @throws BizException
+     */
+    public Map<String, Object> recharge(String flowNo, String cardNo, String amount, String instAccCode) throws BizException;
+    
+    /**
+     * 交易撤销
+     * @param flowNo       一账通流水号
+     * @param instAccCode  一账通账户标识
+     * @param cardNo       通联卡号
+     * @param oriFlowNo    原交易流水号
+     * @param oriTransAmt  原交易金额      
+     * @param oriTransDate 原交易日期
+     * @return Map<String, Object>
+     * @throws BizException
+     */
+    public Map<String, Object> refund(String flowNo, String instAccCode, String cardNo, String oriFlowNo, String oriTransAmt, String oriTransDate) throws BizException;
+}

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Entity lastId="25" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.DB0B4F5A8724" name="AMS_AdjustAccount" label="调帐单" note="" log="true" workflow="true" nodeID="684" dbcreated="true"> 
+  <relation/>  
+  <extension/>  
+  <property uid="sys_0" label="编号" name="id" type="long" systemProperty="true" editorPart="Entity" group="系统属性字段"/>  
+  <property uid="sys_1" label="域ID" name="domainId" type="long" systemProperty="true" editorPart="Entity" group="系统属性字段"/>  
+  <property uid="log_0" label="创建者ID" name="FM_CreatePrinId" type="long" systemProperty="true" group="系统属性字段" editorPart="Entity"/>  
+  <property uid="log_1" label="创建者" name="FM_CreatePrinName" type="string" length="100" systemProperty="true" group="系统属性字段" editorPart="Entity"/>  
+  <property uid="log_2" label="更新者ID" name="FM_UpdatePrinId" type="long" systemProperty="true" group="系统属性字段" editorPart="Entity"/>  
+  <property uid="log_3" label="更新者" name="FM_UpdatePrinName" type="string" length="100" systemProperty="true" group="系统属性字段" editorPart="Entity"/>  
+  <property uid="log_4" label="创建时间" name="FM_CreateTime" type="timestamp" systemProperty="true" group="系统属性字段" editorPart="Entity"/>  
+  <property uid="log_5" label="更新时间" name="FM_UpdateTime" type="timestamp" systemProperty="true" group="系统属性字段" editorPart="Entity"/>  
+  <property uid="wf_0" label="状态" name="WF_State" type="long" systemProperty="true" editorPart="Entity" group="系统属性字段"/>  
+  <property uid="wf_1" label="状态名称" name="WF_StateName" type="string" length="50" systemProperty="true" editorPart="Entity" group="系统属性字段"/>  
+  <property uid="wf_2" label="所属流程" name="WF_ProcessId" type="long" systemProperty="true" editorPart="Entity" group="系统属性字段"/>  
+  <property uid="wf_3" label="流程名称" name="WF_ProcessName" type="string" length="100" systemProperty="true" editorPart="Entity" group="系统属性字段"/>  
+  <property uid="wf_4" label="处理人ID" name="WF_ProcessorPrinId" type="long" systemProperty="true" editorPart="Entity" group="系统属性字段"/>  
+  <property uid="wf_5" label="处理人" name="WF_ProcessorPrinName" type="string" length="100" systemProperty="true" editorPart="Entity" group="系统属性字段"/>  
+  <property uid="wf_6" label="工作项ID" name="WF_WorkItemId" type="long" systemProperty="true" editorPart="Entity" group="系统属性字段"/>  
+  <property name="source_userId" label="源会员ID" type="string" length="100" uid="id_1" editorPart="Entity" group="业务属性字段" dbcreated="true"/>  
+  <property name="target_userId" label="目标会员ID" type="string" length="100" uid="id_2" editorPart="Entity" group="业务属性字段" dbcreated="true"/>  
+  <property name="remark" label="备注" type="string" length="1024" uid="id_3" editorPart="Entity" group="业务属性字段" dbcreated="true"/>  
+  <property name="account_type" label="帐户类型" type="relation" uid="id_4" entityUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.62156FFA93F3" labelField="name" editorPart="Entity" group="业务属性字段" dbcreated="true"/>  
+  <property name="trade_money" label="交易金额(元)" type="long" uid="id_5" currency="true" editorPart="Entity" group="业务属性字段" dbcreated="true"/>  
+  <property name="errorTradeHandle" label="交易差错处理" type="relation" uid="id_10" group="业务属性字段" entityUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.60D2317A70D0" labelField="id" editorPart="Entity" dbcreated="true"/>  
+  <property name="source_member" label="源会员" type="relation" uid="id_11" group="业务属性字段" entityUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0" labelField="phone" editorPart="Entity" shortcutField="phone" dbcreated="true"/>  
+  <property name="target_member" label="目标会员" type="relation" uid="id_12" group="业务属性字段" entityUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0" labelField="phone" shortcutField="phone" editorPart="Entity" dbcreated="true"/>  
+  <property name="source_name" label="源会员名称" type="string" length="100" uid="id_13" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="target_name" label="目标会员名称" type="string" length="100" uid="id_14" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="source_memberNo" label="源会员号" type="string" length="100" uid="id_15" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="taget_memberNo" label="目标会员号" type="string" length="100" uid="id_16" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="auditor" label="审核人" type="principal" uid="id_17" editorPart="Entity" group="业务属性字段" dbcreated="true"/>  
+  <property name="auditor_date" label="审核时间" type="timestamp" length="100" uid="id_18" editorPart="Entity" group="业务属性字段" dbcreated="true"/>  
+  <property name="operator" label="经办人" type="principal" uid="id_19" editorPart="Entity" group="业务属性字段" dbcreated="true"/>  
+  <property name="target_memberNo" label="目标会员号" type="string" length="100" uid="id_20" editorPart="Entity" group="业务属性字段" dbcreated="true"/>  
+  <property name="bizid" label="业务编号" type="coding" uid="id_21" recyclable="false" zeroStart="false" resetPeriod="3" codingPattern="TZ${year:4,0}${month:2,0}${date:2,0}-${sequence:4,0}" editorPart="Entity" group="业务属性字段" dbcreated="true"/>  
+  <property name="error_msg" label="错误原因" type="string" length="100" uid="id_22" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="target_account_type" label="目标账户类型" type="relation" uid="id_25" group="业务属性字段" entityUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.62156FFA93F3" editorPart="Entity" dbcreated="true"/> 
+</Entity>

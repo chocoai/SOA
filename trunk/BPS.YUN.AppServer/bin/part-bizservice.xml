@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<part>
+	<name>ime.bizservice</name>
+	<version>1.0.0</version>
+	<description>
+	<![CDATA[
+		服务组件
+	]]>
+	</description>
+	
+	<dependency>
+		<partname></partname>
+	</dependency>
+	
+	<part_handler class="ime.bizservice.event.PartHandler" />
+	
+</part>

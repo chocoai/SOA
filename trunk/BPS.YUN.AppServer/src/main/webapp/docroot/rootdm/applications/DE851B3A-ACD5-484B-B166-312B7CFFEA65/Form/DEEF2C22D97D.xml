@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityForm name="参数配置" label="参数配置" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.DEEF2C22D97D" nodeID="486"> 
+              <formEntity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.B63C55E70EB4"/>  
+              <formState> 
+                <state label="基础" uid="state0" basedOn="null"> 
+                  <rule type="required" property="param_name" label="参数类型" rule="true"/>  
+                  <rule type="required" property="param_value" label="参数值" rule="true"/> 
+                </state>  
+                <state label="新建" uid="state1" basedOn="state0"/>  
+                <state label="编辑" uid="state2" basedOn="state0"/> 
+              </formState>  
+              <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2"> 
+                <TabNavigator> 
+                  <tab label="default"> 
+                    <Label width="82" height="25" text="参数类型:" propertyUID="id_1" x="2" y="3" style=""/>  
+                    <TextInput propertyUID="id_1" width="199" height="25" x="83" y="3" toolTip=""/>  
+                    <Label width="82" height="25" text="参数值:" propertyUID="id_2" x="323" y="3" style=""/>  
+                    <TextInput propertyUID="id_2" width="199" height="25" x="383" y="3"/>  
+                    <Label width="82" height="25" text="备注:" propertyUID="id_3" x="3" y="31" style=""/>  
+                    <TextArea propertyUID="id_3" width="499" height="167" x="83" y="31"/> 
+                  </tab> 
+                </TabNavigator> 
+              </Window>  
+              <formEvent/> 
+            </EntityForm>

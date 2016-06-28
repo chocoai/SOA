@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "PUBLIC" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class entity-name="AMS_QuestionList" table="DYNA_AMS_QuestionList">
+    <id name="id" type="long">
+      <generator class="native"/>
+    </id>
+    <property name="domainId" not-null="false" type="long" index="IDX_DOMAINID"/>
+    <property name="q_name" not-null="false" type="string" length="1024"/>
+    <property name="q_level" not-null="false" type="long"/>
+    <property name="q_group" not-null="false" type="long"/>
+  </class>
+</hibernate-mapping>

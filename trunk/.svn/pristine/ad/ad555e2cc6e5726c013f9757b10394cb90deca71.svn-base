@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "PUBLIC" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class entity-name="AMS_PayInterface" table="DYNA_AMS_PayInterface">
+    <id name="id" type="long">
+      <generator class="sequence">
+        <param name="sequence">IDSEQ_AMS_PayInterface</param>
+      </generator>
+    </id>
+    <property name="domainId" not-null="false" type="long" index="IDX_DOMAINID"/>
+    <property name="codeNo" not-null="false" type="string" length="100"/>
+    <property name="pay_channel_id" not-null="false" type="long" index="pay_channel_idx"/>
+    <property name="pay_channel_label" not-null="false" type="string" length="200"/>
+    <property name="name" not-null="false" type="string" length="100"/>
+    <property name="remark" not-null="false" type="string" length="256"/>
+    <property name="system_member_id" not-null="false" type="long" index="system_member_idx"/>
+    <property name="system_member_label" not-null="false" type="string" length="200"/>
+    <property name="system_uuid" not-null="false" type="string" length="100"/>
+    <property name="short_name" not-null="false" type="string" length="100"/>
+    <property name="handling_mode" not-null="false" type="long"/>
+    <property name="handling_each" not-null="false" type="long"/>
+    <property name="handling_rate" not-null="false" type="double"/>
+    <property name="handling_type" not-null="false" type="long"/>
+    <property name="pay_type" not-null="false" type="long"/>
+  </class>
+</hibernate-mapping>

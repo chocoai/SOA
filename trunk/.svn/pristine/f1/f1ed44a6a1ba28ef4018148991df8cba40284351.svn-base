@@ -1,0 +1,565 @@
+package bps.process;
+
+import apf.util.EntityManagerUtil;
+import apf.work.QueryWork;
+import apf.work.TransactionWork;
+import bps.common.Constant;
+import bps.util.DateUtil;
+import ime.calendar.TrigerHandler;
+import ime.core.Reserved;
+import ime.core.services.DynamicEntityService;
+import ime.security.LoginSession;
+import org.apache.log4j.Logger;
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.*;
+
+/**
+ * 应用日统计数据生成
+ * Created by jache on 2016/5/9.
+ */
+public class AppDailyStatistics implements TrigerHandler {
+    private static Logger logger = Logger.getLogger( AppDailyStatistics.class );
+    private static DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+
+    private static Long statisticsTypeDeposit       = 1L;
+    private static Long statisticsTypeWithdraw      = 2L;
+    private static Long statisticsTypeReserve       = 3L;
+    private static Long statisticsTypeOpenAccount   = 4L;
+    private static Long statisticsTypeRealName      = 5L;
+    private static Long statisticsTypeBindCard      = 6L;
+    private static Long statisticsTypeTalTransaction     = 7L;
+    private static Long statisticsTypeIncome        = 8L;
+
+    @Override
+    public void handle() {
+        Date now = new Date();
+        String fileDt = df.format(now);
+        fileDt = DateUtil.getSpecifiedDayBefore(fileDt,"yyyy-MM-dd");
+
+        go(fileDt);
+    }
+
+    public void go(final String day){
+        //1、业务列表
+        //2、业务实现类：获得类型对应的日合并数量
+        List<Map<String, Object>> depositList = getStatisticsTypeDeposit(day);
+        List<Map<String, Object>> withdrawList = getStatisticsTypeWithdraw(day);
+        List<Map<String, Object>> openAccountList = getStatisticsTypeOpenAccount(day);
+        List<Map<String, Object>> realNameList = getStatisticsTypeRealName(day);
+        List<Map<String, Object>> bindCardList = getStatisticsTypeBindCard(day);
+        List<Map<String, Object>> IncomeList = getStatisticsTypeIncome(day);
+        List<Map<String, Object>> talTransactionList = getStatisticsTypeTalTransaction (day);
+        logger.info("talTransactionList"+talTransactionList);
+        List<Map<String, String>> sqlList = new ArrayList<>();
+        for (Map<String, Object> temp : depositList){
+            Map<String, String> entity = new HashMap<>();
+            entity.put("statisticsDay", String.valueOf((DateUtil.getStringToDate(day,"yyyy-MM-dd").getTime())) );
+            entity.put("statisticsType",statisticsTypeDeposit.toString());
+            entity.put("amount",String.valueOf(temp.get("amount")));
+            entity.put("application_id",String.valueOf(temp.get("application_id")));
+            entity.put("application_label",(String)temp.get("application_label"));
+            sqlList.add(entity);
+        }
+
+        for (Map<String, Object> temp : withdrawList){
+            Map<String, String> entity = new HashMap<>();
+            entity.put("statisticsDay", String.valueOf((DateUtil.getStringToDate(day,"yyyy-MM-dd").getTime())) );
+            entity.put("statisticsType",statisticsTypeWithdraw.toString());
+            entity.put("amount",String.valueOf(temp.get("amount")));
+            entity.put("application_id",String.valueOf(temp.get("application_id")));
+            entity.put("application_label",(String)temp.get("application_label"));
+            sqlList.add(entity);
+        }
+        for (Map<String, Object> temp : openAccountList){
+            Map<String, String> entity = new HashMap<>();
+            entity.put("statisticsDay", String.valueOf((DateUtil.getStringToDate(day,"yyyy-MM-dd").getTime())) );
+            entity.put("statisticsType",statisticsTypeOpenAccount.toString());
+            entity.put("amount",String.valueOf(temp.get("amount")));
+            entity.put("application_id",String.valueOf(temp.get("application_id")));
+            entity.put("application_label",(String)temp.get("application_label"));
+            sqlList.add(entity);
+        }
+        for (Map<String, Object> temp : realNameList){
+            Map<String, String> entity = new HashMap<>();
+            entity.put("statisticsDay", String.valueOf((DateUtil.getStringToDate(day,"yyyy-MM-dd").getTime())) );
+            entity.put("statisticsType",statisticsTypeRealName.toString());
+            entity.put("amount",String.valueOf(temp.get("amount")));
+            entity.put("application_id",String.valueOf(temp.get("application_id")));
+            entity.put("application_label",(String)temp.get("application_label"));
+            sqlList.add(entity);
+        }
+        for (Map<String, Object> temp : bindCardList){
+            Map<String, String> entity = new HashMap<>();
+            entity.put("statisticsDay", String.valueOf((DateUtil.getStringToDate(day,"yyyy-MM-dd").getTime())) );
+            entity.put("statisticsType",statisticsTypeBindCard.toString());
+            entity.put("amount",String.valueOf(temp.get("amount")));
+            entity.put("application_id",String.valueOf(temp.get("application_id")));
+            entity.put("application_label",(String)temp.get("application_label"));
+            sqlList.add(entity);
+        }
+
+        for (Map<String, Object> temp : IncomeList){
+            Map<String, String> entity = new HashMap<>();
+            entity.put("statisticsDay", String.valueOf((DateUtil.getStringToDate(day,"yyyy-MM-dd").getTime())) );
+            entity.put("statisticsType",statisticsTypeIncome.toString());
+            entity.put("amount",String.valueOf(temp.get("amount")));
+            entity.put("application_id",String.valueOf(temp.get("application_id")));
+            entity.put("application_label",(String)temp.get("application_label"));
+            sqlList.add(entity);
+        }
+        for (Map<String, Object> temp : talTransactionList){
+            Map<String, String> entity = new HashMap<>();
+            entity.put("statisticsDay", String.valueOf((DateUtil.getStringToDate(day,"yyyy-MM-dd").getTime())) );
+            entity.put("statisticsType",statisticsTypeTalTransaction.toString());
+            entity.put("amount",String.valueOf(temp.get("amount")));
+            entity.put("application_id",String.valueOf(temp.get("application_id")));
+            entity.put("application_label",(String)temp.get("application_label"));
+            sqlList.add(entity);
+            logger.info("for list");
+        }
+        LoginSession.backUse(null, Reserved.BACKUSER_ID, Reserved.MAIN_DOMAIN_ID);
+
+        try {
+            final String _day = day;
+            final List<Map<String, String>> _list = sqlList;
+            EntityManagerUtil.execute(new TransactionWork<Object>(){
+                @Override
+                public Object doTransaction(Session session, Transaction tx)
+                        throws Exception {
+                    clearDayData( _day, session );
+                    for (Map<String, String> entity : _list){
+                        DynamicEntityService.createEntity("AMS_AppDailyStatistics",entity,null);
+                    }
+                    return null;
+                }
+            });
+        } catch (Exception e) {
+            logger.error(e.getMessage(), e);
+        }
+
+    }
+
+    /**
+     * 消除日统计数据
+     * @param day   清除时间
+     */
+    static void clearDayData(String day, Session session){
+        StringBuilder sb = new StringBuilder();
+        sb.append("delete from AMS_AppDailyStatistics where ");
+        sb.append(" statisticsDay between to_date('").append(day).append(" 00:00:00','yyyy-MM-dd HH24:mi:ss') and to_date('").append(day).append(" 23:59:59','yyyy-MM-dd HH24:mi:ss')");
+        logger.info("sql:"+ sb.toString());
+        try {
+            Query query = session.createQuery(sb.toString());
+            query.executeUpdate();
+        }catch (Exception e){
+            logger.error(e.getMessage(),e);
+        }
+    }
+    /**
+     * 获取一个类型所有应用的日合计数量
+     * @param type  统计类型
+     * @return  类型对应的应用列表
+     */
+    private List<Map<String, Object>> getStatisticsTypeAmount(Long type, String day){
+        if (type.equals(statisticsTypeDeposit)){
+            return getStatisticsTypeDeposit(day);
+        }else if( type.equals(statisticsTypeWithdraw)){
+            return  getStatisticsTypeWithdraw(day);
+        }else if( type.equals(statisticsTypeReserve)){
+
+        }else if( type.equals(statisticsTypeOpenAccount)){
+            return getStatisticsTypeOpenAccount(day);
+        }else if( type.equals(statisticsTypeRealName)){
+            return getStatisticsTypeRealName(day);
+        }else if( type.equals(statisticsTypeBindCard)){
+            return  getStatisticsTypeBindCard(day);
+        }
+        return null;
+    }
+
+    /**
+     * 查询应用下日充值金额
+     * @param day   统计时间
+     * @return 应用充值列表
+     */
+    static List<Map<String, Object>> getStatisticsTypeDeposit(String day){
+        StringBuilder sb = new StringBuilder();
+        sb.append("select sum(order_money),application_id, application_label from AMS_Order where ");
+
+        sb.append(" confirm_time between to_date('").append(day).append(" 00:00:00','yyyy-MM-dd HH24:mi:ss') and to_date('").append(day).append(" 23:59:59','yyyy-MM-dd HH24:mi:ss')");
+        sb.append(" and order_state=").append(Constant.ORDER_STATE_SUCCESS);
+        sb.append(" and order_type=").append(Constant.ORDER_TYPE_DEPOSIT);
+        sb.append(" group by application_id, application_label");
+
+        List<Map<String, Object>> list = new ArrayList<>();
+
+        logger.info("sql:"+ sb.toString());
+        try {
+            final String sql = sb.toString();
+            Object returnValue = EntityManagerUtil.execute(new QueryWork<Object>() {
+                @Override
+                public Object doQuery(Session session) throws Exception {
+                    Query query = session.createQuery(sql);
+
+                    List<Object[]> list = query.list();
+                    return list;
+                }
+            });
+
+            for (Object[] temp : (List<Object[]>) returnValue) {
+                Long amount = (Long) temp[0];
+                Long application_id = (Long) temp[1];
+                String application_label = temp[2] == null?"":(String) temp[2];
+                Map<String, Object> map = new HashMap<>();
+
+                map.put("application_id", application_id);
+                map.put("application_label", application_label);
+                map.put("amount", amount);
+                list.add(map);
+            }
+        }catch (Exception e){
+            logger.error(e.getMessage(),e);
+        }
+        return list;
+    }
+
+    /**
+     * 查询应用下日提现金额
+     * @param day   统计时间
+     * @return 应用充值列表
+     */
+    static List<Map<String, Object>> getStatisticsTypeWithdraw(String day){
+        StringBuilder sb = new StringBuilder();
+        sb.append("select sum(order_money),application_id, application_label from AMS_Order where ");
+
+        sb.append(" confirm_time between to_date('").append(day).append(" 00:00:00','yyyy-MM-dd HH24:mi:ss') and to_date('").append(day).append(" 23:59:59','yyyy-MM-dd HH24:mi:ss')");
+        sb.append(" and order_state=").append(Constant.ORDER_STATE_SUCCESS);
+        sb.append(" and order_type=").append(Constant.ORDER_TYPE_WITHDRAW);
+        sb.append(" group by application_id, application_label");
+
+        List<Map<String, Object>> list = new ArrayList<>();
+
+        logger.info("sql:"+ sb.toString());
+        try {
+            final String sql = sb.toString();
+            Object returnValue = EntityManagerUtil.execute(new QueryWork<Object>() {
+                @Override
+                public Object doQuery(Session session) throws Exception {
+                    Query query = session.createQuery(sql);
+
+                    List<Object[]> list = query.list();
+                    return list;
+                }
+            });
+
+            for ( Object[] temp : (List<Object[]>) returnValue ) {
+                Long amount = (Long) temp[0];
+                Long application_id = (Long) temp[1];
+                String application_label = temp[2] == null ? "" : (String)temp[2];
+                Map<String, Object> map = new HashMap<>();
+
+                map.put("application_id", application_id);
+                map.put("application_label", application_label);
+                map.put("amount", amount);
+                list.add(map);
+            }
+        }catch (Exception e){
+            logger.error(e.getMessage(),e);
+        }
+        return list;
+    }
+
+    /**
+     * 日开户数
+     * @param day   统计时间
+     * @return 应用日开户数列表
+     */
+    static List<Map<String, Object>> getStatisticsTypeOpenAccount(String day){
+        StringBuilder sb = new StringBuilder();
+        sb.append("select count(*),a.application_id, a.application_label from AMS_Member a ,AMS_MemberAccount b where");
+        sb.append(" b.create_time between to_date('").append(day).append(" 00:00:00','yyyy-MM-dd HH24:mi:ss') and to_date('").append(day).append(" 23:59:59','yyyy-MM-dd HH24:mi:ss')");
+        sb.append(" and a.userId=b.userId ");
+        sb.append(" group by a.application_id, a.application_label ");
+
+        List<Map<String, Object>> list = new ArrayList<>();
+
+        logger.info("sql:"+ sb.toString());
+        try {
+            final String sql = sb.toString();
+            Object returnValue = EntityManagerUtil.execute(new QueryWork<Object>() {
+                @Override
+                public Object doQuery(Session session) throws Exception {
+                    Query query = session.createQuery(sql);
+
+                    List<Object[]> list = query.list();
+                    return list;
+                }
+            });
+
+            for ( Object[] temp : (List<Object[]>) returnValue ) {
+                Long amount = (Long) temp[0];
+                Long application_id = (Long) temp[1];
+                String application_label = temp[2] == null ? "" : (String)temp[2];
+                Map<String, Object> map = new HashMap<>();
+
+                map.put("application_id", application_id);
+                map.put("application_label", application_label);
+                map.put("amount", amount);
+                list.add(map);
+            }
+        }catch (Exception e){
+            logger.error(e.getMessage(),e);
+        }
+        return list;
+    }
+    /**
+     * 日实名用户
+     * @param day   统计时间
+     * @return  应用日实名数列表
+     */
+    static List<Map<String, Object>> getStatisticsTypeRealName(String day){
+        StringBuilder sb = new StringBuilder();
+        sb.append("select count(*),application_id, application_label from AMS_Member where");
+        sb.append(" real_name_time between to_date('").append(day).append(" 00:00:00','yyyy-MM-dd HH24:mi:ss') and to_date('").append(day).append(" 23:59:59','yyyy-MM-dd HH24:mi:ss')");
+        sb.append(" and isIdentity_checked=").append(true);
+        sb.append(" group by application_id, application_label ");
+
+        List<Map<String, Object>> list = new ArrayList<>();
+
+        logger.info("sql:"+ sb.toString());
+        try {
+            final String sql = sb.toString();
+            Object returnValue = EntityManagerUtil.execute(new QueryWork<Object>() {
+                @Override
+                public Object doQuery(Session session) throws Exception {
+                    Query query = session.createQuery(sql);
+
+                    List<Object[]> list = query.list();
+                    return list;
+                }
+            });
+
+            for ( Object[] temp : (List<Object[]>) returnValue ) {
+                Long amount = (Long) temp[0];
+                Long application_id = (Long) temp[1];
+                String application_label = temp[2] == null ? "" : (String)temp[2];
+                Map<String, Object> map = new HashMap<>();
+
+                map.put("application_id", application_id);
+                map.put("application_label", application_label);
+                map.put("amount", amount);
+                list.add(map);
+            }
+        }catch (Exception e){
+            logger.error(e.getMessage(),e);
+        }
+        return list;
+    }
+
+    /**
+     * 日绑卡数量
+     * @param day 统计时间
+     * @return 应用日绑卡数列表
+     */
+    static List<Map<String, Object>> getStatisticsTypeBindCard(String day){
+        StringBuilder sb = new StringBuilder();
+        sb.append("select count(*),m.application_id, m.application_label from AMS_MemberBank mb, AMS_Member m where");
+        sb.append(" m.id = mb.member_id");
+        sb.append(" and mb.bind_time between to_date('").append(day).append(" 00:00:00','yyyy-MM-dd HH24:mi:ss') and to_date('").append(day).append(" 23:59:59','yyyy-MM-dd HH24:mi:ss')");
+        sb.append(" group by m.application_id, m.application_label ");
+
+        List<Map<String, Object>> list = new ArrayList<>();
+
+        logger.info("sql:"+ sb.toString());
+        try {
+            final String sql = sb.toString();
+            Object returnValue = EntityManagerUtil.execute(new QueryWork<Object>() {
+                @Override
+                public Object doQuery(Session session) throws Exception {
+                    Query query = session.createQuery(sql);
+
+                    List<Object[]> list = query.list();
+                    return list;
+                }
+            });
+
+            for ( Object[] temp : (List<Object[]>) returnValue ) {
+                Long amount = (Long) temp[0];
+                Long application_id = (Long) temp[1];
+                String application_label = temp[2] == null ? "" : (String)temp[2];
+                Map<String, Object> map = new HashMap<>();
+
+                map.put("application_id", application_id);
+                map.put("application_label", application_label);
+                map.put("amount", amount);
+                list.add(map);
+            }
+        }catch (Exception e){
+            logger.error(e.getMessage(),e);
+        }
+        return list;
+    }
+
+    /**
+     * 日交易总量
+     * @param day
+     * @return
+     */
+    static List<Map<String, Object>> getStatisticsTypeTotalTransaction(String day){
+        return null;
+    }
+
+    /**
+     * 应用日收入统计
+     * 交易订单的手续费-退款订单的手续费
+     * @param day
+     * @return
+     */
+    static List<Map<String, Object>> getStatisticsTypeIncome(String day){
+        //fee_refund_amount
+        StringBuilder sb = new StringBuilder();
+        sb.append("select sum(fee),sum(fee_refund_amount),application_id, application_label from AMS_Order where ");
+
+        sb.append(" confirm_time between to_date('").append(day).append(" 00:00:00','yyyy-MM-dd HH24:mi:ss') and to_date('").append(day).append(" 23:59:59','yyyy-MM-dd HH24:mi:ss')");
+        sb.append(" and order_state=").append(Constant.ORDER_STATE_SUCCESS);
+//        sb.append(" and order_type=").append(Constant.ORDER_TYPE_WITHDRAW);
+        sb.append(" group by application_id, application_label");
+
+        List<Map<String, Object>> list = new ArrayList<>();
+
+        logger.info("sql:"+ sb.toString());
+        try {
+            final String sql = sb.toString();
+
+            Object returnValue = EntityManagerUtil.execute(new QueryWork<Object>() {
+                @Override
+                public Object doQuery(Session session) throws Exception {
+                    Query query = session.createQuery(sql);
+
+                    List<Object[]> list = query.list();
+                    return list;
+                }
+            });
+
+            for ( Object[] temp : (List<Object[]>) returnValue ) {
+                Long fee = (Long) temp[0];
+                Long fee_refund_amount = temp[1] == null ? 0L:(Long) temp[1];
+                Long application_id = (Long) temp[2];
+                String application_label = temp[3] == null ? "" : (String)temp[3];
+                Map<String, Object> map = new HashMap<>();
+
+                map.put("application_id", application_id);
+                map.put("application_label", application_label);
+                map.put("amount", fee - fee_refund_amount );
+                list.add(map);
+            }
+        }catch (Exception e){
+            logger.error(e.getMessage(),e);
+        }
+        return list;
+    }
+
+    /**
+     * 查询应用下交易总额
+     * @param day   统计时间
+     * @return 应用充值列表
+     */
+    static List<Map<String, Object>> getStatisticsTypeTalTransaction(String day){
+        StringBuilder sb = new StringBuilder();
+        sb.append("select sum(a.trade_money),b.id,b.name from AMS_TradeLog a,AMS_Organization b where ");
+        sb.append(" a.orgNo = b.codeNo");
+        sb.append(" and a.trade_time between to_date('").append(day).append(" 00:00:00','yyyy-MM-dd HH24:mi:ss') and to_date('").append(day).append(" 23:59:59','yyyy-MM-dd HH24:mi:ss')");
+        sb.append(" and a.pay_channelNo in ("+Constant.PAY_CHANNEL_QUICK+","+Constant.PAY_CHANNEL_GETWAY+","+Constant.PAY_CHANNEL_CERT_PAY+","+Constant.PAY_CHANNEL_POS+","+Constant.PAY_CHANNEL_UNION_DAIKOU+")");
+        sb.append(" and a.trade_type <> "+Constant.TRADE_TYPE_REFUNDMENT);
+        sb.append(" group by b.id, b.name");
+
+        List<Map<String, Object>> list = new ArrayList<>();
+
+        logger.info("sql:"+ sb.toString());
+        logger.info("sql:"+ sb.toString());
+        try {
+            final String sql = sb.toString();
+            Object returnValue = EntityManagerUtil.execute(new QueryWork<Object>() {
+                @Override
+                public Object doQuery(Session session) throws Exception {
+                    Query query = session.createQuery(sql);
+
+                    List<Object[]> list = query.list();
+                    return list;
+
+                }
+            });
+            logger.info("list:"+list.toString());
+            for ( Object[] temp : (List<Object[]>) returnValue ) {
+                Long amount = (Long) temp[0];
+                Long application_id = (Long) temp[1];
+                String application_label = temp[2] == null ? "" : (String)temp[2];
+                Map<String, Object> map = new HashMap<>();
+
+                map.put("application_id", application_id);
+                map.put("application_label", application_label);
+                map.put("amount", amount);
+                list.add(map);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            logger.error(e.getMessage(),e);
+        }
+        return list;
+    }
+
+//    static Long getAccountTypeId(String codeNo){
+//        StringBuilder sb = new StringBuilder();
+//        sb.append("from AMS_AccountType WHERE codeNo=").append();
+//        SELECT * from DYNA_AMS_ACCOUNTTYPE WHERE CODENO='100003';
+//    }
+    /**
+     * 应用日客户备付金
+     * @param day   统计时间
+     * @return  应用日客户备付金列表
+     */
+//    static List<Map<String, Object>> getStatisticsTypeReserve(String day){
+//        StringBuilder sb = new StringBuilder();
+//        sb.append("select sum(acl.chg_money),m.application_id, m.application_label from AMS_AccountChgLog acl, AMS_Member m where");
+//        sb.append(" m.userId = acl.userId");
+//        sb.append(" and acl.chg_time between to_date('").append(day).append(" 00:00:00','yyyy-MM-dd HH24:mi:ss') and to_date('").append(day).append(" 23:59:59','yyyy-MM-dd HH24:mi:ss')");
+//        sb.append(" and acl.account_type=").append();
+//        sb.append(" group by m.application_id, m.application_label ");
+//
+//        List<Map<String, Object>> list = new ArrayList<>();
+//
+//        logger.info("sql:"+ sb.toString());
+//        try {
+//            final String sql = sb.toString();
+//            Object returnValue = EntityManagerUtil.execute(new QueryWork<Object>() {
+//                @Override
+//                public Object doQuery(Session session) throws Exception {
+//                    Query query = session.createQuery(sql);
+//
+//                    List<Object[]> list = query.list();
+//                    return list;
+//                }
+//            });
+//
+//            for ( Object[] temp : (List<Object[]>) returnValue ) {
+//                Long amount = (Long) temp[0];
+//                Long application_id = (Long) temp[1];
+//                String application_label = temp[2] == null ? "" : (String)temp[2];
+//                Map<String, Object> map = new HashMap<>();
+//
+//                map.put("application_id", application_id);
+//                map.put("application_label", application_label);
+//                map.put("amount", amount);
+//                list.add(map);
+//            }
+//        }catch (Exception e){
+//            logger.error(e.getMessage(),e);
+//        }
+//        return list;
+//    }
+}

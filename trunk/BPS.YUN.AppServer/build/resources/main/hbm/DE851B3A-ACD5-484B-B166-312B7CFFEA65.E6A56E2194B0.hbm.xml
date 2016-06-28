@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "PUBLIC" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class entity-name="AMS_Member" table="DYNA_AMS_Member">
+    <id name="id" type="long">
+      <generator class="sequence">
+        <param name="sequence">IDSEQ_AMS_Member</param>
+      </generator>
+    </id>
+    <property name="FM_CreatePrinId" not-null="false" type="long" index="IDX_CREATEPRINID"/>
+    <property name="FM_CreatePrinName" not-null="false" length="100" type="string"/>
+    <property name="FM_UpdatePrinId" not-null="false" type="long" index="IDX_UPDATEPRINID"/>
+    <property name="FM_UpdatePrinName" not-null="false" length="100" type="string"/>
+    <property name="FM_CreateTime" not-null="false" type="timestamp"/>
+    <property name="FM_UpdateTime" not-null="false" type="timestamp"/>
+    <property name="domainId" not-null="false" type="long" index="IDX_DOMAINID"/>
+    <property name="name" not-null="false" type="string" length="100"/>
+    <property name="phone" not-null="false" type="string" length="100"/>
+    <property name="address" not-null="false" type="string" length="500"/>
+    <property name="user_state" not-null="false" type="long"/>
+    <property name="member_type" not-null="false" type="long"/>
+    <property name="userId" not-null="false" type="string" length="100"/>
+    <property name="login_password" not-null="false" type="string" length="256"/>
+    <property name="pay_password" not-null="false" type="string" length="256"/>
+    <property name="email" not-null="false" type="string" length="100"/>
+    <property name="country" not-null="false" type="string" length="100"/>
+    <property name="province" not-null="false" type="string" length="100"/>
+    <property name="area" not-null="false" type="string" length="100"/>
+    <property name="identity_cardNo" not-null="false" type="string" length="100"/>
+    <property name="user_name" not-null="false" type="string" length="100"/>
+    <property name="last_login_time" not-null="false" type="timestamp" length="100"/>
+    <property name="isPhone_checked" not-null="false" type="boolean" length="100"/>
+    <property name="isEmail_checked" not-null="false" type="boolean" length="100"/>
+    <property name="register_time" not-null="false" type="timestamp" length="100"/>
+    <property name="login_fail_amount" not-null="false" type="long"/>
+    <property name="pay_fail_amount" not-null="false" type="long"/>
+    <property name="last_login_fail_time" not-null="false" type="timestamp" length="100"/>
+    <property name="last_pay_fail_time" not-null="false" type="timestamp" length="100"/>
+    <property name="isSecurityIssue" not-null="false" type="boolean" length="100"/>
+    <property name="isSetExtendInfo" not-null="false" type="boolean" length="100"/>
+    <property name="memberNo" not-null="false" type="string" length="100"/>
+    <property name="isIdentity_checked" not-null="false" type="boolean" length="100"/>
+    <property name="identity_cardNo_encrypt" not-null="false" type="string" length="200"/>
+    <property name="identity_cardNo_md5" not-null="false" type="string" length="100"/>
+    <property name="register_ip" not-null="false" type="string" length="100"/>
+    <property name="login_time" not-null="false" type="timestamp" length="100"/>
+    <property name="remark" not-null="false" type="string" length="1000"/>
+    <property name="real_name_time" not-null="false" type="timestamp" length="100"/>
+    <property name="isRiskUser" not-null="false" type="boolean" length="100"/>
+    <property name="source" not-null="false" type="long"/>
+    <property name="application_id" not-null="false" type="long" index="application_idx"/>
+    <property name="application_label" not-null="false" type="string" length="200"/>
+    <property name="isSMS_login_notice" not-null="false" type="boolean" length="100"/>
+    <property name="isEmail_login_notice" not-null="false" type="boolean" length="100"/>
+    <property name="belong_applicationNo" not-null="false" type="string" length="100"/>
+    <property name="isDeveloper" not-null="false" type="boolean" length="100"/>
+    <property name="biz_user_id" not-null="false" type="string" length="100"/>
+    <property name="is_higher_card" not-null="false" type="boolean" length="100"/>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityQuery name="应用接口设置" label="应用接口设置" note="" share="false" multiselect="false" editable="false" autopaging="true" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.BC7D6C445D26" nodeID="1114" pagingMode="VirtualizingPaging" virtualizingPagingEnabled="true">
+  <queryEntities>
+    <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.AE541FAEF6A1" name="AMS_AppApiConifg" label="应用接口配置" alias="a0" selectAll="true" isBranch="true" master="true" />
+  </queryEntities>
+  <DataGrid>
+    <color />
+    <column name="applicaiton" label="应用" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.AE541FAEF6A1.id_1" width="100" isBranch="false" dataField="AMS_AppApiConifg$applicaiton_label" />
+    <column name="appNo" label="应用编号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.AE541FAEF6A1.id_6" width="85" isBranch="false" dataField="AMS_AppApiConifg$appNo" />
+    <column name="soaService" label="接口服务" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.AE541FAEF6A1.id_2" width="94" isBranch="false" editable="" sortable="" textAlign="" dataField="AMS_AppApiConifg$soaService_label" />
+    <column name="soaVersion" label="接口版本号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.AE541FAEF6A1.id_4" width="107" isBranch="false" editable="" sortable="" textAlign="" dataField="AMS_AppApiConifg$soaVersion" />
+    <column name="isOpen" label="是否启用" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.AE541FAEF6A1.id_5" width="100" isBranch="false" dataField="AMS_AppApiConifg$isOpen" />
+    <column name="soaCodeNo" label="接口编号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.AE541FAEF6A1.id_8" width="100" isBranch="false" dataField="AMS_AppApiConifg$soaCodeNo" />
+    <column name="soaNameEn" label="英文名称" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.AE541FAEF6A1.id_9" width="100" isBranch="false" dataField="AMS_AppApiConifg$soaNameEn" />
+  </DataGrid>
+  <editState />
+  <toolbar>
+    <button label="编辑" action="alink" selection="single" visiable="true" alink="alink://ime.AppWindow/EntityForm?{action:&quot;edit&quot;,entityUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.AE541FAEF6A1&quot;,formUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.587214428C8B&quot;,formState:&quot;state2&quot;}" />
+    <button label="删除" toolTip="" action="delete" selection="single" visiable="true" />
+  </toolbar>
+  <xmlQuery version="2.0" name="" label="">
+    <select domainScope="true">
+      <other label="其他" uid="other" name="other" />
+      <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.AE541FAEF6A1" name="AMS_AppApiConifg" label="应用接口配置" alias="a0" selectAll="true" isBranch="true">
+        <field uid="sys_0" name="id" label="编号" type="long" />
+        <field uid="sys_1" name="domainId" label="域ID" type="long" />
+        <field uid="id_1" name="applicaiton" label="应用" type="relation" />
+        <field uid="id_6" name="appNo" label="应用编号" type="string" />
+        <field uid="id_2" name="soaService" label="接口服务" type="relation" />
+        <field uid="id_4" name="soaVersion" label="接口版本号" type="string" />
+        <field uid="id_5" name="isOpen" label="是否启用" type="boolean" />
+        <field uid="id_8" name="soaCodeNo" label="接口编号" type="string" />
+        <field uid="id_9" name="soaNameEn" label="英文名称" type="string" />
+      </Entity>
+    </select>
+    <where>
+      <exp type="2">
+        <exp type="19" valueType="1" option="true" rightType="param" right="soaServer" leftEntity="AMS_AppApiConifg" leftField="soaService_label" uid="exp0" />
+        <exp type="5" valueType="3" option="false" leftEntity="AMS_AppApiConifg" leftField="applicaiton_id" uid="exp1" rightType="val" right="$page.master.selectedEntity.id" />
+      </exp>
+    </where>
+    <other>
+      <groupBy label="Group By" />
+      <orderBy label="Order By" />
+    </other>
+  </xmlQuery>
+  <conditionForm>
+    <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2">
+      <TabNavigator>
+        <tab label="default">
+          <Label label="Label" text="接口中文名称" x="2" y="2" width="100" height="24" style="" />
+          <TextInput label="TextInput" x="103" y="2" width="139" height="24" name="soaServer" />
+        </tab>
+      </TabNavigator>
+    </Window>
+  </conditionForm>
+  <StatSetting />
+  <queryEvent />
+</EntityQuery>

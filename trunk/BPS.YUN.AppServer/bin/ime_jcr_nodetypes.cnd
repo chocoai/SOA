@@ -1,0 +1,70 @@
+<nt = 'http://www.jcp.org/jcr/nt/1.0'>
+<jcr = 'http://www.jcp.org/jcr/1.0'>
+<mix = 'http://www.jcp.org/jcr/mix/1.0'>
+<ime = 'http://www.kinorsoft.com.cn/jcr/ime/1.0'>
+
+[mix:accessControlled]
+- ime:authUsersRead (string) mandatory 
+- ime:authUsersWrite (string) mandatory 
+- ime:authRolesRead (string) mandatory 
+- ime:authRolesWrite (string) mandatory 
+
+[mix:notification] mixin
+- ime:subscriptors (string) = '' multiple autocreated
+- ime:extension (string)
+
+[ime:resource] > nt:resource, mix:versionable
+- ime:size (long) mandatory
+- ime:author (string) mandatory
+- ime:versionComment (string) copy
+- ime:extension (string)
+
+[ime:document] > nt:hierarchyNode, mix:referenceable, mix:lockable, mix:accessControlled
+- ime:author (string) mandatory
+- ime:name (string)
+- ime:uid (string)
+- ime:language (string)
+- ime:keywords (string)
+- ime:notification (string) multiple
++ ime:content (ime:resource) primary mandatory
+- ime:extension (string)
+- ime:lockOwner (string)
+
+[ime:folder] > nt:folder, mix:referenceable, mix:lockable, mix:accessControlled
+- ime:author (string) mandatory
+- ime:name (string)
+- ime:notification (string) multiple
+- ime:extension (string)
+
+[ime:userConfig] > nt:hierarchyNode, mix:accessControlled
+- ime:lockTokens (string) = '' multiple autocreated
+- ime:homePath (path) mandatory
+- ime:homeType (string) mandatory
+- ime:extension (string)
+
+[ime:query] > nt:unstructured
+- ime:content (string)
+- ime:name (string)
+- ime:keywords (string)
+- ime:mimeType (string)
+- ime:author (string)
+- ime:lastModifiedFrom (date)
+- ime:lastModifiedTo (date)
+- ime:context (string)
+- ime:extension (string)
+
+[ime:queries] > nt:hierarchyNode, mix:accessControlled
++ * (ime:query)
+
+[ime:bookmark]
+- ime:nodePath (path) mandatory
+- ime:nodeType (string) mandatory
+- ime:extension (string)
+
+[ime:bookmarks] > nt:hierarchyNode, mix:accessControlled
++ * (ime:bookmark)
+
+[ime:sysConfig]
+- ime:uuid (string)
+- ime:version (string)
+- ime:extension (string)

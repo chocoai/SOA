@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Entity lastId="3" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.C8505CB19417" name="AMS_TradeCode" label="交易码" note="" log="false" workflow="false" nodeID="965" dbcreated="true"> 
+  <relation/>  
+  <extension/>  
+  <property uid="sys_0" label="编号" name="id" type="long" systemProperty="true" group="系统属性字段" editorPart="Entity"/>  
+  <property uid="sys_1" label="域ID" name="domainId" type="long" systemProperty="true" group="系统属性字段" editorPart="Entity"/>  
+  <property name="tradeCode" label="交易码" type="string" length="100" uid="id_1" group="业务属性字段" dbcreated="true" editorPart="Entity"/>  
+  <property name="description" label="描述" type="string" length="100" uid="id_2" group="业务属性字段" dbcreated="true" editorPart="Entity"/>  
+  <property name="accountTypeNo" label="账户集编号" type="string" length="100" uid="id_3" group="业务属性字段" dbcreated="true" editorPart="Entity"/> 
+</Entity>

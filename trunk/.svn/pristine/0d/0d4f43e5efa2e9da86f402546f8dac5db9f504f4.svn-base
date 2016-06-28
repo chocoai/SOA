@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "PUBLIC" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class entity-name="AMS_MemberAccount" table="DYNA_AMS_MemberAccount">
+    <id name="id" type="long">
+      <generator class="native"/>
+    </id>
+    <property name="domainId" not-null="false" type="long" index="IDX_DOMAINID"/>
+    <property name="account_type_id" not-null="false" type="long" index="account_type_idx"/>
+    <property name="account_type_label" not-null="false" type="string" length="200"/>
+    <property name="valid_date" not-null="false" type="timestamp" length="100"/>
+    <property name="amount" not-null="false" type="long"/>
+    <property name="freeze_amount" not-null="false" type="long"/>
+    <property name="overdraft" not-null="false" type="long"/>
+    <property name="account_state" not-null="false" type="long"/>
+    <property name="userId" not-null="false" type="string" length="100"/>
+  </class>
+</hibernate-mapping>

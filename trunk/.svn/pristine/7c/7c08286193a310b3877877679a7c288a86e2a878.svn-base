@@ -1,0 +1,33 @@
+log4j.rootLogger = info, Console, File
+
+#File--�������ļ�
+log4j.appender.File.encoding=UTF-8
+log4j.appender.File=org.apache.log4j.DailyRollingFileAppender
+log4j.appender.File.file=/home/bps.yun/jboss6003/logs/log
+log4j.appender.File.DatePattern='.'yyyy-MM-dd
+log4j.appender.File.layout=org.apache.log4j.PatternLayout
+log4j.appender.File.layout.ConversionPattern=[%-5p] %d{yyyy-MM-dd HH:mm:ss,SSS} method:%l%n%m%n
+
+log4j.logger.order= info, order
+log4j.appender.order.encoding=UTF-8
+log4j.appender.order=org.apache.log4j.DailyRollingFileAppender
+log4j.appender.order.file=/home/bps.yun/jboss6003/logs/order_log
+log4j.appender.order.DatePattern='.'yyyy-MM-dd
+log4j.appender.order.layout=org.apache.log4j.PatternLayout
+log4j.appender.order.layout.ConversionPattern=[%-5p] %d{yyyy-MM-dd HH:mm:ss,SSS} method:%l%n%m%n
+
+log4j.logger.member= info, member
+log4j.appender.member.encoding=UTF-8
+log4j.appender.member=org.apache.log4j.DailyRollingFileAppender
+log4j.appender.member.file=/home/bps.yun/jboss6003/logs/member_log
+log4j.appender.member.DatePattern='.'yyyy-MM-dd
+log4j.appender.member.layout=org.apache.log4j.PatternLayout
+log4j.appender.member.layout.ConversionPattern=[%-5p] %d{yyyy-MM-dd HH:mm:ss,SSS} method:%l%n%m%n
+
+log4j.logger.other= info, other
+log4j.appender.other.encoding=UTF-8
+log4j.appender.other=org.apache.log4j.DailyRollingFileAppender
+log4j.appender.other.file=/home/bps.yun/jboss6003/logs/other_log
+log4j.appender.other.DatePattern='.'yyyy-MM-dd
+log4j.appender.other.layout=org.apache.log4j.PatternLayout
+log4j.appender.other.layout.ConversionPattern=[%-5p] %d{yyyy-MM-dd HH:mm:ss,SSS} method:%l%n%m%n

@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<params version="3.0.0">
+	
+	<properties>
+		<property name="appKey" value="appKey_value" />
+		<property name="secretKey" value="secretKey_value" />
+		<property name="version" value="version_value" />
+		<property name="rechargeUrl" value="rechargeUrl_value" />
+		<!-- 卡类型  通联卡 记名卡 -->
+		<property name="CARD_TYPE_TLCARD_REGISTERED" value="11L" />
+		<!-- 卡类型  通联卡 不记名卡 -->
+		<property name="CARD_TYPE_TLCARD_UNREGISTERED" value="12L" />
+		<!-- 通联支付属性 -->
+		<!-- 网关地址 -->
+		<property value="https://service.allinpay.com" name="AlipayConfig.gateway.serverUrl"/>
+		<property value="https://service.allinpay.com" name="AlipayConfig.gateway.serverUrl.internal"/>
+		<!-- 支付提交地址 -->
+		<property value="http://ceshi.allinpay.com/gateway/index.do" name="AlipayConfig.gateway.pay.serverUrl"/>
+		<property value="http://122.227.225.142:23603/account/allinpay/receive.jsp" name="AlipayConfig.gateway.receiveUrl"/>
+		<property value="http://122.227.225.142:23601/account/allinpay/pickup.jsp" name="AlipayConfig.gateway.pickupUrl"/>
+		<property value="1234567890" name="AlipayConfig.gateway.key"/>
+		<!-- 支付证书地址 -->
+		<property value="/usr/allinpay/TLCert-test.cer" name="AlipayConfig.gateway.TLCertUrl"/>
+		<!-- 商户号 -->
+		<property value="100020091218001" name="AlipayConfig.gateway.merchantId"/>
+		<property value="100020091218001" name="AlipayConfig.gateway.merchantIdB2B"/>
+		<property value="v1.0" name="AlipayConfig.gateway.version"/>
+		<property value="" name="AlipayConfig.gateway.language"/>
+		<property value="" name="AlipayConfig.gateway.inputCharset"/>
+		<!-- 支付方式 固定选择值：0、1、3、4、10、11、12 -->
+		<property value="0" name="AlipayConfig.gateway.payType"/>
+		<!-- 签名类型 默认填1，固定选择值：0、1；0表示客户用MD5验签，1表示客户用证书验签 -->
+		<property value="1" name="AlipayConfig.gateway.signType"/>
+		<property value="" name="AlipayConfig.gateway.orderCurrency"/>
+		<property value="1440" name="AlipayConfig.gateway.orderExpireDatetime"/>
+		<!-- 通联退款属性 -->
+		<!-- 网关联机退款接口版本 固定值：v1.3 -->
+		<property value="v1.3" name="AlipayConfig.gateway.refund.version"/>
+		<!-- 签名类型 固定值：0，0表示用md5签名 -->
+		<property value="0" name="AlipayConfig.gateway.refund.signType"/>
+		<!-- 退货提交地址 -->
+		<property value="http://ceshi.allinpay.com/gateway/index.do" name="AlipayConfig.gateway.refund.serverUrl"/>
+		<!-- 通联通接口参数 -->
+		
+		<property value="https://113.108.182.3/aipg/ProcessServlet" name="AlipayConfig.interfaces.serverUrl"/>
+		<property value="200604000000445" name="AlipayConfig.interfaces.merchantId"/>
+		<property value="/usr/allinpay/20060400000044502.p12" name="AlipayConfig.interfaces.pfxPath"/>
+		<property value="/usr/allinpay/allinpay-pds.cer" name="AlipayConfig.interfaces.tltcerPath"/>
+		<property value="20060400000044502" name="AlipayConfig.interfaces.userName"/>
+		<property value="`12qwe" name="AlipayConfig.interfaces.passWord"/>
+		<property value="111111" name="AlipayConfig.interfaces.pfxPassword"/>
+		<property name="AlipayConfig.interfaces.downloadUrl" value="http://113.108.182.3/aipg/GetConFile.do?SETTDAY=@xxx&amp;REQTIME=@yyy&amp;MERID=@zzz&amp;SIGN=@sss" />
+		<!-- its -->
+		<property value="http://116.236.252.101:30035/its-pg-app/xrequest" name="its.serverUrl"/>
+		<!--property name="its.key" value="1234567890" /-->
+		<!--property name="its.access_id" value="400SmokTst00001" /-->
+		<property value="1ea748b15dff401980998365d74e8221" name="its.key"/>
+		<property value="YZT000000000001" name="its.access_id"/>
+		<!-- 会员协议 -->
+		<property value="http://116.236.252.101:30072/contract-app/index.do?id=com.allinpay.contract.service.IUserAgreement" name="member.serverUrl"/>
+		<property value="000000000000087" name="member.user_id"/>
+		
+		<!-- 发送邮件 -->
+		<property name="mail.server.host"						value="smtp.163.com" />
+		<property name="mail.server.port"						value="25" />
+		<property name="mail.from.address"						value="nbunpay@163.com" />
+		<property name="mail.from.password"						value="ysufitzvlpvucgrq" />
+		<property name="mail.from.userName"						value="nbunpay@163.com" />
+		<property name="mail.valid.time.normal"					value="1440" />
+		
+		<!--  聚合api  -->
+		<property name="juheApi.openId" value="JHf1366e83c9a97e0202760deeb6bae926"/>
+		<property name="juheApi.WaterElectricityCoal.key" value="30290171b75976cbb2149b82df133deb"/>
+		<property name="juheApi.WaterElectricityCoal.provinceQueryUrl" value="http://op.juhe.cn/ofpay/public/province"/>
+		<property name="juheApi.WaterElectricityCoal.cityQueryUrl" value="http://op.juhe.cn/ofpay/public/city"/>
+		<property name="juheApi.WaterElectricityCoal.projectQueryUrl" value="http://op.juhe.cn/ofpay/public/project"/>
+		<property name="juheApi.WaterElectricityCoal.unitQueryUrl" value="http://op.juhe.cn/ofpay/public/unit"/>
+		<property name="juheApi.WaterElectricityCoal.productQueryUrl" value="http://op.juhe.cn/ofpay/public/query"/>
+		<property name="juheApi.WaterElectricityCoal.payModeQueryUrl" value="http://op.juhe.cn/ofpay/public/paymode"/>
+		<property name="juheApi.WaterElectricityCoal.balanceQueryUrl" value="http://op.juhe.cn/ofpay/public/balance"/>
+		<property name="juheApi.WaterElectricityCoal.orderRechargeUrl" value="http://op.juhe.cn/ofpay/public/order"/>
+		<property name="juheApi.WaterElectricityCoal.orderStatusQueryUrl" value="http://op.juhe.cn/ofpay/public/ordersta"/>
+		<property name="juheApi.WaterElectricityCoal.orderListQueryUrl" value="http://op.juhe.cn/ofpay/public/orderlist"/>
+		
+		<!--  话费充值  -->
+		<property name="phonerecharge.shengwo.tradeCompnayId" value="nbtl0574"/>
+		<property name="phonerecharge.shengwo.backUrl" value="https://qianbao.allinpay.com/svr/phoneRechargeBack.jsp"/>
+		<property name="phonerecharge.shengwo.securityKey" value="s4Lh7OpXbjsh3y0O07RIai2a2ZRzEKon"/>
+		<property name="phonerecharge.shengwo.phoneRechargeUrl" value="http://121.40.194.111:8080/faaccept/PhoneRequest"/>
+		
+		<!--  万商卡支付  -->
+		<!--  测试地址  -->
+		<property name="AlipayConfig.wscard.url" value="http://paytest.ulinkpay.com/gateway/card/frontTransRequest.up"/>
+		<!--  支付编码   -->
+		<property name="AlipayConfig.wscard.inst.payCode" value="0002"/>
+		<!--  产品编码   -->
+		<property name="AlipayConfig.wscard.inst.productId" value="0002"/>
+		<!--  商户号  -->
+		<property name="AlipayConfig.wscard.merId" value="999030333050004"/>
+		<property name="AlipayConfig.wscard.merName" value="通联支付"/>
+		<property name="AlipayConfig.wscard.securitykey" value="b07cc2542fc79d96"/>
+		<property name="AlipayConfig.wscard.encoding" value="UTF-8"/>
+		<property name="AlipayConfig.wscard.version" value="1.2.0"/>
+		<property name="AlipayConfig.wscard.inst.securitykey" value="888888888888888888888888"/>
+		<property name="AlipayConfig.wscard.inst.version" value="1.2.0"/>
+		<property name="AlipayConfig.wscard.inst.encoding" value="UTF-8"/>
+		
+		<property name="AlipayConfig.wscard.inst.instCode" value="999161051220001"/>
+		<property name="AlipayConfig.wscard.inst.cardInfoQuery" value="http://paytest.ulinkpay.com/gateway/inst/cardInfoQuery.up"/>
+		<property name="AlipayConfig.wscard.inst.rechargeURL" value="http://paytest.ulinkpay.com/gateway/inst/recharge.up"/>
+		<property name="AlipayConfig.wscard.inst.payURL" value="http://paytest.ulinkpay.com/gateway/inst/combinePay.up"/>
+		<property name="AlipayConfig.wscard.inst.transQueryURL" value="http://paytest.ulinkpay.com/gateway/inst/transQuery.up"/>
+		<property name="AlipayConfig.wscard.inst.cancelURL" value="http://paytest.ulinkpay.com/gateway/inst/cancel.up"/>
+		<property name="AlipayConfig.wscard.inst.orderTimeout" value="30"/>
+		
+		<property name="AlipayConfig.wscard.inst.sftp.url" value="222.73.138.100"/>
+		<property name="AlipayConfig.wscard.inst.sftp.port" value="8151"/>
+		<property name="AlipayConfig.wscard.inst.sftp.userName" value="yizhangtong"/>
+		<property name="AlipayConfig.wscard.inst.sftp.pwd" value="tlsw#yizhangtong"/>
+		<property name="AlipayConfig.wscard.inst.sftp.remotePath" value="/upload"/>
+		
+		<!--  通联宝  -->
+		<property name="allinpay.tlb.priPath" value="/usr/allinpay/10000001.pfx"/>
+		<property name="allinpay.tlb.pubPath" value="/usr/allinpay/gy.cer"/>
+		<property name="allinpay.tlb.P001" value="http://61.132.63.170:58280/open/tlb/getInfYieldService/getInfYield/json"/>
+		<property name="allinpay.tlb.P002" value="http://61.132.63.170:58280/open/tlb/tlbAcctInfoQueryService/getTlbAcctInfo/json"/>
+		<property name="allinpay.tlb.P003" value="http://tlb.tlbtest.com:8090/tlinvestor/openAcctInitOneAcctRegister.action"/>
+		<property name="allinpay.tlb.P004" value="http://tlb.tlbtest.com:8090/tlinvestor/oneAcctLogin.action"/>
+		<property name="allinpay.tlb.key" value="111111"/>
+		
+		
+		<!--  短信属性  -->
+		<property name="sms.mail.company.id" value="301296"/>
+		<property name="sms.mail.server.address" value="sms3.mobset.com"/>
+		<property name="sms.mail.login.account" value="Admin"/>
+		<property name="sms.mail.login.password" value="810725"/>
+		<property name="short.message.valid.time.normal" value="120"/>
+		<!--  短信设置  -->
+		<property name="allinpay.sMessage.appId" value="400180"/>
+		<property name="allinpay.sMessage.target_url" value="http://188.0.50.100:8080/msgsysc/msgsys/MsgSend/sms.do"/>
+		<property name="allinpay.sMessage.msgSign" value="通联支付"/>
+		
+		<!--rabbitmq-->
+		<property name="rabbitmq.queue_name" value="instant" />
+		<property name="rabbitmq.trans.monitor.queue.name" value="transMonitorQueue" />
+		<property name="rabbitmq.ip" value="10.55.3.236" />
+		<property name="rabbitmq.port" value="5672" />
+		<property name="rabbitmq.username" value="root" />
+		<property name="rabbitmq.password" value="huadi" />
+		
+		<!-- 监测 -->
+		<property name="monitor.trans.long.socket.url" value="192.168.105.147" />
+		<property name="monitor.trans.long.socket.port" value="8908" />
+	
+		<!-- api store -->
+		<property name="apiStore.apiKey" value="9f7dd3636b1eebd38756e87cb473d2f7" />
+		<property name="apiStore.apiStorePhoneAreaUrl" value="http://180.149.145.78/apistore/mobilenumber/mobilenumber" />
+		
+		<!-- 对账 -->
+		<property name="CheckAccount.yzt.rootPath" value="/checkAccount" />
+		<property name="CheckAccount.allinpay.wsCard.filePath" value="wsk" />
+		<property name="Gateway.serverHost" value="https://ceshi.allinpay.com"/>
+		<!-- T点
+		<property name="domain" value="shop6.stg2.24cp.com"/>
+		<property name="uri.convertPoints" value="/?act=points&st=convert_points"/>
+		<property name="uri.rollbackConvertPoints" value="/?act=points&st=rollback_convert_points"/>
+		<property name="uri.getPointsTotal" value="/?act=points&st=get_points_total"/>
+		<property name="shaKey" value="tonglian123"/>
+		 -->
+		<!-- 游戏ID(新增) -->
+		<property name="gameId" value="642"/>
+		<!-- 扣T点商品ID -->
+		<property name="productID" value="212"/>
+		
+		<property name="cache.ip" value="10.55.3.237" />
+		<property name="cache.port" value="6379" />
+		
+		<!-- ITS对账信息 -->	
+		<property name="its.checkAccount.encode" value="gbk"/>
+		<property name="its.checkAccount.url" value="10.55.3.235"/>
+		<property name="its.checkAccount.port" value="21"/>
+		<property name="its.checkAccount.username" value="ftproot"/>
+		<property name="its.checkAccount.password" value="root"/>
+		<property name="its.checkAccount.localPath" value="/home/ftp/"/>
+		<property name="its.checkAccount.fileName" value="YZT000000000001_"/>
+		
+		<!--ftp-->
+		<property name="ftpIP" value="10.55.3.235" />
+		<property name="ftpport" value="21" />
+		<property name="ftpuser" value="ftproot" />
+		<property name="ftpPass" value="root" />
+
+
+		<!--通联移动支付商户接入参数配置-->
+		<!-- 获取订单的url-->
+		<!--<property name="AlipayConfig.apppay.getAppPayOrderUrl" value="https://service.allinpay.com/gateway/index.do" />-->  <!--生产环境-->
+		<property name="AlipayConfig.apppay.getAppPayOrderUrl" value="http://ceshi.allinpay.com/gateway/index.do" />  <!--测试环境-->
+		<!--<property name="AlipayConfig.apppay.environment" value="formal"/>	生产环境-->
+		
+		<!-- 环境 -->
+		<property name="environment" value="develop"/>
+		
+		
+	</properties>
+	<extension name="kinorsoft.ams" />
+	<extension name="kinorsoft.order" />
+	
+</params>

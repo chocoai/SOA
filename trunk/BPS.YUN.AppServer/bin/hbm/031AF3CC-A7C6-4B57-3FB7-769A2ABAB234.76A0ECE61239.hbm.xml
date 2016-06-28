@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "PUBLIC" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class entity-name="Employee" table="DYNA_Employee">
+    <id name="id" type="long">
+      <generator class="native"/>
+    </id>
+    <property name="domainId" not-null="false" type="long" index="IDX_DOMAINID"/>
+    <property name="name" not-null="false" type="string" length="30"/>
+    <property name="email" not-null="false" type="string" length="50"/>
+    <property name="department_id" not-null="false" type="long" index="department_idx"/>
+    <property name="department_label" not-null="false" type="string" length="200"/>
+    <property name="operator_id" not-null="false" type="long" index="operator_idx"/>
+    <property name="operator_name" not-null="false" type="string" length="100"/>
+    <property name="loginId" not-null="false" type="string" length="50"/>
+    <property name="isLoginEnabled" not-null="false" type="boolean" length="100"/>
+    <property name="birthday" not-null="false" type="timestamp" length="100"/>
+    <property name="msn" not-null="false" type="string" length="100"/>
+    <property name="qq" not-null="false" type="string" length="50"/>
+    <property name="sex" not-null="false" type="long"/>
+    <property name="photo" not-null="false" type="string" length="200"/>
+    <property name="lastErrorTime" not-null="false" type="timestamp"/>
+    <property name="errorCount" not-null="false" type="long"/>
+    <property name="isBlocked" not-null="false" type="boolean"/>
+  </class>
+</hibernate-mapping>

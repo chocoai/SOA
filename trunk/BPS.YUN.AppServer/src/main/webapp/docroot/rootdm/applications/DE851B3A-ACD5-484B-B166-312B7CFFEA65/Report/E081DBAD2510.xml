@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Report label="话费充值-应付" name="话费充值-应付" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E081DBAD2510" nodeID="883"> 
+            <dataSource> 
+              <xmlQuery version="2.0" uid="0F3F7937-986A-43A3-9D9D-F516D34EB03F" name="stat" label="应付交易金额"> 
+                <select domainScope="true"> 
+                  <other label="其他" uid="other" name="other"> 
+                    <field name="sum(a0.order_money)" uid="other0" fieldType="otherField" MySQLName="" SQLServerName="" OracleName="" label="交易金额" alias="total" calcexp="toFixed(other.total, 2)"/>  
+                    <field name="count(a0.id)" uid="other1" fieldType="otherField" MySQLName="" SQLServerName="" OracleName="" label="笔数" alias="amount"/> 
+                  </other>  
+                  <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.3D51405C5EA0" name="AMS_Order" label="订单" alias="a0" selectAll="false"/> 
+                </select>  
+                <where> 
+                  <exp type="2"> 
+                    <exp type="5" valueType="3" option="true" leftEntity="AMS_Order" leftField="trade_type" uid="exp0" rightType="val" right="2"/>  
+                    <exp type="5" valueType="3" option="true" leftEntity="AMS_Order" leftField="sub_trade_type" uid="exp1" rightType="val" right="4"/>  
+                    <exp type="5" valueType="3" option="true" leftEntity="AMS_Order" leftField="order_state" uid="exp2" rightType="val" right="4"/>  
+                    <exp type="7" valueType="7" option="true" leftEntity="AMS_Order" leftField="pay_time" uid="exp3" rightType="param" right="beginDt"/>  
+                    <exp type="11" valueType="7" option="true" leftEntity="AMS_Order" leftField="pay_time" uid="exp4" rightType="param" right="endDt"/> 
+                  </exp> 
+                </where>  
+                <other> 
+                  <groupBy label="Group By"/>  
+                  <orderBy label="Order By"/> 
+                </other> 
+              </xmlQuery>  
+              <other label="其他" name="other" uid="other"> 
+                <field name="total" label="合计金额" calcexp="" uid="field0"/>  
+                <field name="reportDt" label="出表日期" calcexp="" uid="field1"/>  
+                <field name="number" label="笔数" calcexp="" uid="field2"/> 
+              </other> 
+            </dataSource>  
+            <events label="事件"> 
+              <event name="initialize" label="初始化事件"/>  
+              <event name="preQuery" label="查询前事件"/>  
+              <event name="postQuery" label="查询后事件"><![CDATA[var stat/*:Array*/ = report.getDataSource("stat");
+
+if(stat == null)
+	return;
+
+var cond = report.getQueryCondition();
+var beginDt = DateUtil.format(cond.beginDt, "YYYYMMDD");
+var endDt = DateUtil.format(cond.endDt, "YYYYMMDD");
+
+var total/*:Number*/ = 0;
+var number/*:Number*/ = 0;
+for(var i=0; i<stat.length; i++){
+	var other = stat[i].other;
+	other.settlementDt = beginDt + "-" + endDt;
+	var trade_money/*:Number*/ = Number(other.total)/100.0;
+	other.total = trade_money.toFixed(2);
+	
+	number += Number(other.number);
+	total += trade_money;
+}
+
+var other = report.getDataSource("other");
+if(other == null)
+	other = {};
+other.total = total.toFixed(2);
+other.number	= number;
+var now  = report.getExpressionValue("now()");
+other.reportDt = DateUtil.format(now, "YYYY-MM-DD");
+
+report.setDataSource("stat", stat);
+report.setDataSource("other", other);]]></event>  
+              <event name="reportCreated" label="报表生成事件"/>  
+              <event name="printed" label="打印事件" systemEvent="true"/> 
+            </events>  
+            <Document pageCount="1" width="1132" height="800" paddingLeft="30" paddingRight="30" paddingTop="50" paddingBottom="50"> 
+              <table width="1014" height="204" headRow="0" fixedY="false" tailRow="0" name="" x="39" y="98" uid="6f12263e-313b-4ebf-b305-7367628ebe97"> 
+                <tr> 
+                  <td width="1014" height="51" rowIndex="0" colIndex="0" colSpan="8" sameMerge="" mergeExp="" href="" viewMode="" textAlign="center" fontSize="28" fontWeight="bold" borderWidth="0 0 0 0" fillColor="#FFFFFF"><![CDATA[通联一帐通话费清算-应付]]></td> 
+                </tr>  
+                <tr> 
+                  <td width="330" height="34" rowIndex="1" colIndex="0" colSpan="2" sameMerge="" mergeExp="" href="" viewMode="" fontSize="18" borderWidth="0 0 1 0"><![CDATA[机构名称：个人业务部]]></td>  
+                  <td width="235" height="34" rowIndex="1" colIndex="2" sameMerge="" mergeExp="" href="" viewMode="" colSpan="2" fontSize="18" borderWidth="0 0 1 0"><![CDATA[单位：元]]></td>  
+                  <td width="84" height="34" rowIndex="1" colIndex="4" sameMerge="" mergeExp="" href="" viewMode="" fontSize="18" borderWidth="0 0 1 0"><![CDATA[出表日期]]></td>  
+                  <td width="365" height="34" rowIndex="1" colIndex="5" fontSize="18" sameMerge="" mergeExp="" href="" viewMode="" borderWidth="0 0 1 0" colSpan="3"><![CDATA[${other.reportDt}]]></td> 
+                </tr>  
+                <tr> 
+                  <td width="175" height="43" rowIndex="2" colIndex="0" sameMerge="" mergeExp="" href="" viewMode="" fontWeight="bold" textAlign="center"><![CDATA[商户名称]]></td>  
+                  <td width="155" height="43" rowIndex="2" colIndex="1" sameMerge="" mergeExp="" href="" viewMode="" fontWeight="bold" textAlign="center" fillColor="#FFFFFF"><![CDATA[清算日期]]></td>  
+                  <td width="118" height="43" rowIndex="2" colIndex="2" sameMerge="" mergeExp="" href="" viewMode="" fontWeight="bold" textAlign="center"><![CDATA[笔数]]></td>  
+                  <td width="117" height="43" rowIndex="2" colIndex="3" sameMerge="" mergeExp="" href="" viewMode="" fontWeight="bold" textAlign="center" fillColor="#FFFFFF"><![CDATA[一帐通
+付款交易本金]]></td>  
+                  <td width="84" height="43" rowIndex="2" colIndex="4" sameMerge="" mergeExp="" href="" viewMode="" fontWeight="bold" textAlign="center"><![CDATA[流水差异]]></td>  
+                  <td width="83" height="43" rowIndex="2" colIndex="5" sameMerge="" mergeExp="" href="" viewMode="" fontWeight="bold" textAlign="center"><![CDATA[其他差异]]></td>  
+                  <td width="103" height="43" rowIndex="2" colIndex="6" sameMerge="" mergeExp="" href="" viewMode="" fontWeight="bold" textAlign="center"><![CDATA[应付渠道金额]]></td>  
+                  <td width="179" height="43" rowIndex="2" colIndex="7" sameMerge="" mergeExp="" href="" viewMode="" fontWeight="bold" textAlign="center"><![CDATA[备注]]></td> 
+                </tr>  
+                <tr> 
+                  <td width="175" height="38" rowIndex="3" colIndex="0" fillColor="#FFFFFF" textAlign="center" sameMerge="" mergeExp="" href="" viewMode=""><![CDATA[通联支付宁波分公司 ]]></td>  
+                  <td width="155" height="38" rowIndex="3" colIndex="1" href="" viewMode="" fillColor="#FFFFFF" textAlign="center" dataSource="stat" labelField="other.settlementDt" fillMode="1" sameMerge="" mergeExp=""><![CDATA[]]></td>  
+                  <td width="118" height="38" rowIndex="3" colIndex="2" href="" dataSource="stat" labelField="other.amount" fillMode="1" sameMerge="" mergeExp="" viewMode="" fillColor="#FFFFFF" textAlign="center" dataField="other.amount"><![CDATA[笔数]]></td>  
+                  <td width="117" height="38" rowIndex="3" colIndex="3" dataSource="stat" labelField="other.total" dataField="other.total" fillMode="1" sameMerge="" mergeExp="" href="" viewMode="" fillColor="#FFFFFF" textAlign="center"><![CDATA[交易金额]]></td>  
+                  <td width="84" height="38" rowIndex="3" colIndex="4" fillColor="#FFFFFF" textAlign="center" sameMerge="" mergeExp="" href="" viewMode=""/>  
+                  <td width="83" height="38" rowIndex="3" colIndex="5" sameMerge="" mergeExp="" href="" viewMode="" fillColor="#FFFFFF" textAlign="center"/>  
+                  <td width="103" height="38" rowIndex="3" colIndex="6" fillColor="#FFFFFF" textAlign="center" dataSource="stat" labelField="other.total" dataField="other.total" fillMode="1"><![CDATA[交易金额]]></td>  
+                  <td width="179" height="38" rowIndex="3" colIndex="7" fillColor="#FFFFFF" textAlign="center" sameMerge="" mergeExp="" href="" viewMode=""><![CDATA[]]></td> 
+                </tr>  
+                <tr> 
+                  <td width="175" height="38" rowIndex="4" colIndex="0" fillColor="#FFFFFF" sameMerge="" mergeExp="" href="" viewMode="" textAlign="center"><![CDATA[合计]]></td>  
+                  <td width="155" height="38" rowIndex="4" colIndex="1" fillColor="#FFFFFF" textAlign="center" sameMerge="" mergeExp="" href="" viewMode=""/>  
+                  <td width="118" height="38" rowIndex="4" colIndex="2" sameMerge="" mergeExp="" href="" viewMode="" fillColor="#FFFFFF" textAlign="center"><![CDATA[${other.number}]]></td>  
+                  <td width="117" height="38" rowIndex="4" colIndex="3" fillColor="#FFFFFF" textAlign="center" sameMerge="" mergeExp="" href="" viewMode=""><![CDATA[${other.total}]]></td>  
+                  <td width="84" height="38" rowIndex="4" colIndex="4" fillColor="#FFFFFF" textAlign="center"/>  
+                  <td width="83" height="38" rowIndex="4" colIndex="5" fillColor="#FFFFFF" textAlign="center"/>  
+                  <td width="103" height="38" rowIndex="4" colIndex="6" fillColor="#FFFFFF" textAlign="center"><![CDATA[${other.total}]]></td>  
+                  <td width="179" height="38" rowIndex="4" colIndex="7" fillColor="#FFFFFF" textAlign="center" sameMerge="" mergeExp="" href="" viewMode=""/> 
+                </tr> 
+              </table> 
+            </Document>  
+            <conditionForm> 
+              <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2"> 
+                <TabNavigator> 
+                  <tab label="default"> 
+                    <Label label="Label" text="起始日期:" x="3" y="3" width="79" height="24" style=""/>  
+                    <DateField label="DateField" x="63" y="3" width="139" height="24" name="beginDt" required="true"/>  
+                    <Label label="Label" text="至" x="203" y="3" width="39" height="24" style=""/>  
+                    <DateField label="DateField" x="223" y="3" width="139" height="24" name="endDt" required="true"/> 
+                  </tab> 
+                </TabNavigator> 
+              </Window> 
+            </conditionForm> 
+          </Report>

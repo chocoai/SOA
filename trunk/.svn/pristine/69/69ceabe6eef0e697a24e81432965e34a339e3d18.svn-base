@@ -1,0 +1,2 @@
+fckeditor.toolbarSet=Default
+connector.userActionImpl=net.fckeditor.requestcycle.impl.UserActionImpl

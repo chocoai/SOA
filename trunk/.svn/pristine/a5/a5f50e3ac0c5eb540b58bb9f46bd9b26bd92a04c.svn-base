@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityForm name="会员安全等级表" label="会员安全等级表" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.4B7FB8406707" nodeID="783"> 
+              <formEntity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.FEA95C3FE23E"/>  
+              <formState> 
+                <state label="基础" uid="state0" basedOn="null"> 
+                  <rule type="enabled" property="member" label="会员" rule="false"/> 
+                </state>  
+                <state label="新建" uid="state1" basedOn="state0"/>  
+                <state label="编辑" uid="state2" basedOn="state0"/> 
+              </formState>  
+              <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2"> 
+                <TabNavigator> 
+                  <tab label="default"> 
+                    <Label width="59" height="25" text="安全等级:" propertyUID="id_6" x="2" y="31" style=""/>  
+                    <ComboBox propertyUID="id_6" width="119" height="25" x="83" y="31"/>  
+                    <Label width="82" height="25" text="会员:" propertyUID="id_1" x="2" y="3" style=""/>  
+                    <EntityField propertyUID="id_1" width="139" height="25" x="83" y="3"/> 
+                  </tab> 
+                </TabNavigator> 
+              </Window>  
+              <formEvent> 
+                <event name="preSubmit" type="preSubmit" label="提交前事件" systemEvent="true"><![CDATA[var entity/*:$Entity.AMS_SafetyLevel*/ = form.getEntity();
+
+var id = entity.member_id;
+var safety_level =entity.safety_level;
+param = {}
+param.id = id;
+
+param.safety_level = safety_level;
+form.fireRemoteEvent("AMS_SafetyLevel.updateSafetyLevel", param, "safety_result");
+]]></event>  
+                <event name="safety_result" type="remoteEvent" label="safety_result"><![CDATA[
+alert("修改成功");
+
+
+]]></event> 
+              </formEvent> 
+            </EntityForm>

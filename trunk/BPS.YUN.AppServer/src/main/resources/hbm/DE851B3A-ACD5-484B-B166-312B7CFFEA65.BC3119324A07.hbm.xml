@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "PUBLIC" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class entity-name="AMS_AppConfig" table="DYNA_AMS_AppConfig">
+    <id name="id" type="long">
+      <generator class="sequence">
+        <param name="sequence">IDSEQ_AMS_AppConfig</param>
+      </generator>
+    </id>
+    <property name="domainId" not-null="false" type="long" index="IDX_DOMAINID"/>
+    <property name="application_id" not-null="false" type="long" index="application_idx"/>
+    <property name="application_label" not-null="false" type="string" length="200"/>
+    <property name="appNo" not-null="false" type="string" length="100"/>
+    <property name="config_type" not-null="false" type="long"/>
+    <property name="isOpen" not-null="false" type="boolean" length="100"/>
+    <property name="accountNo" not-null="false" type="string" length="100"/>
+    <property name="openApp_id" not-null="false" type="long" index="openApp_idx"/>
+    <property name="openApp_label" not-null="false" type="string" length="200"/>
+    <property name="openAppNo" not-null="false" type="string" length="100"/>
+    <property name="sourceAccountNo" not-null="false" type="string" length="100"/>
+  </class>
+</hibernate-mapping>

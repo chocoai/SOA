@@ -1,0 +1,175 @@
+package bps.external.application.checkAccount;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Properties;
+
+import bps.common.BizException;
+import bps.common.Constant;
+import bps.common.ErrorCode;
+import bps.external.application.service.checkAccount.WskCheckAccountService;
+
+import org.apache.log4j.Logger;
+
+import bps.external.application.Extension;
+
+import com.jcraft.jsch.ChannelSftp;
+import com.jcraft.jsch.JSch;
+import com.kinorsoft.tools.FileUtil;
+
+
+public class WskCheckAccountImpl implements WskCheckAccountService {
+	private Logger logger = Logger.getLogger(WskCheckAccountImpl.class);
+	private String filePathConsume = null;
+	private String filePathRecharge = null;
+	private String sftpRemotePath = null;
+	
+	public Map<String, String> getSftpFile(String downloadFileConsume, String downloadFileRecharge, String dateStr) throws BizException{
+		try{
+			fileOpe(dateStr);
+			
+			ChannelSftp channel = sftpConnect();
+			
+			return sftpDownload(downloadFileConsume, downloadFileRecharge, channel);
+		}catch(BizException bizE){
+			throw bizE;
+		}catch(Exception e){
+			throw new BizException(ErrorCode.OTHER_ERROR, e.getMessage());
+		}
+	}
+	
+	/**
+	 * 文件相关操作。
+	 * 	1、创建相关文件夹。
+	 * 	2、组装相关文件名称。
+	 * @throws Exception 
+	 */
+	public void fileOpe(String dateStr) throws Exception{
+		logger.info("===========================================WskCheckAccountImpl.fileOpe start========================================");
+		
+		//检查是否存在根目录
+		String rootfilepath = Extension.paramMap.get("CheckAccount.yzt.rootPath");
+		if(rootfilepath == null)
+			throw new Exception("未设置文件根目录");
+		
+		//检查是否存在通联卡对账目录
+		String checkFilePath = Extension.paramMap.get("CheckAccount.allinpay.wsCard.filePath");
+		
+		if(checkFilePath == null)
+			throw new Exception("未设置通联卡对账目录");
+		
+		String filePath = rootfilepath + checkFilePath;
+		
+		//创建文件夹
+		if(!FileUtil.isExsit(filePath)){
+			FileUtil.creatIfNotExsit(filePath);
+		}
+		
+		//组装文件名称
+		filePathConsume = filePath + "/" + "dateStr" + "_consume.txt";
+		filePathRecharge = filePath + "/" + "dateStr" + "_recharge.txt";
+		
+		if(FileUtil.saveToFile("", filePathConsume , "UTF-8") == false){
+			throw new Exception("创建" + filePathConsume + "时出错");
+		}
+		if(FileUtil.saveToFile("", filePathRecharge , "UTF-8") == false){
+			throw new Exception("创建" + filePathRecharge + "时出错");
+		}
+		
+		logger.info("===========================================WskCheckAccountImpl.fileOpe end========================================");
+	}
+	
+	private ChannelSftp sftpConnect() throws Exception {
+		String sftpUrl = Extension.paramMap.get("AlipayConfig.wscard.inst.sftp.url");
+		int sftpPort = Integer.valueOf(Extension.paramMap.get("AlipayConfig.wscard.inst.sftp.port"));
+		String sftpUserName = Extension.paramMap.get("AlipayConfig.wscard.inst.sftp.userName");
+		String sftpPassword = Extension.paramMap.get("AlipayConfig.wscard.inst.sftp.pwd");
+		
+		int stfpTimeout = 30;
+		
+		JSch jsch = new JSch(); // 创建JSch对象
+		com.jcraft.jsch.Session session = jsch.getSession(sftpUserName, sftpUrl, sftpPort); // 根据用户名，主机ip，端口获取一个Session对象
+		logger.debug("Session created.");
+		if (sftpPassword != null) {
+		    session.setPassword(sftpPassword); // 设置密码
+		}
+		Properties config = new Properties();
+		config.put("StrictHostKeyChecking", "no");
+		session.setConfig(config); // 为Session对象设置properties
+		session.setTimeout(stfpTimeout); // 设置timeout时间
+		session.connect(); // 通过Session建立链接
+		logger.info("Session connected.");
+		
+		logger.info("Opening Channel.");
+		com.jcraft.jsch.Channel channel = session.openChannel("sftp"); // 打开SFTP通道
+		channel.connect(); // 建立SFTP通道的连接
+		logger.info("连接SFTP成功");
+		return (ChannelSftp) channel;
+	}
+	
+	private Map<String, String> sftpDownload(String downloadFileConsume, String downloadFileRecharge, ChannelSftp sftp) throws Exception {  
+	    try {  
+	    	sftpRemotePath = Extension.paramMap.get("AlipayConfig.wscard.inst.sftp.remotePath");
+	    	
+	        sftp.cd(sftpRemotePath);  
+	        File fileConsume = new File(filePathConsume);
+	        File fileRecharge = new File(filePathRecharge); 
+	        
+	        logger.info("downloadFileConsume:" + downloadFileConsume);
+	        logger.info("fileConsume:" + fileConsume);
+	        sftp.get(downloadFileConsume, new FileOutputStream(fileConsume));  
+	        sftp.get(downloadFileRecharge, new FileOutputStream(fileRecharge));  
+	        
+	        Map<String, String> fileStrMap = new HashMap<String, String>();
+	        fileStrMap.put("consume", sftpFileToStr(fileConsume));
+			fileStrMap.put("recharge", sftpFileToStr(fileRecharge));
+			
+			return fileStrMap; 
+	    } catch (Exception e) {  
+	        throw e; 
+	    }  
+	} 
+	
+	/**
+	 * 把sftp服务器中的文件转换为字符串
+	 * @param ftpClient
+	 * @param ftpFileName
+	 * @return
+	 * @throws IOException
+	 */
+	private String sftpFileToStr(File file) throws IOException{
+		InputStream inputStream = null;
+		BufferedReader br = null;
+		
+		try {
+			FileInputStream fileInputStream = new FileInputStream(file);
+			br = new BufferedReader(new InputStreamReader(fileInputStream));
+			String line = "";
+			StringBuffer sb = new StringBuffer();
+			while((line = br.readLine()) != null){
+				sb.append(line);
+				sb.append("\n");
+			}
+			
+			return sb.toString();
+		} catch (IOException e) {
+			throw e;
+		}
+		finally{
+			if(inputStream != null){
+				inputStream.close();
+			}
+			
+			if(br != null){
+				br.close();
+			}
+		}
+	}
+}

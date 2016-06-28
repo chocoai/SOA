@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityForm name="应用接口配置" label="应用接口配置" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.78451A1B24EE" nodeID="1113">
+  <formEntity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.5A11C43DEB1B" />
+  <formState />
+  <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2">
+    <TabNavigator>
+      <tab label="default">
+        <QueryControl width="600" height="251" entityUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.AE541FAEF6A1" queryUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.AF94EDF799FF" parentFieldUID="id_1" parentField="applicaiton" parentFieldLabel="应用" x="2" y="2" />
+      </tab>
+    </TabNavigator>
+  </Window>
+  <formEvent />
+</EntityForm>

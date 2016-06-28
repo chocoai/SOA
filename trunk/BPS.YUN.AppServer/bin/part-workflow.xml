@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<part>
+	<name>ime.workflow</name>
+	<version>1.0.0</version>
+	<description>
+	<![CDATA[
+		工作流
+	]]>
+	</description>
+	
+	<dependency>
+		<partname></partname>
+	</dependency>
+	
+	<part_handler class="ime.workflow.event.PartHandler" />
+	
+</part>

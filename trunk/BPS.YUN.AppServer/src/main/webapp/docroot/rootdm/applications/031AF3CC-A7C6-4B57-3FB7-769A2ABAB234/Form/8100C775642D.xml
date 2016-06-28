@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityForm name="部门" label="部门" uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.8100C775642D" nodeID="155"> 
+              <formEntity uid="031AF3CC-A7C6-4B57-3FB7-769A2ABAB234.7F7FFBA3C973"/>  
+              <formState> 
+                <state label="基础" uid="state0" basedOn="null"> 
+                  <rule type="required" property="name" label="名称" rule="true"/> 
+                </state> 
+              </formState>  
+              <Window> 
+                <TabNavigator> 
+                  <tab label="default"> 
+                    <Label width="82" height="25" text="名称:" propertyUID="id_3" x="3" y="3"/>  
+                    <TextInput propertyUID="id_3" width="117" height="25" x="43" y="3"/>  
+                    <Label width="82" height="25" text="备注:" propertyUID="id_4" x="3" y="31"/>  
+                    <TextArea propertyUID="id_4" width="337" height="165" x="43" y="31"/> 
+                  </tab> 
+                </TabNavigator> 
+              </Window>  
+              <formEvent/> 
+            </EntityForm>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityQuery name="会员积分数据查询" label="会员积分数据查询" note="" share="false" multiselect="false" editable="false" autopaging="true" pagingMode="NormalPaging" virtualizingPagingEnabled="false" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.5FE1231D72D3" nodeID="632"> 
+              <queryEntities> 
+                <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E95B98E20F8B" name="AMS_BonusDate" label="会员积分数据" alias="a0" selectAll="true" isBranch="true" master="true"/> 
+              </queryEntities>  
+              <DataGrid> 
+                <color/>  
+                <column name="member_phone" label="会员帐号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E95B98E20F8B.id_7" width="100" isBranch="false" dataField="AMS_BonusDate$member_phone"/>  
+                <column name="member_userId" label="会员ID" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E95B98E20F8B.id_6" width="100" isBranch="false" dataField="AMS_BonusDate$member_userId"/>  
+                <column name="bonus_rule" label="积分规则编号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E95B98E20F8B.id_2" width="197" isBranch="false" dataField="AMS_BonusDate$bonus_rule"/>  
+                <column name="day_num" label="日次数累计" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E95B98E20F8B.id_3" width="100" isBranch="false" dataField="AMS_BonusDate$day_num"/>  
+                <column name="day_total" label="日积分累计" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E95B98E20F8B.id_4" width="100" isBranch="false" dataField="AMS_BonusDate$day_total"/>  
+                <column name="belong_time" label="日期" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E95B98E20F8B.id_5" width="141" isBranch="false" dataField="AMS_BonusDate$belong_time"/> 
+              </DataGrid>  
+              <editState/>  
+              <toolbar> 
+                <button label="新建" action="alink" selection="none" alink="alink://ime.AppWindow/EntityForm?{selection:&quot;none&quot;,entityUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.E95B98E20F8B&quot;,action:&quot;create&quot;}"/>  
+                <button label="编辑" action="alink" selection="single" alink="alink://ime.AppWindow/EntityForm?{selection:&quot;single&quot;,entityUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.E95B98E20F8B&quot;,action:&quot;edit&quot;}"/>  
+                <button label="删除" action="delete" selection="single"/>  
+                <button label="按钮" action="export" selection="none" visiable="true" Button="System.Windows.Controls.Button: 按钮"/> 
+              </toolbar>  
+              <xmlQuery version="2.0" name="" label=""> 
+                <select domainScope="true"> 
+                  <other label="其他" uid="other" name="other"/>  
+                  <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E95B98E20F8B" name="AMS_BonusDate" label="会员积分数据" alias="a0" selectAll="true" isBranch="true"> 
+                    <field uid="sys_0" name="id" label="编号" type="long"/>  
+                    <field uid="sys_1" name="domainId" label="域ID" type="long"/>  
+                    <field uid="id_1" name="member_id" label="会员ID" type="long"/>  
+                    <field uid="id_2" name="bonus_rule" label="积分规则编号" type="string"/>  
+                    <field uid="id_3" name="day_num" label="日次数累计" type="long"/>  
+                    <field uid="id_4" name="day_total" label="日积分累计" type="long"/>  
+                    <field uid="id_5" name="belong_time" label="日期" type="timestamp"/>  
+                    <field uid="id_6" name="member_userId" label="会员ID" type="string"/>  
+                    <field uid="id_7" name="member_phone" label="会员帐号" type="string"/> 
+                  </Entity> 
+                </select>  
+                <where> 
+                  <exp type="2"/> 
+                </where>  
+                <other> 
+                  <groupBy label="Group By"/>  
+                  <orderBy label="Order By"/> 
+                </other> 
+              </xmlQuery>  
+              <conditionForm> 
+                <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2"> 
+                  <TabNavigator> 
+                    <tab label="default"/> 
+                  </TabNavigator> 
+                </Window> 
+              </conditionForm>  
+              <StatSetting/>  
+              <queryEvent/> 
+            </EntityQuery>

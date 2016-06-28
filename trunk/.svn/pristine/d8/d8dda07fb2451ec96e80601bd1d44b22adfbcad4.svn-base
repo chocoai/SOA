@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dwr PUBLIC "-//GetAhead Limited//DTD Direct Web Remoting 2.0//EN" "http://getahead.org/dwr/dwr20.dtd">
+<dwr>
+  <init>
+  	<converter id="hibernate3" class="org.directwebremoting.hibernate.H3BeanConverter"/>
+  </init>
+  
+  <allow>
+
+    <convert converter="hibernate3" match="ime.bizservice.entity.BusinessService">
+    	<param name="exclude" value="supplier, group, serviceItems"/> 
+    </convert>
+    <convert converter="hibernate3" match="ime.bizservice.entity.BusinessServiceItem">
+    	<param name="exclude" value="service"/> 
+    </convert>
+    <convert converter="hibernate3" match="ime.bizservice.entity.BusinessServiceLog">
+    	<param name="exclude" value="relatedLog, enterpriseUser, personalUser, service, usedService, operator"/> 
+    </convert>
+    <convert converter="hibernate3" match="ime.bizservice.entity.HumanService">
+    	<param name="exclude" value="supplier, group, serviceItems"/> 
+    </convert>
+    <convert converter="hibernate3" match="ime.bizservice.entity.SoftwareService">
+    	<param name="exclude" value="supplier, group, serviceItems, details"/> 
+    </convert>
+    <convert converter="hibernate3" match="ime.bizservice.entity.SoftwareServiceDetail">
+    	<param name="exclude" value="service, serviceItem, menu, menuGroup, menuGroupResource, operation"/> 
+    </convert>
+    <convert converter="hibernate3" match="ime.bizservice.entity.UsedService">
+    	<param name="exclude" value="enterpriseUser, personalUser, service, operator"/> 
+    </convert>
+
+
+    <create creator="new" javascript="ServiceManager">
+      <param name="class" value="ime.bizservice.services.ServiceManager"/>
+    </create>
+    
+  </allow>
+
+  <signatures>
+  <![CDATA[
+
+  ]]>
+  </signatures>
+</dwr>

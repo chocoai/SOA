@@ -1,0 +1,14 @@
+<div style="$!{innerCSS}">
+#set( $gap = 0 )
+#if( $param.verticalGap )
+	#set( $gap = $param.verticalGap )
+#end
+#foreach( $part in $children )
+#if( $velocityCount == $children.size() )
+	#set( $gap = 0 )
+#end
+<div style="$!{part.getInnerCSS()};margin:0 0 $!{gap}px 0">
+	$part.render($request, $response)
+</div>
+#end
+</div>

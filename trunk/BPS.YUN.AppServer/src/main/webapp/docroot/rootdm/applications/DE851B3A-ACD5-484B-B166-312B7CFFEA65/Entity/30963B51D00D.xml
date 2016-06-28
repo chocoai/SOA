@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.30963B51D00D" name="AMS_HandlingParam" label="手续费参数" note="" log="false" workflow="false" nodeID="403" lastId="18" dbcreated="true"> 
+  <relation/>  
+  <extension/>  
+  <property uid="sys_0" label="编号" name="id" type="long" systemProperty="true" group="系统属性字段" editorPart="Entity"/>  
+  <property uid="sys_1" label="域ID" name="domainId" type="long" systemProperty="true" group="系统属性字段" editorPart="Entity"/>  
+  <property name="member_type" label="会员类型" type="long" uid="id_1" group="业务属性字段" editorPart="Entity" valueProvider="多账户.会员类型" dbcreated="true"/>  
+  <property name="real_name_state" label="实名状态" type="long" uid="id_2" group="业务属性字段" editorPart="Entity" valueProvider="多账户.实名状态" dbcreated="true"/>  
+  <property name="member_level" label="用户等级" type="long" uid="id_3" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="pay_tool" label="支付工具" type="long" uid="id_4" group="业务属性字段" editorPart="Entity" valueProvider="手续费.计费工具" dbcreated="true"/>  
+  <property name="target" label="计费对象" type="long" uid="id_5" group="业务属性字段" editorPart="Entity" valueProvider="手续费.计费对象" dbcreated="true"/>  
+  <property name="handling_mode" label="计费模式" type="long" uid="id_7" group="业务属性字段" editorPart="Entity" valueProvider="手续费.手续费收费模式" dbcreated="true"/>  
+  <property name="max_fee" label="封顶费用" type="long" uid="id_11" group="业务属性字段" currency="true" editorPart="Entity" dbcreated="true"/>  
+  <property name="handling_each" label="单笔" type="long" uid="id_12" group="业务属性字段" currency="true" editorPart="Entity" dbcreated="true"/>  
+  <property name="handling_rate" label="比例" type="double" uid="id_13" group="业务属性字段" editorPart="Entity" fraction="4" dbcreated="true"/>  
+  <property name="min_fee" label="最低费用" type="long" uid="id_14" group="业务属性字段" currency="true" editorPart="Entity" dbcreated="true"/>  
+  <property name="handling_type" label="计费方式" type="long" uid="id_15" group="业务属性字段" editorPart="Entity" valueProvider="手续费.手续费收费方式" dbcreated="true"/>  
+  <property name="trade_type" label="交易类型" type="long" uid="id_16" group="业务属性字段" editorPart="Entity" valueProvider="多账户.交易类型" dbcreated="true"/>  
+  <property name="sub_trade_type" label="交易子类型" type="long" uid="id_17" group="业务属性字段" editorPart="Entity" valueProvider="多账户.交易子类型" dbcreated="true"/> 
+</Entity>

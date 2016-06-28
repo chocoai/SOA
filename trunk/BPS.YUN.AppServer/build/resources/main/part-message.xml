@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<part>
+	<name>ime.message</name>
+	<version>1.0.0</version>
+	<description>
+	<![CDATA[
+		消息组件
+	]]>
+	</description>
+	
+	<dependency>
+		<partname></partname>
+	</dependency>
+	
+	<part_handler class="ime.message.event.PartHandler">
+		<property name="service.email">true</property>
+		<property name="service.robot">false</property>
+		<property name="service.flash_policy_server">false</property>
+		<property name="service.xmpp.vysper">true</property>
+		<property name="service.xmpp.vysper_port">5222</property>
+	</part_handler>
+	
+</part>

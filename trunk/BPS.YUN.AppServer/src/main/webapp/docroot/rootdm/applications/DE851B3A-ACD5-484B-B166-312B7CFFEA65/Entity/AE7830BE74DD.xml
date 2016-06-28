@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Entity lastId="22" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.AE7830BE74DD" name="AMS_ErrorTradeLog" label="差错流水" note="" log="false" workflow="false" nodeID="587" dbcreated="true"> 
+  <relation/>  
+  <extension/>  
+  <property uid="sys_0" label="编号" name="id" type="long" systemProperty="true" group="系统属性字段" editorPart="Entity"/>  
+  <property uid="sys_1" label="域ID" name="domainId" type="long" systemProperty="true" group="系统属性字段" editorPart="Entity"/>  
+  <property name="bizid" label="一账通流水" type="string" length="100" uid="id_1" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="out_trade_id" label="支付渠道流水" type="string" length="100" uid="id_2" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="e_trade_money" label="e帐通交易金额" type="long" uid="id_3" group="业务属性字段" editorPart="Entity" currency="true" dbcreated="true"/>  
+  <property name="userId" label="会员ID" type="string" length="100" uid="id_4" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="memberNo" label="会员号" type="string" length="100" uid="id_5" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="pay_channelNo" label="支付渠道代码" type="string" length="100" uid="id_6" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="pay_channel_name" label="支付渠道名称" type="string" length="100" uid="id_7" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="trade_time" label="交易时间" type="string" length="100" uid="id_8" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="error_type" label="差异类型" type="long" uid="id_9" group="业务属性字段" editorPart="Entity" valueProvider="对账.差异类型" dbcreated="true"/>  
+  <property name="remark" label="备注" type="string" length="512" uid="id_10" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="cardNo" label="交易帐号" type="string" length="100" uid="id_11" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="phone" label="会员手机号" type="string" length="100" uid="id_12" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="name" label="会员姓名" type="string" length="100" uid="id_13" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="idDealwith" label="是否处理" type="boolean" length="100" uid="id_14" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="out_trade_money" label="渠道交易金额" type="long" uid="id_17" group="业务属性字段" editorPart="Entity" valueProvider="" currency="true" dbcreated="true"/>  
+  <property name="trade_type" label="交易类型" type="long" uid="id_18" group="业务属性字段" valueProvider="多账户.交易类型" editorPart="Entity" dbcreated="true"/>  
+  <property name="pay_interfaceNo" label="支付通道编号" type="string" length="100" uid="id_19" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="out_trade_type" label="渠道交易类型" type="string" length="100" uid="id_20" group="业务属性字段" editorPart="Entity" dbcreated="true"/>  
+  <property name="pay_interface_name" label="支付通道名称" type="string" length="100" uid="id_21" group="业务属性字段" editorPart="Entity" dbcreated="true"/> 
+</Entity>

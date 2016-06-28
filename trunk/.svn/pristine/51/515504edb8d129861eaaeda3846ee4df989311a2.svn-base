@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<desktop-library>
+	<library appName="ime.DictionaryManager" title="字典表管理" url="pages/core/DictionaryManager.swf" />
+	<library appName="ime.AppWindow" title="应用程序" url="pages/core/AppWindow.swf" />
+	<library appName="ime.Browser" title="Web浏览器" url="pages/tool/BrowserApp.swf" iconUrl="images/icons/imebrowser.png" />
+</desktop-library>

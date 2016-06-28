@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityForm name="风险关注" label="风险关注" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.2760ED33249B" nodeID="777"> 
+              <formEntity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.CE9199C70F3D"/>  
+              <formState/>  
+              <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2"> 
+                <TabNavigator> 
+                  <tab label="default"> 
+                    <Label width="82" height="25" text="操作备注:" propertyUID="id_4" x="2" y="31" style=""/>  
+                    <TextInput propertyUID="id_4" width="179" height="55" x="63" y="31"/>  
+                    <Label width="82" height="25" text="状态:" propertyUID="id_3" x="2" y="2" style=""/>  
+                    <ComboBox propertyUID="id_3" width="179" height="25" x="63" y="3"/> 
+                  </tab> 
+                </TabNavigator> 
+              </Window>  
+              <formEvent/> 
+            </EntityForm>

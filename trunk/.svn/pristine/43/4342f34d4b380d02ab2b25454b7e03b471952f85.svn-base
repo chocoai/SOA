@@ -1,0 +1,177 @@
+
+/*Window样式*/
+div.ws_dialog { 
+	position:absolute; background-color:white;	border:1px outset #AAAAAA; padding:1px; 
+	filter:progid:DXImageTransform.Microsoft.Shadow(strength=4,color=#808080,enabled=true,direction=135)
+	}
+
+/* TitleBar样式 */
+.ws_dialog .ws_movehandle {
+	cursor:move; background-color:#DFDFDF; width:100%; height:20px; font:caption; color:black; 
+	padding: 3px; margin: 0px;
+	}
+.ws_dialog .ws_btnarea {position:absolute;cursor:point; right:2px; top:2px;}
+.ws_dialog .ws_close_button {
+	cursor:point; width:18px;float:left;
+	background-color:#DFDFDF;
+	button_img_u: ws_app_path + "images/share/ws/closeBtn_u.jpg";
+	button_img_d: ws_app_path + "images/share/ws/closeBtn_d.jpg";
+	button_img_o: ws_app_path + "images/share/ws/closeBtn_o.jpg";
+	}
+
+.ws_dialog .ws_minmize_button {
+	cursor:point; width:18px;float:left;
+	background-color:#DFDFDF;
+	button_img_u: ws_app_path + "images/share/ws/minBtn_u.jpg";
+	button_img_da: ws_app_path + "images/share/ws/minBtn_da.jpg";
+	button_img_di: ws_app_path + "images/share/ws/minBtn_di.jpg";
+	button_img_oa: ws_app_path + "images/share/ws/minBtn_oa.jpg";
+	button_img_oi: ws_app_path + "images/share/ws/minBtn_oi.jpg";
+	}
+
+.ws_dialog .ws_dlgclient {border: 2 inset white; margin: 0px; height: 100%; width:100%}
+
+.ws_select_area	{
+	font: icon;
+	height: 100%; width: 100%;cursor:default;
+	border: 1 solid #7F9DB9; background: white;
+	}
+
+.ws_select_area .ws_select_button {
+	width:16px;
+	button_img_u: ws_app_path + "images/share/ws/DropDownBtnN.jpg";
+	button_img_d: ws_app_path + "images/share/ws/DropDownBtnD.jpg";
+	button_img_o: ws_app_path + "images/share/ws/DropDownBtnO.jpg";
+	}
+
+.ws_dropdown {
+	position: absolute; visibility: hidden; width: 100%;cursor:default;
+	border: 1 solid windowtext; padding: 1;	background: window; color: windowtext;
+	}
+.ws_dropdown .ws_selected {
+	font: icon; padding: 1; width: 100%;background: #BACDEB; border:1 solid #316AC5;
+	};
+.ws_dropdown .ws_unselected {
+	font: icon; padding: 1; width: 100%;background: window;  border:1 solid window;
+	}
+
+.ws_tooltip {
+	font: icon; 
+	padding: 1; padding-left: 3; padding-right: 3;
+	background-color:#FFFFE0;
+	border:1 solid black;
+	}
+
+/*工具条样式*/
+@import url("toolbar.css");
+
+/*TableView 样式*/
+@import url("tableview.css");
+
+/*Palette 样式*/
+@import url("palette.css");
+
+/*拖放对象的样式*/
+.drag_object{
+		width:16px;
+		border: #316AC5 1px solid;
+		background: #C6D6EF;
+		filter:progid:DXImageTransform.Microsoft.Alpha(opacity=80);
+		cursor:not-allowed;
+	}
+/*拖放对象显示内容的样式*/
+.drag_item{
+		font: icon;word-break:keep-all;
+		padding-left : 5;
+		padding-right: 5;
+		width:50px;
+	}
+
+.dndover {
+	background:	#DEDEDE;
+}
+
+@import url("gridlayout.css");
+
+
+.ws_expend_button {
+	cursor:hand; width:18px;float:left;
+	button_img_cku: ws_app_path + "images/share/ws/closed.gif";
+	button_img_cko: ws_app_path + "images/share/ws/closed.gif";
+	button_img_ckd: ws_app_path + "images/share/ws/closed.gif";
+	button_img_uku: ws_app_path + "images/share/ws/expend.gif";
+	button_img_uko: ws_app_path + "images/share/ws/expend.gif";
+	button_img_ukd: ws_app_path + "images/share/ws/expend.gif";
+	}
+
+/*属性页样式*/
+@import url("prop.css");
+
+/*Tab页样式*/
+@import url("tabpane.css");
+
+/*Slider控件样式*/
+@import url("slider.css");
+
+.ws_waitingbar {
+	}
+.ws_waitingbar .bar{
+		font-size:1px;width:50px;height:15px;
+	}
+
+.ws_waiting_box {
+		width  : 300px;
+		padding: 10px;
+	}
+.ws_waiting_box .msg{
+		font : icon;
+		color: red;
+	}
+
+.listitem {
+	width   : 100%;
+	padding : 2px 5px;
+}
+
+/*Tree控件样式*/
+@import url("tree.css");
+
+
+.round_box {
+	}
+.round_box .top{
+		font-size:0px;
+		height: 5px;
+	}
+.round_box .top .left{
+		width: 5px;
+		background: url(../images/share/ws/y_box_a.gif);
+	}
+.round_box .top .middle{
+		background: url(../images/share/ws/y_box_top_bg.gif);
+	}
+.round_box .top .right{
+		width: 5px;
+		background: url(../images/share/ws/y_box_b.gif);
+	}
+.round_box .client{
+		background-color: #ffffc1;
+		border:1px solid #ffa800;
+		border-width:0px 1px 0px 1px;
+		padding: 0px 5px 0px 5px;
+	}
+.round_box .foot{
+		font-size:0px;
+		height: 5px;
+	}
+.round_box .foot .left{
+		width: 5px;
+		background: url(../images/share/ws/y_box_d.gif);
+	}
+.round_box .foot .middle{
+		background: url(../images/share/ws/y_box_bot_bg.gif);
+	}
+.round_box .foot .right{
+		width: 5px;
+		background: url(../images/share/ws/y_box_c.gif);
+	}

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<FreeForm label="加入黑名单" name="加入黑名单" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.A02E40E2CFBF" nodeID="860"> 
+            <formState/>  
+            <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2"> 
+              <TabNavigator> 
+                <tab label="default"> 
+                  <Label label="Label" text="userId:" x="2" y="2" width="100" height="24" style=""/>  
+                  <TextInput label="TextInput" x="63" y="3" width="199" height="24" name="userid"/>  
+                  <Label label="Label" text="电话号码:" x="2" y="59" width="100" height="24" style=""/>  
+                  <TextInput label="TextInput" x="63" y="59" width="199" height="24" name="phone"/>  
+                  <TextInput label="TextInput" x="63" y="87" width="199" height="24" name="cardid"/>  
+                  <Label label="Label" text="身份证号:" x="2" y="87" width="100" height="24" style=""/>  
+                  <Label label="Label" text="姓名" x="2" y="30" width="100" height="24" style=""/>  
+                  <TextInput label="TextInput" x="63" y="31" width="199" height="24" name="name"/>  
+                  <TextArea label="TextArea" width="360" height="139" x="2" y="115" name="banklist"/> 
+                </tab> 
+              </TabNavigator> 
+            </Window>  
+            <formEvent> 
+              <event name="initialize" type="initialize" label="初始化事件" systemEvent="true"><![CDATA[
+var query/*:QueryControl*/ = form.getScriptHost("$opener");
+var member_entity/*:$Entity.AMS_Member*/ = query.getSelectedEntity("AMS_Member");
+var param = {};
+param.id = member_entity.id;
+var idCard = member_entity.identity_cardNo_encrypt;
+form.fireRemoteEvent("AMS_Member.getUserdetail", param, "getIdCardNo_result_black");
+
+]]></event>  
+              <event name="insertblcaklist_result" type="remoteEvent" label="insertblcaklist_result"><![CDATA[
+
+if(result.isinsertblack){
+	alert("加入黑名单成功")
+}else{
+	alert("该用户已加入黑名单")
+}
+]]></event>  
+              <event name="preSubmit" type="preSubmit" label="提交前事件" systemEvent="true"><![CDATA[var query/*:QueryControl*/ = form.getScriptHost("$opener");
+var member_entity/*:$Entity.AMS_Member*/ = query.getSelectedEntity("AMS_Member");
+var param = {};
+param.id = member_entity.id;
+form.fireRemoteEvent("AMS_Member.insertblcaklist", param, "insertblcaklist_result");
+]]></event>  
+              <event name="getIdCardNo_result_black" type="remoteEvent" label="getIdCardNo_result_black"><![CDATA[
+var query/*:QueryControl*/ = form.getScriptHost("$opener");
+var member_entity/*:$Entity.AMS_Member*/ = query.getSelectedEntity("AMS_Member");
+
+//for(var key in result){
+//	alert(key+"---"+result[key]);
+//}
+form.setFieldValue("cardid", result.identity_cardNo);
+form.setFieldProperty("cardid", "enabled", false);
+
+
+form.setFieldValue("phone", member_entity.phone);
+form.setFieldProperty("phone", "enabled", false);
+
+
+form.setFieldValue("userid", member_entity.userId);
+form.setFieldProperty("userid", "enabled", false);
+
+form.setFieldValue("name", member_entity.name);
+form.setFieldProperty("name", "enabled", false);
+
+var banklist = result.banklist;
+var banklistdetail ="";
+
+if(banklist.toString().indexOf(",") > 0 ){
+	var arr= new Array(); //定义一数组 
+	arr/*:Array*/ = banklist.toString().split(",");
+	for(var i = 0 ;i<arr.length; i++){
+		var bank = "银行卡号："+ arr[i]+'\r\n';
+		banklistdetail += bank;
+	}
+}else{
+	banklistdetail= "银行卡号:"+banklist+'\r\n';
+}
+
+
+form.setFieldValue("banklist",banklistdetail);
+
+form.setFieldProperty("banklist", "enabled", false);]]></event> 
+            </formEvent> 
+          </FreeForm>

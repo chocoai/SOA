@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "PUBLIC" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class entity-name="AMS_AppPiConfig" table="DYNA_AMS_AppPiConfig">
+    <id name="id" type="long">
+      <generator class="sequence">
+        <param name="sequence">IDSEQ_AMS_AppPiConfig</param>
+      </generator>
+    </id>
+    <property name="domainId" not-null="false" type="long" index="IDX_DOMAINID"/>
+    <property name="userName" not-null="false" type="string" length="100"/>
+    <property name="userPass" not-null="false" type="string" length="100"/>
+    <property name="merchant_id" not-null="false" type="string" length="100"/>
+    <property name="tltcerPath" not-null="false" type="string" length="100"/>
+    <property name="pfxPath" not-null="false" type="string" length="1000"/>
+    <property name="pfxPassword" not-null="false" type="string" length="100"/>
+    <property name="serverUrl" not-null="false" type="string" length="100"/>
+    <property name="downloadUrl" not-null="false" type="string" length="100"/>
+    <property name="cert_key" not-null="false" type="string" length="100"/>
+    <property name="version" not-null="false" type="string" length="100"/>
+    <property name="use_language" not-null="false" type="string" length="100"/>
+    <property name="input_charset" not-null="false" type="string" length="100"/>
+    <property name="sign_type" not-null="false" type="string" length="100"/>
+    <property name="application_id" not-null="false" type="long" index="application_idx"/>
+    <property name="application_label" not-null="false" type="string" length="200"/>
+    <property name="pay_interface_id" not-null="false" type="long" index="pay_interface_idx"/>
+    <property name="pay_interface_label" not-null="false" type="string" length="200"/>
+    <property name="system_member_id" not-null="false" type="long" index="system_member_idx"/>
+    <property name="system_member_label" not-null="false" type="string" length="200"/>
+    <property name="system_uuid" not-null="false" type="string" length="100"/>
+    <property name="org_no" not-null="false" type="string" length="100"/>
+    <property name="mobile_cert_pay_key" not-null="false" type="string" length="100"/>
+  </class>
+</hibernate-mapping>

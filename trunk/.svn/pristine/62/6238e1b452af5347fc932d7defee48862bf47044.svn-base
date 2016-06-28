@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityQuery name="人工提现明细查询" label="人工提现明细查询" note="" share="false" multiselect="false" editable="true" autopaging="false" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.2EAC2AE141A0" nodeID="701"> 
+              <queryEntities> 
+                <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.88EAE8E6D388" name="AMS_MemberAccount" label="会员账户" alias="a1" selectAll="true" isBranch="true"/>  
+                <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.D45D936EC215" name="AMS_ArtWithdrawalDetail" label="人工提现明细" alias="a0" selectAll="true" isBranch="true" master="true"/> 
+              </queryEntities>  
+              <DataGrid> 
+                <color/>  
+                <column name="account_type" label="账户类型" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.D45D936EC215.id_2" width="100" isBranch="false" dataField="AMS_ArtWithdrawalDetail$account_type_label" editable="" sortable="" textAlign=""/>  
+                <column name="trade_money" label="金额" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.D45D936EC215.id_3" width="100" isBranch="false" dataField="AMS_ArtWithdrawalDetail$trade_money" editable="" sortable="" textAlign=""> 
+                  <itemEditor> 
+                    <TextInput/> 
+                  </itemEditor> 
+                </column> 
+              </DataGrid>  
+              <editState> 
+                <rule type="enabled" property="account_type" label="账户类型" rule="false"/>  
+                <rule type="updateEvent" property="trade_money" label="金额" rule="updatemoney"/> 
+              </editState>  
+              <toolbar> 
+                <button label="选择账户" action="alink" selection="none" permission="" permissionName="" defaultAction="false" visiable="true" alink="alink://ime.AppWindow/EntitySelectWindow?{entityUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.88EAE8E6D388&quot;,labelField:&quot;account_type&quot;,pageUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.4379E412FF68&quot;,selectName:&quot;account&quot;}"/>  
+                <button label="删除" action="delete" selection="single"/> 
+              </toolbar>  
+              <xmlQuery version="2.0" name="" label=""> 
+                <select domainScope="true"> 
+                  <other label="其他" uid="other" name="other"/>  
+                  <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.D45D936EC215" name="AMS_ArtWithdrawalDetail" label="人工提现明细" alias="a0" selectAll="true" isBranch="true"> 
+                    <field uid="sys_0" name="id" label="编号" type="long"/>  
+                    <field uid="sys_1" name="domainId" label="域ID" type="long"/>  
+                    <field uid="id_1" name="artWithdrawal" label="人工提现记录" type="relation"/>  
+                    <field uid="id_2" name="account_type" label="账户类型" type="relation"/>  
+                    <field uid="id_3" name="trade_money" label="金额" type="long" currency="true"/>  
+                    <field uid="id_4" name="account_id" label="账户id" type="long"/>  
+                    <field name="member_account" label="会员账户类型" type="relation" uid="id_6"/> 
+                  </Entity>  
+                  <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.88EAE8E6D388" name="AMS_MemberAccount" label="会员账户" alias="a1" selectAll="true" isBranch="true"> 
+                    <field uid="sys_0" name="id" label="编号" type="long"/>  
+                    <field uid="sys_1" name="domainId" label="域ID" type="long"/>  
+                    <field uid="id_2" name="account_type" label="账户类型" type="relation"/>  
+                    <field uid="id_3" name="valid_date" label="有效期限" type="timestamp"/>  
+                    <field uid="id_4" name="amount" label="余额" type="long" currency="true"/>  
+                    <field uid="id_5" name="freeze_amount" label="冻结金额" type="long" currency="true"/>  
+                    <field uid="id_6" name="overdraft" label="允许透支金额" type="long" currency="true"/>  
+                    <field uid="id_9" name="account_state" label="账户状态" type="long"/>  
+                    <field uid="id_10" name="userId" label="用户ID" type="string"/> 
+                  </Entity> 
+                </select>  
+                <where> 
+                  <exp type="2"> 
+                    <exp type="5" valueType="3" option="true" rightType="prop" rightEntity="AMS_MemberAccount" rightField="id" leftEntity="AMS_ArtWithdrawalDetail" leftField="member_account_id" uid="exp0"/> 
+                  </exp> 
+                </where>  
+                <other> 
+                  <groupBy label="Group By"/>  
+                  <orderBy label="Order By"/> 
+                </other> 
+              </xmlQuery>  
+              <conditionForm> 
+                <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2"> 
+                  <TabNavigator> 
+                    <tab label="default"/> 
+                  </TabNavigator> 
+                </Window> 
+              </conditionForm>  
+              <StatSetting/>  
+              <queryEvent> 
+                <event name="entitySelect" type="entitySelect" label="实体选择事件" systemEvent="true"><![CDATA[
+if(selectName == "account"){
+	var entity, emp, pro;
+	var chargeMoney = 0;
+	
+	var details = query.getAllEntities("AMS_ArtWithdrawalDetail");    
+	
+//	for( i = 0; i < details.length; i++ ){
+//		detailMap[details[i].standardGoods_id] = details[i];
+//	}
+	for( i = 0; i < selectedRecords.length; i++ ){ //selectedRecords是实体选择页面选中的内容。
+		emp/*:$Entity.AMS_MemberAccount*/ = selectedRecords[i].AMS_MemberAccount;   //得到一条记录
+		//判断产品是否已添加
+		var exsit = 0;
+		for( j=0; j<details.length; j++){
+			if(emp.account_type_id==details[j].account_type_id){
+				exsit = 1;
+				break;
+			}
+		}
+		if(exsit == 1)
+			continue; 
+		var record = {};
+		entity/*:$Entity.AMS_ArtWithdrawalDetail*/ = {};     //声明一个实体
+		entity.account_type_id    = emp.account_type_id;                 //关联对像ID。   字段是自动内设
+		entity.account_type_label = emp.account_type_label;              //关联对像的内容  字段是自动内设
+		entity.member_account_id = emp.id;
+		entity.member_account_label = emp.id;
+		entity.trade_money  = emp.amount-emp.freeze_amount;
+		record.AMS_ArtWithdrawalDetail = entity;
+		record.AMS_MemberAccount = emp;
+		query.insertRecord(record); 
+		chargeMoney = chargeMoney + Number(emp.amount-emp.freeze_amount);
+	}
+
+	var form/*:FormWindow*/ = query.getScriptHost("$form");
+	var total_money = form.getFieldValue("total_money");
+	if(isNaN(total_money) || total_money == null){
+		total_money = 0;
+	}
+	chargeMoney = chargeMoney+Number(total_money);
+	form.setFieldValue("total_money", chargeMoney);
+	
+	//修改流程状态名称
+	var account_name = form.getFieldValue("account_name");
+	var WF_ProcessName = '人工提现：'+account_name+'提现'+ chargeMoney/100.0;
+	form.setFieldValue("WF_ProcessName",WF_ProcessName);
+}
+]]></event>  
+                <event name="updatemoney" type="customerEvent" label="updatemoney"><![CDATA[var all_detail = entity;
+var id = all_detail.member_account_id;
+var trade_money/*:Number*/ = all_detail.trade_money;
+if(isNaN(trade_money) == false){	
+	//调用远程查询事件，确保修改的金额不能大于账户余额
+	var hql = "from AMS_MemberAccount where id="+id;
+	query.callRemoteQuery(hql,"cb_changemony");
+}
+	
+
+]]></event>  
+                <event name="preDelete" type="preDelete" label="删除前事件" systemEvent="true"><![CDATA[var chargeMoney/*:Number*/ = 0;	//物资总价
+for(var i=0; i<entities.length; i++){
+	var trade_money/*:Number*/ = entities[i].trade_money;
+		if(isNaN(trade_money) == false){	//自动累计检测费用
+		chargeMoney += Number(trade_money);
+	}
+}
+var form/*:FormWindow*/ = query.getScriptHost("$form");
+var total_money_old/*:Number*/ = form.getFieldValue("total_money");
+
+form.setFieldValue("total_money", Number(total_money_old - chargeMoney));
+
+//修改流程状态名称
+var account_name = form.getFieldValue("account_name");
+var WF_ProcessName = '人工提现：'+account_name+'提现'+ Number(total_money_old - chargeMoney)/100.0;
+form.setFieldValue("WF_ProcessName",WF_ProcessName);
+]]></event>  
+                <event name="cb_changemony" type="customerEvent" label="cb_changemony"><![CDATA[var all_detail = query.getAllEntities("AMS_ArtWithdrawalDetail");
+
+var detailMap = new Object();  
+var allPrice /*:Number*/= 0;
+for(var i=0; i<all_detail.length; i++){
+	var trade_money/*:Number*/ = all_detail[i].trade_money;
+	allPrice += Number(all_detail[i].trade_money);
+
+	//detailMap[all_detail[i].member_account_id] = all_detail[i].trade_money;
+	detailMap[all_detail[i].member_account_id] = all_detail[i];
+}
+if( result == null || result == "" || result.length == 0 ){
+	return {error:true, message:"当前账户不存在"};
+}else{
+		
+	var entity_memberAccount/*:$Entity.AMS_MemberAccount*/ = result[0];
+	amount/*:String*/ 		= entity_memberAccount.amount-entity_memberAccount.freeze_amount;
+	var id /*:Number*/= entity_memberAccount.id;
+	
+	if(detailMap.hasOwnProperty(id) && amount >= detailMap[id].trade_money ){	
+		
+	}else if(detailMap.hasOwnProperty(id) && amount < detailMap[id].trade_money ){
+		detailMap[id].trade_money = amount;
+		//修改原有最大值
+		query.updateEntity(detailMap[id],"AMS_ArtWithdrawalDetail");
+		//修改表单的值
+		var allPrice1 /*:Number*/= 0;
+		for(var i=0; i<all_detail.length; i++){
+			var trade_money/*:Number*/ = all_detail[i].trade_money;
+			allPrice1 += Number(all_detail[i].trade_money);
+		
+		}
+		var form/*:FormWindow*/ = query.getScriptHost("$form");
+		
+		form.setFieldValue("total_money",allPrice1)
+		
+		return {error:true, message:"当前账户余额不足"};
+				
+	}
+		
+}
+
+
+var form/*:FormWindow*/ = query.getScriptHost("$form");
+var total_money_old/*:Number*/ = form.getFieldValue("total_money");
+
+form.setFieldValue("total_money",allPrice);
+
+//修改流程状态名称
+var account_name = form.getFieldValue("account_name");
+var WF_ProcessName = '人工提现：'+account_name+'提现'+ allPrice/100.0;
+form.setFieldValue("WF_ProcessName",WF_ProcessName);
+
+
+]]></event> 
+              </queryEvent> 
+            </EntityQuery>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityQuery name="外部账户类型管理" label="外部账户类型管理" note="" share="false" multiselect="false" editable="false" autopaging="true" pagingMode="NormalPaging" virtualizingPagingEnabled="false" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.5C81B2AD074A" nodeID="503"> 
+              <queryEntities> 
+                <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.81AE775D85C9" name="AMS_OutAccountType" label="外部账户类型" alias="a0" master="true"/> 
+              </queryEntities>  
+              <DataGrid> 
+                <color/>  
+                <column name="code_no" label="编号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.81AE775D85C9.id_1" width="111" isBranch="false" dataField="AMS_OutAccountType$code_no"/>  
+                <column name="name" label="名称" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.81AE775D85C9.id_2" width="147" isBranch="false" dataField="AMS_OutAccountType$name"/>  
+                <column name="integrate_org" label="接入机构" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.81AE775D85C9.id_3" width="261" isBranch="false" dataField="AMS_OutAccountType$integrate_org_label"/> 
+              </DataGrid>  
+              <editState/>  
+              <toolbar> 
+                <button label="新建" action="alink" selection="none" alink="alink://ime.AppWindow/EntityForm?{selection:&quot;none&quot;,entityUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.81AE775D85C9&quot;,formUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.49CB5617B3A8&quot;,action:&quot;create&quot;}"/>  
+                <button label="编辑" action="alink" selection="single" alink="alink://ime.AppWindow/EntityForm?{selection:&quot;single&quot;,entityUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.81AE775D85C9&quot;,formUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.49CB5617B3A8&quot;,action:&quot;edit&quot;}"/>  
+                <button label="删除" action="delete" selection="single"/> 
+              </toolbar>  
+              <xmlQuery version="2.0" name="" label=""> 
+                <select domainScope="true"> 
+                  <other label="其他" uid="other" name="other"/>  
+                  <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.81AE775D85C9" name="AMS_OutAccountType" label="外部账户类型" alias="a0"> 
+                    <field uid="sys_0" name="id" label="编号" type="long" entity="AMS_OutAccountType"/>  
+                    <field uid="sys_1" name="domainId" label="域ID" type="long"/>  
+                    <field uid="id_1" name="code_no" label="编号" type="string"/>  
+                    <field uid="id_2" name="name" label="名称" type="string"/>  
+                    <field uid="id_3" name="integrate_org" label="接入机构" type="relation"/> 
+                  </Entity> 
+                </select>  
+                <where> 
+                  <exp type="2"/> 
+                </where>  
+                <other> 
+                  <groupBy label="Group By"/>  
+                  <orderBy label="Order By"> 
+                    <field uid="sys_0" name="id" label="编号" type="long" entity="AMS_OutAccountType" order="desc"/> 
+                  </orderBy> 
+                </other> 
+              </xmlQuery>  
+              <conditionForm> 
+                <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2"> 
+                  <TabNavigator> 
+                    <tab label="default"> 
+                      <Label width="82" height="25" text="编号:" propertyUID="id_1" x="3" y="3" style=""/>  
+                      <TextInput name="code_no" width="139" height="25" x="63" y="3"/>  
+                      <Label width="82" height="25" text="名称:" propertyUID="id_2" x="203" y="3" style=""/>  
+                      <TextInput name="name" width="139" height="25" x="263" y="3"/> 
+                    </tab> 
+                  </TabNavigator> 
+                </Window> 
+              </conditionForm>  
+              <StatSetting/>  
+              <queryEvent/> 
+            </EntityQuery>

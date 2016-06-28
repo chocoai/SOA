@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityQuery name="渠道商户管理" label="渠道商户管理" note="" share="false" multiselect="false" editable="false" autopaging="true" pagingMode="VirtualizingPaging" virtualizingPagingEnabled="true" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.F76C2C6491B1" nodeID="1028">
+  <queryEntities>
+    <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.013DBD85BF8A" name="AMS_AppPiConfig" label="通道商户信息" alias="a0" selectAll="true" isBranch="true" master="true" />
+  </queryEntities>
+  <DataGrid>
+    <color />
+    <column name="userName" label="用户名" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.013DBD85BF8A.id_2" width="100" isBranch="false" dataField="AMS_AppPiConfig$userName" />
+    <column name="userPass" label="用户密码" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.013DBD85BF8A.id_3" width="100" isBranch="false" dataField="AMS_AppPiConfig$userPass" />
+    <column name="merchant_id" label="商户号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.013DBD85BF8A.id_4" width="100" isBranch="false" dataField="AMS_AppPiConfig$merchant_id" />
+    <column name="tltcerPath" label="证书地址" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.013DBD85BF8A.id_5" width="100" isBranch="false" dataField="AMS_AppPiConfig$tltcerPath" />
+    <column name="pfxPath" label="pfx地址" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.013DBD85BF8A.id_6" width="100" isBranch="false" dataField="AMS_AppPiConfig$pfxPath" />
+    <column name="pfxPassword" label="pfx密码" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.013DBD85BF8A.id_7" width="100" isBranch="false" dataField="AMS_AppPiConfig$pfxPassword" />
+    <column name="system_uuid" label="系统会员uuid" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.013DBD85BF8A.id_19" width="100" isBranch="false" dataField="AMS_AppPiConfig$system_uuid" />
+    <column name="serverUrl" label="服务地址" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.013DBD85BF8A.id_8" width="100" isBranch="false" dataField="AMS_AppPiConfig$serverUrl" />
+    <column name="org_no" label="应用编号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.013DBD85BF8A.id_20" width="100" isBranch="false" dataField="AMS_AppPiConfig$org_no" />
+    <column name="downloadUrl" label="下载地址" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.013DBD85BF8A.id_9" width="100" isBranch="false" dataField="AMS_AppPiConfig$downloadUrl" />
+    <column name="cert_key" label="密钥" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.013DBD85BF8A.id_11" width="100" isBranch="false" dataField="AMS_AppPiConfig$cert_key" />
+    <column name="version" label="版本" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.013DBD85BF8A.id_12" width="100" isBranch="false" dataField="AMS_AppPiConfig$version" />
+    <column name="use_language" label="语言" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.013DBD85BF8A.id_13" width="100" isBranch="false" dataField="AMS_AppPiConfig$use_language" />
+    <column name="input_charset" label="字符编码" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.013DBD85BF8A.id_14" width="100" isBranch="false" dataField="AMS_AppPiConfig$input_charset" />
+    <column name="sign_type" label="签名方式" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.013DBD85BF8A.id_15" width="100" isBranch="false" dataField="AMS_AppPiConfig$sign_type" />
+    <column name="application" label="应用" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.013DBD85BF8A.id_16" width="100" isBranch="false" dataField="AMS_AppPiConfig$application_label" />
+  </DataGrid>
+  <editState />
+  <toolbar>
+    <button label="新建" action="alink" selection="none" permission="" permissionName="" visiable="true" alink="alink://ime.AppWindow/EntityForm?{action:&quot;create&quot;,entityUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.013DBD85BF8A&quot;,formUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.448AA25A289E&quot;,formState:&quot;state2&quot;}" />
+    <button label="编辑" action="alink" selection="single" permission="" permissionName="" visiable="true" alink="alink://ime.AppWindow/EntityForm?{action:&quot;edit&quot;,entityUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.013DBD85BF8A&quot;,formUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.448AA25A289E&quot;,formState:&quot;state1&quot;}" />
+    <button label="删除" action="delete" selection="single" />
+  </toolbar>
+  <xmlQuery version="2.0" name="" label="">
+    <select domainScope="true">
+      <other label="其他" uid="other" name="other" />
+      <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.013DBD85BF8A" name="AMS_AppPiConfig" label="通道商户信息" alias="a0" selectAll="true" isBranch="true">
+        <field uid="sys_0" name="id" label="编号" type="long" />
+        <field uid="sys_1" name="domainId" label="域ID" type="long" />
+        <field uid="id_2" name="userName" label="用户名" type="string" />
+        <field uid="id_3" name="userPass" label="用户密码" type="string" />
+        <field uid="id_4" name="merchant_id" label="商户号" type="string" />
+        <field uid="id_5" name="tltcerPath" label="证书地址" type="string" />
+        <field uid="id_6" name="pfxPath" label="pfx地址" type="string" />
+        <field uid="id_7" name="pfxPassword" label="pfx密码" type="string" />
+        <field uid="id_8" name="serverUrl" label="服务地址" type="string" />
+        <field uid="id_9" name="downloadUrl" label="下载地址" type="string" />
+        <field uid="id_11" name="cert_key" label="密钥" type="string" />
+        <field uid="id_12" name="version" label="版本" type="string" />
+        <field uid="id_13" name="use_language" label="语言" type="string" />
+        <field uid="id_14" name="input_charset" label="字符编码" type="string" />
+        <field uid="id_15" name="sign_type" label="签名方式" type="string" />
+        <field uid="id_16" name="application" label="应用" type="relation" />
+        <field uid="id_17" name="pay_interface" label="支付通道" type="relation" />
+        <field uid="id_18" name="system_member" label="系统会员" type="relation" />
+        <field uid="id_19" name="system_uuid" label="系统会员uuid" type="string" />
+        <field uid="id_20" name="org_no" label="应用编号" type="string" />
+      </Entity>
+    </select>
+    <where>
+      <exp type="2">
+        <exp type="5" valueType="3" option="false" leftEntity="AMS_AppPiConfig" leftField="application_id" uid="exp0" rightType="val" right="$page.master.selectedEntity.id" />
+      </exp>
+    </where>
+    <other>
+      <groupBy label="Group By" />
+      <orderBy label="Order By" />
+    </other>
+  </xmlQuery>
+  <conditionForm>
+    <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2">
+      <TabNavigator>
+        <tab label="default" />
+      </TabNavigator>
+    </Window>
+  </conditionForm>
+  <StatSetting />
+  <queryEvent />
+</EntityQuery>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/BPS.YUN.AppServer/BPS.YUN.AppServer.iml" filepath="$PROJECT_DIR$/BPS.YUN.AppServer/BPS.YUN.AppServer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BPS.YUN.WebServer/BPS.YUN.WebServer.iml" filepath="$PROJECT_DIR$/BPS.YUN.WebServer/BPS.YUN.WebServer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../allinpay/allinpay.iml" filepath="$PROJECT_DIR$/../../allinpay/allinpay.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bps.yun.external.service/bps.yun.external.service.iml" filepath="$PROJECT_DIR$/bps.yun.external.service/bps.yun.external.service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bps.yun.external.service.api/bps.yun.external.service.api.iml" filepath="$PROJECT_DIR$/bps.yun.external.service.api/bps.yun.external.service.api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bps.yun.external.soa/bps.yun.external.soa.iml" filepath="$PROJECT_DIR$/bps.yun.external.soa/bps.yun.external.soa.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bps.yun.service/bps.yun.service.iml" filepath="$PROJECT_DIR$/bps.yun.service/bps.yun.service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bps.yun.service.api/bps.yun.service.api.iml" filepath="$PROJECT_DIR$/bps.yun.service.api/bps.yun.service.api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/trunk.iml" filepath="$PROJECT_DIR$/trunk.iml" />
+    </modules>
+  </component>
+</project>

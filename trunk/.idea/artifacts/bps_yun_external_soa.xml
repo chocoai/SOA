@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="bps.yun.external.soa">
+    <output-path>$PROJECT_DIR$/build/classes/artifacts/soa</output-path>
+    <root id="archive" name="bps.yun.external.soa.jar">
+      <element id="dir-copy" path="$PROJECT_DIR$/bps.yun.external.soa/build/classes/main" />
+    </root>
+  </artifact>
+</component>

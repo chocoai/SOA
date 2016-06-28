@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityQuery name="银行信息查询" label="银行信息查询" note="" share="false" multiselect="false" editable="false" autopaging="true" pagingMode="VirtualizingPaging" virtualizingPagingEnabled="true" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E27E5B8E7DE5" nodeID="471"> 
+              <queryEntities> 
+                <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.49B45721ED2E" name="AMS_Bank" label="银行" alias="a0" selectAll="true" isBranch="true" master="true"/> 
+              </queryEntities>  
+              <DataGrid> 
+                <color/>  
+                <column name="name" label="名称" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.49B45721ED2E.id_1" width="149" isBranch="false" dataField="AMS_Bank$name"/>  
+                <column name="bank_code" label="代码" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.49B45721ED2E.id_2" width="100" isBranch="false" dataField="AMS_Bank$bank_code"/>  
+                <column name="short_name" label="简称" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.49B45721ED2E.id_3" width="138" isBranch="false" dataField="AMS_Bank$short_name"/>  
+                <column name="its_bank_code" label="ITS银行代码" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.49B45721ED2E.id_4" width="100" isBranch="false" dataField="AMS_Bank$its_bank_code"/> 
+              </DataGrid>  
+              <editState/>  
+              <toolbar> 
+                <button label="新建" action="alink" selection="none" alink="alink://ime.AppWindow/EntityForm?{selection:&quot;none&quot;,entityUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.49B45721ED2E&quot;,formUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.E61D2FB6D69A&quot;,action:&quot;create&quot;}"/>  
+                <button label="编辑" action="alink" selection="single" alink="alink://ime.AppWindow/EntityForm?{selection:&quot;single&quot;,entityUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.49B45721ED2E&quot;,formUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.E61D2FB6D69A&quot;,action:&quot;edit&quot;}"/>  
+                <button label="删除" action="delete" selection="single"/> 
+              </toolbar>  
+              <xmlQuery version="2.0" name="" label=""> 
+                <select domainScope="true"> 
+                  <other label="其他" uid="other" name="other"/>  
+                  <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.49B45721ED2E" name="AMS_Bank" label="银行" alias="a0" selectAll="true" isBranch="true"> 
+                    <field uid="sys_0" name="id" label="编号" type="long"/>  
+                    <field uid="sys_1" name="domainId" label="域ID" type="long"/>  
+                    <field uid="id_1" name="name" label="名称" type="string"/>  
+                    <field uid="id_2" name="bank_code" label="代码" type="string"/>  
+                    <field uid="id_3" name="short_name" label="简称" type="string"/>  
+                    <field uid="id_4" name="its_bank_code" label="ITS银行代码" type="string"/>  
+                    <field uid="id_5" name="logo" label="LOGO" type="image"/>  
+                    <field uid="id_6" name="en_bank_code" label="银行代码(英文)" type="string"/> 
+                  </Entity> 
+                </select>  
+                <where> 
+                  <exp type="2"> 
+                    <exp type="19" valueType="1" option="true" rightType="param" right="bank_code" leftEntity="AMS_Bank" leftField="bank_code" uid="exp0"/>  
+                    <exp type="19" valueType="1" option="true" rightType="param" right="short_name" leftEntity="AMS_Bank" leftField="short_name" uid="exp1"/>  
+                    <exp type="19" valueType="1" option="true" rightType="param" right="name" leftEntity="AMS_Bank" leftField="name" uid="exp2"/> 
+                  </exp> 
+                </where>  
+                <other> 
+                  <groupBy label="Group By"/>  
+                  <orderBy label="Order By"> 
+                    <field uid="sys_0" name="id" label="编号" type="long" entity="AMS_Bank" order="desc"/> 
+                  </orderBy> 
+                </other> 
+              </xmlQuery>  
+              <conditionForm> 
+                <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2"> 
+                  <TabNavigator> 
+                    <tab label="default"> 
+                      <Label width="60" height="25" text="代码:" propertyUID="id_2" x="2" y="3" style=""/>  
+                      <TextInput name="bank_code" width="119" height="25" x="63" y="3"/>  
+                      <Label width="82" height="25" text="简称:" propertyUID="id_3" x="183" y="3" style=""/>  
+                      <TextInput name="short_name" width="139" height="25" x="243" y="3"/>  
+                      <Label width="82" height="25" text="ITS银行代码:" propertyUID="id_4" x="383" y="2" style=""/>  
+                      <TextInput name="its_bank_code" width="119" height="25" x="463" y="3"/>  
+                      <Label width="82" height="25" text="名称:" propertyUID="id_1" x="583" y="2" style=""/>  
+                      <TextInput name="name" width="100" height="25" x="643" y="3"/> 
+                    </tab> 
+                  </TabNavigator> 
+                </Window> 
+              </conditionForm>  
+              <StatSetting/>  
+              <queryEvent/> 
+            </EntityQuery>

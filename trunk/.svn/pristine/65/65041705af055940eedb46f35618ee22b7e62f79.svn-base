@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "PUBLIC" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class entity-name="AMS_PlatformSequenceId" table="DYNA_AMS_PlatformSequenceId">
+    <id name="id" type="long">
+      <generator class="native"/>
+    </id>
+    <property name="domainId" not-null="false" type="long" index="IDX_DOMAINID"/>
+    <property name="platform_Id" not-null="false" type="string" length="100"/>
+    <property name="id_Number" not-null="false" type="long"/>
+    <property name="id_Length" not-null="false" type="long"/>
+    <property name="platform_Code" not-null="false" type="long"/>
+    <property name="business_Name" not-null="false" type="string" length="100"/>
+    <property name="createTime" not-null="false" type="timestamp" length="100"/>
+    <property name="shortTime" not-null="false" type="long"/>
+  </class>
+</hibernate-mapping>

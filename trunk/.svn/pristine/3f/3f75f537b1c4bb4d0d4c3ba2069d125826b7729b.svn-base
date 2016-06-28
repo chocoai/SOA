@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Report label="会员充值统计" name="会员充值统计" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.9462BB25EC89" nodeID="868"> 
+            <dataSource> 
+              <xmlQuery version="2.0" uid="313C7753-1AAB-458C-9942-C34FDDB5474E" name="queryAccountLog" label="queryAccountLog"> 
+                <select domainScope="true"> 
+                  <other label="其他" uid="other" name="other"> 
+                    <field name="sum(trade_money)" uid="other0" fieldType="otherField" MySQLName="" SQLServerName="" OracleName="" label="交易金额" alias="sumMoney"/> 
+                  </other>  
+                  <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.029E3085EFF8" name="AMS_TradeLog" label="交易日志" alias="a0" selectAll="false"> 
+                    <field uid="id_53" name="target_member_name" label="目标名称" type="string" entity="AMS_TradeLog"/> 
+                  </Entity>  
+                  <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.E6A56E2194B0" name="AMS_Member" label="会员" alias="a1" selectAll="false"> 
+                    <field uid="id_4" name="phone" label="手机" type="string" entity="AMS_Member"/> 
+                  </Entity> 
+                </select>  
+                <where> 
+                  <exp type="2"> 
+                    <exp type="5" valueType="3" option="true" leftEntity="AMS_AccountTradeLog" leftField="trade_type" uid="exp0" rightType="val" right="1"/>  
+                    <exp type="7" valueType="7" option="true" rightType="param" right="start_trade_date" leftEntity="AMS_AccountTradeLog" leftField="trade_time" uid="exp2"/>  
+                    <exp type="11" valueType="7" option="true" rightType="param" right="end_trade_date" leftEntity="AMS_AccountTradeLog" leftField="trade_time" uid="exp3"/>  
+                    <exp type="5" valueType="1" option="true" leftEntity="AMS_TradeLog" leftField="target_userId" uid="exp1" rightType="prop" rightEntity="AMS_Member" rightField="userId"/> 
+                  </exp> 
+                </where>  
+                <other> 
+                  <groupBy label="Group By"> 
+                    <field uid="id_53" name="target_member_name" label="目标名称" type="string" entity="AMS_TradeLog"/>  
+                    <field uid="id_4" name="phone" label="手机" type="string" entity="AMS_Member"/> 
+                  </groupBy>  
+                  <orderBy label="Order By"/> 
+                </other> 
+              </xmlQuery>  
+              <other label="其他" name="other" uid="other"> 
+                <field name="sumAllTradeMoney" label="合计" calcexp="" uid="field0"/>  
+                <field name="reportdate" label="交易时间" calcexp="" uid="field1"/> 
+              </other> 
+            </dataSource>  
+            <events label="事件"> 
+              <event name="initialize" label="初始化事件"/>  
+              <event name="preQuery" label="查询前事件"/>  
+              <event name="postQuery" label="查询后事件"><![CDATA[var queryAccountLog = report.getDataSource("queryAccountLog");
+var other = report.getDataSource("other");
+if(other == null)
+	other = {};
+
+var allTradeMoney = 0;
+for(var i=0;i<queryAccountLog.length;i++){
+	var tradeLog/*:$Entity.AMS_AccountTradeLog*/ = queryAccountLog[i].AMS_AccountTradeLog;
+	allTradeMoney += Number(queryAccountLog[i].other.sumMoney);
+	queryAccountLog[i].other.sumMoney = Number(queryAccountLog[i].other.sumMoney/100).toFixed(2);
+}
+
+other.sumAllTradeMoney = Number(allTradeMoney/100).toFixed(2);
+var qc = report.getQueryCondition();
+var beginDate = qc.start_trade_date;
+var endDate = qc.end_trade_date;
+other.reportdate = "交易时间：" + Util.formatDate(beginDate,"yyyy-MM-dd") + "至" +Util.formatDate(endDate,"yyyy-MM-dd");
+report.setDataSource("other", other);
+report.setDataSource("queryAccountLog", queryAccountLog);
+]]></event>  
+              <event name="reportCreated" label="报表生成事件"/>  
+              <event name="printed" label="打印事件" systemEvent="true"/> 
+            </events>  
+            <Document> 
+              <text x="289" y="118" uid="346BCCEA-F63B-4008-914E-BD2EBEA5393B" width="226" height="38"><![CDATA[<HTML><BODY><P><SPAN STYLE="font-family:microsoft yahei;font-size:26;">会员充值情况统计</SPAN></P></BODY></HTML>]]></text>  
+              <table width="640" height="102" headRow="0" fixedY="false" tailRow="0" name="" x="100" y="221" uid="4727118b-e66e-413e-9214-44fe3521167b"> 
+                <tr> 
+                  <td width="236" height="35" rowIndex="0" colIndex="0" sameMerge="" mergeExp="" href="" viewMode="" textAlign="center" fontSize="20" fillColor="#FFC000"><![CDATA[会员名称]]></td>  
+                  <td width="144" height="35" rowIndex="0" colIndex="1" sameMerge="" mergeExp="" href="" viewMode="" textAlign="center" fontSize="20" fillColor="#FFFFFF"><![CDATA[手机号码]]></td>  
+                  <td width="260" height="35" rowIndex="0" colIndex="2" sameMerge="" mergeExp="" href="" viewMode="" textAlign="center" fontSize="20" fillColor="#FFFFFF"><![CDATA[充值金额]]></td> 
+                </tr>  
+                <tr> 
+                  <td width="236" height="30" rowIndex="1" colIndex="0" dataSource="queryAccountLog" labelField="AMS_TradeLog.target_member_name" dataField="AMS_TradeLog.target_member_name" fillMode="1" sameMerge="" mergeExp="" href="" viewMode="" textAlign="center" fillColor="#FFFFFF" fontSize="18"><![CDATA[目标名称]]></td>  
+                  <td width="144" height="30" rowIndex="1" colIndex="1" textAlign="center" fillColor="#FFFFFF" sameMerge="" mergeExp="" href="" viewMode="" fontSize="18" dataSource="queryAccountLog" labelField="AMS_Member.phone" dataField="AMS_Member.phone" fillMode="1"><![CDATA[手机]]></td>  
+                  <td width="260" height="30" rowIndex="1" colIndex="2" dataSource="queryAccountLog" labelField="other.sumMoney" dataField="other.sumMoney" fillMode="1" textAlign="center" fillColor="#FFFFFF" sameMerge="" mergeExp="" href="" viewMode="" fontSize="18"><![CDATA[交易金额]]></td> 
+                </tr>  
+                <tr> 
+                  <td width="236" height="37" rowIndex="2" colIndex="0" sameMerge="" mergeExp="" href="" viewMode="" textAlign="center" fillColor="#FFC000" fontSize="20"><![CDATA[合计]]></td>  
+                  <td width="144" height="37" rowIndex="2" colIndex="1" textAlign="center" fontSize="18" sameMerge="" mergeExp="" href="" viewMode="" fillColor="#FFFFFF"><![CDATA[]]></td>  
+                  <td width="260" height="37" rowIndex="2" colIndex="2" textAlign="center" fontSize="18" sameMerge="" mergeExp="" href="" viewMode="" fillColor="#FFFFFF"><![CDATA[${other.sumAllTradeMoney}]]></td> 
+                </tr> 
+              </table>  
+              <text uid="2C49C3E7-6560-48BE-8DEA-AFF0B3B54393" x="104" y="197" width="324" height="30"><![CDATA[<HTML><BODY><P><SPAN STYLE="font-size:18;">${other.reportdate}</SPAN></P></BODY></HTML>]]></text> 
+            </Document>  
+            <conditionForm> 
+              <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2"> 
+                <TabNavigator> 
+                  <tab label="default"> 
+                    <Label label="Label" text="交易时间：" x="3" y="3" width="100" height="24" style=""/>  
+                    <DateField label="DateField" x="63" y="3" width="159" height="24" required="true" name="start_trade_date"/>  
+                    <DateField label="DateField" x="243" y="3" width="159" height="24" required="true" name="end_trade_date"/>  
+                    <Label label="Label" text="至" x="223" y="3" width="100" height="24" style=""/> 
+                  </tab> 
+                </TabNavigator> 
+              </Window> 
+            </conditionForm> 
+          </Report>

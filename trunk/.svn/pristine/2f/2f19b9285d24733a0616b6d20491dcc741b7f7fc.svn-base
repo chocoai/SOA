@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "PUBLIC" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class entity-name="AMS_Delivery" table="DYNA_AMS_Delivery">
+    <id name="id" type="long">
+      <generator class="native"/>
+    </id>
+    <property name="domainId" not-null="false" type="long" index="IDX_DOMAINID"/>
+    <property name="name" not-null="false" type="string" length="200"/>
+    <property name="code" not-null="false" type="string" length="100"/>
+    <property name="orderNo" not-null="false" type="long"/>
+    <property name="delivery_number" not-null="false" type="long"/>
+    <property name="type" not-null="false" type="long"/>
+  </class>
+</hibernate-mapping>

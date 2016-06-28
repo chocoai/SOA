@@ -1,0 +1,326 @@
+package bps.external.tradecommand;
+
+import apf.util.EntityManagerUtil;
+import apf.work.QueryWork;
+import apf.work.TransactionWork;
+import bps.common.BizException;
+import bps.common.Constant;
+import bps.common.ErrorCode;
+import bps.common.RabbitProducerManager;
+import bps.member.Member;
+import bps.order.Command.Command;
+import bps.order.OrderServiceImpl;
+import bps.process.Extension;
+import com.alibaba.dubbo.common.utils.StringUtils;
+import com.kinorsoft.ams.ITradeCommand;
+import com.kinorsoft.ams.TradeCommandManager;
+import ime.core.Environment;
+import ime.security.util.TripleDES;
+import org.apache.log4j.Logger;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+/**
+ * Created by Administrator on 2016/5/19.
+ */
+public class DaikouCommand implements ITradeCommand {
+    private static Logger logger = Logger.getLogger(DaikouCommand.class);
+    private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+    @Override
+    public String getPayInterfaceNo() {
+        return Constant.PAY_INTERFACE_UNION_DAIKOU;
+    }
+
+    @Override
+    public Map<String, Object> doCommand(Map<String, Object> command) throws Exception {
+        logger.info("DaikouCommand.doCommand=" + command);
+
+        //获取参数
+        String commandNo = (String)command.get("command_no");
+        Long amount = (Long)command.get("trade_money");
+        String accNoEncrypt = (String)command.get("accountNo_encrypt");
+        String orgNo = (String)command.get("orgNo");
+        String userId = (String)command.get("target_userId");
+        String phone = (String)command.get("phone");
+        Date requestTime = new Date();
+
+        try{
+            //必要的检查
+            if(StringUtils.isBlank(commandNo)){
+                throw new BizException(ErrorCode.PARAM_ERROR, "指令中command_no为空。");
+            }
+            if(amount == null || amount < 0){
+                throw new BizException(ErrorCode.PARAM_ERROR, "指令中amount不正确");
+            }
+            if(StringUtils.isBlank(accNoEncrypt)){
+                throw new BizException(ErrorCode.PARAM_ERROR, "指令中accNoEncrypt为空。");
+            }
+            if(StringUtils.isBlank(orgNo)){
+                throw new BizException(ErrorCode.PARAM_ERROR, "指令中orgNo为空。");
+            }
+            if(StringUtils.isBlank(userId)){
+                throw new BizException(ErrorCode.PARAM_ERROR, "指令中source_userId为空。");
+            }
+            if(StringUtils.isBlank(phone)){
+                throw new BizException(ErrorCode.PARAM_ERROR, "指令中phone为空。");
+            }
+
+            //获取member
+            Member member = new Member();
+            member.setUserId(userId);
+            String identityCardNoEncrypt = member.getIdentity_cardNo_encrypt();
+            String name = member.getName();
+
+            //解密账号和身份证号码
+            String accNo = TripleDES.decrypt(userId + Constant.MEMBER_BANK_ENCODE_KEY, accNoEncrypt);
+            String certifId = TripleDES.decrypt(userId + Constant.MEMBER_BANK_ENCODE_KEY, identityCardNoEncrypt);
+
+            //组装参数
+            Map<String, Object> requestParams = new HashMap<String, Object>();
+            requestParams.put("yunDaikouOrderId", commandNo);
+            requestParams.put("amount", amount);
+            requestParams.put("certifId", certifId);
+            requestParams.put("name", name);
+            requestParams.put("phone", phone);
+            requestParams.put("accNo", accNo);
+            requestParams.put("orgNo", orgNo);
+            requestParams.put("requestTime", requestTime);
+
+            //保存请求的时间，用于查询
+            final Long _commandId = (Long)command.get("id");
+            final Date _requestTime = requestTime;
+            EntityManagerUtil.execute(new TransactionWork<String>() {
+
+                @Override
+                public String doTransaction(Session session, Transaction transaction) throws Exception {
+                    Map<String, Object> extParams = new HashMap();
+                    extParams.put("requestTime", _requestTime);
+                    Command.saveRequstTime(_commandId, extParams, session);
+
+                    return null;
+                }
+            });
+
+            //请求外部接口
+            Map<String, String> result;
+            try{
+                logger.info("请求代扣的参数=" + requestParams);
+                result = Extension.daikouService.daikou(requestParams);
+                logger.info("请求代扣返回=" + result);
+            }catch(Exception e){
+                logger.error(e.getMessage(), e);
+
+                //为防止类似超时的错误，主动进行异步查询
+                DaikouQueryTradeResult daikouQueryTradeResult = new DaikouQueryTradeResult(orgNo, requestTime, null, commandNo);
+                daikouQueryTradeResult.start();
+
+                throw e;
+            }
+
+            //对返回结果做处理
+            Map<String, Object> ret = handleResponse(_commandId, commandNo, false, orgNo, requestTime, result);
+            logger.info("handleResponse ret=" + ret);
+
+            return ret;
+        }catch(Exception e){
+            logger.error(e.getMessage(), e);
+            throw e;
+        }
+    }
+
+    @Override
+    public Map<String, Object> doCommands(List<Map<String, Object>> list) throws Exception {
+        return null;
+    }
+
+    @Override
+    public Map<String, Object> undoCommand(Map<String, Object> command) throws Exception {
+        logger.info("DaikouCommand.undoCommand=" + command);
+
+        //获取参数
+        String commandNo = (String)command.get("command_no");
+        Long amount = (Long)command.get("trade_money");
+        String orgNo = (String)command.get("orgNo");
+        String oriQueryId = (String)command.get("out_trade_id");
+        Date requestTime = new Date();
+
+        try{
+            //必要的检查
+            if(StringUtils.isBlank(commandNo)){
+                throw new BizException(ErrorCode.PARAM_ERROR, "指令中command_no为空。");
+            }
+            if(amount == null || amount < 0){
+                throw new BizException(ErrorCode.PARAM_ERROR, "指令中amount不正确");
+            }
+            if(StringUtils.isBlank(orgNo)){
+                throw new BizException(ErrorCode.PARAM_ERROR, "指令中orgNo为空");
+            }
+            if(StringUtils.isBlank(oriQueryId)){
+                throw new BizException(ErrorCode.PARAM_ERROR, "指令中oriQueryId为空");
+            }
+
+            //组装参数
+            Map<String, Object> requestParams = new HashMap<String, Object>();
+            requestParams.put("orgNo", orgNo);
+            requestParams.put("requestTime", requestTime);
+            requestParams.put("commandNo", commandNo);
+            requestParams.put("oriQueryId", oriQueryId);
+            requestParams.put("amount", amount);
+
+            //保存请求的时间，用于查询
+            final Long _commandId = (Long)command.get("id");
+            final Date _requestTime = requestTime;
+            EntityManagerUtil.execute(new TransactionWork<String>() {
+
+                @Override
+                public String doTransaction(Session session, Transaction transaction) throws Exception {
+                    Map<String, Object> extParams = new HashMap();
+                    extParams.put("requestTime", _requestTime);
+                    Command.saveRefundRequstTime(_commandId, extParams, session);
+
+                    return null;
+                }
+            });
+
+            //请求外部接口
+            Map<String, String> result;
+            try{
+                logger.info("代扣退款参数=" + requestParams);
+                result = Extension.daikouService.refund(requestParams);
+                logger.info("代扣退款返回=" + result);
+            }catch(Exception e){
+                logger.error(e.getMessage(), e);
+
+                //为防止类似超时的错误，主动进行异步查询
+                DaikouQueryTradeResult daikouQueryTradeResult = new DaikouQueryTradeResult(orgNo, requestTime, null, commandNo);
+                daikouQueryTradeResult.start();
+
+                throw e;
+            }
+
+            //对返回结果做处理
+            Map<String, Object> ret = handleResponse(_commandId, commandNo, true, orgNo, requestTime, result);
+            logger.info("handleResponse ret=" + ret);
+
+            return ret;
+        }catch(Exception e){
+            logger.error(e.getMessage(), e);
+            throw e;
+        }
+    }
+
+    @Override
+    public Map<String, Object> undoCommands(List<Map<String, Object>> list) throws Exception {
+        return null;
+    }
+
+    @Override
+    public Map<String, Object> calculateFees(Map<String, Object> map) throws Exception {
+        return null;
+    }
+
+    /**
+     *
+     * @param commandId
+     * @param commandNo
+     * @param isUndoCommand
+     * @param rspData
+     * @return
+     * @throws Exception
+     */
+    public Map<String, Object> handleResponse(Long commandId, String commandNo, boolean isUndoCommand, String orgNo, Date requestTime, Map<String, String> rspData) throws Exception{
+        Map<String, Object> doCommandResultMap = new HashMap();
+
+        String respCode = rspData.get("respCode");
+        String respMsg = rspData.get("respMsg");
+        String queryId = rspData.get("queryId");
+
+        if(("00").equals(respCode)){
+            doCommandResultMap.put("command_result", CommandResult.PendingStop);
+            doCommandResultMap.put("err_msg1",	 respMsg);
+
+            saveOutTradeId(commandId, queryId, isUndoCommand, null);
+
+            //延迟发送至队列，查询订单状态，如果订单状态仍为进行中，则进行查询
+            long delayMillisecond = 1000 * 60 * 10;   //延迟10分钟
+            String message = orgNo + "|" + commandNo + "|" + sdf.format(requestTime) + "|" + queryId;
+            String daikouOrderQueryName = Environment.instance().getSystemProperty("rabbitmq.queue_name.daikouOrder");
+            RabbitProducerManager rpm = RabbitProducerManager.getInstance();
+            rpm.send(daikouOrderQueryName+"_exc", daikouOrderQueryName, null, message, delayMillisecond);
+
+            return doCommandResultMap;
+        }else if(("03").equals(respCode)||
+                ("04").equals(respCode)||
+                ("05").equals(respCode)){
+
+            doCommandResultMap.put("command_result", CommandResult.PendingStop);
+            doCommandResultMap.put("err_msg1",	 respMsg);
+
+            saveOutTradeId(commandId, queryId, isUndoCommand, null);
+
+            //异步发起查询
+            DaikouQueryTradeResult daikouQueryTradeResult = new DaikouQueryTradeResult(orgNo, requestTime, queryId, commandNo);
+            daikouQueryTradeResult.start();
+
+            return doCommandResultMap;
+        }else{
+            doCommandResultMap.put("command_result", CommandResult.FailStop);
+            doCommandResultMap.put("err_msg1",	 respMsg);
+
+            OrderServiceImpl orderServiceImpl = new OrderServiceImpl();
+            orderServiceImpl.closeCommandOrder(commandNo, null);
+
+            return doCommandResultMap;
+        }
+    }
+
+    /**
+     * 保存外部流水号
+     * @param commandId
+     * @param queryId
+     * @param extParams
+     * @throws Exception
+     */
+    private void saveOutTradeId(Long commandId, String queryId, boolean isUndoCommand, Map<String, Object> extParams) throws Exception{
+        final Long _commandId = commandId;
+        final String _queryId = queryId;
+        final boolean _isUndoCommand = isUndoCommand;
+
+        EntityManagerUtil.execute(new QueryWork<String>() {
+            @Override
+            public String doQuery(Session session) throws Exception {
+                if(_isUndoCommand){  //退款
+                    Command.saveRefundOutTradeId(_commandId, _queryId, null, session);
+                }else{  //代扣
+                    Command.saveOutTradeId(_commandId, _queryId, null, session);
+                }
+
+                return null;
+            }
+        });
+    }
+
+    public void daikouPending(Map<String, Object> params) throws Exception{
+        logger.info("daikouPending params=" + params);
+
+        TradeCommandManager.setCommandState(params);
+    }
+
+    public void daikouFail(Map<String, Object> params) throws Exception{
+        logger.info("daikouFail params=" + params);
+
+        TradeCommandManager.setCommandState(params);
+    }
+
+    public void daikouSuccess(Map<String, Object> params) throws Exception{
+
+
+    }
+}

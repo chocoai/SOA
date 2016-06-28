@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityQuery name="问题列表" label="问题列表" note="" share="false" multiselect="false" editable="false" autopaging="true" pagingMode="VirtualizingPaging" virtualizingPagingEnabled="true" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.F52450743D2B" nodeID="772"> 
+              <queryEntities> 
+                <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.5DC24199DC2C" name="AMS_QuestionList" label="安全问题列表" alias="a0" master="true"/> 
+              </queryEntities>  
+              <DataGrid> 
+                <color/>  
+                <column name="q_level" label="序号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.5DC24199DC2C.id_2" width="100" isBranch="false" dataField="AMS_QuestionList$q_level"/>  
+                <column name="q_name" label="名称" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.5DC24199DC2C.id_1" width="418" isBranch="false" dataField="AMS_QuestionList$q_name"/> 
+              </DataGrid>  
+              <editState/>  
+              <toolbar> 
+                <button label="新建" action="alink" selection="none" visiable="true" Button="System.Windows.Controls.Button: 新建" param="{   &quot;target&quot;: &quot;ime.AppWindow&quot;,   &quot;form&quot;: &quot;EntityForm&quot;,   &quot;param&quot;: {     &quot;action&quot;: &quot;create&quot;,     &quot;entityUID&quot;: &quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.5DC24199DC2C&quot;,     &quot;formUID&quot;: &quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.90C2AB00DAB8&quot;,     &quot;formState&quot;: &quot;state1&quot;   } }" alink="alink://ime.AppWindow/EntityForm?{action:&quot;create&quot;,entityUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.5DC24199DC2C&quot;,formUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.90C2AB00DAB8&quot;,formState:&quot;state1&quot;}"/>  
+                <button label="编辑" action="alink" selection="single" visiable="true" Button="System.Windows.Controls.Button: 编辑" param="{   &quot;target&quot;: &quot;ime.AppWindow&quot;,   &quot;form&quot;: &quot;EntityForm&quot;,   &quot;param&quot;: {     &quot;action&quot;: &quot;edit&quot;,     &quot;entityUID&quot;: &quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.5DC24199DC2C&quot;,     &quot;formUID&quot;: &quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.90C2AB00DAB8&quot;,     &quot;formState&quot;: &quot;state2&quot;   } }" alink="alink://ime.AppWindow/EntityForm?{action:&quot;edit&quot;,entityUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.5DC24199DC2C&quot;,formUID:&quot;DE851B3A-ACD5-484B-B166-312B7CFFEA65.90C2AB00DAB8&quot;,formState:&quot;state2&quot;}"/>  
+                <button label="删除" action="delete" selection="single"/> 
+              </toolbar>  
+              <xmlQuery version="2.0" name="" label=""> 
+                <select domainScope="true"> 
+                  <other label="其他" uid="other" name="other"/>  
+                  <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.5DC24199DC2C" name="AMS_QuestionList" label="安全问题列表" alias="a0"> 
+                    <field uid="sys_0" name="id" label="编号" type="long"/>  
+                    <field uid="sys_1" name="domainId" label="域ID" type="long"/>  
+                    <field uid="id_1" name="q_name" label="名称" type="string"/>  
+                    <field uid="id_2" name="q_level" label="序号" type="long" entity="AMS_QuestionList"/>  
+                    <field uid="id_3" name="q_group" label="分组" type="long"/> 
+                  </Entity> 
+                </select>  
+                <where> 
+                  <exp type="2"/> 
+                </where>  
+                <other> 
+                  <groupBy label="Group By"/>  
+                  <orderBy label="Order By"> 
+                    <field uid="id_2" name="q_level" label="序号" type="long" entity="AMS_QuestionList" order="desc"/> 
+                  </orderBy> 
+                </other> 
+              </xmlQuery>  
+              <conditionForm> 
+                <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2"> 
+                  <TabNavigator> 
+                    <tab label="default"/> 
+                  </TabNavigator> 
+                </Window> 
+              </conditionForm>  
+              <StatSetting/>  
+              <queryEvent/> 
+            </EntityQuery>

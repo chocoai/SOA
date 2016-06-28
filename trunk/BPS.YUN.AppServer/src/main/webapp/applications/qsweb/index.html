@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script type='text/javascript' src="lib/jquery-1.11.0.js"></script>
+
+	<script>
+		//检测浏览器版本
+		var matched, browser;
+
+		function uaMatch( ua ) {
+			ua = ua.toLowerCase();
+
+			var match = /(chrome)[ \/]([\w.]+)/.exec( ua ) ||
+				/(webkit)[ \/]([\w.]+)/.exec( ua ) ||
+				/(opera)(?:.*version|)[ \/]([\w.]+)/.exec( ua ) ||
+				/(msie) ([\w.]+)/.exec( ua ) ||
+				ua.indexOf("compatible") < 0 && /(mozilla)(?:.*? rv:([\w.]+)|)/.exec( ua ) ||
+				[];
+
+			return {
+				browser: match[ 1 ] || "",
+				version: match[ 2 ] || "0"
+			};
+		};
+		function getInternetExplorerVersion(){
+		  var rv = -1;
+		  if (navigator.appName == 'Microsoft Internet Explorer'){
+			var ua = navigator.userAgent;
+			var re  = new RegExp("MSIE ([0-9]{1,}[\.0-9]{0,})");
+			if (re.exec(ua) != null)
+			  rv = parseFloat( RegExp.$1 );
+		  }
+		  else if (navigator.appName == 'Netscape'){
+			var ua = navigator.userAgent;
+			var re  = new RegExp("Trident/.*rv:([0-9]{1,}[\.0-9]{0,})");
+			if (re.exec(ua) != null)
+			  rv = parseFloat( RegExp.$1 );
+		  }
+		  return rv;
+		}
+
+		matched = uaMatch( navigator.userAgent );
+		browser = {};
+
+		if ( matched.browser ) {
+			browser[ matched.browser ] = true;
+			browser.version = matched.version;
+		}
+		//在IE11中通过uaMatch会检测到错误的内容(matched.browser = mozilla),通过以下方法进行纠正
+		var ieVersion = getInternetExplorerVersion();
+		if( ieVersion > 0 ){
+			browser.mozilla = false;
+			browser.msie = true;
+			browser.version = ieVersion;
+		}
+		// Chrome is Webkit, but Webkit is also Safari.
+		if ( browser.chrome ) {
+			browser.webkit = true;
+		} else if ( browser.webkit ) {
+			browser.safari = true;
+		}
+
+		if( browser.msie && browser.version < 10 )
+			window.location.href = "browsers.html";
+		else
+			window.location.href = "login.jsp";
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

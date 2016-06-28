@@ -1,0 +1,225 @@
+package bps.external.application.trade;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import bps.external.application.Extension;
+import org.apache.commons.lang.StringUtils;
+import org.apache.log4j.Logger;
+
+import com.kinorsoft.allinpay.interfaces.TranxServiceImpl;
+
+import bps.external.application.service.trade.TltDaiFuService;
+
+public class TltDaiFuServiceImpl implements TltDaiFuService {
+	private static Logger logger = Logger.getLogger(TltDaiFuServiceImpl.class.getName());
+
+	/**
+	 *	单笔代付
+	 * @param  tradeNo        交易流水号
+	 * @param  accountName    开户人
+	 * @param  accountNo      卡号
+	 * @param  tradeMoney     交易金额
+	 * @param  bankCode       银行代码
+	 * @param  cardType       卡类型
+	 * @param  accountProp    账户属性
+	 * @param  extParams	  扩展参数
+     * @return map 			支付结果
+     * @throws Exception
+     */
+	@SuppressWarnings("static-access")
+	public Map<String, Object> singleDaiFu(String tradeNo, String accountName,
+			String accountNo, Long tradeMoney, String bankCode,
+			Long cardType, Long accountProp, Map<String, Object> extParams)
+			throws Exception {
+		Map<String, Object> result;
+		if(tradeNo==null){
+			throw new Exception("tradeNo参数不能为空！");
+		}if(accountName==null){
+			throw new Exception("accountName参数不能为空！");
+		}if(accountNo==null){
+			throw new Exception("accountNo参数不能为空！");
+		}if(tradeMoney==null){
+			throw new Exception("tradeMoney参数不能为空！");
+		}if(bankCode==null){
+			throw new Exception("bankCode参数不能为空！");
+		}if(cardType==null){
+			throw new Exception("cardType参数不能为空！");
+		}if(accountProp==null){
+			throw new Exception("accountProp参数不能为空！");
+		}if(extParams == null || extParams.isEmpty()){
+			throw new Exception("extParams参数不能为空！");
+		}
+		
+		String orgNo = (String)extParams.get("orgNo");
+		if(orgNo == null || "".equals(orgNo)){
+			throw new Exception("orgNo参数不能为空！");
+		}
+		
+		Map<String, String> reqParam = new HashMap<>();
+		  reqParam.put("REQ_SN",          tradeNo);
+//          reqParam.put("BUSINESS_CODE",   "09400");
+		  reqParam.put("BUSINESS_CODE",   "09900");
+		  
+          reqParam.put("ACCOUNT_NAME",    accountName);
+          reqParam.put("ACCOUNT_NO",      accountNo);
+          reqParam.put("AMOUNT",          String.valueOf(tradeMoney));
+          reqParam.put("BANK_CODE",       bankCode);
+      //  reqParam.put("BANK_CODE",       "103");
+          reqParam.put("ACCOUNT_TYPE",    "0" + cardType);
+          reqParam.put("ACCOUNT_PROP",    accountProp.toString());
+          reqParam.put("ORG_NO", orgNo);
+		try {
+			//测试环境或者开发环境，直接返回成功
+			String environment = Extension.paramMap.get("environment");
+			if("develop".equals(environment) || "test".equals(environment)){
+				result = new HashMap<>();
+				result.put("RET_CODE1", "0000");
+
+				result.put("ERR_MSG1","");
+				result.put("RET_CODE","0000");
+				result.put("ERR_MSG","");
+				result.put("RET_DETAILS","");
+			}else{
+				TranxServiceImpl tranxServiceImpl = new TranxServiceImpl();
+				result = tranxServiceImpl.singleDaiFu(reqParam, false);
+			}
+
+			logger.info("result:" + result);
+		} catch (Exception e) {
+			logger.info(e.getMessage(), e);
+			throw new Exception(e.getMessage());
+		}
+		
+		return result;
+	}
+
+	/**
+	 * 批量代付
+	 * @param  tradeNo        交易流水号(批次号)
+	 * @param  tradeMoney     交易金额
+	 * @param  detailList     交易详细信息
+	 * 				accountName    卡号
+	 * 				bankCode       银行代码
+	 * 				cardType       卡类型
+	 * 				accountProp    账户属性
+	 * 				merchantId     商户号
+	 * 				subTradeNo     子交易流水号（指令号）
+	 * 				subTradeMoney  子交易金额
+	 * 				merchantId     商户号
+	 * @param  extParams		扩展参数
+     * @return map	支付结果
+     * @throws Exception
+     */
+	public Map<String, Object> batchDaiFu(String tradeNo, Long tradeMoney,
+			List<Map<String, Object>> detailList, Map<String, Object> extParams)
+			throws Exception {
+		logger.info("------batchDaiFu start--------");
+		logger.info("tradeNo:"+tradeNo);
+		logger.info("tradeMoney:"+tradeMoney);
+		Map<String, Object> result;
+		if( tradeNo == null ){
+			throw new Exception("tradeNo参数不能为空！");
+		}
+		if ( tradeMoney == null ){
+			throw new Exception("tradeMoney参数不能为空！");
+		}
+		if (detailList == null || detailList.isEmpty() || detailList.size() <= 0 ){
+			throw new Exception("detailList参数不能为空！");
+		}
+		if(extParams == null || extParams.isEmpty()){
+			throw new Exception("extParams参数不能为空！");
+		}
+		String orgNo = (String)extParams.get("orgNo");
+		if(orgNo == null || "".equals(orgNo)){
+			throw new Exception("orgNo参数不能为空！");
+		}
+		Map<String, Object> reqParam = new HashMap<>();
+		reqParam.put("REQ_SN",          tradeNo);
+		reqParam.put("BUSINESS_CODE",   "09900");
+		reqParam.put("TOTAL_ITEM",    	String.valueOf(detailList.size()));
+		reqParam.put("TOTAL_SUM",		String.valueOf(tradeMoney));
+		reqParam.put("DETAIL",       	detailList);
+		reqParam.put("ORG_NO", orgNo);
+		try {
+			TranxServiceImpl tranxServiceImpl = new TranxServiceImpl();
+			result = tranxServiceImpl.batchDaiFushi(reqParam, false);
+
+//			result = new HashMap<>();
+//			result.put("RET_CODE1", "0000");
+//			logger.info("result:" + result);
+
+		} catch (Exception e) {
+			logger.info(e.getMessage(), e);
+			throw new Exception(e.getMessage());
+		}
+		logger.info("------batchDaiFu end--------");
+		return result;
+	}
+
+	/**
+	 * 	查询交易结果
+	 * @param  tradeNo        	交易流水号
+	 * @param  queryNo     	    需要查询的流水号
+	 * @param  extParams		扩展参数
+	 * @return map	交易结果
+     * @throws Exception
+     */
+	public Map<String, Object> queryTradeResult(String tradeNo, String queryNo,
+			Map<String, Object> extParams) throws Exception {
+		Map<String, Object> result;
+		if(tradeNo==null){
+			throw new Exception("instAccCode参数不能为空！");
+		}if(queryNo==null){
+			throw new Exception("queryNo参数不能为空！");
+		}
+		String orgNo = (String)extParams.get("orgNo");
+		if(orgNo == null || "".equals(orgNo)){
+			throw new Exception("orgNo参数不能为空！");
+		}
+		
+		Map<String, String> reqParam = new HashMap<>();
+		 reqParam.put("REQ_SN",          tradeNo);
+		reqParam.put("QUERY_SN", 	queryNo);
+		reqParam.put("ORG_NO", orgNo);
+		
+		try {
+			TranxServiceImpl tranxServiceImpl = new TranxServiceImpl();
+			result = tranxServiceImpl.queryTradeResult(reqParam, false);
+			
+//			Thread.sleep(100000);
+			
+//			result.put("RET_CODE1", "9999");
+//			result.put("ERR_MSG1", "1");
+//			result.put("RET_CODE", "1");
+//			result.put("ERR_MSG", "1");
+//			result.put("TRX_CODE", "100014");
+//			result.put("DETAIL", null);
+		} catch (Exception e) {
+			   logger.info(e.getMessage(),e);
+			     throw new Exception(e.getMessage());
+		}
+		return result;
+	}
+    
+	/**
+	 *获取通联接口对账数据
+	 * @param date	数据
+	 * @return 接口
+	 * @throws Exception
+	 */
+	public String getCheckAccountDate(String date,String piAppConfObjApplicationStr)throws Exception{
+		String accountDate;
+		try {
+			if(StringUtils.isBlank(date))
+				throw new Exception("请传入参数date");
+			TranxServiceImpl ts = new TranxServiceImpl();
+			accountDate = ts.reconciled(date,piAppConfObjApplicationStr);
+		}catch (Exception e) {
+			logger.error(e.getMessage(), e);
+			throw new Exception(e.getMessage());
+		}
+		return accountDate;
+	}
+}

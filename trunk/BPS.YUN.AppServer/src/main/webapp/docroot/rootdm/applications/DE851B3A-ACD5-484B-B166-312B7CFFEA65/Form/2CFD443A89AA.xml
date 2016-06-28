@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityForm name="编号" label="编号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.2CFD443A89AA" nodeID="1141">
+  <formEntity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.8CA46CEAB9AB" />
+  <formState>
+    <state label="基础" uid="state0" basedOn="null" />
+    <state label="新建" uid="state1" basedOn="state0" />
+    <state label="编辑" uid="state2" basedOn="state0" />
+  </formState>
+  <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2">
+    <TabNavigator>
+      <tab label="default">
+        <Label width="82" height="25" text="编号类型:" propertyUID="id_1" x="2" y="3" style="" />
+        <NumericStepper propertyUID="id_1" width="139" height="25" x="63" y="3" toolTip="" />
+        <Label width="82" height="25" text="seq:" propertyUID="id_2" x="203" y="3" style="" />
+        <NumericStepper propertyUID="id_2" width="139" height="25" x="263" y="3" toolTip="" />
+        <Label width="82" height="25" text="名称:" propertyUID="id_3" x="3" y="31" style="" />
+        <TextInput propertyUID="id_3" width="139" height="25" x="63" y="31" />
+        <Label width="82" height="25" text="版本号:" propertyUID="id_4" x="203" y="31" style="" />
+        <NumericStepper propertyUID="id_4" width="139" height="25" x="263" y="31" toolTip="" />
+      </tab>
+    </TabNavigator>
+  </Window>
+  <formEvent />
+</EntityForm>

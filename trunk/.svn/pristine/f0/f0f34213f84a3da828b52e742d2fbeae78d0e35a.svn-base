@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityService>
+  <script label="保存之前" name="preUpdate" type="system" tooltip="实体对象保存之前调用的扩展服务" uid="ext1"><![CDATA[include("ams/Constant.js");
+
+var entity/*:JSEntity*/ = event.getEntity();
+var user_id/*:String*/ = entity.get("userId");
+
+var sb/*:String*/ = "";
+sb = " from AMS_Member where userId = :user_id and id<>:id";
+var query/*:ScriptQuery*/ = service.createHQLQuery(sb);
+query.setString("user_id", user_id);
+query.setLong("id", entity.get("id"));
+var users/*:Array*/ = query.executeQuery();
+
+if(users.length > 0){
+	throw("会员ID已存在，请重新输入！");
+}]]></script>
+  <script label="closeMember" name="closeMember" type="customer" tooltip="自定义扩展服务" uid="ext2"><![CDATA[var member_id/*:Number*/ = param.get("member_id");
+var status/*:Number*/ = 5;
+
+if(member_id == null){
+	throw("请传入参数member_id");
+}
+var sb = "update AMS_Member set user_state =:user_state where id =:id";
+
+var query/*:ScriptQuery*/ = service.createHQLQuery(sb);
+query.setLong("id",member_id);
+query.setLong("user_state",status);
+
+query.executeUpdate();]]></script>
+  <script label="openMember" name="openMember" type="customer" tooltip="自定义扩展服务" uid="ext3"><![CDATA[var member_id/*:Number*/ = param.get("member_id");
+var status/*:Number*/ = 1;
+
+if(member_id == null){
+	throw("请传入参数member_id");
+}
+var sb = "update AMS_Member set user_state =:user_state where id =:id";
+
+var query/*:ScriptQuery*/ = service.createHQLQuery(sb);
+query.setLong("id",member_id);
+query.setLong("user_state",status);
+
+query.executeUpdate();
+
+sb = "update AMS_SafetyLevel set trigger_times =:trigger_times where member_id =:member_id";
+
+query/*:ScriptQuery*/ = service.createHQLQuery(sb);
+query.setLong("member_id",member_id);
+query.setLong("trigger_times",0);
+
+query.executeUpdate();]]></script>
+</EntityService>

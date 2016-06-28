@@ -1,0 +1,36 @@
+<script id="Sample_Template" type="text/x-handlebars-template">
+    <div>
+		<input style="width:100%" type="text" name="value" ></input>
+    </div>
+</script>
+
+<script language="JavaScript" type="text/javascript">
+
+var Sample = new js.Class("Sample", HtmlControl, function(){
+	this.container = null;
+	//构造函数
+	this.initialize = function(){
+	}
+	//获取控件的值，定义为public方法，实现IFormComponent中的getValue方法
+	js.$public.getValue = function(){
+		return $("input[name=value]", this.container)[0].value;
+	}
+	//设置控件的值，定义为public方法，实现IFormComponent中的setValue方法
+	js.$public.setValue = function(value){
+		$("input[name=value]", this.container)[0].value = value;
+	}
+
+	js.$public.render = function(container){
+		this.container = container;
+		var source   = $("#Sample_Template").html();
+		var template = Handlebars.compile(source);
+		container.html(template(this));
+		
+		var control = this;
+		$( "input[name=value]", this.container ).change(function() {
+			control.fireChangeEvent();
+		});
+	}
+});
+
+</script>

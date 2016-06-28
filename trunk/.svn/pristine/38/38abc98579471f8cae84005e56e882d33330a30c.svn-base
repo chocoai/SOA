@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityQuery name="联系人查询" label="联系人查询" note="" share="false" multiselect="false" editable="false" autopaging="false" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.3D484F9D2544" nodeID="809"> 
+              <queryEntities> 
+                <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.29A0352C1F08" name="AMS_LinkMan" label="联系人" alias="a0" master="true"/> 
+              </queryEntities>  
+              <DataGrid> 
+                <color/>  
+                <column name="name" label="名称" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.29A0352C1F08.id_1" width="100" isBranch="false" editable="" sortable="" textAlign="" dataField="AMS_LinkMan$name"/>  
+                <column name="user_name" label="用户名" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.29A0352C1F08.id_2" width="100" isBranch="false" editable="" sortable="" textAlign="" dataField="AMS_LinkMan$user_name"/>  
+                <column name="bank_name" label="开户银行" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.29A0352C1F08.id_3" width="150" isBranch="false" editable="" sortable="" textAlign="" dataField="AMS_LinkMan$bank_name"/>  
+                <column name="bank_accountNo" label="银行帐号" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.29A0352C1F08.id_4" width="140" isBranch="false" editable="" sortable="" textAlign="" dataField="AMS_LinkMan$bank_accountNo"/>  
+                <column name="FM_CreateTime" label="创建时间" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.29A0352C1F08.log_4" width="100" isBranch="false" editable="" sortable="" textAlign="" dataField="AMS_LinkMan$FM_CreateTime"/> 
+              </DataGrid>  
+              <editState/>  
+              <toolbar/>  
+              <xmlQuery version="2.0" name="" label=""> 
+                <select domainScope="true"> 
+                  <other label="其他" uid="other" name="other"/>  
+                  <Entity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.29A0352C1F08" name="AMS_LinkMan" label="联系人" alias="a0"> 
+                    <field uid="sys_0" name="id" label="编号" type="long"/>  
+                    <field uid="sys_1" name="domainId" label="域ID" type="long"/>  
+                    <field uid="log_0" name="FM_CreatePrinId" label="创建者ID" type="long"/>  
+                    <field uid="log_1" name="FM_CreatePrinName" label="创建者" type="string"/>  
+                    <field uid="log_2" name="FM_UpdatePrinId" label="更新者ID" type="long"/>  
+                    <field uid="log_3" name="FM_UpdatePrinName" label="更新者" type="string"/>  
+                    <field uid="log_4" name="FM_CreateTime" label="创建时间" type="timestamp"/>  
+                    <field uid="log_5" name="FM_UpdateTime" label="更新时间" type="timestamp"/>  
+                    <field uid="id_1" name="name" label="名称" type="string"/>  
+                    <field uid="id_2" name="user_name" label="用户名" type="string"/>  
+                    <field uid="id_3" name="bank_name" label="开户银行" type="string"/>  
+                    <field uid="id_4" name="bank_accountNo" label="银行帐号" type="string"/>  
+                    <field uid="id_6" name="member" label="会员" type="relation"/> 
+                  </Entity> 
+                </select>  
+                <where> 
+                  <exp type="2"> 
+                    <exp type="5" valueType="3" option="false" leftEntity="AMS_LinkMan" leftField="member_id" uid="exp0" rightType="val" right="$page.master.selectedEntity.id"/>  
+                    <exp type="19" valueType="1" option="true" rightType="param" right="name" leftEntity="AMS_LinkMan" leftField="name" uid="exp1"/>  
+                    <exp type="19" valueType="1" option="true" rightType="param" right="user_name" leftEntity="AMS_LinkMan" leftField="user_name" uid="exp2"/> 
+                  </exp> 
+                </where>  
+                <other> 
+                  <groupBy label="Group By"/>  
+                  <orderBy label="Order By"/> 
+                </other> 
+              </xmlQuery>  
+              <conditionForm> 
+                <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2"> 
+                  <TabNavigator> 
+                    <tab label="default"> 
+                      <Label width="82" height="25" text="名称:" propertyUID="id_1" x="3" y="3" style=""/>  
+                      <TextInput name="name" width="139" height="25" x="43" y="3"/>  
+                      <Label width="82" height="25" text="用户名:" propertyUID="id_2" x="183" y="3" style=""/>  
+                      <TextInput name="user_name" width="139" height="25" x="243" y="3"/> 
+                    </tab> 
+                  </TabNavigator> 
+                </Window> 
+              </conditionForm>  
+              <StatSetting/>  
+              <queryEvent/> 
+            </EntityQuery>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "PUBLIC" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class entity-name="AMS_OrgFee" table="DYNA_AMS_OrgFee">
+    <id name="id" type="long">
+      <generator class="sequence">
+        <param name="sequence">IDSEQ_AMS_OrgFee</param>
+      </generator>
+    </id>
+    <property name="domainId" not-null="false" type="long" index="IDX_DOMAINID"/>
+    <property name="handling_mode" not-null="false" type="long"/>
+    <property name="max_fee" not-null="false" type="long"/>
+    <property name="handling_each" not-null="false" type="long"/>
+    <property name="handling_rate" not-null="false" type="double"/>
+    <property name="min_fee" not-null="false" type="long"/>
+    <property name="handling_type" not-null="false" type="long"/>
+    <property name="trade_type" not-null="false" type="long"/>
+    <property name="sub_trade_type" not-null="false" type="long"/>
+    <property name="orgNo" not-null="false" type="string" length="100"/>
+    <property name="account_type_id" not-null="false" type="long" index="account_type_idx"/>
+    <property name="account_type_label" not-null="false" type="string" length="200"/>
+    <property name="pay_interfaceNo" not-null="false" type="string" length="100"/>
+    <property name="accountNo" not-null="false" type="string" length="100"/>
+    <property name="org_id" not-null="false" type="long" index="org_idx"/>
+    <property name="org_label" not-null="false" type="string" length="200"/>
+    <property name="payInterface_id" not-null="false" type="long" index="payInterface_idx"/>
+    <property name="payInterface_label" not-null="false" type="string" length="200"/>
+    <property name="pay_interface_type" not-null="false" type="long"/>
+    <property name="fee_type" not-null="false" type="long"/>
+  </class>
+</hibernate-mapping>

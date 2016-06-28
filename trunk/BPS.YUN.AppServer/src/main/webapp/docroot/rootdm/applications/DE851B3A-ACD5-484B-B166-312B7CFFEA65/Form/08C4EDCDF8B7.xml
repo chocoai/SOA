@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityForm name="标准账户类型" label="标准账户类型" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.08C4EDCDF8B7" nodeID="508">
+  <formEntity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.62156FFA93F3" />
+  <formState>
+    <state label="基础" uid="state0" basedOn="null">
+      <rule type="required" property="codeNo" label="编号" rule="true" />
+      <rule type="required" property="valid_type" label="有效期类型" rule="true" />
+      <rule type="required" property="name" label="名称" rule="true" />
+      <rule type="enabled" property="account_prop" label="账户属性" rule="false" />
+      <rule type="updateEvent" property="account_prop" label="账户属性" rule="onAccountpropChange" />
+      <rule type="enabled" property="member" label="企业会员" rule="false" />
+    </state>
+    <state label="新建" uid="state1" basedOn="state0">
+      <rule type="value" property="account_prop" label="账户属性" rule="1" />
+      <rule type="enabled" property="account_prop" label="账户属性" rule="false" />
+    </state>
+    <state label="编辑" uid="state2" basedOn="state0" />
+  </formState>
+  <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2">
+    <TabNavigator>
+      <tab label="default">
+        <Label width="82" height="25" text="编号:" propertyUID="id_3" x="3" y="3" style="" />
+        <TextInput propertyUID="id_3" width="159" height="25" x="83" y="4" />
+        <Label width="59" height="25" text="名称:" propertyUID="id_7" x="263" y="3" style="" />
+        <TextInput propertyUID="id_7" width="159" height="25" x="323" y="3" />
+        <Label width="82" height="25" text="有效期类型:" propertyUID="id_4" x="3" y="31" style="" />
+        <ComboBox propertyUID="id_4" width="159" height="25" x="83" y="31" />
+        <Label width="82" height="25" text="账户属性:" propertyUID="id_17" x="243" y="31" style="" />
+        <ComboBox propertyUID="id_17" width="159" height="25" x="323" y="31" />
+        <Label width="119" height="25" text="默认延长时间(日):" propertyUID="id_18" x="3" y="59" style="" />
+        <TextInput propertyUID="id_18" width="119" height="25" x="123" y="59" />
+        <Label width="82" height="25" text="人民币比例:" propertyUID="id_19" x="243" y="59" style="" />
+        <TextInput propertyUID="id_19" width="159" height="25" x="323" y="59" />
+        <Label width="82" height="25" text="应用:" propertyUID="id_25" x="2" y="87" style="" />
+        <EntityField propertyUID="id_25" width="159" height="25" x="83" y="87" changeEvent="getapplication" />
+        <Label label="Label" text="应用ID" x="263" y="87" width="100" height="24" style="" />
+        <TextInput label="TextInput" x="323" y="87" width="159" height="24" name="applicationId" />
+        <Label width="82" height="25" text="企业会员:" propertyUID="id_27" x="2" y="115" style="" />
+        <EntityField propertyUID="id_27" width="159" height="25" x="83" y="115" />
+        <Label width="82" height="25" text="有效期合并:" propertyUID="id_6" x="263" y="113" style="" />
+        <ComboBox propertyUID="id_6" width="139" height="25" x="343" y="113" />
+        <Label width="82" height="25" text="账户集类型:" propertyUID="id_14" x="3" y="143" style="" />
+        <ComboBox propertyUID="id_14" width="159" height="25" x="83" y="143" />
+        <Label width="82" height="25" text="账户类型:" propertyUID="id_28" x="263" y="143" style="" />
+        <ComboBox propertyUID="id_28" width="159" height="25" x="323" y="143" />
+        <Label width="82" height="25" text="单位:" propertyUID="id_30" x="15" y="171" style="" />
+        <TextInput propertyUID="id_30" width="159" height="25" x="83" y="171" />
+        <CheckBox propertyUID="id_31" width="100" height="25" label="是否是营销专用账户" x="263" y="171" />
+      </tab>
+    </TabNavigator>
+  </Window>
+  <formEvent>
+    <event name="onAccountpropChange" type="customerEvent" label="onAccountpropChange"><![CDATA[var account_prop = form.getFieldValue("account_prop");
+
+if(account_prop == 2){
+	form.setFieldProperty("org", 	"enabled", true);
+	form.setFieldProperty("org", 	"required", true);
+	form.setFieldProperty("orgNo", 	"required", true);
+}else{
+	form.setFieldProperty("org", 	"enabled", false);
+	form.setFieldProperty("org", 	"required", false);
+	form.setFieldProperty("orgNo", 	"required", false);
+	
+	form.setFieldValue("org", null);
+	form.setFieldValue("orgNo", null);
+}]]></event>
+    <event name="getapplication" type="customerEvent" label="getapplication"><![CDATA[var application =  form.getFieldValue("application");
+form.setFieldValue("applicationId",application.id);
+var member_id = application.member_id;
+var member_label = application.member_label;
+var obj ={};
+obj.member_id = member_id;
+obj.member_label = member_label;
+var member_id = form.setFieldValue("member",obj);]]></event>
+    <event name="initialize" type="initialize" label="初始化事件" systemEvent="true"><![CDATA[form.setFieldProperty("applicationId","enabled",false);]]></event>
+  </formEvent>
+</EntityForm>

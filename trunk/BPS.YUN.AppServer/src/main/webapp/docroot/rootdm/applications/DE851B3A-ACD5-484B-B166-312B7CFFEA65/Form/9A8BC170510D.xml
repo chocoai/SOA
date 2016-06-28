@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EntityForm name="通道银行" label="通道银行" uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.9A8BC170510D" nodeID="549"> 
+              <formEntity uid="DE851B3A-ACD5-484B-B166-312B7CFFEA65.CB465E1B5453"/>  
+              <formState> 
+                <state label="基础" uid="state0" basedOn="null"> 
+                  <rule type="enabled" property="pay_interface" label="支付通道" rule="false"/>  
+                  <rule type="required" property="pay_interface" label="支付通道" rule="true"/>  
+                  <rule type="required" property="bank" label="银行" rule="true"/>  
+                  <rule type="enabled" property="pay_interfaceNo" label="通道编号" rule="false"/>  
+                  <rule type="required" property="pay_interfaceNo" label="通道编号" rule="true"/>  
+                  <rule type="value" property="bank_code" label="银行代码" rule="$this.bank.bank_code"/>  
+                  <rule type="enabled" property="bank_code" label="银行代码" rule="true"/>  
+                  <rule type="required" property="bank_code" label="银行代码" rule="true"/>  
+                  <rule type="value" property="en_bank_code" label="银行代码(英文)" rule="$this.bank.en_bank_code"/> 
+                </state>  
+                <state label="新建" uid="state1" basedOn="state0"> 
+                  <rule type="value" property="pay_interface" label="支付通道" rule="$opener.page.opener.selectedEntity"/>  
+                  <rule type="value" property="pay_interfaceNo" label="通道编号" rule="$opener.page.opener.selectedEntity.codeNo"/> 
+                </state> 
+              </formState>  
+              <Window paddingLeft="2" paddingRight="2" paddingTop="2" paddingBottom="2"> 
+                <TabNavigator> 
+                  <tab label="default"> 
+                    <Label width="119" height="25" text="支付通道:" propertyUID="id_1" x="3" y="3" style=""/>  
+                    <EntityField propertyUID="id_1" width="179" height="25" x="123" y="3" queryUID="DE851B3A-ACD5-484B-B166-312B7CFFEA65.2452D4DF3338"/>  
+                    <Label width="82" height="25" text="银行:" propertyUID="id_2" x="343" y="3" style=""/>  
+                    <EntityField propertyUID="id_2" width="159" height="25" x="423" y="3"/>  
+                    <Label width="100" height="25" text="通道编号:" propertyUID="id_5" x="3" y="31" style=""/>  
+                    <TextInput propertyUID="id_5" width="179" height="25" x="123" y="31"/>  
+                    <Label width="82" height="25" text="银行代码:" propertyUID="id_6" x="323" y="31" style=""/>  
+                    <TextInput propertyUID="id_6" width="159" height="25" x="423" y="31"/>  
+                    <CheckBox propertyUID="id_7" width="100" height="25" label="借记卡" x="3" y="59"/>  
+                    <CheckBox propertyUID="id_8" width="100" height="25" label="贷记卡" x="3" y="255"/>  
+                    <Label width="139" height="25" text="手续费收费模式:" propertyUID="id_9" x="2" y="87" style=""/>  
+                    <ComboBox propertyUID="id_9" width="180" height="25" x="122" y="87"/>  
+                    <Label width="139" height="25" text="手续费收费模式:" propertyUID="id_10" x="3" y="283" style=""/>  
+                    <ComboBox propertyUID="id_10" width="179" height="25" x="123" y="283"/>  
+                    <Label width="119" height="25" text="借记收费方式:" propertyUID="id_14" x="323" y="87" style=""/>  
+                    <ComboBox propertyUID="id_14" width="159" height="25" x="423" y="87"/>  
+                    <Label width="82" height="25" text="借记比例:" propertyUID="id_16" x="323" y="115" style=""/>  
+                    <TextInput propertyUID="id_16" width="159" height="25" x="423" y="115"/>  
+                    <Label width="82" height="25" text="收费方式:" propertyUID="id_15" x="323" y="283" style=""/>  
+                    <ComboBox propertyUID="id_15" width="159" height="25" x="424" y="283"/>  
+                    <Label width="82" height="25" text="单笔限额:" propertyUID="id_18" x="3" y="137" style=""/>  
+                    <TextInput propertyUID="id_18" width="180" height="25" x="122" y="143"/>  
+                    <Label width="99" height="25" text="每日限额:" propertyUID="id_19" x="323" y="143" style=""/>  
+                    <TextInput propertyUID="id_19" width="159" height="25" x="423" y="143"/>  
+                    <Label width="82" height="25" text="每月限额:" propertyUID="id_20" x="323" y="171" style=""/>  
+                    <TextInput propertyUID="id_20" width="158" height="25" x="423" y="171"/>  
+                    <Label width="82" height="25" text="备注:" propertyUID="id_21" x="3" y="171" style=""/>  
+                    <TextArea propertyUID="id_21" width="180" height="83" x="122" y="171"/>  
+                    <Label width="82" height="25" text="单笔限额:" propertyUID="id_22" x="3" y="340" style=""/>  
+                    <TextInput propertyUID="id_22" width="179" height="25" x="123" y="340"/>  
+                    <Label width="82" height="25" text="每日限额:" propertyUID="id_23" x="323" y="343" style=""/>  
+                    <TextInput propertyUID="id_23" width="159" height="25" x="423" y="339"/>  
+                    <Label width="82" height="25" text="每月限额:" propertyUID="id_24" x="323" y="367" style=""/>  
+                    <TextInput propertyUID="id_24" width="159" height="25" x="423" y="367"/>  
+                    <Label width="82" height="25" text="备注:" propertyUID="id_25" x="2" y="367" style=""/>  
+                    <TextArea propertyUID="id_25" width="179" height="83" x="123" y="367"/>  
+                    <Label width="99" height="25" text="银行代码(英文):" propertyUID="id_26" x="323" y="59" style=""/>  
+                    <TextInput propertyUID="id_26" width="159" height="25" x="423" y="59"/>  
+                    <Label width="82" height="25" text="借记固定:" propertyUID="id_12" x="3" y="115" style=""/>  
+                    <TextInput propertyUID="id_12" width="179" height="25" x="123" y="115"/>  
+                    <Label width="82" height="25" text="贷记固定:" propertyUID="id_13" x="3" y="311" style=""/>  
+                    <TextInput propertyUID="id_13" width="179" height="25" x="123" y="311"/>  
+                    <Label width="82" height="25" text="贷记比例:" propertyUID="id_17" x="323" y="311" style=""/>  
+                    <TextInput propertyUID="id_17" width="159" height="25" x="423" y="311"/>  
+                    <Label label="Label" text="账户属性：" x="3" y="451" width="100" height="24" style=""/>  
+                    <Label label="Label" text="企业接入方式：" x="3" y="479" width="100" height="24" style=""/>  
+                    <CheckBox propertyUID="id_27" width="100" height="25" label="个人" x="123" y="451"/>  
+                    <CheckBox propertyUID="id_28" width="100" height="25" label="企业" x="323" y="451"/>  
+                    <CheckBox propertyUID="id_29" width="100" height="25" label="单笔" x="123" y="479"/>  
+                    <CheckBox propertyUID="id_30" width="100" height="25" label="批量" x="323" y="479"/> 
+                  </tab> 
+                </TabNavigator> 
+              </Window>  
+              <formEvent> 
+                <event name="initialize" type="initialize" label="初始化事件" systemEvent="true"><![CDATA[var action = form.getSubmitAction();
+
+if(action == "create"){
+	var pay_interface_entity = form.getExpressionValue("$opener.selected.");
+}]]></event> 
+              </formEvent> 
+            </EntityForm>

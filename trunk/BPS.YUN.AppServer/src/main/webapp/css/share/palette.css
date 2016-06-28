@@ -1,0 +1,28 @@
+.ws_palette table{ width:100%;background-color:#DDDDDD	}
+.ws_palette .group_button	{
+		behavior: url('../js/coolbutton.htc'); 
+		cursor: default; font: icon;word-break:keep-all;
+		width: 16px; 
+		text-align:	center; 
+		border:1 solid;
+		border-color:	ButtonHighlight #9090BB #9090BB ButtonHighlight;
+	}
+.ws_palette table.group_panel{
+		width:100%;background-color:#F0F0F0;
+	}
+.ws_palette .tool_button	{
+		behavior: url('../js/coolbutton.htc'); 
+		cursor: default; font: icon;word-break:keep-all;
+		text-align:	left; 
+		border: 1px solid #F0F0F0;
+/*		background_image: ws_app_path + "images/ws/tileback.gif"; */
+	}
+.ws_palette .cool_button_raised	{
+		border:			1px solid;
+		border-color:	ButtonHighlight #9090BB #9090BB ButtonHighlight;
+	}
+.ws_palette .cool_button_pressed	{
+		border:			1px solid;
+		border-color:	#9090BB ButtonHighlight ButtonHighlight #9090BB;
+		background-image: url(../images/ws/tileback.gif);
+	}	
